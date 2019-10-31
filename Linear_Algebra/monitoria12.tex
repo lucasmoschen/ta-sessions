@@ -1,0 +1,113 @@
+\documentclass[12pt,letterpaper]{article}
+
+\usepackage[brazilian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{fullpage}
+\usepackage[top=2cm, bottom=4.5cm, left=2.5cm, right=2.5cm]{geometry}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd}
+\usepackage{lastpage}
+\usepackage{enumerate}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{hyperref}
+
+\hypersetup{%
+  colorlinks=true,
+  linkcolor=blue,
+  linkbordercolor={0 0 1}
+}
+ 
+\renewcommand\lstlistingname{Algorithm}
+\renewcommand\lstlistlistingname{Algorithms}
+\def\lstlistingautorefname{Alg.}
+
+\lstdefinestyle{Python}{
+    language        = Python,
+    frame           = lines, 
+    basicstyle      = \footnotesize,
+    keywordstyle    = \color{blue},
+    stringstyle     = \color{green},
+    commentstyle    = \color{red}\ttfamily
+}
+
+\setlength{\parindent}{0.0in}
+\setlength{\parskip}{0.05in}
+
+% Edit these as appropriate
+\newcommand\course{Lucas Moschen}
+\newcommand\hwnumber{1}                  % <-- homework number
+\newcommand\NetIDa{netid19823}           % <-- NetID of person #1
+\newcommand\NetIDb{netid12038}           % <-- NetID of person #2 (Comment this line out for problem sets)
+
+\pagestyle{fancyplain}
+\headheight 35pt              % <-- Comment this line out for problem sets (make sure you are person #1)
+\chead{\textbf{\Large Monitoria 12}}
+\rhead{\course \\ \today}
+\lfoot{}
+\cfoot{}
+\rfoot{\small\thepage}
+\headsep 1.5em
+
+\begin{document}
+
+\section{Autovalores e Autovetores}
+
+\textbf{Definição:} Autovetor é um vetor ($\neq \Vec{0}$) que tem como imagem de uma transformação linear um vetor proporcional. A proporção é chamada de autovalor. 
+
+\textbf{Polinômio Característico:} Polinômio cujas raízes são os autovalores de uma transformação linear. 
+
+\textbf{Subespaço invariante:} Também conhecido como auto-espaço, é formado pela combinação dos autovetores associados ao mesmo autovalor. 
+
+\textbf{Teorema 1: } Seja $A$ um operador linear, $\lambda$ um autovalor e $v$ um autovetor. $Av = \lambda v \implies A^nv = \lambda^n v$.
+
+\textbf{Teorema 2:} A autovalores diferentes do mesmo operador correspondem autovetores linearmente independentes. 
+
+\section{Mudança de Base}
+
+Considere as seguintes bases:
+
+$E = \{e_1, ..., e_n\}$
+
+$U = \{u_1, ..., u_n\}$
+
+$V = \{v_1,...,v_n\}$
+
+Considere $w = (x_1,...,x_n)$. Isso significa que $w$ é escrito como uma combinação linear dos vetores da base $E$, canônica, e os coeficientes são $x_1, ..., x_n$. Imagine que queiramos escrever na base $U$. Para isso, basta encontrarmos os coeficientes de cada vetor da base $U$. Para isso, basta resolver o sistema linear onde cada vetor de $U$ é uma coluna e o vetor restultado é o vetor na base canônica. 
+
+Assim, a matriz formada pelos vetores da base $U$ formam uma matriz que transforma vetores da base $U$ em vetores da base canônica. A inversa faz o processo contrário. 
+
+Se quiséssemos mudar da base $E$ para a base $U$ sem o uso da inversa, só precisamos saber a transformação dos vetores da base canônica. 
+
+Para fazer a transformação de uma base em outra, basta transformarmos na canônica como intermédio. 
+
+\section{Matrizes Semelhantes e Diagonalização}
+
+\textbf{Definição:} Duas matrizes são semelhantes se existe $P$ invertível tal que $B = P^{-1}AP (AP = PB)$, que tem o mesmo polinômio característico e o mesmo determinante. 
+
+\textbf{Diagonalização:} Uma matriz é diagonalizável se existe uma matriz semelhante que seja diagonal. $A$ é diagonálizável se, e só se, tiver $n$ autovetores LI. Nesse caso $P$ é a matriz cujas colunas são os autovetores de $A$ e $D$ os autovalores correspontes. 
+
+Observe que $P^{-1}AP = D$, logo para transformar um vetor na base $V$ em outro na base $V$ correspondente a imagem desse vetor na base canônica da matriz $A$, basta usar a transformação $D$. 
+
+\section{Recorrências}
+
+Podemos utilizar matrizes para representar recorrências. Um exemplo famoso é a sequência de Fibonight. 
+
+\section{Informações Adicionais}
+
+\textbf{Extendendo a ideia dos autovalores:} Dado um operador linear $A: E \to E$ ou existe um vetor $u \in E$ tal que $Au = \lambda u$. Ou, então, existem $u, v \in E$ linearmente independentes, tais que $Au = \alpha u + \beta v$ e $Av = \gamma u + \delta v$. 
+
+\textbf{Invariante:} Diz-se que um subespaço vetorial $F \subset E$ é invariante pelo operador $A: E \to F$ quando $A(F) \subset F$. Isto é, quando a imagem dos vetorres desse subespaço estão nesse subespaço. Um subespaço de dimensão 1 é invariante por $A$ se, e somente se, existe um número $\lambda$ tal que $Av = \lambda v, \forall v \in F$. Se $u,v$ formam um subespaço de dimensão $2$, ele será invariante se, e só se, $Au \in F$ e $Av \in F$. 
+
+\textbf{Teorema:} Todo operador linear num espaço vetorial de dimensão finita possui um subespaço invariante de dimensão 1 ou 2. Para provar esse teorema, temos que provar o lema que diz que existem um polinômio de grau 1 ou 2 e um vetor $v$ tal que $p(A)\cdot v = 0$. 
+
+\section{Cadeias de Markov}
+
+\textbf{Definição:} É uma série temporal discreta no qual a distribuição de uma população pode ser calculada por recorrência. Ad condições são que a população nunca torna-se negativa e que a população total é fixa. Podemos utilizar uma matriz de tranição que descreva a movimentação probilística dessa população. Requere-se que a soma de cada coluna seja 1 e que não haja entradas negativas. O elemento $ij$ da matriz descreve a probabilidade da população passar do estado $j$ para o estadp $i$. Se $T$ possui alguma potêncua com todas as entradas positivas, é dito regular. Uma matrzi de transição regular terá um estado estacionário. $Ts = s$. É possível mostrar que qualquer matriz de transição com as condições dadas deve ter um autovalor $1$.
+
+
+\end{document}
