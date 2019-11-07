@@ -46,7 +46,7 @@
 
 \pagestyle{fancyplain}
 \headheight 35pt              % <-- Comment this line out for problem sets (make sure you are person #1)
-\chead{\textbf{\Large Monitoria 12}}
+\chead{\textbf{\Large Monitoria 12 e 13}}
 \rhead{\course \\ \today}
 \lfoot{}
 \cfoot{}
@@ -96,6 +96,38 @@ Observe que $P^{-1}AP = D$, logo para transformar um vetor na base $V$ em outro 
 \section{Recorrências}
 
 Podemos utilizar matrizes para representar recorrências. Um exemplo famoso é a sequência de Fibonight. 
+
+\section{Produto Interno}
+
+Seja $E$ um espaço vetorial e $u, v \in E$. Define-se produto interno com $<u,v>$ com um número real 
+que satisfaz as seguintes condições:
+\begin{itemize}
+  \item $<u,v + v'> = <u,v> + <u,v'>$ e $<u + u',v> = <u,v> + <u',v>$
+  \item $<u,v> = <v,u>$
+  \item $<\alpha u,v> = \alpha<u,v>$ e $<u,\alpha v> = \alpha<u,v>$
+  \item Se $u \neq 0$, $<u,u> > 0$
+\end{itemize}
+
+\subsection{Projeções}
+
+Já sabemos que $p = (\frac{u\cdot v}{v\cdot v})v$ é a projeção do vetor $u$ sobre a reta gerada por $v$.
+Quando queremos projetar um vetor $v$ sobre um hiperplano $\pi$, com vetor nornal $n$, temos que $v = p + tn$, 
+onde $t$ é uma constante. Logo, podemos montar um sistema com $n$ equações. 
+
+\subsection{Ortogonalidade} 
+Se $<u,v> = 0$, dizemos que $u$ e $v$ são ortogonais. Um conjunto é dito ortogonal se a cada par de vetores, eles são ortogonais.
+Ele será ortonormal quando seus vetores ortogonais forem normalizados. Note que se $X$ é um conjunto ortogonal, então é LI. 
+
+\subsection{Ortogonalização de Gram-Schimidt}
+
+Lembre-se: Defina um vetor inicial e utilize a ideia de que cada outro vetor será subtraído das projeções do vetor
+calculado previamente. 
+
+\subsection{Projeção de um vetor sobre um subespaço}
+
+Seja $W$ um subespaço de $E$ e $\alpha$ uma base ortogonal desse subespaço. 
+
+$p = proj_W v = \sum_{i=1}^n proj_{\alpha_i} v $
 
 \section{Informações Adicionais}
 
