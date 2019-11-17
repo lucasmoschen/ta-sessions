@@ -1,0 +1,46 @@
+Agora o problema se resume a:
+
+$$
+max_{u_1,...,u_m} \int_{t_0}^{t_1} f(t,x_1(t),...,x_n(t),u_1(t),...,u_m(t)) dt + \phi(x_1(t_1),...,x_n(t_1))
+$$
+$$
+subject~to~x_i'(t) = g_i(t,x_1(t),...,x_n(t),u_1(t),...,u_m(t))
+$$
+$$
+x_i(t_0) = x_{i0}~for~i=1,2,...,n
+$$
+onde as função $f$ e $g_i$ são continuamente diferenciáveis em cada variável. Podemos usar a expressão em forma de vetores. Considere $\Vec{\la}(t) = [\la_1(t),...,\la_n(t)]$ um vetor com funções diferenciáveis por partes. Definimos $H(t,\Vec{x},\Vec{u},\Vec{\la}) = f(t,\Vec{x},\Vec{u}) + \Vec{\la}(t)\cdot \Vec{g}(t,\Vec{x},\Vec{u})$. Se fizermos o mesmo processo anterior, vamos obter as condições:
+$$
+x'_i(t) = \frac{\partial H}{\partial \la_i} = g_i(t,\Vec{x},\Vec(u)), x_i(0) = x_{i0}~for~i = 1,...n 
+$$
+$$
+\la'_j(t) = - \frac{\partial H}{\partial x_j}, \la_j(t_1) = \phi_{x_j}(\Vec{x}(t_1))~for~j=1,...,n
+$$
+$$
+0 = \frac{\partial H}{\partial u_k}~at~u^*_k~for~k=1,...,m
+$$
+Outros ajustes vistos nos capítulos anteriores ocorrem de mesma forma no caso multivariado. Inclusive se os limites das variáveis de controle estiverem presentes, o que altera as condições, também. 
+
+\subsection{Problemas Linear Quadratic Regulator}
+
+Considere a equação diferencial do estado linnear em $x$ e $u$ e o fincional objetivo na forma quadrática. 
+$$
+J(u) := \frac{1}{2}[x^T(T)Mx(t) + \int_0^T x^T(t)Q(t)x(t) + u^TR(t)u(t) dt]
+$$
+$$
+x'(t) = A(t)x(t) + B(t)u(t)
+$$
+Onde $M, Q(t)$ são positivas semidefinidase $R(t)$ é positiva definida para garantir invertibilidade. As três são simétricas. Observe que isso garante a diagonalização.
+Assim: $H = \frac{1}{2}x^TQx + \frac{1}{2}u^TRu + \la^T(Ax + Bu).$ Assim $u^* = - R^{-1}B^T\la$ e $\la' = -Qx - A^T\la, \la(T) = Mx(T)$. Se supormos que $\la = Sx$, chegamos que $S'x + Sx' = -Qx - A^T\la$. Com as devidas transformações. Obtermos que $-S'x = Qx + A^TSx - SBR^{-1}B^TSx$, com $S(T) = M$. Isso nos mostra que equação matricial Ricatti, que $S(t)$ deve satisfazer. Basta resolver o problema. Por fim $u^* = -R^{-1}B^TSx$. Essa matriz é chamada de ganho. 
+
+\subsection{Equações Diferenciais de Ordem mais Alta}
+Quando temos uma equação diferencial de ordem mais alta, podemos definir um sistema com as derivadas, onde $x_1(t) = x(t), x_2(t) = x'(t), ..., x_{n+1}(t) = x^{(n)}(t)$. A partir disso, podemos resolver com o Princípio Máximo de Pontryagin. 
+
+\subsection{Limites Isoperimétricos}
+
+Além dos limites inferior e superior que podemos colocar no controle, também podemos querer que o exista limites na integral do controle. Exemplo: Para medicar uma pessoa, podemos querer que a quantidade total de remédia seja um valor $B$. 
+Assim, a restrição é do tipo $\int_0^T u(t) dt = B$. De forma geral, podemos ter $\int_{t_0}^{t_1} h(t,x(t),u(t)) dt = B$, sendo $h$ continuamente diferenciável, como restrição. Desta maneira, não podemos usar o Princípio Máximo de Pontryagin. Para isso, introduzimos $z(t) = \int_{t_0}^t h(s,x(s),u(s))ds$. Desta maneira, nosso problema terá duas variáveis de estado. 
+
+\subsection{Soluções Numéricas}
+
+Agora, para cada controle, um valor inicial para o controle é dado. Depois as variáveis de estado são resolvidas simultaneamente. Por fim, as adjuntas. 

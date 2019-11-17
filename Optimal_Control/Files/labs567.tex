@@ -1,0 +1,29 @@
+\subsection{Laboratório 1}
+
+Nesse laboratório, o autor explora a utilização do MatLab como ferramenta, devido à facilidade de se trabalhar com essa linguagem matematicamente e pela quanlidade grafica dos resultados. 
+
+Além disso, ele resolve um problema de controle ótimo. 
+
+\subsection{Laboratório 2}
+
+Aplicação em Biologia. Dada uma população com capacidade máxima (carrying capacity), queremos reduzí-la. Nesse caso, o controle é quantidade adicionada no tempo $t$. Assim, o problema se reduz a:
+\begin{equation}
+    \begin{cases}
+    \min_u \int_0^T (Ax(t)^2 + u(t)^2) dt \\
+    s.a.~~ x'(t) = r(M - x(t)) - u(t)x(t), x(0) = x_0
+    \end{cases}
+\end{equation}
+
+\subsection{Laboratório 3}
+
+Aplicação sobre Bactéria. Nesse laboratório, o tópico pe sobre o crescimento de uma bactéria quando um nutriente qímico é utilizado para acelerar a reprodução. Nosso problema, então:
+\begin{equation}
+    \begin{cases}
+    \max_u Cx(1) - \int_0^1 u(t)^2 dt \\
+    s.a.~~ x'(t) = rx(t) + Au(t)x(t) - Bu(t)^2e^{-x(t)}, \\
+    x(0) = x_0, A, B, C \geq 0
+    \end{cases}
+\end{equation}
+
+Como $\la(t) > 0 \forall t$, podemos obter a caracterização do controle como comumente fazemos.
+

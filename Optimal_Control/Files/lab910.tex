@@ -1,0 +1,29 @@
+\subsection{Laboratório 4}
+
+É um reexame do primeiro laboratório. A primeira análise é de como o controle muda quando há uma restrição (o que faz sentido). 
+
+\subsection{Laboratório 5 - Cancer}
+
+Queremos minimizar a densidade do tumor e os efeitos colaterais das drogas. É assumido que o tumor tenha um crescimento Gompertzian. O modelo utilizado no laboratório é Skiper's log-kill hipótese, que afirma que a morte de células devido às drofas é proporcional a população de tumor. 
+
+Considere $N(t)$ a densidade normalizada do tumor no tempo $t$. Assim:
+$$N'(t) = rN(t)\ln(\frac{1}{N(t)} - u(t)\delta N(t)$$
+$r$ é a taxa de crescimento do tumor, $\delta$ a magnitude da dose e $u(t)$ descreve a ação da droga. É a força do efeito da droga. Escolhemos o funcional para ser 
+$$\min_u \int_0^T aN(t)^2 + u(t)$$
+
+Além disso, $u(t) \geq 0$ e $N(0) = N_0$. 
+
+\subsection{Laboratório 6 - Fish Harvesting}
+
+Suponha que em um tanque em $t = 0$ são adicionados peixes com massa média essencialmente 0. Além, descrevemos a massa do peixe segundo $f(t) = \frac{kt}{t+1}$. Note que $\lim f(t) = k$. Considere um intervalo $[0,T]$, com $T$ pequeno suficiente para que não haja reprodução. Queremos:
+
+$$
+\max_u \int_0^T A\frac{kt}{t+1}x(t)u(t) - u(t)^2 dt
+$$
+$$
+subject~to~x'(t) = -(m + u(t))x(t), x(0) = x_0, 0 \leq u(t) \leq M
+$$
+$M$ é um limite físico para a taxa de colheita. Note que para qualquer valor de $u(t) > 0$, a tax avai decrescer. 
+
+Como nos laboratórios anteriores, o valor T influencia o controle ótimo. 
+

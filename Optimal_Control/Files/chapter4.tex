@@ -1,0 +1,27 @@
+Queremos agora resolver os problemas de controle ótimo numericalmente. A equação $\frac{\partial H}{\partial u} = 0$ deve ser satisfeita em $u^*$ e pode ser de ajuda para encontrar $u$ em função de $x$ e $\la$. A partir disso, podemos utilizar um método como Runge-Kutta para resolver o sistema ótimo. Ele vai encontrar o controle ótimo se esse existir. 
+\subsection{Algoritmo}
+\begin{enumerate}
+    \item Chute inicial para $\Vec{u}$, sendo cada coordenada de $u$ um valor no tempo discreto. 
+    \item Resolva $x$ Foward utilizando a condição inicial e utilizando sua equação diferencial.
+    \item Use a condição final de $\lambda$ e resolva Backward de acordo com sua equação diferencial.
+    \item Atualize o vetor de controle. 
+    \item Convergência. 
+\end{enumerate}
+
+É interessante utilizar uma combinação convexa entre o valor do controle anterior e o valor atual para acelerar a convergência.
+
+\textbf{Combinação Convexa:}    Combinação Linear de pontos, cuja soma dos coeficientes é positiva e a soma é $1$.  
+
+O erro no algoritmo é em geral o relativo e ele deve ser menor do que uma tolerância aceitável. A condição que obtemos é que $\delta \norm{\Vec{u}} - \norm{\Vec{u} - \Vec{oldu}} \geq 0$
+
+\subsection{Runge-Kutta}
+\begin{equation*}
+    \begin{cases}
+    x(t + h) \approx x(t) + \frac{h}{6}(k_1 + 2k_2 + 2k_3 + k_4) \\
+    k1 = f(t,x(t)) \\
+    k2 = f(t + \frac{h}{2},x(t) + \frac{h}{2}k_1) \\
+    k3 = f(t + \frac{h}{2},x(t) + \frac{h}{2}k_2) \\
+    k4 = f(t + h, x(t) + hk_3) \\
+    \end{cases}
+\end{equation*}
+O erro é da ordem de $h^4$. 

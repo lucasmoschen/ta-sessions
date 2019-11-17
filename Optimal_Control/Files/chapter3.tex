@@ -1,0 +1,24 @@
+\subsection{Termo Payoff}
+
+
+Muitas vezes, também queremos maxmizar o valor de uma função em um determinado tempo, em especial no final do intervalo. Nesse caso, o problema se torna:
+\begin{equation*}
+    \begin{cases}
+    \max_u [\phi(x(t_1)) + \int_{t_0}^{t_1} f(t, x(t),u(t))dt] \\
+    x' = g(t,x(t),u(t)), x(t_0) = x_0
+    \end{cases}
+\end{equation*}
+
+A função $\phi$ é conhecida como termo payoff. A única mudança na obtenção das condições necessárias é na condição do tempo final. Obtemos que $\la(t_1) = \phi '(x^*(t_1))$. (Mais uma vez, precisamos fazer com que $\lim_{\e \to 0} \frac{J(u^{\e}) - J(u^*)}{\e} = 0$
+
+\subsection{Estados com Pontos Finais Fixados}
+
+\textbf{Obs.:} O funcional objetivo ser imaterial significa que não depende da condição final do estado. 
+
+Podemos deixar $x(t_0)$ livre e $x(t_1) = x_1$ fixado. Essa caso é similar com o anterior, com a mudança de que $\la(t_0) = \phi '(x(t_0))$. Isso sugere que exista uma dualidade entre as condições de estado e adjunta.
+
+Também podemos fixar os pontos inicial e final de estado. Notamos que estamos considerando a maximização sobre o conjunto de controles admissíveis, que respeitem as condições, inclusive sobre a variável de estado. 
+
+\textbf{Teorema 1:} Se $u^*(t)$ e $x^*(t)$ são ótimos para o problema com pontos inicial e final fixados, então existe uma função $\la(t)$ diferenciável por partes e uma contante $\la_0$ igual a $0$ ou $1$, onde $H = \la_0f(t,x(t),u(t)) + \la(t)g(t,x(t),u(t))$ e $\la '(t) = - H_x$. 
+
+A diferença é que a função adjunta não tem restrições. A demonstração utiliza uma técnica diferente da utilizada até então. A constante ajusta para problemas degenerados ou problema tem funcional objetivo imaterial.
