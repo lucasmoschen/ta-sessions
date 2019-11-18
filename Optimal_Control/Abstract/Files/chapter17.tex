@@ -1,0 +1,39 @@
+Vamos considerar problemas especiais em que o problema é linear 
+no controle $u(t)$. 
+
+\subsection{Controle Bang-Bang}
+
+Considere o problema de controle ótimo.
+
+$$max_u \int_{t_0}^{t_1} f_1(t,x) + u(t)f_2(t,x) dt$$
+$$s.a.~~x'(t) = g_1(t,x) + u(t)g_2(t,x), x(0) = x_0$$
+$$ a \leq u(t) \leq b$$
+
+Assim $H(t,x,u,\la) = f_1(t,x) + \la g_1(t,x) + u(t)(f_2(t,x) + \la g_2(t,x))$, 
+linear em $u(t)$. Observe a derivada parcial em relação a $u$ não
+carrega informação sobre $u(t)$. Assim definimos $\psi(t) := f_2(t,x(t)) + \la(t)g_2(t,x(t))$,
+muitas vezes chamada de função de troca. Se $\phi = 0$ não pode ser obtido 
+em um intervalo de tempo, mas ocorre apenas em pontos finitos, o controle
+é dito "Bing Bang", porque só varia entre os valores mínimo e máximo de $u(t)$. 
+Os valores de $u(t)$ nesses pontos não são de interesse, portanto. 
+
+Em contrapartida, se $\psi(t) \equiv 0$ em um intervalo de tempo, dizemos que $u^*$ é 
+singular nesse intervalo. Esse caso será explorado na próxima sessão. 
+
+Para resolver esse tipo de problema, primeiro precisamos verificar se de fato 
+o problema é Bang-Bang. Numericamente, o problema é apenas em verificar a positividade
+ou negatividade da função de troca. 
+
+\subsection{Controles Singulares}
+
+O livro explora um exemplo inicial:
+
+$$max_u \int_0^2 (x(t) - t**2)**2 dt $$
+$$s.a. ~~ x'(t) = u(t), x(0) = 1$$
+$$0 \leq u(t) \leq 4$$
+
+Calculamos o Hamiltoniano e encontramos $u^*(t)$ em função da adjunta. 
+Para sair dessa hipótese, precisamos fazer uma análise mais minunciosa. 
+Ela começa em provar que $x(t) \geq t**2 \rightarrow \lambda'(t) \leq 0 \wedge \la(t) \geq 0$. 
+Então, basta encontrar os valores de $t$ em que essa função é positiva 
+ou igual a $0$. Dessa forma, teremos descrito o controle e estado ótimos.
