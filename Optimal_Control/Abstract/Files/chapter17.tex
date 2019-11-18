@@ -37,3 +37,12 @@ Para sair dessa hipótese, precisamos fazer uma análise mais minunciosa.
 Ela começa em provar que $x(t) \geq t**2 \rightarrow \lambda'(t) \leq 0 \wedge \la(t) \geq 0$. 
 Então, basta encontrar os valores de $t$ em que essa função é positiva 
 ou igual a $0$. Dessa forma, teremos descrito o controle e estado ótimos.
+
+No caso numérico, podemos ter que analisar quando nossa função de troca vai ser 
+maior, igual ou menor que zero. Porém, a igualdade a 0 é complicada computacionalmente. 
+Nesse sentido, estabelecemos um intervalo. No exemplo 17.4 do livro, quando o controle é 
+Bang-Bang, houve convergência. Já o contrário não ocorreu. Como a função de troca é 
+identicamente zero, problemas singulares são frequentemente instáveis. 
+
+Pesquisa tem sido feita nesse sentido. A condição de Legendre-Clebsch é um exemplo. É uma
+condição de segunda ordem, porque envolve ordem de derivadas mais altas.
