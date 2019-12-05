@@ -56,8 +56,7 @@ class OptimalControl:
                             tmp = tmp/2
                         D[self.symbX[k]] = D[self.symbX[k]] + tmp
 
-                    K[j][k] = self.dX[k].subs(D)
-                    
+                    K[j][k] = self.dX[k].subs(D)                    
                     D[self.symbX[k]] = Old
 
             for j in range(len(X)):
@@ -109,8 +108,8 @@ class OptimalControl:
 
     def solve(self):
         #parameters
-        N = 100*self.T
-        h = 1/100
+        N = 10*self.T
+        h = 1/10
         p = 0.001
         test = -1
         
@@ -119,6 +118,8 @@ class OptimalControl:
         Adj = [np.zeros(N + 1) for i in range(len(self.symbAdj))]
         
         U = [np.zeros(N + 1) for i in range(len(self.symbU))]
+
+        X, Adj, U = np.array(X), np.array(Adj), np.array(U)
 
         for x in range(len(X)):
             X[x][0] = self.initial[x]
@@ -130,7 +131,7 @@ class OptimalControl:
 
         while test < 0:
 
-            it += 1
+            it += 1 
             print('Iteration {}'.format(it))
             
         
@@ -151,9 +152,10 @@ class OptimalControl:
                     for k in range(len(X)):
                         D[self.symbX[k]] = X[k][i]
                         D[self.symbAdj[k]] = Adj[k][i]
-                    U[u][i] = 0.5*( self.U[u].subs(D) + old_U[u][i])
+                    U[u][i] = 0.5*(self.U[u].subs(D) + old_U[u][i])
 
             test = p*sum(abs(U[0])) - sum(abs(old_U[0] - U[0]))
+
             for i in range(1,len(U)):
                 test = min(test, p*sum(abs(U[i])) - sum(abs(old_U[i] - U[i])))
             
@@ -163,12 +165,11 @@ class OptimalControl:
             print("The minimum is {}".format(test))
         return X, U
 
-
     def plot(self, *args):
 
         X,U = self.solve()
     
-        t = np.linspace(0,self.T,100*self.T + 1)
+        t = np.linspace(0,self.T,10*self.T + 1)
 
         fig = plt.figure(figsize=(12,24))
         
