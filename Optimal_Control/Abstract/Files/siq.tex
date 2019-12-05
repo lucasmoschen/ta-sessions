@@ -35,5 +35,22 @@ Q}{d}$.
 Defina o número de reprodução de quarentena $R_q = \frac{\beta(A/d)}{\gamma +
 \delta + d + \alpha_1}$, onde $\beta$ é a taxa de contato, e o denominador
 indica o tempo médio de residência. Assim $R_q$ indica o número médio de
-infecções secundárias em uma ppopulação completamente suscetível quando um
-infeccioso entra na população,  
+infecções secundárias em uma população completamente suscetível quando um
+infeccioso entra na população. 
+
+\subsection{Quarantine-adjusted incidence}
+
+$$ S'(t) = A - \beta \frac{SI}{S + I + R} - dS,$$
+$$ I'(t) = [\beta \frac{S}{S + I + R}  - (\gamma + \delta + d + \alpha_1)]I,$$
+$$ Q'(t) = \delta I - (d + \alpha_2 + \epsilon)Q,$$
+$$ R'(t) = \gamma I + \epsilon Q - dR, $$
+
+\subsection{Modelo de Controle Proposto I}
+
+$$\min_{u} \int_0^T I(t) + u(t)^2I(t) dt, $$
+$$ s.a~ S'(t) = A - \beta\frac{SI}{S + I + R} - dS, $$
+$$ I'(t) = \beta\frac{SI}{S + I + R} - (d + \alpha_1 + \gamma + u)I,  $$
+$$ Q'(t) = uI - (\alpha_2 + d + \epsilon)Q,$$
+$$ R'(t) = \gamma I + \epsilon Q - dR $$
+$$ S(0) = S_0 \geq 0, I(0) = I_0  \geq 0, Q(0) = 0, R(t) = R_0 \geq 0,$$
+$$ 0 \leq u(t) \leq 1 $$ 
