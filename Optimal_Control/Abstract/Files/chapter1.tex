@@ -36,9 +36,11 @@ Considere $x'(t) = g(t,x(t),u(t)) \to u(t) \mapsto x(u)$. Queremos, então, dado
 \textbf{Função Adjunta:} proposta similar aos multiplicadores de Lagrange. $\lambda : [t_0,t_1] \to \mathbb{R}$ é diferenciável por partes e deve satisfazer algumas condições. 
 
 Para isso, assumimos a existência $u^*$ e $x^*$. Nesse caso, $J(u) \leq J(u^*) < \infty$. Tome $u^{\epsilon} = u^{*}(t) + \epsilon h(t), x^{\epsilon}(t_0) = x_0 \implies \lim_{\epsilon\to 0} u^{\epsilon} = u^{*}$. $x^{\epsilon}$ é o estado associado ao controle. Como a função $g$ é continuamente diferenciável, $x^{\epsilon} \to x^{*}$. Assim, a sua derivada em $\epsilon = 0$ existe. Utilizo, pelo TFC, que $\int_{t_0}^{t_1} \frac{d}{dt}(\lambda (t)x^{\epsilon}(t))dt = \lambda(t_1)x^{\epsilon}(t_1) - \lambda(t_0)x^{\epsilon}(t_0)$. Desta maneira, utilizo que $J(u^{\epsilon}) = \int_{t_0}^{t_1} f(t,x^{\epsilon}(t),u^{\epsilon}(t))dt - \lambda(t_1)x^{\epsilon}(t_1) + \lambda(t_0)x^{\epsilon}(t_0)$. Sabemos que $lim_{\epsilon \to 0} \frac{J(u^{\epsilon}) - J(u^{*})}{\epsilon} = 0$, pois $J(u^*)$ é máximo. Desta maneira, 
-\begin{equation} \label{eq1}
-0 = \frac{d}{d\epsilon} J(u^{\epsilon})_{\e = 0} = \int_{t_0}^{t_1} [(f_x + \lambda(t)g_x + \lambda '(t))\frac{\partial x^{\e}}{\partial\e}(t)_{\e = 0} + (f_u + \lambda(t)g_u)h(t)]dt - \lambda(t_1)\frac{\partial x^{\e}}{\e}(t_1)_{\e = 0}
-\end{equation}
+\begin{align} \label{eq1}
+0 = \frac{d}{d\epsilon} J(u^{\epsilon})_{\e = 0} = \int_{t_0}^{t_1} [(f_x + \lambda(t)g_x & + \\ 
+ + \lambda '(t))\frac{\partial x^{\e}}{\partial\e}(t)_{\e = 0} + (f_u + \lambda(t)g_u)h(t)]dt - \lambda(t_1)\frac{\partial x^{\e}}{\e}(t_1)_{\e = 0}
+\end{align}
+
 Note que isso pode ser feito pelo Teorema da Convergência Dominante, pois podemos mover o limite (derivada) para dentro da integral (intervalo compacto e integrando é diferenciável po partes).  Para que ocorra a igualdade citada acima, definimos $H(t,x,u,\lambda) := f(t,x,u) + \lambda g(t,x,u)$ e:
 \begin{equation}
 \begin{cases}
