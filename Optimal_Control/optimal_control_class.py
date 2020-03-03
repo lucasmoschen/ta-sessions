@@ -1,11 +1,14 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import sympy as sp
+import time 
 
 class OptimalControl:
     
-    def __init__(self, H, X, Adj, U, fU, sConst, const, T, initial, final):
+    def __init__(self, H, X, Adj, U, fU, sConst, const, T, initial, final, N = 100):
         
+        self.t0 = time.time()
+
         self.dX = list()
         self.dAdj = list()
 
@@ -26,6 +29,7 @@ class OptimalControl:
         self.T = T
         self.initial = initial
         self.final = final
+        self.N = N
 
     def runge_kutta_state(self, X, U, Adj, N, h):
 
@@ -61,6 +65,8 @@ class OptimalControl:
 
             for j in range(len(X)):
                 X[j][i+1] = X[j][i] + h/6*(K[0][j] + 2*K[1][j] + 2*K[2][j] + K[3][j])
+        
+            if i % 10 == 0: print("O tempo transcorrido foi de {}.".format(time.time() - self.t0))
             
         return X
 
@@ -103,23 +109,24 @@ class OptimalControl:
 
             for j in range(len(X)):
                 Adj[j][i-1] = Adj[j][i] - h/6*(K[0][j] + 2*K[1][j] + 2*K[2][j] + K[3][j])
+                
+            if i % 10 == 0: print("O tempo transcorrido foi de {}.".format(time.time() - self.t0))
             
         return Adj
 
     def solve(self):
+
+
         #parameters
-        N = 10*self.T
-        h = 1/10
+        h = 1/self.N
+        N = int(self.N*self.T)
         p = 0.001
         test = -1
         
         #variables
-        X = [np.zeros(N + 1) for i in range(len(self.symbX))]
-        Adj = [np.zeros(N + 1) for i in range(len(self.symbAdj))]
-        
-        U = [np.zeros(N + 1) for i in range(len(self.symbU))]
-
-        X, Adj, U = np.array(X), np.array(Adj), np.array(U)
+        X = np.array([np.zeros(N + 1) for i in range(len(self.symbX))])
+        Adj = np.array([np.zeros(N + 1) for i in range(len(self.symbAdj))])
+        U = np.array([np.zeros(N + 1) for i in range(len(self.symbU))])
 
         for x in range(len(X)):
             X[x][0] = self.initial[x]
@@ -139,7 +146,7 @@ class OptimalControl:
             old_X = X.copy()
             old_Adj = Adj.copy()
             
-            X = self.runge_kutta_state(old_X, U, Adj, N, h)
+            X = self.runge_kutta_state(X, U, Adj, N, h)
 
             Adj = self.runge_kutta_adj(X, U, Adj, N, h)
 
@@ -169,7 +176,7 @@ class OptimalControl:
 
         X,U = self.solve()
     
-        t = np.linspace(0,self.T,10*self.T + 1)
+        t = np.linspace(0,self.T,self.N*self.T + 1)
 
         fig = plt.figure(figsize=(12,24))
         
@@ -184,4 +191,22 @@ class OptimalControl:
         
         plt.show()
 
-        return X, U
+        return t, X, U
+
+P, F, O, uf, up, l1, l2, l3, cp, cf, r, K, mf, mp, t = sp.symbols('P F O uf up l1 l2 l3 cp cf r K mf mp t')
+
+H =  - O - cp*up**2 - cf*uf**2 + l1*(r*P - r*P**2/K + mf*(r/K)*(1 - P/K)*F**2 - up*P) + \
+                               l2*(r*F - r*F**2/K + mp*(r/K)*(1 - F/K)*P**2 - uf*F) + \
+                               l3*(r*(1 - mp)*P**2/K + r*(1 - mf)*F**2/K + mf*r*P*F**2/K**2 + mp*r*P**2*F/K**2)
+sX = list(sp.symbols('P F O'))
+sAdj = list(sp.symbols('l1 l2 l3'))
+sU = list(sp.symbols('up uf'))
+sConst = list(sp.symbols('K cf cp mf mp r'))
+fU = [sp.Max(0,sp.Min(1, -sX[0]*sAdj[0]/(2*cp))), sp.Max(0,sp.Min(1, -sX[1]*sAdj[1]/(2*cf)))]
+T = 10
+final = [0,0,0]
+initial = [0.4,0.2,0]
+const = [0.75, 10, 10000, 0.5, 0.5, 0.1]
+Problem = OptimalControl(H, sX, sAdj, sU, fU, sConst, const, T, initial, final)
+
+X, U = Problem.plot('P','F','O')
