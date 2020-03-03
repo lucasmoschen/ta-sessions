@@ -1,6 +1,6 @@
 O isolamento/quarentena é um procedimento para controlar o avanço da doença.
 Foi, provavelmente, um dos primeiros métodos de controle utilizados. Uma
-epidemia é um surto de uma doenã em um curto período de tempo. Inicialmente,
+epidemia é um surto de uma doença em um curto período de tempo. Inicialmente,
 olharemos para os modelos SIR, com a adição de um novo compartimento, $Q$.
 Assumimos, inicialmente, que aqueles em quarentena não infectam suscetíveis. 
 
@@ -47,7 +47,17 @@ $$ R'(t) = \gamma I + \epsilon Q - dR, $$
 
 \subsection{Modelo de Controle Proposto I}
 
-$$\min_{u} \int_0^T I(t) + u(t)^2I(t) dt, $$
+$$\min_{u} \int_0^T CI(t) + [u(t)I(t)]^2 dt, $$
+$$ s.a~ S'(t) = A - \beta\frac{SI}{S + I + R} - dS, $$
+$$ I'(t) = \beta\frac{SI}{S + I + R} - (d + \alpha_1 + \gamma + u)I,  $$
+$$ Q'(t) = uI - (\alpha_2 + d + \epsilon)Q,$$
+$$ R'(t) = \gamma I + \epsilon Q - dR $$
+$$ S(0) = S_0 \geq 0, I(0) = I_0  \geq 0, Q(0) = 0, R(t) = R_0 \geq 0,$$
+$$ 0 \leq u(t) \leq 1 $$ 
+
+\subsection{Modelo de Controle Proposto II - Controle Linear}
+
+$$\min_{u} \int_0^T CI(t) + u(t)I(t) dt, $$
 $$ s.a~ S'(t) = A - \beta\frac{SI}{S + I + R} - dS, $$
 $$ I'(t) = \beta\frac{SI}{S + I + R} - (d + \alpha_1 + \gamma + u)I,  $$
 $$ Q'(t) = uI - (\alpha_2 + d + \epsilon)Q,$$

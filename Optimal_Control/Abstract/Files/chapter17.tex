@@ -12,7 +12,7 @@ $$ a \leq u(t) \leq b$$
 Assim $H(t,x,u,\la) = f_1(t,x) + \la g_1(t,x) + u(t)(f_2(t,x) + \la g_2(t,x))$, 
 linear em $u(t)$. Observe a derivada parcial em relação a $u$ não
 carrega informação sobre $u(t)$. Assim definimos $\psi(t) := f_2(t,x(t)) + \la(t)g_2(t,x(t))$,
-muitas vezes chamada de função de troca. Se $\phi = 0$ não pode ser obtido 
+muitas vezes chamada de função de troca. Se $\psi = 0$ não pode ser obtido 
 em um intervalo de tempo, mas ocorre apenas em pontos finitos, o controle
 é dito "Bing Bang", porque só varia entre os valores mínimo e máximo de $u(t)$. 
 Os valores de $u(t)$ nesses pontos não são de interesse, portanto. 
@@ -28,18 +28,18 @@ ou negatividade da função de troca.
 
 O livro explora um exemplo inicial:
 
-$$max_u \int_0^2 (x(t) - t**2)**2 dt $$
+$$max_u \int_0^2 (x(t) - t^2)^2 dt $$
 $$s.a. ~~ x'(t) = u(t), x(0) = 1$$
 $$0 \leq u(t) \leq 4$$
 
 Calculamos o Hamiltoniano e encontramos $u^*(t)$ em função da adjunta. 
 Para sair dessa hipótese, precisamos fazer uma análise mais minunciosa. 
-Ela começa em provar que $x(t) \geq t**2 \rightarrow \lambda'(t) \leq 0 \wedge \la(t) \geq 0$. 
+Ela começa em provar que $x(t) \geq t^2 \rightarrow \lambda'(t) \leq 0 \wedge \la(t) \geq 0$. 
 Então, basta encontrar os valores de $t$ em que essa função é positiva 
 ou igual a $0$. Dessa forma, teremos descrito o controle e estado ótimos.
 
 No caso numérico, podemos ter que analisar quando nossa função de troca vai ser 
-maior, igual ou menor que zero. Porém, a igualdade a 0 é complicada computacionalmente. 
+maior, igual ou menor que zero. Porém, a igualdade a $0$ é complicada computacionalmente. 
 Nesse sentido, estabelecemos um intervalo. No exemplo 17.4 do livro, quando o controle é 
 Bang-Bang, houve convergência. Já o contrário não ocorreu. Como a função de troca é 
 identicamente zero, problemas singulares são frequentemente instáveis. 
