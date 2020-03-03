@@ -23,15 +23,17 @@ Outros ajustes vistos nos capítulos anteriores ocorrem de mesma forma no caso m
 
 \subsection{Problemas Linear Quadratic Regulator}
 
-Considere a equação diferencial do estado linnear em $x$ e $u$ e o fincional objetivo na forma quadrática. 
+Considere a equação diferencial do estado linear em $x$ e $u$ e o funcional objetivo na forma quadrática. 
 $$
 J(u) := \frac{1}{2}[x^T(T)Mx(t) + \int_0^T x^T(t)Q(t)x(t) + u^TR(t)u(t) dt]
 $$
 $$
 x'(t) = A(t)x(t) + B(t)u(t)
 $$
-Onde $M, Q(t)$ são positivas semidefinidase $R(t)$ é positiva definida para garantir invertibilidade. As três são simétricas. Observe que isso garante a diagonalização.
-Assim: $H = \frac{1}{2}x^TQx + \frac{1}{2}u^TRu + \la^T(Ax + Bu).$ Assim $u^* = - R^{-1}B^T\la$ e $\la' = -Qx - A^T\la, \la(T) = Mx(T)$. Se supormos que $\la = Sx$, chegamos que $S'x + Sx' = -Qx - A^T\la$. Com as devidas transformações. Obtermos que $-S'x = Qx + A^TSx - SBR^{-1}B^TSx$, com $S(T) = M$. Isso nos mostra que equação matricial Ricatti, que $S(t)$ deve satisfazer. Basta resolver o problema. Por fim $u^* = -R^{-1}B^TSx$. Essa matriz é chamada de ganho. 
+Onde $M, Q(t)$ são positivas semidefinidas e $R(t)$ é positiva definida para garantir invertibilidade. As três são simétricas. Observe que isso garante a diagonalização.
+Assim: $H = \frac{1}{2}x^TQx + \frac{1}{2}u^TRu + \la^T(Ax + Bu).$ 
+
+Deste modo $u^* = - R^{-1}B^T\la$ e $\la' = -Qx - A^T\la, \la(T) = Mx(T)$. Se supormos que $\la = Sx$, chegamos que $S'x + Sx' = -Qx - A^T\la$. Com as devidas transformações. Obtermos que $-S'x = Qx + A^TSx - SBR^{-1}B^TSx$, com $S(T) = M$. Isso nos mostra que equação matricial Ricatti, que $S(t)$ deve satisfazer. Basta resolver o problema. Por fim $u^* = -R^{-1}B^TSx$. Essa matriz é chamada de ganho. 
 
 \subsection{Equações Diferenciais de Ordem mais Alta}
 Quando temos uma equação diferencial de ordem mais alta, podemos definir um sistema com as derivadas, onde $x_1(t) = x(t), x_2(t) = x'(t), ..., x_{n+1}(t) = x^{(n)}(t)$. A partir disso, podemos resolver com o Princípio Máximo de Pontryagin. 
