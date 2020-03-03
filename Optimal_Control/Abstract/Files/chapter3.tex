@@ -1,7 +1,7 @@
 \subsection{Termo Payoff}
 
 
-Muitas vezes, também queremos maxmizar o valor de uma função em um determinado tempo, em especial no final do intervalo. Nesse caso, o problema se torna:
+Muitas vezes, também queremos maximizar o valor de uma função em um determinado tempo, em especial no final do intervalo. Nesse caso, o problema se torna:
 \begin{equation*}
     \begin{cases}
     \max_u [\phi(x(t_1)) + \int_{t_0}^{t_1} f(t, x(t),u(t))dt] \\
@@ -15,7 +15,9 @@ A função $\phi$ é conhecida como termo payoff. A única mudança na obtençã
 
 \textbf{Obs.:} O funcional objetivo ser imaterial significa que não depende da condição final do estado. 
 
-Podemos deixar $x(t_0)$ livre e $x(t_1) = x_1$ fixado. Essa caso é similar com o anterior, com a mudança de que $\la(t_0) = \phi '(x(t_0))$. Isso sugere que exista uma dualidade entre as condições de estado e adjunta.
+Podemos deixar $x(t_0)$ livre e $x(t_1) = x_1$ fixado. Essa caso é similar com
+o anterior, com a mudança de que $\la(t_0) = - \phi '(x(t_0))$. Isso sugere
+que exista uma dualidade entre as condições de estado e adjunta.
 
 Também podemos fixar os pontos inicial e final de estado. Notamos que estamos considerando a maximização sobre o conjunto de controles admissíveis, que respeitem as condições, inclusive sobre a variável de estado. 
 
