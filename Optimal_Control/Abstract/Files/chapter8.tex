@@ -8,7 +8,7 @@ Sabemos que, em geral, nossos problemas a serem resolvidos tem limitações no c
     a \leq u(t) \leq b, a < b
 \end{align*}
 
-Seja $u^*$ e $x^*$ o par ótimo. Observe que a derivada do funcional objetivo pode não ser zero no controle ótimo, ppois $u^*$ pode estar nos limites do intervalo. Podemos avaliar o sinal da derivada, entretanto. Agora, dizemos que $\epsilon \in (0,\epsilon _0]$.  E, mais uma vez, reescrevemos o funcional e derivamos em relação a $\epsilon$, no ponto $0$, porém, nesse caso, essa derivada será menor ou igual a $0$. Tomando a função adjunta com as restrições já utilizadas anteriormente, reduzo a inequação para $0 \geq \int_{t_0}^{t_1} (f_u + \lambda g_u)h dt$, que vale para todos os valores de $h$. 
+Seja $u^*$ e $x^*$ o par ótimo. Observe que a derivada do funcional objetivo pode não ser zero no controle ótimo, pois $u^*$ pode estar nos limites do intervalo. Podemos avaliar o sinal da derivada, entretanto. Agora, dizemos que $\epsilon \in (0,\epsilon _0]$.  E, mais uma vez, reescrevemos o funcional e derivamos em relação a $\epsilon$, no ponto $0$, porém, nesse caso, essa derivada será menor ou igual a $0$. Tomando a função adjunta com as restrições já utilizadas anteriormente, reduzo a inequação para $0 \geq \int_{t_0}^{t_1} (f_u + \lambda g_u)h dt$, que vale para todos os valores de $h$. 
 
 Seja $s$ um ponto de continuidade de $u^*$ com $a \leq u^*(s) < b$. Teremos que $f_u + \lambda g_u \leq 0$. Em contrapartida, se tivermos $a < u^*(s) \leq b$, concluiremos que $f_u + \lambda g_u \geq 0$. Os pontos que não há continuidade são irrelevantes. Sumariamente:
 
@@ -17,7 +17,7 @@ Seja $s$ um ponto de continuidade de $u^*$ com $a \leq u^*(s) < b$. Teremos que 
     a < u^*(t) < b \implies f_u + \lambda g_u = 0 ~at~ t \\
     u^*(t) = b \implies f_u + \lambda g_u \geq 0 ~at~ t \\ 
     \iff \\
-    f_u + \lambda g_u < 0 ~at~ \implies u^*(t) = a \\
-    f_u + \lambda g_u = 0 ~at~ t \implies a < u^*(t) < b \\
-    f_u + \lambda g_u > 0 ~at~ t \implies u^*(t) = b \\
+    f_u + \lambda g_u < 0 ~em~ t \implies u^*(t) = a \\
+    f_u + \lambda g_u = 0 ~em~ t \implies a < u^*(t) < b \\
+    f_u + \lambda g_u > 0 ~em~ t \implies u^*(t) = b \\
 \end{align*}
