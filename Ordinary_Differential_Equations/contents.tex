@@ -6,25 +6,71 @@
 \documentclass[12pt]{article}
 
 \usepackage[portuguese]{babel}
+\usepackage{amsmath}
+\usepackage{physics}
 
 \begin{document}
 \maketitle
 
-\tableofcontents
-
 \begin{abstract}
     Neste documento irei constar os principais temas cobertos pela matéria,
-    que tem foco me um cálculo de edos, sem grandes definições precisas e
+    que tem foco em um cálculo de edos, sem grandes definições precisas e
     estudo do comportamento qualitativo. Qualquer correção nesse documento
     pode ser sugerida pelo leitor através de um \textit{pull request}. Para
-    iniciar irei listar os tema até agora cobertos e também insirirei um
+    iniciar, irei listar os temas até agora cobertos e também inserirei um
     pequeno resumo sobre o determinado tópico. 
 \end{abstract}
 
-\section{Tópicos abordados}
+\tableofcontents
 
-\begin{enumerate}
-    \item 
-\end{enumerate}
+\section{Equações Diferenciais Lineares de Primeira Ordem}
+
+Formato: $\dv{y}{x} + p(x)y = q(x)$. Observe a linearidade de $y$ e que a sua
+derivada de maior ordem é a primeira. Para resolver esse exemplo, usamos oo
+fator de integração $u(x) = e^{\int p(x) dx}$ e multiplicamos em ambos os
+lados. Observe que escolhemos ele, porque queremos $(y\cdot u)' = y'\cdot u +
+y\cdot u' = u\cdot q$ e $u' = u\cdot p$. A partir disso, obstemos que
+$y(x)u(x) = \int u(x)q(x) dx$. 
+
+\subsection{Equações de Bernoulli}
+
+Formato: $y' + p(x)y = q(x)y^n$. Neste caso temos que o expoente de $y$ é de
+ordem $n$. Para resolver esse problema, supomos que $y \neq 0$ e fazemos uma
+transformação de variável $z(x) = [y(x)]^{1-n}, \forall x$. Essa transformação
+vai noos permitir obter a equação em um formato desejado. Para ver isso,
+primeiro façamos $\dv{z}{x} = \dv{z}{y}\dv{y}{x} =
+(1-n)y^{-n}\dv{y}{x}$, logo, substituindo os valores, teremos que
+$\frac{1}{1-n}y^{n}z' + p(x)zy^n = q(x)y^n \implies z' + (1-n)p(x)z = q(x)$ e
+resolvemos pelo formato anterior. 
+
+\section{Equações com Variáveis Separáveis}
+
+Formato: $\dv{y}{x} = f(x,y) = \phi(x)\psi(y)$, isto é, a derivada pode ser
+escrita como um produto de uma função que só depende de $x$ por outra que só
+depende de $y$. Nesse caso, usamos a reescrita diferencial para poder escrever
+isso da seguinte forma: $\int \frac{dy}{\psi(y)} = \int \phi(x)dx$. Isso pode
+ser extendido quando a função pode ser escrita como uma divisão de funções
+desse tipo, bastando vê-la como um produto.  
+
+\section{Equações Exatas}
+
+Formato: Seja $\dv{dy}{dx} = f(x,y) = - \frac{M(x,y)}{N(x,y)}$ que pode ser
+reescrita da forma $M(x,y)dx + N(x,y)dy = 0$. Ela é caracterizada como
+\textbf{exata} se $\exists g(x,y)$, tal que $dg = Mdx + Ndy$, onde $dg$ é o
+diferencial de $g$. Isto é, $\pdv{g}{x} = M$ e $\pdv{g}{y} = N$. Nesse caso,
+podemos provar pelo teorema de Clairaut-Schwars que $\pdv{M(x,y)}{y} =
+\pdv{N(x,y)}{x}$ (*). 
+
+\subsection{Fator de Integração}
+
+Suponha que a equação $M(x,y)dx + N(x,y)dy = 0$ seja não exata. Nesse caso, a
+ideia é encontrar uma função $u$ que ao multiplicar a equação, obtenha-se a
+hipótese do teorema de Clairaut-Schwars, como mencionado acima (*).  
+
+\section{Modelos da Dinâmica de uma População}
+
+\section{Sistema Autônomo}
+
+\section{Modelos das Ciências Naturais}
 
 \end{document}
