@@ -98,8 +98,45 @@ $p(t)$ e à diferença $K - p(t)$, onde $p(t)$ é o tamanho da população.
 Logo $p'(t) = sp(t)(K - p(t)) = sKp(t)(1 - \frac{p(t)}{K})$. Se $sK = r$,
 temos o modelo logístico.
 
+\subsection{Gopertz}
+
+É um modelo descrito por uma função sigmoide (em formato de S) que descreve o
+crecimento sendo mais lento no início e no final de um período de tempo. O
+modelo foi inicialmente desenvolvido para detalhar a mortalidade humano da
+Royal Socienty em 1825 (Wikipedia). A suposição é de que a resistência da pessoa à morte
+descresce com os tempo. Assune-se que a taxa de crescimentoo de um organismo
+decaia com o tamanho tal que, se $p(t)$ é a medida, $\dv{p}{t} =
+\alpha(\log(\frac{K}{p})p)$. Existem várias variações para cada aplicação
+dessa curva. 
+
 \section{Sistema Autônomo}
 
+É um sistema em EDO que não depende, explicitamente, de variáveis
+independentes, como o tempo. Ele é da forma, quanto de primeira ordem
+$\dv{x}{t} = f(x(t))$ e só depende do tempo através de $x(t)$. Uma propriedade
+interessante (exercício!) é: Se $x_1(t)$ é solução única do problema de valor
+inicial para um sistema auntônomo, $\dv{x}{t} = f(x(t)), x(0) = x_0$,
+definir $x_2(t) = x_1(t - t_0)$ resolve o problema para para a mesma função
+mas com condição $x(t_0) = x_0$. 
+
+\textbf{Ponto de Equilíbrio ou Singularidade:} Seja $y' = f(y)$. Se
+$f(\hat{y}) = 0$, dizemos que $\hat{y}$ é ponto de equilíbrio ou
+singularidade. Ele será as soluções se aproximam de $\hat{y}$, ele é dito
+ponto atrator ou singularidade estável. Caso contrário, é dito repulsor ou
+singularidade instável. De forma mais precisa, $\hat{y}$ é estável se dado
+$\epsilon > 0$, existe um $\delta > 0$ tal que se $|y_0 - \hat{y}| < \delta$,
+onde $y_0$ é o valor inicil, então, $|y(t) - \hat{y}| < \epsilon$ para todo
+$t$. Além do mais, se $\lim_{t \to \infty} y(t) = \hat{y}$, dizemos que ele é
+assintoticamente estável. Cas são seja estável, ele é instável.  
+
+\textbf{Teorema:} Seja $y' = f(y)$ com $f(y)$ diferencialmente contínua e
+$\hat{y}$ uma singularidade. Se $f'(\hat{y}) < 0$, $\hat{y}$ é uma
+singularidade estável. 
+
 \section{Modelos das Ciências Naturais}
+
+\subsection{Resfriamento de um corpo}
+
+\subsection{Problemas de Diluição}
 
 \end{document}
