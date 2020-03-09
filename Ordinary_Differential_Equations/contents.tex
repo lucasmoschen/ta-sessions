@@ -65,9 +65,20 @@ podemos provar pelo teorema de Clairaut-Schwars que $\pdv{M(x,y)}{y} =
 
 Suponha que a equação $M(x,y)dx + N(x,y)dy = 0$ seja não exata. Nesse caso, a
 ideia é encontrar uma função $u$ que ao multiplicar a equação, obtenha-se a
-hipótese do teorema de Clairaut-Schwars, como mencionado acima (*).  
+hipótese do teorema de Clairaut-Schwars, como mencionado acima (*). Nesse
+caso, se $\frac{M_y - N_x}{N}$ é função apenas de $x$, o fator de integração
+será $u(x) = \exp{\int \frac{M_y - N_x}{N}dx}$. Para construir esse resultado,
+basta pensar, supondo a existência de $u(x)$, temos que $\pdv{(u\cdot M)}{y} =
+u\pdv{M}{y} = \pdv{(u\cdot N)}{x} = \dv{u}{x}N + u\pdv{N}{x}$. Agora, se $\frac{N_x
+- M_y}{M}$ é função apenas de $y$, vale que $u(y) = \exp{\int \frac{N_x -
+M_y}{M}dy}$. 
 
 \section{Modelos da Dinâmica de uma População}
+
+\begin{enumerate}
+    \item \textbf{Malthus:} 
+    \item \textbf{Logística de Verhuslt: }
+\end{enumerate}
 
 \section{Sistema Autônomo}
 
