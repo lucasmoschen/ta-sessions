@@ -137,6 +137,53 @@ singularidade estável.
 
 \subsection{Resfriamento de um corpo}
 
-\subsection{Problemas de Diluição}
+Em 1701, Newton publicou um resultado sobre a temperatura de objetos ao longo
+do tempo. Ele encontrou que a diferença entre a temperatura do objeto e a
+temperatura constante do meio varia geometricamente a 0 enquanto o tempo varia
+arimeticamente. Isto é, se $T(t)$ é a temperatura do objeto e $T_a$ a
+temperatura do meio, 
+
+$(T(t) - T_a)' = T'(t) = -k(T(t) - T(a))$. 
+
+A solução é $T(t) = (T(0) - T_a)e^{-kt} + T_a$. 
+
+Se agruparmos essa ideia com o conceito de calorimetria e $m,c,m_a, m_c$
+são constantes, temos que $mc(T(0) - T) = m_ac_a(T_a - T_a(0))$, podemos tomar
+a temperatura do ambiente como não constante. 
+
+\subsection{Problemas de Mistura}
+
+Considere um tanque com massa de sal $Q(t)$ a cada instante de tempo $t$
+dissolvido no volume de água $V(t)$. Água está entrando no tanque a taxa
+$r_e(t)$ com concentração de sal $q_e(t)$. Água está saindo do tanque a taxa
+$r_s(t)$ com concentração de sal $q_s(t)$. Qual a unidade de $r$? Qual a unida
+de $q$? 
+
+Para esse modelo, precisamos fazer algumas simplificações. Supomos que o sal
+que entra no tanque é instantaneamente misturado. Logo, o tanque tem
+concentração de sal homogênea. Vamos tratar a taxa de entrada como constante. 
+
+Desta forma, temos que $Q'(t) = a(t)Q(t) + b(t)$, onde $a(t) =
+-\frac{r_s}{(r_e - r_o)t + V(0)}$ e $b(t) = r_eq_e(t)$.
+
+A solução utiliza o primeiro tópico. 
+
+\subsection{Produtos Químicos em uma Lagoa}
+
+Considere que a Lagoa Rodrigo de Freitas esteja com $L$ milhões de galões de
+água fresca. Ao longo do tempo, uma água contaminada com produto químico fluiu
+para a lagoa a uma taxa $r$ milhões de galões por ano. Mas naquela época a
+prefeitura do Rio era muito ativa e já realizava a limpeza a uma taxa $s$, por
+um processo de retirada da água, limpeza e reinserção no mar. 
+
+A concentração $y(t)$ do produto químico na água que entra varia com o tempo $t$ segundo
+à expressão $y(t) = 2 + \sin (2t)$ gramas por galão. Considere o modelo da
+massa dessa substância na lagoa a qualquer tempo $t$. 
+
+
+\subsubsection{Modelo}
+
+$\dv{Q}{t} = (r\times 10^6)\cdot (2 + \sin (2t)) - (s\times 10^6)\cdot
+(\frac{Q(t)}{L})$ e $Q(0) = 0$. 
 
 \end{document}
