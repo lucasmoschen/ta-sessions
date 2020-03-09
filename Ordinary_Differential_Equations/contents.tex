@@ -75,10 +75,28 @@ M_y}{M}dy}$.
 
 \section{Modelos da Dinâmica de uma População}
 
-\begin{enumerate}
-    \item \textbf{Malthus:} 
-    \item \textbf{Logística de Verhuslt: }
-\end{enumerate}
+\subsection{Malthus} 
+Também conhecido como modelo exponencial, é
+baseado na ideia de que o crescimento populacional é proporcional ao
+tamanho da população, o que faz um certo sentido. O modelo é parte da
+ideia de que existiria um ponto em que o número de pessoas seria maior do
+que o suporte para a alimentação que tem crescimento linear. Nesse caso,
+se $p(t)$ é a população no tempo $t$, o crescimento é dado por $p'(t) =
+rp(t)$. Esse coeficiente $r$ vai indicar a taxa de crescimento
+populacional, e ele é tratado como constante. Essa ideia foi descartada
+posteriormente, pois o crescimento reduziu suas taxas de crescimento desde
+os anos de 1800. Nesse caso, $p(t) = p(0)e^{rt}$. 
+
+\subsection{Logística de Verhuslt} 
+
+Também conhecido como curva S o função logística. Diferente do primeiro
+modelo, ele não assume que os
+recursos são ilimitados. Entretanto, ele assume a existência da capacidade
+de carga $K$, que é o tamanho populacional máximo que o meio pode
+sustentar inndefinidamente. O crescimento nesse caso é proporcional a
+$p(t)$ e à diferença $K - p(t)$, onde $p(t)$ é o tamanho da população.
+Logo $p'(t) = sp(t)(K - p(t)) = sKp(t)(1 - \frac{p(t)}{K})$. Se $sK = r$,
+temos o modelo logístico.
 
 \section{Sistema Autônomo}
 
