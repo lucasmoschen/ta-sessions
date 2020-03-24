@@ -7,6 +7,7 @@
 
 \usepackage[portuguese]{babel}
 \usepackage{amsmath}
+\usepackage{amsfonts}
 \usepackage{physics}
 
 \begin{document}
@@ -18,12 +19,12 @@
     estudo do comportamento qualitativo. Qualquer correção nesse documento
     pode ser sugerida pelo leitor através de um \textit{pull request}. Para
     iniciar, irei listar os temas até agora cobertos e também inserirei um
-    pequeno resumo sobre o determinado tópico. 
+    pequeno resumo sobre o determinado tópico.
 \end{abstract}
 
 \tableofcontents
 
-\section{Equações Diferenciais Lineares de Primeira Ordem}
+\section{Equações Diferenciais Lineares de 1ª Ordem}
 
 Formato: $\dv{y}{x} + p(x)y = q(x)$. Observe a linearidade de $y$ e que a sua
 derivada de maior ordem é a primeira. Para resolver esse exemplo, usamos oo
@@ -54,7 +55,7 @@ desse tipo, bastando vê-la como um produto.
 
 \section{Equações Exatas}
 
-Formato: Seja $\dv{dy}{dx} = f(x,y) = - \frac{M(x,y)}{N(x,y)}$ que pode ser
+Formato: Seja $\dv{y}{x} = f(x,y) = - \frac{M(x,y)}{N(x,y)}$ que pode ser
 reescrita da forma $M(x,y)dx + N(x,y)dy = 0$. Ela é caracterizada como
 \textbf{exata} se $\exists g(x,y)$, tal que $dg = Mdx + Ndy$, onde $dg$ é o
 diferencial de $g$. Isto é, $\pdv{g}{x} = M$ e $\pdv{g}{y} = N$. Nesse caso,
@@ -73,6 +74,90 @@ u\pdv{M}{y} = \pdv{(u\cdot N)}{x} = \dv{u}{x}N + u\pdv{N}{x}$. Agora, se $\frac{
 - M_y}{M}$ é função apenas de $y$, vale que $u(y) = \exp{\int \frac{N_x -
 M_y}{M}dy}$. 
 
+\section{Equações Diferenciais de 2ª ordem}
+
+Sejam $P(\cdot), Q(\cdot), R(\cdot), G(\cdot)$ (onde $\cdot$ indica que é uma
+função) contínuas tal que  
+
+\begin{equation}
+\label{eq:ordem2}
+G(x) = R(x)y + Q(x)\dv{y}{x} +P(x)\dv[2]{y}{x}
+\end{equation}
+
+Temos uma equação diferencial de segunda ordem.
+
+\subsection{Equações homogêneas (em que $G(x) = 0$)}
+
+\textbf{Teorema:} Se $y_1(x)$ e $y_2(x)$ são soluções de \ref{eq:ordem2}, com
+$G(x) = 0$. Então $y(x) = c_1y_1(x) + c_2y_2(x)$ também é uma solução. 
+
+\textit{Observação:} Duas soluções $y_1(x)$ e $y_2(x)$ são linearmente
+independentes se $\alpha_1y_1(x) + \alpha_2y_2(x) = 0 \implies \alpha_1 =
+\alpha_2 = 0, \forall x$. Em outras palavras, elas serão linearmente
+dependentes de $\forall x, y_2(x) = \beta y_1(x)$, para algum $\beta \in
+\mathbb{R}$.  
+
+\textbf{Teorema 2:} Se $y_1(x)$ e $y_2(x)$ são soluções linearmente
+independentes de \ref{eq:ordem2}, então a solução geral é $y(x) = c_1y_1(x) +
+c_2y_2(x)$, para $c_1$ e $c_2$ constantes arbitrárias. 
+
+Para demonstrar esse teorema, temos que mostrar que a dimensão do subespaço de
+soluções é 2. O resultado é uma consequência do Teorema da Existêmncia e
+Unicidade. 
+
+\textit{Observação:} Esse teorema é importante porque basta para nós
+descobrirmos duas soluções independentes e particulares, para encontrar todas
+as soluções. 
+
+\subsubsection{Funções constantes}
+
+Considere $ay'' + by' + cy = 0$, com $a \neq 0$. Como estamos tratando de
+constantes multiplicadas por derivadas, vemos que $y = \exp(rx)$ é uma
+solução se ($y = e^{rx}, y' = re^{rx}, y'' = r^2e^{rx}$) satisfaz $(ar^2 + br
++ c)e^{rx} = 0$. Logo, basta encontrar $r$ que seja raíz dessa equação de
+segundo grau. 
+
+\begin{enumerate}
+    \item \textbf{Caso 1 - Determinante positivo:} Se $r_1$ e $r_2$ são
+    soluções, $y(x) = c_1y^{r_1x} + c_2y^{r_2x}$ é a solução geral.
+    \item \textbf{Caso 2 - Deteminante nulo:} Nesse caso, se $r$ é raíz da
+    equação, outra solução particular é $xe^{rx}$ e a solução geral é $y(x) =
+    c_1e^{rx} + c_2xe^{rx}$.  
+    \item \textbf{Caso 3 - Determinante negativo:} Seja $r_1 = \alpha + \beta
+    i$ e $r_2 = \alpha - \beta i$ soluções da equação. (Note que sempre $r_1
+    = r_2$, pois $r_1 + r_2 = -b/a \in \mathbb{R}$).  Nesse caso $y(x) =
+    c_1e^{r_1x} + c_2e^{r_2x} = e^{\alpha x}[(c_1 + c_2)\cos(\beta x) + (c_1 -
+    c_2)\sin(\beta x)] = e^{\alpha x}(t_1\cos(\beta x) + t_2\sin(\beta x))$
+\end{enumerate}
+
+\subsection{Não homogêneas com coeficientes constantes}
+
+Consideremos $ay'' + by' + cy = g(x)$. 
+
+\textbf{Teorema:} Seja $y_h(x)$ a solução da equação homogênea (quando $g(x) =
+0$) e $y_p(x)$ uma solução particular a ser encontrada. Então $y(x) = y_p(x) +
+y_h(x)$ é solução geral da equação. De fato, basta obsevar que se $y(x)$ é uma
+solução, $y(x) - y_p(x)$ será solução da eqauação homogênea. 
+
+\subsubsection{Método dos coeficientes a determinar}
+
+Nesse caso, temos vários exemplos e temos que resolver caso a caso. Vou
+restringir os casos:
+
+\begin{enumerate}
+    \item Se $g(x)$ é polinomial de grau $n$, $y_p(x)$ é um polinômio de grau
+    $n$. 
+    \item Se $g(x) = ae^{bx}$, então $y_p(x) = Ae^{bx}$
+    \item Se $g(x) = \alpha sen(x)$, então $y_p(x) = Asen(x) + Bcos(x)$
+    \item Se $g(x)$ é produto de polinnômio por exponencial, $y_p$ também terá
+   essa forma. 
+   \item Se $g(x)$ é produto de polinômio por função trigonométrica, então seu
+  formato será  $Asen(x)p(x) + Bcos(x)q(x)$, onde $p(x)$ e $q(x)$ são
+  polinômios de mesma ordem. 
+\end{enumerate}
+
+Em todos os casos, é necessário determinar os coeficientes, daí vem o nome. 
+    
 \section{Modelos da Dinâmica de uma População}
 
 \subsection{Malthus} 
