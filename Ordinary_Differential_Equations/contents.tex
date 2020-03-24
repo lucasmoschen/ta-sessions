@@ -109,6 +109,8 @@ Unicidade.
 descobrirmos duas soluções independentes e particulares, para encontrar todas
 as soluções. 
 
+\subsubsection{O Determinante Wronskiano}
+
 \subsubsection{Funções constantes}
 
 Considere $ay'' + by' + cy = 0$, com $a \neq 0$. Como estamos tratando de
@@ -129,6 +131,13 @@ segundo grau.
     c_1e^{r_1x} + c_2e^{r_2x} = e^{\alpha x}[(c_1 + c_2)\cos(\beta x) + (c_1 -
     c_2)\sin(\beta x)] = e^{\alpha x}(t_1\cos(\beta x) + t_2\sin(\beta x))$
 \end{enumerate}
+
+\subsection{Redução de ordem}
+
+Considere a equação na forma $y'' + p(x)y' + q(x)y = 0$. Suponha que temos
+$y_1(x)$. Seja $y = u(x)y_1(x)$. Então $y' = u'y_1 + uy_1'$ e $y'' = u''y_1 +
+2u'y_1' + uy_1''$. Substituindo na equação, temos que $y_1u'' + (2y_1' +
+py_1)u' = 0$. Daqui podemos encontrar $u(t)$ em função de $y_1$. 
 
 \subsection{Não homogêneas com coeficientes constantes}
 
