@@ -9,6 +9,7 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{physics}
+\usepackage{systeme}
 
 \begin{document}
 \maketitle
@@ -111,6 +112,24 @@ as soluções.
 
 \subsubsection{O Determinante Wronskiano}
 
+É um determinante que é usado para estudar equações diferenciais. Em
+particular para verificar a indepenência de soluções. De forma geral, 
+
+\begin{equation}
+    W(f_1, ..., f_n)(x) = 
+    \begin{vmatrix}
+        f_1(x) & f_2(x) & ... & f_n(x) \\
+        f_1'(x) & f_2'(x) & ... & f_n'(x) \\
+        ... \\
+        f_1^{n-1}(x) & f_2^{n-1}(x) & ... & f_n^{n-1}(x)
+    \end{vmatrix}
+\end{equation}
+
+No caso particular de duas funções $W(f,g)(x) = f(x)g'(x) - g(x)f'(x)$
+
+Nesse caso, se as soluções são linearmente dependentes, então o Wronskiano
+será nulo. A recíproca não vale (mas podemos usar a contrapositiva). 
+
 \subsubsection{Funções constantes}
 
 Considere $ay'' + by' + cy = 0$, com $a \neq 0$. Como estamos tratando de
@@ -166,7 +185,33 @@ restringir os casos:
 \end{enumerate}
 
 Em todos os casos, é necessário determinar os coeficientes, daí vem o nome. 
-    
+
+\subsubsection{Método da variação de parâmetros}
+
+Mais uma vez considere a equação $ay'' + by' + cy = g(x)$. Sejam $y_1(x)$ e
+$y_2(x)$ soluções linearmente independentes da equação diferencial homogênea
+(que já sabemos encontrar). Queremos encontrar duas funções diferenciáveis
+$u_1(x)$ e $u_2(x)$ tal que $y(x) = u_1(x)y_1(x) + u_2(x)y_2(x)$ seja uma
+solução da equação diferencial. Porém, exigimos que 
+
+\begin{equation}
+    u_1'(x)y_1(x) + u_2'(x)y_2(x) = 0
+\end{equation}
+
+Após fazermos as simplificações necessárias, obteremos o sistema, para cada
+$x$, temos:  
+
+$$
+\begin{cases}
+u_1'(x)y_1(x) + u_2'(x)y_2(x) = 0 \\
+u_1'(x)y_1'(x) + u_2'(x)y_2'(x) = \frac{g(x)}{a}    
+\end{cases}
+$$
+
+Note que podemos aplicar a regra de Cramer, que diz que $x_j =
+\frac{det(A_j)}{det{A}}$, onde $A_j$ é a matriz $A$, exceto a coluna $j$ que é
+formada pelo vetor independente do sistema $Ax = b$. 
+
 \section{Modelos da Dinâmica de uma População}
 
 \subsection{Malthus} 
