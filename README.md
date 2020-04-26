@@ -1,6 +1,9 @@
-# Applied Math Topics
-This repository includes some codes related with these three topics: optimal control, fuzzy logic and complex networks.
+# Math Topics
 
-I use Python in Jupyter Notebook, because it's more readable.
+This repository has information in text and some codes about some subjects in the applied mathematics course. 
 
-In Linear Algebra, some summaries of the subject are found.  
+The codes are used in Jupyter Notebook, because I think it's more readable.
+
+In the monitoria of ODE:
+
+[Link for the A1 - 2020](https://gvmail-my.sharepoint.com/:b:/g/personal/b37214_fgv_edu_br/EXg58CUGFGNPiDsqnh828wYBpkx-PfxlDpC7Xwy4CCqpeg?e=wbLB18)
