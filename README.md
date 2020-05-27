@@ -4,9 +4,10 @@ This repository has information in text and some codes about some subjects in th
 
 The codes are used in Jupyter Notebook, because I think it's more readable.
 
-In the monitoria of ODE:
+In the following link, you will find all the TA sessions and some recorded
+videos. 
 
-[Link for the A1 - 2020](https://gvmail-my.sharepoint.com/:b:/g/personal/b37214_fgv_edu_br/EXg58CUGFGNPiDsqnh828wYBpkx-PfxlDpC7Xwy4CCqpeg?e=wbLB18)
+[Link for the all the TA sessions](https://gvmail-my.sharepoint.com/:f:/g/personal/b37214_fgv_edu_br/Evsmx_2VzpdCswGWjlY7CbwBvSqoCvEHUE_ZZ4rpLOF5gQ?e=BPsFxF)
 
 This is a good mathematical software system implemented using Python:
 
