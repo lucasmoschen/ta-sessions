@@ -1,6 +1,6 @@
-# Math Topics
+# TA Sessions
 
-This repository has some topics about my TA sessions. 
+This repository has some topics about my TA sessions: Linear Algebra and Ordinary Differential Equations 
 
 [Link for the all the TA sessions](https://gvmail-my.sharepoint.com/:f:/g/personal/b37214_fgv_edu_br/Evsmx_2VzpdCswGWjlY7CbwBvSqoCvEHUE_ZZ4rpLOF5gQ?e=BPsFxF)
 
