@@ -3,6 +3,7 @@
 Aqui você encontra os exercícios até agora disponibilizados. 
 
 |Seção|Título|Exercícios|Resolvido em Monitoria|PDF disponível|
+|-----|------|----------|----------------------|--------------|
 |7.2|Priori e Posteriori|2,3,10|Sim|Sim|
 |7.3|Famílias Conjugadas|2,17,19,21|Não|Sim|
 |7.4|Estimador de Bayes|2,4,7,11,14|Não|Sim|
