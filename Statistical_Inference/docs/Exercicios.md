@@ -13,6 +13,6 @@ Aqui você encontra os exercícios até agora disponibilizados.
 |7.8|Estatística Suficiente Conjunta|3,8,12,16|Não|Sim|
 |7.9|Melhorando um Estimador|2,3,6,9,10|Não|Sim|
 |8.7|Estimadores não viesados|4,6,11,13|Não|Sim|
-|8.8|Informação de Fisher|5,7,10|Não|Não|
+|8.8|Informação de Fisher|5,7,10|Não|Sim|
 |8.1|Estimadores de Distribuições Amostrais|1,2,3,9|Não|Não|
 |8.2|Distribuição Chi-Quadrada|4,7,10,13|Não|Não|
