@@ -9,8 +9,8 @@ Aqui você encontra os exercícios até agora disponibilizados.
 |7.4|Estimador de Bayes|2,4,7,11,14|Sim|Sim|
 |7.5|Estimador de Máxima Verossimilhança|1,4,9,10|Sim|Sim|
 |7.6|Propriedades EMV|3,5,11,20,22,23|Sim|Sim|
-|7.7|Estatística Suficiente|4,7,13,16|Não|Sim|
-|7.8|Estatística Suficiente Conjunta|3,8,12,16|Não|Sim|
+|7.7|Estatística Suficiente|4,7,13,16|Sim|Sim|
+|7.8|Estatística Suficiente Conjunta|3,8,12,16|Sim|Sim|
 |7.9|Melhorando um Estimador|2,3,6,9,10|Não|Sim|
 |8.7|Estimadores não viesados|4,6,11,13|Não|Sim|
 |8.8|Informação de Fisher|5,7,10|Não|Sim|
