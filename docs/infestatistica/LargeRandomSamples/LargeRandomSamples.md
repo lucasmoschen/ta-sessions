@@ -445,7 +445,7 @@ $$
 Se $f$ é uma função contínua:
 
 $$
-{X}^{(n)}\overset{d}{\to} X \quad \text{ e }\quad {Y}^{(n)}\overset{d}{\to} c\quad \text{implica}\quad f ({X}^{(n)},{Y}^{(n)}) \overset{d}{\to} f(X,c).
+{X}^{(n)}\overset{d}{\to} X \quad \text{ e }\quad {Y}^{(n)}\overset{p}{\to} c\quad \text{implica}\quad f ({X}^{(n)},{Y}^{(n)}) \overset{d}{\to} f(X,c).
 $$
 
 [Aproximação de Taylor e Método Delta](http://www.stat.rice.edu/~dobelman/notes_papers/math/TaylorAppDeltaMethod.pdf)

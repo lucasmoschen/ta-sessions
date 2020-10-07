@@ -60,3 +60,5 @@ DeGroot)](https://www.amazon.com/Probability-Statistics-4th-Morris-DeGroot/dp/03
 - [Mathematical Foudations Statistics (Ronald
   Fisher)](https://royalsocietypublishing.org/doi/pdf/10.1098/rsta.1922.0009):
   referência em estatística com principais conceitos da matéria. 
+
+- [Digital TextBook Statlect](https://www.statlect.com/)
