@@ -3,7 +3,23 @@ nav:
   - Home: index.md
   - Inferência à Estatística: 
     - Informações Gerais: infestatistica/info.md
-    - Notebook 2: about.md
+    - Grandes Amostras: infestatistica/LargeRandomSamples/LargeRandomSamples.md
+    - Introdução: infestatistica/StatisticalInference/StatisticalInference.md
+    - Priori e Posteriori: infestatistica/PrioriPosteriori/PrioriPosteriori.md
+    - Distribuições Conjugada e Estimador de Bayes: infestatistica/ConjugateDistributions/ConjugateDistributions.md
+    - Estimador de Máxima Verossimilhança: infestatistica/MaximumLikelihoodEstimator/MaximumLikelihoodEstimator.md
+    - Estatísticas Suficientes: infestatistica/SufficientStatistics.md
+    - Distribuição Chi-Quadrado: infestatistica/ChiSquared/ChiSquared.md
+    - Estimadores não enviesados: infestatistica/UnbiasedEstimators/UnbiasedEstimators.md
+    - Informação de Fisher: infestatistica/FisherInformation/FisherInformation.md
   - Equações Diferenciais: edo/info.md
   - Álgebra Linear: alglin/info.md
 theme: mkdocs
+
+extra_javascript:
+    - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+
+markdown_extensions:
+    - mdx_math:
+        enable_dollar_delimiter: True
+    - pymdownx.extra

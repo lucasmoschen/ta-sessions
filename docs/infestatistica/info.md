@@ -7,6 +7,9 @@ Zoom.
 
 - [Monitorias gravadas](https://gvmail-my.sharepoint.com/:f:/g/personal/b37214_fgv_edu_br/EkrXFUG0yNRMlwwav0WIWUgBXxOS2UHHummnp4Vqt63csw?e=6mCICi)
 
+- [Notebooks](https://github.com/lucasmoschen/TA_sessions/tree/master/Statistical_Inference/notebooks):
+  Você pode rodar esses notebooks também!
+
 ## Tópicos e Exercícios 
 
 Os exercícios resolvidos disponíveis estão linkados ao título da seção. 
@@ -44,6 +47,8 @@ DeGroot)](https://www.amazon.com/Probability-Statistics-4th-Morris-DeGroot/dp/03
 
 - [Capítulo 7](https://gvmail-my.sharepoint.com/:b:/g/personal/b37214_fgv_edu_br/ETzej0ptqCVIvb9_nzeb1gYBgOUE2wPy3ySG2uTHxmoqfw?e=1cKwbb)
 - [Capítulo 8 - parte 1](https://gvmail-my.sharepoint.com/:b:/g/personal/b37214_fgv_edu_br/ERy_MG050_5KrK7TRBvYQV0Bn8l8f2TP3zdNvPLO2wGv_A?e=s29p8r)
+- Capítulo 8 - parte 2
+- Capítulo 9
 
 ## Documentos Adicionais 
 
