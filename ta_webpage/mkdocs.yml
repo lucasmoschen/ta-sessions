@@ -1,0 +1,6 @@
+site_name: Teaching Assistant 
+nav: 
+  - Inferência à Estatística: index.md
+  - Equações Diferenciais: about.md
+  - Álgebra Linear: about.md
+theme: mkdocs
