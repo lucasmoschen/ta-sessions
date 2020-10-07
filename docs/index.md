@@ -1,17 +1,25 @@
-# Welcome to MkDocs
+# Monitorias 
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+Este website foi desenvolvido para concentrar as informações sobre as
+monitorias que dei ao longo da minha vida acadêmica. Em particular durante a
+Graduação na Escola de Matemática Aplicada, Fundação Getulio Vargas (EMAp/FGV). 
 
-## Commands
+Eu espero que a informação aqui contida seja de interesse!
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+## Tópicos abordados 
 
-## Project layout
+- Álgebra Linear (2019.2)
+    - Professor [Eduardo Wagner](https://emap.fgv.br/corpo-docente/eduardo-wagner)
+- Equações Diferenciais Ordinárias (2020.1)
+    - Professora [Maria Izabel Camacho](https://emap.fgv.br/corpo-docente/maria-izabel-tavares-camacho)
+- Inferência à Estatística (2020.2)
+    - Professor [Luiz Max de Carvalho](https://emap.fgv.br/corpo-docente/luiz-max-fagundes-de-carvalho)
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+## Referências interessantes de matemática 
+
+- [SageMath](https://doc.sagemath.org/html/en/installation/): *software*
+  matemático que facilita cálculos. É uma possibilidade alternativa ao
+  [WolframAlpha](https://www.wolframalpha.com/), porém com código em Python. 
+- [Manin](https://github.com/3b1b/manim): ferramenta para criar vídeos
+  matemáticos explicativos com animação programática, uma biblioteca para
+  Python. 
