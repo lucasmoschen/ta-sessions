@@ -9,7 +9,7 @@ nav:
     - Distribuições Conjugada e Estimador de Bayes: infestatistica/ConjugateDistributions/ConjugateDistributions.md
     - Estimador de Máxima Verossimilhança: infestatistica/MaximumLikelihoodEstimator/MaximumLikelihoodEstimator.md
     - Estatísticas Suficientes: infestatistica/SufficientStatistics.md
-    - Distribuição Chi-Quadrado: infestatistica/ChiSquared/ChiSquared.md
+    - Distribuição Amostral: infestatistica/SamplingDistribution/SamplingDistribution.md
     - Estimadores não enviesados: infestatistica/UnbiasedEstimators/UnbiasedEstimators.md
     - Informação de Fisher: infestatistica/FisherInformation/FisherInformation.md
   - Equações Diferenciais: edo/info.md

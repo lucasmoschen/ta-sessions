@@ -33,8 +33,8 @@ Se $X$ tem distribuição normal padrão, $Y = X^2 \sim \chi^2(1)$
 
 De fato, se juntarmos as últimos dois teoremas, veremos que a soma de quadrados de normais independentes e identicamente distribuidas será $\chi^2(m)$, onde $m$ é o número de parcelas. 
 
-
 ## Implementação
+
 
 ```python
 import numpy as np 
@@ -43,6 +43,9 @@ from scipy.stats import chi2
 
 from matplotlib import animation, cm
 from IPython.display import HTML
+
+# Random Object
+ro = np.random.default_rng(1000)  # Para assegurar reprodutibilidade
 ```
 
 
@@ -79,7 +82,7 @@ plt.show()
 ```
 
 
-![png](output_4_0.png)
+![svg](output_4_0.svg)
 
 
 
@@ -497,10 +500,249 @@ AAAAJal0b28AAAAdZGF0YQAAAAEAAAAATGF2ZjU4LjI5LjEwMA==
 
 
 
-![png](output_5_1.png)
+![svg](output_5_1.svg)
 
+
+# Distribuição Conjunta da média e variância amostrais
+
+$X_1,...,X_n$ formam uma amostra aleatória com distribuição normal e com média $\mu$ e variância $\sigma^2$ desconhecidos. Estamos interessados na distribuição conjunta dos estimadores de máxima verossimilhança para média e variância da amostra. 
+
+## Teorema de Basu
+
+Sejam $\hat{\mu} = \bar{X}_n$ e $\hat{\sigma}^2 = \frac{1}{n}\sum_{i=1}^n (X_i - \bar{X}_n)^2$ a média e variância amostrais, respectivamente. Então $\hat{\mu}$ tem distribuição normal com média $\mu$ e variância $\sigma^2 /n$, enquanto $\hat{\sigma}^2$ tem a distribuição $\chi^2(n-1)$, isto é, com $n-1$ grau de liberdade. Além disso elas são independentes. 
+
+Esse teorema é um pouco mais complexo e, na verdade, essa seria uma espécie de aplicação do teorema, na verdade. O teorema de Basu diz que: 
+
+> Se $T$ é uma estatística suficiente [completa](https://lucasmoschen.github.io/TA_sessions/infestatistica/SufficientStatistics/#definicoes-adicionais) (Considere, nesse teorema, $g$ uma função integrável limitada) para $\theta$ e $A$ uma estatística ancillary, então $T$ é independente de $A$. Nesse caso $\hat{\mu}$ é completa suficiente e $\hat{\sigma}^2$ é ancillary, por que não depende de $\mu$. 
+
+O mais interessante é que essa propriedade é só vista com a [distribuição normal](https://arxiv.org/pdf/1810.01768.pdf)! Olhem a página 9.  
+
+### Demonstração 
+
+O livro tem uma abordagem um pouco mais voltado à Álgebra Linear. Aqui vou mostrar uma ideia um pouco diferente, onde vocês podem demonstrar os passos, como exercício. 
+
+1. Passo 1: $\sum_{i=1}^n X_i^2 = n\hat{\sigma}^2 + n\hat{\mu}^2$
+
+    - Dica: Escrever $\hat{\sigma}^2$ e abrir em três somatórios. 
+
+2. Passo 2: $\sum_{i=1}^n (X_i - \mu)^2 = n\hat{\sigma}^2 + n(\hat{\mu} - \mu)^2$
+
+    - Dica: O Passo 1 é um caso especial do Passo 2. O processo é o mesmo.
+
+3. Passo 3: $\hat{\mu}$ é independente de $X_i - \hat{\mu}, i = 1,...,n$.
+
+    - Dica: Montar a pdf conjunta de $X_1, ..., X_n$ (já fizemos isso atraveś da verossimilhança) e fazer uma mudança de variável $Y_1 = \hat{\mu}, Y_2 = X_2 - \hat{\mu}, ..., Y_n = X_n - \hat{\mu}$. Com essa mudança, é possível montar a pdf como função de $y_1,...,y_n$. Esse processo é um pouco mais chato, mas é bom lembrar como fazez mudança de variável para pdfs. [Aqui você pode conferir como](https://en.wikipedia.org/wiki/Probability_density_function#Vector_to_vector). É importante lembrar que é uma função de $y$ após transformada e não de $x$. 
+    - Dica 2: Fatorizar a pdf conjunta. Você vai ver como se destaca a independência aqui. 
+
+4. Passo 4: Mostrar que $\hat{\mu}$ e $\hat{\sigma}^2$ são independentes. 
+
+
+#### Referências
+
+[1](https://jekyll.math.byuh.edu/courses/m321/handouts/mean_var_indep.pdf)
+[2](http://www2.stat.duke.edu/courses/Fall18/sta611.01/Lecture/lec12_mean_var_indep.pdf)
+
+
+## Simples visualização
+
+Eu gostaria de comparar o que acontece com a média e variância amostral da distribuição normal e da distribuição gamma. Para isso, geero amostras de tamanho $n$, calculo as estatísticas e salvo. Faço esse procedimento o número de pontos que quiser. 
 
 
 ```python
-
+ite = 10000
+n = 10000
+# Parâmetros da Normal
+mu = 5
+sigma = 2
+# Parâmetros da Gamma
+alpha = 5
+beta = 4
 ```
+
+
+```python
+means = np.zeros((ite,2))
+variances = np.zeros((ite,2))
+
+for i in range(ite): 
+    X = ro.normal(loc = mu, scale = sigma, size = n)
+    Y = ro.gamma(shape = alpha, scale = 1/beta, size = n)
+    
+    means[i,0] = np.mean(X)
+    means[i,1] = np.mean(Y)
+
+    variances[i,0] = np.var(X, ddof = 0)
+    variances[i,1] = np.var(Y, ddof = 0)
+
+coef_normal = np.polyfit(x = means[:,0], y = variances[:,0], deg = 1)
+coef_gamma = np.polyfit(x = means[:,1], y = variances[:,1], deg = 1)
+```
+
+
+```python
+fig, ax = plt.subplots(1,2,figsize = (14,5))
+fig.suptitle('Comparando média e variância amostral')
+
+ax[0].scatter(means[:,0], variances[:,0])
+ax[1].scatter(means[:,1], variances[:,1])
+ax[0].plot(means[:,0], coef_normal[0]*means[:,0] + coef_normal[1], color = 'red')
+ax[1].plot(means[:,1], coef_gamma[0]*means[:,1] + coef_gamma[1], color = 'red')
+
+
+ax[0].set_xlabel(r'$\bar{X}_n$', fontsize = 18)
+ax[1].set_xlabel(r'$\bar{X}_n$', fontsize = 18)
+ax[0].set_ylabel(r'$\sum (X_i - \bar{X}_n)^2$', fontsize = 18)
+ax[1].set_ylabel(r'$\sum (X_i - \bar{X}_n)^2$', fontsize = 18)
+ax[0].set_title('Distribuição Normal')
+ax[1].set_title('Distribuição Gamma')
+ax[0].grid(alpha = 0.5, linestyle = '--')
+ax[1].grid(alpha = 0.5, linestyle = '--')
+plt.show()
+```
+
+
+![svg](output_10_0.svg)
+
+
+*Obs: A não inclinação da reta não significa que existe independência, mas como são independentes, a gente espera que a inclinação seja pequena.* 
+
+# Distribuições T Student 
+
+[Artigo original](http://seismo.berkeley.edu/~kirchner/eps_120/Odds_n_ends/Students_original_paper.pdf): Olhe a página 9!
+
+### Definição 
+
+Sejam $Y \sim \chi^2(m)$ e $Z \sim N(0,1)$ independentes. Então 
+
+$$
+X = \frac{Z}{\left(\frac{Y}{m}\right)^{1/2}} \sim t(m)
+$$
+
+onde $t(m)$ é a distribuição t-student com $m$ graus de liberdade. 
+
+## Função densidade de probabilidade 
+
+Para escrever essa função de probabilidade, defina $X$ como acima e $W = Y$. Já sabemos a distribuição conjunta de $Y$ e $Z$, pois eles são independentes. Com essa  mudança de variável ([confira aqui se não lembra como é feito](http://dept.stat.lsa.umich.edu/~moulib/426-notes-3.pdf)), você conseque escrever a distribuição conjunta de $X$ e $W$. Depois, basta calcular a distribuição marginal de $X$, integrando em $W$.
+
+$$
+f(x) = \frac{\Gamma\left(\frac{m+1}{2}\right)}{(m\pi)^{1/2}\Gamma\left(\frac{m}{2}\right)}\left(1 + \frac{x^2}{m} \right)^{-(m+1)/2}, x \in \mathbb{R},
+$$
+
+onde $\Gamma$ é a [função Gamma](https://en.wikipedia.org/wiki/Gamma_function), tal que, 
+
+1. $n \in \mathbb{N}, \Gamma(n) = (n-1)!$
+2. $\Gamma(z+1) = z\Gamma(z)$ 
+3. $\Gamma(1/2) = \sqrt{\pi}$
+
+Quando $m \leq 1$, a média é divergente. Isso pode ser vizualizado pelo expoente que será $\leq -1$, o que diverge (lembre de $\int 1/x$). Quando $m > 1$, a média existe e é 0 pela simetria da distribuição. Em particular, podemos mostrar que se $k < m$, $E[|X^k|] < + \infty$ e se $k \geq m$, o momento diverge. 
+
+Se $X \sim t(m), m > 2$, $Var(X) = \frac{m}{m-2}$
+
+## Teorema 
+
+Seja $X_1, ..., X_n \overset{iid}{\sim} N(\mu,\sigma^2)$. Seja
+
+$$
+\sigma ' = \left[\frac{\sum_{i=1}^n (X_i - \bar{X}_n)^2}{n-1}\right]^{1/2}
+$$
+
+Então $n^{1/2}(\bar{X}_n - \mu)/\sigma ' \sim t(n-1)$
+
+## Relação com a Normal e Cauchy
+
+Da mesma forma que a distribuição normal e a distribuição Cauchy, a distribuição t é centrada em $0$ e tem sua moda nesse valor. Entretanto a cauda a distribuição t (quando $x \to -\infty$ ou $x \to +\infty$), é mais pesada, no sentido de que tende para $0$ em uma velocidade menor do que a normal. Outra coisa interessante é que a ditrivuição $t(1)$ é a [distribuição Cauchy](https://en.wikipedia.org/wiki/Cauchy_distribution). Além disso, quando $n \to \infty$, converge para a pdf da normal padrão ($Normal(0,1)$).
+
+### Ferramentas para demonstrar a convergência
+
+1. [Teorema de Slutsky](https://lucasmoschen.github.io/TA_sessions/infestatistica/LargeRandomSamples/LargeRandomSamples/#metodo-delta): Considere o corolário com $f(x,y) = \frac{x}{y}$ 
+
+2. [Lei dos Grandes Números](https://lucasmoschen.github.io/TA_sessions/infestatistica/LargeRandomSamples/LargeRandomSamples/#lei-dos-grandes-numeros): Escreva a qui-quadrado como soma de normais. 
+
+
+```python
+from scipy.stats import t, norm, cauchy
+```
+
+## Implementação 
+
+Primeiro vamos ver a cara da distribuição t
+
+
+```python
+m = 10
+X = t(df = m) 
+w = np.arange(-3, 3, 0.1)
+
+fig, ax = plt.subplots(1,2,figsize = (12,5))
+ax[0].plot(w, X.pdf(w), lw = 5, color = 'orange')
+ax[1].plot(w, X.cdf(w), lw = 5, color = 'orange')
+ax[0].set_title('PDF t-Student')
+ax[1].set_title('CDF t-Student')
+plt.show()
+```
+
+
+![svg](output_15_0.svg)
+
+
+Vamos ver o que acontece quando $m \leq 1$?
+
+
+```python
+ite = 1000
+n = 10000
+m1 = 10
+m2 = 0.5
+
+means = np.zeros((ite,2))
+for i in range(ite): 
+    X = ro.standard_t(df = m1, size = n)
+    Y = ro.standard_t(df = m2, size = n)
+    means[i,0] = np.mean(X)
+    means[i,1] = np.mean(Y)
+```
+
+
+```python
+fig, ax = plt.subplots(1,2,figsize = (14,5))
+ax[0].hist(means[:,0], bins = 100)
+ax[1].hist(np.log(means[:,1]), bins = 10)
+ax[0].set_xlabel('E[X]')
+ax[1].set_xlabel('log E[X]')
+ax[0].set_title('m = 10')
+ax[1].set_title('m = 0.5')
+plt.show()
+```
+
+
+![svg](output_18_0.svg)
+
+
+No eixo $x$ do segundo gráfico plotei o logaritmo, dado que alguns resultados eram extremamente grandes! Isso indica visualmente que a média diverge!
+
+### Relação com a Normal e com Cauchy
+
+
+```python
+C = cauchy()
+Z = norm(loc = 0, scale = 1) 
+T = t(df = 1)
+
+fig, ax = plt.subplots(1,2,figsize = (14,5))
+ax[0].plot(w,C.pdf(w), label = 'Cauchy')
+ax[0].scatter(w, T.pdf(w), c = 'red', marker = "*", label = 't-Student')
+ax[0].legend()
+ax[0].set_title('t-Student e Cauchy quando m = 1')
+ax[1].plot(w,Z.pdf(w), label = 'N(0,1)')
+ax[1].set_title('Convergência da t para a normal')
+
+for i in np.logspace(np.log10(1), np.log10(20), 5):
+    T = t(df = int(i))
+    ax[1].plot(w, T.pdf(w), linestyle = '--', alpha = i/40 + 0.5, color = 'grey', label = 't({})'.format(int(i)))
+ax[1].legend(loc = 'upper right')
+plt.show()
+```
+
+
+![svg](output_21_0.svg)
+
