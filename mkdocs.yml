@@ -2,8 +2,8 @@ site_name: Teaching Assistant
 nav: 
   - Home: index.md
   - Inferência à Estatística: 
-    - Notebook 1: index.md
-    - Notebook 2: index.md
-  - Equações Diferenciais: about.md
-  - Álgebra Linear: about.md
+    - Informações Gerais: infestatistica/info.md
+    - Notebook 2: about.md
+  - Equações Diferenciais: infestatistica/info.md
+  - Álgebra Linear: infestatistica/info.md
 theme: mkdocs
