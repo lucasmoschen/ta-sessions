@@ -4,6 +4,6 @@ nav:
   - Inferência à Estatística: 
     - Informações Gerais: infestatistica/info.md
     - Notebook 2: about.md
-  - Equações Diferenciais: infestatistica/info.md
-  - Álgebra Linear: infestatistica/info.md
+  - Equações Diferenciais: edo/info.md
+  - Álgebra Linear: alglin/info.md
 theme: mkdocs
