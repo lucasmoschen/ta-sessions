@@ -11,6 +11,7 @@ nav:
     - Estatísticas Suficientes: infestatistica/SufficientStatistics.md
     - Distribuição Amostral: infestatistica/SamplingDistribution/SamplingDistribution.md
     - Intervalos de Confiança: infestatistica/ConfidenceIntervals/ConfidenceIntervals.md
+    - Análise Bayesiana da Normal: infestatistica/BayesianAnalysisNormal/BayesianAnalysisNormal.md
     - Estimadores não enviesados: infestatistica/UnbiasedEstimators/UnbiasedEstimators.md
     - Informação de Fisher: infestatistica/FisherInformation/FisherInformation.md
   - Equações Diferenciais: edo/info.md
