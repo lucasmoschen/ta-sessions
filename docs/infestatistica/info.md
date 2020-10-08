@@ -38,7 +38,7 @@ Os exercícios resolvidos disponíveis estão linkados ao título da seção.
 |-----|------|----------|----------------------|
 |8.3|[Distribuição conjunta da média e variância amostral](https://gvmail-my.sharepoint.com/:b:/g/personal/b37214_fgv_edu_br/EYulYRdXXxxGmZ0q5cr8U_cBwX2E84R2N_2qlYzejYbSNg?e=59bwpY)|8|Não|
 |8.4|A distribuição t|-|-|
-|8.5||||
+|8.5|Intervalos de Confiança|1,4,5,6|Não|
 
 ## Resumos 
 

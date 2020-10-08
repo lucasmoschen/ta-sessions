@@ -10,6 +10,7 @@ nav:
     - Estimador de Máxima Verossimilhança: infestatistica/MaximumLikelihoodEstimator/MaximumLikelihoodEstimator.md
     - Estatísticas Suficientes: infestatistica/SufficientStatistics.md
     - Distribuição Amostral: infestatistica/SamplingDistribution/SamplingDistribution.md
+    - Intervalos de Confiança: infestatistica/ConfidenceIntervals/ConfidenceIntervals.md
     - Estimadores não enviesados: infestatistica/UnbiasedEstimators/UnbiasedEstimators.md
     - Informação de Fisher: infestatistica/FisherInformation/FisherInformation.md
   - Equações Diferenciais: edo/info.md
