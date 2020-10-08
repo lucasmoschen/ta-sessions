@@ -12,7 +12,7 @@ Sejam $X_1, ..., X_n$ v.a. observadas e um parâmetro $\theta$ desconhecido. A d
 
 Suponha que $X_1, ..., X_n$ formam uma amostra aleatória de uma distribuição $f(x|\theta)$. Suponha que o parâmetro seja desconhecido e que a distribuição da priori seja $\xi(\theta)$. Então, a distribuição a posteriori é:
 
-$$\xi(\theta|x) = \frac{f(x_1|\theta)...f(x_n|\theta)\xi(\theta)}{g_n(\theta)}, \theta \in \Omega$$
+$$\xi(\theta|x) = \frac{f(x_1|\theta)...f(x_n|\theta)\xi(\theta)}{g_n(x)}, \theta \in \Omega$$
 
 Onde $g_n$ é a distribuição marginal conjunta de $X_1,...,X_n$
 
