@@ -1,4 +1,12 @@
-# Teste de Hipóteses
+# Teste de Hipóteses: Definições
+
+1. Hipótese Nula e Alternativa 
+2. Região Crítica 
+3. Estatística de Teste
+4. Função de Poder
+5. Tipos de Erro 
+6. Nível e tamanho do teste
+7. p-valor
 
 Temos um problema estatístico que envolve um parâmetro $\theta$ tal que tenha valor desconhecido, mas reside em um espaço $\Omega$. Suponha que particionemos $\Omega = \Omega_1 \dot\cup ~\Omega_2$ e o estatístico está interessado se $\theta$ está em $\Omega_0$ ou está em $\Omega_1$. 
 
@@ -35,7 +43,7 @@ Quando queremos decidir qual hipótese escolher, observamos uma amostra dessa di
 
 **Região crítica** é o conjunto $S_1$, isto é, o conjunto de amostras que, a partir de um procedimento, rejeita $H_0$. 
 
-![cr](critical_region_draw.jpg)
+![cr](../images/critical_region_draw.jpg)
 
 ## Estatística de Teste
 
@@ -88,7 +96,44 @@ Entretanto isso não é em geral o que acontece. Por isso definimos:
 
 Portanto se $\theta \in \Omega_0, \pi(\theta|\delta)$ é a probabilidade de cometermos o erro do tipo I. Se $\theta \in \Omega_1, 1 - \pi(\theta|\delta)$ é a probabilidade de cometer o erro do tipo II. 
 
+## Nível/Tamanho 
 
-```python
+Um teste que satisfaz $\pi(\theta|\delta) \leq \alpha_0, \forall \theta \in \Omega_0$ é chamado de teste **nível** $\alpha_0$, ou que o teste tem nível de significância $\alpha_0$.  O **tamanho** de um teste é
+$\alpha(\delta) = \sup_{\theta \in \Omega_0} \pi(\theta, \delta)$. Um teste terá nível $\alpha_0$ se, e só se, seu tamanho for no máximo $\alpha_0$. 
 
-```
+## P-valor
+
+É o menor nível $\alpha_0$ tal que rejeitaríamos a hipótese nula a nível $\alpha_0$ com os dados observados. 
+
+> Se rejeitamos a hipótese nula se, e somente se, o p-valor é no máximo $\alpha_0$, estamos usando um teste com nível de significância $\alpha_0$.
+
+# Equivalência entre Testes e Conjuntos de Confiança 
+
+### Teorema
+
+Seja $\vec{X} = (X_1,...,X_n) \overset{iid}{\sim} F(\theta)$. Seja $g(\theta)$, e suponha que para todo valor $c$ na imagem de $g$ (ou seja, $c = g(x)$, para algum $x$), exista um teste $\delta_c$ de nível $\alpha_0$ para a hipótese 
+
+$$
+H_{0,c}:g(\theta) = c, ~ H_{1,c}: g(\theta) \neq c
+$$
+
+Defina 
+
+$\omega(x) := \{c: \delta_c \text{ não rejeita } H_{0,c} \text{ se } \vec{X} = \vec{x} \text{ é observado } \}$. 
+
+Então:
+$$
+P[g(\theta_0) \in \omega(\vec{X})|\theta = \theta_0] \geq 1 - \alpha_0,
+$$
+
+para todo valor $\theta \in \Omega$. 
+
+# Compreensão e Implementação 
+
+Teste de hipótese é um método estatístico para que façamos decisões estatísticas sobre os dados. É uma forma de comppreender um parâmetro. 
+
+> **Exemplo:**  Belgas tem, em média, maior altura do que peruanos. 
+
+> **Exemplo 2:** Esse fator (parâmetro) não é relevante para o processo. 
+
+Estamos avaliando afirmações mutualmente exclusivas, ou os belgas tem maior altura do que os peruanos, ou não tem! Queremos saber qual dessas afirmações é suportada pelos dados que obtermos. A hipótese nula é em geral a ser testada e muitas vezes estabelece uma conjectura de que as características observadas em uma população são por um acaso, isto é, o fator a ser estudado "não existe". Em geral queremos anulá-la, rejeitá-la. 
