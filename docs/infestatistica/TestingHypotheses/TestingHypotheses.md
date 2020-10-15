@@ -43,7 +43,7 @@ Quando queremos decidir qual hipótese escolher, observamos uma amostra dessa di
 
 **Região crítica** é o conjunto $S_1$, isto é, o conjunto de amostras que, a partir de um procedimento, rejeita $H_0$. 
 
-![cr](../images/critical_region_draw.jpg)
+![cr](critical_region_draw.jpg)
 
 ## Estatística de Teste
 
