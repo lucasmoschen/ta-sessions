@@ -15,6 +15,7 @@ nav:
     - Estimadores não enviesados: infestatistica/UnbiasedEstimators/UnbiasedEstimators.md
     - Informação de Fisher: infestatistica/FisherInformation/FisherInformation.md
     - Teste de Hipóteses: infestatistica/TestingHypotheses/TestingHypotheses.md
+    - Teste de Hipóteses II: infestatistica/TestingHypothesesII/TestingHypothesesII.md
   - Equações Diferenciais: edo/info.md
   - Álgebra Linear: alglin/info.md
 theme: mkdocs
