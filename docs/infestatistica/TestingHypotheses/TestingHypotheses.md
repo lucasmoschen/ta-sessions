@@ -466,16 +466,38 @@ p_value = 1 - norm.cdf(np.sqrt(2)/np.sqrt(73)*T)
 print(p_value)
 ```
 
-    0.4235452033377154
+    0.24842181754953252
 
 
 Como o p-valor é alto, não faz sentido rejeitar a hipótese nula. 
 
 Encerramos a atividade aqui!
 
-# Teste de Verossimilhança 
+# Testes de Razão Verossimilhança 
 
+São testes baseados na [verossimilhaça](https://lucasmoschen.github.io/TA_sessions/infestatistica/MaximumLikelihoodEstimator/MaximumLikelihoodEstimator/#funcao-verossimilhanca) do modelo $f_n(x|\theta)$. Suponha que queremos testar a hipótese: 
 
-```python
+$$
+H_0: \theta \in \Omega_0
+$$
+$$
+H_1: \theta \in \Omega_1
+$$
 
-```
+Vamos lembrar que a função de verossimilhança tende a ser mais alta próximo do valor verdadeiro do parâmetro. Com isso em mente, gostaríamos de saber se a verossimilhança é maior em $\Omega_0$ ou em $\Omega_1$. Para isso, definimos a **estatística de razão de verossimilhança**:
+$$
+\Lambda(x) = \frac{\sup_{\theta \in \Omega_0}f_n(x|\theta)}{\sup_{\theta \in \Omega}f_n(x|\theta)}
+$$
+Observe que o denominador é o valor da função de verossimilhança no Estimador de Máxima Verossimilhança. Se o parâmetro verdadeiro estiver em $\Omega_0$, o númerador deve ser mais alto em $\Omega_0$, então a estatística se aproxima de 1. Baseado nisso, o **teste de razão de verossimilhança** é:
+
+> Rejeitamos $H_0$ se $\Lambda(x) \le k$, para algum $k$. 
+
+### Teorema:
+
+Seja $\Omega \in \mathbb{R}^p$ aberto e suponha que $H_0$ seja $\theta_{i_1} = \theta_{01}, ..., \theta_{i_k} = \theta_{0k}$, onde $\theta = (\theta_1, ..., \theta_p)$. Assuma que $H_0$ seja verdadeira e a função de verossimilhança satisfaça as condições para que o MLE seja assintoticamente normal e assintoticamente eficiente. Então:
+$$
+-2\log\Lambda(x) \overset{d}{\to} \chi^2(k)
+$$
+(converge em distribuição quando $n \to \infty$).
+
+A demonstração pode ser encontrada no [StatLect](https://www.statlect.com/fundamentals-of-statistics/likelihood-ratio-test)
