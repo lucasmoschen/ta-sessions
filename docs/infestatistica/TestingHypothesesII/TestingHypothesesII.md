@@ -6,7 +6,7 @@ Nesse notebook veremos:
 2. Hipótese Alternativa Bilateral 
 3. Teste T
 
-## Teste de Hipótese Simples: 
+## Teste de Hipótese Simples
 
 O objetivo é considerar se um vetor de observações vem de uma entre duas observações. Nesse caso o espaço $\Omega$ é formado por dois pontos, e não é um espaço de parâmetros, mas espaço de distribuições, em particular dessas duas distribuições. 
 
@@ -29,11 +29,19 @@ $$
 a\alpha(\delta^*) + b\beta(\delta^*) \le a\alpha(\delta) + b\beta(\delta) 
 $$
 
+Queremos escolher um teste que minimize essa combinação linear $a\alpha(\delta) + b\beta(\delta)$. Claro que seria ótimmo ter esse erro zerado, mas sabemos que existe uma espécie de *trade off* entre esses erros. Esse teorema dá o teste necessário para que isso acontença. 
+
 ### Corolário
+
+Considere as hipóteses do teorema anterior, $a > 0$ e $b > 0$. Defina estatística de teste **razão de verossimilhança**:
+$$
+\Lambda(x) = \begin{cases}
+              \frac{f_0(x)}{f_1(x)}, \text{ se } f_0(x) \le f_1(x) \\
+              1, \text{ caso contrário }. 
+\end{cases}
+$$
+Defina o procedimento de teste $\delta$: Rejeita $H_0$ se $\Lambda(x) > a/b$. Então o valor de $af_0(x) + bf_1(x)$ é mínimo.  
 
 ### Lema Nayman-Pearson
 
-
-```python
-
-```
+Suponha que $\delta '$ tem a seguinte forma, para algum $k > 0$: $H_0$ não é rejeitada se $f_1(x) < kf_0(x)$ e o é quando $f_1(x) > kf_0(x).$ Se $\delta$ é outro procedimento de teste tal que $\alpha(\delta) \le \alpha(\delta ')$, então $\beta(\delta) \ge \beta(\delta ')$. 
