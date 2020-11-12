@@ -40,6 +40,7 @@ Os exercícios resolvidos disponíveis estão linkados ao título da seção.
 |8.4|A distribuição t|-|
 |8.5|[Intervalos de Confiança](https://gvmail-my.sharepoint.com/:b:/g/personal/b37214_fgv_edu_br/EbFKyMMpgkNOhSoqbp-63ZkBn9dVwfPXpvhcKxIuoFt4hA?e=O9tK6W)|1,4,5,6|
 |9.1|[Problemas de Teste de Hipóteses](https://gvmail-my.sharepoint.com/:b:/g/personal/b37214_fgv_edu_br/ESXojyhh4KFKgUzzpE15kBAB04ZVSPpGl_2i_tbfOyY7xQ?e=bNFYtR)|3,8,13,19,21|
+|9.5|[Teste t](https://gvmail-my.sharepoint.com/:b:/g/personal/b37214_fgv_edu_br/EbOD8FZyRZJOr5sZVdPurbABhHTS0fIfz9uOhRppoS-YVQ?e=kvnfwg)|4,5|
 
 ## Resumos 
 
