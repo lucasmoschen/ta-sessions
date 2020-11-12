@@ -1,6 +1,6 @@
 # Teste de Hipóteses: Definições
 
-1. Hipótese Nula e Alternativa 
+1. Hipótese Nula e Alternatica 
 2. Região Crítica 
 3. Estatística de Teste
 4. Função de Poder
@@ -501,3 +501,13 @@ $$
 (converge em distribuição quando $n \to \infty$).
 
 A demonstração pode ser encontrada no [StatLect](https://www.statlect.com/fundamentals-of-statistics/likelihood-ratio-test)
+
+## Testes não enviesados 
+
+Um teste é dito não enviesado se $\forall \theta \in \Omega_0$ e $\theta ' \in \Omega_1,$
+
+$$
+\pi(\theta|\delta) \le \pi(\theta '|\delta)
+$$
+
+Não é muito utilizado dado seu difícil cálculo numérico e não traz resultados quem valem a pena. 
