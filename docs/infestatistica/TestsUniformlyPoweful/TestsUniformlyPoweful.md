@@ -11,6 +11,8 @@ Assumiremos que $\Omega_1$ não é conjunto unitário. Também suponha que o ní
 
 Segundo essas condições, queremos encontrar o procedimento de teste $\delta$ que tem a menor probabilidade de erro do tipo II. 
 
+TODO (Descrever os principais resultados)
+
 
 ```python
 

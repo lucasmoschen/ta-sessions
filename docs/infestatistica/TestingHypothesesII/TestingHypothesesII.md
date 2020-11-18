@@ -5,6 +5,8 @@ Nesse notebook veremos:
 1. Teste de Hipóteses Simples 
 2. Hipótese Alternativa Bilateral 
 3. Teste T
+4. Comparando médias de duas Normais
+5. Comparando variâncias de duas Normais 
 
 # Teste de Hipótese Simples
 
@@ -254,11 +256,11 @@ plt.show()
 
 Seja $c$ o $1 - \alpha_0$ quartil da distribuição $t$ com $n-1$ graus de liberdade. Então, segundo o teste citado acima, a função poder tem as seguintes propriedades: 
 
-1. $\pi(\mu, \sigma|\delta) = \alpha_0$, quando $\mu = \mu_0$.
-2. $\pi(\mu, \sigma|\delta) < \alpha_0$, quando $\mu < \mu_0$.
-3. $\pi(\mu, \sigma|\delta) > \alpha_0$, quando $\mu > \mu_0$.
-4. $\pi(\mu, \sigma|\delta) \to 0$, quando $\mu \to -\infty$.
-5. $\pi(\mu, \sigma|\delta) \to 1$, quando $\mu \to \infty$.
+1. $\pi(\mu, \sigma^2|\delta) = \alpha_0$, quando $\mu = \mu_0$.
+2. $\pi(\mu, \sigma^2|\delta) < \alpha_0$, quando $\mu < \mu_0$.
+3. $\pi(\mu, \sigma^2|\delta) > \alpha_0$, quando $\mu > \mu_0$.
+4. $\pi(\mu, \sigma^2|\delta) \to 0$, quando $\mu \to -\infty$.
+5. $\pi(\mu, \sigma^2|\delta) \to 1$, quando $\mu \to \infty$.
 
 O teste também é não enviesado como consequência.
 
@@ -678,3 +680,99 @@ $$
 $$
 
 Logo o p-valor é $2 - 2T_{n-1}(|u|)$.
+
+# Comparando médias de duas normais
+
+Assumimos que $X = (X_1,...,X_m)$ é uma amostra da distribuição normal com média $\mu_1$ e variância $\sigma^2$, enquanto $Y = (Y_1, ..., Y_n)$ é normal com média $\mu_2$ e variância $\sigma^2$. Estamos interessados no teste 
+$$
+H_0: \mu_1 \le \mu_2
+$$
+$$
+H_1: \mu_1 > \mu_2
+$$
+A função poder é dada por $\pi(\mu_1, \mu_2, \sigma^2|\delta)$. A discussão quando as normais tem diferentes normais será postergada. 
+
+Defina 
+$$
+S_x = \sum_{i=1}^m (X_i - \bar{X}_m)^2
+$$
+$$
+S_y = \sum_{i=1}^n (Y_i - \bar{Y}_n)^2
+$$
+$$
+U = \frac{(m + n - 2)^{1/2}(\bar{X}_m - \bar{Y}_n)}{\left(\frac{1}{n} + \frac{1}{m}\right)^{1/2}(S_x^2 + S_y^2)^{1/2}}
+$$
+
+A distribuição: $U \sim t$ com $m + n - 2$ graus de liberdade, com parâmetro de não centralidade
+$$
+\psi= \frac{\mu_1 - \mu_2}{\sigma\left(\frac{1}{m} + \frac{1}{n}\right)^{1/2}}
+$$
+
+Note que se $\mu_1 = \mu_2$, $U$ é uma distribuição t padrão.
+
+## Função Poder
+
+Considere o procedimento de teste $\delta$ que rejeite $H_0$ se $U \ge T_{m+n-2}^{-1}(1 - \alpha_0)$. Assim:
+
+1. $\pi(\mu_1, \mu_2, \sigma^2|\delta) = \alpha_0$, quando $\mu_1 = \mu_2$.
+2. $\pi(\mu_1, \mu_2, \sigma^2|\delta) < \alpha_0$, quando $\mu_1 < \mu_2$.
+3. $\pi(\mu_1, \mu_2, \sigma^2|\delta) > \alpha_0$, quando $\mu_1 > \mu_2$.
+4. $\pi(\mu_1, \mu_2, \sigma^2|\delta) \to 0$, quando $\mu_1 - \mu_2 \to -\infty$.
+5. $\pi(\mu_1, \mu_2, \sigma^2|\delta) \to 1$, quando $\mu_1 - \mu_2 \to \infty$.
+
+Além do mais o teste é não enviesado. 
+
+## P-valor
+
+Depois de termos observado as amostras, seja $u$ a estatística observada de $U$. O p-valor da hipótese é $1 - T_{m+n-2}(u)$.
+
+> Equivalentemente com o teste t do item 3, podemos expressar tudo com a hipótese bilateral e só altera o graude liberade quando comparado com o teste t anterior.  
+
+## Variâncias diferentes
+
+### Razão entre as variâncias é conhecida
+
+Suponha que se as variâncias de $X$ e $Y$ são $\sigma_1^2$ e $\sigma_2^2$ e que $\sigma^2_2 = k\sigma^2_1, k > 0$. Então podemos usar a estatística 
+
+$$
+U = \frac{(m + n - 2)^{1/2}(\bar{X}_m - \bar{Y}_n)}{\left(\frac{1}{n} + \frac{k}{m}\right)^{1/2}(S_x^2 + \frac{S_y^2}{k})^{1/2}}
+$$
+
+### Problema de Behrens-Fisher
+
+Quando os 4 parâmetros das normais são desconhecidos, tão pouco a razão de variâncias, nem a estatística de razão de verossimilhança tem distribuição conhecida. Algumas tentativas já foram feitas, como [Welch](https://en.wikipedia.org/wiki/Welch%27s_t-test) e [outros](https://en.wikipedia.org/wiki/Behrens%E2%80%93Fisher_problem#Other_approaches).
+
+# Comparando variâncias de duas Normais
+
+Assumimos que $X = (X_1,...,X_m)$ é uma amostra da distribuição normal com média $\mu_1$ e variância $\sigma^2$, enquanto $Y = (Y_1, ..., Y_n)$ é normal com média $\mu_2$ e variância $\sigma^2$. Estamos interessados no teste 
+$$
+H_0: \sigma_1^2 \le \sigma_2^2
+$$
+$$
+H_1: \sigma_1^2 > \sigma_2^2
+$$
+A função poder é dada por $\pi(\mu_1, \mu_2, \sigma_1^2, \sigma_2^2|\delta)$. COnsidere $S_x^2$ e $S_y^2$ definidos anteriormente. Então temos que $S_x^2/(m-1)$ é estimador para $\sigma_1^2$, enquanto $S_y^2/(n-1)$ é estimador para $\sigma_2^2$.
+
+Defina 
+$$
+V = \frac{S_x^2/(m-1)}{S_y^2/(n-1)}
+$$
+
+Rejeitaremos $X_0$ se $V \ge c$, onde $c$ será escolhido para que esse teste tenha nível de significância $\alpha_0$. Esse teste é chamado de teste F, pois a distribuição de $(\sigma_1^2/\sigma_2^2)V$ é F com parâmetros $m-1$ e $n-1$. Em particular se $\sigma_1^2 = \sigma_2^2$, $V$ tem distribuição F. Onde a [distribuição F é descrita aqui](https://lucasmoschen.github.io/TA_sessions/infestatistica/SamplingDistribution/SamplingDistribution/#distribuicao-f). 
+
+## Função Poder
+
+Considere o procedimento de teste $\delta$ que rejeite $H_0$ se $V \ge F_{m-1,n-1}^{-1}(1 - \alpha_0)$. Assim:
+
+1. $\pi(\mu_1, \mu_2, \sigma_1^2, \sigma_2^2|\delta) = 1 - F_{m-1,n-1}(\frac{\sigma_2^2}{\sigma_1^2}c)$
+2. $\pi(\mu_1, \mu_2, \sigma_1^2, \sigma_2^2|\delta) = \alpha_0$, quando $\sigma_1^2 = \sigma^2_2$.
+3. $\pi(\mu_1, \mu_2, \sigma_1^2, \sigma_2^2|\delta) < \alpha_0$, quando $\sigma_1^2 < \sigma_2^2$.
+4. $\pi(\mu_1, \mu_2, \sigma_1^2, \sigma_2^2|\delta) > \alpha_0$, quando $\sigma^2_1 > \sigma_2^2$.
+5. $\pi(\mu_1, \mu_2, \sigma_1^2, \sigma_2^2|\delta) \to 0$, quando $\sigma_1^2/\sigma_2^2 \to 0$.
+6. $\pi(\mu_1, \mu_2, \sigma_1^2, \sigma_2^2|\delta) \to 1$, quando $\sigma_1^2/\sigma_2^2 \to \infty$.
+
+Além do mais o teste é não enviesado. 
+
+## P-valor
+
+Depois de termos observado as amostras, seja $v$ a estatística observada de $V$. O p-valor da hipótese é $1 - F_{m-1,n-1}(v)$.

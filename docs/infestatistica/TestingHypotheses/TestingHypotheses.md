@@ -1,6 +1,6 @@
 # Teste de Hipóteses: Definições
 
-1. Hipótese Nula e Alternatica 
+1. Hipótese Nula e Alternativa 
 2. Região Crítica 
 3. Estatística de Teste
 4. Função de Poder
@@ -288,9 +288,9 @@ Um exemplo bobo seria: Rejeitamos a hipótese nula se $0 \not \in (\min(X_1, X_2
 
 O problema é que em geral esse tipo de procedimento não é interessante. Para isso estabelecemos uma **estatística de teste** $T$ e uma **Região de Rejeição** $T$, tal que nosso procedimento seja: 
 
-> Rejeitamos $H_0$ se $T \geq R$. 
+> Rejeitamos $H_0$ se $T \in R$. 
 
-Nesse caso vamos considerar $T = \left|\frac{X_1 + X_2}{2}\right|$ e vamos rejeitar a hipótese se $T$ estiver muito longe de $0$, isto é, se $T \geq c$. Portanto definimor nossa **Região de Rejeição** como $[c, + \infty]$, o que reduz nosso problema a determinar $c$. 
+Nesse caso vamos considerar $T = \frac{X_1 + X_2}{2}$ e vamos rejeitar a hipótese se $|T|$ estiver muito longe de $0$, isto é, se $|T| \geq c$. Portanto definimor nossa **Região de Rejeição** como $(-\infty,-c]\cup[c, + \infty)$, o que reduz nosso problema a determinar $c$. 
 
 Qual $c$ seria razoável? 4, 5, 1? Essa pergunta não vai ser respondida. Antes vamos visualizar como fica a região crítica (2). Rejeitamos a hipótese se 
 
@@ -380,19 +380,26 @@ $$
 \pi(0) = P_{\mu = 0}(T \geq c) \leq \alpha_0
 $$
 
-Precisamos então encontrar $c$ tal que $\pi(\mu) = P_{\mu \neq 0}(T \ge c)$ seja maximado. 
+Precisamos então encontrar $c$ tal que $\pi(\mu) = P_{\mu \neq 0}(T \ge c)$ seja maximado.
 
-Observamos que $T \sim N(0, \sigma^2/2) \rightarrow \sqrt{2}T/\sigma = Z \sim N(0,1)$, quando $\mu = 0$. Logo $P(T \ge c) = P(Z \ge \sqrt{2}c/\sigma) = 1 - \Phi(\sqrt{2}c/\sigma) \leq \alpha_0$ 
+Observamos que, quando $\mu = 0$, $T \sim N(0, \sigma^2/2) \rightarrow \sqrt{2}T/\sigma = Z \sim N(0,1)$. Logo 
 
-Para maximizar $\pi(\mu)$ em $\Omega_1$, observamos que $\pi(\mu)$ decresce com $c$ (os gráficos acima representam bem isso). Como queremos maximizar, gostaríamos de tomar $c$ o mínimo possível, restrito a $1 - \Phi(\sqrt{2}c/\sigma) \leq \alpha_0 \rightarrow 1 - \alpha_0 \leq \Phi(\sqrt{2}c/\sigma)$ como vimos acima. Estamos lidando com uma função inversível, então 
+$$P(|T| \ge c) = P(|Z| \ge \sqrt{2}c/\sigma) = 2(1 - \Phi(\sqrt{2}c/\sigma)) \leq \alpha_0$$ 
+
+Para maximizar $\pi(\mu)$ em $\Omega_1$, observamos que $\pi(\mu)$ decresce com $c$ (os gráficos acima representam bem isso). Como queremos maximizar, gostaríamos de tomar $c$ o mínimo possível, restrito a 
+
+$$2(1 - \Phi(\sqrt{2}c/\sigma)) \leq \alpha_0 \rightarrow 1 - \alpha_0/2 \leq \Phi(\sqrt{2}c/\sigma)$$ 
+
+como vimos acima. Estamos lidando com uma função inversível, então 
+
 $$
-\frac{\sigma}{\sqrt{2}}\Phi^{-1}(1 - \alpha_0) \leq c
+\frac{\sigma}{\sqrt{2}}\Phi^{-1}(1 - \alpha_0/2) \leq c
 $$
 
 O melhor valor de $c$ que respeita essa condição e maximiza a relação é, portanto 
 
 $$
-c = \frac{\sigma}{\sqrt{2}}\Phi^{-1}(1 - \alpha_0) 
+c = \frac{\sigma}{\sqrt{2}}\Phi^{-1}(1 - \alpha_0/2) 
 $$
 
 
@@ -405,11 +412,11 @@ Lembre que $\alpha_0$ indica o máximo de Erro I que aceitamos.
 
 ```python
 alpha0 = 0.05
-c = np.sqrt(73)/np.sqrt(2)*norm.ppf(1 - alpha0)
+c = np.sqrt(73)/np.sqrt(2)*norm.ppf(1 - alpha0/2)
 print(c)
 ```
 
-    9.937420997144207
+    11.841167465893536
 
 
 É bem próximo do gráfico acima mostrado, quando testamos para $c = 10$. 
@@ -455,18 +462,18 @@ Assim não escolhemos $\alpha_0$, só observamos seu menor valor e vemos se faz 
 
 No nosso caso calcular o p-valor é tranquilo. Para calcular o p-valor, **precisamos dos dados**. Queremos rejeitar a hipótese nula, isto é, queremos que $t \geq c$ que $\alpha_0$ seja o menor possível, onde $t$ é o valor observado de $T$. Vamos diminuindo $\alpha_0$ e para cada $\alpha_0$ podemos calcular $c$ e verificamos se $t \ge c$. Podemos fazer isso até que $c = t$, assim:
 $$
-t = \frac{\sigma}{\sqrt{2}}\Phi^{-1}(1 - \alpha_0) \rightarrow \alpha_0 = 1 - \Phi\left(\frac{\sqrt{2}}{\sigma}t\right)
+t = \frac{\sigma}{\sqrt{2}}\Phi^{-1}(1 - \alpha_0/2) \rightarrow \alpha_0 = 2\left(1 - \Phi\left(\frac{\sqrt{2}}{\sigma}t\right)\right)
 $$
 
 
 
 
 ```python
-p_value = 1 - norm.cdf(np.sqrt(2)/np.sqrt(73)*T)
+p_value = 2*(1 - norm.cdf(np.sqrt(2)/np.sqrt(73)*T))
 print(p_value)
 ```
 
-    0.24842181754953252
+    0.8477386286989927
 
 
 Como o p-valor é alto, não faz sentido rejeitar a hipótese nula. 
