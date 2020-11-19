@@ -43,6 +43,9 @@ Os exercícios resolvidos disponíveis estão linkados ao título da seção.
 |9.5|[Teste t](https://gvmail-my.sharepoint.com/:b:/g/personal/b37214_fgv_edu_br/EcAh1xtl9aZJspdMmUcGWvMBQkquOxXVEZcv0KsAWxgV5w?e=sdffvu)|4,5,8|
 |9.6|Comparando as médias de Normais|-|
 |9.7|Teste F|Derivar a distribuição e teste de razão de verossimilhanças|
+|11.1|Método de Mínimos Quadrados|3|
+|11.2|Regressão|2,3,6,19|
+|11.3|Inferência Estatística sobre Regressão Linear Simples|-|
 
 ## Resumos 
 
