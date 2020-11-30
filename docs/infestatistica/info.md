@@ -56,7 +56,7 @@ DeGroot)](https://www.amazon.com/Probability-Statistics-4th-Morris-DeGroot/dp/03
 - [Capítulo 8 - parte 1](https://gvmail-my.sharepoint.com/:b:/g/personal/b37214_fgv_edu_br/ERy_MG050_5KrK7TRBvYQV0Bn8l8f2TP3zdNvPLO2wGv_A?e=s29p8r)
 - [Capítulo 8 - parte 2](https://gvmail-my.sharepoint.com/:b:/g/personal/b37214_fgv_edu_br/EXvA-diNLoBFrbWrnUQJ4ykBhzd1Ffy2m14OCkXejzYV1g?e=RYACOl)
 - [Capítulo 9 - Definições](https://gvmail-my.sharepoint.com/:b:/g/personal/b37214_fgv_edu_br/ETOlC5jCQJpBlF78xu2pACcBZ1XRa8wdghKnoBwRG6mKnQ?e=PtMtvM)
-- [Capítulo 9 - Testes](https://gvmail-my.sharepoint.com/:b:/g/personal/b37214_fgv_edu_br/EZUQvsxq4olMtGov4_BnhNEBhrvZMN54W8KUq_eKGWDcLQ?e=TMlSuC) 
+- [Capítulo 9 - Testes](https://gvmail-my.sharepoint.com/:b:/g/personal/b37214_fgv_edu_br/ET7HGKwDYDJJl1AI2tYtWVsB3jk0donQUNgBWiO3hXTwYQ?e=ZQzd6k) 
   
 ## Documentos Adicionais 
 
