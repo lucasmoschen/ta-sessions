@@ -30,7 +30,7 @@ Os exercícios resolvidos disponíveis estão linkados ao título da seção.
 |8.8|[Informação de Fisher](https://gvmail-my.sharepoint.com/:b:/g/personal/b37214_fgv_edu_br/EeD_5bf-40ZBjLMPTT9m1LUBpSFKZ710JfdMfeJMI2yO5Q?e=4wlhpz)|5,7,10|
 |8.1|[Estimadores de Distribuições Amostrais](https://gvmail-my.sharepoint.com/:b:/g/personal/b37214_fgv_edu_br/EXZsQsg9FapKgRIa-xp8TXUB8f7G7UGqZqSQqp51vBiXmQ?e=qWwThZ)|1,2,3,9|
 |8.2|[Distribuição Chi-Quadrada](https://gvmail-my.sharepoint.com/:b:/g/personal/b37214_fgv_edu_br/EX1bH7_qX7xNmRNePTi2IlEBZlhXSNlgnVgGV55DKhCYlQ?e=i2PFfv)|4,7,10,13|
-|-|[Exercícios de Revisão](https://gvmail-my.sharepoint.com/:b:/g/personal/b37214_fgv_edu_br/EcQHn6DROm1PmI0XPqunSj4BTKe_ZFnZBYPQt0DiZ_qtZg?e=Hn6McJ)|-|
+|-|[Exercícios de Revisão A1](https://gvmail-my.sharepoint.com/:b:/g/personal/b37214_fgv_edu_br/EcQHn6DROm1PmI0XPqunSj4BTKe_ZFnZBYPQt0DiZ_qtZg?e=Hn6McJ)|-|
 
 ### A2 
 
@@ -46,6 +46,7 @@ Os exercícios resolvidos disponíveis estão linkados ao título da seção.
 |11.1|[Método de Mínimos Quadrados](https://gvmail-my.sharepoint.com/:b:/g/personal/b37214_fgv_edu_br/EdeY9HTd6NJLqccOaCvAQmoBKvBIjdsoOuYdcrs7lxeyGw?e=vaS6rM)|3|
 |11.2|[Regressão](https://gvmail-my.sharepoint.com/:b:/g/personal/b37214_fgv_edu_br/EdeY9HTd6NJLqccOaCvAQmoBKvBIjdsoOuYdcrs7lxeyGw?e=vaS6rM)|2,3,6,19|
 |11.3|Inferência Estatística sobre Regressão Linear Simples|-|
+|-|[Exercícios de Revisão A2](https://gvmail-my.sharepoint.com/:b:/g/personal/b37214_fgv_edu_br/EemnkK2qbcBBi4FEL1zdHYwBr43J_W4j9-jPqSqH9v2pjw?e=aIV28a)|-|
 
 ## Resumos 
 
