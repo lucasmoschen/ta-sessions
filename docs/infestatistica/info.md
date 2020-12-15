@@ -1,9 +1,6 @@
 # Informações Gerais 
 
-As monitorias ocorrem todas as quinta-feiras, às 16h, através da plataforma
-Zoom. 
-
-- [Link para acesso](https://fgv-br.zoom.us/j/91598441676?pwd=YzJVckt0L2owT2lRb0k1S3FwOFVRdz09)
+Monitoria de Inferência Estatística correspondente ao período de 2020.2.  
 
 - [Monitorias gravadas](https://gvmail-my.sharepoint.com/:f:/g/personal/b37214_fgv_edu_br/EkrXFUG0yNRMlwwav0WIWUgBXxOS2UHHummnp4Vqt63csw?e=6mCICi)
 
