@@ -19,7 +19,15 @@ nav:
     - Exemplos Básicos Testes de Hipótese: infestatistica/ExampleHypothesesTesting/ExampleHypothesesTesting.md
     - Testes Uniformemente mais Poderosos: infestatistica/TestsUniformlyPoweful/TestsUniformlyPoweful.md
   - Equações Diferenciais: edo/info.md
-  - Álgebra Linear: alglin/info.md
+  - Álgebra Linear: 
+    - Informações Gerais: alglin/info.md
+    - Monitoria 4: alglin/files/monitoria4.md
+    - Monitoria 6: alglin/files/monitoria6.md
+    - Monitoria 7: alglin/files/monitoria7.md
+    - Monitorias 10 e 11: alglin/files/monitoria10.md
+    - Monitorias 12 e 13: alglin/files/monitoria12.md
+    - Decomposição LU: alglin/files/decompositionLU.md
+
 theme: mkdocs
 
 extra_javascript:
