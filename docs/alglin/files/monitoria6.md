@@ -23,20 +23,18 @@
 - Todo subespaço vetorial tem dimensão finita. 
 - Se a dimensão de um subespaço é $n$, então o subespaço é o próprio espaço. 
 
-## Exercícios:
+## Exercícios
 
 1. Prove que os seguintes polinômios são linearmente independentes: $p(x) = x^3 - 5x^2 + 1, q(x) = 2x^4 + 5x - 6, r(x) = x^2 - 5x + 2$. *Dica: Considere a base $X = \{1, x, x^2, x^3, x^4\}$*
 2. Seja $X$ um conjunto de polinômios.  Se dois polinômios quaisquer de $X$ têm graus diferentes, $X$ é LI.
 3. Dado $X \subset E$, seja $Y$ o conjunto obtido de $X$ substituindo um dos seus elementos $v$ por $v + \alpha u$, onde $u \in X$ e $\alpha \in \mathbb{R} $. Prove que X e Y geram o mesmo subespaço vetorial de $E$. Conclua, então que $\{v_1,...,v_k\} \subset E$ e $\{v_1, v_2 - v_1, ..., v_k - v_1\} \subset E$ geram o mesmo subespaço vetorial de $E$.
 4. Mostre que os vetores $u = (1,1)$ e $v = (-1,1)$ formam uma base de $\mathbb{R}^2$. 
-5. Considere a afirmação: "A união de dois conjuntos subconjuntos LI do espaço vetorial E é ainda um conjunto LI". Assinale verdadeiro e falso.
-   - (  ) Sempre.
-   - (  ) Nunca.
-   - (  ) Quando um deles é disjunto do outro.
-   - (  ) Quanto um deles é parte do outro.
-   - (  ) Quando um deles é disjunto do subespaço gerado pelo outro.
-   - (  ) Quando o número de elementos de um deles mais o número de elementos
-      do outro é igual à dimensão de E.
+5. Considere a afirmação: "A união de dois conjuntos subconjuntos LI do espaço
+   vetorial E é ainda um conjunto LI". Assinale verdadeiro e falso: (  )
+   Nunca; (  ) Quando um deles é disjunto do outro; (  ) Quanto um deles é
+   parte do outro; (  ) Quando um deles é disjunto do subespaço gerado pelo
+   outro; (  ) Quando o número de elementos de um deles mais o número de
+   elementos do outro é igual à dimensão de E.
 6. Encontre uma base para o espaço vetorial  
    
 $$W = \{\begin{pmatrix} a \\ b \\ -b \\ a\end{pmatrix}, \forall a,b \in

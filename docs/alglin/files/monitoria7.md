@@ -23,15 +23,7 @@
 1. Prove que os seguintes polinômios são linearmente independentes: $p(x) = x^3 - 5x^2 + 1, q(x) = 2x^4 + 5x - 6, r(x) = x^2 - 5x + 2$. *Considere a base $X = \{1, x, x^2, x^3, x^4\}$*
 2. Seja $X$ um conjunto de polinômios.  Se dois polinômios quaisquer de $X$ têm graus diferentes, $X$ é LI.
 3. Mostre que os vetores $u = (1,1)$ e $v = (-1,1)$ formam uma base de $\mathbb{R}^2$. 
-4. Avalie as afirmações: 
-   1. ( ) Seja $C = \{(x_1,x_2,x_3,x_4,x_5); x_i = 3\cdot x_{i-1}, i=2,...,5\}$. É um subespaço do $\mathbb{R}^5$. (Se verdadeiro, apresente uma base). 
-   2. ( ) É possível encontrar dois planos do $\mathbb{R}^4$ que se interesectem em apenas um ponto. (*Pense em planos com dois parâmetos livres*).
-   3. ( ) O conjunto de todas as matrizes cujo determinante é maior do que zero é um subespaço das matrizes. 
-   4. ( ) A união de dois conjuntos LI é um conjunto LI, se  um deles é disjunto do subespaço gerado pelo outro. 
-   5. ( ) Existe apenas uma transformação linear com $T(0,0,1) = (1,2)$, $T(0,1,0) = (2,3), T(1,0,0) = (4,7) $, onde $T: \mathbb{R}^3\to \mathbb{R}^2$. Isto é, não existem $x,y,z$, tal que $T(x,y,z) \neq T'(x,y,z)$ com essas propriedades. 
-   6. ( ) Se $u, v, w \in E$ são colineares, então $Au,Av,Aw$ também são. 
-   7. ( ) Se $Aw = Au + Av$, então $w = u + v$.
-5. Encontre os espaços linha, coluna e anulado da matriz:
+4. Encontre os espaços linha, coluna e anulado da matriz:
 
 $$
 A = \left[
@@ -43,9 +35,17 @@ A = \left[
 \right]
 $$
 
-6. Seja $U = \{u_1,u_2,u_3\}$. Como representar o vetor $(a,b,c)$, como combinação linear dos vetores de $U$. 
-7. Exiba uma base para o espaço vetorial formado pelos polinômios de grau $\leq n$ que se anulam em $x=2$ e $x=3$. Qual a dimensão dessa base? 
-8. Tem-se uma transformação linear $A(-1,1) = (1,2,3)$ e $A(2,3) = (1,1,1)$. Qual a matriz de tranformação de $A$, em relação às bases canônicas. 
+5. Seja $U = \{u_1,u_2,u_3\}$. Como representar o vetor $(a,b,c)$, como combinação linear dos vetores de $U$. 
+6. Exiba uma base para o espaço vetorial formado pelos polinômios de grau $\leq n$ que se anulam em $x=2$ e $x=3$. Qual a dimensão dessa base? 
+7. Tem-se uma transformação linear $A(-1,1) = (1,2,3)$ e $A(2,3) = (1,1,1)$. Qual a matriz de tranformação de $A$, em relação às bases canônicas. 
+8. Avalie as afirmações: 
+   - ( ) Seja $C = \{(x_1,x_2,x_3,x_4,x_5); x_i = 3\cdot x_{i-1}, i=2,...,5\}$. É um subespaço do $\mathbb{R}^5$. (Se verdadeiro, apresente uma base). 
+   - ( ) É possível encontrar dois planos do $\mathbb{R}^4$ que se interesectem em apenas um ponto. (*Pense em planos com dois parâmetos livres*).
+   - ( ) O conjunto de todas as matrizes cujo determinante é maior do que zero é um subespaço das matrizes. 
+   - ( ) A união de dois conjuntos LI é um conjunto LI, se  um deles é disjunto do subespaço gerado pelo outro. 
+   - ( ) Existe apenas uma transformação linear com $T(0,0,1) = (1,2)$, $T(0,1,0) = (2,3), T(1,0,0) = (4,7) $, onde $T: \mathbb{R}^3\to \mathbb{R}^2$. Isto é, não existem $x,y,z$, tal que $T(x,y,z) \neq T'(x,y,z)$ com essas propriedades. 
+   - ( ) Se $u, v, w \in E$ são colineares, então $Au,Av,Aw$ também são. 
+   - ( ) Se $Aw = Au + Av$, então $w = u + v$.
 
 
 
