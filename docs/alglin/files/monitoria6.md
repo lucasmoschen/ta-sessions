@@ -30,17 +30,26 @@
 3. Dado $X \subset E$, seja $Y$ o conjunto obtido de $X$ substituindo um dos seus elementos $v$ por $v + \alpha u$, onde $u \in X$ e $\alpha \in \mathbb{R} $. Prove que X e Y geram o mesmo subespaço vetorial de $E$. Conclua, então que $\{v_1,...,v_k\} \subset E$ e $\{v_1, v_2 - v_1, ..., v_k - v_1\} \subset E$ geram o mesmo subespaço vetorial de $E$.
 4. Mostre que os vetores $u = (1,1)$ e $v = (-1,1)$ formam uma base de $\mathbb{R}^2$. 
 5. Considere a afirmação: "A união de dois conjuntos subconjuntos LI do espaço vetorial E é ainda um conjunto LI". Assinale verdadeiro e falso.
-   1. (  ) Sempre.
-   2. (  ) Nunca.
-   3. (  ) Quando um deles é disjunto do outro.
-   4. (  ) Quanto um deles é parte do outro.
-   5. (  ) Quando um deles é disjunto do subespaço gerado pelo outro.
-   6. (  ) Quando o número de elementos de um deles mais o número de elementos
+   - (  ) Sempre.
+   - (  ) Nunca.
+   - (  ) Quando um deles é disjunto do outro.
+   - (  ) Quanto um deles é parte do outro.
+   - (  ) Quando um deles é disjunto do subespaço gerado pelo outro.
+   - (  ) Quando o número de elementos de um deles mais o número de elementos
       do outro é igual à dimensão de E.
-6. Encontre uma base para o espaço vetorial $W = \{\begin{pmatrix} a \\ b \\ -b \\ a\end{pmatrix}, \forall a,b \in \mathbb{R}^2\}$. 
-7. Se $f$ e $g$ estão no espaço vetorial de todas as funções com derivadas
-   contínuas, então o determinante de $\begin{pmatrix} f(x) & g(x) \\
-   f'(x) & g'(x) \end{pmatrix}$ é conhecido como **Wronskiano** de $f$ e
+6. Encontre uma base para o espaço vetorial  
+   
+$$W = \{\begin{pmatrix} a \\ b \\ -b \\ a\end{pmatrix}, \forall a,b \in
+\mathbb{R}^2\}$$
+ 
+7.  Se $f$ e $g$ estão no espaço vetorial de todas as funções com derivadas
+   contínuas, então o determinante de 
+   
+$$\begin{pmatrix} f(x) & g(x) \\
+   f'(x) & g'(x) \end{pmatrix}
+   $$ 
+
+é conhecido como **Wronskiano** de $f$ e
    $g$. Prove que $f$ e $g$ são linearmente independentes, se seu Wronskiano
    não for identicamente nulo. Esse estudo é estremamente importante no estudo
    de soluções de sistemas de equações diferenciáveis, pois identifica se duas

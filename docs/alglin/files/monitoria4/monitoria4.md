@@ -129,7 +129,7 @@ A_T = A.T
 
 
 
-$\displaystyle \left[\begin{matrix}4.0 & 2.0 & 4.0\\2.0 & 0 & 2.0\\4.0 & 2.0 & 2.0\end{matrix}\right]$
+$$\left[\begin{matrix}4.0 & 2.0 & 4.0\\2.0 & 0 & 2.0\\4.0 & 2.0 & 2.0\end{matrix}\right]$$
 
 
 
@@ -141,7 +141,7 @@ $\displaystyle \left[\begin{matrix}4.0 & 2.0 & 4.0\\2.0 & 0 & 2.0\\4.0 & 2.0 & 2
 
 
 
-$\displaystyle \left[\begin{matrix}0 & 4.0 & -1.0\\-4.0 & 0 & 3.0\\1.0 & -3.0 & 0\end{matrix}\right]$
+$$\left[\begin{matrix}0 & 4.0 & -1.0\\-4.0 & 0 & 3.0\\1.0 & -3.0 & 0\end{matrix}\right]$$
 
 
 
@@ -172,7 +172,7 @@ sc.Matrix(A_inv)
 
 
 
-$\displaystyle \left[\begin{matrix}0.025 & -0.075 & 0.15\\0.145 & -0.035 & -0.13\\0.01 & 0.17 & 0.06\end{matrix}\right]$
+$$\left[\begin{matrix}0.025 & -0.075 & 0.15\\0.145 & -0.035 & -0.13\\0.01 & 0.17 & 0.06\end{matrix}\right]$$
 
 
 
@@ -184,7 +184,7 @@ sc.Matrix(X)
 
 
 
-$\displaystyle \left[\begin{matrix}1.9 & 0.325 & -0.125\\0.0199999999999999 & -0.315 & 0.275\\-0.24 & 0.53 & 0.95\end{matrix}\right]$
+$$\left[\begin{matrix}1.9 & 0.325 & -0.125\\0.0199999999999999 & -0.315 & 0.275\\-0.24 & 0.53 & 0.95\end{matrix}\right]$$
 
 
 
@@ -236,9 +236,8 @@ sc.Matrix(L)
 
 
 
-$\displaystyle \left[\begin{matrix}1.0 & 0.0 & 0.0\\0.666666666666667 & 1.0 & 0.0\\0.333333333333333 & -0.999999999999999 & 1.0\end{matrix}\right]$
-
-
+$$\left[\begin{matrix}1.0 & 0.0 & 0.0\\0.666666666666667 & 1.0 &
+0.0\\0.333333333333333 & -0.999999999999999 & 1.0\end{matrix}\right]$$
 
 
 ```python
@@ -248,13 +247,7 @@ sc.Matrix(U)
 
     U:
 
-
-
-
-
-$\displaystyle \left[\begin{matrix}3.0 & 8.0 & 14.0\\0.0 & 0.666666666666667 & 3.66666666666667\\0.0 & 0.0 & 3.0\end{matrix}\right]$
-
-⎛
+$$\left[\begin{matrix}3.0 & 8.0 & 14.0\\0.0 & 0.666666666666667 & 3.66666666666667\\0.0 & 0.0 & 3.0\end{matrix}\right]$$
 
 ### Curiosidades
 
