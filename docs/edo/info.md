@@ -4,13 +4,13 @@ Monitoria de Equações Diferenciais Ordinárias correspondente ao período de
 2020.1. Os temas abordados são: 
 
 1. Equações diferenciais lineares de 1ª ordem. 
-2. Euqações com variáveis separáveis. 
+2. Equações com variáveis separáveis. 
 3. Equações exatas.
 4. Equações de 2ª ordem.
 5. Modelos de dinâmica populacional e ciências naturais. 
 6. Sistemas lineares homogêneos e não homogêneos.
 7. Sistemas não lineares: análise qualitativa. 
-8. Métodos Numéricos.  
+8. Métodos numéricos.  
 
 ## Gravações 
 
