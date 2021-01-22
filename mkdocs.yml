@@ -1,7 +1,9 @@
 site_name: Teaching Assistant 
 nav: 
   - Home: index.md
-  - Inferência à Estatística: 
+  - Curvas e Superfícies: 
+    - Informações Gerais: curvas/info.md
+  - Estatística: 
     - Informações Gerais: infestatistica/info.md
     - Grandes Amostras: infestatistica/LargeRandomSamples/LargeRandomSamples.md
     - Introdução: infestatistica/StatisticalInference/StatisticalInference.md
@@ -18,7 +20,7 @@ nav:
     - Teste de Hipóteses II: infestatistica/TestingHypothesesII/TestingHypothesesII.md
     - Exemplos Básicos Testes de Hipótese: infestatistica/ExampleHypothesesTesting/ExampleHypothesesTesting.md
     - Testes Uniformemente mais Poderosos: infestatistica/TestsUniformlyPoweful/TestsUniformlyPoweful.md
-  - Equações Diferenciais: edo/info.md
+  - EDO: edo/info.md
   - Álgebra Linear: 
     - Informações Gerais: alglin/info.md
     - Monitoria 4: alglin/files/monitoria4/monitoria4.md
@@ -29,6 +31,8 @@ nav:
     - Decomposição LU: alglin/files/decompositionLU.md
 
 theme: mkdocs
+repo_url: https://lucasmoschen.github.io
+repo_name: Página Inicial
 
 extra_javascript:
     - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
