@@ -15,7 +15,7 @@ Eu espero que a informação aqui contida seja de interesse!
 - Inferência à Estatística (2020.2)
     - Professor [Luiz Max de Carvalho](https://emap.fgv.br/corpo-docente/luiz-max-fagundes-de-carvalho)
 - Curvas e Superfícies (2021.1)
-    - Professora [Asla Medeiros de Sá](https://sites.google.com/view/aslasa/home)
+    - Professora [Asla Medeiros e Sá](https://sites.google.com/view/aslasa/home)
 
 ## Referências interessantes de matemática 
 
