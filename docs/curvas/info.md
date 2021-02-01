@@ -2,7 +2,7 @@
 
 Monitoria de Curvas e Superfícies correspondente ao período de 2021.1.  
 
-- [Ementa da disciplina](/files/Ementa_curvas_superficies.pdf)
+- [Ementa da disciplina](/files/curvas-superficies/Ementa_curvas_superficies.pdf)
 - [Monitorias gravadas](https://www.lipsum.com/)
 
 ## Tópicos e Exercícios 
