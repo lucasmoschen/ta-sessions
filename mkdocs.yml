@@ -1,34 +1,10 @@
 site_name: Teaching Assistant 
 nav: 
   - Home: index.md
-  - Curvas e Superfícies: 
-    - Informações Gerais: curvas/info.md
-  - Estatística: 
-    - Informações Gerais: infestatistica/info.md
-    - Grandes Amostras: infestatistica/LargeRandomSamples/LargeRandomSamples.md
-    - Introdução: infestatistica/StatisticalInference/StatisticalInference.md
-    - Priori e Posteriori: infestatistica/PrioriPosteriori/PrioriPosteriori.md
-    - Distribuições Conjugada e Estimador de Bayes: infestatistica/ConjugateDistributions/ConjugateDistributions.md
-    - Estimador de Máxima Verossimilhança: infestatistica/MaximumLikelihoodEstimator/MaximumLikelihoodEstimator.md
-    - Estatísticas Suficientes: infestatistica/SufficientStatistics.md
-    - Distribuição Amostral: infestatistica/SamplingDistribution/SamplingDistribution.md
-    - Intervalos de Confiança: infestatistica/ConfidenceIntervals/ConfidenceIntervals.md
-    - Análise Bayesiana da Normal: infestatistica/BayesianAnalysisNormal/BayesianAnalysisNormal.md
-    - Estimadores não enviesados: infestatistica/UnbiasedEstimators/UnbiasedEstimators.md
-    - Informação de Fisher: infestatistica/FisherInformation/FisherInformation.md
-    - Teste de Hipóteses: infestatistica/TestingHypotheses/TestingHypotheses.md
-    - Teste de Hipóteses II: infestatistica/TestingHypothesesII/TestingHypothesesII.md
-    - Exemplos Básicos Testes de Hipótese: infestatistica/ExampleHypothesesTesting/ExampleHypothesesTesting.md
-    - Testes Uniformemente mais Poderosos: infestatistica/TestsUniformlyPoweful/TestsUniformlyPoweful.md
+  - Curvas e Superfícies: curvas/info.md
+  - Estatística: infestatistica/info.md
   - EDO: edo/info.md
-  - Álgebra Linear: 
-    - Informações Gerais: alglin/info.md
-    - Monitoria 4: alglin/files/monitoria4/monitoria4.md
-    - Monitoria 6: alglin/files/monitoria6.md
-    - Monitoria 7: alglin/files/monitoria7.md
-    - Monitorias 10 e 11: alglin/files/monitoria10.md
-    - Monitorias 12 e 13: alglin/files/monitoria12.md
-    - Decomposição LU: alglin/files/decompositionLU.md
+  - Álgebra Linear: alglin/info.md
 
 theme:
   name: null

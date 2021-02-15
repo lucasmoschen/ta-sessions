@@ -12,4 +12,13 @@ Monitoria de Álgebra Linear correspondente ao período de
 7. Autovalores e autovetores 
 8. Projeções
 
-[teste](/alglin/files/monitoria4/monitoria4)
+## Monitorias
+
+|Monitorias|
+|---|
+|[Monitoria 4](/alglin/files/monitoria4/monitoria4)|
+|[Monitoria 6](/alglin/files/monitoria6)|
+|[Monitoria 7](/alglin/files/monitoria7)|
+|[Monitorias 10 e 11](/alglin/files/monitoria10)|
+|[Monitorias 12 e 13](/alglin/files/monitoria12)|
+|[Decomposição LU](/alglin/files/decompositionLU)|

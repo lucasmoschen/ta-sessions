@@ -7,7 +7,37 @@ Monitoria de Inferência Estatística correspondente ao período de 2020.2.
 - [Notebooks](https://github.com/lucasmoschen/TA_sessions/tree/master/Statistical_Inference/notebooks):
   Você pode rodar esses notebooks também!
 
-## Tópicos e Exercícios 
+## Tópicos 
+
+Nessa seção, os tópicos discutidos nas aulas são apresentados conjuntamente
+a exemplos. Todos os textos foram desenvolvidos em *Jupyter Notebook*, com a
+Linguagem de Programação Python. 
+
+|Conceitos Introdutórios|
+|---|
+|[Grandes Amostras](/infestatistica/LargeRandomSamples/LargeRandomSamples)|
+|[Introdução](/infestatistica/StatisticalInference/StatisticalInference)|
+|[Priori e Posteriori](/infestatistica/PrioriPosteriori/PrioriPosteriori)|
+|[Distribuição Amostral](/infestatistica/SamplingDistribution/SamplingDistribution)|
+
+|Estimadores|
+|---|
+|[Distribuições Conjugada e Estimador de Bayes](/infestatistica/ConjugateDistributions/ConjugateDistributions)|
+|[Estimador de Máxima Verossimilhança](/infestatistica/MaximumLikelihoodEstimator/MaximumLikelihoodEstimator)|
+|[Estatísticas Suficientes](/infestatistica/SufficientStatistics)|
+|[Intervalos de Confiança](/infestatistica/ConfidenceIntervals/ConfidenceIntervals)|
+|[Análise Bayesiana da Normal](/infestatistica/BayesianAnalysisNormal/BayesianAnalysisNormal)|
+|[Estimadores não enviesados](/infestatistica/UnbiasedEstimators/UnbiasedEstimators)|
+|[Informação de Fisher](/infestatistica/FisherInformation/FisherInformation)|
+
+|Testes de Hipótese|
+|---|
+|[Teste de Hipóteses](/infestatistica/TestingHypotheses/TestingHypotheses)|
+|[Teste de Hipóteses II](/infestatistica/TestingHypothesesII/TestingHypothesesII)|
+|[Exemplos Básicos Testes de Hipótese](/infestatistica/ExampleHypothesesTesting/ExampleHypothesesTesting)|
+|[Testes Uniformemente mais Poderosos](/infestatistica/TestsUniformlyPoweful/TestsUniformlyPoweful)|
+
+## Exercícios 
 
 Os exercícios resolvidos disponíveis estão linkados ao título da seção. 
 
