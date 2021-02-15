@@ -30,7 +30,9 @@ nav:
     - Monitorias 12 e 13: alglin/files/monitoria12.md
     - Decomposição LU: alglin/files/decompositionLU.md
 
-theme: mkdocs
+theme:
+  name: null
+  custom_dir: 'cinder'
 repo_url: https://lucasmoschen.github.io
 repo_name: Página Inicial
 
