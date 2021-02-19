@@ -2,10 +2,14 @@
 
 Monitoria de Curvas e Superfícies correspondente ao período de 2021.1.  
 
-- [Ementa da disciplina](/files/disciplines/curvas-superficies/Ementa_curvas_superficies.pdf)
+- [Evento Google Calendar](https://calendar.google.com/event?action=TEMPLATE&tmeid=MDN1OTA0OG44NGI1bWdrZjFuODg3ODNyaGlfMjAyMTAyMjZUMTcwMDAwWiBsdWNhcy5tYWNoYWRvbW9zY2hlbkBt&tmsrc=lucas.machadomoschen%40gmail.com&scp=ALL): Sexta-feira 14h
+- [Link Google Meet](https://meet.google.com/uoc-zvjy-iuf)
 - [Monitorias gravadas](https://www.lipsum.com/)
+- [Ementa da disciplina](/files/disciplines/curvas-superficies/Ementa_curvas_superficies.pdf)
 
-## Tópicos e Exercícios 
+## Tópicos
+
+## Listas 
 
 Os exercícios resolvidos disponíveis estão dispostos ao título da seção. 
 
