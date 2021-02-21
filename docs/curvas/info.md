@@ -6,7 +6,7 @@ Monitoria de Curvas e Superfícies correspondente ao período de 2021.1.
 - [Link Google Meet](https://meet.google.com/uoc-zvjy-iuf)
 - [Monitorias gravadas](https://www.lipsum.com/)
 - [Ementa da disciplina](/files/disciplines/curvas-superficies/Ementa_curvas_superficies.pdf)
-- [Notebooks documentados](https://www.lipsum.com/)
+- [Notebooks documentados](https://github.com/lucasmoschen/ta-sessions/tree/master/Curves_Surfaces/notebooks)
 
 ## Tópicos
 
