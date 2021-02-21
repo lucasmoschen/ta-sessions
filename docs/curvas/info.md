@@ -6,12 +6,20 @@ Monitoria de Curvas e Superfícies correspondente ao período de 2021.1.
 - [Link Google Meet](https://meet.google.com/uoc-zvjy-iuf)
 - [Monitorias gravadas](https://www.lipsum.com/)
 - [Ementa da disciplina](/files/disciplines/curvas-superficies/Ementa_curvas_superficies.pdf)
+- [Notebooks documentados](https://www.lipsum.com/)
 
 ## Tópicos
 
-## Listas 
+|Conceitos introdutórios de curvas|
+|---|
+|[Definições Preliminares](/curvas/first-definitions)|
 
-Os exercícios resolvidos disponíveis estão dispostos ao título da seção. 
+
+## Listas
+
+|Número|Itens discutidos|Solução|
+|------|----------------|-------|
+|[1](/files/disciplines/curvas-superficies/lista1.pdf)|Conceito de curva paramétrica, vetor tangente e exemplos|-|
 
 ## Resumos 
   
