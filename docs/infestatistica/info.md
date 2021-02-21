@@ -15,27 +15,27 @@ Linguagem de Programação Python.
 
 |Conceitos Introdutórios|
 |---|
-|[Grandes Amostras](/infestatistica/LargeRandomSamples/LargeRandomSamples)|
-|[Introdução](/infestatistica/StatisticalInference/StatisticalInference)|
-|[Priori e Posteriori](/infestatistica/PrioriPosteriori/PrioriPosteriori)|
-|[Distribuição Amostral](/infestatistica/SamplingDistribution/SamplingDistribution)|
+|[Grandes Amostras](/ta-sessions/infestatistica/LargeRandomSamples/LargeRandomSamples)|
+|[Introdução](/ta-sessions/infestatistica/StatisticalInference/StatisticalInference)|
+|[Priori e Posteriori](/ta-sessions/infestatistica/PrioriPosteriori/PrioriPosteriori)|
+|[Distribuição Amostral](/ta-sessions/infestatistica/SamplingDistribution/SamplingDistribution)|
 
 |Estimadores|
 |---|
-|[Distribuições Conjugada e Estimador de Bayes](/infestatistica/ConjugateDistributions/ConjugateDistributions)|
-|[Estimador de Máxima Verossimilhança](/infestatistica/MaximumLikelihoodEstimator/MaximumLikelihoodEstimator)|
-|[Estatísticas Suficientes](/infestatistica/SufficientStatistics)|
-|[Intervalos de Confiança](/infestatistica/ConfidenceIntervals/ConfidenceIntervals)|
-|[Análise Bayesiana da Normal](/infestatistica/BayesianAnalysisNormal/BayesianAnalysisNormal)|
-|[Estimadores não enviesados](/infestatistica/UnbiasedEstimators/UnbiasedEstimators)|
-|[Informação de Fisher](/infestatistica/FisherInformation/FisherInformation)|
+|[Distribuições Conjugada e Estimador de Bayes](/ta-sessions/infestatistica/ConjugateDistributions/ConjugateDistributions)|
+|[Estimador de Máxima Verossimilhança](/ta-sessions/infestatistica/MaximumLikelihoodEstimator/MaximumLikelihoodEstimator)|
+|[Estatísticas Suficientes](/ta-sessions/infestatistica/SufficientStatistics)|
+|[Intervalos de Confiança](/ta-sessions/infestatistica/ConfidenceIntervals/ConfidenceIntervals)|
+|[Análise Bayesiana da Normal](/ta-sessions/infestatistica/BayesianAnalysisNormal/BayesianAnalysisNormal)|
+|[Estimadores não enviesados](/ta-sessions/infestatistica/UnbiasedEstimators/UnbiasedEstimators)|
+|[Informação de Fisher](/ta-sessions/infestatistica/FisherInformation/FisherInformation)|
 
 |Testes de Hipótese|
 |---|
-|[Teste de Hipóteses](/infestatistica/TestingHypotheses/TestingHypotheses)|
-|[Teste de Hipóteses II](/infestatistica/TestingHypothesesII/TestingHypothesesII)|
-|[Exemplos Básicos Testes de Hipótese](/infestatistica/ExampleHypothesesTesting/ExampleHypothesesTesting)|
-|[Testes Uniformemente mais Poderosos](/infestatistica/TestsUniformlyPoweful/TestsUniformlyPoweful)|
+|[Teste de Hipóteses](/ta-sessions/infestatistica/TestingHypotheses/TestingHypotheses)|
+|[Teste de Hipóteses II](/ta-sessions/infestatistica/TestingHypothesesII/TestingHypothesesII)|
+|[Exemplos Básicos Testes de Hipótese](/ta-sessions/infestatistica/ExampleHypothesesTesting/ExampleHypothesesTesting)|
+|[Testes Uniformemente mais Poderosos](/ta-sessions/infestatistica/TestsUniformlyPoweful/TestsUniformlyPoweful)|
 
 ## Exercícios 
 

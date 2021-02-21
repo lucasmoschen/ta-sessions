@@ -16,9 +16,9 @@ Monitoria de Álgebra Linear correspondente ao período de
 
 |Monitorias|
 |---|
-|[Monitoria 4](/alglin/files/monitoria4/monitoria4)|
-|[Monitoria 6](/alglin/files/monitoria6)|
-|[Monitoria 7](/alglin/files/monitoria7)|
-|[Monitorias 10 e 11](/alglin/files/monitoria10)|
-|[Monitorias 12 e 13](/alglin/files/monitoria12)|
-|[Decomposição LU](/alglin/files/decompositionLU)|
+|[Monitoria 4](/ta-sessions/alglin/files/monitoria4/monitoria4)|
+|[Monitoria 6](/ta-sessions/alglin/files/monitoria6)|
+|[Monitoria 7](/ta-sessions/alglin/files/monitoria7)|
+|[Monitorias 10 e 11](/ta-sessions/alglin/files/monitoria10)|
+|[Monitorias 12 e 13](/ta-sessions/alglin/files/monitoria12)|
+|[Decomposição LU](/ta-sessions/alglin/files/decompositionLU)|

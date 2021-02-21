@@ -71,8 +71,7 @@ $$S_5 = \{f(x) \in P_4 \| f(1)~ is~ a ~rational~ number\}$$
 
 ### Questão Teste 2: Operações com matrizes
 
-A matriz $A = \frac{1}{\sqrt{2}} \begin{
-pmatrix} 1 & -1 \\ 1 & 1 \end{pmatrix}$. Questão: $\exists n \in \mathbb{N}$, tal que $A^n = A$? 
+A matriz $A = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 & -1 \\ 1 & 1 \end{pmatrix}$. Questão: $\exists n \in \mathbb{N}$, tal que $A^n = A$? 
 
 Obs.: Observe que $\frac{1}{\sqrt{2}} = \frac{\sqrt{2}}{2}$, e se eu tratar $\theta = \frac{\pi}{4}$, temos que $A$ é matriz de rotação. Logo, basta encontrar $n$ tal que $n\cdot\frac{\pi}{4} = k\cdot2\cdot\pi \to n = 8\cdot k \to n = 8$ é solução, logo $A^8 = I \to A^9 = A$
 

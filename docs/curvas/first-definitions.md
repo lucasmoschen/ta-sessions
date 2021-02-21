@@ -5,9 +5,9 @@ Quando pensamos em curvas, em geral, expressamos como uma equação, como, por e
 $$
 x^2 + y^2 = 1 
 $$
-que é uma círcunferência 
+que é uma circunferência 
 
-<img alt = "circle" src = "first-definitions_files/circle-curve.png" width = 200> 
+<img alt = "circle" src = "/ta-sessions/curvas/first-definitions_files/circle-curve.png" width = 200> 
 
 ou talvez na reta $y = ax + b$. Chamamos essas curvas de **curvas de nível**, aquelas que são do tipo $f(x,y) = c$ para uma função $f:\mathbb{R}^2 \to \mathbb{R}$ continua. Todavia uma definição um tanto melhor é pensar em uma curva como um caminho traçado por um ponto se movimentando. 
 

@@ -12,7 +12,7 @@ Monitoria de Curvas e Superfícies correspondente ao período de 2021.1.
 
 |Conceitos introdutórios de curvas|
 |---|
-|[Definições Preliminares](/curvas/first-definitions)|
+|[Definições Preliminares](/ta-sessions/curvas/first-definitions)|
 
 
 ## Listas
