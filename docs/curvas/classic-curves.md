@@ -40,4 +40,24 @@ Quem quiser contribuir com esse texto, basta seguir o seguinte processo:
 
 </details>
 
+<details>
+  <summary>Cissoide de Diocles</summary>
+  
+<table style="width:100%">
+  <tr>
+    <th>Descrição</th><th>Equação</th><th>Gráfico</th>
+  </tr>
+  <tr>
+    <td  style="vertical-align:middle;">
+    É uma curva cúbica planar que permite construir duas médias proporcionais a uma dada razão. Seu nome vem do grego "forma de Hera" e foi estuda por Diocles 2 séculos antes da Era Comum. Ela é o <a href="http://www2.mat.ufrgs.br/~mat01074/20072/grupos/genio/cisoide.html"> lugar geométrico </a> da interseção da reta tangente à parábola com a reta perpendicular a essa passando pela origem. <a href="https://mathshistory.st-andrews.ac.uk/Curves/Cissoid/"> Referência </a>.
+    </td>
+    <td style="vertical-align:middle;">
+    \(2ay^3 - (x^2 + y^2)x = 0\)
+    </td>
+    <td><img src="/ta-sessions/curvas/classic-curves_files/cissoid.svg" width = 400></td>
+  </tr> 
+</table>
+
+</details>
+
 
