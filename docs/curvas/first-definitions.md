@@ -11,7 +11,7 @@ que é uma circunferência
 
 ou talvez na reta $y = ax + b$. Chamamos essas curvas de **curvas de nível**, aquelas que são do tipo $f(x,y) = c$ para uma função $f:\mathbb{R}^2 \to \mathbb{R}$ continua. Todavia uma definição um tanto melhor é pensar em uma curva como um caminho traçado por um ponto se movimentando. 
 
-**Curva parametrizada:** Seja $I$ um intervalo. Uma curva parametrizada é uma aplicação contínua $\alpha: I \subset \mathbb{R} \to \mathbb{R}^n$, muitas vezes notada como $\alpha(t) = (\alpha_1(t), ..., \alpha_n(t))$ e $t$ é chamado de parâmetro. 
+**Curva parametrizada:** Seja $I$ um intervalo. Uma curva parametrizada é uma aplicação contínua $\alpha: I \subset \mathbb{R} \to \mathbb{R}^n$, muitas vezes notada como $\alpha(t) = (\alpha_1(t), ..., \alpha_n(t))$ e $t$ é chamado de parâmetro. Algumas definições pedem intervalo aberto. Dizemos que ela é **diferenciável** quando a aplicação é diferenciável. Por fim dizemos que a curva é **regular** quando $\alpha '(t) \neq 0, \forall t \in I$.
 
 **Traço da curva:** Seja uma curma $\alpha:I \to \mathbb{R}^n$. Dizemos que o traço de $\alpha$ é a imagem da aplicação $\alpha$, denotada $\alpha(I)$. Algumas definições de curva são precisamento o que definimos de traço da curva. 
 
@@ -97,15 +97,51 @@ Se $c \neq 0$, esta é a equação paramétrica de um segmento de reta (potencia
 
 ## Comprimento de arco 
 
+Definimos o comprimento de arco de uma curva $\gamma$ começando no ponto $\gamma(t_0)$ como a função 
+$$
+s(t) = \int_{t_0}^t ||\dot{\gamma}(s)||ds
+$$
+Se escolhermos um ponto $\tilde{t}_0$ diferente, o resultado será diferente. 
 
+Dizemos que a curva tem **velocidade unitária** se $||\dot{\gamma}(t)|| = 1$
 
 ## Reparametrização
 
+Sejam $I$ e $J$ intervalos. Uma **mudança de parâmetro** é uma função $h: J \to I$ bijetiva contínua com inversa contínua. Em particular, uma função com essa propriedade é chamada de **homeomorfismo**. 
 
+Sejam $\tilde{\gamma}:J \to \mathbb{R}^n$ e $\gamma: I \to \mathbb{R}^n$ dua curvas. Dizemos que $\tilde{\gamma}$ é reparametrização da curva $\gamma$ se existe uma mudança de parâmetro $h$ tal que 
+$$
+\tilde{\gamma} = \gamma \circ h 
+$$
+Essa notação significa que $\forall t \in J, \tilde{\gamma}(t) = \gamma(h(t))$. Observe que se $\tilde{\gamma}$ é reparametrização de $\gamma$, essa é reparametrização da primeira. 
+
+Lembre que uma curva pode ter muitas parametrizações, mas nem todas são reparametrizações uma da outra, como no exemplo a baixo: 
+
+**Exemplo:** Considere as seguintes parametrizações da circunferência: 
+$$
+\alpha(t) = (cos(t), sen(t)), t \in [0,2\pi]
+$$
+$$
+\beta(t) = (cos(2t), sen(2t)), t \in [0,2\pi]
+$$
+A segunda parametrização "dá uma volta a mais na circunferência". Devemos nos perguntar se existe uma mudança de parâmetro $h$ entre esses intervalos que garanta 
+$$
+cos(2t) = cos(h(t))
+$$
+$$
+sen(2t) = sen(h(t))
+$$
+Não conseguimos fazer isso e manter a bijetividade de $h$ entre os intervalos. Uma solução para esse problema seria considerar o domínio de $\beta$ o intervalor $[0,\pi]$. Nesse caso $h(t) = 2t$ é uma mudança de parâmetro entre as parametrizações. 
+
+### Proposições importantes 
+
+Tente demonstrar essas proposições:
+
+1. Toda reparametrização de uma curva regular é regular. 
+2. O comprimento de uma curva diferenciável regular não muda depois de uma reparametrização. 
+
+### Teorema da reparametrização 
+
+Uma curva parametrizada tem uma reparametrização com velocidade unitária se, e somente se, é regular. 
 
 ## Curvas fechadas
-
-
-```python
-
-```
