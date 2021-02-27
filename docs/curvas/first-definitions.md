@@ -13,6 +13,8 @@ ou talvez na reta $y = ax + b$. Chamamos essas curvas de **curvas de nível**, a
 
 **Curva parametrizada:** Seja $I$ um intervalo. Uma curva parametrizada é uma aplicação contínua $\alpha: I \subset \mathbb{R} \to \mathbb{R}^n$, muitas vezes notada como $\alpha(t) = (\alpha_1(t), ..., \alpha_n(t))$ e $t$ é chamado de parâmetro. Algumas definições pedem intervalo aberto. Dizemos que ela é **diferenciável** quando a aplicação é diferenciável. Por fim dizemos que a curva é **regular** quando $\alpha '(t) \neq 0, \forall t \in I$.
 
+**Observação:** Definições de curva podem variar em cada livro. Alguns livros pedem que a aplicação seja de classe $C^{\infty}$ ou suave, enquanto outras pedem apenas classe $C^2$ e assim por diante. De forma geral exigir apenas a continuidade é mais fraco e podemos pedir diferenciabilidade ou suavidade posteriormente. 
+
 **Traço da curva:** Seja uma curma $\alpha:I \to \mathbb{R}^n$. Dizemos que o traço de $\alpha$ é a imagem da aplicação $\alpha$, denotada $\alpha(I)$. Algumas definições de curva são precisamento o que definimos de traço da curva. 
 
 
@@ -115,6 +117,8 @@ $$
 $$
 Essa notação significa que $\forall t \in J, \tilde{\gamma}(t) = \gamma(h(t))$. Observe que se $\tilde{\gamma}$ é reparametrização de $\gamma$, essa é reparametrização da primeira. 
 
+**Observação:** Dependendo em como definimos curva, existem variações nessa definição. De forma geral, podemos dizer que duas curvas de classe $C^k$ são equivalentes, isto é, uma é reparametrização da outra, quando existe uma mapa bijetivo de classe  $C^k$ com inversa também de classe $C^k$ tal que a igualdade acima é válida em todo ponto. Para mais detalhes, consulte o [Wikipedia](https://en.wikipedia.org/wiki/Curve#Differential_geometry). 
+
 Lembre que uma curva pode ter muitas parametrizações, mas nem todas são reparametrizações uma da outra, como no exemplo a baixo: 
 
 **Exemplo:** Considere as seguintes parametrizações da circunferência: 
@@ -144,4 +148,38 @@ Tente demonstrar essas proposições:
 
 Uma curva parametrizada tem uma reparametrização com velocidade unitária se, e somente se, é regular. 
 
+### Demonstração
+
+Um rascunho da demonstração supondo a regularidade da curva. Seja $\alpha$ uma curve (diferenciável). Queremos encontrar $\beta : J \to \mathbb{R}^n$ tal que $\beta = \alpha \circ h$ para algum $h$ **difeomorfismo** (bijeito diferenciável com inversa diferenciável). Se existesse, ele deveria ter o seguinte comportamento, 
+$$
+||\beta '(t)|| = ||\alpha'(h(t))h'(t)|| = 1, 
+$$
+por hipótese. Dado $t_0 \in I, t \in I, $ 
+$$
+s(t) := \int_{t_0}^t ||\alpha '(\tau)||d\tau
+$$
+é uma função crescente e derivável, pois $\alpha$ é regular. Então ela possui uma função inversa $t: s(I) \to I$ também crescente e derivável, de forma que 
+$$
+t'(s) = \frac{1}{\frac{ds}{dt}(t(s))} = \frac{1}{s'(t(s))} = \frac{1}{||\alpha'(t(s))||}
+$$
+Então defina $\beta: s(I) \to \mathbb{R}^n$ de forma que $\beta(s) = \alpha(t(s))$. Então, 
+$$
+||\beta'(s)|| = ||\alpha'(t(s))t'(s)|| = 1
+$$
+Então a mudança de parâmetro que estávamos procurando era a inversa da função de comprimento de curva. 
+
 ## Curvas fechadas
+
+### Curva T-periódica
+
+Seja $T \in \mathbb{R}$. Dizemos que uma curva suave $\alpha : \mathbb{R} \to \mathbb{R}^n$ é T-periódica se 
+$$
+\alpha(t + T) = \alpha(t), t \in \mathbb{R}
+$$
+Se $\alpha$ é não constante, mas T-periódica, com $T \neq 0$, então ela é dita **fechada**. Dizemos que o período da curva fechada é o menor número positivo $T$ tal que $\alpha$ seja T-periódica. 
+
+**Exemplo:** A elipse é um exemplo onde o perído é $2\pi$. 
+
+### Auto-intersecção
+
+Uma curva $\alpha$ tem uma auto-intersecção no ponto $p$ se existem $a \neq b$ tal que $\alpha(a) = \alpha(b) = p$ e se $\alpha$ é fechada com período $T$, então $a - b$ não é um inteiro múltiplo de $T$. 
