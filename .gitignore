@@ -5,3 +5,4 @@ site/
 *.fls
 *.log
 *.synctex.gz
+*.out
