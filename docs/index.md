@@ -25,3 +25,7 @@ Eu espero que a informação aqui contida seja de interesse!
 - [Manin](https://github.com/3b1b/manim): ferramenta para criar vídeos
   matemáticos explicativos com animação programática, uma biblioteca para
   Python. 
+- [Seeing Theory](https://seeing-theory.brown.edu/index.html#firstPage):
+  visualização de conceitos de probabilidade e estatística. 
+- [Softwares de Geometria Algébrica](https://ga-explorer.netlify.app/index.php/ga-software/): lista de
+  softwares relacionados com Geometria Algébrica. 

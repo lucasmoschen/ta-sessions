@@ -16,6 +16,7 @@ classic-curves). Você pode contribuir para aumentar o acervo!
 |Conceitos introdutórios de curvas|
 |---|
 |[Definições Preliminares](/ta-sessions/curvas/first-definitions)|
+|[Curvatura](/ta-sessions/curvas/curvature)|
 
 
 ## Listas
