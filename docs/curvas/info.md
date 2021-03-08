@@ -28,7 +28,10 @@ classic-curves). Você pode contribuir para aumentar o acervo!
 
 ## Notas
 
-
+|Monitoria|Itens discutidos|Arquivo|
+|---------|----------------|-------|
+|26/02/2021|Lista 1 e GeoGebra|Checar vídeo|
+|05/03/2021|Lista 2 e conceito de reparametrização|[Visualizar](/files/disciplies/curvas-superfícies/monitoria05-03-2021.pdf)|
   
 ## Sugestões Adicionais 
 
