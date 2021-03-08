@@ -26,7 +26,12 @@ classic-curves). Você pode contribuir para aumentar o acervo!
 |[1](/files/disciplines/curvas-superficies/lista1.pdf)|Conceito de curva paramétrica, vetor tangente e exemplos|[1](/files/disciplines/curvas-superficies/solutions1.pdf)|
 |[2](/files/disciplines/curvas-superficies/lista2.pdf)|Reparametrização e comprimento de arco|-|
 
-## Resumos 
+## Notas
+
+|Monitoria|Itens discutidos|Arquivo|
+|---------|----------------|-------|
+|26/02/2021|Lista 1 e GeoGebra|Checar vídeo|
+|05/03/2021|Lista 2 e conceito de reparametrização|[Visualizar](/files/disciplies/curvas-superfícies/monitoria05-03-2021.pdf)|
   
 ## Sugestões Adicionais 
 
@@ -37,3 +42,4 @@ classic-curves). Você pode contribuir para aumentar o acervo!
 - [Livro Introdução à Geometria
   Diferencial](https://www.sbm.org.br/wp-content/uploads/2016/06/Introdu%C3%A7%C3%A3o-a-Geometria-Diferencial_Ronaldo-Freire-Lima.pdf)
   do professor [Ronaldo F. de Lima](https://www.ronaldofreiredelima.com/)
+- [Recursos Geogebra de Curvas](https://www.geogebra.org/search/curves)
