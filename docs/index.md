@@ -2,9 +2,10 @@
 
 Este website foi desenvolvido para concentrar as informações sobre as
 monitorias que dei ao longo da minha vida acadêmica. Em particular durante a
-Graduação na Escola de Matemática Aplicada, Fundação Getulio Vargas (EMAp/FGV). 
+Graduação na Escola de Matemática Aplicada na Fundação Getulio Vargas (EMAp/FGV). 
 
-Eu espero que a informação aqui contida seja de interesse!
+Eu espero que a informação aqui contida seja de interesse! Para sugestões e
+alterações, você pode usar o Issues do Github. 
 
 ## Tópicos abordados 
 
