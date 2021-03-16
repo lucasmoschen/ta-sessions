@@ -2,9 +2,9 @@
 
 ## Curvatura 
 
-Seja $\gamma$ uma curva parametrizada pelo comprimeto de arco. Definimos **curvatura** como a função $\kappa(t) = ||\ddot{\gamma}(t)||$. Essa definição é consistente com o que esperávamos de uma reta (curvatura nula) e de um círculo (curvatura constante positiva). Porém se $\gamma$ é uma curva regular qualquer, podemos definir a sua curvatura como sendo a curvatura de sua reparametrização pelo comprimento de arco. Isto é, seja $\hat{\gamma}$ uma reparametrização pelo comprimento de arco de $\gamma$ com curvatura $\kappa$. Então a curvatura de $\gamma$ será $\kappa$. 
+Seja $\gamma$ uma curva parametrizada pelo comprimeto de arco. Definimos **curvatura** como a função $\kappa(t) = ||\ddot{\gamma}(t)||$. Essa definição é consistente com o que esperávamos de uma reta (curvatura nula) e de um círculo (curvatura constante). Além disso se $\gamma$ é uma curva regular qualquer, ela tem uma reparametrização pelo comprimento de arco. Portanto, podemos definir a sua curvatura como sendo a curvatura de sua reparametrização pelo comprimento de arco. Isto é, seja $\hat{\gamma}$ uma reparametrização pelo comprimento de arco de $\gamma$ com curvatura $\kappa$. Então a curvatura de $\gamma$ será $\kappa$. 
 
-Uma questão que se levanta é: e se houver outra reparametrização de $\gamma$? Para isso, precisamos mostrar que a curvatura é invariante (não muda) segundo a reparametrização. Isso não é dificíl de ver pois as tangentes das reparametrização tem mesmo tamanho e, possivelmente, diferente sinal.
+Uma questão que se levanta é: e se houver outra reparametrização pelo comprimento de  arco para $\gamma$? Para isso, precisamos mostrar que a curvatura é invariante (não muda) segundo a reparametrização. Isso não é dificíl de ver pois as tangentes das reparametrizações têm mesmo tamanho e, possivelmente, diferentes sinal.
 
 ### Curvatura de uma curva regular
 
@@ -15,26 +15,29 @@ $$
 $$
 
 Observe que para curvas no plano essa expressão pode também ser utilizada, 
+
 $$
 \kappa = \frac{|\ddot{\gamma}_1\dot{\gamma}_2 - \ddot{\gamma}_2\dot{\gamma}_1|}{||\dot{\gamma}||^3}
 $$
 
 ### Curvatura com sinal 
 
-Definimos a **normal unitária com sinal** $n_s$ o vetor unitário que rotaciona o vetor tangente no sentido anti-horário em $\pi/2$. Em particular, $\ddot{\gamma}$ e $\dot{\gamma}$ são perpendiculares (pois a curva é parametrizada pelo comprimento de arco) e, portanto, é paralelo a $n_s$, assim
+Definimos a **normal unitária com sinal** $n(s)$ o vetor unitário que rotaciona o vetor tangente no sentido anti-horário em $\pi/2$. Em particular, $\ddot{\gamma}(s)$ e $\dot{\gamma}(s)$ são perpendiculares (pois a curva é parametrizada pelo comprimento de arco) e, portanto, é paralelo a $n(s)$, e assim
+
 $$
-\ddot{\gamma} = \kappa_s n_s
+\ddot{\gamma}(s) = \kappa_s(s) n(s)
 $$
+
 Chamamos $\kappa_s$ de **curvatura com sinal**. Em particular, $\kappa = |\kappa_s|$.
 
 ### Função Ângulo 
 
-Dada uma curva diferenciável $\gamma:I\to \mathcal{S}^1$, onde $\mathcal{S}^1$ é o círculo centrado na origem. Dizemos que $\theta : I \to \mathbb{R}$ é função ângulo de $\gamma$ quando 
+Dada uma curva diferenciável $\gamma: I \to \mathcal{S}^1$, onde $\mathcal{S}^1$ é o círculo centrado na origem, dizemos que $\theta : I \to \mathbb{R}$ é função ângulo de $\gamma$ quando 
 $$
 \gamma(s) = (\cos(\theta(s)), \sin(\theta(s)), \forall s \in I
 $$
 
-Observe que nessa definição, a imagem de $\gamma$ é um subconjunto de $\mathcal{S}^1$, como se fosse um arco. Por exemplo, 
+*Observe que nessa definição, a imagem de $\gamma$ é um subconjunto de $\mathcal{S}^1$, como se fosse um arco. Por exemplo,*
 
 $\gamma(s) = (\cos(2s), \sin(2s)) \implies \theta(s) = 2s$.
 
@@ -57,7 +60,7 @@ que é o produto interno do vetor $v$ rotacionado e $w$.
 
 #### Diferenciabilidade
 
-Seja $\gamma : I \to \mathcal{S}^1$ uma curva diferenciável. Então $\gamma$ admite uma função ângulo $\theta$ diferenciável. Além disso, se $\theta '$ é função ângulo diferenciável de $\gamma$, ela difere de $\theta$ por uma constante. 
+Seja $\gamma : I \to \mathcal{S}^1$ uma curva diferenciável. Então $\gamma$ admite uma função ângulo $\theta$ diferenciável. Além disso, se $\hat{\theta}$ é função ângulo diferenciável de $\gamma$, ela difere de $\theta$ por uma constante. 
 
 > Note que supondo a existência dessa função diferenciável, temos que, por aplicação da Regra da Cadeia, 
 $$
@@ -73,16 +76,18 @@ Assim, a demonstração se dá defininido $\theta$ com essa derivada (Teorema Fu
 Agora seja $\alpha$ uma curva regular, sem perda de generalidade, parametrizada pelo comprimento de arco. Seja $t(s) = \alpha '(s)$. Como $||t(s)|| = 1$, pela proposição anterior, existe uma função ângulo diferenciável $\theta$ de forma que definimos a curvatura de $\alpha$ como
 
 $$
-k(s) = \theta '(s) = det(t(s), t'(s)) = det(a'(s), a''(s))
+k(s) = \theta '(s) = det(t(s), t'(s)) = det(\alpha'(s), \alpha''(s))
 $$
 
-Observe que estamos rotacionando o vetor tangente, obtendo o que chamamos de vetor normal unitário e fazendo o produto interno com a aceleração da curva, o que coincide com a definição prévia! 
+**Observação 1:** Se $\alpha$ é regular, sua curvatura é 
+$$
+\kappa(s) = \frac{det(\alpha'(s), \alpha''(s))}{||\alpha '(s)||^3}
+$$
 
-**Exemplo:** Considere a parametrização do círculo 
-$$
-\alpha(s) = p + r(\cos(s/r), \sin(s/r)), s \in \mathbb{R}
-$$
-Assim 
+**Observação 2:** Estamos rotacionando o vetor tangente, obtendo o que chamamos de *vetor normal unitário* e fazendo o produto interno com a aceleração da curva, o que coincide com a definição prévia! 
+
+**Exemplo:** Considere a parametrização do círculo $\alpha(s) = p + r(\cos(s/r), \sin(s/r)), s \in \mathbb{R}$. Assim
+
 $$
 \alpha'(s) = (-\sin(s/r), \cos(s/r))
 $$
@@ -116,13 +121,26 @@ Sejam $\Phi = A + p_0$ um movimento rígido direto de $R^2$ e $\alpha : I \to \m
 
 > Observe que derivar $\beta ' = \Phi'(\alpha) = A\alpha '$ o que garante que $\beta$ é parametrizada pelo comprimento de arco e que $\beta '' = A\alpha ''$. Portanto, como $det(A) = 1$, vale que as curvaturas são as mesmas. 
 
-
 ## Equações de Frenet 
 
-Página 21 (Ronaldo)
+Seja $\alpha$ uma curva parametrizada pelo compimento de arco com vetor normal $n(s)$ e vetor tangente $t(s)$. Observe que para cada $s$, esses vetores formam um base ortonormal para $\mathbb{R}^2$. Chamamos essa base de  *diedro de Frenet*. Já definimos curvatura com sinal $\kappa$ quando $t'(s) = \kappa(s) n(s)$. Além disso, $||n(s)|| = 1 \implies n(s) \perp n'(s)$. Portanto $n'(s)$ é paralelo a $t(s)$. Logo $n'(s) = \langle n'(s), t(s) \rangle t(s)$ e: 
 
+$$
+\langle n'(s), t(s) \rangle = \langle Jt'(s), t(s) \rangle = -\langle t'(s), Jt(s) \rangle = -det(t(s), t'(s)) = -\kappa(s)
+$$
+
+Assim obtemos as *equações de Frenet*: 
+
+$$
+t' = \kappa \cdot n
+$$
+$$
+n' = -\kappa \cdot t
+$$
+
+As equações de Frenet são, portanto, um sistema de equações diferenciais envolvendo a base ortonormal para cada $s$. 
 
 ## Teorema Fundamental das Curvas no Plano
 
-Páginas 39-40 (Pressley)
-Páginas 22-23 (Ronaldo)
+Sejam $I$ um intervalo aberto e $\kappa : I \to \mathbb{R}$ uma função diferenciável. Então, existe
+uma curva diferenciável, $\alpha : I \to \mathbb{R}^2$, parametrizada por comprimento de arco, cuja função curvatura $\kappa_{\alpha}$ coincide com $\kappa$. Além disso, para toda curva $\beta : I \to \mathbb{R}^2$, parametrizada por comprimento de arco, que cumpre $\kappa_{\beta} = \kappa$, existe um movimento rígido $\Phi : \mathbb{R}^2 \to \mathbb{R}^2$, tal que $\alpha = \Phi \circ \beta$.
