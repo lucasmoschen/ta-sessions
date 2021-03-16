@@ -36,6 +36,8 @@ classic-curves). Você pode contribuir para aumentar o acervo!
   
 ## Sugestões Adicionais 
 
+### Teoria 
+
 - [Curso de Geometria Diferencial IMPA](https://www.youtube.com/watch?v=bZiAkM6ab08)
 - Professor [NJ WildBerger](https://njwildberger.com/): [Curvas
   clássicas](https://www.youtube.com/watch?v=_mvjOoTieTk) e [História da
@@ -43,4 +45,12 @@ classic-curves). Você pode contribuir para aumentar o acervo!
 - [Livro Introdução à Geometria
   Diferencial](https://www.sbm.org.br/wp-content/uploads/2016/06/Introdu%C3%A7%C3%A3o-a-Geometria-Diferencial_Ronaldo-Freire-Lima.pdf)
   do professor [Ronaldo F. de Lima](https://www.ronaldofreiredelima.com/)
+
+### Recursos Computacionais
+
 - [Recursos Geogebra de Curvas](https://www.geogebra.org/search/curves)
+- [Lista de sistemas algébricos](https://en.wikipedia.org/wiki/List_of_computer_algebra_systems):
+  Eu tenho bastante familiaridade com o SymPy (Python) e Matlab. 
+- [Comandos CAS Geogebra](https://wiki.geogebra.org/en/CAS_Specific_Commands)
+- [Artigo sobre Open Source CAS](https://lwn.net/Articles/710537/)
+
