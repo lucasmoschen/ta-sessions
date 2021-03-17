@@ -37,7 +37,7 @@ Linguagem de Programação Python.
 |[Exemplos Básicos Testes de Hipótese](/ta-sessions/infestatistica/ExampleHypothesesTesting/ExampleHypothesesTesting)|
 |[Testes Uniformemente mais Poderosos](/ta-sessions/infestatistica/TestsUniformlyPoweful/TestsUniformlyPoweful)|
 
-|Modelos lineares|
+|Modelos Lineares|
 |---|
 |[Modelos Lineares Simples](/ta-sessions/infestatistica/LinearModel/LinearModel)|
 
