@@ -37,9 +37,14 @@ Linguagem de Programação Python.
 |[Exemplos Básicos Testes de Hipótese](/ta-sessions/infestatistica/ExampleHypothesesTesting/ExampleHypothesesTesting)|
 |[Testes Uniformemente mais Poderosos](/ta-sessions/infestatistica/TestsUniformlyPoweful/TestsUniformlyPoweful)|
 
+|Modelos lineares|
+|---|
+|[Modelos Lineares Simples](/ta-sessions/infestatistica/LinearModel/LinearModel)|
+
+
 ## Exercícios 
 
-Os exercícios resolvidos disponíveis estão linkados ao título da seção. 
+Os exercícios resolvidos disponíveis estão lincados ao título da seção. 
 
 ### A1 
 
@@ -53,7 +58,7 @@ Os exercícios resolvidos disponíveis estão linkados ao título da seção.
 |7.7|[Estatística Suficiente](https://github.com/lucasmoschen/TA_sessions/blob/master/Statistical_Inference/pdf_source/Listas/Capitulo_7.7.pdf)|4,7,13,16|
 |7.8|[Estatística Suficiente Conjunta](https://github.com/lucasmoschen/TA_sessions/blob/master/Statistical_Inference/pdf_source/Listas/Capitulo_7.8.pdf)|3,8,12,16|
 |7.9|[Melhorando um Estimador](https://github.com/lucasmoschen/TA_sessions/blob/master/Statistical_Inference/pdf_source/Listas/Capitulo_7.9.pdf)|2,3,6,9,10|
-|8.7|[Estimadores não viesados](https://github.com/lucasmoschen/TA_sessions/blob/master/Statistical_Inference/pdf_source/Listas/Capitulo_8.7.pdf)|4,6,11,13|
+|8.7|[Estimadores não enviesados](https://github.com/lucasmoschen/TA_sessions/blob/master/Statistical_Inference/pdf_source/Listas/Capitulo_8.7.pdf)|4,6,11,13|
 |8.8|[Informação de Fisher](https://github.com/lucasmoschen/TA_sessions/blob/master/Statistical_Inference/pdf_source/Listas/Capitulo_8.8.pdf)|5,7,10|
 |8.1|[Estimadores de Distribuições Amostrais](https://github.com/lucasmoschen/TA_sessions/blob/master/Statistical_Inference/pdf_source/Listas/Capitulo_8.1.pdf)|1,2,3,9|
 |8.2|[Distribuição Chi-Quadrada](https://github.com/lucasmoschen/TA_sessions/blob/master/Statistical_Inference/pdf_source/Listas/Capitulo_8.2.pdf)|4,7,10,13|
