@@ -1,5 +1,13 @@
 # Curvatura de uma curva
 
+
+```python
+import sympy as sp
+import numpy as np 
+from scipy.integrate import solve_ivp
+import matplotlib.pyplot as plt
+```
+
 ## Curvatura 
 
 Seja $\gamma$ uma curva parametrizada pelo comprimeto de arco. Definimos **curvatura** como a função $\kappa(t) = ||\ddot{\gamma}(t)||$. Essa definição é consistente com o que esperávamos de uma reta (curvatura nula) e de um círculo (curvatura constante). Além disso se $\gamma$ é uma curva regular qualquer, ela tem uma reparametrização pelo comprimento de arco. Portanto, podemos definir a sua curvatura como sendo a curvatura de sua reparametrização pelo comprimento de arco. Isto é, seja $\hat{\gamma}$ uma reparametrização pelo comprimento de arco de $\gamma$ com curvatura $\kappa$. Então a curvatura de $\gamma$ será $\kappa$. 
@@ -101,6 +109,54 @@ $$
 $$
 
 
+**Exemplo 2:** Vamos usar python para calcular a curvatura da espiral equiangular $z(t) = e^{(a + i)t}$ onde $a$ é uma constante e $i^2 = -1$. 
+
+
+```python
+# Definimos as variáveis 
+t = sp.symbols('t', real = True)
+a = sp.symbols('a', real = True, constant = True)
+# Definimos a função z
+z = sp.exp((a + sp.I)*t)
+# Derivando 
+zt = sp.diff(z, t)
+ztt = sp.diff(zt, t)
+# Rotaciona zt
+Jzt = zt*sp.exp(sp.I*sp.pi/2)
+```
+
+Observe que nossa curva está definida no plano complexo (isomorfo ao plano real). Para calcular a curvatura de uma curva, rotacionamos o vetor e fazemos o produto `dot`entre esses números como produto escalar de dois vetores. Nesse caso, teremos que $\langle z_1, z_2 \rangle = Re(z_1\cdot\bar{z}_2)$.
+
+
+```python
+k = sp.re(Jzt*sp.conjugate(ztt))/sp.Abs(zt)**3
+k
+```
+
+
+
+
+$\displaystyle \frac{\left(2 a^{2} e^{2 a t} - \left(a^{2} - 1\right) e^{2 a t}\right) e^{- 3 a t}}{\left(a^{2} + 1\right)^{\frac{3}{2}}}$
+
+
+
+Precisamos indicar para o programa que queremos uma resposta fatorizada
+
+
+```python
+k = sp.factor(k)
+k
+```
+
+
+
+
+$\displaystyle \frac{e^{- a t}}{\sqrt{a^{2} + 1}}$
+
+
+
+Assim, essa é a curvatura da espiral equiangular. 
+
 ## Movimento Rígido
 
 **Isometria:** Uma aplicação $F: \mathbb{R}^n \to \mathbb{R}^n$ que preserva distância, isto é, $||x - y|| = ||F(x) - F(y)||, \forall x, y \in \mathbb{R}^n$. Diremos uma **movimento rígido** é uma isometria (a rigidez em mudar distâncias).
@@ -144,3 +200,104 @@ As equações de Frenet são, portanto, um sistema de equações diferenciais en
 
 Sejam $I$ um intervalo aberto e $\kappa : I \to \mathbb{R}$ uma função diferenciável. Então, existe
 uma curva diferenciável, $\alpha : I \to \mathbb{R}^2$, parametrizada por comprimento de arco, cuja função curvatura $\kappa_{\alpha}$ coincide com $\kappa$. Além disso, para toda curva $\beta : I \to \mathbb{R}^2$, parametrizada por comprimento de arco, que cumpre $\kappa_{\beta} = \kappa$, existe um movimento rígido $\Phi : \mathbb{R}^2 \to \mathbb{R}^2$, tal que $\alpha = \Phi \circ \beta$.
+
+**Exemplo:** (Reconstrução de uma curva plana) Suponha que nos é dado uma curvatura $\kappa$. Como $\kappa = \theta '$ e $\alpha' = (\cos(\theta), \sin(\theta))$. Vamos supor que o intervalo é do tipo $[0,l]$, onde $l$ é o comprimento da curva. 
+
+
+```python
+def get_curve_from_curvature(k, tf, x0, y0): 
+    # ângulo
+    theta_ = solve_ivp(fun = k, 
+                       t_span = (0,tf), 
+                       y0 = [0], 
+                       t_eval = np.arange(0,tf+1e-4,0.01)
+                      ).y[0]
+    
+    def theta(t): 
+        li = int(t*(len(theta_)-1)/tf)
+        gi = min(int(t*(len(theta_)-1)/tf) + 1, len(theta_)-1)
+        convex = t*len(theta_)/tf - li
+        return (1-convex)*theta_[li] + convex*theta_[gi]
+    
+    # Componentes 
+    def f(t,x): 
+        return [np.cos(theta(t)), np.sin(theta(t))]
+    
+    # Curva
+    alpha = solve_ivp(fun = f, 
+                      t_span = (0,tf), 
+                      y0 = [x0,y0], 
+                      t_eval = np.arange(0,tf+1e-4,0.01)
+                     ).y
+    
+    return alpha
+```
+
+### Círculo
+
+
+```python
+# Curvatura
+k = lambda t,x: 1
+# Um ponto em que passa a curva 
+x0 = 0
+y0 = 0
+# Comprimento da curva
+tf = 2*np.pi+0.1
+
+alpha = get_curve_from_curvature(k,tf,x0,y0)
+
+plt.figure(figsize = (6,6))
+plt.plot(alpha[0,:], alpha[1,:])
+plt.show()
+```
+
+
+![png](output_19_0.png)
+
+
+### Reta
+
+
+```python
+# Curvatura
+k = lambda t,x: 0
+# Um ponto em que passa a curva 
+x0 = 0
+y0 = 0
+# Comprimento da curva
+tf = 10*np.pi+0.1
+
+alpha = get_curve_from_curvature(k,tf,x0,y0)
+
+plt.figure(figsize = (6,6))
+plt.plot(alpha[0,:], alpha[1,:])
+plt.show()
+```
+
+
+![png](output_21_0.png)
+
+
+### Clotoide
+
+
+```python
+# Curvatura
+k = lambda t,x: t
+# Um ponto em que passa a curva 
+x0 = 0
+y0 = 0
+# Comprimento da curva
+tf = 10*np.pi+0.1
+
+alpha = get_curve_from_curvature(k,tf,x0,y0)
+
+plt.figure(figsize = (6,6))
+plt.plot(alpha[0,:], alpha[1,:])
+plt.show()
+```
+
+
+![png](output_23_0.png)
+

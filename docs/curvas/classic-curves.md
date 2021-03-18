@@ -24,7 +24,7 @@ Quem quiser contribuir com esse texto, basta seguir o seguinte processo:
 <details>
   <summary>Astroide</summary>
   
-<table style="width:100%">
+  <table style="width:100%">
   <tr>
     <th>Descrição</th><th>Equação</th><th>Gráfico</th>
   </tr>
@@ -37,7 +37,6 @@ Quem quiser contribuir com esse texto, basta seguir o seguinte processo:
     <td><img src="/ta-sessions/curvas/classic-curves_files/astroid.svg" width = 400></td>
   </tr> 
 </table>
-
 </details>
 
 <details>
@@ -61,7 +60,28 @@ Quem quiser contribuir com esse texto, basta seguir o seguinte processo:
 </details>
 
 <details>
+
   <summary>Folium de Descartes</summary>
+  
+  <table style="width:100%">
+    <tr>
+      <th>Descrição</th><th>Equação</th><th>Gráfico</th>
+    </tr>
+    <tr>
+      <td  style="vertical-align:middle;">
+      Seu nome deriva do Latim que significa <i>folha</i>. Ela foi primeiro proposta por René Descartes em 1638. Ele desafiou o matemático Pierre de Fermat a encontrar a linha tangente a essa curva em um ponto qualquer. Podemos encontrá-la facilmente através da diferenciação implícita. <a href="https://encyclopediaofmath.org/wiki/Folium_of_Descartes">Referência 1</a><a href="https://www.jstor.org/stable/4145129?seq=1">Referência 2</a>
+      </td>
+      <td style="vertical-align:middle;">
+      \(x^3 + y^3 = 3axy\)
+      </td>
+      <td><img src="/ta-sessions/curvas/classic-curves_files/folium.svg" width = 400></td>
+    </tr> 
+  </table>
+
+</details>
+
+<details>
+  <summary>Espiral de Euler</summary>
   
 <table style="width:100%">
   <tr>
@@ -69,12 +89,12 @@ Quem quiser contribuir com esse texto, basta seguir o seguinte processo:
   </tr>
   <tr>
     <td  style="vertical-align:middle;">
-    Seu nome deriva do Latim que significa <i>folha</i>. Ela foi primeiro proposta por René Descartes em 1638. Ele desafiou o matemático Pierre de Fermat a encontrar a linha tangente a essa curva em um ponto qualquer. Podemos encontrá-la facilmente através da diferenciação implícita. <a href="https://encyclopediaofmath.org/wiki/Folium_of_Descartes">Referência 1</a><a href="https://www.jstor.org/stable/4145129?seq=1">Referência 2</a>
+    É uma curva cuja curvatura varia linearmente conforme varia o comprimento de arco (veja o exemplo na página sobre curvatura). Ela tem outros nomes como clotoide ou espirais de Cornu. <a href="https://www2.eecs.berkeley.edu/Pubs/TechRpts/2008/EECS-2008-111.pdf">Acredita-se</a> que tenha sido primeiramente estudada por James Bernoulli em 1694. Sua equação é através da integral de Fresnel. Ela foi proposta como a solução para o problema da elasticidade, mas hoje tem diversas aplicações como <a href="https://www.youtube.com/watch?v=D3tdW9l1690">projeção do de uma esfera.</a>
     </td>
     <td style="vertical-align:middle;">
-    \(x^3 + y^3 = 3axy\)
+    \(\alpha(s) = (\int_0^s \cos(t^2)dt, \int_0^s \sin(t^2)dt\)
     </td>
-    <td><img src="/ta-sessions/curvas/classic-curves_files/folium.svg" width = 400></td>
+    <td><img src="/ta-sessions/curvas/classic-curves_files/euler.svg" width = 400></td>
   </tr> 
 </table>
 
