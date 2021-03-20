@@ -56,7 +56,6 @@ Quem quiser contribuir com esse texto, basta seguir o seguinte processo:
     <td><img src="/ta-sessions/curvas/classic-curves_files/cissoid.svg" width = 400></td>
   </tr> 
 </table>
-
 </details>
 
 <details>
@@ -77,7 +76,6 @@ Quem quiser contribuir com esse texto, basta seguir o seguinte processo:
       <td><img src="/ta-sessions/curvas/classic-curves_files/folium.svg" width = 400></td>
     </tr> 
   </table>
-
 </details>
 
 <details>
@@ -97,6 +95,5 @@ Quem quiser contribuir com esse texto, basta seguir o seguinte processo:
     <td><img src="/ta-sessions/curvas/classic-curves_files/euler.svg" width = 400></td>
   </tr> 
 </table>
-
 </details>
 
