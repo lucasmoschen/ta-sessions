@@ -25,6 +25,7 @@ classic-curves). Você pode contribuir para aumentar o acervo!
 |------|----------------|-------|
 |[1](/files/disciplines/curvas-superficies/lista1.pdf)|Conceito de curva paramétrica, vetor tangente e exemplos|[1](/files/disciplines/curvas-superficies/solutions1.pdf)|
 |[2](/files/disciplines/curvas-superficies/lista2.pdf)|Reparametrização e comprimento de arco|[2](/files/disciplines/curvas-superficies/solutions2.pdf)|
+|[3](/files/disciplines/curvas-superficies/lista3.pdf)|Comprimento de arco, curvatura e diferenciabilidade|[3](/files/disciplines/curvas-superficies/solutions3.pdf)|
 
 ## Notas
 
