@@ -103,3 +103,5 @@ DeGroot)](https://www.amazon.com/Probability-Statistics-4th-Morris-DeGroot/dp/03
   referência em estatística com principais conceitos da matéria. 
 
 - [Digital TextBook Statlect](https://www.statlect.com/)
+
+- [Bayesian x Frequentist Inference](https://normaldeviate.wordpress.com/2012/11/17/what-is-bayesianfrequentist-inference/)
