@@ -7,6 +7,8 @@ Monitoria de Inferência Estatística correspondente ao período de 2020.2.
 - [Notebooks](https://github.com/lucasmoschen/TA_sessions/tree/master/Statistical_Inference/notebooks):
   Você pode rodar esses notebooks também!
 
+- [Github Professor](https://github.com/maxbiostat/Statistical_Inference_BSc)
+
 ## Tópicos 
 
 Nessa seção, os tópicos discutidos nas aulas são apresentados conjuntamente
