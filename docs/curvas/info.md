@@ -17,6 +17,7 @@ classic-curves). Você pode contribuir para aumentar o acervo!
 |---|
 |[Definições Preliminares](/ta-sessions/curvas/first-definitions)|
 |[Curvatura](/ta-sessions/curvas/curvature/curvature)|
+|[Curvas no Espaço](/ta-sessions/curvas/space-curves)|
 
 
 ## Listas
