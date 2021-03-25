@@ -28,6 +28,7 @@ classic-curves). Você pode contribuir para aumentar o acervo!
 |[2](/files/disciplines/curvas-superficies/lista2.pdf)|Reparametrização e comprimento de arco|[2](/files/disciplines/curvas-superficies/solutions2.pdf)|
 |[3](/files/disciplines/curvas-superficies/lista3.pdf)|Comprimento de arco, curvatura e diferenciabilidade|[3](/files/disciplines/curvas-superficies/solutions3.pdf)|
 |[4](/files/disciplines/curvas-superficies/lista4.pdf)|Curvatura e torção, triedro de Frenet|[4](/files/disciplines/curvas-superficies/solutions4.pdf)|
+|[4.1](/files/disciplines/curvas-superficies/lista4-1.pdf)|Fórmulas de Frenet para não unit-speed curvas|-|
 
 ## Notas
 
