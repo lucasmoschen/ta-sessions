@@ -20,6 +20,10 @@ classic-curves). Você pode contribuir para aumentar o acervo!
 |[Curvas no Espaço](/ta-sessions/curvas/space-curves)|
 |[Notas sobre Equações de Frenet](/ta-sessions/curvas/notes-frenet)|
 
+|Trabalhos|
+|---------|
+|[Trabalhos sobre Curvas](/ta-sessions/curvas/assignments-a1)|
+
 
 ## Listas
 
