@@ -38,7 +38,7 @@ classic-curves). Você pode contribuir para aumentar o acervo!
 |05/03/2021|Lista 2 e conceito de reparametrização|[Visualizar](/files/disciplines/curvas-superficies/monitoria05-03-2021.pdf)|Não|
 |12/03/2021|Aplicações diferenciáveis|[Visualizar](/files/disciplines/curvas-superficies/monitoria12-03-2021.pdf)|Sim|
 |19/03/2021|Lista 3 e aplicações diferenciáveis|[Visualizar](/files/disciplines/curvas-superficies/monitoria19-03-2021.pdf)|Sim|
-|19/03/2021|Lista 4 e 4.1 e página "Curvas no Espaço"|Não|Sim|
+|25/03/2021|Lista 4 e 4.1 e página "Curvas no Espaço"|Não|Sim|
   
 ## Sugestões Adicionais 
 
