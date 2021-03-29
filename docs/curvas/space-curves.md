@@ -125,14 +125,18 @@ Alguns simples desenhos podem ser vistos [nesse site](http://mathonline.wikidot.
 
 ### Curva plana e torção nula
 
-(p. 32 Ronaldo)
+Seja $\alpha : I \to \mathbb{R}^3$ uma curva 2-regular, parametrizada por comprimento de arco. Então, $\alpha$ é plana se, e somente se, sua torção $\tau_{\alpha}$ é identicamente nula.
+
+> A demonstração desse fato se divide na ida e volta. Supondo que a curva seja plana, devemos inserir a curva em um plano. Assim, para cada $s \in I, \langle \alpha(s) - p, v \rangle = 0$ para algum $p$ nesse plano. Em particular, obtermos que $v = \pm B_{\alpha}(s)$, pois obteremos, derivando, que a tangente e a normal são ortogonais a $v$. Nesse caso $B'_{\alpha}(s) = 0$, pois esse vetor será constante. A recíproca usa o fato que $B_{\alpha}(s)$ será constante e quer se provar que $f(s) = \langle \alpha(s) - \alpha(s_0), B_{\alpha}(s) \rangle \equiv 0$.  
 
 ### Circunferência e curvatura constante 
 
-(p. 59 Pressley)
+Seja $\alpha$ uma curva parametrizada pelo comprimento de arco em $\mathbb{R}^3$ com consntate curvatura e torção nula. Então $\alpha$ é parametrização de (parte de) um círculo. 
+
+> Sabemos pelo item anterior que estaremos em um plano. A ideia é provar que $\alpha - \frac{1}{\kappa_{\alpha}}n$ é um vetor constante para provarmos que a curva está contida em uma esfera. Assim, basta provar que a curva está contida na intersecção de uma esfera e um plano. 
 
 ## Teorema Fundamental da Teoria Local das Curvas Espaciais
 
-(p. 60 Pressley)
+Sejam $\alpha(s)$ e $\gamma(s)$ duas curvas parametrizadas pelo comprimento de arco em $\mathbb{R}^3$ com a mesma curvatura $\kappa(s) > 0$ e a mesma torção $\tau(s), \forall s$. Então, existe um movimento rígido direto $M$ tal que $\alpha(s) = M(\gamma(s)), \forall s$. Além disso, se $\kappa$ e $\tau$ são funções suaves, tal que $\kappa > 0$ em toda parte, existe uma curva parametrizada pelo comprimento de arco em $\mathbb{R}^3$ cuja curvatura é $\kappa$ e cuja torção é $\tau$. 
 
-Querem demonstração no site?
+> A demonstração desse teorema super importante pode ser encontrada na página 52 do livro do Pressley de Introdução à Geometria Diferencial. É uma aplicação do Teorema da Existência e Unicidade de Equações Diferenciais nas Equações de Frenet-Sarret. 
