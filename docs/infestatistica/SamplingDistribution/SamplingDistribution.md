@@ -509,7 +509,7 @@ $X_1,...,X_n$ formam uma amostra aleatória com distribuição normal e com méd
 
 ## Teorema de Basu
 
-Sejam $\hat{\mu} = \bar{X}_n$ e $\hat{\sigma}^2 = \frac{1}{n}\sum_{i=1}^n (X_i - \bar{X}_n)^2$ a média e variância amostrais, respectivamente. Então $\hat{\mu}$ tem distribuição normal com média $\mu$ e variância $\sigma^2 /n$, enquanto $\hat{\sigma}^2$ tem a distribuição $\chi^2(n-1)$, isto é, com $n-1$ grau de liberdade. Além disso elas são independentes. 
+Sejam $\hat{\mu} = \bar{X}_n$ e $\hat{\sigma}^2 = \frac{1}{n}\sum_{i=1}^n (X_i - \bar{X}_n)^2$ a média e variância amostrais, respectivamente. Então $\hat{\mu}$ tem distribuição normal com média $\mu$ e variância $\sigma^2 /n$, enquanto $n\hat{\sigma}^2/\sigma^2$ tem a distribuição $\chi^2(n-1)$, isto é, com $n-1$ grau de liberdade. Além disso elas são independentes. 
 
 Esse teorema é um pouco mais complexo e, na verdade, essa seria uma espécie de aplicação do teorema, na verdade. O teorema de Basu diz que: 
 
