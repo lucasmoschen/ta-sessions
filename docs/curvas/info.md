@@ -2,7 +2,7 @@
 
 Monitoria de Curvas e Superfícies correspondente ao período de 2021.1.  
 
-- [Evento Google Calendar](https://calendar.google.com/event?action=TEMPLATE&tmeid=NDRuOWhhZDRyMWtmYjdnaXBsZWljY2owYzNfMjAyMTA1MDZUMjAzMDAwWiBsdWNhcy5tYWNoYWRvbW9zY2hlbkBt&tmsrc=lucas.machadomoschen%40gmail.com&scp=ALL): Quinta-feira 17h30min
+- Dia: Quinta-feira 17h30min
 - [Link Google Meet](https://meet.google.com/uoc-zvjy-iuf)
 - [Monitorias gravadas](https://gvmail-my.sharepoint.com/:f:/g/personal/b37214_fgv_edu_br/EoG8MAhnbhlAtXMdny-2Uo8BCPvHaTJ-b74fEjn2XMm-DA?e=Z4o0Pr)
 - [Ementa da disciplina](/files/disciplines/curvas-superficies/Ementa_curvas_superficies.pdf)
@@ -15,10 +15,13 @@ classic-curves). Você pode contribuir para aumentar o acervo!
 
 |Conceitos introdutórios de curvas|
 |---|
-|[Definições Preliminares](/ta-sessions/curvas/first-definitions)|
+|[Definições preliminares](/ta-sessions/curvas/first-definitions)|
 |[Curvatura](/ta-sessions/curvas/curvature/curvature)|
-|[Curvas no Espaço](/ta-sessions/curvas/space-curves)|
-|[Notas sobre Equações de Frenet](/ta-sessions/curvas/notes-frenet)|
+|[Curvas no espaço](/ta-sessions/curvas/space-curves)|
+|[Notas sobre equações de Frenet](/ta-sessions/curvas/notes-frenet)|
+
+|Conceitos introdutórios de superfícies|
+|---|
 
 |Trabalhos|
 |---------|
@@ -59,9 +62,9 @@ classic-curves). Você pode contribuir para aumentar o acervo!
 
 ### Recursos Computacionais
 
-- [Recursos Geogebra de Curvas](https://www.geogebra.org/search/curves)
+- [Recursos Geogebra de curvas](https://www.geogebra.org/search/curves)
 - [Lista de sistemas algébricos](https://en.wikipedia.org/wiki/List_of_computer_algebra_systems):
   Eu tenho bastante familiaridade com o SymPy (Python) e Matlab. 
 - [Comandos CAS Geogebra](https://wiki.geogebra.org/en/CAS_Specific_Commands)
-- [Artigo sobre Open Source CAS](https://lwn.net/Articles/710537/)
+- [Artigo sobre open source CAS](https://lwn.net/Articles/710537/)
 
