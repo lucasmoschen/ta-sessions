@@ -22,6 +22,8 @@ classic-curves). Você pode contribuir para aumentar o acervo!
 
 |Conceitos introdutórios de superfícies|
 |---|
+|[Resumo de topologia](/ta-sessions/curvas/intro-topology)|
+
 
 |Trabalhos|
 |---------|
