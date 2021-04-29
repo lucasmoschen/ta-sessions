@@ -25,7 +25,7 @@ classic-curves). Você pode contribuir para aumentar o acervo!
 
 |Trabalhos|
 |---------|
-|[Trabalhos sobre Curvas](/ta-sessions/curvas/assignments-a1)|
+|[Trabalhos sobre curvas](/ta-sessions/curvas/assignments-a1)|
 
 
 ## Listas
