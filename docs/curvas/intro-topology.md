@@ -1,4 +1,4 @@
-# Introdução à Topologia 
+# Introdução à topologia 
 
 Topologia é uma área da matemática que estuda objetos geométricos com noções
 de continuidade e convergência. Material na *internet* sobre esse tópico não
