@@ -84,3 +84,27 @@ tal que, se $w \in T_pS_1$, existe uma curva $\alpha$ em $S_1$ tal que $w = \alp
 $f(p)$ em $t_0$ e, então $D_{f(p)}S_2 = \gamma '(t_0)$. 
 
 ## Normais e orientabilidade 
+
+**Definição:** O vetor normal unitário a $S$ no ponto $p$ é dado por 
+$$
+N_{\sigma} = \frac{\sigma_u \times \sigma_v}{||\sigma_u \times \sigma_v||}
+$$
+que é exatamente o vetor normal ao plano tangente. Note que esse vetor não é
+independente da escolha do patch $\sigma U \to \mathbb{R}^3$. Se
+$\tilde{\sigma} : \tilde{U} \to \mathbb{R}^3$ é outro patch regular para $S$
+em $p$, podemos demostrar que:
+
+**Proposição:** Seja $\phi : \tilde{U} \to U$ um difeomorfismo. Então
+$\tilde{\sigma} = \sigma \circ \phi : \tilde{U} \to \mathbb{R}^3$ é um mapa
+regular. Além disso, 
+$$
+\tilde{\sigma}_{\tilde{u}} \times \tilde{\sigma}_{\tilde{v}} = \operatorname{det}(J(\phi)) \,
+\tilde{\sigma}_u \times \tilde{\sigma}_v  
+$$
+em que $\operatorname{det}(J(\phi))$ é o determinante do Jacobiano da transformação $\phi$.
+Portanto $N_{\tilde{\sigma}} = \operatorname{sign}(\operatorname{det}(J(\phi))) N_{\sigma}$.
+
+**Orientabilidade:** Dizemos que $S$ é superfície orientável se existe um
+atlas $A$ para $S$, de forma que, para quaisquer dois patches $\sigma_1$ e
+$\sigma_2$ em $A$, se $\phi$ é o mapa de transição entre eles, então
+$\operatorname{det}(J(\phi)) > 0$. 
