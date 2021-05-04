@@ -41,6 +41,7 @@ classic-curves). Você pode contribuir para aumentar o acervo!
 |[3](/files/disciplines/curvas-superficies/lista3.pdf)|Comprimento de arco, curvatura e diferenciabilidade|[3](/files/disciplines/curvas-superficies/solutions3.pdf)|
 |[4](/files/disciplines/curvas-superficies/lista4.pdf)|Curvatura e torção, triedro de Frenet|[4](/files/disciplines/curvas-superficies/solutions4.pdf)|
 |[4.1](/files/disciplines/curvas-superficies/lista4-1.pdf)|Fórmulas de Frenet para não unit-speed curvas|-|
+|[5](/files/disciplines/curvas-superficies/lista5.pdf)|Superfícies regulares, mudança de parâmetro|[5](/files/disciplines/curvas-superficies/solutions5.pdf)|
 
 ## Notas
 
