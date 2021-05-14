@@ -37,6 +37,7 @@
 
 \theoremstyle{definition}
 \newtheorem{solution}{Solução}
+\newtheorem{definition}{Definição}
 
 \theoremstyle{plain}
 \newtheorem{remark}{Observação}
@@ -87,18 +88,68 @@
 \end{exercise}
 
 \begin{solution}
+    Suponha que $F$ é injetora. Seja $\{e_1, e_2\}$ a base canônica de $\R^2$.
+    Suponha que $F(e_1) = \alpha F(e_2)$ para algum $\alpha \in \R$. Pela
+    linearidade de $F$, 
+    $$F(e_1) = F(\alpha e_2) \implies (1,0) = e_1 = \alpha e_2 = (0,\alpha),$$
+    um absurdo. Concluímos que $\{F(e_1), F(e_2)\}$ é um
+    conjunto linearmente independente.   
 
+    Agora suponha que $F(e_1)$ e $F(e_2)$ formam um conjunto linearmente
+    independente. Sejam $x = \alpha_1 e_1 + \alpha_2 e_2$ e $y = \beta_1 e_1 +
+    \beta_2 e_2$ de forma que $F(x) = F(y)$. Assim 
+    $$
+    F(\alpha_1 e_1 + \alpha_2 e_2) = F(\beta_1 e_1 + \beta_2 e_2) \implies (\alpha_1 - \beta_1)F(e_1) + (\alpha_2 - \beta_2)F(e_2) = 0.
+    $$
+    Pela independência linear, sabemos que essa última igualdade implica 
+    $$
+    \alpha_1 - \beta_1 = \alpha_2 - \beta_2 = 0 \implies \alpha_1 = \beta_1 \text{ e } \alpha_2 = \beta_2 \implies x = y
+    $$
+    e, portanto, $F$ é injetora. 
 \end{solution}
 
 \begin{exercise}
     Mostre que o paraboloide hiperbólico $S = \{(x, y, z) \in \R^3; z = x^2 -
     y^2\}$ é uma superfície regular. Desenhe o paraboloide em um ambiente
     gráfico juntamente com o plano tangente e um vetor normal à superfície.
-    Faça o des enho de forma a poder variar o ponto aonde o plano tangente é exibido.
+    Faça o desenho de forma a poder variar o ponto aonde o plano tangente é exibido.
 \end{exercise}
 
+\begin{definition}
+    Dizemos que $S \subseteq \mathbb{R}^n$ é uma {\em superfície} se para todo
+    ponto $p \in S$, existe um conjunto aberto $U \subset \mathbb{R}^2$ e um
+    conjunto aberto $W \subseteq \mathbb{R}^3$ contendo $p$ tal que $S \cap W$
+    é homeomorfo a $U$.  O homeomorfismo $\sigma : U \to S \cap W$ é um
+    {\em patch} ou {\em parametrização}. A coleção desses homeomorfismos que cobrem
+    $S$ é chamada de {\em atlas}. 
+\end{definition}
+
 \begin{solution}
-    
+    Para mostrar que um conjunto é uma superfície, podemos, inicialmente,
+    propor uma parametrização. Nesse caso, a parametrização natural é 
+    $$
+    \sigma((x,y)) = (x,y,x^2 - y^2)
+    $$
+    Tome $p = (x,y,x^2 - y^2)\in S$. Defina $U = \R^2$ e $p \in W = \R^3 $ que são
+    abertos. Tenho que mostrar que $\sigma : U \to S \cap W$ como descrita a
+    cima é um homeomorfismo. 
+
+    \begin{enumerate}
+        \item[(i)] Injetividade: De fato, se $\sigma((x_1, y_1)) =
+        \sigma((x_2, y_2))$, então é claro que $x_1 = x_2$ e $y_1 = y_2$ pela
+        própria definição de $\sigma$. 
+        \item[(ii)] Sobrejetividade: Seja $(x,y,x^2 - y^2) \in W \cap S = S$.
+        Está claro que $(x,y)$ mapeia nesse valor. 
+        \item[(iii)] Continuidade: Está claro a continuidade e a continuidade
+        da inversa (que é projeção do parabolóide sobre o plano).
+    \end{enumerate}
+
+    Isso prova que $\sigma$ é um patch e $S$ é uma superfície. Além disso,
+    vemos que $\sigma$ é uma função suave com 
+    $$
+    \sigma_x = (1, 0, 2x), \sigma_y = (0,1,-2y)
+    $$
+    que são linearmente independentes. Portanto $S$ é uma superfície regular. 
 \end{solution}
 
 \begin{exercise}
@@ -108,7 +159,28 @@
 \end{exercise}
 
 \begin{solution}
-    
+    Observe que esse exercício é uma generalização do exercício 2. Basta
+    tomarmos $W = \R^3$ e verificarmos que $X(u,v)$ é um homeomorfismo. 
+
+    \begin{enumerate}
+        \item[(i)] Injetividade: deriva da mesma demonstração do exercício
+        anterior. 
+        \item[(ii)] Sobrejetividade: basta fazer a projeção do ponto
+        $(u,v,f(u,v))$ sobre $U$ que visualizamos a sobrejetividade. 
+        \item[(iii)] Contínuidade de $X$: tome uma sequência $\{u_n, v_n\}_{n \in
+        \mathbb{N}}$ convergente para $(u,v)$. Pela continuidade de $f$,
+        teremos que $\forall \epsilon > 0$, 
+        $$
+        ||(f(u_n, v_n) - f(u,v), v_n - v, u_n - u|| \le ||f(u_n, v_n) - f(u,v)|| + ||(v_n - v, u_n - v)|| \to 0
+        $$
+        \item[(iv)] Continuidade da inversa: a inversa é a projeção sobre o
+        plano, que é contínua. 
+    \end{enumerate}
+    Logo o conjunto em $\R^3$ gerado por $X$ é uma superfície. Podemos
+    verificar a diferenciabilidade da mesma forma que a continuidade. Ela saí
+    diretamente da diferenciabilidade de $f$. Por fim 
+    $X_u = (1,0,f_u)$ e $X_v = (0,1,f_v)$ são linearmente independentes, o que
+    mostra que a superfície é regular. 
 \end{solution}
 
 \begin{exercise}
@@ -126,7 +198,89 @@
 \end{exercise}
 
 \begin{solution}
+    Seja $r_{\theta}$ a reta determinada pelas equações
+    \begin{equation}
+        \label{eq-1}
+        (x - z)\cos(\theta) = (1 - y)\sin(\theta)
+    \end{equation}
+    e 
+    \begin{equation}
+        \label{eq-2}
+        (x + z)\sin(\theta) = (1 + y)\cos(\theta)
+    \end{equation}  
+    para $\theta$ fixo. Tome $p \in r_{\theta}$. Assim, vale que 
+    \begin{equation}
+        \label{eq-3}
+        (x - z)(x + z)\cos(\theta)\sin(\theta) = (1-y)(1+y)\cos(\theta)\sin(\theta)
+    \end{equation}
+    Se $\theta = k\pi, k \in \mathbb{Z}$, pela equação \ref{eq-1}, $x = z$ e
+    equação \ref{eq-2}, $y=-1$. Logo $x^2 + y^2 -z^2 = y^2 = 1$ e, portanto,
+    $p \in S$. Se $\theta = \pi/2 + k\pi, k \in \mathbb{Z}$, por \ref{eq-1},
+    $y=1$ e por \ref{eq-2}, $x = -z$ e pela mesma conta, $p \in S$. 
     
+    Considere $\theta$ diferente desses valores. Assim,
+    $\cos(\theta)\sin(\theta) \neq 0$ e, portanto, 
+    $$
+    (x-z)(x+z) = (1 - y)(1 + y) \implies x^2 - z^2 = 1 - y^2 \implies x^2 + y^2 - z^2 = 1
+    $$
+    e, portanto, $p \in S$. Provamos, portanto, que para todo $\theta \in \R,
+    r_{\theta} \subset S$. 
+
+    Tome agora $p = (x,y,z) \in S$, isto é, $x^2 + y^2 - z^2 = 1$ o que
+    implica
+    \begin{equation}
+        \label{eq-4}
+        (x + z)(x - z) = (1 + y)(1 - y).
+    \end{equation}
+    Podemos parametrizar através de coordenadas polares:  
+    \begin{align*}
+        x + z = r\cos(\theta), \\
+        1 + y = r\sin(\theta).
+    \end{align*}
+    Se $x + z \neq 0$ ou $1 + y \neq 0$, então $r \neq 0$ e $(x -
+    z)\sin(\theta) = (1 + y)\cos(\theta)$ pela equação \ref{eq-4}. Se $x + y =
+    0$ e $1 + y = 0$, de fato teremos $(x + z)\sin(\theta) = (1 +
+    y)\cos(\theta)$. Além disso:
+    \begin{align*}
+        1 - y = r_2\cos(\theta), \\
+        x - z = r_2\sin(\theta).
+    \end{align*}
+    Para respeitar \ref{eq-4}, $\theta$ não pode ser diferente. 
+    Se $x - z \neq 0$ ou $1 - y \neq 0$, então $r \neq 0$ e $(x +
+    z)\sin(\theta) = (1 + y)\cos(\theta)$. Se $x + z = 0$  e $1 + y = 0$, 
+    $$
+    (x-z)\cos(\theta) = r_2\sin(\theta)\cos(\theta) = (1-y)\sin(\theta).
+    $$
+    Se $x - z = 0$ e $1 - y = 0$, 
+    $$
+    (x+z)\sin(\theta) = r\sin(\theta)\cos(\theta) = (1+y)\cos(\theta).
+    $$   
+    Concluo que $p \in r_{\theta}$ e $S \subset \cup_{\theta} r_{\theta}$. 
+
+    Note que os vetores normais aos planos são, respectivamente,
+    $(\cos(\theta), \sin(\theta), -\cos(\theta))$ e $(\sin(\theta),
+    -\cos(\theta), \sin(\theta))$. O vetor diretor à reta $r_{\theta}$ é
+    qualquer vetor ortogonal a esses dois. Em particular, 
+    $$
+    (\cos(\theta), \sin(\theta), -\cos(\theta)) \times (\sin(\theta),
+    -\cos(\theta), \sin(\theta)) = -(\cos(2\theta), \sin(2\theta), 1) 
+    $$
+    Por simplicidade, usaremos o vetor $(\cos(2\theta), \sin(2\theta), 1)$.
+    Além disso, essa reta, quando $z = 0$ passa pelo ponto solução de:
+    $$
+    \begin{cases}
+      x\cos(\theta) + y\sin(\theta) = \sin(\theta) \\
+      x\sin(\theta) - y\cos(\theta) = \cos(\theta), 
+    \end{cases}
+    $$
+    que é $x = \sin(2\theta)$ e $y = \cos(2\theta)$. Assim, a reta pode ser
+    escrita como 
+    $$
+    r_{\theta}(t) = (\sin(2\theta), -\cos(2\theta), 0) + t(\cos(2\theta), \sin(2\theta), 1)
+    $$
+    Defina $\sigma : \R^2 \to \R^3$ como $\sigma(\theta, t) = r_{\theta}(t)$.
+    Tomando $\sigma$ restrito a $(0,\pi)$ e depois restrito a $(-\pi/2,
+    \pi/2)$, teremos que $S$ é uma superfície. 
 \end{solution}
 
 \begin{exercise}
@@ -138,7 +292,33 @@
 \end{exercise}
 
 \begin{solution}
-    
+    A superfície gerada é um exemplo de superfície regrada \cite[Seção
+    5.3]{pressley}. Seja um ponto $p$ dessa superfície. Sabemos que $p$ está
+    em uma dessas retas paralelas ao eixo $O_z$, isto é, geradas pelo vetor
+    $(0,0,1)$. Essa reta atinge a curva $\alpha$ em $u \in I$. Assim, 
+    $$
+    p = \alpha(u) + v(0,0,1) = (x(u), y(u), z(u) + v).
+    $$
+    Defina $\sigma : U \to \R^3$ em $U = \{(u,v) \in \R^2 | u \in I\}$ como 
+    $$
+    \sigma(u,v) = (x(u), y(u), z(u) + v).
+    $$
+    Pela regularidade de $\alpha$, sabemos que $\sigma$ é diferenciável. Além
+    disso, 
+    $$
+    \sigma_u = (x_u, y_u, z_u) \neq 0
+    $$
+    e
+    $$
+    \sigma_v = (0,0,1)
+    $$
+    de forma que 
+    $$
+    \sigma_u \times \sigma_v = (y_u, -x_u, 0)
+    $$
+    só é nulo quando $y_u = x_u = 0$. Desta forma, a superfície é regular se, e
+    somente se, $\alpha$ é nunca tangente ao vetor $(0,0,1)$. 
+
 \end{solution}
 
 \begin{exercise}
@@ -155,9 +335,9 @@
 \end{solution}
 
 
-% \begin{thebibliography}{9}
-%     \bibitem{pressley} 
-%     Pressley, Andrew N. Elementary differential geometry. Springer Science \& Business Media, 2010.
-% \end{thebibliography}
+\begin{thebibliography}{9}
+    \bibitem{pressley} 
+    Pressley, Andrew N. Elementary differential geometry. Springer Science \& Business Media, 2010.
+\end{thebibliography}
 
 \end{document}
