@@ -55,6 +55,7 @@ classic-curves). Você pode contribuir para aumentar o acervo!
 |25/03/2021|Lista 4 e 4.1 e página "Curvas no Espaço"|[Frenet](/ta-sessions/curvas/notes-frenet)|Não|
 |30/04/2021|Introdução a superfícies, esfera e duplo cone|[Visualizar](/files/disciplines/curvas-superficies/monitoria30-04-2021.pdf)|Sim|
 |13/05/2021|Definições de superfícies|[Visualizar](/files/disciplines/curvas-superficies/monitoria13-05-2021.pdf)|Não|
+|20/05/2021|Lista 6 e conceitos de topologia|[Visualizar](/files/disciplines/curvas-superficies/monitoria20-05-2021.pdf)|Sim|
   
 ## Sugestões Adicionais 
 
