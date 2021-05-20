@@ -283,6 +283,16 @@
 \end{exercise}
 
 \begin{solution}
+
+\end{solution}
+
+\begin{exercise}
+    Sejam $F \in \R^n$ fechado e $f : F \to \R^m$ uma aplicação contínua.
+    Mostre que $f$ leva subconjuntos limitados de $F$ em subconjuntos
+    limitados de $\R^m$. Prove, exibindo um contra-exemplo, que não se conclui o mesmo removendo-se a hipótese de $F$ ser fechado.
+\end{exercise}
+
+\begin{solution}
     Seja $A \subset F$ limitado e defina $B = F(A) \subseteq \R^m$. Vamos
     provar esse exercício com um pouco de análise. Suponha que $B$ não é
     limitado, isto é, para todo $r > 0$, existe $y \in B$ de forma que $||y||
@@ -295,13 +305,19 @@
     absurdo, dado que $||f(n_k)||$ diverge. Concluímos que $B$ é limitado.
 \end{solution}
 
-\begin{exercise}
+\begin{remark}
+    Essa solução se usou de Teorema de Bolzano-Weierstrass, que $F =
+    \bar{F}$, quer dizer, se $a$ é limite de uma sequência de pontos de $F$,
+    então $a \in F$ e continuidade de $f$ através de sequências. Uma
+    demonstração de topologia é bem-vinda. 
+\end{remark}
 
-\end{exercise}
-
-\begin{solution}
-
-\end{solution}
+\begin{remark}
+    Seja $f : (0,1) \to \R$ de foram que $f(x) = 1/x$. Temos que $f(0,1) = [1,
+    + \infty)$ que não é limitado. Isso acontece justamente porque o limite da
+    subsequência pode não pertencer a $F$, se ele não é fechado. Desta forma
+    $f(a^*)$ não estará definido. 
+\end{remark}
 
 \begin{exercise}
     Prove que duas bolas abertas de $\R^n$ são homeomorfas.
