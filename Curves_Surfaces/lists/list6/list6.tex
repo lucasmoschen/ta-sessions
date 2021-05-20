@@ -100,7 +100,17 @@
 \end{exercise}
 
 \begin{solution}
-
+    Usando a dica, tome $(x_1, x_2) \in \B((a,b), \epsilon)$, isto é,
+    $$||(x_1 - a, x_2 - b)|| < \epsilon \implies (x_1 - a)^2 < \epsilon^2
+    \text{ e } (x_2 - b)^2 < \epsilon^2,$$
+    que, por seguinte, implica
+    $$
+    |x_1 - a| < \epsilon \text{ e } |x_2 - b| < \epsilon \implies x_1 \in (a - \epsilon, a + \epsilon), x_2 \in (b - \epsilon, b + \epsilon) 
+    $$
+    Se $a < 0$, então $a + \epsilon \le 0 \implies x_1 < 0$. Se $a > 0$, então
+    $a - \epsilon \ge 0 \implies x_1 > 0$. O mesmo vale para $b$ e $x_2$.
+    Portanto $\text{sign}(x_1x_2) = \text{sign}(ab) = -1$ o que implica $(x_1,
+    x_2) \in Z$. 
 \end{solution}
 
 \begin{exercise}
@@ -132,7 +142,25 @@
 \end{exercise}
 
 \begin{solution}
-
+    Seja $\{A_{\lambda} : \lambda \in \Lambda\}$ uma família de fechados, onde
+    $\Lambda$ é um conjunto de índices (possívelmente infinito, não
+    enumerável). Consideremos a interseção:
+    $$
+    A := \bigcap_{\lambda \in \Lambda} A_{\lambda}.
+    $$
+    Veja que, pela lei de De Morgan,
+    $$
+    A^c = \bigcup_{\lambda \in \Lambda} A_{\lambda}^c
+    $$
+    é união de abertos (lembre que $A$ é fechado se, e somente se, $A^c$ é
+    fechado) e, pelo exercício 3, $A^c$ é aberto. Concluímos que $A$ é
+    fechado. De forma equivalente, utilizando o exercício 4, provamos que a
+    união finita de fechados é fechada. Defina $A_n = \left[\frac{1}{n}, 1\right] \subset \R$ um intervalo fechado
+    na reta. Assim 
+    $$
+    \bigcup_{n=1}^{\infty} A_n = (0,1]
+    $$
+    que não é fechado. 
 \end{solution}
 
 \begin{exercise}
@@ -158,7 +186,17 @@
 \end{exercise}
 
 \begin{solution}
- 
+    Pelo exercício 1 e 3, já está provado que a união de bolas abertas é um
+    conjunto aberto. Tome $A \subseteq \R^n$ aberto. Para cada $x \in A$,
+    existe $\epsilon_x > 0$ tal que $\B(x, \epsilon_x) \subseteq A$. Portanto, 
+    $$
+    \bigcup_{x \in A} \B(x, \epsilon_x) \subseteq A. 
+    $$
+    Além disso, $\forall x \in A, x \in \B(x,\epsilon_x)$
+    $$
+    A \subseteq \bigcup_{x \in A} \B(x, \epsilon_x)
+    $$
+    o que implica a igualdade. 
 \end{solution}
 
 \begin{exercise}
@@ -217,7 +255,17 @@
 \end{exercise}
 
 \begin{solution}
-
+    Denote $\partial A$ os pontos da fronteira de $A$. Se $x \in \partial A$,
+    então para todo $\epsilon > 0$,
+    $$
+    \B(x,\epsilon) \cap A \neq \emptyset \text{ e } \B(x,\epsilon) \cap A^c \neq \emptyset .
+    $$
+    Suponha que existe $x \in int(\partial A)$. Assim, existe $\epsilon > 0$
+    tal que $\B(x, \epsilon) \subseteq \partial A$,     $\B(x,\epsilon)
+    \cap A \neq \emptyset$ e $\B(x,\epsilon)
+    \cap A^c \neq \emptyset$. Tome $y \in \B(x, \epsilon) \cap A$. Como $A$ é
+    aberto, existe $r > 0$ tal que $\B(y,r) \subseteq A$, logo $\B(y, r) \cap A^c = \emptyset$,  porém $y \in
+    \partial A$, o que é um absurdo. Portanto $int(\partial A) = \emptyset$. 
 \end{solution}
 
 \begin{exercise}
@@ -235,7 +283,16 @@
 \end{exercise}
 
 \begin{solution}
-
+    Seja $A \subset F$ limitado e defina $B = F(A) \subseteq \R^m$. Vamos
+    provar esse exercício com um pouco de análise. Suponha que $B$ não é
+    limitado, isto é, para todo $r > 0$, existe $y \in B$ de forma que $||y||
+    > r$. Assim existe uma sequência $\{a_n\}_{n \in \mathbb{N}} \subset
+    A$ de forma que $||f(a_n)|| \ge n$. Como $A$ é limitado, temos que a
+    sequência $\{a_n\}$ é limitada. Pelo Teorema de Bolzano-Weierstrass,
+    existe uma subsequência $\{a_{n_k}\}$ convergente para $a^*$. Como $F$ é fechado, todos os seus pontos de aderência pertencem ao
+    conjunto, e, portanto, $a^* \in F$. Assim $a_{n_k} \to a^*$ e, pela
+    continuidade de $f$, temos que $f(a_{n_k}) \to f(a^*)$, o que é um
+    absurdo, dado que $||f(n_k)||$ diverge. Concluímos que $B$ é limitado.
 \end{solution}
 
 \begin{exercise}
