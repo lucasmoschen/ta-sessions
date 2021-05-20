@@ -1,0 +1,295 @@
+\documentclass[a4paper,12pt]{article}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[right=2.5cm, left=2.5cm, top=2.5cm, bottom=2.5cm]{geometry} 
+\usepackage[portuguese]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{url}
+\usepackage{hyperref}
+\Urlmuskip=0mu  plus 10mu
+
+% no indentation
+%\usepackage{setspace}
+%\setlength{\parindent}{0in}
+
+\usepackage{graphicx} 
+\usepackage{float}
+\usepackage{xcolor}
+
+\usepackage{mathtools}
+\usepackage{amssymb, amsthm}
+
+% headers
+\usepackage{fancyhdr}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Proper definitions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\B}{\mathcal{B}}
+
+\newtheoremstyle{exer}{}{}{\color{blue}}{}{\color{blue}\bfseries}{}{ }{}
+\theoremstyle{exer}
+\newtheorem{exercise}{Exercício}
+
+\theoremstyle{definition}
+\newtheorem{solution}{Solução}
+\newtheorem{definition}{Definição}
+
+\theoremstyle{plain}
+\newtheorem{remark}{Observação}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Header (and Footer)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagestyle{fancy} 
+\fancyhf{}
+
+\lhead{\footnotesize CS: Lista 6}
+\rhead{\footnotesize Prof. Asla e Mon. Lucas} 
+\cfoot{\footnotesize \thepage} 
+
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Title section of the document
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\thispagestyle{empty} 
+
+\begin{tabular*}{0.95\textwidth}{l @{\extracolsep{\fill}} r} 
+    {\large \bf Curvas e Superfícies 2021.1} &  \\
+    Escola de Matemática Aplicada, Fundação Getulio Vargas &  \\
+    Professora Asla Medeiros e Sá &  \\ 
+    Monitor Lucas Machado Moschen & Entrega 26/05/2021\\
+    \hline \\
+\end{tabular*} 
+\vspace*{0.3cm} 
+
+\begin{center}
+	{\Large \bf Lista 6}
+	\vspace{2mm}
+\end{center}  
+\vspace{0.4cm}
+
+\begin{exercise}
+    Provar que toda bola aberta $\B(x; r)$ é um conjunto aberto.
+\end{exercise}
+
+\begin{solution}
+    Seja $y \in \B(r; x)$. Queremos provar que existe $\epsilon > 0$ tal que
+    $\B(y; \epsilon) \subseteq \B(r; x)$. Definimos para isto $\epsilon := r -
+    |y - x| > 0$. Logo, dado qualquer ponto $z \in \B(y; \epsilon)$, temos que
+    $$
+    |z - x| \le |z - y| + |y - x| < \epsilon + |y - x| = r - |y - x| + |y - x| = r.
+    $$
+    Logo $z \in \B(x; r)$. Isto é, $\B(y; \epsilon) \subseteq \B(x; r)$. Concluímos que $\B(x; r)$ é aberto.
+\end{solution}
+
+\begin{exercise}
+    Provar que $Z := \{(x, y) \in \R^2 : xy < 0\}$ é aberto. Dica: Seja $(a, b)$ no conjunto $Z$. Seja
+    $\epsilon := \min\{|a|, |b|\} > 0$. Provar que $\B((a, b); \epsilon) \subseteq Z$.
+\end{exercise}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{exercise}
+    Provar que união de conjuntos abertos é um conjunto aberto.
+\end{exercise}
+
+\begin{solution}
+    Seja $\{A_{\lambda} : \lambda \in \Lambda\}$ uma família de abertos, onde
+    $\Lambda$ é um conjunto de índices (possívelmente infinito, não
+    enumerável). Consideremos a união:
+    $$
+    A := \bigcup_{\lambda \in \Lambda} A_{\lambda}.
+    $$
+    Seja $z \in A$. Logo $z \in A_{\lambda}$ para algum índice $\lambda$. Dado
+    que $A_{\lambda}$ é aberto, existe $\epsilon > 0$ tal que $\B(z; \epsilon)
+    \subseteq A_{\lambda}$. Logo $\B(z; \epsilon) \subseteq A$. Concluímos que $A$ é aberto.
+\end{solution}
+
+\begin{exercise}
+    Provar que a interseção de uma quantidade finita de abertos é um conjunto aberto.
+\end{exercise}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{exercise}
+    Provar que a interseção de conjuntos fechados é um conjunto fechado. Será que união de fechados é também fechado? Se não for certo, dar um contraexemplo.
+\end{exercise}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{exercise}
+    Dê exemplos de conjuntos que não são nem abertos nem fechados.
+\end{exercise}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{exercise}
+    Prove que 
+    $$C = \{(x, y) \in \R^2 : y > 0\}$$
+    é aberto.
+\end{exercise}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{exercise}
+    Prove que um conjunto em $\R^n$ é aberto se, e somente se, é união de bolas abertas.
+\end{exercise}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{exercise}
+    Provar que $\R \times \{0\}$ é fechado em $\R^2$.
+\end{exercise}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{exercise}
+    Prove que as bolas fechadas são conjuntos fechados.
+\end{exercise}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{exercise}
+    Seja $A \subseteq \R^n$ tal que existe $d > 0$ tal que $||x - y|| \ge d$
+    para todo par de pontos $x, y \in A$. Prove que $A$ é fechado em $\R^n$.
+\end{exercise}
+
+\begin{solution}
+  
+\end{solution}
+
+\begin{exercise}
+    Seja $A \subseteq \R^2$ um conjunto não vazio contido numa reta de $\R^2$. Prove que $A$ não é
+    aberto.
+\end{exercise}
+
+\begin{solution}
+    
+\end{solution}
+
+\begin{exercise}
+    Seja $A \subseteq \R^n$. Prove que $\R^n/int(A)$ é fechado.
+\end{exercise}
+
+\begin{solution}
+ 
+\end{solution}
+
+\begin{exercise}
+    Seja $A \subset B \subseteq \R^n$, e $x$ ponto de acumulação de $A$. Será que $x$ é também ponto de
+    acumulação de $B$?
+\end{exercise}
+
+\begin{solution}
+ 
+\end{solution}
+
+\begin{exercise}
+    Se $A \subset \R^n$ é aberto, prove que sua fronteira tem interior vazio.
+\end{exercise}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{exercise}
+    Seja $A \subseteq \R^n$ com $n \ge 2$. Prove que, dado $a \in \R^n/A$, o
+    conjunto $A \cup \{a\}$ é aberto se, e somente se, $a$ é um ponto isolado da
+    fronteira de $A$.
+\end{exercise}
+
+\begin{solution}
+    
+\end{solution}
+
+\begin{exercise}
+    Prove que se $F \subseteq \R^n$ é fechado então sua fronteira tem interior vazio.
+\end{exercise}
+
+\begin{solution}
+    
+\end{solution}
+
+\begin{exercise}
+    Sejam $F \in \R^n$ fechado e $f : F \to \R^m$ uma aplicação contínua.
+    Mostre que $f$ leva subconjuntos limitados de $F$ em subconjuntos
+    limitados de $\R^m$. Prove, exibindo um contra-exemplo, que não se conclui o mesmo removendo-se a hipótese de $F$ ser fechado.
+\end{exercise}
+
+\begin{solution}
+    
+\end{solution}
+
+\begin{exercise}
+    Prove que duas bolas abertas de $\R^n$ são homeomorfas.
+\end{exercise}
+
+\begin{solution}
+    Dados $a \in \R^n$ e $r > 0$, consideremos a aplicação:
+    \begin{align*}
+        f : \B(0, 1) &\to \B(a, r)\\
+        x &\mapsto rx + a        
+    \end{align*}
+    A aplicação $f$ é bijetiva e contínua. Sua inversa, $f^{-1} : \B(a, r) \to
+    \B(0, 1)$, é dada por $f^{-1}(y) = \frac{1}{r}(y - a)$, donde se vê que
+    $f^{-1}$ é contínua, portanto $f$ é um homeomorfismo. Pela transitividade
+    da relação de homeomorfismo, conclui-se que duas bolas abertas quaisquer de
+    $\R^n$ são homeomorfas. Um argumento análogo prova que vale o mesmo para duas bolas, ambas, fechadas.
+\end{solution}
+
+\begin{exercise}
+    Verifique que a aplicação:
+    \begin{align*}
+        f : \B(0, 1) &\to \R^n \\
+        x &\mapsto \frac{x}{1 - ||x||}        
+    \end{align*}
+    é um homeomorfismo entre a bola aberta unitária $\B(0, 1)$ e $\R^n$.
+    Conclua que qualquer bola aberta de $\R^n$ é homeomorfa a todo o espaço $\R^n$.
+\end{exercise}
+
+\begin{solution}
+    
+\end{solution}
+
+\begin{exercise}
+    Mostre que o cone $C = \{(x, y, z) \in \R^3 ; z = x^2 + y^2 \}$ e $\R^2$ são homeomorfos.
+\end{exercise}
+
+\begin{solution}
+    
+\end{solution}
+
+% \begin{thebibliography}{9}
+%     \bibitem{pressley} 
+%     Pressley, Andrew N. Elementary differential geometry. Springer Science \& Business Media, 2010.
+% \end{thebibliography}
+
+\end{document}
