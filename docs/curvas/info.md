@@ -42,6 +42,7 @@ classic-curves). Você pode contribuir para aumentar o acervo!
 |[4](/files/disciplines/curvas-superficies/lista4.pdf)|Curvatura e torção, triedro de Frenet|[4](/files/disciplines/curvas-superficies/solutions4.pdf)|
 |[4.1](/files/disciplines/curvas-superficies/lista4-1.pdf)|Fórmulas de Frenet para não unit-speed curvas|-|
 |[5](/files/disciplines/curvas-superficies/lista5.pdf)|Superfícies regulares, mudança de parâmetro|[5](/files/disciplines/curvas-superficies/solutions5.pdf)|
+|[6](/files/disciplines/curvas-superficies/lista6.pdf)|Introdução à Topologia|[6](/files/disciplines/curvas-superficies/solutions6.pdf)|
 
 ## Notas
 
