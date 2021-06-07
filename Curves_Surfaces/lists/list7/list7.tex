@@ -1,0 +1,167 @@
+\documentclass[a4paper,12pt]{article}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[right=2.5cm, left=2.5cm, top=2.5cm, bottom=2.5cm]{geometry} 
+\usepackage[portuguese]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{url}
+\usepackage{hyperref}
+\Urlmuskip=0mu  plus 10mu
+
+% no indentation
+%\usepackage{setspace}
+%\setlength{\parindent}{0in}
+
+\usepackage{graphicx} 
+\usepackage{float}
+\usepackage{xcolor}
+
+\usepackage{mathtools}
+\usepackage{amssymb, amsthm}
+
+% headers
+\usepackage{fancyhdr}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Proper definitions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\B}{\mathcal{B}}
+
+\newtheoremstyle{exer}{}{}{\color{blue}}{}{\color{blue}\bfseries}{}{ }{}
+\theoremstyle{exer}
+\newtheorem{exercise}{Exercício}
+
+\theoremstyle{definition}
+\newtheorem{solution}{Solução}
+\newtheorem{definition}{Definição}
+
+\theoremstyle{plain}
+\newtheorem{remark}{Observação}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Header (and Footer)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagestyle{fancy} 
+\fancyhf{}
+
+\lhead{\footnotesize CS: Lista 7}
+\rhead{\footnotesize Prof. Asla e Mon. Lucas} 
+\cfoot{\footnotesize \thepage} 
+
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Title section of the document
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\thispagestyle{empty} 
+
+\begin{tabular*}{0.95\textwidth}{l @{\extracolsep{\fill}} r} 
+    {\large \bf Curvas e Superfícies 2021.1} &  \\
+    Escola de Matemática Aplicada, Fundação Getulio Vargas &  \\
+    Professora Asla Medeiros e Sá &  \\ 
+    Monitor Lucas Machado Moschen & Entrega 07/06/2021\\
+    \hline \\
+\end{tabular*} 
+\vspace*{0.3cm} 
+
+\begin{center}
+	{\Large \bf Lista 7}
+	\vspace{2mm}
+\end{center}  
+\vspace{0.4cm}
+
+\begin{exercise}[6.1.1]
+    Calcule a primeira forma fundamental das seguintes superfícies: 
+    \begin{enumerate}
+        \item[(i)] $\sigma(u,v) = (\sinh(u)\sinh(v), \sinh(u)\cosh(v), \sinh(u))$.
+        \item[(ii)] $\sigma(u,v) = (u-v,u+v,u^2+v^2)$.
+        \item[(iii)] $\sigma(u,v) = (\cosh(u),\sinh(u),v)$.
+        \item[(iv)] $\sigma(u,v) = (u,v,u^2+v^2)$.
+        Que tipos de superfícies são estas? 
+    \end{enumerate}
+\end{exercise}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{exercise}[6.1.3]
+    Seja $Edu^2 + 2Fdu dv + Gdv^2$ a primeira forma fundamental do patch
+    $\sigma(u, v)$ da superfície $\mathcal{S}$. Mostre que, se $p$ é um
+    ponto da imagem de $\sigma$ e $v$, $w \in T_p\mathcal{S}$, então 
+    $$\langle v, w \rangle = Edu(v)du(w) + F(du(v)dv(w) + du(w)dv(v)) + Gdv(w)dv(w).$$
+\end{exercise}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{exercise}[6.1.5]
+    Mostre que as seguintes condições são equivalentes em um patch $\sigma(u,
+    v)$ com primeira forma fundamental $Edu^2 + 2F dudv + Gdv^2$:
+    \begin{enumerate}
+        \item[(i)] $E_v = G_u = 0$.
+        \item[(ii)] $\sigma_{uv}$ é paralelo ao vetor normal padrão $N$. 
+        \item[(iii)] O lado oposto de qualquer quadrilátero formado por curvas
+        paramétricas de $\sigma$ tem o mesmo comprimento (veja as observações após a Proposição 4.4.2).   
+    \end{enumerate}
+    Quando essas condições são satisfeitas, as curvas paramétricas de $\sigma$
+    são ditas {\em Chebyshev net.} Mostra que, nesse caso, $\sigma$ tem uma
+    parametrização $\tilde{\sigma}(\tilde{u}, \tilde{v})$ com a primeira forma
+    fundamental 
+    $$
+    d\tilde{u}^2 + 2\cos(\theta)d\tilde{u}d\tilde{v} + d\tilde{v}^2,
+    $$
+    onde $\theta$ é uma função suave de $(\tilde{u}, \tilde{v})$. Mostra que
+    $\theta$ é o ângulo entre as curvas paramétricas de $\tilde{\sigma}$.
+    Mostre além que, se colocamos $\hat{u} = \tilde{u} + \tilde{v}, \hat{v} =
+    \tilde{u} - \tilde{v}$, a reparametrização resultante
+    $\hat{\sigma}(\hat{u}, \hat{v})$ de $\tilde{\sigma}(\tilde{u}, \tilde{v})$
+    tem primeira forma fundamental 
+    $$
+    \cos^2(\omega)d\hat{u}^2 + \sin^2(\omega)d\hat{v}^2, 
+    $$
+    onde $\omega = \theta/2$. 
+\end{exercise}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{exercise}[6.2.1]
+    Pensando sobre como um cone circular pode ser "desembrulhado" em um plano,
+    escreva uma isometria de 
+    $$
+    \sigma(u,v) = (u\cos(v), u\sin(v), u), u > 0, 0 < v < 2\pi,
+    $$
+    (um meio cone circular com uma reta removida) a um aberto no plano XY. 
+\end{exercise}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{exercise}
+    Calcule a área do toro de revolução
+\end{exercise}
+
+\begin{solution}
+
+\end{solution}
+
+% \begin{thebibliography}{9}
+%     \bibitem{pressley} 
+%     Pressley, Andrew N. Elementary differential geometry. Springer Science \& Business Media, 2010.
+% \end{thebibliography}
+
+\end{document}

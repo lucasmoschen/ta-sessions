@@ -85,7 +85,7 @@
 \end{exercise}
 
 \begin{solution}
-    Seja $y \in \B(x,r)$. Queremos provar que existe $\epsilon > 0$ tal que
+    Seja $y \in \B(x; r)$. Queremos provar que existe $\epsilon > 0$ tal que
     $\B(y; \epsilon) \subseteq \B(r; x)$. Definimos para isto $\epsilon := r -
     |y - x| > 0$. Logo, dado qualquer ponto $z \in \B(y; \epsilon)$, temos que
     $$
@@ -134,7 +134,14 @@
 \end{exercise}
 
 \begin{solution}
-
+    Seja $A = \bigcap_{i=1}^n A_i$ interseção de uma quantidade finita de
+    abertos. Tome $z \in A$. Logo $z \in A_i$ para todo $i=1,...,n$. Dado que $A_i$ é aberto, existe $\epsilon_i > 0$ tal que $\B(z; \epsilon_i)
+    \subseteq A_i$ (para todo $i=1,...,n$). Tome $\epsilon = \min_{i=1,...,n}
+    \epsilon_i$. Assim, temos que, para todo $i$, 
+    $$
+    \B(z, \epsilon) \subseteq A_i
+    $$
+    e, portanto, $\B(z, \epsilon) \subseteq A$, o que prova que $A$ é aberto.
 \end{solution}
 
 \begin{exercise}
@@ -168,7 +175,13 @@
 \end{exercise}
 
 \begin{solution}
-
+    \begin{itemize}
+        Seguem alguns
+        \item Conjuntos semi-abertos na reta, isto é, $(a,b]$ e
+        $[a,b)$, com $a, b \in \R$. 
+        \item $A = \{\frac{1}{n} : n \in \mathbb{N}\}$.
+        \item União de discos fechados e abertos disjuntos.
+    \end{itemize}
 \end{solution}
 
 \begin{exercise}
@@ -178,7 +191,12 @@
 \end{exercise}
 
 \begin{solution}
- 
+    Tome $(a,b) \in C$ e $(z_1, z_2) \in \B((a,b), b)$. Assim
+    $$
+    ||(z_1 - a, z_2 - b)|| < b
+    $$
+    e, portanto, $|z_2 - b| < b$, isto é, $-b < z_2 - b < b \implies 0 < z_2 <
+    2b$. Desta forma $(z_1, z_2) \in C$ o que implica $C$ ser aberto. 
 \end{solution}
 
 \begin{exercise}
@@ -204,7 +222,20 @@
 \end{exercise}
 
 \begin{solution}
-
+    Defina $A = (\R \times \{0\})^c = \R \times \{0\}^c$.
+    Tome $(x,y) \in A$ e $(z_1, z_2) \in \B((x,y), |y|)$. Assim, como já vimos no
+    exercício 7, 
+    $$
+    |z_2 - y| < |y| 
+    $$
+    e, portanto, $y - |y| < z_2 < y + |y|$. Se $y < 0$, $y + |y| = 0 \implies
+    z_2 < 0$. Se $y > 0$, $y - |y|  = 0 \implies z_2 > 0$. Em ambos os casos,
+    $z_2 \neq 0$, e, portanto, $(z_1, z_2) \in A$. Isso prova que $A$ é aberto
+    e, por conseguinte, 
+    $$
+    A^c = \R \times \{0\}
+    $$
+    é fechado. 
 \end{solution}
 
 \begin{exercise}
@@ -212,7 +243,18 @@
 \end{exercise}
 
 \begin{solution}
-
+    Seja $B = \bar{\B}(x,r)$ uma bola fechada com raio $r$. Tome $z \in B^c$,
+    isto é 
+    $$
+    ||x - z|| > r.
+    $$
+    Tome $\epsilon = ||x - z|| - r > 0$. Vou provar que $\B(z,\epsilon)
+    \subseteq B^c$. Seja $y \in \B(z,\epsilon)$. Portanto 
+    $$
+    ||y - z|| < \epsilon = ||x - z|| - r \implies r < ||x - z|| - ||y - z|| \le ||x - y||.
+    $$
+    Assim $y \in B^c$. Com isso demonstrado, provamos que $\B(z,\epsilon)
+    \subseteq B^c$ e $B^c$ é aberto. Isso implica que $B$ é fechado. 
 \end{solution}
 
 \begin{exercise}
@@ -221,7 +263,17 @@
 \end{exercise}
 
 \begin{solution}
-  
+    Seja $x \in A^c$ e $B = \B(x,d/2)$. Suponha que exista $y \in B \cap A$.
+    Dessa forma, para todo $z \in B$, 
+    $$
+    ||y-z|| \le ||y - x|| + ||x - z|| < \frac{d}{2} + \frac{d}{2} = d
+    $$
+    o que implica que se $z \neq y$, então $z \not \in A$. Isto é, $y$ é o
+    único ponto que pertence a $B \cap A$. Tome $\epsilon = ||x - y|| < d/2$.
+    Temos, então, que $y \not \in \B(x, \epsilon)$ e $\B(x,\epsilon) \subseteq
+    \B(x, d/2) / \{y\} \subseteq A^c$. Provamos que para todo $x \in A^c$,
+    existe $0 < \epsilon < d/2$ de forma que $\B(x,\epsilon) \subseteq A^c$, o
+  que prova que $A^c$ é aberto e $A$ é fechado.   
 \end{solution}
 
 \begin{exercise}
@@ -230,7 +282,32 @@
 \end{exercise}
 
 \begin{solution}
-
+    Sejam $(u_1, u_2), (v_1, v_2) \in \R^2$ tal que $(v_1, v_2) \neq 0$ e de forma que 
+    $$A \subseteq \{(u_1 + tv_1, u_2 + tv_2) | t \in \R\}$$
+    Tome $x = (u_1 + tv_1, u_2 + tv_2) \in A$, $\epsilon > 0$ e $y =
+    x + \alpha(-v_2,v_1)$, em que 
+    $$0 < |\alpha| < \frac{\epsilon}{||v||}.$$ Assim  
+    $$
+    ||x - y|| = ||\alpha(-v_2, v_1)|| = |\alpha|||v|| < \epsilon,
+    $$
+    isto é, $y \in \B(x, \epsilon)$. Porém o sistema 
+    $$
+    \begin{cases}
+        t v_1 - \alpha v_2 = s v_1  \\
+        t v_2 + \alpha v_1 = s v_2
+    \end{cases} \implies
+    \begin{cases}
+        (t - s)v_1 = \alpha v_2 \\
+        (t - s)v_2 = -\alpha v_1
+    \end{cases} \implies 
+    -\frac{(t - s)^2}{\alpha}v_2 = \alpha
+    v_2
+    $$
+    não tem solução em $s$, pois, se $v_2 \neq
+    0$, então $-(t-s)^2 = \alpha^2$ que não tem solução em $s$ e, se $v_2 = 0$, temos,
+    pela segunda equação $v_1 = 0$, o que é um absurdo. Isso implica que $y$
+    não está na reta e, portanto, não está em $A$. Isso prova que $A$ não é
+    aberto. 
 \end{solution}
 
 \begin{exercise}
@@ -238,7 +315,8 @@
 \end{exercise}
 
 \begin{solution}
-
+    Pela definição de interior de $A$, temos que $int(A)$ é aberto. Por esse
+    motivo, $int(A)^c = \R^n / int(A)$ é fechado. 
 \end{solution}
 
 \begin{exercise}
@@ -247,7 +325,10 @@
 \end{exercise}
 
 \begin{solution}
-
+    Se $x$ é ponto de acumulação de $A$, então existe uma sequência
+    $\{x_n\}_{n \in \mathbb{N}} \subseteq A / \{x\}$ de forma que $x_n \to x$.
+    De fato $\{x_n\}_{n \in \mathbb{N}} \subseteq B / \{x\}$, o que mostra que
+    $x$ é ponto de acumulação de $B$. 
 \end{solution}
 
 \begin{exercise}
@@ -275,7 +356,38 @@
 \end{exercise}
 
 \begin{solution}
-
+    Separamos a ida e a volta
+    \begin{enumerate}
+        \item[$\Rightarrow$] Suponha que $A \cup \{a\}$ seja aberto. Primeiro
+        vamos provar que $a \in \partial A$. Como $a \in A^c$, temos que para
+        todo $\epsilon > 0$, $\B(a, \epsilon) \cap A^c \neq 0$. Além disso,
+        como $A \cup \{a\}$ é aberto, existe $\alpha > 0$ tal que
+        $\B(a,\alpha)/\{a\} \subseteq A$. Desta forma, para todo $\epsilon >
+        0$, $\B(a, \epsilon) \cap A \neq 0$. Provamos que $a \in \partial A$. 
+        
+        Preciso provar que $a$ é ponto isolado de $\partial A$, isto é,
+        existe $r > 0$ de forma que
+        $$\B(a,r) \cap \partial A = \{a\}.$$ 
+        Seja $r = \alpha/2$. Suponha que exista $y \in \B(a, r) \cap \partial
+        A$ diferente de $a$. Assim, para todo $\epsilon > 0$, temos que
+        $\B(y,\epsilon) \cap A \neq \emptyset$ e $\B(y, \epsilon) \cap A^c
+        \neq \emptyset$. Tome $\epsilon = ||y - a||>0$ e $z \in
+        \B(y,\epsilon)$. Assim:
+        $$
+        ||z - a|| \le ||z - y|| + ||y - a|| < 2r = \alpha.
+        $$
+        Além disso,
+        $$
+        ||z - a|| \ge ||y-a|| - ||y-z|| > ||y - a|| - ||y-a|| = 0.
+        $$
+        Portanto $z \in \B(a,\alpha)/\{a\} \subseteq A$ o que implica
+        $\B(y,\epsilon) \subseteq A$, o que é um absurdo. Portanto $a$ é ponto
+        isolado de $\partial A$.
+        \item[$\Leftarrow$] Seja $A = \{x \subseteq \R^n : 0 < ||x|| < 1\}$ e
+        $a = 0$. Portanto $a$ é um ponto isolado de $\partial A = \{x \in \R^n
+        |\, x = 0 \text{ ou } ||x|| = 1\}$, mas $A \cup \{a\} = \{x \in \R^n |
+        1 \ge ||x||\}$ é fechado, o que é um contra exemplo. 
+    \end{enumerate}
 \end{solution}
 
 \begin{exercise}
@@ -283,7 +395,12 @@
 \end{exercise}
 
 \begin{solution}
-
+    Suponha que exista $x \in int(\partial F)$. Então existe $\epsilon > 0$
+    tal que $\B(x,\epsilon) \subseteq \partial F$. Tome $y \in \B(x,\epsilon)
+    \cap F^c$. Como $F^c$ é aberto, porque $F$ é fechado, existe $r > 0$ dal
+    que $\B(y,r) \subseteq F^c$. Porém $y \in \partial F$ e, portanto,
+    $\B(y,r) \cap F \neq \emptyset$, o que é um absurdo. Portanto
+    $int(\partial F) = \emptyset$. 
 \end{solution}
 
 \begin{exercise}
@@ -347,7 +464,49 @@
 \end{exercise}
 
 \begin{solution}
+    Defina 
+    \begin{align*}
+        g : \R^n &\to \B(0,1) \\
+        y&\mapsto \frac{y}{1 + ||y||} 
+    \end{align*}
+    Primeiro veja que $||g(y)|| < 1$ para todo $y$ e, portanto, $g$ está
+    definida. Vejamos que $g = f^{-1}$. Tome $x \in \B(0,1)$. Então
+    $$
+    g(f(x)) = g\left(\frac{x}{1-||x||}\right) = \frac{\frac{x}{1 - ||x||}}{1 + \frac{||x||}{1 - ||x||}} = x
+    $$
+    e se $y \in \R^n$,
+    $$
+    f(g(y)) = f\left(\frac{y}{1 + ||y||}\right) = \frac{\frac{y}{1+||y||}}{1-\frac{||y||}{1+||y||}} = y
+    $$
+    o que demonstra que $g = f^{-1}$. Como $f$ possui inversa, é bijetiva. 
 
+    Vamos demonstrar a continuidade de $f$. 
+    Considere $A \subseteq \R^n$ aberto e $B = f^{-1}(A)$. Vamos mostrar que
+    $B$ é aberto, isto é, para todo $x \in B$,
+    existe $r > 0$ tal que $\B(x, r) \subset B$. Tome $x = f^{-1}(y) \in B$.
+    Como $A$ é aberto, existe $\epsilon > 0$ tal que $\B(y, \epsilon)
+    \subset A$. Tome $\delta$ tal que 
+    $$
+    \frac{\delta}{1 - ||x|| - \delta}(1 + ||y||) < \epsilon
+    $$
+    e $z = f^{-1}(w) \in \B(x,\delta)$. 
+    \begin{equation*}
+        \begin{split}
+            ||y - w|| &= \left|\left|\frac{x}{1 - ||x||} - \frac{z}{1 - ||z||}\right|\right| = \frac{1}{1 - ||x||}\left|\left|x - \frac{1 - ||x||}{1 - ||z||}z\right|\right| \\ 
+            &= \frac{1}{1 - ||x||}\left|\left|x - z + z - \frac{1 - ||x||}{1 - ||z||}z\right|\right| \\
+            &\le \frac{||x-z||}{1 - ||x||} + \frac{1}{1 - ||x||}\left(1 - \frac{1 - ||x||}{1 - ||z||}||z||\right) \\
+            &= \frac{||x-z||}{1 - ||x||} + \frac{||z||}{1 - ||x||}\frac{||x|| - ||z||}{1 - ||z||} \\
+            &\le \frac{1}{1 - ||x||}||x-z||(1 + ||w||) \\
+            &\le \frac{1}{1 - ||x||}||x-z||(1 + ||y - w|| + ||y||) \\
+            \implies ||y - w|| &\le \frac{||x-z||}{1 - ||x|| - ||x-z||}(1 + ||y||) \\ 
+            &< \frac{\delta}{1 - ||x|| - \delta}(1 + ||y||) < \epsilon
+        \end{split}
+    \end{equation*}
+    Então $w \in \B(y, \epsilon) \subset A \implies z \in B$, o que prova que
+    $B$ é aberto. Isso conclui a continuidade de $f$. A continuidade de
+    $f^{-1}$ tem demonstração similar. Isso prova que $f$ é homeomorfismo e,
+    com o exercício 19 mais a transitividade da relação "homeomorfa a", temos
+    que qualquer bola aberta em $\R^n$ é homeomorfa a $\R^n$. 
 \end{solution}
 
 \begin{exercise}
@@ -355,7 +514,24 @@
 \end{exercise}
 
 \begin{solution}
-
+    Observe que isso é similar a argumentar que o cone é uma superfície.
+    Defina 
+    \begin{align*}
+        \sigma : \R^2 &\to C \\
+        (x,y) &\mapsto (x,y,x^2+y^2).
+    \end{align*}
+    Primeiro vou provar que $\sigma$ possui inversa. Defina
+    \begin{align*}
+        \sigma^{-1} : C &\to \R^2 \\
+        (x,y,z) &\mapsto (x,y)
+    \end{align*}
+    Tome $(x,y) \in \R^2$. Assim $\sigma^{-1}(\sigma(x,y)) =
+    \sigma^{-1}(x,y,x^2+y^2)=(x,y)$. Tome $(x,y,z) \in C$, isto é, $z = x^2 +
+    y^2$. Assim $\sigma(\sigma^{-1}(x,y,z)) = \sigma(x,y) = (x,y,x^2+y^2)=
+    (x,y,z)$.  Provamos que $\sigma$ possui inversa e, portanto, é bijetiva. A
+    continuidade de $\sigma$ e $\sigma^{-1}$ vem da continuidade de cada
+    componente. Portanto $\sigma$ é um homeomorfismo o que prova que $\R^2$ e
+    $C$ são homeomorfos.
 \end{solution}
 
 % \begin{thebibliography}{9}
