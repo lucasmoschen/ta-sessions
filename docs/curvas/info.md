@@ -44,7 +44,7 @@ classic-curves). Você pode contribuir para aumentar o acervo!
 |[5](/files/disciplines/curvas-superficies/lista5.pdf)|Superfícies regulares, mudança de parâmetro|[5](/files/disciplines/curvas-superficies/solutions5.pdf)|
 |[6](/files/disciplines/curvas-superficies/lista6.pdf)|Introdução à Topologia|[6](/files/disciplines/curvas-superficies/solutions6.pdf)|
 |[7](/files/disciplines/curvas-superficies/lista7.pdf)|Primeira forma fundamental|[7](/files/disciplines/curvas-superficies/solutions7.pdf)|
-|[8](/files/disciplines/curvas-superficies/lista8.pdf)|Primeira forma fundamental|[8](/files/disciplines/curvas-superficies/solutions9.pdf)|
+|[8](/files/disciplines/curvas-superficies/lista8.pdf)|Formas fundamentais|[8](/files/disciplines/curvas-superficies/solutions9.pdf)|
 
 
 ## Notas
