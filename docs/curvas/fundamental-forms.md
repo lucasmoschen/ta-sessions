@@ -36,4 +36,27 @@ $$
 L(\gamma) = \int (E\dot{u}^2 + 2F\dot{u}\dot{v} + G\dot{v}^2)^{1/2} dt
 $$
 
+### Isometrias em superfícies 
+
+Se $\mathcal{S}_1$ e $\mathcal{S}_2$ são superfícies, dizemos que eles são
+*localmente isométricos* se qualquer curva de $\mathcal{S}_1$ pode ser levada
+por um mapa suave para uma curva em $\mathcal{S}_2$ de mesmo comprimento, isto
+é, toda curva pode ser levada de uma superfície para outra, mantendo
+comprimento. O mapa que realiza essa função é uma *isometria local*. 
+
+Seja o mapa $D_pf : T_p\mathcal{S}_1 \to T_{f(p)}\mathcal{S}_2$ a derivada da
+função suave $f$ entre as superfícies. Podemos provar que $f$ será uma
+isometria local se, e somente se, $D_p\mathcal{S}_1$ é uma isometria (isto é,
+preserva distâncias) para todo ponto $p \in \mathcal{S}_1$. Lembrando que por
+isometria, queremos dizer que 
+$$
+\langle v, v \rangle_p = \langle D_p f(v), D_p f(v) \rangle_{f(p)}.
+$$
+Se $f$ for uma isometria local, ele será um difeomorfismo local dada a
+invertibilidade de sua derivada $D_pf$. 
+
+Um corolário interessante é que para todo mapa $\sigma_1$ de $\mathcal{S}_1$,
+os patches $\sigma_1$ de $\mathcal{S}_1$, e $f \circ \sigma_1$ de
+$\mathcal{S}_2$ tem a mesma forma fundamental. 
+
 ## Segunda forma fundamental

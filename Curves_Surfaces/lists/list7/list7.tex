@@ -22,6 +22,7 @@
 
 \usepackage{mathtools}
 \usepackage{amssymb, amsthm}
+\usepackage{cancel}
 
 % headers
 \usepackage{fancyhdr}
@@ -31,6 +32,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\B}{\mathcal{B}}
+\newcommand{\sur}{\mathcal{S}}
 
 \newtheoremstyle{exer}{}{}{\color{blue}}{}{\color{blue}\bfseries}{}{ }{}
 \theoremstyle{exer}
@@ -87,23 +89,102 @@
         \item[(ii)] $\sigma(u,v) = (u-v,u+v,u^2+v^2)$.
         \item[(iii)] $\sigma(u,v) = (\cosh(u),\sinh(u),v)$.
         \item[(iv)] $\sigma(u,v) = (u,v,u^2+v^2)$.
+        
         Que tipos de superfícies são estas? 
     \end{enumerate}
 \end{exercise}
 
 \begin{solution}
+    Qualquer vetor tangente a uma superfície $\sur$ (definida por $\sigma$) no
+    ponto $p$ pode ser unicamente escrita como uma combinação linear de
+    $\sigma_u$ e $\sigma_v$ (o espaço tangente de uma superfície $\sur$ no ponto
+    $p$ é o plano tangente gerado pelo produto vetorial das derivadas parciais
+    $\sigma_u \times \sigma_v$). Então fazemos 
+    $$
+    E = ||\sigma_u||^2, F = \langle \sigma_u, \sigma_v \rangle, G = ||\sigma_v||^2
+    $$
+    e
+    $$
+    Edu^2 + 2Fdudv + Gdv^2
+    $$
+    será a primeira forma fundamental tradicional. Assim:
+    \begin{enumerate}
+        \item[(i)]  $\sigma_u = (\cosh(u)\sinh(v), \cosh(u)\cosh(v),
+        \cosh(u))$ e  
+        
+        $\sigma_v = (\sinh(u)\cosh(v), \sinh(u)\sinh(v), 0)$. Assim 
+        $$
+        E = ||\sigma_u||^2 = \cosh^2(u)\sinh^2(v) + \cosh^2(u)\cosh^2(v) + \cosh^2(u) = 2\cosh^2(u)\cosh^2(v),
+        $$
+        $$
+        F = \sigma_u\cdot\sigma_v = 2\cosh(u)\sinh(u)\cosh(v)\sinh(v) = \frac{1}{2}\sinh(2u)\sinh(2v),
+        $$
+        $$
+        G = ||\sigma_v||^2 = \sinh^2(u)\cosh^2(v) + \sinh^2(u)\sinh^2(v) = \sinh^2(u)\cosh(2v).
+        $$
+        Para mais detalhes, veja relações úteis de funções
+        hiperbólicas\footnote{\url{https://en.wikipedia.org/wiki/Hyperbolic_functions\#Useful_relations}}.
+        Essa superfície é um {\bf cone quádrico} dado pela equação cartesiana $x^2 -
+        y^2 + z^2 = 0$. 
+        
+        \item[(ii)] $\sigma_u = (1,1,2u)$ e $\sigma_v = (-1,1,2v)$. Assim,
+        $$
+        E = ||\sigma_u||^2 = 1 + 1 + 4u^2 = 4u^2 + 2,
+        $$
+        $$
+        F = \sigma_u\cdot\sigma_v = -1 + 1 + 4uv = 4uv,
+        $$
+        $$
+        G = ||\sigma_v||^2 = 1 + 1 + 4v^2 = 4v^2 + 2.
+        $$
+        Essa superfície é uma {\bf paraboloide de revolução}.
 
+        \item[(iii)] $\sigma_u = (\sinh(u), \cosh(u), 0)$ e $\sigma_v =
+        (0,0,1)$. Assim, 
+        $$
+        E = ||\sigma_u||^2 = \sinh^2(u) + \cosh^2(u) = \cosh(2u),
+        $$
+        $$
+        F = \sigma_u\cdot\sigma_v = 0,
+        $$
+        $$
+        G = ||\sigma_v||^2 = 1.
+        $$
+        Essa superfície é um {\bf cilindro hiperbólico}.
+
+        \item[(iv)] $\sigma_u = (1,0,2u)$ e $\sigma_v = (0,1,2v)$. Assim, 
+        $$
+        E = ||\sigma_u||^2 = 4u^2 + 1,
+        $$
+        $$
+        F = \sigma_u\cdot\sigma_v = 4uv,
+        $$
+        $$
+        G = ||\sigma_v||^2 = 4v^2 + 1.
+        $$
+        Essa superfície é um {\bf parabolóide de revolução}. Para mais
+        detalhes sobre os tipos de superfície, consulte \cite[Seção 5.2]{pressley}.
+    \end{enumerate} 
 \end{solution}
 
 \begin{exercise}[6.1.3]
     Seja $Edu^2 + 2Fdu dv + Gdv^2$ a primeira forma fundamental do patch
     $\sigma(u, v)$ da superfície $\mathcal{S}$. Mostre que, se $p$ é um
     ponto da imagem de $\sigma$ e $v$, $w \in T_p\mathcal{S}$, então 
-    $$\langle v, w \rangle = Edu(v)du(w) + F(du(v)dv(w) + du(w)dv(v)) + Gdv(w)dv(w).$$
+    $$\langle v, w \rangle = Edu(v)du(w) + F(du(v)dv(w) + du(w)dv(v)) + Gdv(v)dv(w).$$
 \end{exercise}
 
 \begin{solution}
-
+    Primeiro provamos a relação para uma base de $T_p\sur$, em particular,
+    $\{\sigma_u, \sigma_v\}$. Nesse caso $du(\sigma_u) = dv(\sigma_v) = 1$ e
+    $du(\sigma_v) = dv(\sigma_u) = 0$ e, portanto, 
+    $$
+    \langle \sigma_u, \sigma_u \rangle = E, \langle \sigma_u, \sigma_v \rangle = F, \text{ e } \langle \sigma_v, \sigma_v \rangle = G,
+    $$
+    que são relações verdadeiras. Agora seja $v,w \in T_p\sur$. Escrevemos $v
+    = \lambda_1\sigma_u + \lambda_2\sigma_v$ e $w = \mu_1\sigma_u +
+    \mu_2\sigma_v$. Usamos a linearidade dos mapas $du$ e $dv$, e da
+    bilinearidade do produto interno para ver que a relação é válida. 
 \end{solution}
 
 \begin{exercise}[6.1.5]
@@ -112,10 +193,10 @@
     \begin{enumerate}
         \item[(i)] $E_v = G_u = 0$.
         \item[(ii)] $\sigma_{uv}$ é paralelo ao vetor normal padrão $N$. 
-        \item[(iii)] O lado oposto de qualquer quadrilátero formado por curvas
-        paramétricas de $\sigma$ tem o mesmo comprimento (veja as observações após a Proposição 4.4.2).   
+        \item[(iii)] Os lados opostos de qualquer quadrilátero formado por curvas
+        parâmetros de $\sigma$ tem o mesmo comprimento (veja as observações após a Proposição 4.4.2).   
     \end{enumerate}
-    Quando essas condições são satisfeitas, as curvas paramétricas de $\sigma$
+    Quando essas condições são satisfeitas, as curvas parâmetros de $\sigma$
     são ditas {\em Chebyshev net.} Mostra que, nesse caso, $\sigma$ tem uma
     parametrização $\tilde{\sigma}(\tilde{u}, \tilde{v})$ com a primeira forma
     fundamental 
@@ -123,7 +204,7 @@
     d\tilde{u}^2 + 2\cos(\theta)d\tilde{u}d\tilde{v} + d\tilde{v}^2,
     $$
     onde $\theta$ é uma função suave de $(\tilde{u}, \tilde{v})$. Mostra que
-    $\theta$ é o ângulo entre as curvas paramétricas de $\tilde{\sigma}$.
+    $\theta$ é o ângulo entre as curvas parâmetros de $\tilde{\sigma}$.
     Mostre além que, se colocamos $\hat{u} = \tilde{u} + \tilde{v}, \hat{v} =
     \tilde{u} - \tilde{v}$, a reparametrização resultante
     $\hat{\sigma}(\hat{u}, \hat{v})$ de $\tilde{\sigma}(\tilde{u}, \tilde{v})$
@@ -135,6 +216,87 @@
 \end{exercise}
 
 \begin{solution}
+    Primeiro vamos provar que (i) é equivalente a (ii). Primeiro, vejamos que 
+    $$
+    E_v = \frac{d}{dv}\langle \sigma_u, \sigma_u \rangle = \langle \sigma_u, \sigma_{uv} \rangle,
+    $$
+    $$
+    G_u = \frac{d}{du}\langle \sigma_v, \sigma_v \rangle = \langle \sigma_v, \sigma_{uv} \rangle, \text{ e }
+    $$
+    $$
+    N = ||\sigma_u \times \sigma_v||^{-1}(\sigma_u \times \sigma_v).
+    $$
+    Logo $E_v = G_u = 0$ é equivalente a $\sigma_{uv}$ ser ortogonal a
+    $\sigma_u$ e $\sigma_v$, e por conseguinte, paralelo a $N$.  Vamos lembrar
+    que as curvas $u \mapsto \sigma(u, v_0)$ e $v \mapsto \sigma(u_0, v)$ para
+    $u_0$ e $v_0$ fixados são as curvas parâmetros. Considere o quadrilátero
+    determinado pela intersecção das curvas parâmetros determinadas por $u_0,
+    u_1, v_0$ e $v_1$. Além disso, quando $u = u_0$, o comprimento é dado por 
+    $$
+    \sigma_{v_0}^{v_1} ||\sigma_v(u_0, v)|| dv = \int_{v_0}^{v_1} \sqrt{G(u_0, v)}dv.
+    $$
+    Suponha (i). Quando $G_u = 0$, a função $G$ não varia quando $u$ varia.
+    Portanto 
+    $$
+    \int_{v_0}^{v_1} ||\sigma_v(u_0, v)|| dv = \int_{v_0}^{v_1} \sqrt{G(u_0, v)}dv =
+    \int_{v_0}^{v_1} \sqrt{G(u_1, v)}dv = 
+    \int_{v_0}^{v_1} ||\sigma_v(u_1, v)|| dv.
+    $$
+    Como $E_v = 0$, verificamos que os outros dois lados também têm mesmo
+    comprimento. Portanto, vale (iii). Agora suponha (iii). Assim 
+    $$
+    \int_{v_0}^{v_1} \sqrt{G(u_0, v)}dv =
+    \int_{v_0}^{v_1} \sqrt{G(u_1, v)}dv = 
+    $$
+    para quaisquer $u_0$ e $u_1$. Em particular essa integral não depende de
+    $u$ e 
+    $$
+    0 = \frac{d}{du} \int_{v_0}^{v_1} \sqrt{G(s, t)}dt = \int_{v_0}^{v_1} \frac{G_u(s,t)}{\sqrt{G(s,t)}}dt, 
+    $$
+    para valores $v_0$ e $v_1$ quaisquer. Pela continuidade de $G_u$, se ela
+    for não nula em um ponto, ela será não nula em um intervalo $(v_0,v_1)$ e,
+    portanto, a integral será também não nula. Logo $G_u = 0$.
+    Equivalentemente vemos que $E_v = 0$. 
+
+    Agora, suponhamos as condições acima. Defina $E(u) = E(u,v)$ (pela
+    condição (i), $E$ é constante em $v$) e $G(v) = G(u,v)$. Com isso, defina
+    $$\tilde{u} = \int \sqrt{E(u)}du, \tilde{v} = \int
+    \sqrt{G(v)} dv.$$
+    Então o mapa $(u,v) \overset{F}{\mapsto} (\tilde{u}, \tilde{v})$ é uma reparametrização
+    com Jacobiano $\sqrt{EG}$ não nulo, portanto invertível \cite[Proposição 4.2.7]{pressley}. A primeira forma fundamental de
+    $\tilde{\sigma}(\tilde{u}, \tilde{v}) = \sigma(F^{-1}(\tilde{u},\tilde{v}))$ pode ser escrita como 
+    $$
+    \tilde{E}d\tilde{u}^2 + 2\tilde{F}d\tilde{u}d\tilde{v} + \tilde{G}d\tilde{v}^2,  
+    $$
+    em que, pela regra da cadeia, 
+    $$
+    \tilde{E} = ||\tilde{\sigma}_{\tilde{u}}||^2  = \left|\left|\sigma_u\frac{\partial u}{\partial \tilde{u}} + \sigma_v\cancel{\frac{\partial v}{\partial \tilde{u}}} \right|\right|^2 = E/(\sqrt{E})^2 = 1, 
+    $$
+    $$
+    \tilde{G} = ||\tilde{\sigma}_{\tilde{v}}||^2  = \left|\left|\sigma_u\cancel{\frac{\partial u}{\partial \tilde{v}}} + \sigma_v\frac{\partial v}{\partial \tilde{v}} \right|\right|^2 = G/(\sqrt{G})^2 = 1, \text{ e}
+    $$
+    $$
+    \tilde{F} = \langle \tilde{\sigma}_{\tilde{u}}, \tilde{\sigma}_{\tilde{v}} \rangle = \frac{\partial u}{\partial \tilde{u}}\frac{\partial v}{\partial \tilde{v}}\langle \sigma_u, \sigma_v \rangle = \frac{F}{\sqrt{EG}}.
+    $$
+    Observe que $F < \sqrt{EG}$ por Cauchy-Schwartz. Como esses mapas são
+    suaves, podemos definir $\theta(\tilde{u},\tilde{v})$ suave entre 0 e
+    $\pi$ de forma que $\cos(\theta) = F/\sqrt{EG}$. 
+
+    Por fim, considere a transformação sugerida
+    $$
+    \tilde{u} = \frac{\hat{u} + \hat{v}}{2} \text{ e } \tilde{v} = \frac{\hat{u} - \hat{v}}{2}. 
+    $$
+    Assim a primeira forma fundamental é 
+    $$
+    \frac{1}{4}(d\hat{u} + d\hat{v})^2 + \frac{1}{2}\cos(\theta)(d\hat{u}^2 - d\hat{v}^2) + \frac{1}{4}(d\hat{u} - d\hat{v})^2 = \frac{1}{2}(1 + \cos(\theta))d\hat{u}^2 + \frac{1}{2}(1 - \cos(\theta))d\hat{v}^2.
+    $$
+    Com as propriedades trigonométrica, teremos que a primeira forma
+    fundamental é 
+    $$
+    \cos^2(\theta/2)d\hat{u}^2 + \sin^2(\theta/2)d\hat{v}^2.
+    $$
+
+    
 
 \end{solution}
 
@@ -159,9 +321,9 @@
 
 \end{solution}
 
-% \begin{thebibliography}{9}
-%     \bibitem{pressley} 
-%     Pressley, Andrew N. Elementary differential geometry. Springer Science \& Business Media, 2010.
-% \end{thebibliography}
+\begin{thebibliography}{9}
+     \bibitem{pressley} 
+     Pressley, Andrew N. Elementary differential geometry. Springer Science \& Business Media, 2010.
+\end{thebibliography}
 
 \end{document}
