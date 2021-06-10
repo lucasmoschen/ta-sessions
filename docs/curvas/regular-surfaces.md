@@ -116,7 +116,7 @@ Freire](https://www.sbm.org.br/wp-content/uploads/2016/06/Introdu%C3%A7%C3%A3o-a
 é um pouco diferente e será apresentada nessa subseção. 
 
 **Definição (campos):** Seja uma superfície $\mathcal{S}$. Uma aplicação $f:
-\mathcal{S} \to \R^3$ é chamada de campo. Ela será *unitária* quando $||f(p)||
+\mathcal{S} \to \mathbb{R}^3$ é chamada de campo. Ela será *unitária* quando $||f(p)||
 = 1$ para todo ponto da superfície; *tangente* se sua imagem está contida no
 espaço (plano) tangente; e *normal* se pertence ao complemento ortogonal do
 espaço tangente, isto é, sua imagem é ortogonal ao plano tangente. 
