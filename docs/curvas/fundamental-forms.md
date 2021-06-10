@@ -108,7 +108,7 @@ $$
 ponto $p$ é definida como $\mathcal{W}_{p,S} = - D_p\mathcal{S}$. A segunda
 forma fundamental pode ser equivalentemente escrita como 
 $$
-\langle \langle v, w \rangle \rangle_{p,S} = \langle \mathcal{W}_{p,S}(v), w
+\langle \langle v, w \rangle \rangle_{p,S} := \langle \mathcal{W}_{p,S}(v), w
 \rangle_{p,S}, v, w \in T_p\mathcal{S}. 
 $$
 

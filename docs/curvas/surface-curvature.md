@@ -19,7 +19,7 @@ $$
 
 **Proposição:** Seja $\sigma$ uma parametrização da superfície orientada
 $\mathcal{S}$. Então a matriz do mapa de Weingarten com respeito a base
-$\{\sigma_u, \sigma)v\}$ de $T_pS$ é $\mathcal{F}_I^{-1}\mathcal{F}_{II}$. 
+$\{\sigma_u, \sigma_v\}$ de $T_pS$ é $\mathcal{F}_I^{-1}\mathcal{F}_{II}$. 
 
 **Corolário:** 
 $$
