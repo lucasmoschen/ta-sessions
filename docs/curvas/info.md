@@ -25,6 +25,7 @@ classic-curves). Você pode contribuir para aumentar o acervo!
 |[Resumo de topologia](/ta-sessions/curvas/intro-topology)|
 |[Superfícies](/ta-sessions/curvas/regular-surfaces)|
 |[Formas fundamentais](/ta-sessions/curvas/fundamental-forms)|
+|[Curvatura Gaussiana, média, e principais](/ta-sessions/curvas/surface-curvature)|
 
 
 |Trabalhos|
