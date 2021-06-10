@@ -1,0 +1,177 @@
+\documentclass[a4paper,12pt]{article}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[right=2.5cm, left=2.5cm, top=2.5cm, bottom=2.5cm]{geometry} 
+\usepackage[portuguese]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{url}
+\usepackage{hyperref}
+\Urlmuskip=0mu  plus 10mu
+
+% no indentation
+%\usepackage{setspace}
+%\setlength{\parindent}{0in}
+
+\usepackage{graphicx} 
+\usepackage{float}
+\usepackage{xcolor}
+
+\usepackage{mathtools}
+\usepackage{amssymb, amsthm}
+\usepackage{cancel}
+
+% headers
+\usepackage{fancyhdr}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Proper definitions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\sur}{\mathcal{S}}
+
+\newtheoremstyle{exer}{}{}{\color{blue}}{}{\color{blue}\bfseries}{}{ }{}
+\theoremstyle{exer}
+\newtheorem{exercise}{Exercício}
+
+\theoremstyle{definition}
+\newtheorem{solution}{Solução}
+\newtheorem{definition}{Definição}
+
+\theoremstyle{plain}
+\newtheorem{remark}{Observação}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Header (and Footer)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagestyle{fancy} 
+\fancyhf{}
+
+\lhead{\footnotesize CS: Lista 8}
+\rhead{\footnotesize Prof. Asla e Mon. Lucas} 
+\cfoot{\footnotesize \thepage} 
+
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Title section of the document
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\thispagestyle{empty} 
+
+\begin{tabular*}{0.95\textwidth}{l @{\extracolsep{\fill}} r} 
+    {\large \bf Curvas e Superfícies 2021.1} &  \\
+    Escola de Matemática Aplicada, Fundação Getulio Vargas &  \\
+    Professora Asla Medeiros e Sá &  \\ 
+    Monitor Lucas Machado Moschen & Entrega 14/06/2021\\
+    \hline \\
+\end{tabular*} 
+\vspace*{0.3cm} 
+
+\begin{center}
+	{\Large \bf Lista 8}
+	\vspace{2mm}
+\end{center}  
+\vspace{0.4cm}
+
+\begin{exercise}
+    Estudo do cilindro:
+    \begin{enumerate}
+    \item[(a)] Escolha uma parametrização de parte de uma superfície cilíndrica regular.
+    \item[(b)] Desenhar, em software gráfico, as seções normais para um ponto da imagem da
+    parametrização escolhida. Observe as direções em que as curvaturas das cuvas
+    definidas pela seção normal são máxima e mínima.
+    \item[(c)] Defina uma aplicação normal de Gauss para a parametrização escolhida.
+    \item[(d)] Calcule os coeficientes da primeira forma fundamental para um ponto da parametrização proposta.
+    \item[(e)] Calcule a área coberta pela parametrização proposta por você.
+    \item[(f)] Calcule os coeficientes da segunda forma fundamental para o mesmo ponto analisado anteriormente.
+    \item[(g)] Calcule as curvaturas principais e as direções principais para os pontos escolhidos
+    do cilindro.   
+\end{enumerate}
+\end{exercise}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{exercise}
+    Para o paraboloide hiperbólico dado pela parametrização $$X(u, v) = (u, v,
+    v^2 - u^2), (u, v) \in \R^2,$$ faça:
+    \begin{enumerate}
+        \item[(a)] Desenhar, em software gráfico, as seções normais para um
+        ponto do cilindro. Observe as direções em que as curvaturas das cuvas
+        definidas pela seção normal são máxima e mínima. 
+        \item[(b)] Calcule os coeficientes da segunda forma fundamental para o
+        mesmo ponto $q = (0, 0)$.  
+        \item[(c)] Calcule as curvaturas principais, a curvatura gaussiana e a
+        curvatura média para esse ponto.
+    \end{enumerate}
+\end{exercise}
+
+\begin{solution}
+
+\end{solution}
+
+\begin{exercise}
+    Para a sela de macaco dada pela parametrização 
+    $$X(u, v) = (u, v,
+    u^3- 3uv^2), (u, v) \in \R^2,$$ faça:
+    \begin{enumerate}
+        \item[(a)] Desenhar, em software gráfico, as seções normais para um ponto do cilindro.
+        Observe as direções em que as curvaturas das cuvas definidas pela seção normal
+        são máxima e mínima.
+        \item[(b)] Calcule os coeficientes da segunda forma fundamental para o mesmo ponto $q =
+        (0, 0)$.
+        \item[(c)] Calcule as curvaturas principais, a curvatura gaussiana e a curvatura média para
+        esse ponto.
+    \end{enumerate}
+\end{exercise}
+
+\begin{solution}
+    
+\end{solution}
+
+\begin{exercise}
+    Mostrar que planos são superfícies totalmente umbílicas.
+\end{exercise}
+
+\begin{solution}
+    
+\end{solution}
+
+\begin{exercise}
+    Mostrar que esferas são superfícies totalmente umbílicas.
+\end{exercise}
+
+\begin{solution}
+    
+\end{solution}
+
+\begin{exercise}
+    Detalhar a demonstração da página 4 das notas de aula (feitas também na
+    aula em vídeo) que mostra que a curvatura das curvas definidas pelas
+    seções normais coincide com a segunda forma fundamental. Isto é:
+    $$
+    k_{\alpha}(0) = \langle \alpha'', N(p) \rangle = \langle - dN_p(w), w \rangle = II_p
+    $$
+\end{exercise}
+
+\begin{solution}
+    
+\end{solution}
+
+
+% \begin{thebibliography}{9}
+%      \bibitem{pressley} 
+%      Pressley, Andrew N. Elementary differential geometry. Springer Science \& Business Media, 2010.
+% \end{thebibliography}
+
+\end{document}
