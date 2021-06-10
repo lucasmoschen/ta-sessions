@@ -90,7 +90,7 @@ $$
 N_{\sigma} = \frac{\sigma_u \times \sigma_v}{||\sigma_u \times \sigma_v||}
 $$
 que é exatamente o vetor normal ao plano tangente. Note que esse vetor não é
-independente da escolha do patch $\sigma U \to \mathbb{R}^3$. Se
+independente da escolha do patch $\sigma : U \to \mathbb{R}^3$. Se
 $\tilde{\sigma} : \tilde{U} \to \mathbb{R}^3$ é outro patch regular para $S$
 em $p$, podemos demostrar que:
 
@@ -108,3 +108,32 @@ Portanto $N_{\tilde{\sigma}} = \operatorname{sign}(\operatorname{det}(J(\phi))) 
 atlas $A$ para $S$, de forma que, para quaisquer dois patches $\sigma_1$ e
 $\sigma_2$ em $A$, se $\phi$ é o mapa de transição entre eles, então
 $\operatorname{det}(J(\phi)) > 0$. 
+
+### Abordagem alternativa 
+
+A abordagem utilizada por [Ronaldo
+Freire](https://www.sbm.org.br/wp-content/uploads/2016/06/Introdu%C3%A7%C3%A3o-a-Geometria-Diferencial_Ronaldo-Freire-Lima.pdf)
+é um pouco diferente e será apresentada nessa subseção. 
+
+**Definição (campos):** Seja uma superfície $\mathcal{S}$. Uma aplicação $f:
+\mathcal{S} \to \R^3$ é chamada de campo. Ela será *unitária* quando $||f(p)||
+= 1$ para todo ponto da superfície; *tangente* se sua imagem está contida no
+espaço (plano) tangente; e *normal* se pertence ao complemento ortogonal do
+espaço tangente, isto é, sua imagem é ortogonal ao plano tangente. 
+
+Quando o campo é normal, unitário, e diferencial, denotamos por $N : \mathcal{S} \to
+\mathbb{R}^3$. Note que sempre podemos definir essa função associando cada
+ponto da superfície ao vetor normal à superfície que passe no ponto. 
+
+**Superfície orientável:** Uma superfície regular é *orientável* quando
+podemos definir um campo $N$ nessa superfície. Esse campo define a orientação
+da superfície, quando existir. 
+
+Uma superfície regular não orientável é a [*fita de Moebius*](https://www.youtube.com/watch?v=vLgCq4ikl78), uma faixa de
+papel com uma das extremidades torcidas. 
+
+**Atlas coerente:** Um atlas (família de parametrizações de uma superfície) é
+*coerente* quando dadas duas parametrizações $\sigma_1$ e $\sigma_2$ do atlas,
+o mapa de transição entre as parametrizações tem determinante positivo. Note
+que essa é a definição que Pressley utiliza. Podemos provar (inclusive Freire
+prova) que ambas são definições equivalentes.

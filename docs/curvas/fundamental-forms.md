@@ -60,3 +60,4 @@ os patches $\sigma_1$ de $\mathcal{S}_1$, e $f \circ \sigma_1$ de
 $\mathcal{S}_2$ tem a mesma forma fundamental. 
 
 ## Segunda forma fundamental
+
