@@ -1,7 +1,9 @@
 site_name: Teaching Assistant 
 nav: 
   - Home: index.md
-  - Curvas e Superfícies: curvas/info.md
+  - Análise Numérica: analisenum/info.md
+  - EDP: edp/info.md
+  - Curvas: curvas/info.md
   - Estatística: infestatistica/info.md
   - EDO: edo/info.md
   - Álgebra Linear: alglin/info.md

@@ -17,6 +17,10 @@ alterações, você pode usar o Issues do Github.
     - Professor [Luiz Max de Carvalho](https://emap.fgv.br/corpo-docente/luiz-max-fagundes-de-carvalho)
 - Curvas e Superfícies (2021.1)
     - Professora [Asla Medeiros e Sá](https://sites.google.com/view/aslasa/home)
+- Introdução à Análise Numérica (2021.2)
+    - Professor [Hugo A. de la Cruz Cancino](https://emap.fgv.br/corpo-docente/hugo-de-la-cruz-cancino)
+- Equações Diferenciais Parciais (2021.2)
+    - Professor [Moacyr Alvim Horta Barbosa da Silva](https://emap.fgv.br/corpo-docente/moacyr-alvim-horta-barbosa-silva)
 
 ## Referências interessantes de matemática 
 
