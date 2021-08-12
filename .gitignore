@@ -6,3 +6,5 @@ site/
 *.log
 *.synctex.gz
 *.out
+
+deploy.sh
