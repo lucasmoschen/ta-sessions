@@ -8,6 +8,8 @@ Monitoria de Equações Diferenciais Parciais correspondente ao período de 2021
 
 ## Tópicos
 
+|Conceitos introdutórios|
+|---|
 |[Definições preliminares](/ta-sessions/edp/introduction)|
 
 ## Listas
