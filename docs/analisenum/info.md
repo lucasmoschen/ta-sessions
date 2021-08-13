@@ -11,7 +11,7 @@ Monitoria de Introdução à Análise Numérica correspondente ao período de 20
 
 |Computação|
 |-|
-|[Aritmética do computador]((/ta-sessions/analisenum/computing))|
+|[Aritmética do computador](/ta-sessions/analisenum/computing)|
 
 ## Listas
 
