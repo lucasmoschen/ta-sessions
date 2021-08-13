@@ -9,6 +9,10 @@ Monitoria de Introdução à Análise Numérica correspondente ao período de 20
 
 ## Tópicos
 
+|Computação|
+|-|
+|[Aritmética do computador]((/ta-sessions/analisenum/computing))|
+
 ## Listas
 
 |Número|Itens discutidos|Solução|
