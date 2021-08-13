@@ -87,12 +87,18 @@ Para conferir, você pode verificar a representação utilizando alguma linguage
 de programação. Por exemplo, em Python, 
 ```{python}
 >>> import struct
->>> def binary(num): 
-...     s = ''.join('{:0>8b}'.format(c) for c in struct.pack('!f', num))
-...     return s[0] + ' ' + s[1:12] + ' ' + s[12:]
-...
+def binary(num):
+    s = struct.pack('!d', num) # packs the num to the decimal format
+    s = struct.unpack('!Q', s)[0] # unpacks in long integer format. 
+    s = bin(s) # converts to binary form.
+    s = s[2:].zfill(64) # fills with zeros until reaches length 64.
+    return s[0] + ' ' + s[1:12] + ' ' + s[12:]
+
 >>> binary(1/2)
-'0 01111110000 00000000000000000000'
+'0 01111111110 0000000000000000000000000000000000000000000000000000'
+
+>>> binary(1/7)
+'0 01111111100 0010010010010010010010010010010010010010010010010010'
 ```
 
 ## Mensuração de erros
@@ -105,3 +111,23 @@ o **erro absoluto** é $|x - \bar{x}|$ e o **erro relativo** é $|x -
 $$
 t = \max\left\{s \ge 0 \, \bigg| \, \frac{|x - \bar{x}|}{|x|} \le 5 \cdot 10^{-s} \right\}
 $$
+
+## Algumas dicas com Python 
+
+- Para printar todos os números da representação numérica (considerando arredondamento) em Python, use 
+
+```{python}
+>>> import numpy
+>>> format(numpy.pi, .20)
+'3.141592653589793116'
+```
+
+- Para verificar o valor exatamente armazenado para o número em questão: 
+
+```{python}
+>>> from decimal import Decimal
+>>> Decimal.from_float(0.1)
+Decimal('0.1000000000000000055511151231257827021181583404541015625')
+```
+
+Para mais detalhes, consulte o [material adicional](https://docs.python.org/3/tutorial/floatingpoint.html)
