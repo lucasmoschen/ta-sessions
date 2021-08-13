@@ -1,0 +1,187 @@
+\documentclass[a4paper,12pt]{article}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[right=2.5cm, left=2.5cm, top=2.5cm, bottom=2.5cm]{geometry} 
+\usepackage[portuguese]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{enumerate}
+
+% no indentation
+%\usepackage{setspace}
+%\setlength{\parindent}{0in}
+
+\usepackage{graphicx} 
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+
+
+\usepackage{mathtools}
+\usepackage{amssymb, amsthm}
+
+% headers
+\usepackage{fancyhdr}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Proper definitions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand\eq{\mathrel{\overset{\makebox[0pt]{\mbox{\normalfont\tiny\sffamily def}}}{=}}}
+
+\newtheoremstyle{exer}{}{}{\color{blue}}{}{\color{blue}\bfseries}{}{ }{}
+
+\newtheorem*{aff}{Afirmação}
+
+\theoremstyle{exer}
+\newtheorem{exercise}{Exercício}
+
+\theoremstyle{definition}
+
+\newcommand{\enu}[1]{\textcolor{blue}{#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Header (and Footer)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagestyle{fancy} 
+\fancyhf{}
+
+\lhead{\footnotesize ANC: Lista 1}
+\rhead{\footnotesize Prof. Luciano} 
+\cfoot{\footnotesize \thepage} 
+
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Title section of the document
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\thispagestyle{empty} 
+
+\begin{tabular*}{0.95\textwidth}{l @{\extracolsep{\fill}} r} 
+    {\large \bf Introdução à Análise Numérica 2021.2} &  \\
+    Escola de Matemática Aplicada, Fundação Getulio Vargas &  \\
+    Professor Hugo A. de la Cruz Cancino &  \\ 
+    Monitor Lucas Machado Moschen & Entrega 20/08/2021\\
+    \hline \\
+\end{tabular*} 
+\vspace*{0.3cm} 
+
+\begin{center}
+	{\Large \bf Lista 1} 
+	\vspace{2mm}
+	%{\bf Lucas Machado Moschen}	
+\end{center}  
+\vspace{0.4cm}
+
+\begin{exercise}
+    Determine a representação em ponto flutuante (considerando precisão dupla)
+    do número $x = 20.1$. 
+\end{exercise}
+
+\begin{enumerate}[{\color{blue} 1.}]
+    \item \enu{Qual o número de máquina de 64 bits usado para armazenar
+    $fl(x)$ no computador? }
+
+    \item \enu{Determine o valor exato do erro arredondado. Ou seja,
+    determine: $20.1 - fl(20.1)$}
+\end{enumerate}
+
+\begin{exercise}
+    Determine o equivalente decimal dos seguintes números de máquina em ponto
+    flutuante.
+\end{exercise}
+
+\begin{enumerate}[{\color{blue} 1.}]
+    \item \enu{\begin{tabular}{|c|c|c|}
+            \hline
+            1 & 10000001010
+            &1001001100000000000000000000000000000000000000000000
+            \\\hline
+        \end{tabular}}
+
+    \item \enu{\begin{tabular}{|c|c|c|}
+            \hline
+            0 & 01111111111
+            & 0101001100000000000000000000000000000000000000000000
+            \\\hline
+        \end{tabular}}
+
+    \item \enu{\begin{tabular}{|c|c|c|}
+        \hline
+        0 & 00000000000
+        & 0101001100000000000000000000000000000000000000000000
+        \\\hline
+    \end{tabular}}
+
+    \item \enu{\begin{tabular}{|c|c|c|}
+        \hline
+        1 & 11111111111
+        & 0000000000000000000000000000000000000000000000000000
+        \\\hline
+    \end{tabular}}
+
+    \item \enu{\begin{tabular}{|c|c|c|}
+        \hline
+        1 & 11111111111
+        & 0000000000000000000000000000000000000000000000001111
+        \\\hline
+    \end{tabular}}
+
+    \item \enu{Determine os próximos números de máquina para os números fornecidos
+    nos itens anteriores, e escreva os mesmos na forma decimal.}
+
+\end{enumerate}
+
+\begin{exercise}
+    Converte em binário ou converte em decimal, segundo seja o caso, e
+    determine $fl(x)$: 
+\end{exercise}
+
+\begin{enumerate}[{\color{blue} 1. }]
+    \item \enu{$x = 1/4$}
+    \item \enu{$x = 1/3$}
+    \item \enu{$x = 2/3$}
+    \item \enu{$x = 0.9$}
+    \item \enu{$x = 0.\bar{1000111}$}
+    \item \enu{$x = 0.101\bar{100011}$}
+\end{enumerate}
+
+\begin{exercise}
+    Para quais $k\in\mathbb{N}$ o número $5 + 2^k$ é representado de forma
+    exata no computador. 
+\end{exercise}
+
+\begin{exercise}
+    Considere a equação recursiva 
+    \begin{equation}
+        \label{eq:iteration}
+        x_{n+1} = \frac{22}{7}x_n - \frac{3}{7}x_{n-1}; \qquad x_0 = 1, \quad x_1 = \frac{1}{7}
+    \end{equation}
+\end{exercise}
+
+\begin{enumerate}[{\color{blue} 1.}]
+    \item \enu{Demonstre que a equação acima tem solução $x_n =
+    \left(\frac{1}{7}\right)^n$.} 
+    \item \enu{Implemente o processo iterativo \eqref{eq:iteration} para calcular
+    $x_n$.}
+    \item \enu{Compare para diferentes valores de $n$ os valores de $x_n$ obtidos
+    usando a solução em a) e usando a implementação computacional feita em b).
+    Por que a partir de um certo valor de $n$ os valores são completamente
+    diferentes? Reflita sobre isso!}
+
+    \item \enu{Faça uma análise de estabilidade do algoritmo implementado em b)
+    para calcular $x_n$.}
+
+\end{enumerate}
+
+\end{document}
