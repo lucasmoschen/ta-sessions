@@ -10,6 +10,7 @@ Monitoria de Equações Diferenciais Parciais correspondente ao período de 2021
 
 |Conceitos introdutórios|
 |---|
+|[Teorema de Picard-Lindelöf aplicado](/ta-sessions/edp/existence-theorem/existence-theorem)|
 |[Definições preliminares](/ta-sessions/edp/introduction)|
 
 ## Listas
