@@ -13,6 +13,10 @@ Monitoria de Introdução à Análise Numérica correspondente ao período de 20
 |-|
 |[Aritmética do computador](/ta-sessions/analisenum/computing)|
 
+|Algoritmos|
+|-|
+|[Métodos iterativos para sistemas lineares](/ta-sessions/analisenum/linear-systems)|
+
 ## Listas
 
 |Número|Itens discutidos|Solução|
