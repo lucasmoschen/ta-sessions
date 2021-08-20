@@ -4,7 +4,7 @@ Monitoria de Equações Diferenciais Parciais correspondente ao período de 2021
 
 - Dia: Quinta-feira, 18h até 20h
 - [Link Google Meet](https://meet.google.com/cgc-upbq-emp)
-- [Monitorias gravadas](https://gvmail-my.sharepoint.com/:f:/g/personal/b37214_fgv_edu_br/Eq5geeWV2CNKjhXB-ggv57IBiZGeZzEzVh40zxXp0G3V5w?e=0MTsAb)
+- [Monitorias gravadas](https://gvmail-my.sharepoint.com/:f:/g/personal/b37214_fgv_edu_br/Eq5geeWV2CNKjhXB-ggv57IBiZGeZzEzVh40zxXp0G3V5w?e=jo9s9G)
 
 ## Tópicos
 
@@ -21,6 +21,10 @@ Monitoria de Equações Diferenciais Parciais correspondente ao período de 2021
 
 ## Notas
   
+|Monitoria|Itens discutidos|Arquivo|Vídeo|
+|---------|----------------|-------|-----| 
+|19/08/2021|Teorema da Retificação|[Visualizar](/files/disciplines/edp/monitoria19-08-2021.pdf)|Não|
+
 ## Sugestões Adicionais 
 
 - [Differential equations 3b1b](https://www.youtube.com/playlist?list=PLZHQObOWTQDNPOjrT6KVlfJuKtYTftqH6)

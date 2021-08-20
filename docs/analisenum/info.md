@@ -4,7 +4,7 @@ Monitoria de Introdução à Análise Numérica correspondente ao período de 20
 
 - Dia: Sexta-feira, 11:10am até 12:50pm
 - [Link Google Meet](https://meet.google.com/kfq-nuoh-bos)
-- [Monitorias gravadas]()
+- [Monitorias gravadas](https://gvmail-my.sharepoint.com/:f:/g/personal/b37214_fgv_edu_br/EmwW--OeOHpMu78IBgygYTsBHo4zTSlY40_R4ZijuVanbQ?e=HCSMOv)
 - [Ementa da disciplina](/files/numerical-analysis/ementa.pdf)
 
 ## Tópicos
@@ -25,6 +25,10 @@ Monitoria de Introdução à Análise Numérica correspondente ao período de 20
 
 ## Notas
   
+|Monitoria|Itens discutidos|Arquivo|Vídeo|
+|---------|----------------|-------|-----| 
+|20/08/2021|Lista 1 e análise de estabilidade|[Visualizar](/files/disciplines/numerical-analysis/monitoria20-08-2021.pdf)|Não|
+
 ## Sugestões Adicionais 
 
 - [Disasters attributable to bad numerical computing](https://www-users.cse.umn.edu/~arnold/disasters/)
