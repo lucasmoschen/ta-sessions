@@ -4,7 +4,7 @@ Monitoria de Introdução à Análise Numérica correspondente ao período de 20
 
 - Dia: Sexta-feira, 11:10am até 12:50pm
 - [Link Google Meet](https://meet.google.com/kfq-nuoh-bos)
-- [Monitorias gravadas](https://gvmail-my.sharepoint.com/:f:/g/personal/b37214_fgv_edu_br/EkgP0bSiAJBPpG2Avs9YZ00BD1DxPUgYnQN67pfjGmYzEA?e=N4wDMy)
+- [Monitorias gravadas](https://gvmail-my.sharepoint.com/:f:/g/personal/b37214_fgv_edu_br/EkgP0bSiAJBPpG2Avs9YZ00BD1DxPUgYnQN67pfjGmYzEA?e=ShRNLV)
 - [Ementa da disciplina](/files/numerical-analysis/ementa.pdf)
 
 ## Tópicos
