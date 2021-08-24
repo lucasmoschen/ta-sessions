@@ -7,10 +7,13 @@ def iterative_process(x0, x1, n):
 
     x = np.zeros(n)
     x[0] = x0
+    if n == 1: 
+    	return x
     x[1] = x1
+    
     for i in range(2,n):
         x[i] = (22*x[i-1] - 3*x[i-2])/7
-
+        
     return x
 
 def direct_solution(x0, x1, n): 
