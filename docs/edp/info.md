@@ -29,3 +29,4 @@ Monitoria de Equações Diferenciais Parciais correspondente ao período de 2021
 
 - [Differential equations 3b1b](https://www.youtube.com/playlist?list=PLZHQObOWTQDNPOjrT6KVlfJuKtYTftqH6)
 - [Livro mais avançado por Rafael José Iorio Jr e Valéria de Magalhães Iorio](https://www.amazon.com.br/Fourier-Analysis-Partial-Differential-Equations/dp/052162116X)
+- [Livro Partial Differential Equations de Lawrence C.Evans](https://www.amazon.com.br/Partial-Differential-Equations-Lawrence-Evans/dp/0821807722)
