@@ -86,4 +86,65 @@ $$
 Com isso, mesmo sem saber $p$, ainda conseguimos derivar $z$, o que simplifica
 bastante o problema. 
 
-<img src="../example.png" alt="Exemplo de solução de EDP" style="width:500px;height:600px;">
+<img src="../example.png" alt="Exemplo de solução de EDP"
+style="width:500px;height:600px;">
+
+## Solução fraca (ou integral)
+
+Nesse caso, temos a noção de que $u$ não precisa ser diferenciável.
+Consideraremos um problema da forma
+
+$$
+u_t + [f(u)]_x = 0, x \in \mathbb{R}, t > 0 \\
+u(x,0) = \phi(x).
+$$
+
+Lembre que um conjunto em $\mathbb{R}^n$ é *compacto* quando é fechado e
+limitado. Uma função tem suporte compacto quando existe um compacto $\Lambda$
+tal que para todo $x \in \mathbb{R}^n / \Lambda$ a função se anula. Definimos
+uma solução fraca $u$ quando 
+
+$$
+\int_0^{+\infty}\int_{-\infty}^{+\infty} [uv_t + f(u)v_x] \, dx \, dt +
+\int_{-\infty}^{+\infty} \phi(x) v(x,0) \, dx = 0,
+$$
+
+para todas as funções infinitamente diferenciáveis definidas em um conjunto
+compacto $v$. De forma equivalente, 
+
+$$
+\int_0^{+\infty}\int_{-\infty}^{+\infty} v[u + f(u)_x] \, dx \, dt = 0,
+$$
+
+**Teorema:** Se $u$ é uma solução forte (no sentido de ser $k$ vezes
+continuamente diferenciável), então $u$ será uma solução fraca. 
+
+Como $v$ é um solução que é nula para um valor suficientemente grande e o
+integrando é zero na solução, então a integral converge e, em particular, será
+zero. Claro que precisamos primeiro mostrar a equivalência acima usando
+Integral por partes. 
+
+Agora suponha que $u$ é uma função não contínua em uma curva $x = \xi(t)$, mas
+$u$ é suave em ambos os lados da curva (pensando em $\mathbb{R}^2$). Denotamos
+$u^{+}(x,t)$ para o limite de $u$ quando se aproxima de $(x,t)$ pela direita e
+$u^{-}(x,t)$ pela esquerda. Vamos mostrar que existe uma relação entre
+$\xi(t)$, $u^{-}$, e $u^+$.
+
+**Teorema:** Se $u$ é uma solução fraca com a descontinuidade mencionada
+acima, então, 
+$$
+\frac{f(u^{-}) - f(u^{+})}{u^{-} - u^{+}} = \xi'(t)
+$$
+na curva de descontinuidade. Chamamos $\xi '(t)$ de *velocidade da curva de descontinuidade*. 
+O denominador e o numerador são chamados de *saltos*. Essa condição é chamada
+de **Condição de Salto Rankine-Hugoniot**. 
+
+Nas imagens você confere um exemplo de quando $u$ não é contínua da Equação de
+Berger. 
+
+<img src="../example-2.png" alt="Exemplo de solução de EDP - Parte 2"
+style="width:500px;height:600px;">
+<img src="../example-3.png" alt="Exemplo de solução de EDP - Parte 3"
+style="width:500px;height:600px;">
+<img src="../example-4.png" alt="Exemplo de solução de EDP - Parte 4"
+style="width:500px;height:600px;">
