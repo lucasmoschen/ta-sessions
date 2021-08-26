@@ -86,4 +86,4 @@ $$
 Com isso, mesmo sem saber $p$, ainda conseguimos derivar $z$, o que simplifica
 bastante o problema. 
 
-<img src="example.png" alt="Exemplo de solução de EDP" style="width:500px;height:600px;">
+<img src="../example.png" alt="Exemplo de solução de EDP" style="width:500px;height:600px;">
