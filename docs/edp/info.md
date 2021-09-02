@@ -22,7 +22,7 @@ Monitoria de Equações Diferenciais Parciais correspondente ao período de 2021
 |Número|Itens discutidos|Solução|
 |------|----------------|-------|
 |[1](/files/disciplines/edp/lista1.pdf)|Equações diferenciais ordinárias|[1](/files/disciplines/edp/solutions1.pdf)|
-|[1](/files/disciplines/edp/lista2.pdf)|Método das característicasEquações diferenciais ordinárias|[1](/files/disciplines/edp/solutions2.pdf)|
+|[2](/files/disciplines/edp/lista2.pdf)|Método das característicasEquações diferenciais ordinárias|[2](/files/disciplines/edp/solutions2.pdf)|
 
 ## Notas
   
