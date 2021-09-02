@@ -89,15 +89,109 @@ bastante o problema.
 <img src="../example.png" alt="Exemplo de solução de EDP"
 style="width:500px;height:600px;">
 
-## Solução fraca (ou integral)
+## Condições de fronteira 
 
-Nesse caso, temos a noção de que $u$ não precisa ser diferenciável.
-Consideraremos um problema da forma
+Anteriormente, definimos um sistema de equações diferenciais para resolver
+$u(x)$. Todavia, esse sistema admite infinitas soluções quando não
+especificado uma condição inicial. Para isso, tome $x_0$ na fronteira de $U$,
+onde sabemos que $u = g$. Em geral, assumimos que essa fronteira fica no plano
+${x_n = 0}$ próximo de $x_0$. Como assim? 
+
+- Suponha que estamos com $U \subseteq \mathbb{R}^2$ e que a solução seja dada
+  pela função $u(x,t)$. Estamos dizendo que se $\gamma(0) = (x_0, 0)$, sendo
+  $\gamma$ a curva característica. 
+- Suponha que $U \subseteq \mathbb{R}^4$ e que a solução seja dada
+  pela função $u(x_1, \dots, x_4)$. Estamos dizendo que se $\gamma(0) =
+  (x^{1}_0, x^{2}_0, x^{3}_0, 0)$.
+  
+Quando temos uma variável temporal, em geral denotada po $t$, dizemos que ela
+sempre começa em 0, uma forma de "padronizar". Sugiro o livro do Lawrence,
+seção 3.2.3 para uma demonstração de que essa suposição faz sentido. Dado um
+$x_0$, falta agora definir 
+
+$$
+p(0) = p_0, z(0) = z_0, \gamma(0) = (x_0,0). 
+$$
+
+Está claro que $z_0 = u(\gamma(0)) = u(x_0, 0) = g(x_0)$. Além disso, 
+
+$$
+u(x_1, \dots, x_{n-1}, 0) = g(x_1, \dots, x_{n-1})
+$$
+
+na vizinhança de $x_0$ e, portanto, podemos diferenciar para obter 
+
+$$
+u_{x_i}(x_0,0) = g_{x_i}(x_0), \text{ para } i = 1,\dots, n-1.
+$$
+
+Dessa fora, $(p_0)^i = g_{x_i}(x_0)$ para cada $i$. Para determinar $(p_0)^n$,
+usamos a relação dada por $F$, isto é, 
+$$
+F(p_0, z_0, x_0) = 0,
+$$
+por definição. As relações de $z(0)$ e $p(0)$ são chamadas de *condições de
+compatibilidade*. Note que pode não existir ou pode não ser único a solução de
+$p_0$ através da equação $F = 0$. 
+
+## Existência local de soluções
+
+Dado $y = (y_1, \dots, y_{n-1}, 0)$, queremos resolver 
+
+$$
+\begin{cases}
+    \dot{p}(s) = - D_x F(p(s), z(s), \gamma(s)) - D_z F(p(s), z(s),
+    \gamma(s))p(s) \\
+    \dot{z}(s) = D_p F(p(s), z(s), \gamma(s))\cdot p(s) = b(\gamma(s))\cdot
+    p(s) = -c(\gamma(s))z(s) \\
+    \dot{\gamma}(s) = D_p(p(s), z(s), \gamma(s)) = b(\gamma(s)),
+\end{cases}
+$$
+
+com $\gamma(0) = y, p(0) = p_0, z(0) = z_0$, com as expressões de
+compatibilidade derivadas acima. 
+
+**Lema (Uma aplicação do Teorema da Função Inversa):** Assuma que
+$F_{p_n}(p_0, z_0, x_0) \neq 0$. Então existe $I \ni 0 \subseteq \mathbb{R}$,
+uma vizinhança $W$ de $x_0$ na fronteira de $U$ e uma vizinhança $V$ de $x_0$
+em $\mathbb{R}^n$   tal que para cada $x \in V$, existe um único $s \in I, y
+\in W$ tal que 
+$$
+x = \gamma(y,s) = \gamma(y_1, \dots, y_{n-1},s).
+$$
+
+Essa lema é uma consequência do Teorema da Função Inversa. Não se preocupe
+tanto com a demonstração. Mas a ideia é que se provarmos que $\det
+D\gamma(x_0, 0) \neq 0$, valerá a invertibilidade que estamos propondo, isto
+é, um mapa $x \mapsto (y,s)$. 
+
+Assim, seja $y = y(x)$ e $s = s(x)$ de forma que $x = \gamma(y,s)$ (que exite
+pelo que o lema prova). Assim, obtemos o seguinte Teorema:
+
+### Teorema da Existência Local 
+
+A função $u(x) := z(y(x), s(x))$ é solução para a EDP 
+
+$$
+F(Du(x), u(x), x) = 0,
+$$
+em que $x \in V$ e $u(x) = g(x)$ para $x \in \partial U \cap V$, lembrando que
+$\partial U$ é a fronteira de $U$. 
+
+# Leis da Conservação 
+
+Considere o problema da lei de conservação para a dimensão 1
 
 $$
 u_t + [f(u)]_x = 0, x \in \mathbb{R}, t > 0 \\
 u(x,0) = \phi(x).
 $$
+
+Como nem sempre temos soluções diferenciáveis para $u$, temos que relaxar um
+pouco nossa definição de solução, e para isso introduzimos as *soluções
+fracas*. 
+
+## Solução fraca (ou integral)
 
 Lembre que um conjunto em $\mathbb{R}^n$ é *compacto* quando é fechado e
 limitado. Uma função tem suporte compacto quando existe um compacto $\Lambda$
@@ -110,7 +204,8 @@ $$
 $$
 
 para todas as funções infinitamente diferenciáveis definidas em um conjunto
-compacto $v$. De forma equivalente, 
+compacto $v$ (que chamamos de *função teste*). Assim, a suavidade é
+transferida para a função $v$. De forma equivalente, 
 
 $$
 \int_0^{+\infty}\int_{-\infty}^{+\infty} v[u + f(u)_x] \, dx \, dt = 0,
