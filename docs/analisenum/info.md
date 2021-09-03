@@ -22,6 +22,7 @@ Monitoria de Introdução à Análise Numérica correspondente ao período de 20
 |Número|Itens discutidos|Solução|
 |------|----------------|-------|
 |[1](/files/disciplines/numerical-analysis/lista1.pdf)|Aritmética do computador e equação recursiva|[1](/files/disciplines/numerical-analysis/solutions1.pdf)|
+|[2](/ta-sessions/analisenum/lista2)|Métodos iterativos para sistemas de equações lineares|[2](/ta-sessions/analisenum/solutions2)|
 
 ## Notas
   
