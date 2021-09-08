@@ -137,4 +137,77 @@ afirmações vale:
 em que $T_j = -D^{-1}(L+U)$ e $T_g = -(D+L)^{-1}U$ são as matrizes dos métodos
 de Jacobi e Gauss-Seidel. 
 
+### Convergência 
+
+Seja $Ax = b$ o sistema com solução $x^*$ e o método iterativo $x^{k+1} = Cx^k
++D$ com $x^* = Cx^* + D$. Assim se $||C|| < 1$, o método converge para a
+solução com os seguintes limites no erro: 
+
+(i) $||x^* - x^{k}|| \le ||C||^k||x^* - x^0||$. 
+
+(ii) $||x^* - x^{k}|| \le \frac{||C||^k}{1 - ||C||}||x^1 - x^0||$. 
+
+Assim, percebemos que a convergência depende de $||C|| \approx \rho(C)$ (isso
+é verdade porque para todo $\epsilon > 0$, existe uma norma matricial natural
+tal que $\rho(C) < ||C|| < \rho(C) + \epsilon$.  
+
 ## Método Successive Over-Relaxation (SOR)
+
+Baseada na análise de convergência da última seção, estamos interessados em
+minimizar $\rho(C)$ de maneira geral. Para isso introduz-se o SOR. 
+
+O **vetor resíduo** é dado por $r = b - A\tilde{x}$, em que $\tilde{x}$ é uma
+aproximação para a solução de $Ax = b$. Seja 
+
+$$
+r_{ii}^{(k)} = (r_{1i}^{(k)}, r_{2i}^{(k)}, \dots, r_{ni}^{(k)})
+$$
+
+o vetor resíduo para $x_{i}^{(k)} = (x_1^{(k)}, \dots, x_{i-1}^{(k)},
+x_i^{(k-1)}, \dots, x_n^{(k)})$. Em particular, o método de Gauss-Seidel pode
+ser reescrito de forma a 
+
+$$
+x_{i}^{(k)} = x_i^{(k-1)} + \frac{r_{ii}^{(k)}}{a_{ii}}.
+$$
+
+Para isso, a ideia será escolher $\omega$ de forma a acelerar a convergência e
+
+$$
+x_{i}^{(k)} = x_i^{(k-1)} + \omega\frac{r_{ii}^{(k)}}{a_{ii}}.
+$$
+
+- Se $\omega \in (0,1)$, o método é sob-relaxamento. 
+- Se $\omega \in (1,2)$, o método é sobre-relaxamento. 
+
+Em formato iterativo, 
+
+$$
+x_i^{(k)} = (1 - \omega)x_{i}^{(k-1)} + \frac{\omega}{a_{ii}}\left[b_i -
+\sum_{j-1}^{i-1} a_{ij}x_j^{(k)} - \sum_{j=i+1}^n a_{ij}x_{j}^{(k-1)} \right]
+$$
+
+que em formato matricial se reduz a
+ 
+$$
+x^{(k)} = (D + \omega L)^{-1}[(1-\omega)D - \omega U]x^{(k-1)} + \omega(D +
+\omega L)^{-1}b.
+$$
+
+**Teorema (Kahan):** Se $a_{ii} \neq 0$ para todo $i=1,\dots,n$, então o
+método converge somente se $0 < \omega < 2$. Esse resultado pode ser obtido
+calculando o raio espectral da matriz da iteração SOR. 
+
+**Teorema (Ostrowski-Reich):** Se $A$ é matriz positiva definida e $0 < \omega
+< 2$, então o método SOR converge para todo $x^{(0)}$.  
+
+Por fim, é importante destacar que para minimizarmos o raio espectral, a
+escolha ótima de $\omega$ é dada por
+
+$$
+\omega = \frac{2}{1 + \sqrt{1 - [\rho(T_j)]^2}},
+$$
+
+em que $T_j$ é a matriz de iteração de Jacobi. 
+
+## Gradiente Conjugado 
