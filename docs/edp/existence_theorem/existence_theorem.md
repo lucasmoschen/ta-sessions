@@ -40,9 +40,7 @@ $$
 
 O teorema de ponto fixo de Banach nos mostra que $y_{k}$ converge para a solução $y$ para todo ponto $t$ em uma vizinhança de 0. 
 
-We will use the quadrature function to integrate the function $f$. 
-
-
+Usaremos a função de quadratura para integrar a função $f$. 
 
 ```python
 a = (1,2)
@@ -71,7 +69,7 @@ def picard_iteration(fun, t_eval, y0, yk, args):
     return yk
 ```
 
-We will consider the problem 
+Considere o problema 
 $$
 y' = ay, \\
 y(0) = y_0
@@ -89,8 +87,7 @@ n = 100
 t = np.linspace(0,upper,n)
 ```
 
-This is the solution using Runge Kutta. 
-
+Esta é a solução usando Runge-Kutta.
 
 ```python
 solution =  solve_ivp(fun = f, 
@@ -101,8 +98,7 @@ solution =  solve_ivp(fun = f,
                       args = (a,))
 ```
 
-Here we present the first picard iterations. 
-
+Aqui nós apresentamos as primeiras iterações de Picard.
 
 ```python
 y0 = np.ones(n)

@@ -2,8 +2,8 @@
 
 Considere a Equação Diferencial Parcial (EDP) 
 $$
-F\left(x_1, \dots, x_n, u, \frac{\partial u}{\partial x_1}, \dots, \frac{\partial
-u}{\partial x_n}\right) = F(x, u, \nabla u) = F(x, u, Du) = 0,
+F\left(\frac{\partial u}{\partial x_1}, \dots, u, \frac{\partial
+u}{\partial x_n}, x_1, \dots, x_n\right) = F(x, u, \nabla u) = F(x, u, Du) = 0,
 $$
 definida em um conjunto $U$. Além disso, suponha que $u = g$ na fronteira
 de $U$, em que $g$ é dada função suave. 
@@ -25,7 +25,7 @@ $$
 $$
 Voltando à EDP $F(x, u, Du) = 0$, derivando com respeito a $x_i$, 
 $$
-\sum_{j=1}^n F_{p_j} (Du, u, x)u_{x_j x_i} + F_z(Du, u, x)u_{x_i} +
+\sum_{j=1}^n F_{u_j} (Du, u, x)u_{x_j x_i} + F_z(Du, u, x)u_{x_i} +
 F_{x_i}(Du, u, x) = 0.
 $$
 Vamos usar essa expressão para remover as segundas derivadas de $u$ (que são
