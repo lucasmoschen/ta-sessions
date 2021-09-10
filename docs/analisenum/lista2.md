@@ -54,4 +54,9 @@ do parâmetro $\omega$:**
 **iv) $\omega = 0$,**
 
 **para 4 valores diferentes de $m$: $m = 50, 100, 1000, 5000$. Como critério de comparação use o número de iterações
-necessárias para que o erro na norma $\infty$ seja $\le 10^{-6}$. Comente sobre os resultados obtidos.**
+necessárias para que o erro na norma $\infty$ seja $\le 10^{-6}$. Comente
+sobre os resultados obtidos.**
+
+## Outras questões da lista
+
+[Métodos iterativos para sistemas de equações lineares](/files/disciplines/numerical-analysis/lista2.pdf)
