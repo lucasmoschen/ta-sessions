@@ -211,3 +211,18 @@ $$
 em que $T_j$ é a matriz de iteração de Jacobi. 
 
 ## Gradiente Conjugado 
+
+<img src="../linear-systems/conjugado1.png" alt="Método Gradiente conjugado"
+style="width:500px;height:600px;">
+
+<img src="../linear-systems/conjugado2.png" alt="Método Gradiente conjugado"
+style="width:500px;height:600px;">
+
+<img src="../linear-systems/conjugado3.png" alt="Método Gradiente conjugado"
+style="width:500px;height:600px;">
+
+<img src="../linear-systems/conjugado4.png" alt="Método Gradiente conjugado"
+style="width:500px;height:600px;">
+
+<img src="../linear-systems/conjugado5.png" alt="Método Gradiente conjugado"
+style="width:500px;height:600px;">

@@ -33,3 +33,5 @@ Monitoria de Introdução à Análise Numérica correspondente ao período de 20
 ## Sugestões Adicionais 
 
 - [Disasters attributable to bad numerical computing](https://www-users.cse.umn.edu/~arnold/disasters/)
+
+- [Método Gradiente Conjugado](https://www.cs.cmu.edu/~quake-papers/painless-conjugate-gradient.pdf)
