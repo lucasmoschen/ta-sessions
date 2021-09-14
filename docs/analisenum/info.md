@@ -30,6 +30,12 @@ Monitoria de Introdução à Análise Numérica correspondente ao período de 20
 |---------|----------------|-------|-----| 
 |20/08/2021|Lista 1 e análise de estabilidade|[Visualizar](/files/disciplines/numerical-analysis/monitoria20-08-2021.pdf)|Não|
 
+## Provas antigas
+
+|Ano|Prova|Soluções|
+|---|-----|--------|
+|2020|[ver arquivo](/files/disciplines/numerical-analysis/prova_a1_2020.pdf)|[ver arquivo](/files/disciplines/numerical-analysis/solucoes_a1_2020_parcial)|
+
 ## Sugestões Adicionais 
 
 - [Disasters attributable to bad numerical computing](https://www-users.cse.umn.edu/~arnold/disasters/)
