@@ -34,7 +34,7 @@ Monitoria de Introdução à Análise Numérica correspondente ao período de 20
 
 |Ano|Prova|Soluções|
 |---|-----|--------|
-|2020|[ver arquivo](/files/disciplines/numerical-analysis/prova_a1_2020.pdf)|[ver arquivo](/files/disciplines/numerical-analysis/solucoes_a1_2020_parcial)|
+|2020|[ver arquivo](/files/disciplines/numerical-analysis/prova_a1_2020.pdf)|[ver arquivo](/files/disciplines/numerical-analysis/solucoes_a1_2020_parcial.pdf)|
 
 ## Sugestões Adicionais 
 
