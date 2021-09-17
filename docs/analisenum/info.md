@@ -30,11 +30,12 @@ Monitoria de Introdução à Análise Numérica correspondente ao período de 20
 |---------|----------------|-------|-----| 
 |20/08/2021|Lista 1 e análise de estabilidade|[Visualizar](/files/disciplines/numerical-analysis/monitoria20-08-2021.pdf)|Não|
 
-## Provas antigas
+## Provas
 
-|Ano|Prova|Soluções|
-|---|-----|--------|
-|2020|[ver arquivo](/files/disciplines/numerical-analysis/prova_a1_2020.pdf)|[ver arquivo](/files/disciplines/numerical-analysis/solucoes_a1_2020_parcial.pdf)|
+|Ano|Bimestre|Prova|Soluções|
+|---|--------|-----|--------|
+|2020|A1|[ver arquivo](/files/disciplines/numerical-analysis/prova_a1_2020.pdf)|[ver arquivo](/files/disciplines/numerical-analysis/solucoes_a1_2020_parcial.pdf)|
+|2021|A1|[ver arquivo](/files/disciplines/numerical-analysis/prova_a1_2021.pdf)|[ver arquivo](/files/disciplines/numerical-analysis/solucoes_a1_2021.pdf)|
 
 ## Sugestões Adicionais 
 
