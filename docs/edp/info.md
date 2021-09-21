@@ -32,6 +32,12 @@ Monitoria de Equações Diferenciais Parciais correspondente ao período de 2021
 |19/08/2021|Teorema da Retificação|[Visualizar](/files/disciplines/edp/monitoria19-08-2021.pdf)|Não|
 |09/09/2021|Exemplos equações características|[Visualizar](/files/disciplines/edp/exemplos_equacoes_caracteristicas.pdf)|Não|
 
+## Provas
+
+|Ano|Bimestre|Questões|Soluções|Observações|
+|---|--------|--------|--------|-----------|
+|2021|A1|[ver arquivo](/files/disciplines/edp/a1.pdf)|[ver arquivo](/files/disciplines/edp/a1_solutions.pdf)|[ver código](https://github.com/lucasmoschen/ta-sessions/tree/master/Partial_Differential_Equations/lists/a1/)|
+
 ## Sugestões Adicionais 
 
 - [Differential equations 3b1b](https://www.youtube.com/playlist?list=PLZHQObOWTQDNPOjrT6KVlfJuKtYTftqH6)
