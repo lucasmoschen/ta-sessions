@@ -57,7 +57,7 @@ $$
     \dot{p}(s) = - D_x F(p(s), z(s), \gamma(s)) - D_z F(p(s), z(s),
     \gamma(s))p(s) \\
     \dot{z}(s) = D_p F(p(s), z(s), \gamma(s))\cdot p(s) \\
-    \dot{\gamma}(s) = D_p(p(s), z(s), \gamma(s)),
+    \dot{\gamma}(s) = D_pF(p(s), z(s), \gamma(s)),
 \end{cases}
 $$
 em que $D$ é a derivada (no caso vetorial, mas você pode pensar indivíduo a
