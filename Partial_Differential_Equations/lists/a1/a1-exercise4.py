@@ -17,8 +17,12 @@ def exact_solution(t, f, c = 1, numero_pontos_espaco = 100):
 def euler_method_transport(f = lambda x: np.sin(np.pi*x), position = 'Direita',
                            c = 1, numero_pontos_tempo = 100, numero_pontos_espaco = 100): 
     
-    t = np.linspace(0,1,numero_pontos_tempo)
-    x = np.linspace(0,1,numero_pontos_espaco)
+    # t com endpoint = False para ter o tempo exato para 0.2 e 0.6
+    # f tem período 2pi, então x de 0 a 2 para tornar a função periódica no intevalo
+    # endpoint = False para os intervalos serem igualmente espaçados em [0, 2)
+    # pois f(0) = f(2) => derivada nula em um intervalinho
+    t = np.linspace(0,1,numero_pontos_tempo,endpoint=False)
+    x = np.linspace(0,2,numero_pontos_espaco,endpoint=False)
 
     # Discretização
     dt = t[1]-t[0]
