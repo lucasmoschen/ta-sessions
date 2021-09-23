@@ -63,7 +63,27 @@ multiplicação.
 
 ## Iteração de Ponto Fixo
 
+Se $f : \mathbb{R}^n \to \mathbb{R}$ é uma função, dizemos que $x$ é ponto
+fixo de $f$ quando $f(x) = x$. Esse nome fica claro pois $f(f(\dots(f(x)))) =
+x$. Note que se $g(x) = f(x) - x$, temos que $g(x) = 0 \equiv f(x) = x$, isto
+é, encontrar pontos fixos de $f$ equivale a encontrar as raízes de $g$. 
+
 ### Teorema do Ponto Fixo 
+
+Existem alguns teoremas de garantia de existência e unicidade de pontos fixos,
+com diferentes hipóteses. [Aqui tem uma lista no
+Wikipedia](https://en.wikipedia.org/wiki/Fixed-point_theorem#List_of_fixed-point_theorems).
+
+**Teorema do Ponto Fixo de Brower**
+
+Seja $f$ contínua em um conjunto convexo compacto $C$ com imagem $f(C)
+\subseteq C$. Então $f$ possui ponto fixo. [Aqui uma
+demonstração](https://www.math3ma.com/blog/brouwers-fixed-point-theorem-proof)
+interessante com um pouquinho de topologia. No nosso caso, tomamos $C =
+[a,b]$, o intervalo limitado e fechado na reta, isto é, se $f$ é contínua em $[a,b]$ e $f(x) \in [a,b]$ para todo $x \in [a,b]$, isto
+é, $f([a,b]) \subseteq [a,b]$, então $f$ possui ponto fixo. 
+
+**Teorema do Ponto Fixo de Banach
 
 ## Método de Newton-Raphson
 
