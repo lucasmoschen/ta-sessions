@@ -1,5 +1,7 @@
 # Cálculo de Variações 
 
+XXX: Importância 
+
 ## Equações características Hamilton-Jacobi 
 
 A equação de Hamilton Jacobi é dada pela expressão 
@@ -71,6 +73,10 @@ $$
 em que as primeiras duas equações são as **equações de Hamilton**.  A função
 $H$ também é chamada de Hamiltoniano. 
 
+## Aplicações 
+
+XXX: TODO
+
 ## O cálculo das variações
 
 Introduzimos o Lagrangiano 
@@ -130,3 +136,7 @@ $$
 em que $v$ é definido como a função tal que $p = D_vL(v,x)$. 
 Podemos demonstrar que a partir desse $H$, temos as equações de Hamilton, o
 que permite uma conexão entre as duas teorias. 
+
+### Aplicação ao exemplo
+
+XXX: TODO 
