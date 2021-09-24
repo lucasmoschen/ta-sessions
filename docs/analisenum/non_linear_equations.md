@@ -110,13 +110,13 @@ interessante com um pouquinho de topologia. No nosso caso, tomamos $C =
 
 Dizemos que uma função $f : X \to X$, em que $X$ é um espaço normado completo
 é uma contração se existe $L \in [0,1)$ tal que 
-$$||f(x) - f(y)|| \le r||x-y||.$$
+$$||f(x) - f(y)|| \le L||x-y||.$$
 Como exemplo, podemos tomar $X = [a,b]$. Se $X$ não for vazio e $f$ for uma
 contração, então $f$ admite um **único** ponto fixo $x^*$. Além do mais, para
 todo $x_0 \in X$, a sequência iniciada em $x_0$ que segue a iteração $x_k =
 f(x_{k-1})$ converge para $x^*$ (o que permite desenvolver um método). 
 
-Podemos demonstrar que $||x^* - x_n|| \le \dfrac{r^n}{1 -r}||x_1 - x_0||$.  A
+Podemos demonstrar que $||x^* - x_n|| \le \dfrac{L^n}{1 -L}||x_1 - x_0||$.  A
 prova pode ser [facilmente
 encontrada](https://en.wikipedia.org/wiki/Banach_fixed-point_theorem#Proof). 
 
