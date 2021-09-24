@@ -17,6 +17,7 @@ Monitoria de Introdução à Análise Numérica correspondente ao período de 20
 |-|
 |[Métodos iterativos para sistemas lineares](/ta-sessions/analisenum/linear-systems)|
 |[Solução numérica de equações não lineares](/ta-sessions/analisenum/non_linear_equations)|
+|[Aplicação método de Newton](/ta-sessions/analisenum/application_newton/non_linear_equations)|
 
 
 ## Listas
