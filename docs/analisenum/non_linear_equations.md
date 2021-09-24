@@ -186,7 +186,8 @@ e_{n+1} = \frac{e_n^2}{2f'(x_n)}f''(z_n).
 $$
 
 Assumindo que $f'(x), f''(x) \neq 0$ para $x \in [a,b]$, temos que para todo
-$x_0$ tal que $f(x_0)f''(x_0) > 0$.
+$x_0$ tal que $f(x_0)f''(x_0) > 0$, o método converge, o que é um resultado de
+convergência global. 
 
 ## Sugestões 
 
