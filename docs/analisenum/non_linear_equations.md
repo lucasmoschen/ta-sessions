@@ -31,11 +31,11 @@ $x_1$, verificamos o sinal de $f(x_1)$. Assim
 - $f(x_1) < 0$: Nesse caso, se $f(a) < 0$ e $f(b) > 0$, deve haver uma solução
   no intervalo $[x_1, b]$. Por isso, definimos $a_2 = x_1$ e $b_2 = b$ e
   seguimos o procedimento. Se $f(a) > 0$ e $f(b) < 0$, deve haver uma solução
-  em $[a, x_1]$ e, portanto, $fa_2 = a, b_2 = x_1$ e seguimos o procedimento. 
+  em $[a, x_1]$ e, portanto, $a_2 = a, b_2 = x_1$ e seguimos o procedimento. 
 - $f(x_1) > 0$: Nesse caso, se $f(a) > 0$ e $f(b) < 0$, deve haver  uma solução
   no intervalo $[x_1, b]$. Por isso, definimos $a_2 = x_1$ e $b_2 = b$ e
   seguimos o procedimento. Se $f(a) < 0$ e $f(b) > 0$, deve haver uma solução
-  em $[a, x_1]$ e, portanto, $fa_2 = a, b_2 = x_1$ e seguimos o procedimento. 
+  em $[a, x_1]$ e, portanto, $a_2 = a, b_2 = x_1$ e seguimos o procedimento. 
 
 Assim, esse processo se resume a tomar o ponto médio do intervalo e ir
 cortando pela metade o intervalo a cada iteração. Precisamos de um critério de
@@ -75,7 +75,13 @@ $(a,f(a))$ e $(b, f(b))$ e o eixo $x$.
 A iteração desse método é dada por 
 
 $$
-x_k = a - \frac{f(a_k)}{f(b_k) - f(a_k)}(b_k-a_k), 
+x_k = a_k - \frac{f(a_k)}{f(b_k) - f(a_k)}(b_k-a_k),  
+$$
+
+que pode ser reescrita como 
+
+$$
+x_k = \frac{a_k\cdot f(b_k) - b_k\cdot f(a_k)}{f(b_k) - f(a_k)},  
 $$
 
 em que $a_k$ e $b_k$ são obtidos conforme o método da Bisseção.
@@ -88,7 +94,7 @@ $$|x^* - x_k| \le |f(x_k)|/d.$$
 
 Se $f : \mathbb{R}^n \to \mathbb{R}$ é uma função, dizemos que $x$ é ponto
 fixo de $f$ quando $f(x) = x$. Esse nome fica claro pois $f(f(\dots(f(x)))) =
-x$. Note que se $g(x) = f(x) - x$, temos que $g(x) = 0 \equiv f(x) = x$, isto
+x$. Note que se $g(x) = f(x) - x$, temos que $g(x) = 0 \iff f(x) = x$, isto
 é, encontrar pontos fixos de $f$ equivale a encontrar as raízes de $g$. 
 
 ### Teorema do Ponto Fixo 
