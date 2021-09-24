@@ -93,7 +93,7 @@ plt.scatter(range(len(res['sol'])), res['sol'])
 
 
 
-    <matplotlib.collections.PathCollection at 0x7f38b6604908>
+    <matplotlib.collections.PathCollection at 0x7f6a17b5eb38>
 
 
 
@@ -143,7 +143,7 @@ Existe uma variação desse dado pelo método Steffensen com Aitken's $\Delta^2$
 %timeit scop.fixed_point(func = f, x0 = 0.3, method = 'del2')
 ```
 
-    747 µs ± 21.3 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
+    1.08 ms ± 120 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
 
 
 
@@ -163,7 +163,7 @@ scop.fixed_point(func = f, x0 = 0.3, method = 'del2')
 %timeit scop.fixed_point(func = f, x0 = 0.8, method = 'del2')
 ```
 
-    650 µs ± 31.7 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
+    1.21 ms ± 165 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
 
 
 
@@ -240,7 +240,7 @@ Aplicando o método de newton através do Scipy. Observe que o seu tempo deu bem
 %timeit scop.newton(func = g, x0 = 0.1, fprime = g_prime)
 ```
 
-    368 µs ± 24.5 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
+    836 µs ± 117 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
 
 
 
@@ -262,7 +262,7 @@ Observe o método da Secante, um método que também usa a ideia de tangente, ma
 %timeit scop.newton(func = g, x0 = 0.1)
 ```
 
-    459 µs ± 31.8 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
+    631 µs ± 111 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
 
 
 
@@ -339,3 +339,96 @@ for x in xspace:
     Com x_0 =  0.60, a raíz é  0.58
     Com x_0 =  0.70, a raíz é  0.58
 
+
+### Um outro exemplo 
+
+Vamos comparar os métodos agora com a função $f(x) = x - \cos(x)$. Para o
+método do ponto fixo, vamos utilizar a função $g(x) = \cos(x)$, naturalmente.
+Note que $g([0,1]) \subseteq [0,1]$ e $|g'([0,1])| \subseteq [0,0.9]$, isto é,
+temos que as hipóteses para a iteração do ponto fixo são válidas. 
+
+
+```python
+def f(x, info):
+    res = x - np.cos(x)
+    if info['print']: 
+        info['iter_x'].append(x)
+        info['iter_res'].append(res)
+    return res
+
+def g(x, info):
+    res = np.cos(x)
+    if info['print']: 
+        info['iter_x'].append(x)
+        info['iter_res'].append(res)
+    return res
+```
+
+
+```python
+x = np.linspace(0, 1, 100)
+y = f(x, {'iter_x': [], 'iter_res': [], 'print': False})
+
+fig, ax = plt.subplots()
+ax.plot(x, y, color='r', zorder=0)
+ax.axhline(0, color = 'k', linestyle = '-.')
+ax.set_title('$f(x)= x - cos(x)$')
+plt.show()
+```
+
+
+    
+![png](output_34_0.png)
+    
+
+
+
+```python
+info_newton = {'iter_x': [], 'iter_res': [], 'print': True}
+info_secant = {'iter_x': [], 'iter_res': [], 'print': True}
+info_bisect = {'iter_x': [], 'iter_res': [], 'print': True}
+info_fixed = {'iter_x': [], 'iter_res': [], 'print': True}
+
+newton = scop.newton(func = f, 
+                     x0 = 0.5, 
+                     fprime = lambda x, info: 1 + np.sin(x), 
+                     tol = 1e-10, 
+                     maxiter = 200, 
+                     args = (info_newton,))
+
+secant = scop.newton(func = f, 
+                     x0 = 0.5, 
+                     tol = 1e-10, 
+                     maxiter = 200, 
+                     args = (info_secant,))
+
+bisect = scop.bisect(f = f, 
+                     a = 0,
+                     b = 1,
+                     xtol = 1e-10, 
+                     maxiter = 200, 
+                     args = (info_bisect,))
+
+fixed_point = scop.fixed_point(func = g, 
+                               x0 =0.5, 
+                               xtol = 1e-10, 
+                               bisectmethod = 'iteration', 
+                               maxiter = 200, 
+                               args = (info_fixed,))
+```
+
+
+```python
+plt.plot(info_bisect['iter_x'], label = 'bisect: {}'.format(len(info_bisect['iter_x'])))
+plt.plot(info_newton['iter_x'], label = 'newton: {}'.format(len(info_newton['iter_x'])))
+plt.plot(np.array(info_fixed['iter_x']), label = 'fixed point: {}'.format(len(info_fixed['iter_x'])))
+plt.plot(info_secant['iter_x'], label = 'secant: {}'.format(len(info_secant['iter_x'])))
+plt.legend()
+plt.title('Comparando alguns métodos')
+plt.xscale('log')
+plt.show()
+```
+
+
+    
+![png](output_36_0.png)

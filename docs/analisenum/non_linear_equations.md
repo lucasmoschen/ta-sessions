@@ -191,5 +191,6 @@ convergência global.
 
 ## Sugestões 
 
-- [Convergência de métodos numéricos](http://compmath-journal.org/dnload/Robin-Kumar-and-Vipan-/CMJV06I06P0290.pdf).
 - [Aplicação método de Newton](/ta-sessions/analisenum/application_newton/non_linear_equations)
+- [Comparação de métodos numéricos](http://www.iosrjen.org/Papers/vol4_issue4%20(part-1)/A04410107.pdf)
+- [Convergência de métodos numéricos](http://compmath-journal.org/dnload/Robin-Kumar-and-Vipan-/CMJV06I06P0290.pdf).
