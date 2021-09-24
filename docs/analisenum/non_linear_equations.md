@@ -59,7 +59,30 @@ $$
 condição $f(a_n)f(b_n) < 0$, pois pode haver problema de underflow na
 multiplicação. 
 
-## Regula-Falsi
+## Regula-Falsi (Método da posição falsa)
+
+Esse é outro método bem antigo, com as primeiras aparições nos registros
+babilônicos. A ideia era encontrar $x$ tal que $ax + b = 0$. Essa ideia foi
+trazida para resolver o problema de encontrar raízes de $f$. Nesse caso, dados
+os pontos $(a, f(a)), (b, f(b))$, sabemos que existe $x^* \in (a,b)$ tal que
+$f(x^*) = 0$ quando os sinais são trocados e $f$ é contínua. Traçando um
+segmento entre esses pontos, em algum momento ele vai atingir o eixo $x$ e é
+nesse ponto que teremos a iteração. A continuação do algoritmo é o mesmo do
+método da Bisseção, isto é, o intervalo vai sendo reduzido, não mais
+pelo ponto médio, mas pelo ponto de intersecção da reta que passa por
+$(a,f(a))$ e $(b, f(b))$ e o eixo $x$. 
+
+A iteração desse método é dada por 
+
+$$
+x_k = a - \frac{f(a_k)}{f(b_k) - f(a_k)}(b_k-a_k), 
+$$
+
+em que $a_k$ e $b_k$ são obtidos conforme o método da Bisseção.
+
+Se $|f'(x)| \ge d > 0$ para todo $x \in [a,b]$, asseguramos que 
+
+$$|x^* - x_k| \le |f(x_k)|/d.$$
 
 ## Iteração de Ponto Fixo
 
@@ -83,8 +106,88 @@ interessante com um pouquinho de topologia. No nosso caso, tomamos $C =
 [a,b]$, o intervalo limitado e fechado na reta, isto é, se $f$ é contínua em $[a,b]$ e $f(x) \in [a,b]$ para todo $x \in [a,b]$, isto
 é, $f([a,b]) \subseteq [a,b]$, então $f$ possui ponto fixo. 
 
-**Teorema do Ponto Fixo de Banach
+**Teorema do Ponto Fixo de Banach**
+
+Dizemos que uma função $f : X \to X$, em que $X$ é um espaço normado completo
+é uma contração se existe $L \in [0,1)$ tal que 
+$$||f(x) - f(y)|| \le r||x-y||.$$
+Como exemplo, podemos tomar $X = [a,b]$. Se $X$ não for vazio e $f$ for uma
+contração, então $f$ admite um **único** ponto fixo $x^*$. Além do mais, para
+todo $x_0 \in X$, a sequência iniciada em $x_0$ que segue a iteração $x_k =
+f(x_{k-1})$ converge para $x^*$ (o que permite desenvolver um método). 
+
+Podemos demonstrar que $||x^* - x_n|| \le \dfrac{r^n}{1 -r}||x_1 - x_0||$.  A
+prova pode ser [facilmente
+encontrada](https://en.wikipedia.org/wiki/Banach_fixed-point_theorem#Proof). 
+
+Como já afirmei, se conseguirmos assegurar que $f$ satisfaz as condições do
+Teorema, então a sequência $x_0, x_1, x_2, \dots, x_n, \dots$ com $f(x_k) =
+x_{k-1}$ converge para o ponto fixo $x^*$, que implica $g(x^*) = 0$.  
 
 ## Método de Newton-Raphson
 
-Também chamado de método de Newton. 
+Também chamado de método de Newton. Por Taylor, seja $f$ pelo menos duas vezes
+derivável. Assim 
+
+$$
+f(x^*) = f(x) + (x^* - x)f'(x) + \frac{(x^*-x)^2}{2}f''(x) + o((x^*-x)^2),
+$$
+em que $o(x)$ é qualquer função tal que $\lim_{x\to 0} o(x)/x = 0$. O método
+de Netwon assume que $(x^* - x)^2$ é suficientemente pequeno, isto é, $x$ está
+suficientemente próximo de $x^*$. Assim, 
+
+$$
+0 \approx f(x) + f'(x)(x^* - x) \implies x^* \approx x - \frac{f(x)}{f'(x)}.
+$$
+
+Com essa ideia em mente, definimos a iteração
+
+$$
+x_{k+1} = x_k - \frac{f(x_k)}{f'(x_k)}, 
+$$
+
+em que se $x_0$ é suficientemente próximo de $x^*$, então $\lim_{k \to
++\infty} x_k = x^*$. A ideia é que as aproximações são dadas através da
+tangente, isto é, $x_{k+1}$  é o ponto da intersecção do eixo $x$ com a
+tangente de $f$ no ponto $x_k$. 
+
+**Teorema de convergência:** Seja $f$ duas vezes continuamente diferenciável
+em $[a,b]$. Se $f'(x^*) \neq 0$, existe $\delta > 0$ tal que a sequência de
+gerada pelo método de Newton converge para todo $x_0 \in [x^* - \delta, x^* +
+\delta]$. 
+
+A ideia dessa demonstração é introduzir a função 
+
+$$
+g(x) = x -\frac{f(x)}{f'(x)}
+$$
+
+Note que quando $f(x) =0$, teremos que $g(x) = x$, isto é, $x$ é ponto fixo de
+$g$, isto é, a prova se resume a verificar as condições do Teorema do Ponto
+Fixo de Banach para algum $\delta > 0$. A derivada de $g$ vai ser controlada
+em um intervalo suficientemente pequeno.
+ 
+**Condição suficiente para convergência:** Voltando a expansão de Taylor, 
+
+$$
+f(x^*) = f(x) + (x^* - x)f'(x) + \frac{(x^*-x)^2}{2}f''(z)
+$$
+para algum $z$ entre $x$ e $x^*$. Usando a iteração de Newton, isto é, $f(x_n)
+= f'(x_n)(x_n - x_{n+1})$, obtemos que
+
+$$
+0 = f'(x_n)(x^* - x_{n+1}) +  \frac{(x^*-x_n)^2}{2}f''(z_n).
+$$
+
+Definindo $e_n = (x^* - x_n)$, temos que 
+
+$$
+e_{n+1} = \frac{e_n^2}{2f'(x_n)}f''(z_n).
+$$
+
+Assumindo que $f'(x), f''(x) \neq 0$ para $x \in [a,b]$, temos que para todo
+$x_0$ tal que $f(x_0)f''(x_0) > 0$.
+
+## Sugestões 
+
+- [Convergência de métodos numéricos](http://compmath-journal.org/dnload/Robin-Kumar-and-Vipan-/CMJV06I06P0290.pdf).
