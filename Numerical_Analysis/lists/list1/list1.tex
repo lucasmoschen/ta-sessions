@@ -340,4 +340,30 @@ mantissa terá tamanho $k$ mais uma sequência de 0 para completar as 52 casas. 
 
 \end{enumerate}
 
+\begin{exercise}
+    Faça as seguintes operações (que dão zero como resultado na aritmética 
+    exata) em "IEEE double precision computer arithmetic", usando a "Rounding
+    to Nearest Rule" e verifique sua resposta no computador. 
+\end{exercise}
+
+\begin{enumerate}[{\color{blue} (a)}]
+    \item \enu{$(8.3 - 7.3) - 1$} Temos que $8.3 = 2^{1024 + 2 - 1023}(1 +
+    (0.00001\overline{0011})_2)$ que no computador é armazenado como 
+    $$2^{1024 + 2 - 1023}(1 +
+    (0.000010011\cdots 010)_2).$$ Já $7.3 = 2^{1024 + 1 - 1023}(1 +
+    (0.1101\overline{0011})_2)$ que no computador se armazena como $$2^{1024 + 1 - 1023}(1 +
+    (0.11010011\cdots 0011)_2).$$
+    Subtraindo esses valores, temos que, no computador
+    $$
+    8.3 - 7.3 = 2^3(1 + (0.000010011\cdots 0011 010)_2) - 2^2(1 + (0.1101 0011 \cdots 0011 0011)_2)
+    $$
+    e, então, 
+    $$
+    8.3 - 7.3 = 4 + (0.010011\cdots 0011010)_2 - (11.010011\cdots 00110011)_2 = 1 + 2^{-50}
+    $$
+    Logo $(8.3 - 7.3) - 1 = 2^{-50}$.
+    \item \enu{$(8.4 - 7.4) - 1$}
+    \item \enu{$(8.8 - 7.8) - 1$}
+\end{enumerate}
+
 \end{document}

@@ -72,3 +72,9 @@ if __name__ == '__main__':
     print(convert.decimal_to_double(7*(1/7)))
     print(convert.decimal_to_double(1))
 
+    print('-----------------------------')
+
+    print(convert.decimal_to_double(8.8))
+    print(convert.decimal_to_double(7.8))
+    print(convert.decimal_to_double(8.8-7.8))
+
