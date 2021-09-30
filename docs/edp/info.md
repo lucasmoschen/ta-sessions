@@ -32,6 +32,7 @@ Monitoria de Equações Diferenciais Parciais correspondente ao período de 2021
 |---------|----------------|-------|-----| 
 |19/08/2021|Teorema da Retificação|[Visualizar](/files/disciplines/edp/monitoria19-08-2021.pdf)|Não|
 |09/09/2021|Exemplos equações características|[Visualizar](/files/disciplines/edp/exemplos_equacoes_caracteristicas.pdf)|Não|
+|30/09/2021|Hamiton-Jacobi e cálculo das variações|[Visualizar](/files/disciplines/edp/hamilton-jacobi.pdf)|
 
 ## Provas
 
