@@ -71,11 +71,9 @@ $$
 $$
 
 em que as primeiras duas equações são as **equações de Hamilton**.  A função
-$H$ também é chamada de Hamiltoniano. 
-
-## Aplicações 
-
-XXX: TODO
+$H$ também é chamada de Hamiltoniano. Um exemplo muito conhecido
+na estatística é o *Hamiltonian Monte Carlo* (HMC), que usa
+essa estrutura para procurar no espaço dos parâmetros. 
 
 ## O cálculo das variações
 
@@ -123,8 +121,18 @@ $$
 \le t.
 $$
 
-Note que resolver as equações não nos dá as funções ótimas, da mesma forma que
-derivada igual a zero não implica mínimo local. 
+Note que resolver as equações não nos dão as funções ótimas, da mesma forma
+que derivada igual a zero não implica mínimo local de forma geral. Por isso,
+dizemos que as soluções das equações de Euler-Lagrange 
+são pontos críticos de $I[\cdot]$. 
+
+**Exemplo:** Seja $L(v,x) = \frac{1}{2}m||v||^2 - \phi(x)$, 
+em que $m > 0$. Então a equação de Lagrange é 
+$$
+-m\dot{v}(s) + D_x\phi(x) = 0 \implies m\ddot{x}(s) = D_x \phi(x), 
+$$
+que a lei de Newton para uma partícula de massa $m$ e campo 
+de forças $D_x \phi$.   
 
 O interessante é que, dado uma Lagrangiano $L$, podemos introduzir o
 **Hamiltoniano**
@@ -137,6 +145,71 @@ em que $v$ é definido como a função tal que $p = D_vL(v,x)$.
 Podemos demonstrar que a partir desse $H$, temos as equações de Hamilton, o
 que permite uma conexão entre as duas teorias. 
 
-### Aplicação ao exemplo
+### Transformada de Legendre 
 
-XXX: TODO 
+Desconsidere a dependência de $H$ em $x$ e defina 
+$L^*(p) = \sup_{v \in \mathbb{R}^n} \{pv - L(v)\}$. 
+Chamamos $L^*$ de *transformada de Lagrange*. Com 
+algumas hipóteses em $L$ (convexidade e limitação superior 
+de $pv - L(v)$), sabemos que existe $v^*$ tal que 
+$$
+L^*(v^*) = pv^* - L(v^*).
+$$
+Se $L$ for diferenciável, teremos que $D_vL(v^*) = p$
+(derive a equação a cima com respeito a $v$ e avalie em 
+$v^*$). Então a equação $p = D_v L(v)$ tem solução em $v$, 
+isto é, 
+$$
+L^*(p) = p v(p) - L(v(p)) = H(p).
+$$
+Além disso, com algumas hipóteses sobre $H$, também podemos
+provar que $H^* = L$. Esse resultado é conhecido como 
+**Dualidade convexa do Hamiltoniano e Lagrangiano**. 
+A ideia de Dualidade vai ser melhor compreendida em 
+otimização, mas aqui, vale lembrar que 
+$$
+L^* = H, H^* = L.
+$$
+
+Agora, sem a dependência do $x$, as equações
+características são 
+
+$$
+\begin{cases}
+    \dot{\gamma}(t) = D_pH(p(t)) \\
+    \dot{p}(t) = 0 \\
+    \dot{z}(t) = D_pH(p(t)) - H(p(t))
+\end{cases}
+$$
+
+**Exercício:** Prove que $L^* = H, H^* = L$ implica que 
+$$
+\begin{cases}
+   u\cdot v = L(v) + H(u) \\
+   u = D_vL(v) \\
+   v = D_uH(u)
+\end{cases}
+$$
+
+Agora note que $\dot{z} = D_v H(p)\cdot p - H(p) = L(D_pH(p)) = 
+L(\dot{\gamma})$. Assim, para valores de tempo pequenos 
+$$
+u(x,t) = z(t) = \int_0^t L(\dot{\gamma}(s)) \, ds + g(x(0)),
+$$
+em que $g$ é condição de fronteira quando $t = 0$. Para 
+generalizar esse valor para valores de $t$ grandes, 
+
+$$
+u(x,t) = \inf_{w} \left\{\int_0^t L(\dot{w}(s)) \, ds + g(x(0) \mid w(t) =
+x\right\}.
+$$
+
+Com mais algumas condições, conseguimos provar que essa 
+expressão tem de fato uma solução. A **formula de Hopf-Lax** 
+diz que a solução será 
+
+$$
+u(x,t) = \min_{y \in \mathbb{R}^n} \left\{tL\left(\frac{x-y}{t}\right) + g(y)\right\}.
+$$
+
+
