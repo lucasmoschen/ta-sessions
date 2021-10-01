@@ -234,5 +234,6 @@ $$
 
 ## Sugestões 
 
-[Material original de 1901: o texto não está em português, 
+- [Material original de 1901: o texto não está em português, 
 mas vale a pena olhar.](https://archive.org/details/zeitschriftfrma12runggoog)
+- [Códigos para os gráficos.](https://github.com/lucasmoschen/ta-sessions/tree/master/docs/analisenum)
