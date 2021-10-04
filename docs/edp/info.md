@@ -18,6 +18,10 @@ Monitoria de Equações Diferenciais Parciais correspondente ao período de 2021
 |[Método das características](/ta-sessions/edp/characteristics/characteristics)|
 |[Cálculo das variações e Hamiltoniano](/ta-sessions/edp/calculus_of_variations)|
 
+|Algumas equações|
+|---|
+|[Equação da onda](/ta-sessions/edp/wave_equation)|
+
 ## Listas
 
 |Número|Itens discutidos|Solução|
