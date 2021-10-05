@@ -67,7 +67,7 @@ $n$ raízes se não for identicamente nulo.
 
 Defina 
 $$
-L_{n,k}(x) = \frac{(x-x_0)\cdots(x - x_{k-1})(x - x_{k+1})\cdots(x - x_n)}{(x_k-x_0)\cdots(x_k - x_{k-1})(x_k - x_{k+1})\cdots(x_k - x_k)}.
+L_{n,k}(x) = \frac{(x-x_0)\cdots(x - x_{k-1})(x - x_{k+1})\cdots(x - x_n)}{(x_k-x_0)\cdots(x_k - x_{k-1})(x_k - x_{k+1})\cdots(x_k - x_n)}.
 $$
 
 É fácil ver que 
