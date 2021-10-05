@@ -79,14 +79,14 @@ u(x,t) = \frac{1}{2} \int_{x-t}^{x+t} h(y) - g'(y) \,dy + g(x+t),
 $$
 que implica 
 $$
-u(x,t) = \frac{1}{2}[g(x+t) - g(x-t)] + \frac{1}{2}\int_{x-t}^{x+t} h(y) \, dy.
+u(x,t) = \frac{1}{2}[g(x+t) + g(x-t)] + \frac{1}{2}\int_{x-t}^{x+t} h(y) \, dy.
 $$
 
 Esta é a fórmula de d'Alembert. Note que na solução, assumimos que $u$ é suficientemente suave (classe $C^2$). Essa condição é verificada se $g \in C^2(\mathbb{R})$ e $h \in C^1(\mathbb{R})$. 
 
 Dizemos, então, que a solução $u$ tem a forma 
 $$
-u(x,t) = F(x+t) - G(x-t)
+u(x,t) = F(x+t) + G(x-t)
 $$
 
 *Observação: Esse desenvolvimento assume que a corda é infinita.*
@@ -116,7 +116,7 @@ Podemos provar o seguinte teorema:
 
 **Teorema:** Seja $f \in C^2[0,l]$ e $g \in C^1[0,l]$ tais que $f, f''$ e $g$ se anulam em $x=0$ e $x=l$, então 
 $$
-u(x,t) = \frac{F(x+ct) - F(x-ct)}{2} + \frac{1}{2c} \int_{x-ct}^{x+ct} G(s) \, ds,
+u(x,t) = \frac{F(x+ct) + F(x-ct)}{2} + \frac{1}{2c} \int_{x-ct}^{x+ct} G(s) \, ds,
 $$
 em que $F$ e $G$ são extensões periódicas (período $2l$) e ímpares das funções $f$ e $g$, respecticamente, é a única solução do problema de corda infinita. 
 
