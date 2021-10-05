@@ -17,6 +17,7 @@ Monitoria de Equações Diferenciais Parciais correspondente ao período de 2021
 |---|
 |[Método das características](/ta-sessions/edp/characteristics/characteristics)|
 |[Cálculo das variações e Hamiltoniano](/ta-sessions/edp/calculus_of_variations)|
+|[Equações Semiliniares de Segunda Ordem](/ta-sessions/edp/second_order_semilinear)|
 
 |Algumas equações|
 |---|
@@ -29,6 +30,7 @@ Monitoria de Equações Diferenciais Parciais correspondente ao período de 2021
 |[1](/files/disciplines/edp/lista1.pdf)|Equações diferenciais ordinárias|[1](/files/disciplines/edp/solutions1.pdf)|
 |[2](/files/disciplines/edp/lista2.pdf)|Método das características|[2](/files/disciplines/edp/solutions2.pdf)|
 |[3](/files/disciplines/edp/lista3.pdf)|Método das características e energia|[3](/files/disciplines/edp/solutions3.pdf)|
+|[4](/files/disciplines/edp/lista4.pdf)|Equação da onda|[4](/files/disciplines/edp/solutions4.pdf)|
 
 ## Notas
   
@@ -36,7 +38,7 @@ Monitoria de Equações Diferenciais Parciais correspondente ao período de 2021
 |---------|----------------|-------|-----| 
 |19/08/2021|Teorema da Retificação|[Visualizar](/files/disciplines/edp/monitoria19-08-2021.pdf)|Não|
 |09/09/2021|Exemplos equações características|[Visualizar](/files/disciplines/edp/exemplos_equacoes_caracteristicas.pdf)|Não|
-|30/09/2021|Hamiton-Jacobi e cálculo das variações|[Visualizar](/files/disciplines/edp/hamilton-jacobi.pdf)|
+|30/09/2021|Hamiton-Jacobi e cálculo das variações|[Visualizar](/files/disciplines/edp/hamilton-jacobi.pdf)|Não|
 
 ## Provas
 

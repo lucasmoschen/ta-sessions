@@ -82,7 +82,12 @@ $$
 u(x,t) = \frac{1}{2}[g(x+t) - g(x-t)] + \frac{1}{2}\int_{x-t}^{x+t} h(y) \, dy.
 $$
 
-Esta é a fórmula de d'Alembert. Note que na solução, assumimos que $u$ é suficientemente suave (classe $C^2$). 
+Esta é a fórmula de d'Alembert. Note que na solução, assumimos que $u$ é suficientemente suave (classe $C^2$). Essa condição é verificada se $g \in C^2(\mathbb{R})$ e $h \in C^1(\mathbb{R})$. 
+
+Dizemos, então, que a solução $u$ tem a forma 
+$$
+u(x,t) = F(x+t) - G(x-t)
+$$
 
 ## Médias esféricas e fórmulas de Poisson e Kirchhoff
 
