@@ -19,6 +19,7 @@ Monitoria de Introdução à Análise Numérica correspondente ao período de 20
 |[Solução numérica de equações não lineares](/ta-sessions/analisenum/non_linear_equations)|
 |[Aplicação método de Newton](/ta-sessions/analisenum/application_newton/non_linear_equations)|
 |[Interpolação polonomial](/ta-sessions/analisenum/polynomial_interpolation)|
+|[Integração numérica](/ta-sessions/analisenum/numeric_integration)|
 
 
 ## Listas
