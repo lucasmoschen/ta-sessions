@@ -146,4 +146,9 @@ $$ c_i = \int_{-1}^1 \prod_{j \neq i} \frac{x-x_j}{x_i-x_j} \, dx. $$
 Se $P(x)$ é qualquer polinômio de grau menor do que $2n$, então, 
 $$\int_{-1}^1 P(x) \, dx = \sum_{i=1}^n c_iP(x_i).$$
 
-#### Fórmula de Bonnet 
+#### Fórmula de Gauss-Legendre para intervalo qualquer 
+
+Basta observar que 
+$$\int_a^b f(x) \, dx = \frac{b-a}{2}\int_{-1}^1 f\left(\frac{(b-a)t +
+(b+a)}{2}\right) \, dt$$
+e aplicar Gauss-Legendre para a integral à direita. 
