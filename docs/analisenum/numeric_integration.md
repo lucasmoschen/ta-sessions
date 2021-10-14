@@ -112,8 +112,38 @@ f(x_{j}) + f(b)\right] -
 
 ## Quadratura de Gauss-Legendre
 
+Este método escolhe os pontos para a interpolação de forma ótima 
+ao invés de igualmente espaçada. Assim, os pontos $x_i$ e os 
+coeficiente $c_i$ são escolhidos a minimizar 
+$$\left|\int_a^b f(x) \, dx - \sum_{i=1}^n c_i f(x_i)\right|.$$
+Para medir essa acurácia, assumimos que a escolha ótima desses 
+valores produzo maior grau de precisão, definido acima. 
+
 ### Polinômios Ortogonais 
 
-### Polinômios de Legendre 
+Considere o espaço das funções contínuas definidas em $[a,b]$ (isso significa que um 
+elemento desse conjunto é uma função contínua definida em $[a,b]$) com 
+o seguinte produto interno: 
+$$\langle f, g \rangle = \int_a^b f(x)g(x) \, dx.$$
+Observe como esse produto interno é uma extensão do somatório dos 
+produtos dos componentes de dois vetores. Dizemos que duas funções
+são ortogonais quando $\langle f,g \rangle = 0$. 
+
+Considere o espaço dos polinômios de grau até $n$ com o produto interno
+apresentado acima no intervalo $[-1,1]$. Os **polinômios de Legendre**
+são polinômios ortogonais e são obtidos fazendo o [processo de
+Gram-Schmidt](https://en.wikipedia.org/wiki/Gram%E2%80%93Schmidt_process)
+sobre a base $\{1, x, x^2, x^3, \dots, x^n\}$. 
+
+Abaixo estão alguns dos polinômios de Legendre: 
+
+$$P_0(x) = 1, P_1(x) = x, P_2(x) = x^2 - \frac{1}{3}, P_3(x) = x^3 -
+\frac{3}{5}x, P_4(x) = x^4 - \frac{6}{7}x^2 + \frac{3}{35}.$$
+
+> Suponha que $x_1, \dots, x_n$ são as raízes do polinômio de Legendre 
+$P_n(x)$ e que 
+$$ c_i = \int_{-1}^1 \prod_{j \neq i} \frac{x-x_j}{x_i-x_j} \, dx. $$
+Se $P(x)$ é qualquer polinômio de grau menor do que $2n$, então, 
+$$\int_{-1}^1 P(x) \, dx = \sum_{i=1}^n c_iP(x_i).$$
 
 #### Fórmula de Bonnet 
