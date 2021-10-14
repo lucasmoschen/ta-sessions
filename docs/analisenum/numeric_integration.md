@@ -90,13 +90,25 @@ $k = 0,\dots,n$. Para os exemplos desenvolvidos acima, basta olhar
 qual o maior inteiro $n$ tal que $f^{(2)} \equiv 0$ no caso 
 do trapézio e $f^{(4)} = 0$ no caso de Simpson. 
 
-### Trapézio composto 
+### Fórmulas compostas 
 
--> Estimativa do erro
+É claro que as fórmulas deduzidas acima ficam bem ruins quando $b - a$ é
+grande. Para isso, a ideia é subdividir o intervalo $[a,b]$ em $a = x_0 <
+\dots < x_n = b$ (de forma igualmente espaçada, em geral) e aplicar a
+quadratura numérica a cada um deles. Essa abordagem tira proveito da seguinte
+propriedade: 
+$$\int_a^b f(x) \, dx = \int_a^c f(x) \, dx + \int_c^b f(x) \, dx.$$
 
-### Fórmula de Simpson Composto 
+Para a regra de Simpson composta teremos que 
+$$\int_a^b f(x) \, dx = \frac{h}{3}\left[f(a) + 2\sum_{j=1}^{n/2 - 1}
+f(x_{2j}) + 4\sum_{j=1}^{n/2} f(x_{2j-1}) + f(b)\right] -
+\frac{b-a}{180}h^4f^{(4)}(\xi),$$
+para $\xi \in (a,b)$ e $h = (b-a)/n$. O erro, portanto, é $O(h^4)$.
 
--> Estimativa do erro
+A fórmula do trapézio é similar: 
+$$\int_a^b f(x) \, dx = \frac{h}{2}\left[f(a) + 2\sum_{j=1}^{n - 1}
+f(x_{j}) + f(b)\right] -
+\frac{b-a}{12}h^2f^{(2)}(\xi).$$
 
 ## Quadratura de Gauss-Legendre
 
