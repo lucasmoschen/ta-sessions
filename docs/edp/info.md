@@ -33,7 +33,7 @@ Monitoria de Equações Diferenciais Parciais correspondente ao período de 2021
 |[2](/files/disciplines/edp/lista2.pdf)|Método das características|[2](/files/disciplines/edp/solutions2.pdf)|
 |[3](/files/disciplines/edp/lista3.pdf)|Método das características e energia|[3](/files/disciplines/edp/solutions3.pdf)|
 |[4](/files/disciplines/edp/lista4.pdf)|Equação da onda|[4](/files/disciplines/edp/solutions4.pdf)|
-|[5](/files/disciplines/edp/lista5.pdf)|Transformada de Fourier e Equação do Calor|[5](/files/disciplines/edp/solutions5.html)|
+|[5](/files/disciplines/edp/lista5.pdf)|Transformada de Fourier e Equação do Calor|[5](/ta-sessions/edp/solutions5)|
 
 ## Notas
   
