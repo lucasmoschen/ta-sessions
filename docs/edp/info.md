@@ -18,10 +18,12 @@ Monitoria de Equações Diferenciais Parciais correspondente ao período de 2021
 |[Método das características](/ta-sessions/edp/characteristics/characteristics)|
 |[Cálculo das variações e Hamiltoniano](/ta-sessions/edp/calculus_of_variations)|
 |[Equações Semiliniares de Segunda Ordem](/ta-sessions/edp/second_order_semilinear)|
+|[Teoria de Fourier](ta-sessions/edp/fft/fft.md)|
 
 |Algumas equações|
 |---|
 |[Equação da onda](/ta-sessions/edp/wave_equation)|
+|[Equação do calor](/ta-sessions/edp/heat_equation)
 
 ## Listas
 
@@ -31,6 +33,7 @@ Monitoria de Equações Diferenciais Parciais correspondente ao período de 2021
 |[2](/files/disciplines/edp/lista2.pdf)|Método das características|[2](/files/disciplines/edp/solutions2.pdf)|
 |[3](/files/disciplines/edp/lista3.pdf)|Método das características e energia|[3](/files/disciplines/edp/solutions3.pdf)|
 |[4](/files/disciplines/edp/lista4.pdf)|Equação da onda|[4](/files/disciplines/edp/solutions4.pdf)|
+|[5](/files/disciplines/edp/lista5.pdf)|Transformada de Fourier e Equação do Calor|[5](/files/disciplines/edp/solutions5.pdf)|
 
 ## Notas
   
