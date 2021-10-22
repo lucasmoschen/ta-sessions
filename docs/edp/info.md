@@ -18,7 +18,7 @@ Monitoria de Equações Diferenciais Parciais correspondente ao período de 2021
 |[Método das características](/ta-sessions/edp/characteristics/characteristics)|
 |[Cálculo das variações e Hamiltoniano](/ta-sessions/edp/calculus_of_variations)|
 |[Equações Semiliniares de Segunda Ordem](/ta-sessions/edp/second_order_semilinear)|
-|[Teoria de Fourier](ta-sessions/edp/fft/fft)|
+|[Teoria de Fourier](/ta-sessions/edp/fft/fft)|
 
 |Algumas equações|
 |---|
