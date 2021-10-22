@@ -41,7 +41,7 @@ Nesse caso, definimos $x_0 = a, x_1 = b$ e $h=b-a$. Assim
 $$a_0 = \int_{x_0}^{x_1} \frac{(x - x_1)}{(x_0-x_1)} \quad \text{ e } a_1 =
 \int_{x_0}^{x_1} \frac{(x - x_0)}{(x_1-x_0)}.$$
 
-Vamos utilizar o [Teorema do Valor Médio Ponderado para Integrais](math.usm.edu/lambers/mat460/fall09/lecture3.pdf) 
+Vamos utilizar o [Teorema do Valor Médio Ponderado para Integrais](https://www.math.usm.edu/lambers/mat460/fall09/lecture3.pdf) 
 (página 5) para estimar o erro. Nesse caso, ele é da seguinte forma: 
 $$\begin{split}
   E(f) &= \int_{x_0}^{x_1} (x - x_0)(x - x_1)\frac{f^{(2)}(\xi(x))}{2!} \, dx
