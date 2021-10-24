@@ -84,9 +84,9 @@ $e_w$ da operação de convolução.
 
 A **Inversa da Transformada de Fourier** é dada por 
 $$f(x) = \int_{\mathbb{R}} \hat{f}(w) e^{2\pi w x i} \, dw :=
-\widecheck{f}(x).$$
+\check{f}(x).$$
 
-Uma propriedade resultante interessante é que $\widecheck{g}(w) =
+Uma propriedade resultante interessante é que $\check{g}(w) =
 \widehat{g(-w)}$. Em Teoria dos Sinais, $\hat{f}(w)$ mede o quanto uma frequência 
 $w$ está presente no sinal $f(x)$. Isso acontece, porque o sinal $e_w(x) =
 e^{2\pi w x i} = \cos(2\pi w x) + i\sin(2\pi w x)$ é o sinal "puro" da
