@@ -1,6 +1,8 @@
 # Cálculo de Variações 
 
-XXX: Importância 
+Para entender um pouco da intuição por trás e da sua importância, [esse é um
+bom texto](https://towardsdatascience.com/insights-on-the-calculus-of-variations-f50825f0ca84).
+
 
 ## Equações características Hamilton-Jacobi 
 
