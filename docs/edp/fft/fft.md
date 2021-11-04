@@ -171,6 +171,50 @@ $1/\sqrt{N}$ é substituído por $1/N$ ou $1$. A **Inversa** dessa transformaç�
 é 
 $$f = \sum_{w=0}^{N-1} \hat{f}_w e_w.$$
 
+## Resolvendo uma EDP com Fourier 
+
+Vamos lembrar que se $g(x) = f'(x)$ para uma função diferenciável $g$, então a
+transformada de Fourier de $g$ é 
+$$\hat{g}(w) = 2\pi w i \hat{f}(w).$$
+Isso é "uma mão na roda", porque quando aplicamos a transformada na derivada
+de uma função, estamos voltando para a transformada da própria função
+multiplicada por uma função linear em $w$. Isso acontece quando a função é
+definida na reta. Para funções definidas apenas em um intervalo, é importante 
+observar [o seguinte trecho do site do Wikipedia](https://en.wikipedia.org/wiki/Fourier_transform#:~:text=More%20precisely%2C%20suppose%20T%20is%20large%20enough%20that%20the%20interval).
+Nesse caso, é muito comum também encontrar a fórmula 
+$$\hat{g}(w) = w i \hat{f}(w)$$
+para funções definidas em $[-\pi, \pi]$. São algumas complicações
+relacionadas à própria derivação do método. Vamos aplicar esse método na
+equação de difusão 
+$$\frac{\partial^2 u(x,t)}{\partial x^2} = c\frac{\partial u(x,t)}{\partial
+t}.$$
+
+O primeiro passo é aplicar a transformação de Fourier em ambos os lados da
+equação. Na prática, o que se faz é multiplicar por $e^{-i w x}$ (ou $e^{-2\pi
+i w x}$, mas lembre que é questão de parametrização) e integrar de $x = -\infty$ a
+$x = +\infty$. Se a função for definida em $[-\pi, \pi]$, você integra nesse
+intervalo, respectivamente. Nesse caso, observe que 
+$$\widehat{u_{xx}}(w,t) = ik \widehat{u_x} = -w^2\hat{u}(w, t).$$
+Com algumas hipóteses de regularidade, pela Regra de Leibniz,
+$$\int_{-\infty}^{+\infty} u_t(x,t)e^{-i w x} \, dx =
+\frac{d}{dt}\int_{-\infty}^{+\infty} u(x,t)e^{-i w x} \, dx$$
+Dessa forma 
+$$\widehat{u_t}(w,t) = \frac{\partial \hat{u}}{\partial t}(w,t).$$
+
+Isso faz com que tenhamos o sistema 
+$$-w^2\hat{u}(w,t) = c\hat{u}_t(w,t)$$
+que é uma EDO com solução 
+$$\hat{u}(w,t) = \hat{u}(w,0)e^{-w^2 t/c}.$$
+Agora, basta aplicar a transformada inversa 
+$$u(x,t) = \int_{-\infty}^{\infty} \hat{u}(w,t)e^{iw x} \, dw.$$
+
+Você deve ter observado que nessa parametrização (sem o $2\pi$ no expoente),
+eu deveria dividir cada integral por $2\pi$ para corretamente aplicar a
+Transformada de Fourier. Acontece que elas vão se anular por esse motivo. Para
+obter $\hat{u}(w,0)$ basta aplicar a transformada de Fourier em $u(x,0)$, que
+é usualmente dado. 
+
+
 ## Adicionais 
 
 - [Mas o que é a Transformada de Fourier? Uma introdução visual. 3B1B](https://www.youtube.com/watch?v=spUNpyF58BY)
