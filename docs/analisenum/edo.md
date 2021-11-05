@@ -132,8 +132,70 @@ Runge-Kutta clássico de ordem 4 tem que $r = 4$,
 $$\alpha_1 = \alpha_4 = 1/6, \alpha_2 = \alpha_3 = 2/6,$$
 $$\mu_2 = \mu_3 = 1/2, \mu_4 = 1.$$
 
-[Esse é um
-tutorial](https://www.math.auckland.ac.nz/~butcher/ODE-book-2008/Tutorials/RK-methods.pdf)
+[Esse é um tutorial](https://www.math.auckland.ac.nz/~butcher/ODE-book-2008/Tutorials/RK-methods.pdf)
 que pode ser útil. Não se deixe enganar pelo "tutorial", tem bastante
 matemática. [Esse também é um bom
 resumo](https://www.johndcook.com/blog/2020/02/13/runge-kutta-methods/). 
+
+## Equações diferenciais Stiff (rígida, difícil)
+
+Os métodos numéricos para resolver EDOs têm erros inerentes que envolvem
+derivadas de ordem maior. Se essas derivadas são razoavelmente limitadas, o
+erro vai ficar controlado. Problemas de valor inicial cuja magnitude da
+derivada cresce, mas a função não, são chamados de **equações stiff** ou
+equações rígidas/difíceis. A solução exata delas tem termo com forma $e^{-ct}$ em que
+$c$ é grande.  
+
+Vamos ilustrar esse problema com o seguinte exemplo:
+$$x_1' = 9x_1 + 24x_2 + 5\cos(t) - \frac{1}{3}\sin(t), x_1(0) = 4/3,$$
+$$x_2' = - 24x_1 - 51u_2 - 9\cos(t) + \frac{1}{3}\sin(t), x_1(0) = 2/3.$$
+
+Sabemos calcular a solução desse sistema exatamente usando EDOs. Nesse caso, 
+$$x_1(t) = 2e^{-3t} -e^{-39t} + \frac{1}{3}\cos(t), \quad x_2(t) = -e^{-3t} +
+2e^{-39t} - \frac{1}{3}\cos(t).$$
+A solução é a seguinte:
+
+![example 1](exact_solution_edo_example1.png)
+
+É fácil ver que quando $t$ cresce, ambas as funções convergem para a função
+cosseno:
+
+![example 1, parte 2](exact_solution_edo_example1_b.png)
+
+Vamos aplicar o Runge Kutta com o passo $h=0.1$ e com $h=0.05$. Note como a
+solução fica bem ruim para o primeiro caso: 
+
+![RUnge-kutta para o exemplo 1](runge_kutta_solution_edo_example1.png)
+
+Isso dá uma ideia do quão ruim uma solução pode acabar ficando dependendo do
+$h$ escolhido. Para analisar o erro produzido por equações desse tipo, usamos
+uma **equação de teste**:
+
+$$x'(t) = Ax(t), \quad x(0) = x_0$$
+
+Note que se a parte real dos autovalores de $A$ forem todos negativos, teremos
+que a solução converge para 0. No método de Euler, por exemplo, 
+
+$$x_n = x_{n-1} + hAx_{n-1} = (I + hA)x_{n-1},$$
+
+que estabelece uma recursividade cuja solução é 
+
+$$x_n = (I + hA)^n x_0.$$
+
+Queremos, em particular, que $(I + hA)^n \to 0$ quando $n \to \infty$. Se $A =
+PDP^{-1}$ para uma matriz diagonal $D$ e uma invertível $P$, então 
+$$(I +hA) = (PIP^{-1} + hPDP^{-1}) = P(I + hD)P^{-1} \implies (I +hA)^n = P(I+hD)^nP^{-1}.$$
+
+Isso permite concluir que $x_n \to 0$ somente se para cada autovalor
+$\lambda_i$ de $A$, tenhamos que $|1 + \lambda_i h| < 1$.
+
+**Domínio de estabilidade:** $D = \{z \in \mathbb{C} \mid |Re(z)| < 1\}$. 
+
+Dizemos que um método é $A$-estável quando for aplicado à equação de teste 
+$x'(t) = \lambda x(t)$ para $Re(\lambda) < 0$ e $\lim x_n = 0$ para a
+sequência gerada pelo método, para qualquer $h > 0$ escolhido. 
+O método de Euler implícito é $A$-estável, pois 
+$$x_{n+1} = x_n + \lambda x_{n+1} h \implies x_{n+1} = \frac{1}{1 - \lambda
+h}x_n$$
+e, portanto, 
+$$x_{n+1} = \left(\frac{1}{1 - \lambda h}\right)^{n+1}x_0.$$
