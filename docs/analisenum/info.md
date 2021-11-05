@@ -21,6 +21,7 @@ Monitoria de Introdução à Análise Numérica correspondente ao período de 20
 |[Interpolação polonomial](/ta-sessions/analisenum/polynomial_interpolation)|
 |[Integração numérica](/ta-sessions/analisenum/numeric_integration)|
 |[Solução de Equações diferenciais ordinárias](/ta-sessions/analisenum/edo)|
+|[Solução de Equações diferenciais parciais](/ta-sessions/analisenum/edp)|
 
 ## Listas
 
