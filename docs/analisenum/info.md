@@ -31,6 +31,7 @@ Monitoria de Introdução à Análise Numérica correspondente ao período de 20
 |[2](/ta-sessions/analisenum/lista2)|Métodos iterativos para sistemas de equações lineares|[2](/files/disciplines/numerical-analysis/solutions2.pdf)|
 |[3](/files/disciplines/numerical-analysis/lista3.pdf)|Soluções de equações não lineares|[3](/files/disciplines/numerical-analysis/solutions3.pdf)|
 |[4](/files/disciplines/numerical-analysis/lista4.pdf)|Interpolação polinomial|[4](/files/disciplines/numerical-analysis/solutions4.pdf)|
+|[5](/files/disciplines/numerical-analysis/lista5.pdf)|Métodos numéricos para EDOs|[5](/files/disciplines/numerical-analysis/solutions5.pdf)|
 
 ## Notas
   
