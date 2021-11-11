@@ -9,12 +9,9 @@ Monitoria de Introdução à Análise Numérica correspondente ao período de 20
 
 ## Tópicos
 
-|Computação|
+|Tópicos|
 |-|
 |[Aritmética do computador](/ta-sessions/analisenum/computing)|
-
-|Métodos numéricos|
-|-|
 |[Métodos iterativos para sistemas lineares](/ta-sessions/analisenum/linear-systems)|
 |[Solução numérica de equações não lineares](/ta-sessions/analisenum/non_linear_equations)|
 |[Aplicação método de Newton](/ta-sessions/analisenum/application_newton/non_linear_equations)|
@@ -22,6 +19,7 @@ Monitoria de Introdução à Análise Numérica correspondente ao período de 20
 |[Integração numérica](/ta-sessions/analisenum/numeric_integration)|
 |[Solução de Equações diferenciais ordinárias](/ta-sessions/analisenum/edo)|
 |[Solução de Equações diferenciais parciais](/ta-sessions/analisenum/edp)|
+|[Simulação estocástica](/ta-sessions/analisenum/stochastic)|
 
 ## Listas
 
