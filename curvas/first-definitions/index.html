@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+
+    
+    <title>Definições preliminares - Teaching Assistant</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../css/base.min.css" rel="stylesheet">
+    <link href="../../css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            
+              <a class="navbar-brand" href="../..">Teaching Assistant</a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../alglin/info/">Álgebra Linear</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../analisenum/info/">Análise Numérica</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../analisenum/info/">Curvas</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../edo/info/">EDO</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../edp/info/">EDP</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../infestatistica/info/">Estatística</a>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://lucasmoschen.github.io">Página Inicial</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#definicoes-preliminares">Definições preliminares</a></li>
+            <li class="second-level"><a href="#encontrando-parametrizacoes">Encontrando parametrizações</a></li>
+                
+                <li class="third-level"><a href="#exemplo-1">Exemplo 1</a></li>
+                <li class="third-level"><a href="#exemplo-2">Exemplo 2</a></li>
+            <li class="second-level"><a href="#vetor-tangente">Vetor tangente</a></li>
+                
+                <li class="third-level"><a href="#proposicao">Proposição</a></li>
+            <li class="second-level"><a href="#comprimento-de-arco">Comprimento de arco</a></li>
+                
+            <li class="second-level"><a href="#reparametrizacao">Reparametrização</a></li>
+                
+                <li class="third-level"><a href="#proposicoes-importantes">Proposições importantes</a></li>
+                <li class="third-level"><a href="#teorema-da-reparametrizacao">Teorema da reparametrização</a></li>
+                <li class="third-level"><a href="#demonstracao">Demonstração</a></li>
+            <li class="second-level"><a href="#curvas-fechadas">Curvas fechadas</a></li>
+                
+                <li class="third-level"><a href="#curva-t-periodica">Curva T-periódica</a></li>
+                <li class="third-level"><a href="#auto-interseccao">Auto-intersecção</a></li>
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="definicoes-preliminares">Definições preliminares</h1>
+<p>Quando pensamos em curvas, em geral, expressamos como uma equação, como, por exemplo, </p>
+<p>
+<script type="math/tex; mode=display">
+x^2 + y^2 = 1 
+</script>
+que é uma circunferência </p>
+<p><img alt = "circle" src = "/ta-sessions/curvas/first-definitions_files/circle-curve.png" width = 200> </p>
+<p>ou talvez na reta <script type="math/tex">y = ax + b</script>. Chamamos essas curvas de <strong>curvas de nível</strong>, aquelas que são do tipo <script type="math/tex">f(x,y) = c</script> para uma função <script type="math/tex">f:\mathbb{R}^2 \to \mathbb{R}</script> continua. Todavia uma definição um tanto melhor é pensar em uma curva como um caminho traçado por um ponto se movimentando. </p>
+<p><strong>Curva parametrizada:</strong> Seja <script type="math/tex">I</script> um intervalo. Uma curva parametrizada é uma aplicação contínua <script type="math/tex">\alpha: I \subset \mathbb{R} \to \mathbb{R}^n</script>, muitas vezes notada como <script type="math/tex">\alpha(t) = (\alpha_1(t), ..., \alpha_n(t))</script> e <script type="math/tex">t</script> é chamado de parâmetro. Algumas definições pedem intervalo aberto. Dizemos que ela é <strong>diferenciável</strong> quando a aplicação é diferenciável. Por fim dizemos que a curva é <strong>regular</strong> quando <script type="math/tex">\alpha '(t) \neq 0, \forall t \in I</script>.</p>
+<p><strong>Observação:</strong> Definições de curva podem variar em cada livro. Alguns livros pedem que a aplicação seja de classe <script type="math/tex">C^{\infty}</script> ou suave, enquanto outras pedem apenas classe <script type="math/tex">C^2</script> e assim por diante. De forma geral exigir apenas a continuidade é mais fraco e podemos pedir diferenciabilidade ou suavidade posteriormente. </p>
+<p><strong>Traço da curva:</strong> Seja uma curma <script type="math/tex">\alpha:I \to \mathbb{R}^n</script>. Dizemos que o traço de <script type="math/tex">\alpha</script> é a imagem da aplicação <script type="math/tex">\alpha</script>, denotada <script type="math/tex">\alpha(I)</script>. Algumas definições de curva são precisamento o que definimos de traço da curva. </p>
+<pre class="highlight"><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt</code></pre>
+<pre class="highlight"><code class="language-python">fig = plt.figure()
+ax = fig.gca(projection='3d')
+
+# Prepare arrays x, y, z
+theta = np.linspace(-4 * np.pi, 4 * np.pi, 100)
+z = np.linspace(-2, 2, 100)
+r = z**2 + 1
+x = r * np.sin(theta)
+y = r * np.cos(theta)
+
+ax.plot(x, y, z, label='arbitrary parametric curve')
+ax.legend()
+
+plt.show()</code></pre>
+<p><img alt="png" src="../first-definitions_files/first-definitions_2_0.png" /></p>
+<h2 id="encontrando-parametrizacoes">Encontrando parametrizações</h2>
+<h3 id="exemplo-1">Exemplo 1</h3>
+<p>Vamos encontrar uma parametrização para a <em>parábola</em>  <script type="math/tex">y = x^2</script> na reta. Seja <script type="math/tex">\gamma(t) = (\gamma_1(t), \gamma_2(t))</script>. Pela relação, temos que <script type="math/tex">\gamma_2(t) = \gamma_1(t)^2, \forall t \in \mathbb{R}</script>. Uma solução trivial sera colocar <script type="math/tex">\gamma_1(t) = t</script>. Nesse caso, <script type="math/tex">\gamma(t) = (t,t^2)</script> é uma curva cujo traço é uma parábola. Observe que essa <strong>não é a única parametrização</strong>. Por exemplo <script type="math/tex">(\frac{t}{2}, \frac{t^2}{4})</script> também é uma parametrização na reta. Isso levanta uma questão: temos duas parametrizações diferentes para a mesma curva. Como dizer que elas são iguais, em um certo sentido, já que suas imagens são iguais? </p>
+<h3 id="exemplo-2">Exemplo 2</h3>
+<p>Considere a curva <a href="https://en.wikipedia.org/wiki/Astroid">astroide</a> dada pela pela equação <script type="math/tex">x^{2/3} + y^{2/3} = 1</script>. Uma maneira é propor a parametrização dada por <script type="math/tex">x(t) = t</script> e <script type="math/tex">y(t) = (1 - t^{2/3})^{3/2}.</script> Primeiro temos que observar que <script type="math/tex">t \in [-1,1]</script> devido a raiz quadrada que tomamos na expressão - o valor dentro do parênteses não pode ser negativo. Em particular <script type="math/tex">y</script> não pode ser negativo nessa parametrização. Isso não corresponde a imagem total da curva, pois <script type="math/tex">y^{2/3} + x^{2/3} = 1</script> é simétrico em relação ao dois eixos. </p>
+<p>Poderíamos tentar adaptar essa parametrização, mas o mais conveniente é lembrar da identidade trigonométrica <script type="math/tex">cos^2(t) + sen^2(t) = 1</script>. Assim podemos escrever que <script type="math/tex">(cos(t)^3)^{2/3} + (sen(t)^3)^{2/3} = 1</script>. Como consequência <script type="math/tex">(cos^3(t), sen^3(t))</script> é uma parametrização da astroide. Note que essa curva é contínua e definida em toda reta. </p>
+<pre class="highlight"><code class="language-python"># Astroid
+fig = plt.figure(figsize = (5,5))
+ax = plt.subplot()
+ax.grid(alpha=.5)
+
+t = np.linspace(-np.pi, np.pi,100)
+x = np.cos(t)**3
+y = np.sin(t)**3
+
+ax.plot(x, y, label='Astroid')
+ax.axvline(x = 0, color = 'grey', alpha = .7)
+ax.axhline(y = 0, color = 'grey', alpha = .7)
+ax.legend()
+
+plt.show()</code></pre>
+<p><img alt="png" src="../first-definitions_files/first-definitions_4_0.png" /></p>
+<h2 id="vetor-tangente">Vetor tangente</h2>
+<p>Em geral, quando estudamos curvas e superfícies, é comum encontrar o tempo <em>suave</em> associado. A definição de função suavde varia em cada contexto e pode ir desde uma função diferenciável com função contínua até função que tem derivada de qualquer ordem (sempre considerando o intervalo <script type="math/tex">I</script> de definição. </p>
+<p>Lembre que se <script type="math/tex">\gamma(t) = (\gamma_1(t), ..., \gamma_n(t)</script>, a derivada de <script type="math/tex">\gamma</script> é 
+<script type="math/tex; mode=display">\dot{\gamma(t)} = (\dot{\gamma_1}(t), ..., \dot{\gamma_n}(t)).</script>
+</p>
+<p><strong>Vetor tangente:</strong> Seja <script type="math/tex">\alpha</script> uma curva parametrizada. Sua primeira derivada <script type="math/tex">\dot{\alpha}(t)</script> é chamada de vetor tangente a cada tempo <script type="math/tex">t</script>. </p>
+<h3 id="proposicao">Proposição</h3>
+<p>Se o vetor tangente de uma curva parametrizada é constante, então o traço da curva é parte de uma reta. De fato se <script type="math/tex">\dot{\alpha}(t) = c</script>, onde <script type="math/tex">c</script> é um vetor constante, pelo teorema fundamental do cálculo, 
+<script type="math/tex; mode=display">
+\alpha(t) = \int_{t_0}^t \dot{\alpha}(s)ds = (t - t_0)c = ct + d, d = - t_0 c, t_0 \in I
+</script>
+Se <script type="math/tex">c \neq 0</script>, esta é a equação paramétrica de um segmento de reta (potencialmente infinito). Se <script type="math/tex">c = 0</script>, a imagem da curva é um único ponto. </p>
+<h2 id="comprimento-de-arco">Comprimento de arco</h2>
+<p>Definimos o comprimento de arco de uma curva <script type="math/tex">\gamma</script> começando no ponto <script type="math/tex">\gamma(t_0)</script> como a função 
+<script type="math/tex; mode=display">
+s(t) = \int_{t_0}^t ||\dot{\gamma}(s)||ds
+</script>
+Se escolhermos um ponto <script type="math/tex">\tilde{t}_0</script> diferente, o resultado será diferente. </p>
+<p>Dizemos que a curva tem <strong>velocidade unitária</strong> se <script type="math/tex">||\dot{\gamma}(t)|| = 1</script>
+</p>
+<h2 id="reparametrizacao">Reparametrização</h2>
+<p>Sejam <script type="math/tex">I</script> e <script type="math/tex">J</script> intervalos. Uma <strong>mudança de parâmetro</strong> é uma função <script type="math/tex">h: J \to I</script> bijetiva contínua com inversa contínua. Em particular, uma função com essa propriedade é chamada de <strong>homeomorfismo</strong>. </p>
+<p>Sejam <script type="math/tex">\tilde{\gamma}:J \to \mathbb{R}^n</script> e <script type="math/tex">\gamma: I \to \mathbb{R}^n</script> dua curvas. Dizemos que <script type="math/tex">\tilde{\gamma}</script> é reparametrização da curva <script type="math/tex">\gamma</script> se existe uma mudança de parâmetro <script type="math/tex">h</script> tal que 
+<script type="math/tex; mode=display">
+\tilde{\gamma} = \gamma \circ h 
+</script>
+Essa notação significa que <script type="math/tex">\forall t \in J, \tilde{\gamma}(t) = \gamma(h(t))</script>. Observe que se <script type="math/tex">\tilde{\gamma}</script> é reparametrização de <script type="math/tex">\gamma</script>, essa é reparametrização da primeira. </p>
+<p><strong>Observação:</strong> Dependendo em como definimos curva, existem variações nessa definição. De forma geral, podemos dizer que duas curvas de classe <script type="math/tex">C^k</script> são equivalentes, isto é, uma é reparametrização da outra, quando existe uma mapa bijetivo de classe  <script type="math/tex">C^k</script> com inversa também de classe <script type="math/tex">C^k</script> tal que a igualdade acima é válida em todo ponto. Para mais detalhes, consulte o <a href="https://en.wikipedia.org/wiki/Curve#Differential_geometry">Wikipedia</a>. </p>
+<p>Lembre que uma curva pode ter muitas parametrizações, mas nem todas são reparametrizações uma da outra, como no exemplo a baixo: </p>
+<p><strong>Exemplo:</strong> Considere as seguintes parametrizações da circunferência: 
+<script type="math/tex; mode=display">
+\alpha(t) = (cos(t), sen(t)), t \in [0,2\pi]
+</script>
+<script type="math/tex; mode=display">
+\beta(t) = (cos(2t), sen(2t)), t \in [0,2\pi]
+</script>
+A segunda parametrização "dá uma volta a mais na circunferência". Devemos nos perguntar se existe uma mudança de parâmetro <script type="math/tex">h</script> entre esses intervalos que garanta 
+<script type="math/tex; mode=display">
+cos(2t) = cos(h(t))
+</script>
+<script type="math/tex; mode=display">
+sen(2t) = sen(h(t))
+</script>
+Não conseguimos fazer isso e manter a bijetividade de <script type="math/tex">h</script> entre os intervalos. Uma solução para esse problema seria considerar o domínio de <script type="math/tex">\beta</script> o intervalor <script type="math/tex">[0,\pi]</script>. Nesse caso <script type="math/tex">h(t) = 2t</script> é uma mudança de parâmetro entre as parametrizações. </p>
+<h3 id="proposicoes-importantes">Proposições importantes</h3>
+<p>Tente demonstrar essas proposições:</p>
+<ol>
+<li>Toda reparametrização de uma curva regular é regular. </li>
+<li>O comprimento de uma curva diferenciável regular não muda depois de uma reparametrização. </li>
+</ol>
+<h3 id="teorema-da-reparametrizacao">Teorema da reparametrização</h3>
+<p>Uma curva parametrizada tem uma reparametrização com velocidade unitária se, e somente se, é regular. </p>
+<h3 id="demonstracao">Demonstração</h3>
+<p>Um rascunho da demonstração supondo a regularidade da curva. Seja <script type="math/tex">\alpha</script> uma curve (diferenciável). Queremos encontrar <script type="math/tex">\beta : J \to \mathbb{R}^n</script> tal que <script type="math/tex">\beta = \alpha \circ h</script> para algum <script type="math/tex">h</script>
+<strong>difeomorfismo</strong> (bijeito diferenciável com inversa diferenciável). Se existesse, ele deveria ter o seguinte comportamento, 
+<script type="math/tex; mode=display">
+||\beta '(t)|| = ||\alpha'(h(t))h'(t)|| = 1, 
+</script>
+por hipótese. Dado <script type="math/tex">t_0 \in I, t \in I, </script>
+<script type="math/tex; mode=display">
+s(t) := \int_{t_0}^t ||\alpha '(\tau)||d\tau
+</script>
+é uma função crescente e derivável, pois <script type="math/tex">\alpha</script> é regular. Então ela possui uma função inversa <script type="math/tex">t: s(I) \to I</script> também crescente e derivável, de forma que 
+<script type="math/tex; mode=display">
+t'(s) = \frac{1}{\frac{ds}{dt}(t(s))} = \frac{1}{s'(t(s))} = \frac{1}{||\alpha'(t(s))||}
+</script>
+Então defina <script type="math/tex">\beta: s(I) \to \mathbb{R}^n</script> de forma que <script type="math/tex">\beta(s) = \alpha(t(s))</script>. Então, 
+<script type="math/tex; mode=display">
+||\beta'(s)|| = ||\alpha'(t(s))t'(s)|| = 1
+</script>
+Então a mudança de parâmetro que estávamos procurando era a inversa da função de comprimento de curva. </p>
+<h2 id="curvas-fechadas">Curvas fechadas</h2>
+<h3 id="curva-t-periodica">Curva T-periódica</h3>
+<p>Seja <script type="math/tex">T \in \mathbb{R}</script>. Dizemos que uma curva suave <script type="math/tex">\alpha : \mathbb{R} \to \mathbb{R}^n</script> é T-periódica se 
+<script type="math/tex; mode=display">
+\alpha(t + T) = \alpha(t), t \in \mathbb{R}
+</script>
+Se <script type="math/tex">\alpha</script> é não constante, mas T-periódica, com <script type="math/tex">T \neq 0</script>, então ela é dita <strong>fechada</strong>. Dizemos que o período da curva fechada é o menor número positivo <script type="math/tex">T</script> tal que <script type="math/tex">\alpha</script> seja T-periódica. </p>
+<p><strong>Exemplo:</strong> A elipse é um exemplo onde o perído é <script type="math/tex">2\pi</script>. </p>
+<h3 id="auto-interseccao">Auto-intersecção</h3>
+<p>Uma curva <script type="math/tex">\alpha</script> tem uma auto-intersecção no ponto <script type="math/tex">p</script> se existem <script type="math/tex">a \neq b</script> tal que <script type="math/tex">\alpha(a) = \alpha(b) = p</script> e se <script type="math/tex">\alpha</script> é fechada com período <script type="math/tex">T</script>, então <script type="math/tex">a - b</script> não é um inteiro múltiplo de <script type="math/tex">T</script>. </p></div>
+        
+        
+    </div>
+
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
+
+          
+          
+      </footer>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../../js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = "../.."</script>
+    
+    <script src="../../js/base.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>

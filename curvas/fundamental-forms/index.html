@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+
+    
+    <title>Formas fundamentais - Teaching Assistant</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../css/base.min.css" rel="stylesheet">
+    <link href="../../css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            
+              <a class="navbar-brand" href="../..">Teaching Assistant</a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../alglin/info/">Álgebra Linear</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../analisenum/info/">Análise Numérica</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../analisenum/info/">Curvas</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../edo/info/">EDO</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../edp/info/">EDP</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../infestatistica/info/">Estatística</a>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://lucasmoschen.github.io">Página Inicial</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#formas-fundamentais">Formas fundamentais</a></li>
+            <li class="second-level"><a href="#primeira-forma-fundamental">Primeira forma fundamental</a></li>
+                
+                <li class="third-level"><a href="#isometrias-em-superficies">Isometrias em superfícies</a></li>
+            <li class="second-level"><a href="#segunda-forma-fundamental">Segunda forma fundamental</a></li>
+                
+            <li class="second-level"><a href="#mapa-de-gauss-e-de-weingarten">Mapa de Gauss e de Weingarten</a></li>
+                
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="formas-fundamentais">Formas fundamentais</h1>
+<h2 id="primeira-forma-fundamental">Primeira forma fundamental</h2>
+<p>A primeira preocupação que podemos ter em uma superfície é medir a distância
+entre dois pontos (o ser humano sempre fez isso de diversas formas no planeta
+terra). Para isso, introduzimos o conceito da <em>primeira forma fundamental</em>. </p>
+<p><strong>Definição:</strong> Seja <script type="math/tex">p</script> um ponto na superfície de <script type="math/tex">S</script>. A primeira forma
+fundamental de <script type="math/tex">S</script> em <script type="math/tex">p</script> associa <script type="math/tex">v, w \in T_pS</script> ao escalar 
+<script type="math/tex; mode=display">
+\langle v, w \rangle_{p,S} = v \cdot w
+</script>
+Seja <script type="math/tex">v \in T_pS</script>. Então, podemos representar <script type="math/tex">w</script> como uma combinação linear
+dos vetores <script type="math/tex">\sigma_u</script> e <script type="math/tex">\sigma_v</script>: <script type="math/tex">w = \lambda \sigma_u + \mu \sigma_v</script>.
+Assim
+<script type="math/tex; mode=display">
+\langle w, w \rangle = \lambda^2\langle \sigma_u, \sigma_u \rangle +
+2\lambda\mu\langle \sigma_u, \sigma_v \rangle + \mu^2\langle \sigma_v,
+\sigma_v \rangle
+</script>
+Definimos <script type="math/tex">E = ||\sigma_u||^2, F = \sigma_u \cdot \sigma_v, G =
+||\sigma_v||^2</script> e assim, exprimimos a forma fundamental como 
+<script type="math/tex; mode=display">
+Edu^2 + 2Fdudv + Gdv^2
+</script>
+em que <script type="math/tex">du = \lambda</script> e <script type="math/tex">dv = \mu</script>. </p>
+<p>Se <script type="math/tex">\gamma(t) = \sigma(u(t), v(t))</script>, podemos calcular o comprimento de arco
+utilizando que <script type="math/tex">\dot{\gamma} = \dot{u}\sigma_u + \dot{v}\sigma_v</script> e, então, 
+<script type="math/tex; mode=display">
+||\dot{\gamma}||^2 = E\dot{u}^2 + 2F\dot{u}\dot{v} + G\dot{v}^2
+</script>
+Portanto 
+<script type="math/tex; mode=display">
+L(\gamma) = \int (E\dot{u}^2 + 2F\dot{u}\dot{v} + G\dot{v}^2)^{1/2} dt
+</script>
+</p>
+<h3 id="isometrias-em-superficies">Isometrias em superfícies</h3>
+<p>Se <script type="math/tex">\mathcal{S}_1</script> e <script type="math/tex">\mathcal{S}_2</script> são superfícies, dizemos que eles são
+<em>localmente isométricos</em> se qualquer curva de <script type="math/tex">\mathcal{S}_1</script> pode ser levada
+por um mapa suave para uma curva em <script type="math/tex">\mathcal{S}_2</script> de mesmo comprimento, isto
+é, toda curva pode ser levada de uma superfície para outra, mantendo
+comprimento. O mapa que realiza essa função é uma <em>isometria local</em>. </p>
+<p>Seja o mapa <script type="math/tex">D_pf : T_p\mathcal{S}_1 \to T_{f(p)}\mathcal{S}_2</script> a derivada da
+função suave <script type="math/tex">f</script> entre as superfícies. Podemos provar que <script type="math/tex">f</script> será uma
+isometria local se, e somente se, <script type="math/tex">D_p\mathcal{S}_1</script> é uma isometria (isto é,
+preserva distâncias) para todo ponto <script type="math/tex">p \in \mathcal{S}_1</script>. Lembrando que por
+isometria, queremos dizer que 
+<script type="math/tex; mode=display">
+\langle v, v \rangle_p = \langle D_p f(v), D_p f(v) \rangle_{f(p)}.
+</script>
+Se <script type="math/tex">f</script> for uma isometria local, ele será um difeomorfismo local dada a
+invertibilidade de sua derivada <script type="math/tex">D_pf</script>. </p>
+<p>Um corolário interessante é que para todo mapa <script type="math/tex">\sigma_1</script> de <script type="math/tex">\mathcal{S}_1</script>,
+os patches <script type="math/tex">\sigma_1</script> de <script type="math/tex">\mathcal{S}_1</script>, e <script type="math/tex">f \circ \sigma_1</script> de
+<script type="math/tex">\mathcal{S}_2</script> tem a mesma forma fundamental. </p>
+<h2 id="segunda-forma-fundamental">Segunda forma fundamental</h2>
+<p>Seja <script type="math/tex">p=\sigma(u,v)</script> um ponto em uma superfície. A medida que nos afastamos de
+<script type="math/tex">(u,v)</script>, a superfície se distancia do plano tangente segundo a distância
+(aproximada) 
+<script type="math/tex; mode=display">
+(\sigma(u + \Delta u, v + \Delta v) - \sigma(u,v))\cdot N.
+</script>
+Pelo teorema de Taylor, essa distância vale 
+<script type="math/tex; mode=display">
+(\sigma_u\Delta u + \sigma_v\Delta v + \frac{1}{2}(\sigma_{uu}(\Delta u)^2 +
+2\sigma_{uv}\Delta u\Delta v + \sigma_{vv}(\Delta v)^2) + R(\Delta u, \Delta
+v))\cdot N
+</script>
+onde esse esse resto sobre <script type="math/tex">(\Delta u)^2 + (\Delta v)^2</script> tende a 0. Como <script type="math/tex">N</script> é
+perpendicular a <script type="math/tex">\sigma_u, \sigma_v</script>, o resto da expressão é escrita como 
+<script type="math/tex; mode=display">
+\frac{1}{2}(e(\Delta u)^2 + 2f\Delta u\Delta v + g(\Delta v)^2) + R(\Delta u,
+\Delta v),
+</script>
+em que 
+<script type="math/tex; mode=display">
+e = \sigma_{uu}\cdot N, f = \sigma_{uv}\cdot N, f = \sigma_{vv}\cdot N.
+</script>
+A expressão acima é a <em>segunda forma fundamental</em> e está associada ao
+curvamento da superfície em relação ao plano tangente. </p>
+<h2 id="mapa-de-gauss-e-de-weingarten">Mapa de Gauss e de Weingarten</h2>
+<p><strong>Mapa de Gauss:</strong> O mapa <script type="math/tex">\mathcal{G} : \mathcal{S} \to \mathcal{S}^2</script> que
+associa cada ponto da superfície <script type="math/tex">p \in \mathcal{S}</script>, o ponto <script type="math/tex">N_p \in
+\mathcal{S}^2</script> que é o vetor normal unitário de <script type="math/tex">\mathcal{S}</script> em <script type="math/tex">p</script>. </p>
+<p>Medimos a variação de <script type="math/tex">N</script> ao longo de <script type="math/tex">\mathcal{S}</script> pela derivada 
+<script type="math/tex; mode=display">
+D_p \mathcal{G} : T_p\mathcal{S} \to T_{\mathcal{G}(p)}\mathcal{S}^2.
+</script>
+Seja <script type="math/tex">q = \mathcal{G}(p)</script>. O plano tangente a esse ponto é perpendicular a <script type="math/tex">q</script>
+e passa pela origem. Observe, no entanto, que esse plano, é perpendicular a
+<script type="math/tex">N_p</script>, que é exatamente <script type="math/tex">T_p\mathcal{S}</script>. Portanto esse mapa pode ser escrito
+como 
+<script type="math/tex; mode=display">
+D_p \mathcal{G} : T_p\mathcal{S} \to  T_p\mathcal{S}.
+</script>
+</p>
+<p><strong>Mapa de Weingarten:</strong> O <em>mapa de Weingarten</em> da superfície <script type="math/tex">\mathcal{S}</script> no
+ponto <script type="math/tex">p</script> é definida como <script type="math/tex">\mathcal{W}_{p,S} = - D_p\mathcal{S}</script>. A segunda
+forma fundamental pode ser equivalentemente escrita como 
+<script type="math/tex; mode=display">
+\langle \langle v, w \rangle \rangle_{p,S} := \langle \mathcal{W}_{p,S}(v), w
+\rangle_{p,S}, v, w \in T_p\mathcal{S}. 
+</script>
+</p>
+<p>Podemos provar essa relação, além de provar que o mapa de Weingarten é
+<a href="https://en.wikipedia.org/wiki/Self-adjoint_operator#Bounded_self-adjoint_operators">autoadjunto</a>.</p>
+<p><strong>Curvatura normal e geodésica:</strong> Seja uma curva <script type="math/tex">\gamma</script> na superfície
+<script type="math/tex">\mathcal{S}</script>. A segunda derivada de <script type="math/tex">\gamma</script> (relacionada com sua curvatura)
+pode ser escrita como combinação linear 
+<script type="math/tex; mode=display">
+\ddot{\gamma} = \kappa_n N + \kappa_g(N\times\dot{\gamma}).
+</script>
+Chamamos <script type="math/tex">\kappa_n</script> de curvatura normal e <script type="math/tex">\kappa_g</script> de geodésica. Em geral só
+a magnitude desses valores é bem definida. Além disso 
+<script type="math/tex; mode=display">
+\kappa_n = L\dot{u}^2 + 2M\dot{u}\dot{v} + N\dot{v}^2
+</script>
+</p></div>
+        
+        
+    </div>
+
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
+
+          
+          
+      </footer>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../../js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = "../.."</script>
+    
+    <script src="../../js/base.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>

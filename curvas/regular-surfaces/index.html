@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+
+    
+    <title>Superfícies - Teaching Assistant</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../css/base.min.css" rel="stylesheet">
+    <link href="../../css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            
+              <a class="navbar-brand" href="../..">Teaching Assistant</a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../alglin/info/">Álgebra Linear</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../analisenum/info/">Análise Numérica</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../analisenum/info/">Curvas</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../edo/info/">EDO</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../edp/info/">EDP</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../infestatistica/info/">Estatística</a>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://lucasmoschen.github.io">Página Inicial</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#superficies">Superfícies</a></li>
+            <li class="second-level"><a href="#superficies-suaves">Superfícies suaves</a></li>
+                
+            <li class="second-level"><a href="#mapas-suaves">Mapas suaves</a></li>
+                
+            <li class="second-level"><a href="#tangentes">Tangentes</a></li>
+                
+            <li class="second-level"><a href="#normais-e-orientabilidade">Normais e orientabilidade</a></li>
+                
+                <li class="third-level"><a href="#abordagem-alternativa">Abordagem alternativa</a></li>
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="superficies">Superfícies</h1>
+<p><strong>Definição:</strong> Dizemos que <script type="math/tex">S \subseteq \mathbb{R}^n</script> é uma <em>superfície</em> se
+para todo ponto <script type="math/tex">p \in S</script>, existe um conjunto aberto <script type="math/tex">U \subset \mathbb{R}^2</script>
+e um conjunto aberto <script type="math/tex">W \subseteq \mathbb{R}^3</script> contendo <script type="math/tex">p</script> tal que <script type="math/tex">S \cap
+W</script> é homeomorfo a <script type="math/tex">U</script>.  O homeomorfismo <script type="math/tex">\sigma : U \to S \cap W</script> é um
+<em>patch</em> ou <em>parametrização</em>. A coleção desses homeomorfismos que cobrem <script type="math/tex">S</script> é
+chamada de <em>atlas</em>. </p>
+<p>Dizemos que <script type="math/tex">S \cap W</script> é aberto em <script type="math/tex">S</script> sempre que <script type="math/tex">W</script> for aberto. </p>
+<p>Observe que para cada ponto da superfície, olhamos para uma vizinhança dele
+(conjunto aberto que o contém) e essa vizinhança restrita à superfície deve
+ser "parecida" com um subconjunto do plano. Quando caminhamos no planeta,
+temos a sensação de caminharmos num plano justamente por esse conceito. </p>
+<p>Também observe que nosso atlas pode ser formado por uma quantidade infinita de
+patches, mas, em geral, existe um número mínimo.</p>
+<h2 id="superficies-suaves">Superfícies suaves</h2>
+<p><strong>Definição:</strong> Um patch <script type="math/tex">\sigma : U \to \mathbb{R}^3</script> é <em>regular</em> se é uma
+função suave (diferenciável nas três componentes com derivadas parciais
+contínuas de todas as ordens) e os vetores <script type="math/tex">\sigma_u =
+\frac{\partial}{\partial u} \sigma</script> e <script type="math/tex">\sigma_v =
+\frac{\partial}{\partial v} \sigma</script> são linearmente independentes para todo
+<script type="math/tex">(u,v) \in U</script>. Isto é, basta exigir que <script type="math/tex">\sigma_u \times \sigma_v \neq 0</script>. 
+Uma <em>superfície regular</em> é uma superfície tal que <script type="math/tex">p \in S</script>, existe um patch
+regular cuja imagem contenha <script type="math/tex">p</script>. </p>
+<p><strong>Proposição:</strong> Sejam <script type="math/tex">U</script> e <script type="math/tex">V</script> abertos de <script type="math/tex">\mathbb{R}^2</script> e <script type="math/tex">\sigma : U \to
+\mathbb{R}^3</script> um patch regular. Seja <script type="math/tex">\phi : V \to U</script> um difeomorfismo. Então 
+<script type="math/tex">\tilde{\sigma} = \sigma \circ \phi : V \to \mathbb{R}^3</script> é um patch regular.
+Dizemos que <script type="math/tex">\sigma</script> e <script type="math/tex">\tilde{\sigma}</script> são reparametrizações um do outro e
+<script type="math/tex">\phi</script> um mapa reparametrização. </p>
+<p>Esse princípio permite que definhamos uma propriedade para superfícies
+regulares desde que definhamos para qualquer patch regular de forma que será
+inalterada para outra parametrização. </p>
+<h2 id="mapas-suaves">Mapas suaves</h2>
+<p>Queremos entender a noção de mapa suave entre duas superfícies suaves. Até
+agora, definimos a suavidade entre conjuntos de <script type="math/tex">\mathbb{R}^n</script>. Suponha que as
+superfícies <script type="math/tex">S_1</script> e <script type="math/tex">S_2</script> são cobertas pelos patches <script type="math/tex">\sigma_1 : U_1 \to
+\mathbb{R}^3</script> e <script type="math/tex">\sigma_2 : U_2 \to \mathbb{R}^3</script>, respectivamente. Dizemos
+que <script type="math/tex">f</script> é <em>suave</em> se <script type="math/tex">\sigma_2^{-1} \circ f \circ \sigma_1 : U_1 \to U_2</script> é
+suave. </p>
+<p>Além disso, se <script type="math/tex">f: S_1 \to S_2</script> é um difeomorfismo e <script type="math/tex">\sigma_1</script> é um patch
+regular <script type="math/tex">S_1</script>, então <script type="math/tex">f \circ \sigma_1</script> é um patch regular em <script type="math/tex">S_2</script>. </p>
+<h2 id="tangentes">Tangentes</h2>
+<p><strong>Definição:</strong> Um <em>vetor tangente</em> a uma superfície <script type="math/tex">S</script> em um ponto <script type="math/tex">p \in
+S</script> é o vetor tangente em <script type="math/tex">p</script> de uma curva em <script type="math/tex">S</script> que passa por <script type="math/tex">p</script>. O <em>espaço
+tangente</em> é o conjunto desses vetores e é denotado por <script type="math/tex">T_pS</script>.  </p>
+<p>Seja uma curva <script type="math/tex">\alpha</script> em <script type="math/tex">S</script>. que passa por <script type="math/tex">p</script>. Em uma vizinhança de <script type="math/tex">p</script>,
+podemos dizer que <script type="math/tex">\alpha(t) = \sigma(u(t), v(t))</script> tal que <script type="math/tex">\alpha(t_0) = p</script>.
+Podemos provar que <script type="math/tex">u</script> e <script type="math/tex">v</script> são suaves. Essa curva tem uma tangente em <script type="math/tex">p</script>
+denotada por <script type="math/tex">\alpha '(t_0)</script>. Mas note que, essa curva não é necessariamente a
+única que passa por <script type="math/tex">p</script>. </p>
+<p>Essa definição é pouco tratável para enxergar o espaço tangente. Para
+isso, o teorema a seguir propõe uma caracterização mais palatável: </p>
+<p><strong>Proposição:</strong> Seja <script type="math/tex">\sigma : U \to \mathbb{R}^3</script> um patch da superfície <script type="math/tex">S</script>
+que passa pelo ponto <script type="math/tex">p</script> em <script type="math/tex">(u_0, v_0)</script>. O espaço tangente a <script type="math/tex">S</script> em <script type="math/tex">p</script> é o
+plano gerado pelos vetores <script type="math/tex">\sigma_u(u_0, v_0)</script> e <script type="math/tex">\sigma_v(u_0, v_0)</script> que
+passa pela origem.  Observe que o plano tangente é independente da escolha do
+patch. </p>
+<p><strong>Derivada de mapa suave:</strong> Com a definição de mapa tangente, podemos definir
+a derivada de um para <script type="math/tex">f: S_1 \to S_2</script>. A derivada de <script type="math/tex">f</script> em <script type="math/tex">p \in S_1</script> mede
+a variação de <script type="math/tex">f(p) \in S_2</script> quando <script type="math/tex">p</script> se move em sua vizinhança. </p>
+<p>Assim, dizemos que a derivada <script type="math/tex">D_pf</script> de <script type="math/tex">f</script> em <script type="math/tex">p \in S</script> é um mapa 
+<script type="math/tex; mode=display">
+D_pf : T_pS_1 \to T_{f(p)}S_2
+</script>
+tal que, se <script type="math/tex">w \in T_pS_1</script>, existe uma curva <script type="math/tex">\alpha</script> em <script type="math/tex">S_1</script> tal que <script type="math/tex">w = \alpha
+'(t_0)</script>. Então <script type="math/tex">\gamma = f \circ \alpha</script> é uma curva em <script type="math/tex">S_2</script> passando por
+<script type="math/tex">f(p)</script> em <script type="math/tex">t_0</script> e, então <script type="math/tex">D_{f(p)}S_2 = \gamma '(t_0)</script>. </p>
+<h2 id="normais-e-orientabilidade">Normais e orientabilidade</h2>
+<p><strong>Definição:</strong> O vetor normal unitário a <script type="math/tex">S</script> no ponto <script type="math/tex">p</script> é dado por 
+<script type="math/tex; mode=display">
+N_{\sigma} = \frac{\sigma_u \times \sigma_v}{||\sigma_u \times \sigma_v||}
+</script>
+que é exatamente o vetor normal ao plano tangente. Note que esse vetor não é
+independente da escolha do patch <script type="math/tex">\sigma : U \to \mathbb{R}^3</script>. Se
+<script type="math/tex">\tilde{\sigma} : \tilde{U} \to \mathbb{R}^3</script> é outro patch regular para <script type="math/tex">S</script>
+em <script type="math/tex">p</script>, podemos demostrar que:</p>
+<p><strong>Proposição:</strong> Seja <script type="math/tex">\phi : \tilde{U} \to U</script> um difeomorfismo. Então
+<script type="math/tex">\tilde{\sigma} = \sigma \circ \phi : \tilde{U} \to \mathbb{R}^3</script> é um mapa
+regular. Além disso, 
+<script type="math/tex; mode=display">
+\tilde{\sigma}_{\tilde{u}} \times \tilde{\sigma}_{\tilde{v}} = \operatorname{det}(J(\phi)) \,
+\tilde{\sigma}_u \times \tilde{\sigma}_v  
+</script>
+em que <script type="math/tex">\operatorname{det}(J(\phi))</script> é o determinante do Jacobiano da transformação <script type="math/tex">\phi</script>.
+Portanto <script type="math/tex">N_{\tilde{\sigma}} = \operatorname{sign}(\operatorname{det}(J(\phi))) N_{\sigma}</script>.</p>
+<p><strong>Orientabilidade:</strong> Dizemos que <script type="math/tex">S</script> é superfície orientável se existe um
+atlas <script type="math/tex">A</script> para <script type="math/tex">S</script>, de forma que, para quaisquer dois patches <script type="math/tex">\sigma_1</script> e
+<script type="math/tex">\sigma_2</script> em <script type="math/tex">A</script>, se <script type="math/tex">\phi</script> é o mapa de transição entre eles, então
+<script type="math/tex">\operatorname{det}(J(\phi)) > 0</script>. </p>
+<h3 id="abordagem-alternativa">Abordagem alternativa</h3>
+<p>A abordagem utilizada por <a href="https://www.sbm.org.br/wp-content/uploads/2016/06/Introdu%C3%A7%C3%A3o-a-Geometria-Diferencial_Ronaldo-Freire-Lima.pdf">Ronaldo
+Freire</a>
+é um pouco diferente e será apresentada nessa subseção. </p>
+<p><strong>Definição (campos):</strong> Seja uma superfície <script type="math/tex">\mathcal{S}</script>. Uma aplicação <script type="math/tex">f:
+\mathcal{S} \to \mathbb{R}^3</script> é chamada de campo. Ela será <em>unitária</em> quando <script type="math/tex">||f(p)||
+= 1</script> para todo ponto da superfície; <em>tangente</em> se sua imagem está contida no
+espaço (plano) tangente; e <em>normal</em> se pertence ao complemento ortogonal do
+espaço tangente, isto é, sua imagem é ortogonal ao plano tangente. </p>
+<p>Quando o campo é normal, unitário, e diferencial, denotamos por <script type="math/tex">N : \mathcal{S} \to
+\mathbb{R}^3</script>. Note que sempre podemos definir essa função associando cada
+ponto da superfície ao vetor normal à superfície que passe no ponto. </p>
+<p><strong>Superfície orientável:</strong> Uma superfície regular é <em>orientável</em> quando
+podemos definir um campo <script type="math/tex">N</script> nessa superfície. Esse campo define a orientação
+da superfície, quando existir. </p>
+<p>Uma superfície regular não orientável é a <a href="https://www.youtube.com/watch?v=vLgCq4ikl78"><em>fita de Moebius</em></a>, uma faixa de
+papel com uma das extremidades torcidas. </p>
+<p><strong>Atlas coerente:</strong> Um atlas (família de parametrizações de uma superfície) é
+<em>coerente</em> quando dadas duas parametrizações <script type="math/tex">\sigma_1</script> e <script type="math/tex">\sigma_2</script> do atlas,
+o mapa de transição entre as parametrizações tem determinante positivo. Note
+que essa é a definição que Pressley utiliza. Podemos provar (inclusive Freire
+prova) que ambas são definições equivalentes.</p></div>
+        
+        
+    </div>
+
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
+
+          
+          
+      </footer>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../../js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = "../.."</script>
+    
+    <script src="../../js/base.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>

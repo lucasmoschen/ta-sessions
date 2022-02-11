@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+
+    
+    <title>Curvas no espaço - Teaching Assistant</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../css/base.min.css" rel="stylesheet">
+    <link href="../../css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            
+              <a class="navbar-brand" href="../..">Teaching Assistant</a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../alglin/info/">Álgebra Linear</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../analisenum/info/">Análise Numérica</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../analisenum/info/">Curvas</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../edo/info/">EDO</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../edp/info/">EDP</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../infestatistica/info/">Estatística</a>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://lucasmoschen.github.io">Página Inicial</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#curvas-no-espaco">Curvas no espaço</a></li>
+            <li class="second-level"><a href="#triedo-de-frenet">Triedo de Frenet</a></li>
+                
+            <li class="second-level"><a href="#torcao">Torção</a></li>
+                
+            <li class="second-level"><a href="#equacoes-de-frenet">Equações de Frenet</a></li>
+                
+            <li class="second-level"><a href="#planos">Planos</a></li>
+                
+            <li class="second-level"><a href="#consequencias">Consequências</a></li>
+                
+                <li class="third-level"><a href="#curva-plana-e-torcao-nula">Curva plana e torção nula</a></li>
+                <li class="third-level"><a href="#circunferencia-e-curvatura-constante">Circunferência e curvatura constante</a></li>
+            <li class="second-level"><a href="#teorema-fundamental-da-teoria-local-das-curvas-espaciais">Teorema Fundamental da Teoria Local das Curvas Espaciais</a></li>
+                
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="curvas-no-espaco">Curvas no espaço</h1>
+<p>Vimos que as curvas no plano são essencialmente definidas por sua curvatura. Porém, isso não é verdade no espaço. Considere, por exemplo, a hélice circular 
+<script type="math/tex; mode=display">
+\alpha(t) = \left(\frac{1}{2}\cos(t), \frac{1}{2}\sin(t), \frac{1}{2}t\right)
+</script>
+Ela está parametrizada pelo comprimento de arco. Então, se formos calcular a curvatura (usando a mesma noção de curvas planas), teremos que 
+<script type="math/tex; mode=display">
+\kappa_{\alpha}(t) = ||\alpha''(t)|| = 1
+</script>
+Entretanto, a hélice não é uma circunferência de raio 1! Para isso, vamos precisar introduzir o conceito de <strong>torção</strong>. Veja também que não é possível definir uma função ângulo! Então, <strong>curvatura com sinal</strong> é um conceito vago no espaço. Assim, para lembrar, definimos curvatura para uma curva parametrizada pelo comprimento de arco no espaço como </p>
+<p>
+<script type="math/tex; mode=display">
+\kappa_{\alpha}(t) = ||\alpha''(t)||
+</script>
+</p>
+<p>Se a curva <script type="math/tex">\alpha</script> é regular qualquer, seja <script type="math/tex">\beta = \alpha \circ h</script> uma reparametrização pelo comprimento de arco. Definimos a curvatura de <script type="math/tex">\alpha</script> como 
+<script type="math/tex; mode=display">
+\kappa_{\alpha}(t) = \kappa_{\beta}(h^{-1}(t))
+</script>
+Em particular, teremos que 
+<script type="math/tex; mode=display">
+\kappa_{\alpha}(t) = \frac{||\alpha'(t) \times \alpha''(t)||}{||\alpha'(t)||^3}
+</script>
+</p>
+<p>Dizemos que uma curva <script type="math/tex">\alpha</script> é <strong>2-regular</strong> (ou regular de sgunda ordem) quando os vetores <script type="math/tex">\alpha'(t)</script> e <script type="math/tex">\alpha''(t)</script> são linearmente independentes para todo <script type="math/tex">t</script>. Se a curva for parametrizada pelo comprimento de arco, isso equivale a dizer que <script type="math/tex">\alpha'' \neq 0</script> (verifique!). Se a curva for regular, isso é equivalente a provar que <script type="math/tex">\kappa_{\alpha}(t) > 0</script> (verifique!). </p>
+<h2 id="triedo-de-frenet">Triedo de Frenet</h2>
+<p>Já vimos que não faz sentido rotacionar o vetor tangente. Por isso, definimos o vetor <strong>normal principal</strong> de uma curva <script type="math/tex">\alpha</script> parametrizada pelo comprimento de arco como 
+<script type="math/tex; mode=display">
+N(s) = \frac{1}{\kappa_{\alpha}(s)}(\dot{T}(s))
+</script>
+onde <script type="math/tex">T(s) = \alpha'(s)</script>. Veja que ambos os vetores são unitários e ortogonais (quando a curva é parametrizada pelo comprimento de arco, a primeira e segunda derivadas são ortogonais). Definimos, então o vetor <strong>binormal</strong> como 
+<script type="math/tex; mode=display">
+B(s) = T(s) \times N(s)
+</script>
+De fato <script type="math/tex">B</script> é ortogonal a <script type="math/tex">T</script> e a <script type="math/tex">N</script> e, além disso, 
+<script type="math/tex; mode=display">
+||B(s)|| = ||T(s)||||N(s)|| - 2\langle T(s), N(s) \rangle = 1
+</script>
+</p>
+<p>Definimos, portanto, uma base ortonormal <script type="math/tex">\{T(s), N(s), B(s)\}</script> para <script type="math/tex">\mathbb{R}^3</script>. </p>
+<h2 id="torcao">Torção</h2>
+<p>Observe que 
+<script type="math/tex; mode=display">
+\dot{B}(s) = \dot{T}(s) \times N(s) + T(s) \times \dot{N}(s)
+</script>
+</p>
+<p>Como <script type="math/tex">\dot{T}(s) \parallel N(s)</script>m, então </p>
+<p>
+<script type="math/tex; mode=display">
+\dot{B}(s) = T(s) \times \dot{N}(s)
+</script>
+</p>
+<p>Como <script type="math/tex">B(s)</script> é um vetor unitário, <script type="math/tex">B(s) \perp \dot{B}(s)</script> (veja que isso acontece com qualquer função vetorial unitária). Além disso <script type="math/tex">\dot{B}(s) \perp T(s)</script> pela equação acima. Pelo Triedro de Frenet, </p>
+<p>
+<script type="math/tex; mode=display">
+\dot{B}(s) \perp N(s) \implies \dot{B}(s) = \tau(s)N(s)
+</script>
+</p>
+<p>chamamos <script type="math/tex">\tau</script> de torção. Alguns livros, <script type="math/tex">\tau</script> tem o sinal oposto (mas isso é só questão de convenção e não trás problemas teóricos. Mais uma vez, se a curva <script type="math/tex">\alpha</script> é uma curva regular, tomamos uma reparametrização pelo comprimento de arco <script type="math/tex">\beta = \alpha \circ h</script> e </p>
+<p>
+<script type="math/tex; mode=display">
+\tau_{\alpha}(s) = \tau_{\beta}(h^{-1}(s))
+</script>
+Em especial 
+<script type="math/tex; mode=display">
+\tau = \frac{\langle \dot{\alpha} \times \ddot{\alpha}, \dddot{\alpha} \rangle}{||\dot{\alpha}\times\ddot{\alpha}||^2}
+</script>
+</p>
+<h2 id="equacoes-de-frenet">Equações de Frenet</h2>
+<p>Já sabemos que <script type="math/tex">\dot{T}(s) = \kappa_{\alpha}(s)N(s)</script> e <script type="math/tex">\dot{B}(s) = \tau_{\alpha}(s)N(s)</script>. Agora, vamos calcular <script type="math/tex">\dot{N}(s)</script>. Sabemos que </p>
+<p>
+<script type="math/tex; mode=display">
+B = T \times N \implies N = B \times T \implies \dot{N}(s) = \dot{B}(s) \times T(s) + B(s) \times \dot{T}(s)
+</script>
+</p>
+<p>Portanto, 
+<script type="math/tex; mode=display">
+\dot{N}(s) = \tau_{\alpha} N(s) \times T(s) + \kappa_{\alpha} B(s) \times N(s) = -\tau_{\alpha} B(s) - \kappa_{\alpha} T(s)
+</script>
+</p>
+<p>Chegamos então que, se <script type="math/tex">\alpha</script> é uma curva parametrizada pelo comprimento de arco regular de ordem 2, então</p>
+<p>
+<script type="math/tex">
+\dot{T} = \kappa N
+</script>
+</p>
+<p>
+<script type="math/tex">
+\dot{N} = - \kappa T - \tau B
+</script>
+</p>
+<p>
+<script type="math/tex">
+\dot{B} = \tau N
+</script>
+</p>
+<p>Observe que se <script type="math/tex">x(s) = (T(s), N(s), B(s)) \in \mathbb{R}^9, \dot{x}(s) = Ax(s)</script>, onde </p>
+<p>
+<script type="math/tex; mode=display">
+A = \begin{bmatrix}
+0_{3\times 3}         & \kappa I_{3\times 3} & 0_{3\times 3}       \\
+-\kappa I_{3\times 3} & 0_{3\times 3}        & -\tau I_{3\times 3} \\
+0_{3\times 3}         & \tau I_{3\times 3}   & 0_{3\times 3}
+\end{bmatrix}
+</script>
+</p>
+<p>Para curvas regulares quaisquer, a definição se dá usando a inversa do comprimento de arco, como fizemos com a curvatura e a torção. </p>
+<h2 id="planos">Planos</h2>
+<p><strong>Plano Osculador:</strong> Determinado pelos vetores tangente e normal. O vetor binormal é normal ao plano osculador e, portanto, podemos escrever sua equação como <script type="math/tex">(x - \alpha(s))\cdot B(s) = 0</script>. </p>
+<p><strong>Plano Normal:</strong> Plano determinado pelos vetores normal e binormal. </p>
+<p><strong>Plano Retificante:</strong> Plano determinando pelos vetores tangente e normal. </p>
+<p>Alguns simples desenhos podem ser vistos <a href="http://mathonline.wikidot.com/normal-rectifying-and-osculating-planes">nesse site</a>. </p>
+<h2 id="consequencias">Consequências</h2>
+<h3 id="curva-plana-e-torcao-nula">Curva plana e torção nula</h3>
+<p>Seja <script type="math/tex">\alpha : I \to \mathbb{R}^3</script> uma curva 2-regular, parametrizada por comprimento de arco. Então, <script type="math/tex">\alpha</script> é plana se, e somente se, sua torção <script type="math/tex">\tau_{\alpha}</script> é identicamente nula.</p>
+<blockquote>
+<p>A demonstração desse fato se divide na ida e volta. Supondo que a curva seja plana, devemos inserir a curva em um plano. Assim, para cada <script type="math/tex">s \in I, \langle \alpha(s) - p, v \rangle = 0</script> para algum <script type="math/tex">p</script> nesse plano. Em particular, obtermos que <script type="math/tex">v = \pm B_{\alpha}(s)</script>, pois obteremos, derivando, que a tangente e a normal são ortogonais a <script type="math/tex">v</script>. Nesse caso <script type="math/tex">B'_{\alpha}(s) = 0</script>, pois esse vetor será constante. A recíproca usa o fato que <script type="math/tex">B_{\alpha}(s)</script> será constante e quer se provar que <script type="math/tex">f(s) = \langle \alpha(s) - \alpha(s_0), B_{\alpha}(s) \rangle \equiv 0</script>.  </p>
+</blockquote>
+<h3 id="circunferencia-e-curvatura-constante">Circunferência e curvatura constante</h3>
+<p>Seja <script type="math/tex">\alpha</script> uma curva parametrizada pelo comprimento de arco em <script type="math/tex">\mathbb{R}^3</script> com consntate curvatura e torção nula. Então <script type="math/tex">\alpha</script> é parametrização de (parte de) um círculo. </p>
+<blockquote>
+<p>Sabemos pelo item anterior que estaremos em um plano. A ideia é provar que <script type="math/tex">\alpha - \frac{1}{\kappa_{\alpha}}n</script> é um vetor constante para provarmos que a curva está contida em uma esfera. Assim, basta provar que a curva está contida na intersecção de uma esfera e um plano. </p>
+</blockquote>
+<h2 id="teorema-fundamental-da-teoria-local-das-curvas-espaciais">Teorema Fundamental da Teoria Local das Curvas Espaciais</h2>
+<p>Sejam <script type="math/tex">\alpha(s)</script> e <script type="math/tex">\gamma(s)</script> duas curvas parametrizadas pelo comprimento de arco em <script type="math/tex">\mathbb{R}^3</script> com a mesma curvatura <script type="math/tex">\kappa(s) > 0</script> e a mesma torção <script type="math/tex">\tau(s), \forall s</script>. Então, existe um movimento rígido direto <script type="math/tex">M</script> tal que <script type="math/tex">\alpha(s) = M(\gamma(s)), \forall s</script>. Além disso, se <script type="math/tex">\kappa</script> e <script type="math/tex">\tau</script> são funções suaves, tal que <script type="math/tex">\kappa > 0</script> em toda parte, existe uma curva parametrizada pelo comprimento de arco em <script type="math/tex">\mathbb{R}^3</script> cuja curvatura é <script type="math/tex">\kappa</script> e cuja torção é <script type="math/tex">\tau</script>. </p>
+<blockquote>
+<p>A demonstração desse teorema super importante pode ser encontrada na página 52 do livro do Pressley de Introdução à Geometria Diferencial. É uma aplicação do Teorema da Existência e Unicidade de Equações Diferenciais nas Equações de Frenet-Sarret. </p>
+</blockquote></div>
+        
+        
+    </div>
+
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
+
+          
+          
+      </footer>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../../js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = "../.."</script>
+    
+    <script src="../../js/base.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>
