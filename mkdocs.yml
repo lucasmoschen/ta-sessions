@@ -3,7 +3,7 @@ nav:
   - Home: index.md
   - Análise Numérica: analisenum/info.md
   - EDP: edp/info.md
-  - Curvas: curvas/info.md
+  #- Curvas: curvas/info.md
   - Estatística: infestatistica/info.md
   - EDO: edo/info.md
   - Álgebra Linear: alglin/info.md
