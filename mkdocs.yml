@@ -1,0 +1,6 @@
+site_name: Teaching Assistant 
+theme:
+  name: null
+  custom_dir: 'cinder'
+repo_url: https://lucasmoschen.github.io
+repo_name: Página Inicial
