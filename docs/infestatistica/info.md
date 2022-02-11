@@ -2,8 +2,6 @@
 
 Monitoria de Inferência Estatística correspondente ao período de 2020.2.  
 
-- [Monitorias gravadas](https://gvmail-my.sharepoint.com/:f:/g/personal/b37214_fgv_edu_br/EkrXFUG0yNRMlwwav0WIWUgBXxOS2UHHummnp4Vqt63csw?e=yJwVgY)
-
 - [Notebooks](https://github.com/lucasmoschen/TA_sessions/tree/master/Statistical_Inference/notebooks):
   Você pode rodar esses notebooks também!
 
