@@ -1,0 +1,337 @@
+\title{Conteúdos da Matéria Equações Diferencias Ordinárias}
+\author{Lucas Moschen \\ 
+        Fundação Getulio Vargas}
+\date{\today}
+
+\documentclass[12pt]{article}
+
+\usepackage[portuguese]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{physics}
+\usepackage{systeme}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+    Neste documento irei constar os principais temas cobertos pela matéria,
+    que tem foco em um cálculo de edos, sem grandes definições precisas e
+    estudo do comportamento qualitativo. Qualquer correção nesse documento
+    pode ser sugerida pelo leitor através de um \textit{pull request}. Para
+    iniciar, irei listar os temas até agora cobertos e também inserirei um
+    pequeno resumo sobre o determinado tópico.
+\end{abstract}
+
+\tableofcontents
+
+\section{Equações Diferenciais Lineares de 1ª Ordem}
+
+Formato: $\dv{y}{x} + p(x)y = q(x)$. Observe a linearidade de $y$ e que a sua
+derivada de maior ordem é a primeira. Para resolver esse exemplo, usamos oo
+fator de integração $u(x) = e^{\int p(x) dx}$ e multiplicamos em ambos os
+lados. Observe que escolhemos ele, porque queremos $(y\cdot u)' = y'\cdot u +
+y\cdot u' = u\cdot q$ e $u' = u\cdot p$. A partir disso, obstemos que
+$y(x)u(x) = \int u(x)q(x) dx + C$ . 
+
+\subsection{Equações de Bernoulli}
+
+Formato: $y' + p(x)y = q(x)y^n$. Neste caso temos que o expoente de $y$ é de
+ordem $n$. Para resolver esse problema, supomos que $y \neq 0$ e fazemos uma
+transformação de variável $z(x) = [y(x)]^{1-n}, \forall x$. Essa transformação
+vai noos permitir obter a equação em um formato desejado. Para ver isso,
+primeiro façamos $\dv{z}{x} = \dv{z}{y}\dv{y}{x} =
+(1-n)y^{-n}\dv{y}{x}$, logo, substituindo os valores, teremos que
+$\frac{1}{1-n}y^{n}z' + p(x)zy^n = q(x)y^n \implies z' + (1-n)p(x)z = q(x)$ e
+resolvemos pelo formato anterior. 
+
+\section{Equações com Variáveis Separáveis}
+
+Formato: $\dv{y}{x} = f(x,y) = \phi(x)\psi(y)$, isto é, a derivada pode ser
+escrita como um produto de uma função que só depende de $x$ por outra que só
+depende de $y$. Nesse caso, usamos a reescrita diferencial para poder escrever
+isso da seguinte forma: $\int \frac{dy}{\psi(y)} = \int \phi(x)dx$. Isso pode
+ser extendido quando a função pode ser escrita como uma divisão de funções
+desse tipo, bastando vê-la como um produto.  
+
+\section{Equações Exatas}
+
+Formato: Seja $\dv{y}{x} = f(x,y) = - \frac{M(x,y)}{N(x,y)}$ que pode ser
+reescrita da forma $M(x,y)dx + N(x,y)dy = 0$. Ela é caracterizada como
+\textbf{exata} se $\exists g(x,y)$, tal que $dg = Mdx + Ndy$, onde $dg$ é o
+diferencial de $g$. Isto é, $\pdv{g}{x} = M$ e $\pdv{g}{y} = N$. Nesse caso,
+podemos provar pelo teorema de Clairaut-Schwars que $\pdv{M(x,y)}{y} =
+\pdv{N(x,y)}{x}$ (*). 
+
+\subsection{Fator de Integração}
+
+Suponha que a equação $M(x,y)dx + N(x,y)dy = 0$ seja não exata. Nesse caso, a
+ideia é encontrar uma função $u$ que ao multiplicar a equação, obtenha-se a
+hipótese do teorema de Clairaut-Schwars, como mencionado acima (*). Nesse
+caso, se $\frac{M_y - N_x}{N}$ é função apenas de $x$, o fator de integração
+será $u(x) = \exp{\int \frac{M_y - N_x}{N}dx}$. Para construir esse resultado,
+basta pensar, supondo a existência de $u(x)$, temos que $\pdv{(u\cdot M)}{y} =
+u\pdv{M}{y} = \pdv{(u\cdot N)}{x} = \dv{u}{x}N + u\pdv{N}{x}$. Agora, se $\frac{N_x
+- M_y}{M}$ é função apenas de $y$, vale que $u(y) = \exp{\int \frac{N_x -
+M_y}{M}dy}$. 
+
+\section{Equações Diferenciais de 2ª ordem}
+
+Sejam $P(\cdot), Q(\cdot), R(\cdot), G(\cdot)$ (onde $\cdot$ indica que é uma
+função) contínuas tal que  
+
+\begin{equation}
+\label{eq:ordem2}
+G(x) = R(x)y + Q(x)\dv{y}{x} +P(x)\dv[2]{y}{x}
+\end{equation}
+
+Temos uma equação diferencial de segunda ordem.
+
+\subsection{Equações homogêneas (em que $G(x) = 0$)}
+
+\textbf{Teorema:} Se $y_1(x)$ e $y_2(x)$ são soluções de \ref{eq:ordem2}, com
+$G(x) = 0$. Então $y(x) = c_1y_1(x) + c_2y_2(x)$ também é uma solução. 
+
+\textit{Observação:} Duas soluções $y_1(x)$ e $y_2(x)$ são linearmente
+independentes se $\alpha_1y_1(x) + \alpha_2y_2(x) = 0 \implies \alpha_1 =
+\alpha_2 = 0, \forall x$. Em outras palavras, elas serão linearmente
+dependentes de $\forall x, y_2(x) = \beta y_1(x)$, para algum $\beta \in
+\mathbb{R}$.  
+
+\textbf{Teorema 2:} Se $y_1(x)$ e $y_2(x)$ são soluções linearmente
+independentes de \ref{eq:ordem2}, então a solução geral é $y(x) = c_1y_1(x) +
+c_2y_2(x)$, para $c_1$ e $c_2$ constantes arbitrárias. 
+
+Para demonstrar esse teorema, temos que mostrar que a dimensão do subespaço de
+soluções é 2. O resultado é uma consequência do Teorema da Existêmncia e
+Unicidade. 
+
+\textit{Observação:} Esse teorema é importante porque basta para nós
+descobrirmos duas soluções independentes e particulares, para encontrar todas
+as soluções. 
+
+\subsubsection{O Determinante Wronskiano}
+
+É um determinante que é usado para estudar equações diferenciais. Em
+particular para verificar a indepenência de soluções. De forma geral, 
+
+\begin{equation}
+    W(f_1, ..., f_n)(x) = 
+    \begin{vmatrix}
+        f_1(x) & f_2(x) & ... & f_n(x) \\
+        f_1'(x) & f_2'(x) & ... & f_n'(x) \\
+        ... \\
+        f_1^{n-1}(x) & f_2^{n-1}(x) & ... & f_n^{n-1}(x)
+    \end{vmatrix}
+\end{equation}
+
+No caso particular de duas funções $W(f,g)(x) = f(x)g'(x) - g(x)f'(x)$
+
+Nesse caso, se as soluções são linearmente dependentes, então o Wronskiano
+será nulo. A recíproca não vale (mas podemos usar a contrapositiva). 
+
+\subsubsection{Funções constantes}
+
+Considere $ay'' + by' + cy = 0$, com $a \neq 0$. Como estamos tratando de
+constantes multiplicadas por derivadas, vemos que $y = \exp(rx)$ é uma
+solução se ($y = e^{rx}, y' = re^{rx}, y'' = r^2e^{rx}$) satisfaz $(ar^2 + br
++ c)e^{rx} = 0$. Logo, basta encontrar $r$ que seja raíz dessa equação de
+segundo grau. 
+
+\begin{enumerate}
+    \item \textbf{Caso 1 - Determinante positivo:} Se $r_1$ e $r_2$ são
+    soluções, $y(x) = c_1y^{r_1x} + c_2y^{r_2x}$ é a solução geral.
+    \item \textbf{Caso 2 - Deteminante nulo:} Nesse caso, se $r$ é raíz da
+    equação, outra solução particular é $xe^{rx}$ e a solução geral é $y(x) =
+    c_1e^{rx} + c_2xe^{rx}$.  
+    \item \textbf{Caso 3 - Determinante negativo:} Seja $r_1 = \alpha + \beta
+    i$ e $r_2 = \alpha - \beta i$ soluções da equação. (Note que sempre $r_1
+    = r_2$, pois $r_1 + r_2 = -b/a \in \mathbb{R}$).  Nesse caso $y(x) =
+    c_1e^{r_1x} + c_2e^{r_2x} = e^{\alpha x}[(c_1 + c_2)\cos(\beta x) + (c_1 -
+    c_2)\sin(\beta x)] = e^{\alpha x}(t_1\cos(\beta x) + t_2\sin(\beta x))$
+\end{enumerate}
+
+\subsection{Redução de ordem}
+
+Considere a equação na forma $y'' + p(x)y' + q(x)y = 0$. Suponha que temos
+$y_1(x)$. Seja $y = u(x)y_1(x)$. Então $y' = u'y_1 + uy_1'$ e $y'' = u''y_1 +
+2u'y_1' + uy_1''$. Substituindo na equação, temos que $y_1u'' + (2y_1' +
+py_1)u' = 0$. Daqui podemos encontrar $u(t)$ em função de $y_1$. 
+
+\subsection{Não homogêneas com coeficientes constantes}
+
+Consideremos $ay'' + by' + cy = g(x)$.  
+
+\textbf{Teorema:} Seja $y_h(x)$ a solução da equação homogênea (quando $g(x) =
+0$) e $y_p(x)$ uma solução particular a ser encontrada. Então $y(x) = y_p(x) +
+y_h(x)$ é solução geral da equação. De fato, basta obsevar que se $y(x)$ é uma
+solução, $y(x) - y_p(x)$ será solução da eqauação homogênea. 
+
+\subsubsection{Método dos coeficientes a determinar}
+
+Nesse caso, temos vários exemplos e temos que resolver caso a caso. Vou
+restringir os casos:
+
+\begin{enumerate}
+    \item Se $g(x)$ é polinomial de grau $n$, $y_p(x)$ é um polinômio de grau
+    $n$. 
+    \item Se $g(x) = ae^{bx}$, então $y_p(x) = Ae^{bx}$
+    \item Se $g(x) = \alpha sen(x)$, então $y_p(x) = Asen(x) + Bcos(x)$
+    \item Se $g(x)$ é produto de polinnômio por exponencial, $y_p$ também terá
+   essa forma. 
+   \item Se $g(x)$ é produto de polinômio por função trigonométrica, então seu
+  formato será  $Asen(x)p(x) + Bcos(x)q(x)$, onde $p(x)$ e $q(x)$ são
+  polinômios de mesma ordem. 
+\end{enumerate}
+
+Em todos os casos, é necessário determinar os coeficientes, daí vem o nome. 
+
+\subsubsection{Método da variação de parâmetros}
+
+Mais uma vez considere a equação $ay'' + by' + cy = g(x)$. Sejam $y_1(x)$ e
+$y_2(x)$ soluções linearmente independentes da equação diferencial homogênea
+(que já sabemos encontrar). Queremos encontrar duas funções diferenciáveis
+$u_1(x)$ e $u_2(x)$ tal que $y(x) = u_1(x)y_1(x) + u_2(x)y_2(x)$ seja uma
+solução da equação diferencial. Porém, exigimos que 
+
+\begin{equation}
+    u_1'(x)y_1(x) + u_2'(x)y_2(x) = 0
+\end{equation}
+
+Após fazermos as simplificações necessárias, obteremos o sistema, para cada
+$x$, temos:  
+
+$$
+\begin{cases}
+u_1'(x)y_1(x) + u_2'(x)y_2(x) = 0 \\
+u_1'(x)y_1'(x) + u_2'(x)y_2'(x) = \frac{g(x)}{a}    
+\end{cases}
+$$
+
+Note que podemos aplicar a regra de Cramer, que diz que $x_j =
+\frac{det(A_j)}{det{A}}$, onde $A_j$ é a matriz $A$, exceto a coluna $j$ que é
+formada pelo vetor independente do sistema $Ax = b$. 
+
+\section{Modelos da Dinâmica de uma População}
+
+\subsection{Malthus} 
+Também conhecido como modelo exponencial, é
+baseado na ideia de que o crescimento populacional é proporcional ao
+tamanho da população, o que faz um certo sentido. O modelo é parte da
+ideia de que existiria um ponto em que o número de pessoas seria maior do
+que o suporte para a alimentação que tem crescimento linear. Nesse caso,
+se $p(t)$ é a população no tempo $t$, o crescimento é dado por $p'(t) =
+rp(t)$. Esse coeficiente $r$ vai indicar a taxa de crescimento
+populacional, e ele é tratado como constante. Essa ideia foi descartada
+posteriormente, pois o crescimento reduziu suas taxas de crescimento desde
+os anos de 1800. Nesse caso, $p(t) = p(0)e^{rt}$. 
+
+\subsection{Logística de Verhuslt} 
+
+Também conhecido como curva S o função logística. Diferente do primeiro
+modelo, ele não assume que os
+recursos são ilimitados. Entretanto, ele assume a existência da capacidade
+de carga $K$, que é o tamanho populacional máximo que o meio pode
+sustentar inndefinidamente. O crescimento nesse caso é proporcional a
+$p(t)$ e à diferença $K - p(t)$, onde $p(t)$ é o tamanho da população.
+Logo $p'(t) = sp(t)(K - p(t)) = sKp(t)(1 - \frac{p(t)}{K})$. Se $sK = r$,
+temos o modelo logístico.
+
+\subsection{Gopertz}
+
+É um modelo descrito por uma função sigmoide (em formato de S) que descreve o
+crecimento sendo mais lento no início e no final de um período de tempo. O
+modelo foi inicialmente desenvolvido para detalhar a mortalidade humano da
+Royal Socienty em 1825 (Wikipedia). A suposição é de que a resistência da pessoa à morte
+descresce com os tempo. Assune-se que a taxa de crescimentoo de um organismo
+decaia com o tamanho tal que, se $p(t)$ é a medida, $\dv{p}{t} =
+\alpha(\log(\frac{K}{p})p)$. Existem várias variações para cada aplicação
+dessa curva. 
+
+\section{Sistema Autônomo}
+
+É um sistema em EDO que não depende, explicitamente, de variáveis
+independentes, como o tempo. Ele é da forma, quanto de primeira ordem
+$\dv{x}{t} = f(x(t))$ e só depende do tempo através de $x(t)$. Uma propriedade
+interessante (exercício!) é: Se $x_1(t)$ é solução única do problema de valor
+inicial para um sistema auntônomo, $\dv{x}{t} = f(x(t)), x(0) = x_0$,
+definir $x_2(t) = x_1(t - t_0)$ resolve o problema para para a mesma função
+mas com condição $x(t_0) = x_0$. 
+
+\textbf{Ponto de Equilíbrio ou Singularidade:} Seja $y' = f(y)$. Se
+$f(\hat{y}) = 0$, dizemos que $\hat{y}$ é ponto de equilíbrio ou
+singularidade. Ele será as soluções se aproximam de $\hat{y}$, ele é dito
+ponto atrator ou singularidade estável. Caso contrário, é dito repulsor ou
+singularidade instável. De forma mais precisa, $\hat{y}$ é estável se dado
+$\epsilon > 0$, existe um $\delta > 0$ tal que se $|y_0 - \hat{y}| < \delta$,
+onde $y_0$ é o valor inicil, então, $|y(t) - \hat{y}| < \epsilon$ para todo
+$t$. Além do mais, se $\lim_{t \to \infty} y(t) = \hat{y}$, dizemos que ele é
+assintoticamente estável. Cas são seja estável, ele é instável.  
+
+\textbf{Teorema:} Seja $y' = f(y)$ com $f(y)$ diferencialmente contínua e
+$\hat{y}$ uma singularidade. Se $f'(\hat{y}) < 0$, $\hat{y}$ é uma
+singularidade estável. 
+
+\section{Modelos das Ciências Naturais}
+
+\subsection{Resfriamento de um corpo}
+
+Em 1701, Newton publicou um resultado sobre a temperatura de objetos ao longo
+do tempo. Ele encontrou que a diferença entre a temperatura do objeto e a
+temperatura constante do meio varia geometricamente a 0 enquanto o tempo varia
+arimeticamente. Isto é, se $T(t)$ é a temperatura do objeto e $T_a$ a
+temperatura do meio, 
+
+$(T(t) - T_a)' = T'(t) = -k(T(t) - T(a))$. 
+
+A solução é $T(t) = (T(0) - T_a)e^{-kt} + T_a$. 
+
+Se agruparmos essa ideia com o conceito de calorimetria e $m,c,m_a, m_c$
+são constantes, temos que $mc(T(0) - T) = m_ac_a(T_a - T_a(0))$, podemos tomar
+a temperatura do ambiente como não constante. 
+
+\subsection{Problemas de Mistura}
+
+Considere um tanque com massa de sal $Q(t)$ a cada instante de tempo $t$
+dissolvido no volume de água $V(t)$. Água está entrando no tanque a taxa
+$r_e(t)$ com concentração de sal $q_e(t)$. Água está saindo do tanque a taxa
+$r_s(t)$ com concentração de sal $q_s(t)$. Qual a unidade de $r$? Qual a unida
+de $q$? 
+
+Para esse modelo, precisamos fazer algumas simplificações. Supomos que o sal
+que entra no tanque é instantaneamente misturado. Logo, o tanque tem
+concentração de sal homogênea. Vamos tratar a taxa de entrada como constante. 
+
+Desta forma, temos que $Q'(t) = a(t)Q(t) + b(t)$, onde $a(t) =
+-\frac{r_s}{(r_e - r_o)t + V(0)}$ e $b(t) = r_eq_e(t)$.
+
+A solução utiliza o primeiro tópico. 
+
+\subsection{Produtos Químicos em uma Lagoa}
+
+Considere que a Lagoa Rodrigo de Freitas esteja com $L$ milhões de galões de
+água fresca. Ao longo do tempo, uma água contaminada com produto químico fluiu
+para a lagoa a uma taxa $r$ milhões de galões por ano. Mas naquela época a
+prefeitura do Rio era muito ativa e já realizava a limpeza a uma taxa $s$, por
+um processo de retirada da água, limpeza e reinserção no mar. 
+
+A concentração $y(t)$ do produto químico na água que entra varia com o tempo $t$ segundo
+à expressão $y(t) = 2 + \sin (2t)$ gramas por galão. Considere o modelo da
+massa dessa substância na lagoa a qualquer tempo $t$. 
+
+
+\subsubsection{Modelo}
+
+$\dv{Q}{t} = (r\times 10^6)\cdot (2 + \sin (2t)) - (s\times 10^6)\cdot
+(\frac{Q(t)}{L})$ e $Q(0) = 0$. 
+
+\section{Problemas Soltos}
+
+\subsection{Perseguição}
+
+Considere um homem e seu cachorro correndo em linha reta. Em um dado ponto no
+tempo, o cachorro está a $12m$ do seu dono, que começa a correr em direção
+perpendicular à praia com certa velocidade constante. O cachorro corre duas
+vezes mais rápido e sempre em direção ao seu dono. Qual o ponto de encontro?
+
+\end{document}

@@ -1,4 +1,11 @@
-site_name: Teaching Assistant 
+site_name: Teaching Assistant
+nav: 
+  - Home: index.md
+  - Álgebra Linear: alglin/info.md
+  - Análise Numérica: analisenum/info.md
+  - EDO: edo/info.md
+  - EDP: edp/info.md
+  - Estatística: infestatistica/info.md
 
 theme:
   name: null
@@ -8,3 +15,8 @@ repo_name: Página Inicial
 
 extra_javascript:
   - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+
+markdown_extensions:
+    - mdx_math:
+        enable_dollar_delimiter: True
+    - pymdownx.extra
