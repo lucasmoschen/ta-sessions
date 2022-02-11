@@ -14,7 +14,7 @@ Monitoria de Equações Diferenciais Ordinárias correspondente ao período de
 
 ## Gravações 
 
-[Gravações das monitorias](https://gvmail-my.sharepoint.com/:f:/g/personal/b37214_fgv_edu_br/Etl6dkUINLdGjXAbqjLVNCsBCWN7au78SCnEc2y8djkWbg?e=2IZBYP)
+Gravações indisponíveis.
 
 ## Resumos
 
@@ -77,5 +77,5 @@ como caso especial.
 
 |Período|Tópicos Cobertos|PDF|
 |-------|----------------|---|
-|A1|Equações exatas, de 1ª e 2ª ordem e modelagem de problemas|[[questoes]](https://github.com/lucasmoschen/TA_sessions/blob/master/Ordinary_Differential_Equations/Avalia%C3%A7%C3%B5es/A1EDOQuestoes.pdf)[ [respostas]](https://github.com/lucasmoschen/TA_sessions/blob/master/Ordinary_Differential_Equations/Avalia%C3%A7%C3%B5es/A12020Respostas.pdf)|
-|A2|Sistemas lineares homogêneos e não homogêneos|[[respostas]](https://github.com/lucasmoschen/TA_sessions/blob/master/Ordinary_Differential_Equations/Avalia%C3%A7%C3%B5es/Teste2EDO.pdf)|
+|A1|Equações exatas, de 1ª e 2ª ordem e modelagem de problemas|[[questoes]](https://github.com/lucasmoschen/TA_sessions/blob/master/Ordinary_Differential_Equations/Avalia%C3%A7%C3%B5es/A1EDOQuestoes.pdf)[ [respostas]](/ta-sessions/unavailable)|
+|A2|Sistemas lineares homogêneos e não homogêneos|[[respostas]](/ta-sessions/unavailable)|
