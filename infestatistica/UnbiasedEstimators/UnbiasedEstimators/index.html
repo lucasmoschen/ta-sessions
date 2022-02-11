@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+
+    
+    <title>Estimadores não enviesados - Teaching Assistant</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../../css/base.min.css" rel="stylesheet">
+    <link href="../../../css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            
+              <a class="navbar-brand" href="../../..">Teaching Assistant</a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../../alglin/info/">Álgebra Linear</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../../analisenum/info/">Análise Numérica</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../../edo/info/">EDO</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../../edp/info/">EDP</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../info/">Estatística</a>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://lucasmoschen.github.io">Página Inicial</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#estimadores-nao-enviesados">Estimadores não enviesados</a></li>
+            <li class="second-level"><a href="#definicao">Definição</a></li>
+                
+            <li class="second-level"><a href="#estimador-nao-enviesado-para-variancia">Estimador não enviesado para variância</a></li>
+                
+                <li class="third-level"><a href="#nota-por-que-garantir-reprodutibilidade">Nota: Por que garantir reprodutibilidade?</a></li>
+            <li class="second-level"><a href="#exemplo">Exemplo</a></li>
+                
+                <li class="third-level"><a href="#estimacao-dos-parametros">Estimação dos Parâmetros</a></li>
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="estimadores-nao-enviesados">Estimadores não enviesados</h1>
+<h3 id="definicao">Definição</h3>
+<p>Um estimador <script type="math/tex">\delta(X)</script> é dito não enviesado para <script type="math/tex">g(\theta)</script> se <script type="math/tex">E_{\theta}[\delta(X)] = g(\theta)</script> para todo valor de <script type="math/tex">\theta</script>. O viés do estimador é definido por <script type="math/tex">E_{\theta}[\delta(X)] - g(\theta)</script>. </p>
+<p>Se <script type="math/tex">\delta</script> é um estimador com variância finita, então: </p>
+<p>
+<script type="math/tex; mode=display">
+R(\theta, \delta) = Var(\delta) + Viés(\delta)^2
+</script>
+</p>
+<h2 id="estimador-nao-enviesado-para-variancia">Estimador não enviesado para variância</h2>
+<p>
+<script type="math/tex; mode=display">s^2 = \hat{\sigma}_1^2 = \frac{1}{n-1}\sum_{i=1}^n (X_i - \bar{X}_n)^2</script>
+</p>
+<pre class="highlight"><code class="language-python"># Importando bibliotecas
+import numpy as np
+import pandas as pd 
+
+from IPython.display import display, Math  # Display latex
+
+import matplotlib.pyplot as plt 
+%matplotlib inline
+
+np.random.seed(1000) # Garantindo reprodutibilidade</code></pre>
+<h4 id="nota-por-que-garantir-reprodutibilidade">Nota: Por que garantir reprodutibilidade?</h4>
+<p>Reprodutibilidade é a ideia de tornar o processo que foi feito por você reprodutível por qualquer outra pessoa, para que ela possa obter os mesmos resultados seguindo os mesmos passos que você. </p>
+<p>Quando escolhemos um número aleatório (<em>pseudoaleatório</em> na verdade), ele muda de tempos em tempos. Mas isso vai tirar a ideia de "garantir os mesmos resultados". O resultado pode ser parecido, mas não exatamente igual. </p>
+<p>Isso é muito importante no meio científico. </p>
+<h2 id="exemplo">Exemplo</h2>
+<p>Vamos ver como se comporta esse estimador não viesado em uma população que representa o Brasil todo! Veja que eu não peguei dados online, porque quero TODA a população. Por isso vamos fazer uma simulação. A média verdadeira da distribuição é 161,1cm e o desvio padrão é 10cm. </p>
+<pre class="highlight"><code class="language-python"># Tamanho da população
+N = int(200e5)
+# População gerada por simulação, usando a distribuição normal. 
+population_height = pd.Series(np.random.normal(loc = 161.1, scale = 10, size = N))</code></pre>
+<p>Podemos ver a média dessa população.</p>
+<pre class="highlight"><code class="language-python">population_height.mean()</code></pre>
+<pre><code>161.10097546939974
+</code></pre>
+<p>O que a função <code>var</code> do pandas faz? Vamos comparar com o estimador trivial. </p>
+<pre class="highlight"><code class="language-python">ddof = 1 # Se ddof = 0, teremos a divisão por N
+population_height.var(ddof = ddof)</code></pre>
+<pre><code>100.02715920849081
+</code></pre>
+<p>Divindindo por <script type="math/tex">N</script>
+</p>
+<pre class="highlight"><code class="language-python">sigma_square_hat = ((population_height - population_height.mean())**2).sum()/N
+sigma1_square_hat = ((population_height - population_height.mean())**2).sum()/(N-1)
+
+display(Math(r'\hat\sigma^2 = {}'.format(sigma_square_hat)))
+display(Math(r'\hat\sigma_1^2 = {}'.format(sigma1_square_hat)))</code></pre>
+<p>
+<script type="math/tex">\displaystyle \hat\sigma^2 = 100.02715420713488</script>
+</p>
+<p>
+<script type="math/tex">\displaystyle \hat\sigma_1^2 = 100.02715920849283</script>
+</p>
+<h3 id="estimacao-dos-parametros">Estimação dos Parâmetros</h3>
+<p>Vamos supor que não conhecemos os parâmetros da nossa população e podemos conhecer apenas uma amostra aleatória dela. Vamos fazer 500 dessas simulações </p>
+<pre class="highlight"><code class="language-python">number_simulations = 500
+sample_size = 30 
+
+sample = pd.DataFrame(population_height.sample(n = number_simulations*sample_size, 
+                                               replace=True, random_state = 100), 
+                      columns = ['height'])
+
+reshape = sample.to_numpy().reshape((-1,30))
+samples = pd.DataFrame(reshape, columns = range(0,30))</code></pre>
+<p>Vamos estimar a média com a média amostral que é não viesada também! Além disso ela é o MLE. Estamos estimado para cada amostra a média! Se fizermos uma média das médias, veremos que ela chegará próximo a média verdadeira. </p>
+<pre class="highlight"><code class="language-python">estimated_mean = samples.mean(axis = 1)  #Axis = 1 faz a média por linha. 
+
+estimated_mean_of_means = estimated_mean.expanding().mean()</code></pre>
+<pre class="highlight"><code class="language-python">fig, ax = plt.subplots(figsize = (8,5))
+ax.plot(estimated_mean_of_means, label = 'Valor estimado')
+ax.hlines(population_height.mean(), xmin = 0, xmax = number_simulations, 
+          color = 'grey', linestyle = '--', alpha = 0.8, label = 'Valor verdadeiro')
+ax.grid(alpha = 0.4)
+ax.set_title('Estimado a média verdadeira')
+plt.show()</code></pre>
+<p><img alt="png" src="../output_15_0.png" /></p>
+<p>Vamos comparar os estimadores para a variância, o viesado e o não viesado.</p>
+<pre class="highlight"><code class="language-python">df = pd.DataFrame({'enviesado (dividido por n)': samples.var(ddof=0, axis = 1).expanding().mean(),
+                   'nao_viesado (dividido por n - 1)': samples.var(ddof=1, axis = 1).expanding().mean(),
+                   'verdadeiro': pd.Series(population_height.var(ddof=0), index=samples.index)})
+ax = df.plot()
+ax.set_title('Estimadores para a variância')
+ax.grid(alpha = 0.4)
+
+plt.show()</code></pre>
+<p><img alt="png" src="../output_17_0.png" /></p>
+<pre class="highlight"><code class="language-python"># Comparar com Conscistência </code></pre></div>
+        
+        
+    </div>
+
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
+
+          
+          
+      </footer>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = "../../.."</script>
+    
+    <script src="../../../js/base.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>

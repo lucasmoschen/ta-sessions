@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+
+    
+    <title>Lista 5 - Equações Diferenciais Parciais - Teaching Assistant</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../../css/base.min.css" rel="stylesheet">
+    <link href="../../../css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            
+              <a class="navbar-brand" href="../../..">Teaching Assistant</a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../../alglin/info/">Álgebra Linear</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../../analisenum/info/">Análise Numérica</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../../edo/info/">EDO</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../info/">EDP</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../../infestatistica/info/">Estatística</a>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://lucasmoschen.github.io">Página Inicial</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#lista-5-equacoes-diferenciais-parciais">Lista 5 - Equações Diferenciais Parciais</a></li>
+            <li class="second-level"><a href="#exercicios-teoricos">Exercícios Teóricos</a></li>
+                
+            <li class="second-level"><a href="#exercicios-computacionais">Exercícios Computacionais</a></li>
+                
+                <li class="third-level"><a href="#afinador">Afinador</a></li>
+                <li class="third-level"><a href="#o-polvo">O Polvo</a></li>
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="lista-5-equacoes-diferenciais-parciais">Lista 5 - Equações Diferenciais Parciais</h1>
+<p>Essas são possíveis soluções.  </p>
+<h3 id="exercicios-teoricos">Exercícios Teóricos</h3>
+<p>Nesse parte, exponho os exercícios propostos para serem realizados de forma
+teórica.</p>
+<p><img src="../Teoricos/Lista4_1.jpg" alt="drawing" width="800"/>
+<img src="../Teoricos/Lista4_2.jpg" alt="drawing" width="800"/>
+<img src="../Teoricos/Lista4_3.jpg" alt="drawing" width="800"/>
+<img src="../Teoricos/Lista4_4.jpg" alt="drawing" width="800"/>
+<img src="../Teoricos/Lista4_5.jpg" alt="drawing" width="800"/>
+<img src="../Teoricos/Lista4_6.jpg" alt="drawing" width="800"/></p>
+<h3 id="exercicios-computacionais">Exercícios Computacionais</h3>
+<h4 id="afinador">Afinador</h4>
+<p>Nessa seção, apresentados um simples afinador construído com Matlab. O
+princípio é bem básico: Faço a transformação do espaço temporal para o espaço
+das frequências utilizando a transformada de Fourier FFT. Depois, observamos
+que teremos a frequência dominante e seus harmônicos, dado o comportamento da
+onda. Por esse motivo, precisamos de uma técnica para, dentre os harmônicos,
+ver qual de fato é o dominante. </p>
+<p>A técnica utilizada é o HPS (Harmonic Product Spectrum). Ele se utiliza do
+fato de um harmônico ter frequência múltipla daa frequência dominante. A
+técnica funciona rapidamente, o que é interessante. Não há nenhuma outra filtragem, portanto, em um local muito ruidoso, talvez
+não funcione o afinador. </p>
+<p>A entrada é uma <code>string</code> com o nome do arquivo <code>.wav</code> e a saída é a nota com
+frequência mais aproximada entre <code>C, C#, D, D#, E, F, F#, G, G#, A, A#, B</code>. </p>
+<pre class="highlight"><code matlab="matlab">note = afinador('CordaViolao.wav');
+disp('A nota tocada foi: ')
+disp(note)
+
+function [note] = hps(yhat, n, N)
+    % Esta função tem o objetivo de calcular o espectro produto harmônico
+    % A partir de uma yhat na frequência e de um número N de harmônicos 
+    % calcula média geométrica. 
+
+    % Queremos reconhecer os harmônicos do tom principal. 
+    note = ones(n,1);
+    bins = 1:n;
+    for i = 1:N
+       bins_temp = bins*i; 
+       xhat = ones(n,1);
+       mask = bins_temp &lt;= n;
+       xhat(mask) = yhat(bins_temp(mask));
+       note = note.*abs(xhat);
+    end
+    note = (note).^(1/N);
+end
+
+function [strnote] = get_note(frequency)
+    notes = char({'C','C#','D','D#','E','F','F#','G','G#','A','A#','B'});
+    freqs = [523, 554,587, 622,659,698, 740,784, 831,880, 932, 988];
+    % Se a frequência não está na oitava, o coloco multiplicando e dividindo
+    % por 2. Sabemos que a nota será a mesma, em uma diferente frequência.
+    while frequency &lt;= 508 
+        frequency = frequency*2;
+    end
+    while frequency &gt; 988 + 19
+        frequency = frequency/2;
+    end
+    [~, argmin] = min(abs(freqs - frequency));
+    strnote = notes(argmin,:);
+    strnote = strnote(~isspace(strnote)); 
+end
+
+function [note] = afinador(name)
+   [y,Fs] = audioread(name);
+   n = length(y);
+   % transform the time scale to frequency scale
+   yhat = fft(y);      
+   yhat = abs(yhat);
+
+   freq = (1:n)*Fs/n;
+
+   % use the function harmonic product spectrum
+   yhat = hps(yhat, n, 5);
+   % get the dominant tone
+   [~, argmax] = max(yhat);
+   note = freq(argmax);
+   note = get_note(note);
+end</code></pre>
+<h4 id="o-polvo">O Polvo</h4>
+<p>Nesse exercício, primeiro temos o polvo, representado pelos vetores <script type="math/tex">x</script> e <script type="math/tex">y</script>
+</p>
+<p><img alt="" src="../Imagens/opolvo.png" /></p>
+<p>Na letra b somos indagados a produzir sequências <script type="math/tex">(x_1(t), x_2(t), ... , x_n(t))</script> e <script type="math/tex">(y_1(t), y_2(t), ... , y_n(t))</script> que
+sejam versões suavizadas das sequências. Para isso, é sugerido utilizar a
+solução da equação do calor. </p>
+<p>Sabemos que <script type="math/tex">L</script> é uma matrix circulante e se descrevermos <script type="math/tex">P</script> como uma matriz
+de permutação que coloca a primeira coordenada de um vetor na <script type="math/tex">n</script>-ésima
+posição, teremos que: </p>
+<p>
+<script type="math/tex; mode=display">L = l_0I + l_1P + ... + l_{n-1}P^{n-1} = 2I - P - P^{n-1}</script>
+</p>
+<p>E se <script type="math/tex">v_j</script> é autovalor de <script type="math/tex">P</script>, será também de <script type="math/tex">L</script>, pois: </p>
+<p>
+<script type="math/tex; mode=display">Lv_j = 2v_j - \lambda_jv_j - \lambda_j^{n-1}v_j = (2 - \lambda_j -
+\lambda_j^{n-1})v_j</script>
+</p>
+<p>Além disso, sabemos que autovetores de uma matriz circulante formam a base de
+Fourier, e, além disso, os autovalores dessa matriz de permutação são aqueles
+que resolvem a equação <script type="math/tex">\lambda^n = 1</script>. E portanto, <script type="math/tex">\lambda_j = e^{2\pi ij/n}</script>. Isto
+é, podemos obter os autovalores da matriz <script type="math/tex">L</script> fazendo a transformação de
+Fourier na primeira linha de <script type="math/tex">L</script>! (Sei que estava no lembrete já, mas quis
+conferir as contas).</p>
+<p>Aqui segue o código que gera uma sequência de 10 iterações do Polvo. Eu faço
+um pré-cálculo da matriz diagonal do sistema como mencionado acima e, se <script type="math/tex">F</script> é
+a matriz da transformada de Fourier: </p>
+<p>
+<script type="math/tex; mode=display">x(t) = e^{-cLt}x_0 = Fe^{-Dt}F^{-1}x_0 = \text{fft}(e^{-Dt}\cdot\text{ifft}(x_0))</script>
+<script type="math/tex; mode=display">y(t) = e^{-cLt}y_0 = Fe^{-Dt}F^{-1}y_0 = \text{fft}(e^{-Dt}\cdot\text{ifft}(y_0))</script>
+</p>
+<p>Aqui vemos o polvo com <script type="math/tex">c = 0.5</script> e <script type="math/tex">t = 501, 5001, 10001, 14501</script>. </p>
+<p><img src="../Imagens/Polvo-501.png" alt="drawing" width="400"/>
+<img src="../Imagens/Polvo-5001.png" alt="drawing" width="400"/>
+<img src="../Imagens/Polvo-10001.png" alt="drawing" width="400"/>
+<img src="../Imagens/Polvo-14501.png" alt="drawing" width="400"/></p>
+<p>Como conclusão, conseguimos sequências <script type="math/tex">\vec{x}(t)</script> e <script type="math/tex">\vec{y}(t)</script> que sejam
+versões suavizadas de <script type="math/tex">\vec{x}</script> e <script type="math/tex">\vec{y}</script>. </p>
+<pre class="highlight"><code matlab="matlab">polvo = csvread('Polvo.csv');
+
+c = 0.5;
+[D,x0,y0] = pre_calculation(polvo(:,1), polvo(:,2), c);
+
+figure
+plot(polvo(:,1), polvo(:,2),'r.')
+xlim([min(polvo(:,1)), max(polvo(:,1))]);
+ylim([min(polvo(:,2)), max(polvo(:,2))]);
+title('O Polvo de EDP')
+xlabel('x')
+ylabel('y')
+
+pause(2)
+
+for t = 1:250:15000
+   x = heat_filter(x0, t, D);
+   y = heat_filter(y0, t, D);
+   plot(x,y)
+   disp(t)
+   pause(0.1)
+   if ismember(t, [501, 10001, 14501])
+       saveas(gcf, join(["Polvo-", t, ".png"], ''));
+   end
+end
+
+clear D;
+clear x;
+clear y;
+clear x0;
+clear y0;
+
+function [D, x0, y0] = pre_calculation(x, y, c)
+    % Calculate the diagonal matrix of convolucional matrix of size n
+    n = length(x);
+    D = fft(c*[-2,1,zeros(1,n-3),1]');
+    x0 = ifft(x);
+    y0 = ifft(y);
+end
+
+function  [filter] = heat_filter(u0, t, D)
+    % This function get a vector, make a convolucional filter (gaussian),
+    % that is equivalent to the solution of heat equation and return, for
+    % each t, the x(t) smoothed.
+    filter = exp(D*t).*u0;
+    filter = real(fft(filter));
+end</code></pre></div>
+        
+        
+    </div>
+
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
+
+          
+          
+      </footer>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = "../../.."</script>
+    
+    <script src="../../../js/base.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>

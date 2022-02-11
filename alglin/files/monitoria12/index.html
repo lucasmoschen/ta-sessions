@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+
+    
+    <title>Monitorias 12 e 13 - Teaching Assistant</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../../css/base.min.css" rel="stylesheet">
+    <link href="../../../css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            
+              <a class="navbar-brand" href="../../..">Teaching Assistant</a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../info/">Álgebra Linear</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../../analisenum/info/">Análise Numérica</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../../edo/info/">EDO</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../../edp/info/">EDP</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../../infestatistica/info/">Estatística</a>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://lucasmoschen.github.io">Página Inicial</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#monitorias-12-e-13">Monitorias 12 e 13</a></li>
+            <li class="second-level"><a href="#autovalores-e-autovetores">Autovalores e Autovetores</a></li>
+                
+            <li class="second-level"><a href="#mudanca-de-base">Mudança de Base</a></li>
+                
+            <li class="second-level"><a href="#matrizes-semelhantes-e-diagonalizacao">Matrizes Semelhantes e Diagonalização</a></li>
+                
+            <li class="second-level"><a href="#recorrencias">Recorrências</a></li>
+                
+            <li class="second-level"><a href="#produto-interno">Produto Interno</a></li>
+                
+            <li class="second-level"><a href="#projecoes">Projeções</a></li>
+                
+            <li class="second-level"><a href="#ortogonalidade">Ortogonalidade</a></li>
+                
+                <li class="third-level"><a href="#ortogonalizacao-de-gram-schimidt">Ortogonalização de Gram-Schimidt</a></li>
+                <li class="third-level"><a href="#projecao-de-um-vetor-sobre-um-subespaco">Projeção de um vetor sobre um subespaço</a></li>
+            <li class="second-level"><a href="#informacoes-adicionais">Informações Adicionais</a></li>
+                
+            <li class="second-level"><a href="#cadeias-de-markov">Cadeias de Markov</a></li>
+                
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="monitorias-12-e-13">Monitorias 12 e 13</h1>
+<h2 id="autovalores-e-autovetores">Autovalores e Autovetores</h2>
+<p><strong>Definição:</strong> Autovetor é um vetor (<script type="math/tex">\neq \vec{0}</script>) que tem como imagem
+de uma transformação linear um vetor proporcional. A proporção é chamada
+de autovalor.</p>
+<p><strong>Polinômio Característico:</strong> Polinômio cujas raízes são os autovalores
+de uma transformação linear.</p>
+<p><strong>Subespaço invariante:</strong> Também conhecido como auto-espaço, é formado
+pela combinação dos autovetores associados ao mesmo autovalor.</p>
+<p><strong>Teorema 1:</strong> Seja <script type="math/tex">A</script> um operador linear, <script type="math/tex">\lambda</script> um autovalor e
+<script type="math/tex">v</script> um autovetor. <script type="math/tex">Av = \lambda v \implies A^nv = \lambda^n v</script>.</p>
+<p><strong>Teorema 2:</strong> A autovalores diferentes do mesmo operador correspondem
+autovetores linearmente independentes.</p>
+<h2 id="mudanca-de-base">Mudança de Base</h2>
+<p>Considere as seguintes bases:</p>
+<p>
+<script type="math/tex">E = \{e_1, ..., e_n\}</script>
+</p>
+<p>
+<script type="math/tex">U = \{u_1, ..., u_n\}</script>
+</p>
+<p>
+<script type="math/tex">V = \{v_1,...,v_n\}</script>
+</p>
+<p>Considere <script type="math/tex">w = (x_1,...,x_n)</script>. Isso significa que <script type="math/tex">w</script> é escrito como uma
+combinação linear dos vetores da base <script type="math/tex">E</script>, canônica, e os coeficientes
+são <script type="math/tex">x_1, ..., x_n</script>. Imagine que queiramos escrever na base <script type="math/tex">U</script>. Para
+isso, basta encontrarmos os coeficientes de cada vetor da base <script type="math/tex">U</script>. Para
+isso, basta resolver o sistema linear onde cada vetor de <script type="math/tex">U</script> é uma
+coluna e o vetor restultado é o vetor na base canônica.</p>
+<p>Assim, a matriz formada pelos vetores da base <script type="math/tex">U</script> formam uma matriz que
+transforma vetores da base <script type="math/tex">U</script> em vetores da base canônica. A inversa
+faz o processo contrário.</p>
+<p>Se quiséssemos mudar da base <script type="math/tex">E</script> para a base <script type="math/tex">U</script> sem o uso da inversa,
+só precisamos saber a transformação dos vetores da base canônica.</p>
+<p>Para fazer a transformação de uma base em outra, basta transformarmos na
+canônica como intermédio.</p>
+<h2 id="matrizes-semelhantes-e-diagonalizacao">Matrizes Semelhantes e Diagonalização</h2>
+<p><strong>Definição:</strong> Duas matrizes são semelhantes se existe <script type="math/tex">P</script> invertível
+tal que <script type="math/tex">B = P^{-1}AP (AP = PB)</script>, que tem o mesmo polinômio
+característico e o mesmo determinante.</p>
+<p><strong>Diagonalização:</strong> Uma matriz é diagonalizável se existe uma matriz
+semelhante que seja diagonal. <script type="math/tex">A</script> é diagonálizável se, e só se, tiver
+<script type="math/tex">n</script> autovetores LI. Nesse caso <script type="math/tex">P</script> é a matriz cujas colunas são os
+autovetores de <script type="math/tex">A</script> e <script type="math/tex">D</script> os autovalores correspontes.</p>
+<p>Observe que <script type="math/tex">P^{-1}AP = D</script>, logo para transformar um vetor na base <script type="math/tex">V</script>
+em outro na base <script type="math/tex">V</script> correspondente a imagem desse vetor na base
+canônica da matriz <script type="math/tex">A</script>, basta usar a transformação <script type="math/tex">D</script>.</p>
+<h2 id="recorrencias">Recorrências</h2>
+<p>Podemos utilizar matrizes para representar recorrências. Um exemplo
+famoso é a sequência de Fibonight.</p>
+<h2 id="produto-interno">Produto Interno</h2>
+<p>Seja <script type="math/tex">E</script> um espaço vetorial e <script type="math/tex">u, v \in E</script>. Define-se produto interno
+com <script type="math/tex"><u,v></script> com um número real que satisfaz as seguintes condições:</p>
+<ul>
+<li>
+<p>
+<script type="math/tex"><u,v + v'> = <u,v> + <u,v'></script> e <script type="math/tex"><u + u',v> = <u,v> + <u',v></script>
+</p>
+</li>
+<li>
+<p>
+<script type="math/tex"><u,v> = <v,u></script>
+</p>
+</li>
+<li>
+<p>
+<script type="math/tex"><\alpha u,v> = \alpha<u,v></script> e <script type="math/tex"><u,\alpha v> = \alpha<u,v></script>
+</p>
+</li>
+<li>
+<p>Se <script type="math/tex">u \neq 0</script>, <script type="math/tex"><u,u> > 0</script>
+</p>
+</li>
+</ul>
+<h2 id="projecoes">Projeções</h2>
+<p>Já sabemos que <script type="math/tex">p = (\frac{u\cdot v}{v\cdot v})v</script> é a projeção do vetor
+<script type="math/tex">u</script> sobre a reta gerada por <script type="math/tex">v</script>. Quando queremos projetar um vetor <script type="math/tex">v</script>
+sobre um hiperplano <script type="math/tex">\pi</script>, com vetor nornal <script type="math/tex">n</script>, temos que <script type="math/tex">v = p + tn</script>,
+onde <script type="math/tex">t</script> é uma constante. Logo, podemos montar um sistema com <script type="math/tex">n</script>
+equações.</p>
+<h2 id="ortogonalidade">Ortogonalidade</h2>
+<p>Se <script type="math/tex"><u,v> = 0</script>, dizemos que <script type="math/tex">u</script> e <script type="math/tex">v</script> são ortogonais. Um conjunto é dito
+ortogonal se a cada par de vetores, eles são ortogonais. Ele será
+ortonormal quando seus vetores ortogonais forem normalizados. Note que
+se <script type="math/tex">X</script> é um conjunto ortogonal, então é LI.</p>
+<h3 id="ortogonalizacao-de-gram-schimidt">Ortogonalização de Gram-Schimidt</h3>
+<p>Lembre-se: Defina um vetor inicial e utilize a ideia de que cada outro
+vetor será subtraído das projeções do vetor calculado previamente.</p>
+<h3 id="projecao-de-um-vetor-sobre-um-subespaco">Projeção de um vetor sobre um subespaço</h3>
+<p>Seja <script type="math/tex">W</script> um subespaço de <script type="math/tex">E</script> e <script type="math/tex">\alpha</script> uma base ortogonal desse
+subespaço.</p>
+<p>
+<script type="math/tex">p = proj_W v = \sum_{i=1}^n proj_{\alpha_i} v</script>
+</p>
+<h2 id="informacoes-adicionais">Informações Adicionais</h2>
+<p><strong>Extendendo a ideia dos autovalores:</strong> Dado um operador linear
+<script type="math/tex">A: E \to E</script> ou existe um vetor <script type="math/tex">u \in E</script> tal que <script type="math/tex">Au = \lambda u</script>. Ou,
+então, existem <script type="math/tex">u, v \in E</script> linearmente independentes, tais que
+<script type="math/tex">Au = \alpha u + \beta v</script> e <script type="math/tex">Av = \gamma u + \delta v</script>.</p>
+<p><strong>Invariante:</strong> Diz-se que um subespaço vetorial <script type="math/tex">F \subset E</script> é
+invariante pelo operador <script type="math/tex">A: E \to F</script> quando <script type="math/tex">A(F) \subset F</script>. Isto é,
+quando a imagem dos vetorres desse subespaço estão nesse subespaço. Um
+subespaço de dimensão 1 é invariante por <script type="math/tex">A</script> se, e somente se, existe um
+número <script type="math/tex">\lambda</script> tal que <script type="math/tex">Av = \lambda v, \forall v \in F</script>. Se <script type="math/tex">u,v</script>
+formam um subespaço de dimensão <script type="math/tex">2</script>, ele será invariante se, e só se,
+<script type="math/tex">Au \in F</script> e <script type="math/tex">Av \in F</script>.</p>
+<p><strong>Teorema:</strong> Todo operador linear num espaço vetorial de dimensão finita
+possui um subespaço invariante de dimensão 1 ou 2. Para provar esse
+teorema, temos que provar o lema que diz que existem um polinômio de
+grau 1 ou 2 e um vetor <script type="math/tex">v</script> tal que <script type="math/tex">p(A)\cdot v = 0</script>.</p>
+<h2 id="cadeias-de-markov">Cadeias de Markov</h2>
+<p><strong>Definição:</strong> É uma série temporal discreta no qual a distribuição de
+uma população pode ser calculada por recorrência. Ad condições são que a
+população nunca torna-se negativa e que a população total é fixa.
+Podemos utilizar uma matriz de tranição que descreva a movimentação
+probilística dessa população. Requere-se que a soma de cada coluna seja
+1 e que não haja entradas negativas. O elemento <script type="math/tex">ij</script> da matriz descreve
+a probabilidade da população passar do estado <script type="math/tex">j</script> para o estadp <script type="math/tex">i</script>. Se
+<script type="math/tex">T</script> possui alguma potêncua com todas as entradas positivas, é dito
+regular. Uma matrzi de transição regular terá um estado estacionário.
+<script type="math/tex">Ts = s</script>. É possível mostrar que qualquer matriz de transição com as
+condições dadas deve ter um autovalor <script type="math/tex">1</script>.</p></div>
+        
+        
+    </div>
+
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
+
+          
+          
+      </footer>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = "../../.."</script>
+    
+    <script src="../../../js/base.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>

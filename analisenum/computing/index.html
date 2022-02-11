@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+
+    
+    <title>Aritmética do computador - Teaching Assistant</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../css/base.min.css" rel="stylesheet">
+    <link href="../../css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            
+              <a class="navbar-brand" href="../..">Teaching Assistant</a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../alglin/info/">Álgebra Linear</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../info/">Análise Numérica</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../edo/info/">EDO</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../edp/info/">EDP</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../infestatistica/info/">Estatística</a>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://lucasmoschen.github.io">Página Inicial</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#aritmetica-do-computador">Aritmética do computador</a></li>
+            <li class="second-level"><a href="#numeros-binarios">Números binários</a></li>
+                
+            <li class="second-level"><a href="#representacao-ponto-flutuante">Representação ponto flutuante</a></li>
+                
+            <li class="second-level"><a href="#mensuracao-de-erros">Mensuração de erros</a></li>
+                
+            <li class="second-level"><a href="#algumas-dicas-com-python">Algumas dicas com Python</a></li>
+                
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="aritmetica-do-computador">Aritmética do computador</h1>
+<p>No computador, expressões como <script type="math/tex">(\sqrt{3})^2 = 3</script> não são verdadeiras. Em
+Python, 
+<pre class="highlight"><code python="python">&gt;&gt;&gt; (3**(1/2))**2
+2.9999999999999996</code></pre>
+Erros de cálculo realizados pela máquina são chamados de <strong>erros de
+arredondamento (round-off error)</strong>. Isso acontece porque números reais são
+representados de forma finita, e não cobrem todos os números reais de fato. </p>
+<h2 id="numeros-binarios">Números binários</h2>
+<p>Em 1985, IEEE (Institute for Electrical and Electronic Engineers) <a href="https://standards.ieee.org/standard/754-1985.html">publicou um relatório</a>
+nomeado <a href="https://www.ias.ac.in/article/fulltext/reso/021/01/0011-0030"><em>Binary Floating Point Arithmetic Standard 754–1985</em></a> que estabelece
+padrões para pontos flutuantes, algoritmos de arredondamento de operações
+aritméticas e para lidar com exceções. </p>
+<p>A representação usual dos números reais é 64-bit (<em>double</em>). O primeiro bit é
+o sinal do número. Depois vem a <strong>característica</strong> que é representa o expoente
+(11-bit) e por fim a fração binária chamada de <strong>mantissa</strong> (52-bit). Os
+números são armazenados na base 2. </p>
+<p>A representação ponto flutuante dos números é, portanto, 
+<script type="math/tex; mode=display">
+(-1)^s2^{c-1023}(1 + f), 
+</script>
+em que <script type="math/tex">s</script> é o sinal (0 para positivo e 1 para negativo), <script type="math/tex">c</script> é o expoente
+(tiramos o viés 1023 para assegurar que o intervalo de <script type="math/tex">c</script> fique entre -1023 e
+1024) e <script type="math/tex">f</script> é a mantissa. </p>
+<ul>
+<li>Exemplo: </li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>s</th>
+<th>c</th>
+<th>f</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>10000000011</td>
+<td>1011100100010000000000000000000000000000000000000000</td>
+</tr>
+</tbody>
+</table>
+<p>Nesse caso o sinal é 0, <script type="math/tex">c = 1\cdot 2^{10} + 0\cdot 2^9 + \dots + 1\cdot 2 + 1
+= 1027</script>, e <script type="math/tex">f = 1\cdot 2^{-1} + 1\cdot 2^{-3} + \dots 1\cdot 2^{-12} =
+0.722900390625</script> e, portanto, </p>
+<p>
+<script type="math/tex; mode=display">
+(-1)^s2^{c-1023}(1 + f) = 2^4(1 + 0.722900390625) = 27.56640625.
+</script>
+</p>
+<p>O menor número positivo que pode ser representado é, portanto, 
+<script type="math/tex; mode=display">
+2^{0-1022}(1 + 0) \approx 10^{-307}
+</script>
+e o maior 
+<script type="math/tex; mode=display">
+2^{2047 - 1023}(1 + (1  -2^{-52})) \approx 10^{309}
+</script>
+Quando <script type="math/tex">s = c = f = 0</script>, representamos o 0. </p>
+<p>Note que quando um número tem representação infinita, ele deve ser, de alguma
+forma, colocado em forma finita. Duas maneiras comuns de se fazer isso é
+<strong>chopping</strong>, quando se simplesmente corta os dígitos a mais, ou
+<strong>arredondamento</strong>. A representação de <script type="math/tex">x</script> em ponto flutuante é denotada por
+<script type="math/tex">fl(x)</script>. </p>
+<p>O infinito é representado quando todos os valores do expoente são 1. OS
+valores de NaN (QNaN e SNaN) variam a mantissa e mantém os expoentes todos 1. </p>
+<p><em>Um ponto interessante é a densidade dos números ponto flutuante. Quanto maior
+fica o número, menor a densidade. Isso acontece porque o tamanho da mantissa é
+fixo, então sempre vão existir <script type="math/tex">2^{52}</script> números representados para cada
+expoente. Assim o intervalo <script type="math/tex">[2^{k}, 2^{k+1})</script> tem número fixo de números que
+independe de <script type="math/tex">k</script>, apesar da distância crescer. Por esse motivo também,
+<script type="math/tex">2^{-52}</script> é o epsilon no sistema 64-bit.</em></p>
+<h2 id="representacao-ponto-flutuante">Representação ponto flutuante</h2>
+<p>Vamos mostrar um exemplo de como transformar um número real <script type="math/tex">10.1</script> em um ponto
+flutuante. </p>
+<ol>
+<li>Separar parte inteira da parte decimal. </li>
+<li>Transformar a parte inteira e a parte fracionária em sua <a href="https://indepth.dev/posts/1019/the-simple-math-behind-decimal-binary-conversion-algorithms">representação
+   binária</a>.</li>
+<li>Deixar o número no formato <script type="math/tex">1.x_1x_2\dots \cdot 2^{\text{expoente}}</script>. </li>
+<li>Adicionar o viés 1023 ao expoente. </li>
+<li>Converter o expoente em binário. </li>
+<li>Casa 53: se for 1, soma-se a casa 52. </li>
+</ol>
+<p>Para conferir, você pode verificar a representação utilizando alguma linguagem
+de programação. Por exemplo, em Python, 
+<pre class="highlight"><code python="python">&gt;&gt;&gt; import struct
+def binary(num):
+    s = struct.pack('!d', num) # packs the num to the decimal format
+    s = struct.unpack('!Q', s)[0] # unpacks in long integer format. 
+    s = bin(s) # converts to binary form.
+    s = s[2:].zfill(64) # fills with zeros until reaches length 64.
+    return s[0] + ' ' + s[1:12] + ' ' + s[12:]
+
+&gt;&gt;&gt; binary(1/2)
+'0 01111111110 0000000000000000000000000000000000000000000000000000'
+
+&gt;&gt;&gt; binary(1/7)
+'0 01111111100 0010010010010010010010010010010010010010010010010010'</code></pre></p>
+<h2 id="mensuracao-de-erros">Mensuração de erros</h2>
+<p>Seja <script type="math/tex">\bar{x}</script> uma aproximação para <script type="math/tex">x</script>. Dizemos que
+o <strong>erro absoluto</strong> é <script type="math/tex">|x - \bar{x}|</script> e o <strong>erro relativo</strong> é <script type="math/tex">|x -
+\bar{x}|/|x|</script> quando <script type="math/tex">x \neq 0</script>. Dizemos que <script type="math/tex">\bar{x}</script> aproxima <script type="math/tex">x</script> em <script type="math/tex">t</script>
+<strong>dígitos significativos</strong> se</p>
+<p>
+<script type="math/tex; mode=display">
+t = \max\left\{s \ge 0 \, \bigg| \, \frac{|x - \bar{x}|}{|x|} \le 5 \cdot 10^{-s} \right\}
+</script>
+</p>
+<h2 id="algumas-dicas-com-python">Algumas dicas com Python</h2>
+<ul>
+<li>Para printar todos os números da representação numérica (considerando arredondamento) em Python, use </li>
+</ul>
+<pre class="highlight"><code python="python">&gt;&gt;&gt; import numpy
+&gt;&gt;&gt; format(numpy.pi, .20)
+'3.141592653589793116'</code></pre>
+<ul>
+<li>Para verificar o valor exatamente armazenado para o número em questão: </li>
+</ul>
+<pre class="highlight"><code python="python">&gt;&gt;&gt; from decimal import Decimal
+&gt;&gt;&gt; Decimal.from_float(0.1)
+Decimal('0.1000000000000000055511151231257827021181583404541015625')</code></pre>
+<p>Para mais detalhes, consulte o <a href="https://docs.python.org/3/tutorial/floatingpoint.html">material adicional</a></p></div>
+        
+        
+    </div>
+
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
+
+          
+          
+      </footer>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../../js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = "../.."</script>
+    
+    <script src="../../js/base.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>

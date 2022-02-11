@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+
+    
+    <title>Monitoria 6 - Teaching Assistant</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../../css/base.min.css" rel="stylesheet">
+    <link href="../../../css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            
+              <a class="navbar-brand" href="../../..">Teaching Assistant</a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../info/">Álgebra Linear</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../../analisenum/info/">Análise Numérica</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../../edo/info/">EDO</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../../edp/info/">EDP</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../../infestatistica/info/">Estatística</a>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://lucasmoschen.github.io">Página Inicial</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#monitoria-6">Monitoria 6</a></li>
+            <li class="second-level"><a href="#definicoes-e-teoremas">Definições e Teoremas</a></li>
+                
+            <li class="second-level"><a href="#exercicios">Exercícios</a></li>
+                
+            <li class="second-level"><a href="#aplicacao-quadrados-magicos">Aplicação: Quadrados Mágicos</a></li>
+                
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="monitoria-6">Monitoria 6</h1>
+<h2 id="definicoes-e-teoremas">Definições e Teoremas</h2>
+<p><strong>Linearmente Independente:</strong> Um cojunto <script type="math/tex">X \subset E</script> é dito linearmente independente, quando nenhum vetor do conjunto é combinação linear dos outros vetores. O conjunto unitário é dito LI. Para isso, existe o teorema de que: <script type="math/tex">\alpha_1v_1 + ... + \alpha_nv_n = 0 \to \alpha_1 = ... = \alpha_n = 0</script>, se e só se, X é LI. A partir disso, conclue-se que a representação de um vetor como combinação de outros vetores é sempre única (se os vetores formarem um conjunto LI). Se um conjunto não é LI, ele é dito linearmente dependente.</p>
+<p><strong>Teorema 1</strong> Seja <script type="math/tex">X = \{x_1,x_2,...,x_m\}</script>. Se, <script type="math/tex">\forall k \leq m, v_k</script> não é combinação linear de seus antecessores, então X é LI. </p>
+<p><strong>Observação</strong> Considere <script type="math/tex">X = \{(1,2),(3,4),(2,4)\} \subset \mathbb{R}^2</script>, Note que <script type="math/tex">X</script> é LD, porém <script type="math/tex">(3,4)</script> não é combinação linear dos outros vetores (verifique!). Por que isso não é contraditório?</p>
+<p><strong>Base:</strong> É um conjunto linearmente independente que gera E. Os coeficientes são chamados de coordenadas do vetor nessa base. Como veremos a seguir, toda base de um espaço vetorial apresenta o mesmo número de elementos. Este número é chamado de \textit{dimensão}. </p>
+<p><strong>Lema 2.1:</strong> Todo sistema homogêneo cujo número de incógnitas é maior que o número de equações admite solução não trivial (a prova é por indução em <script type="math/tex">m</script>, o número de equações. </p>
+<p><strong>Teorema 2.2:</strong> Se um conjunto de n vetores gera o espaço E, então qualquer conjunto com mais de n elementos é LD.</p>
+<p><strong>Corolário 2.3:</strong> Assim, se os vetores <script type="math/tex">v_1,...,v_n</script> geram o espaço vetorial <script type="math/tex">E</script> e os vetores <script type="math/tex">u_1,...,u_m</script> são LI, <script type="math/tex">m\leq n</script>. Daqui tiramos que se <script type="math/tex">E</script> admite uma base <script type="math/tex">\beta = \{u_1,...,u_n\}</script>, qualquer outra base também possui n elementos.</p>
+<p><strong>Teorema 3:</strong> Considere um espaço vetorial de dimensão finita:</p>
+<ul>
+<li>Considere o conjunto de todos os geradores de E. Ele contém uma base.</li>
+<li>Todo conjunto LI está contido numa base.</li>
+<li>Todo subespaço vetorial tem dimensão finita. </li>
+<li>Se a dimensão de um subespaço é <script type="math/tex">n</script>, então o subespaço é o próprio espaço. </li>
+</ul>
+<h2 id="exercicios">Exercícios</h2>
+<ol>
+<li>Prove que os seguintes polinômios são linearmente independentes: <script type="math/tex">p(x) = x^3 - 5x^2 + 1, q(x) = 2x^4 + 5x - 6, r(x) = x^2 - 5x + 2</script>. <em>Dica: Considere a base <script type="math/tex">X = \{1, x, x^2, x^3, x^4\}</script></em></li>
+<li>Seja <script type="math/tex">X</script> um conjunto de polinômios.  Se dois polinômios quaisquer de <script type="math/tex">X</script> têm graus diferentes, <script type="math/tex">X</script> é LI.</li>
+<li>Dado <script type="math/tex">X \subset E</script>, seja <script type="math/tex">Y</script> o conjunto obtido de <script type="math/tex">X</script> substituindo um dos seus elementos <script type="math/tex">v</script> por <script type="math/tex">v + \alpha u</script>, onde <script type="math/tex">u \in X</script> e <script type="math/tex">\alpha \in \mathbb{R} </script>. Prove que X e Y geram o mesmo subespaço vetorial de <script type="math/tex">E</script>. Conclua, então que <script type="math/tex">\{v_1,...,v_k\} \subset E</script> e <script type="math/tex">\{v_1, v_2 - v_1, ..., v_k - v_1\} \subset E</script> geram o mesmo subespaço vetorial de <script type="math/tex">E</script>.</li>
+<li>Mostre que os vetores <script type="math/tex">u = (1,1)</script> e <script type="math/tex">v = (-1,1)</script> formam uma base de <script type="math/tex">\mathbb{R}^2</script>. </li>
+<li>Considere a afirmação: "A união de dois conjuntos subconjuntos LI do espaço
+   vetorial E é ainda um conjunto LI". Assinale verdadeiro e falso: (  )
+   Nunca; (  ) Quando um deles é disjunto do outro; (  ) Quanto um deles é
+   parte do outro; (  ) Quando um deles é disjunto do subespaço gerado pelo
+   outro; (  ) Quando o número de elementos de um deles mais o número de
+   elementos do outro é igual à dimensão de E.</li>
+<li>Encontre uma base para o espaço vetorial  </li>
+</ol>
+<p>
+<script type="math/tex; mode=display">W = \{\begin{pmatrix} a \\ b \\ -b \\ a\end{pmatrix}, \forall a,b \in
+\mathbb{R}^2\}</script>
+</p>
+<ol>
+<li>Se <script type="math/tex">f</script> e <script type="math/tex">g</script> estão no espaço vetorial de todas as funções com derivadas
+   contínuas, então o determinante de </li>
+</ol>
+<p>
+<script type="math/tex; mode=display">\begin{pmatrix} f(x) & g(x) \\
+   f'(x) & g'(x) \end{pmatrix}
+   </script>
+</p>
+<p>é conhecido como <strong>Wronskiano</strong> de <script type="math/tex">f</script> e
+   <script type="math/tex">g</script>. Prove que <script type="math/tex">f</script> e <script type="math/tex">g</script> são linearmente independentes, se seu Wronskiano
+   não for identicamente nulo. Esse estudo é estremamente importante no estudo
+   de soluções de sistemas de equações diferenciáveis, pois identifica se duas
+   soluções são linearmente independentes.   </p>
+<h2 id="aplicacao-quadrados-magicos">Aplicação: Quadrados Mágicos</h2>
+<p>Observe a imagem da Melancolia I, de Albrecht Durer de 1514:
+<a href="https://artsandculture.google.com/asset/melencolia-i-albrecht-d%C3%BCrer/aAGgEK-AKbn5eQ?hl=zh-tw&amp;ms=%7B%22x%22%3A0.7518538853310617%2C%22y%22%3A0.2894316595268001%2C%22z%22%3A10%2C%22size%22%3A%7B%22width%22%3A0.4646606018194542%2C%22height%22%3A0.355444997236042%7D%7D">Link da
+obra</a></p>
+<p>Observa-se o quadrado mágico: </p>
+<p>
+<script type="math/tex; mode=display">\begin{pmatrix}
+16 & 3  & 2 & 13 \\ 
+5 & 10 & 11 & 8 \\
+9 & 6 & 7 & 12 \\
+4 & 15 & 14 & 1
+\end{pmatrix}
+</script>
+</p>
+<p>Primeira coisa interessante é ver <script type="math/tex">15</script> e <script type="math/tex">14</script> lado a lado. A soma de cada coluna, linha e diagoral é <script type="math/tex">34</script>. Podemos definir uma matriz <script type="math/tex">n\times n</script> sendo quadrado mágico quando a soma de cada linha, coluna e diagonal é igual. Essa soma se chama peso. Considere <script type="math/tex">Mag_n</script> o conjunto de todos os quadrados mágicos de ordem <script type="math/tex">n</script>. Prove que <script type="math/tex">Mag_3</script> é um subespaço de <script type="math/tex">M_{3x3}</script>. </p></div>
+        
+        
+    </div>
+
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
+
+          
+          
+      </footer>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = "../../.."</script>
+    
+    <script src="../../../js/base.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>

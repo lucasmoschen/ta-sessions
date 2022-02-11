@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+
+    
+    <title>Estimador de Máxima Verossimilhança - Teaching Assistant</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../../css/base.min.css" rel="stylesheet">
+    <link href="../../../css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            
+              <a class="navbar-brand" href="../../..">Teaching Assistant</a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../../alglin/info/">Álgebra Linear</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../../analisenum/info/">Análise Numérica</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../../edo/info/">EDO</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../../edp/info/">EDP</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../info/">Estatística</a>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://lucasmoschen.github.io">Página Inicial</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#estimador-de-maxima-verossimilhanca">Estimador de Máxima Verossimilhança</a></li>
+            <li class="second-level"><a href="#introducao">Introdução</a></li>
+                
+            <li class="second-level"><a href="#funcao-verossimilhanca">Função Verossimilhança</a></li>
+                
+            <li class="second-level"><a href="#estimador-de-maxima-verossimilhanca-mle">Estimador de Máxima Verossimilhança (MLE)</a></li>
+                
+            <li class="second-level"><a href="#limitacoes">Limitações</a></li>
+                
+            <li class="second-level"><a href="#implementacao">Implementação</a></li>
+                
+            <li class="second-level"><a href="#conclusao">Conclusão</a></li>
+                
+            <li class="second-level"><a href="#propriedades">Propriedades</a></li>
+                
+                <li class="third-level"><a href="#invariancia">Invariância</a></li>
+                <li class="third-level"><a href="#consistencia">Consistência</a></li>
+                <li class="third-level"><a href="#funcao-digamma">Função Digamma:</a></li>
+                <li class="third-level"><a href="#metodo-dos-momentos">Método dos Momentos</a></li>
+            <li class="second-level"><a href="#mle-e-estimador-de-bayes">M.L.E e Estimador de Bayes</a></li>
+                
+                <li class="third-level"><a href="#exemplo-7612-mortes-exercito-prussio">Exemplo 7.6.12 (Mortes exército prússio)</a></li>
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="estimador-de-maxima-verossimilhanca">Estimador de Máxima Verossimilhança</h1>
+<h2 id="introducao">Introdução</h2>
+<p>"Tradicionalmente a inferência estatística sobre a média de uma população se apoia no Teorema Central do Limite para construir Intervalos de Confiança ou testar hipóteses sobre o valor do parâmetro. Esta abordagem da estatística tradicional pode ser extendida para inferências a respeito de qualquer parâmetro, não só a média. Da mesma forma que no caso da média populacional se usa a distribuição <em>t-Student</em> ou a distribuição <em>Normal Padrão</em>, no caso de outros parâmetros se  utiliza outras distribuições amostrais. Essas distribuições são <strong>chamadas amostrais porque representam o comportamento das estimativas baseado na repetição
+incontável do processo de amostragem</strong>.</p>
+<p>Na prática científica, no entanto, sempre se realiza uma <strong>única amostragem</strong>, o
+que resulta em uma única amostra. Assim, o conceito de distribuição amostral
+é até certo ponto artificial, pois em pesquisa científica <strong>não raciocinamos em termos de repetições incontáveis de experimentos ou processos de observação</strong>. O
+resultado disto é que o conceito de teste estatístico de hipótese e de intervalo de confiança são frequentemente mal compreendidos. </p>
+<p>O desenvolvimento da inferência estatística a partir do <strong>conceito de verossimilhança tem sido utilizado como uma alternativa à abordagem estatística frequentista e, segundo alguns autores (como por exemplo Royall, 1997), é mais coerente
+com a prática científica</strong>." (Batista, 2009)</p>
+<p><a href="http://cmq.esalq.usp.br/BIE5781/lib/exe/fetch.php?media=leituras:verossim.pdf">Site de Referência</a></p>
+<p><img alt="Image-meme" src="../meme.png" /></p>
+<h2 id="funcao-verossimilhanca">Função Verossimilhança</h2>
+<p>Quando a função de densidade de probabilidade <script type="math/tex">f_n(x|\theta)</script> das observações de uma amostra aleatória é vista como uma função de <script type="math/tex">\theta</script>, chamamos ela de função de verossimilhança.</p>
+<p>
+<script type="math/tex; mode=display">
+\theta \mapsto f_n(x|\theta) := L(\theta|x)
+</script>
+</p>
+<h2 id="estimador-de-maxima-verossimilhanca-mle">Estimador de Máxima Verossimilhança (MLE)</h2>
+<p>Para cada observação <script type="math/tex">x</script>, seja <script type="math/tex">\delta(x)</script> um valor de <script type="math/tex">\theta \in \Omega</script> tal que a função de verossimilhnaça seja <strong>máxima</strong>. Defina <script type="math/tex">\hat{\theta} = \delta(X)</script> o estimador. </p>
+<p>É importante observar que o máximo dessa função pode não estar em um ponto de <script type="math/tex">\Omega</script>. Nesse caso, MLE não existe. Ele pode não estar unicamente definido, também. </p>
+<h2 id="limitacoes">Limitações</h2>
+<ul>
+<li>Não existência em todos os casos, isso depende muito da função e do espaço dos parâmetros. </li>
+<li>Não unicidade em todos os casos.</li>
+<li>Não podemos interpretar MLE como o parâmetro mais provável, pois teríamos que ter um espaço de probabilidade associado ao parâmetro, o que não é dado. </li>
+</ul>
+<h2 id="implementacao">Implementação</h2>
+<p>Como referência, estou utilizando <a href="https://towardsdatascience.com/a-gentle-introduction-to-maximum-likelihood-estimation-9fbff27ea12f">este site</a>.</p>
+<pre class="highlight"><code class="language-python"># importando bibliotecas
+
+import numpy as np, pandas as pd
+from matplotlib import pyplot as plt
+import seaborn as sns
+from scipy.optimize import minimize
+import scipy.stats as stats
+import pymc3 as pm3
+import numdifftools as ndt
+import statsmodels.api as sm
+from statsmodels.base.model import GenericLikelihoodModel
+%matplotlib inline</code></pre>
+<pre class="highlight"><code class="language-python"># Gerando os dados 
+N = 100 
+x = np.linspace(0, 20, N)  # gerando lista igualmente espaçada
+
+beta1 = 3
+beta0 = 0
+sigma = 5 </code></pre>
+<pre class="highlight"><code class="language-python">error = np.random.normal(0, sigma, size = N) 
+y = beta1*x + beta0 + error 
+
+data = pd.DataFrame({'y': y, 'x': x})
+data['constant'] = 1
+
+sns.regplot('x','y',data = data)  # Essa reta é uma estimativa dos dados feito por seaborn
+plt.title('Dados')
+plt.show()</code></pre>
+<p><img alt="png" src="../output_3_0.png" /></p>
+<p>
+<script type="math/tex">Y = \beta_1 x + \beta_0 + e</script>
+</p>
+<p>Nesse exemplo, o nosso problema será estimar a média. Observe que os dados tem um comportamento linear. Sem nos concentrarmos muito na modelagem e os problemas que ela pode trazer, eu vou já supor que temos um problema de <strong>Regressão Linear</strong>, onde os dados <script type="math/tex">Y \sim N(\mu, \sigma^2)</script>, onde <script type="math/tex">\sigma^2</script> é a variância do erro no processo, e <script type="math/tex">\mu = \beta_0 + \beta_1 x</script>, isto é, depende de x, nesse caso. Essa é uma dificuldade, as contas ficam mais difíceis e, por isso, vamos usar asrtifícios computacionais. Vamos supor que a variância é <em>conhecida</em>. Além disso, vamos supor que temos uma amostra aleatória <script type="math/tex">Y_i \sim N(\beta_0 + \beta_1 x_i, \sigma^2)</script>
+</p>
+<p>Temos que a verossimilhança é produto das pdfs(distribuição de densidade de probabilidade). Para otimizar podemos, entretanto, obter a <strong>soma dos logaritmos das pdfs</strong>. E por fim, vamos resolver um problema de minimizar o negativo desse valor. Veja que é equivalente a maximixar a soma!!</p>
+<pre class="highlight"><code class="language-python"># Função de verossimilhança. Chamamos de Função de Perda
+
+def MLE(params):    # Função Perda: - log-verossimilhança 
+    beta0, beta1 = params[0], params[1]
+    # Modelo Linear
+    yhat = beta0 + beta1*x  #= mu
+
+    #loc é a média e scale desvio padrão. Note que sigma é conhecido
+    negLikelihood = - np.sum(stats.norm.logpdf(y, loc = yhat, scale = sigma)) 
+
+    return negLikelihood</code></pre>
+<pre class="highlight"><code class="language-python"># Esse é o chute inicial
+initial_guess = np.array([3, 6])
+
+results = minimize(MLE, initial_guess, method='Nelder-Mead', options = {'disp': True})</code></pre>
+<pre><code>Optimization terminated successfully.
+         Current function value: 307.745486
+         Iterations: 56
+         Function evaluations: 107
+</code></pre>
+<pre class="highlight"><code class="language-python">print(results)</code></pre>
+<pre><code> final_simplex: (array([[-1.03428809,  3.11012856],
+       [-1.0342294 ,  3.110121  ],
+       [-1.03433677,  3.11012912]]), array([293.95399071, 293.95399071, 293.95399071]))
+           fun: 293.95399070678394
+       message: 'Optimization terminated successfully.'
+          nfev: 103
+           nit: 55
+        status: 0
+       success: True
+             x: array([-1.03428809,  3.11012856])
+</code></pre>
+<pre class="highlight"><code class="language-python">resultsdf = pd.DataFrame({'coef': results['x']})
+resultsdf.index=[r'$\beta_0$',r'$\beta_1$']   
+np.round(resultsdf.head(2), 4)</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>coef</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>$\beta_0$</th>
+      <td>-1.0343</td>
+    </tr>
+    <tr>
+      <th>$\beta_1$</th>
+      <td>3.1101</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p>Vamos estimar usando a biblioteca OLS. Ela faz esse processo e muito mais internamente. </p>
+<pre class="highlight"><code class="language-python">results_ols = sm.OLS(data.y, data[['constant', 'x']]).fit()
+results_ols.summary()</code></pre>
+<table class="simpletable">
+<caption>OLS Regression Results</caption>
+<tr>
+  <th>Dep. Variable:</th>            <td>y</td>        <th>  R-squared:         </th> <td>   0.941</td>
+</tr>
+<tr>
+  <th>Model:</th>                   <td>OLS</td>       <th>  Adj. R-squared:    </th> <td>   0.941</td>
+</tr>
+<tr>
+  <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   1568.</td>
+</tr>
+<tr>
+  <th>Date:</th>             <td>Wed, 26 Aug 2020</td> <th>  Prob (F-statistic):</th> <td>4.22e-62</td>
+</tr>
+<tr>
+  <th>Time:</th>                 <td>21:20:55</td>     <th>  Log-Likelihood:    </th> <td> -293.06</td>
+</tr>
+<tr>
+  <th>No. Observations:</th>      <td>   100</td>      <th>  AIC:               </th> <td>   590.1</td>
+</tr>
+<tr>
+  <th>Df Residuals:</th>          <td>    98</td>      <th>  BIC:               </th> <td>   595.3</td>
+</tr>
+<tr>
+  <th>Df Model:</th>              <td>     1</td>      <th>                     </th>     <td> </td>   
+</tr>
+<tr>
+  <th>Covariance Type:</th>      <td>nonrobust</td>    <th>                     </th>     <td> </td>   
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+      <td></td>        <th>coef</th>     <th>std err</th>      <th>t</th>      <th>P>|t|</th>  <th>[0.025</th>    <th>0.975]</th>  
+</tr>
+<tr>
+  <th>constant</th> <td>   -1.0343</td> <td>    0.909</td> <td>   -1.138</td> <td> 0.258</td> <td>   -2.839</td> <td>    0.770</td>
+</tr>
+<tr>
+  <th>x</th>        <td>    3.1101</td> <td>    0.079</td> <td>   39.599</td> <td> 0.000</td> <td>    2.954</td> <td>    3.266</td>
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+  <th>Omnibus:</th>       <td> 1.778</td> <th>  Durbin-Watson:     </th> <td>   2.306</td>
+</tr>
+<tr>
+  <th>Prob(Omnibus):</th> <td> 0.411</td> <th>  Jarque-Bera (JB):  </th> <td>   1.423</td>
+</tr>
+<tr>
+  <th>Skew:</th>          <td>-0.289</td> <th>  Prob(JB):          </th> <td>   0.491</td>
+</tr>
+<tr>
+  <th>Kurtosis:</th>      <td> 3.084</td> <th>  Cond. No.          </th> <td>    23.1</td>
+</tr>
+</table>
+<p>Warnings:[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.</p>
+<p>Veja que a estimação dos coeficientes foi a mesma! Apesar de ambas estarem erradas p para <script type="math/tex">\beta_0</script>. Na verdade se olharmos o intervalo de confiança que OLS nos dá, vemos que de fato <script type="math/tex">0</script> está nele. Mas ainda não esta na hora de vocês verem isso! </p>
+<h2 id="conclusao">Conclusão</h2>
+<p>Podemos usar uma função de perda (que no caso será menos a log-verossimilhança) e usar um algoritmo de otimização!</p>
+<h2 id="propriedades">Propriedades</h2>
+<h3 id="invariancia">Invariância</h3>
+<p>Se <script type="math/tex">\hat{\theta}</script> é o estimador de máxima verossimilhança de <script type="math/tex">\theta</script> e <script type="math/tex">g</script> é uma função injetiva, então <script type="math/tex">g(\hat{\theta})</script> é o estimador de máxima verossimilhança de <script type="math/tex">g(\theta)</script>. Na verdade, podemos retirar condição de injetividade.  </p>
+<h4 id="mle-de-uma-funcao">MLE de uma Função</h4>
+<p>Seja <script type="math/tex">g(\theta)</script> uma função arbitrária do parâmetro e <script type="math/tex">G = g(\Omega)</script>. Para cada <script type="math/tex">t \in G</script>, definimos <script type="math/tex">G_t := \{\theta : g(\theta) = t\}</script> e </p>
+<p>
+<script type="math/tex; mode=display">L^*(t) := \max_{\theta \in G_t} log f_n(x|\theta)</script>
+</p>
+<p>Definimos a ML.E.de <script type="math/tex">g(\theta) := arg\,max_{t\in G} L^*(t)</script>
+</p>
+<p><img alt="mle" src="../mle_function.png" /></p>
+<h4 id="teorema">Teorema</h4>
+<p>Seja <script type="math/tex">\hat{\theta}</script> MLE de <script type="math/tex">\theta</script> e <script type="math/tex">g(\theta)</script> função de <script type="math/tex">\theta</script>. Então uma MLE de <script type="math/tex">g(\theta)</script> é <script type="math/tex">g(\hat{\theta})</script>. </p>
+<h3 id="consistencia">Consistência</h3>
+<p>Suponha que para uma amostra suficientemente grantde, existe um MLE único para <script type="math/tex">\theta</script>. Então, sob algumas condições, a sequência de MLE é uma sequência consistente de estimadores de <script type="math/tex">\theta</script>. A seuqência convergee em probabilidade para o valor desconhecido de <script type="math/tex">\theta</script>. </p>
+<p>O mesmo acontece com o Estimador de Bayes, dadas condições de regularidade.</p>
+<h3 id="funcao-digamma">Função Digamma:</h3>
+<p>
+<script type="math/tex; mode=display">\frac{\Gamma'(\alpha)}{\Gamma(\alpha)}</script>
+</p>
+<h3 id="metodo-dos-momentos">Método dos Momentos</h3>
+<p>Assuma que a amostra aleatória <script type="math/tex">X_1,...,X_n</script> vem da distribuição indexada pelo parâmetro <script type="math/tex">\theta</script> k-dimensional. Por exemplo, a distribuição normal tem <script type="math/tex">k = 2</script>. Também suponha que pelo menos os <script type="math/tex">k</script> primeiros momentos (<script type="math/tex">E[X_i^k] < \infty</script>) sejam finitos.  Defina <script type="math/tex">\mu_j(\theta) = E[X_1^j|\theta], j = 1,...k</script>. Suponha que a função:</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{split}
+\mu : ~&\Omega \to \mathbb{R}^k \\
+&\theta \mapsto \mu(\theta) = (\mu_1(\theta), ..., \mu_k(\theta)),
+\end{split}
+</script>
+é injetiva em <script type="math/tex">\theta</script>. Seja <script type="math/tex">M(\mu_1,...,\mu_k)</script> a função inversa, isto é, 
+<script type="math/tex; mode=display">\theta = M(\mu_1,...,\mu_k)</script>
+</p>
+<p>O método dos momentos será <script type="math/tex">M(m_1,...,m_j)</script>, onde <script type="math/tex">m_j = \frac{1}{n}\sum_{i=1}^n X_i^j, j = 1,...,k</script>
+</p>
+<p>De forma mais simplificada, basta que sesolvemos o sistema: </p>
+<p>
+<script type="math/tex; mode=display">m_j = \mu_j(\theta),</script>
+</p>
+<p>isto é, os momentos amostrais iguais aos momentos da amostra, condicionados em <script type="math/tex">\theta</script>. </p>
+<h4 id="teorema_1">Teorema</h4>
+<p>Suponha que <script type="math/tex">\{X_n\}_{n\in\mathbb{N}}</script> i.i.d com distribuição indexada pelo parâmetro <script type="math/tex">\theta</script>, <script type="math/tex">k</script>-dimensional. Suponha que os primeiros <script type="math/tex">k</script> momentos existem e são finitos para todo <script type="math/tex">\theta</script>. Suponha que a inversa <script type="math/tex">M</script> definida acima é contínua. Então a sequência de estimadores do método de momentos em <script type="math/tex">X_1,...,X_n</script> é consistente. </p>
+<h2 id="mle-e-estimador-de-bayes">M.L.E e Estimador de Bayes</h2>
+<p>Se tivermos condições de suavidade em <script type="math/tex">f(x|\theta)</script>, podemos provar que quando <script type="math/tex">n \to \infty</script>, teremos que:</p>
+<p>
+<script type="math/tex; mode=display">L(\theta|x) \to c(x)\cdot \exp\{-\frac{1}{2V_n(\theta)/n}(\theta - \hat{\theta})^2\},</script>
+</p>
+<p>onde <script type="math/tex">\hat{\theta}</script> é MLE e <script type="math/tex">V_n(\theta)</script> é uma sequência de variáveis aleatórias convergente. </p>
+<p>No caso de termos uma priori relativamente flat, a posteriori será aproximadamente uma distribuição normal com média <script type="math/tex">\hat{\theta}</script> e variância <script type="math/tex">V_n(\hat{\theta})/n</script>. </p>
+<h4 id="exemplo-7612-mortes-exercito-prussio">Exemplo 7.6.12 (Mortes exército prússio)</h4>
+<p>Bortkiewicz contou o número de soldados mortos por horsekick em 14 unidades do exército em 20 anos, com 280 contagens ao total. Das contagens temos</p>
+<table>
+<thead>
+<tr>
+<th>Valor</th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Contagem</td>
+<td>144</td>
+<td>91</td>
+<td>32</td>
+<td>11</td>
+<td>2</td>
+<td>280</td>
+</tr>
+</tbody>
+</table>
+<p>Modelamos <script type="math/tex">X_1, ..., X_{280}</script> como uma variável de contagem. Considere a distribuição <script type="math/tex">Poisson(\theta)</script>. Escolhemos a distribuição <script type="math/tex">Gamma(\alpha,\beta)</script>, dada que ela pertence à familia conjungada. Em particular, a distribuição a posteriori será <script type="math/tex">Gamma(\alpha + \sum X_i, \beta + n)</script>, onde <script type="math/tex">\sum X_i = 196</script>. </p>
+<p>Se assumirmos <script type="math/tex">\alpha</script> inteiro por simplicidade, vemos que a distribuição <script type="math/tex">Gamma</script> pode ser vista como a soma de <script type="math/tex">\alpha + \sum X_i</script> distribuições <script type="math/tex">Exponencial(\beta + n)</script>. Logo a soma dessas variáveis será aproximadamente normal com média <script type="math/tex">196/280</script> e variância <script type="math/tex">196/280^2</script>. </p>
+<pre class="highlight"><code class="language-python">import numpy as np 
+import matplotlib.pyplot as plt
+from scipy.stats import gamma</code></pre>
+<pre class="highlight"><code class="language-python">alpha = 1
+beta = 1
+
+# Esse é o MLE, a média. Vou supor que esse é o parâmetro verdadeiro só para mostrar. 
+theta = 196/280   
+
+sum_xi = 196</code></pre>
+<pre class="highlight"><code class="language-python">fig, ax = plt.subplots(2,3,figsize = (18,6))
+fig.suptitle('Avaliando a convergência da distribuição Gamma')
+
+for index, n in enumerate([1,10,100,1000,10000,280]):
+
+    i = int(index/3)
+    j = index % 3 
+
+    X = np.random.poisson(theta, size = n)
+    if n != 280: 
+        T = X.sum()
+        ax[i][j].set_title('n = {}'.format(n))
+    else:
+        T = sum_xi  #Valor dos dados
+        ax[i][j].set_title('Dados Oficiais: n = {}'.format(n))
+
+    t = np.linspace(start = 0.00001, stop = 3 - i - 1, num = 1000)
+
+    posteriori = gamma(alpha + T, scale = 1/(beta  + n))
+    y = posteriori.pdf(t)
+
+    ax[i][j].plot(t, y, color = 'darkblue')
+    ax[i][j].grid(color = 'grey', alpha = 0.6, linestyle = '--')
+    ax[i][j].vlines(theta, ymin = 0, ymax = max(y), 
+                   color = 'black', linestyle = '--')</code></pre>
+<p><img alt="png" src="../output_16_0.png" /></p>
+<p>Veja que com os dados reais, já temos uma boa aproximação!</p>
+<p><br/><br/><br/></p></div>
+        
+        
+    </div>
+
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
+
+          
+          
+      </footer>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = "../../.."</script>
+    
+    <script src="../../../js/base.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>

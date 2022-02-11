@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+
+    
+    <title>Monitorias 10 e 11 - Teaching Assistant</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../../css/base.min.css" rel="stylesheet">
+    <link href="../../../css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            
+              <a class="navbar-brand" href="../../..">Teaching Assistant</a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../info/">Álgebra Linear</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../../analisenum/info/">Análise Numérica</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../../edo/info/">EDO</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../../edp/info/">EDP</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../../infestatistica/info/">Estatística</a>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://lucasmoschen.github.io">Página Inicial</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#monitorias-10-e-11">Monitorias 10 e 11</a></li>
+            <li class="second-level"><a href="#definicoes-e-teoremas">Definições e Teoremas</a></li>
+                
+                <li class="third-level"><a href="#propriedades-importantes">Propriedades Importantes:</a></li>
+            <li class="second-level"><a href="#lembretes-para-exercicios">Lembretes para exercícios:</a></li>
+                
+            <li class="second-level"><a href="#exercicios">Exercícios:</a></li>
+                
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="monitorias-10-e-11">Monitorias 10 e 11</h1>
+<h2 id="definicoes-e-teoremas">Definições e Teoremas</h2>
+<p><strong>Lembrando:</strong> Uma transformação linear
+<script type="math/tex">T: \mathbb{R}^n \to \mathbb{R}^m</script> fica inteiramente determinada por uma
+matriz <script type="math/tex">A = [a_{ij}] \in M(m \times n)</script>. Os vetores coluna dessa matriz
+são as imagens <script type="math/tex">A \cdot e_j</script> dos vetores da base canônica. Definimos <script type="math/tex">A</script>
+como matriz de transformação. Assim,
+<script type="math/tex">A \cdot e_j = \sum_{i=1}^m a_{ij}e_i (j=1,...,n)</script>, onde
+<script type="math/tex">e_i \in \mathbb{R}^m</script>.</p>
+<p><strong>Simetrias:</strong> Matrizes de tranformação referentes à simetria em
+relação aos eixos x e y, e em relação à origem, respectivamente:
+<script type="math/tex; mode=display">S_x = \left[
+\begin{array}{cc}
+1 & 0  \\
+0 & -1
+\end{array}
+\right]
+S_y = \left[
+\begin{array}{cc}
+-1 & 0  \\
+0 & 1
+\end{array}
+\right]
+S_o = \left[
+\begin{array}{cc}
+-1 & 0  \\
+0 & -1
+\end{array}
+\right]</script>
+</p>
+<p><strong>Dilatações:</strong> Basta multiplicar uma coluna que se quer dilatar por
+<script type="math/tex">r</script>. Podemos chamar <script type="math/tex">r</script> de coeficiente de dilatação.</p>
+<p><strong>Rotação:</strong> Para montar essa matriz, basta conhecer a transformação dos
+vetores <script type="math/tex">(1,0)</script> e <script type="math/tex">(0,1)</script>. </p>
+<p>
+<script type="math/tex; mode=display">R_{\theta} = \left[
+\begin{array}{cc}
+\cos \theta & - \sin \theta  \\
+\sin \theta & \cos \theta
+\end{array}
+\right]
+</script>
+</p>
+<p>A rotação tem algumas propriedades:</p>
+<ul>
+<li>
+<p>
+<script type="math/tex">R_{\theta}^{-1} = R_{-\theta}</script>
+</p>
+</li>
+<li>
+<p>
+<script type="math/tex">R_{\alpha}R_{\beta} = R_{\alpha + \beta}</script>
+</p>
+</li>
+<li>
+<p>
+<script type="math/tex">(R_{\theta})^n = R_{n\theta}</script>
+</p>
+</li>
+</ul>
+<p><strong>Projeções:</strong> Podemos considerar a transformação que projeta os vetores
+sobre a reta <script type="math/tex">y = ax</script>. </p>
+<p>
+<script type="math/tex; mode=display">P = \frac{1}{1+a^2} \left[
+\begin{array}{cc}
+1 & a  \\
+a & a^2
+\end{array}
+\right]
+</script>
+</p>
+<p>Se quisermos que a projeção sobre um eixo e paralelo a uma
+reta, temos que </p>
+<p>
+<script type="math/tex; mode=display">P_p = \left[
+\begin{array}{cc}
+1 & -\frac{1}{a}  \\
+0 & 0
+\end{array}
+\right]
+</script>
+</p>
+<p><strong>Núcleo de <script type="math/tex">A</script>:</strong> <script type="math/tex">N(A) = \{v \in E | Av = 0\}</script>. É o espaço anulado da
+matriz <script type="math/tex">A</script>.</p>
+<p><strong>Imagem de <script type="math/tex">A</script>:</strong>
+<script type="math/tex">Im(A) = \{Av | v \in E\} \implies \exists v \in E; Av = w \implies w \in Im(A) </script>.
+Notemos que <script type="math/tex">posto(A) = dim~Im(A) = dim~col(A)</script>. Isto ocorre, pois
+<script type="math/tex">w \in Im(A)</script> é combinação linear das colunas da matriz <script type="math/tex">A</script>.</p>
+<p><strong>Transformação Injetiva:</strong> <script type="math/tex">A: E \to F</script> é injetiva se
+<script type="math/tex">\forall v, v', v \neq v' \implies Av \neq Av'</script>. Uma transformação é
+injetiva se, e só se, transforma vetores LI em vetores LI. Para essa
+demonstração, é necessário mostrar que uma transformação é injetiva se,
+e só se, seu núcleo possui apenas o vetor nulo.</p>
+<p><strong>Transformação Sobrejetiva:</strong> Ocorre quando <script type="math/tex">Im(A) = F</script>, onde <script type="math/tex">F</script> é o
+espaço vetorial contradomínio.</p>
+<p><strong>Teorema do Núcleo e da Imagem:</strong> Como <script type="math/tex">dim~Im(A) = posto(A)</script>, podemos
+usar no teorema do posto. Podemos alterar <script type="math/tex">n</script> para <script type="math/tex">dim~E</script>, sendo <script type="math/tex">E</script> o
+domínio da transformação.</p>
+<p><strong>Laplace:</strong> Escolhe-se uma linha uma coluna e para cada elemento, calcula-se o seu cofator.
+<script type="math/tex">A_{ij} = (-1)^{i+j}D_{ij}</script>.</p>
+<h3 id="propriedades-importantes">Propriedades Importantes:</h3>
+<ul>
+<li>
+<script type="math/tex">det(A) = det(A^{T})</script>;</li>
+<li>trocar duas linhas ou colunas inverte o sinal do determinante; </li>
+<li>duas linhas proporcionais indica determinante 0;</li>
+<li>multiplicar uma linha por <script type="math/tex">\alpha</script> implicará multiplicar o determinante pelo mesmo fator; </li>
+<li>determinante do produto de matrizes é o produto dos determinantes; </li>
+<li>o determinante de uma matriz com a operação de somar com múltiplo de outra linha é idêntico; </li>
+<li>determinante da inversa é o inverso do determinante</li>
+</ul>
+<h2 id="lembretes-para-exercicios">Lembretes para exercícios:</h2>
+<ol>
+<li>
+<p>Para calcular uma matriz de tranformação, precisamos apenas saber a
+    transformação linear de uma base do domínio. Com essa transformação,
+    precisamos obter a transformação da base canônica, para que a matriz
+    seja constrída nessa base. Essa matriz de tranformação também pode
+    ser obtida por <script type="math/tex">T = AP^{-1}</script>, onde <script type="math/tex">P</script> tem como colunas os vetores
+    da base, e <script type="math/tex">A</script> os vetores da base após a transformação.</p>
+</li>
+<li>
+<p>Para mostrar injetividade, podemos usar a contrapositiva da
+    definição.</p>
+</li>
+<li>
+<p>Você sabe encontrar uma base para o núcleo e uma base para a imagem
+    de uma transformação? A base da imagem é basicamente a base para o
+    espaço coluna (consegue enxergar o porquê? Tente representar um
+    vetor da imagem como combinação linear das colunas. E a base para o
+    núcleo?</p>
+</li>
+</ol>
+<h2 id="exercicios">Exercícios:</h2>
+<ol>
+<li><strong>Reflexão em torno de uma reta:</strong> Seja
+    <script type="math/tex">S: \mathbb{R}^2 \to \mathbb{R}^2</script> a transformação que reflete um
+    veotr em torno da reta <script type="math/tex">y = ax</script>. Assim, a reta é a bissetriz do
+    ângulo entre <script type="math/tex">v</script> e <script type="math/tex">Sv</script> e é perpendicular à reta que liga <script type="math/tex">v</script> a
+    <script type="math/tex">Sv</script>.</li>
+<li>
+<p><strong>Solução:</strong> Seja <script type="math/tex">P</script> a matriz de projeção. Projetamos
+    ortogonalmente <script type="math/tex">v</script> sobre a reta <script type="math/tex">y = ax</script>. Assim, teremos que
+    <script type="math/tex">v + Sv = 2Pv \implies I + S = 2P \implies S = 2P - I</script>. Outra forma
+    é fazer as tranformações dos vetores da base canônica.</p>
+</li>
+<li>
+<p>Considere 5 lâmpadas, cada uma com um botão. Cada botão muda o
+    estado da lâmpada e das vizinhas. Todas estão apagadas. Como deixar
+    a primeira, terceira e quinta acesas.</p>
+</li>
+<li>
+<p>Encontre os números <script type="math/tex">a,b,c,d</script> de modo que o operador
+    <script type="math/tex">A: \mathbb{R}^2 \to \mathbb{R}^2</script>, dado por
+    <script type="math/tex">A(x,y) = (ax + by, cx + dy)</script> tenha como núcleo a reta <script type="math/tex">y = 3x</script>.</p>
+</li>
+<li>
+<p>A transformação
+    <script type="math/tex">A: \mathbb{R} \to \mathbb{R}^n; A(x) = (x,2x,...,nx)</script> é uma
+    transformação injetiva? E <script type="math/tex">B(x,y) = (x + 2y, x + y, x - y)</script>?</p>
+</li>
+<li>
+<p>Considere uma transformação <script type="math/tex">A: E \to F</script> na base canônica. Considere
+    <script type="math/tex">V</script> uma base de vetores de <script type="math/tex">E</script>. Determine a matriz de transformação
+    <script type="math/tex">A'</script> nessa base. Ou seja, se <script type="math/tex">Av = w \to A'v_V = w_V</script>.</p>
+</li>
+<li>
+<p>Ache uma transformação <script type="math/tex">A: \mathbb{R}^2 \to \mathbb{R}^2</script> tal que a
+    imagem e o núcleo sejam o eixo x.</p>
+</li>
+</ol></div>
+        
+        
+    </div>
+
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
+
+          
+          
+      </footer>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = "../../.."</script>
+    
+    <script src="../../../js/base.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>

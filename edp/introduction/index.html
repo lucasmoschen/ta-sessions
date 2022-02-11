@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+
+    
+    <title>Definições iniciais - Teaching Assistant</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../css/base.min.css" rel="stylesheet">
+    <link href="../../css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            
+              <a class="navbar-brand" href="../..">Teaching Assistant</a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../alglin/info/">Álgebra Linear</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../analisenum/info/">Análise Numérica</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../edo/info/">EDO</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../info/">EDP</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../infestatistica/info/">Estatística</a>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://lucasmoschen.github.io">Página Inicial</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#definicoes-iniciais">Definições iniciais</a></li>
+            <li class="second-level"><a href="#exemplos">Exemplos</a></li>
+                
+            <li class="second-level"><a href="#classificacao-de-uma-edp">Classificação de uma EDP</a></li>
+                
+                <li class="third-level"><a href="#exemplos_1">Exemplos</a></li>
+            <li class="second-level"><a href="#principio-da-superposicao">Princípio da Superposição</a></li>
+                
+            <li class="second-level"><a href="#condicoes-de-contorno-e-iniciais">Condições de Contorno e Iniciais</a></li>
+                
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="definicoes-iniciais">Definições iniciais</h1>
+<p>Uma <em>equação diferencial parcial</em> (EDP) ou <em>partial differential equation</em>
+(PDE) é uma equação que envolve duas ou mais variáveis independentes e
+derivadas parciais de uma função que depende dessas variáveis. De forma bem
+geral, é uma equação com forma 
+<script type="math/tex; mode=display">
+F\left(x_1, \dots, x_n, u, \frac{\partial u}{\partial x_1}, \dots, \frac{\partial
+u}{\partial x_n}, \dots, \frac{\partial^k u}{\partial x_{i_1} \dots \partial
+x_{i_k}}, \dots, \frac{\partial^k u}{\partial x_n^k}\right) = 0,
+</script>
+em que <script type="math/tex">u = u(x_1, ..., x_n)</script> e na expressão aparece a <script type="math/tex">k</script>-ésima derivada de
+<script type="math/tex">u</script> com respeito a <script type="math/tex">k</script> variáveis <script type="math/tex">x_{i_1}, \dots, x_{i_k}</script>. A função <script type="math/tex">u</script> é em
+geral desconhecida e assumidamente de classe <script type="math/tex">C^k</script>, isto é, <script type="math/tex">k</script> vezes
+continuamente diferenciável. </p>
+<p>Denotamos também, 
+<script type="math/tex; mode=display">\nabla^2 u := \frac{\partial u}{\partial x_1^2} + \dots + \frac{\partial
+u}{\partial x_n^2} = \Delta u,</script>
+o <a href="https://en.wikipedia.org/wiki/Del#Laplacian">operador de Laplace</a>.   </p>
+<h2 id="exemplos">Exemplos</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Wave_equation">Equação da Onda</a>: </li>
+</ul>
+<p>
+<script type="math/tex; mode=display">
+\Delta u = \frac{1}{c^2}\frac{\partial^2 u}{\partial t^2},
+</script>
+em que <script type="math/tex">c</script> mede a velocidade da propagação da onda. </p>
+<p>Nesse exemplo temos <script type="math/tex">n</script> variáveis espaciais <script type="math/tex">x_1, \dots, x_n</script> e uma variável
+temporal <script type="math/tex">t</script>. Podemos definir 
+<script type="math/tex; mode=display">
+F\left(x_1, \dots, x_n, t, u, \frac{\partial^2 u}{\partial x_1^2}, \dots,
+\frac{\partial^2 u}{\partial x_n^2}, \frac{\partial^2 u}{\partial t^2}\right) =
+c^2\Delta u - u_{tt}
+</script>
+</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Heat_equation">Equação do calor</a>:</li>
+</ul>
+<p>
+<script type="math/tex; mode=display">
+\Delta u = \frac{1}{k}\frac{\partial u}{\partial t},
+</script>
+</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Laplace%27s_equation">Equação de Laplace</a></li>
+</ul>
+<p>
+<script type="math/tex; mode=display">
+\Delta u = 0 
+</script>
+</p>
+<p>As soluções dessa equação são as <a href="https://en.wikipedia.org/wiki/Harmonic_function">funções
+harmônicas</a>.</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Schr%C3%B6dinger_equation">Equação de Schrödinger</a></li>
+</ul>
+<p>
+<script type="math/tex; mode=display">
+iu_t + \Delta u = 0
+</script>
+</p>
+<p>é a função que governa a função de onda no sistema mecânico quântico. </p>
+<h2 id="classificacao-de-uma-edp">Classificação de uma EDP</h2>
+<p><strong>Ordem:</strong> Dada pela ordem parcial de maior ordem que ocorre na equação. Nos
+exemplos anteriores, as equações tem ordem 2. </p>
+<p><strong>Linear:</strong> Ela é dita linear se é de primeiro grau em <script type="math/tex">u</script> e em todas suas
+derivadas parciais. Caso contrário ela é dita <strong>não linear</strong>. </p>
+<p>Por exemplo, uma EDP linear de ordem 1 é dada pela expressão (veja as
+diferentes expressões para <a href="https://en.wikipedia.org/wiki/Partial_derivative">derivada parcial</a>)
+<script type="math/tex; mode=display">
+\sum_{j=1}^n a_j(x) D_{x_j} u + b(x) u + c(x) = 0 
+</script>
+</p>
+<p><strong>Homogênea:</strong> Os termos das variáveis independentes são nulos, isto é, as
+variáveis independentes não aparecem na expressão da função <script type="math/tex">F</script>. </p>
+<p><strong>Parte principal:</strong> A parte da equação que contém as derivadas de maior
+ordem. Se uma equação não linear possui parte principal linear, ela é dita
+<strong>semilinear</strong>. </p>
+<h3 id="exemplos_1">Exemplos</h3>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Telegrapher%27s_equations">Equação telegrafo</a></li>
+</ul>
+<p>
+<script type="math/tex; mode=display">
+u_{tt} + 2du_t - u_{xx} = 0, 
+</script>
+</p>
+<p>é uma equação linear de ordem 2. </p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Euler%E2%80%93Bernoulli_beam_theory">Equação de beam</a></li>
+</ul>
+<p>
+<script type="math/tex; mode=display">
+u_{tt} + u_{xxxx} = 0
+</script>
+</p>
+<p>é uma equação linear de ordem 4</p>
+<ul>
+<li>Equação da onda (não linear)</li>
+</ul>
+<p>
+<script type="math/tex; mode=display">
+u_{tt} - \Delta u + f(u) = 0,
+</script>
+em que <script type="math/tex">f</script> é uma função não linear de <script type="math/tex">u</script>. Observe que a parte principal é
+<script type="math/tex">u_{tt} - \Delta u</script> que é linear e, portanto, a equação é semilinear. </p>
+<ul>
+<li>Exemplo: Suponha que <script type="math/tex">u</script> e <script type="math/tex">v</script> são duas funções solução da equação
+  (linear de ordem 1)
+<script type="math/tex; mode=display">
+\frac{\partial u}{\partial x} + xu = 0 
+</script>
+Seja <script type="math/tex">z := \alpha u + \beta v</script>, em que <script type="math/tex">\alpha, \beta \in \mathbb{R}</script>.
+Assim, 
+<script type="math/tex; mode=display">
+\frac{\partial z}{\partial x} + xz = \alpha\frac{\partial u}{\partial x} +
+\beta\frac{\partial v}{\partial x} + \alpha x u + \beta x v =
+\alpha\left(\frac{\partial u}{\partial x} + xu\right) +
+\beta\left(\frac{\partial v}{\partial x} + xv\right) = 0,
+</script>
+o que implica que <script type="math/tex">z</script> também é solução. Essa propriedade não é exclusividade
+do exemplo acima. Na verdade, vale para toda equação linear, isto é,
+combinação linear de soluções é solução em problemas lineares.</li>
+</ul>
+<h2 id="principio-da-superposicao">Princípio da Superposição</h2>
+<p>Considere uma EDP linear de ordem 2: 
+<script type="math/tex; mode=display">
+\sum_{i,j}^n a_{ij}(x)D_{x_i}D_{x_j} u(x) + \sum_{j=1}^n b_{j}(x)D_{x_j}u(x) +
+c(x)u(x) + d(x) = 0.
+</script>
+Podemos reescrever essa equação na forma 
+<script type="math/tex; mode=display">
+(Lu)(x) = \sum_{i,j}^n a_{ij}(x)D_{x_i}D_{x_j} u(x) + \sum_{j=1}^n b_{j}(x)D_{x_j}u(x) +
+c(x)u(x)
+</script>
+e <script type="math/tex">Lu = -d</script>. Dizemos que <script type="math/tex">L</script> é um operador (no espaço de funções de classe
+<script type="math/tex">C^k</script> para o espaço de funções contínuas). no caso ele é linear de ordem 2.
+Podemos generalizar para um de ordem <script type="math/tex">k</script> qualquer.  </p>
+<p>Seja <script type="math/tex">L</script> um operador diferencial linear de ordem <script type="math/tex">k</script> cujos coeficientes estão
+definidos em <script type="math/tex">\mathbb{R}^n</script>. Suponha que <script type="math/tex">\{u_m\}_{m=1}^{+\infty}</script> é um
+conjunto de funções k vezes continuamente diferenciáveis satisfazendo 
+<script type="math/tex; mode=display">
+Lu = 0,
+</script>
+e que <script type="math/tex">\{\alpha_m\}_{m=1}^{+\infty}</script> é uma sequência tal que 
+<script type="math/tex; mode=display">
+u(x) = \sum_{m=1}^{+\infty} \alpha_m u_m(x)
+</script>
+é convergente e <script type="math/tex">k</script> vezes diferenciável termo a <script type="math/tex">t</script>. Então <script type="math/tex">u</script> também é
+solução. </p>
+<h2 id="condicoes-de-contorno-e-iniciais">Condições de Contorno e Iniciais</h2>
+<p>Observe que para EDPs, estamos interessados em definir uma função em uma
+região em um espaço de dimensão pelo menos 2. Por isso, não é mais suficiente
+atribuir uma condição inicial ao problema, como se fazia aos problemas de EDO,
+para determinar uma solução. Nesse caso, substituímos os extremos do intervalo
+pelo fronteira do conjunto que queremos estudar. Nesse caso, o problema é dito
+<strong>problema de contorno</strong>.</p>
+<p>É comum fixar, por exemplo <script type="math/tex">u(x,0) = f(x)</script> e <script type="math/tex">u(x,1) = g(x)</script>, em que a segunda
+variável é o tempo. </p></div>
+        
+        
+    </div>
+
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
+
+          
+          
+      </footer>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../../js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = "../.."</script>
+    
+    <script src="../../js/base.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>

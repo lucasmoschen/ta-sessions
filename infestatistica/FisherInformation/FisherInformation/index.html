@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+
+    
+    <title>Informação de Fisher - Teaching Assistant</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../../css/base.min.css" rel="stylesheet">
+    <link href="../../../css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            
+              <a class="navbar-brand" href="../../..">Teaching Assistant</a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../../alglin/info/">Álgebra Linear</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../../analisenum/info/">Análise Numérica</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../../edo/info/">EDO</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../../edp/info/">EDP</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../info/">Estatística</a>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://lucasmoschen.github.io">Página Inicial</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#informacao-de-fisher">Informação de Fisher</a></li>
+            <li class="second-level"><a href="#teorema">Teorema</a></li>
+                
+            <li class="second-level"><a href="#exemplo-construtivo">Exemplo Construtivo</a></li>
+                
+            <li class="second-level"><a href="#desigualdade-de-cramer-rao">Desigualdade de Cramér-Rao</a></li>
+                
+            <li class="second-level"><a href="#exemplo-numerico-do-limite-de-cramer-rao">Exemplo Numérico do limite de Cramér-Rao</a></li>
+                
+            <li class="second-level"><a href="#estimador-eficiente">Estimador Eficiente</a></li>
+                
+            <li class="second-level"><a href="#estimadores-nao-enviesados-com-variancia-minima">Estimadores não enviesados com variância mínima</a></li>
+                
+                <li class="third-level"><a href="#distribuicao-assintotica-de-um-estimador-eficiente">Distribuição assintótica de um estimador eficiente</a></li>
+                <li class="third-level"><a href="#distribuicao-assintotica-do-mle">Distribuição assintótica do MLE</a></li>
+                <li class="third-level"><a href="#bayesiano">Bayesiano</a></li>
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="informacao-de-fisher">Informação de Fisher</h1>
+<p>Seja <script type="math/tex">X</script> uma amostra aleatória cuja distribuição depende de <script type="math/tex">\theta</script> e tem valores em <script type="math/tex">(a,b) \subset \mathbb{R}</script>. Seja <script type="math/tex">f_n(x|\theta)</script> a pdf conjunta de <script type="math/tex">X</script>. Assuma que <script type="math/tex">S = {x | f(x|\theta) > 0}</script> é o mesmo para todo <script type="math/tex">\theta</script>. E <script type="math/tex">\lambda_n(x|\theta) = \log f_n(x|\theta)</script> é duas vezes diferenciável em <script type="math/tex">\theta</script>.  A informação é: </p>
+<p>
+<script type="math/tex; mode=display">
+I_n(\theta) = E_{\theta}\{[\lambda_n '(X|\theta)]^2\}
+</script>
+</p>
+<p>Agora assuma que duas derivadas de <script type="math/tex">\int_S f_n(x|\theta)dx</script> com respeito a <script type="math/tex">\theta</script> podemos <a href="https://en.wikipedia.org/wiki/Leibniz_integral_rule#:~:text=General%20form%3A%20Differentiation%20under%20the%20integral%20sign,-Theorem.&amp;text=That%20is%2C%20it%20is%20related,as%20the%20Leibniz%20integral%20rule.&amp;text=the%20change%20of%20order%20of%20integration%20(integration%20under%20the%20integral,%3B%20i.e.%2C%20Fubini's%20theorem).">inverter a ordem de integração e diferenciação</a>. Então:</p>
+<p>
+<script type="math/tex; mode=display">
+I_n(\theta) = - E_{\theta}[\lambda_n ''(X|\theta)]
+</script>
+</p>
+<h3 id="teorema">Teorema</h3>
+<p>
+<script type="math/tex; mode=display">I_n(\theta) = nI(\theta)</script>
+</p>
+<p><strong>Obs.:</strong> Estamos tratando da informação de Fisher para o caso unidimensional. Para o caso em que temos <script type="math/tex">\Omega \subset \mathbb{R}^k</script>, a informação de Fisher será uma matriz de tamanho <script type="math/tex">k \times k</script> onde</p>
+<p>
+<script type="math/tex; mode=display">
+I_{n,i,j} = Cov_{\theta}\left[\frac{\partial}{\partial \theta_i}\lambda_n'(X|\theta), \frac{\partial}{\partial \theta_j}\lambda_n'(X|\theta)\right]
+</script>
+</p>
+<pre class="highlight"><code class="language-python">import numpy as np
+from scipy.stats import norm
+from scipy.misc import derivative
+from scipy.optimize import curve_fit 
+
+import matplotlib.pyplot as plt 
+from seaborn import violinplot
+import inspect</code></pre>
+<h2 id="exemplo-construtivo">Exemplo Construtivo</h2>
+<p>Vamos pensar num caso bem simples: amostra aleatória <script type="math/tex">X_1, ..., X_n \sim \text{Normal}(\mu, \sigma^2)</script>, onde o parâmetro <script type="math/tex">\sigma^2</script> é conhecido e <script type="math/tex">\mu</script> não.  </p>
+<p>De forma direta, poderíamos perguntar qual a Informação de Fisher (ou Informação Diferencial) da amostra aleatória sobre o parâmetro desconhecido <script type="math/tex">\mu</script>. </p>
+<ol>
+<li>Vamos encontrar a distribuição conjunta:</li>
+</ol>
+<p>
+<script type="math/tex; mode=display">f(x|\mu) = \frac{1}{\sqrt{2\pi\sigma^2}}\exp\left[-\frac{1}{2}\frac{(x - \mu)^2}{\sigma^2}\right]</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{split}
+f_n(x|\mu) &= \prod_{i=1}^n f(x_i|\mu) = \frac{1}{(2\pi\sigma^2)^{n/2}}\exp\left[-\frac{1}{2\sigma^2}\sum_{i=1}^n (x_i - \mu)^2\right] \\ 
+&= \frac{1}{(2\pi\sigma^2)^{n/2}}\exp\left[-\frac{1}{2\sigma^2}\sum_{i=1}^n (x_i^2 - 2x_i\mu + \mu^2)\right] \\
+&= \frac{1}{(2\pi\sigma^2)^{n/2}}\exp\left[-\frac{1}{2\sigma^2}\left(\sum_{i=1}^n x_i^2 - 2n\bar{x}_n\mu + n\mu^2\right)\right] \\
+&= \frac{1}{(2\pi\sigma^2)^{n/2}}\exp\left[-\frac{1}{2\sigma^2}\sum_{i=1}^n x_i^2\right]\exp\left[-\frac{1}{2\sigma^2}\left(- 2n\bar{x}_n\mu + n\mu^2\right)\right]
+\end{split}
+</script>
+</p>
+<ol>
+<li>Vamos encontrar a verossimilhança: é a distribuição conjunta como função do parâmetro! </li>
+</ol>
+<p>
+<script type="math/tex; mode=display">f_n(x|\mu) = \frac{1}{(2\pi\sigma^2)^{n/2}}\exp\left[-\frac{1}{2\sigma^2}\sum_{i=1}^n x_i^2\right]\exp\left[-\frac{1}{2\sigma^2}\left(- 2n\bar{x}_n\mu + n\mu^2\right)\right]</script>
+</p>
+<p>Vamos comparar para <script type="math/tex">\sigma = 1</script> e <script type="math/tex">\sigma = 5</script>
+</p>
+<pre class="highlight"><code class="language-python">loglikelihood = lambda mu, sigma, x: np.sum(np.log([norm(loc = mu, scale = sigma).pdf(xi) for xi in x]), axis = 0)</code></pre>
+<pre class="highlight"><code class="language-python">sigmas = [1,3,5,10]
+mu_true = 5
+
+mu_range = np.linspace(0,10,1000)</code></pre>
+<pre class="highlight"><code class="language-python">fig,ax = plt.subplots(2,2,figsize = (16, 10))
+
+fig.suptitle('Comparando Log-verossimilhanças da Distribuição Normal')
+
+def generate_curves(sigma, ax, n = 20, n_times = 50): 
+
+    for i in range(n_times):
+
+        x = np.random.normal(loc = mu_true, scale = sigma, size = n)
+        logvalues = loglikelihood(mu_range, sigma, x)
+
+        ax.plot(mu_range, logvalues, color = 'blue', alpha = 0.2)
+
+    ax.vlines(mu_true, ymin = ax.get_ylim()[0], ymax = ax.get_ylim()[1], linestyle = '--')
+
+    ax.set_title(r'$\sigma =$ {}'.format(sigma))
+    ax.set_xlabel(r'$\mu$')
+
+generate_curves(sigmas[0], ax[0][0])
+generate_curves(sigmas[1], ax[0][1])
+generate_curves(sigmas[2], ax[1][0])
+generate_curves(sigmas[3], ax[1][1])    </code></pre>
+<p><img alt="png" src="../output_5_0.png" /></p>
+<ol>
+<li>Vamos ver como se comporta derivada. Esse é o score: </li>
+</ol>
+<p>
+<script type="math/tex; mode=display">\lambda '_n(y|\mu) = \frac{1}{\sigma^2}\left(n\bar{x}_n - \mu\right)</script>
+</p>
+<pre class="highlight"><code class="language-python">score = lambda mu, sigma, x: derivative(loglikelihood, mu, dx = 1e-5, args = (sigma, x))  
+
+fig,ax = plt.subplots(2,2,figsize = (16, 10))
+
+fig.suptitle('Comparando Scores da Distribuição Normal')
+
+def generate_curves(sigma, ax, n = 20, n_times = 50): 
+
+    for i in range(n_times):
+
+        x = np.random.normal(loc = mu_true, scale = sigma, size = n)
+        scorevalues = score(mu_range, sigma, x)
+
+        ax.plot(mu_range, scorevalues, color = 'blue', alpha = 0.2)
+
+    ax.vlines(mu_true, ymin = ax.get_ylim()[0], ymax = ax.get_ylim()[1], linestyle = '--')
+
+    ax.set_title(r'$\sigma =$ {}'.format(sigma))
+    ax.set_xlabel(r'$\mu$')
+
+    ax.set_ylim((-10,10))
+
+generate_curves(sigmas[0], ax[0][0])
+generate_curves(sigmas[1], ax[0][1])
+generate_curves(sigmas[2], ax[1][0])
+generate_curves(sigmas[3], ax[1][1])    </code></pre>
+<p><img alt="png" src="../output_7_0.png" /></p>
+<pre class="highlight"><code class="language-python">fig,ax = plt.subplots(2,2,figsize = (16, 10))
+
+fig.suptitle('Comparando Histogramas dos Scores para mu')
+
+def generate_histograms(mu, sigma, ax, n = 15, n_times = 100): 
+
+    scorevalues = []
+    for i in range(n_times):
+
+        x = np.random.normal(loc = mu_true, scale = sigma, size = n)
+        scorevalues.append(score(mu, sigma, x))
+
+    violinplot(scorevalues, ax = ax)
+
+    ax.set_title(r'$\sigma =$ {}'.format(sigma))
+    ax.set_xlabel('score')
+
+generate_histograms(5, sigmas[0], ax[0][0])
+generate_histograms(5, sigmas[1], ax[0][1])
+generate_histograms(5, sigmas[2], ax[1][0])
+generate_histograms(5, sigmas[3], ax[1][1])    </code></pre>
+<p><img alt="png" src="../output_8_0.png" /></p>
+<ol>
+<li>A informação de Fisher é a Variância da função score em <script type="math/tex">X</script>, isto é: </li>
+</ol>
+<p>
+<script type="math/tex; mode=display">
+\begin{split}
+I_n(\mu) &= Var(\lambda '_n(x|p)) = E[(\lambda '_n(x|p))^2] - E[\lambda '_n(x|p)]^2\\ 
+&= \frac{1}{\sigma^4}Var\left[n\bar{x}_n - \mu\right] \\
+&= \frac{n^2}{\sigma^4}Var(\bar{x}_n) \\
+&= \frac{n^2\sigma^2}{n\sigma^4} \\
+&= \frac{n}{\sigma^2}
+\end{split}
+</script>
+</p>
+<h2 id="desigualdade-de-cramer-rao">Desigualdade de Cramér-Rao</h2>
+<p>Seja <script type="math/tex">X</script> uma amostra aleatória com pdf <script type="math/tex">f(x| \theta)</script>. Suponha as hipóteses acima acerca dessa distribuição. Seja <script type="math/tex">T = r(X)</script> com variância finita e <script type="math/tex">m(\theta) = E_{\theta}(T)</script> é diferenciável. Assim:</p>
+<p>
+<script type="math/tex; mode=display">
+Var_{\theta}(T) \geq \frac{[m'(\theta)]^2}{nI(\theta)}
+</script>
+</p>
+<p>A igualdade vale se, e somente se, existem funções <script type="math/tex">u(\theta)</script> e <script type="math/tex">v(\theta)</script> que podem depender em <script type="math/tex">\theta</script> mas não de <script type="math/tex">X</script> tal que: </p>
+<p>
+<script type="math/tex; mode=display">
+T = u(\theta)\lambda_n'(X|\theta) + v(\theta)
+</script>
+</p>
+<p>Se <script type="math/tex">T</script> for não enviesado <script type="math/tex">m(\theta) = \theta \implies m'(\theta) = 1</script>
+</p>
+<h2 id="exemplo-numerico-do-limite-de-cramer-rao">Exemplo Numérico do limite de Cramér-Rao</h2>
+<p><a href="http://michal.rawlik.pl/2014/02/21/numerical-cramer-rao-bound-in-python/">Referência</a></p>
+<p>Considere um sinal (como uma música) com três parâmetros, amplitude, frequência e fase inicia.</p>
+<p>Saberemos o número de amostras que sera 100Hz com nível de ruído de 0.1 </p>
+<pre class="highlight"><code class="language-python">s = lambda t,a,f,ph: a*np.sin(2*np.pi*f*t + ph) # função que representa o sinal
+
+p0 = [2,8,0]     # Amplitude, frequência e fase inicial para testar 
+noise = 0.1
+
+T = np.linspace(0,1,100)   #100 valores entre 0 e 1 igualmente espaçados
+plt.plot(T, s(T, *p0), '.-k')
+plt.xlabel('Tempo (s)')
+plt.title('Sinal')
+plt.show()</code></pre>
+<p><img alt="png" src="../output_13_0.png" /></p>
+<p>Vamos usar <a href="https://docs.python.org/3/library/inspect.html">inspect</a> para nos ajudar a pegar labels das funções, isto é, os parâmetros necessários das funções. Essa biblioteca fornece várias funções de ajuda desse tipo. Dê uma olhada. </p>
+<pre class="highlight"><code class="language-python">parameters = str(inspect.signature(s)).strip('()').replace(' ', '').split(',')[1:]
+p0dict = dict(zip(parameters, p0))
+p0dict</code></pre>
+<pre><code>{'a': 2, 'f': 8, 'ph': 0}
+</code></pre>
+<p>No caso geral, calcular a Matriz de Informação de Fisher não é trivial. Por isso, vamos calcular para o caso em que as medições são de uma amostra com distribuição multivariada normal, isto é, é uma distribuição normal, só que em mais dimensões, em particular, 441 dimensões (número de pontos no tempo)</p>
+<p>Se calcularmos a informação de Fisher, podemos ver que:</p>
+<p>
+<script type="math/tex; mode=display">
+\mathcal{I}_{mn} = \frac{1}{\sigma^2} \frac{\partial \mu^\mathrm{T}}{\partial \theta_m} \frac{\partial \mu}{\partial \theta_n} = \frac{1}{\sigma^2} \sum_k \frac{\partial \mu_k}{\partial \theta_m} \frac{\partial \mu_k}{\partial \theta_n}
+</script>
+</p>
+<p>onde <script type="math/tex">\theta = [a,f,ph]^T</script>, <script type="math/tex">\mu = \mu(\theta)</script> é o vetor média da normal multivariada e <script type="math/tex">\sigma^2</script> é a variância de cada marginal da normal. Não se assuste. Na multivariada, temos uma matriz para indicar as variâncias (ela se chama Matriz de Covariâncias, na verdade). O que estou dizendo é que ela é <script type="math/tex">\sigma^2</script> vezes a identidade. É bom conhecer essa distribuição!</p>
+<p>Por enquando acredite em mim! Ou no <a href="https://en.wikipedia.org/wiki/Fisher_information#Multivariate_normal_distribution">Wikipedia</a>.</p>
+<p>Vou chamar <script type="math/tex">D_{ik} = \frac{\partial \mu_k}{\partial \theta_i}</script>
+</p>
+<pre class="highlight"><code class="language-python"># Usamos ** para desempacotar elementos de um dicionário.
+string = "a: {a} f: {f} ph: {ph}".format(**p0dict)
+print(string)</code></pre>
+<pre><code>a: 2 f: 8 ph: 0
+</code></pre>
+<pre class="highlight"><code class="language-python">D = np.zeros((len(p0), len(T)))
+
+# para cada parâmetro
+for i, parameter in enumerate(parameters):
+    # para cada ponto no tempo
+    for k, t in enumerate(T):
+
+        func = lambda x: s(t, **dict(p0dict, **{parameter: x}))
+        # Calculamos a derivada com respeito a x, que nesse caso é o valor do parametro
+        D[i,k] = derivative(func, p0dict[parameter], dx = 1e-4)   </code></pre>
+<p>Veja que o tamanho de D é o seguinte:</p>
+<pre class="highlight"><code class="language-python">D.shape</code></pre>
+<pre><code>(3, 100)
+</code></pre>
+<pre class="highlight"><code class="language-python">plt.plot(T, s(T, *p0), '--k', lw=2, label='Sinal')
+
+for Di, parameter in zip(D, parameters):
+    # Estamos acessando Di = linha_i(D)
+    plt.plot(T, Di, '.-', label=parameter)
+
+plt.legend()
+plt.xlabel('Tempo (s)')
+plt.show()</code></pre>
+<p><img alt="png" src="../output_21_0.png" /></p>
+<p>O que <script type="math/tex">D_{ik}</script> indica? É a derivada da <script type="math/tex">k-ésima</script> média com respeito ao i-ésimo parâmetro. Logo indica o quanto o quando a amostra <script type="math/tex">k</script> afeta o parâmetro <script type="math/tex">i</script>. Veja que quando temos picos no seno, teremos pico na amplitude,. Também vemos que a fase inicial não tem essa relevância. Vemos também que o sinal se torna mais e mais sensível à frequência. </p>
+<p>Assim, podemos calular a informação de fisher, usando <a href="https://numpy.org/doc/stable/reference/generated/numpy.einsum.html">einsum</a></p>
+<pre class="highlight"><code class="language-python">I = 1/noise**2*np.einsum('mk,nk', D, D)
+print(I)</code></pre>
+<pre><code>[[ 4.95000000e+03 -5.64643569e+02 -3.43706036e-09]
+ [-5.64643569e+02  2.68635205e+05  6.34601694e+04]
+ [-3.43706036e-09  6.34601694e+04  2.01999999e+04]]
+</code></pre>
+<p>Podemos calcular o limite de Cramér-Rao para qualquer estimador não enviesado. Nesse caso, veja <a href="https://en.wikipedia.org/wiki/Cram%C3%A9r%E2%80%93Rao_bound#Multivariate_case">aqui</a> para mais detalhes. Mas não se incomode com os detalhes, se preferir. </p>
+<pre class="highlight"><code class="language-python">iI = np.linalg.inv(I)  
+
+print('Cramér-Rao Limite Inferior')
+for parameter, variance in zip(parameters, iI.diagonal()):
+    print('{}: {:.2g}'.format(parameter, np.sqrt(variance)))</code></pre>
+<pre><code>Cramér-Rao Limite Inferior
+a: 0.014
+f: 0.0038
+ph: 0.014
+</code></pre>
+<h2 id="estimador-eficiente">Estimador Eficiente</h2>
+<p>
+<script type="math/tex">T</script> é um estimador eficiente de sua esperança <script type="math/tex">m(\theta)</script> se, para todo <script type="math/tex">\theta</script>, vale a igualdade em Cramér-Rao.</p>
+<p>Mas nem sempre vale a igualdade, inclusive conhecemos uma consdição necessária e suficiente para isso, que está logo acima. </p>
+<h2 id="estimadores-nao-enviesados-com-variancia-minima">Estimadores não enviesados com variância mínima</h2>
+<p>Suponha que <script type="math/tex">T</script> seja um estimador eficiente de sua esperança <script type="math/tex">m(\theta)</script> e <script type="math/tex">T_1</script> outro estimador não enviesado. Então para todo valor <script type="math/tex">\theta \in \Omega</script>, <script type="math/tex">Var_{\theta}(T)</script> será igual ao limite inferior de Cramér-Rao e <script type="math/tex">Var_{\theta}(T_1)</script> será pelo menos maior ou igual. Portanto <script type="math/tex">Var_{\theta}(T) \leq Var_{\theta}(T_1), \forall \theta</script>. Isto é, um estimado eficiente de <script type="math/tex">m(\theta)</script> terá menor variância. </p>
+<h3 id="distribuicao-assintotica-de-um-estimador-eficiente">Distribuição assintótica de um estimador eficiente</h3>
+<p>Assuma as hipóteses do teorema de Cramér-Rao. Seja <script type="math/tex">T</script> um estimador eficiente para a sua média <script type="math/tex">m(\theta)</script> e <script type="math/tex">m'(\theta) \neq 0</script>. Então: </p>
+<p>
+<script type="math/tex; mode=display">
+\frac{[nI(\theta)]^{1/2}}{m'(\theta)}[T - m(\theta)] \overset{d}{\to} N(0,1)
+</script>
+</p>
+<h3 id="distribuicao-assintotica-do-mle">Distribuição assintótica do MLE</h3>
+<p>Suponha que obtemos <script type="math/tex">\hat{\theta}_n</script> resolvendo a equação <script type="math/tex">\lambda_n'(x|\theta) = 0</script>, isto é, maximizando a log-verossimilhança (MLE). E suponha que <script type="math/tex">\lambda_n''</script> e <script type="math/tex">\lambda_n'''</script> existem e satisfazem certas condições de regularidade. Então </p>
+<p>
+<script type="math/tex; mode=display">
+[nI(\theta)]^{1/2}(\hat{\theta}_n - \theta) \overset{d}{\to} N(0,1)
+</script>
+</p>
+<p>Como o MLE é não enviesado, então se ele for Eficiente, já sabemos que esse teorema é verdade pelo anterior. (se ele é não enviesado)</p>
+<h3 id="bayesiano">Bayesiano</h3>
+<p>Suponha que adotamos uma priori para <script type="math/tex">\theta</script> com uma pdf diferenciável no intervalo. Sobre condições de regularidade similares àquelas que garantem normalidade assintótica para <script type="math/tex">\hat{\theta}_n</script>, pode-se mostrar que que a distribuição a posteriori de <script type="math/tex">\theta</script> vai se aproximadamente uma normal com média <script type="math/tex">\hat{\theta}_n</script> e variância <script type="math/tex">1/[nI(\hat{\theta}_n)]</script>, onde <script type="math/tex">\hat{\theta}_n</script> é o MLE. </p></div>
+        
+        
+    </div>
+
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
+
+          
+          
+      </footer>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = "../../.."</script>
+    
+    <script src="../../../js/base.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>

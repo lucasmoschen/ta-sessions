@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+
+    
+    <title>Interpolação polinomial - Teaching Assistant</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../css/base.min.css" rel="stylesheet">
+    <link href="../../css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            
+              <a class="navbar-brand" href="../..">Teaching Assistant</a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../alglin/info/">Álgebra Linear</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../info/">Análise Numérica</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../edo/info/">EDO</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../edp/info/">EDP</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../infestatistica/info/">Estatística</a>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://lucasmoschen.github.io">Página Inicial</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#interpolacao-polinomial">Interpolação polinomial</a></li>
+            <li class="second-level"><a href="#polinomios-de-lagrange">Polinômios de Lagrange</a></li>
+                
+            <li class="second-level"><a href="#fenomeno-de-runge">Fenômeno de Runge</a></li>
+                
+            <li class="second-level"><a href="#polinomios-de-chebyshev">Polinômios de Chebyshev</a></li>
+                
+                <li class="third-level"><a href="#intervalo-ab">Intervalo [a,b]</a></li>
+            <li class="second-level"><a href="#sugestoes">Sugestões</a></li>
+                
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="interpolacao-polinomial">Interpolação polinomial</h1>
+<p>Interpolação é um tipo de estimação de curva que constrói novos pontos a
+partir de um conjunto finito. Em geral, a partir de uma amostragem ou
+experimento, obtemos um sequência de pontos e os valores da função
+correspondentes. No caso de polinômios, a ideia é encontrar um polinômio que
+passe pelos dados a serem analisados. 
+<script type="math/tex; mode=display">
+P_n(x) = a_0 + a_1 x + a_2 x^2 + \dots + a_n x^n
+</script>
+é polinômio de grau no máximo <script type="math/tex">n</script> e <script type="math/tex">a_0, a_1, \dots, a_n</script> são constantes
+reais. Dizemos que <script type="math/tex">P_n[x] \in \mathbb{R}[x]</script>, isto é, é um polinômio na
+variável <script type="math/tex">x</script> com constantes reais. </p>
+<blockquote>
+<p>Teorema da Aproximação de Weierstrass </p>
+</blockquote>
+<p>Seja <script type="math/tex">f</script> contínua em <script type="math/tex">[a,b]</script>. Para cada <script type="math/tex">\epsilon > 0</script>, existe um polinômio
+<script type="math/tex">p(x)</script> tal que </p>
+<p>
+<script type="math/tex; mode=display">
+|f(x) - p(x)| < \epsilon, \forall x \in [a,b].
+</script>
+</p>
+<p><a href="http://vigo.ime.unicamp.br/MT401-2016/2012INPsuitesD1bis.pdf">Demonstração por Dunham Jackson.</a></p>
+<blockquote>
+<p>Existência de polinômio interpolador</p>
+</blockquote>
+<p>Considere os pontos <script type="math/tex">(x_i, y_i), i = 1, \dots, n</script> com pontos 
+<script type="math/tex">x_i</script> todos diferentes. Então existe um único polinômio 
+<script type="math/tex">p(x)</script> de grau no máximo <script type="math/tex">n-1</script> tal que <script type="math/tex">p(x_i) = y_i</script> para
+<script type="math/tex">i = 1, \dots, n</script>. </p>
+<p>Esse problema tem solução se o sistema <script type="math/tex">Xa = b</script> tem solução
+em que </p>
+<p>
+<script type="math/tex; mode=display">
+X = \begin{bmatrix}
+    1 & x_0 & \cdots & x_0^n \\
+    1 & x_1 & \cdots & x_1^n \\
+    \vdots & \vdots & \ddots & \vdots \\
+    1 & x_n & \cdots & x_n^n
+\end{bmatrix}, a = \begin{bmatrix}
+    a_0 \\ a_1 \\ \vdots \\ a_n
+\end{bmatrix} \text{ e } b = \begin{bmatrix}
+    f(x_0) \\ f(x_1) \\ \vdots \\ f(x_n).
+\end{bmatrix}
+</script>
+</p>
+<p>Esse sistema tem solução se <script type="math/tex">\det(X) \neq 0</script>, isto é, o 
+determinante de <strong>Vandermonde</strong> é não nulo. </p>
+<p>
+<script type="math/tex; mode=display">
+\det(X) = \prod_{i > j} (x_i - x_j) = \prod_{j=0}^{n-1} 
+\left[\prod_{i=j+1}^n (x_i - x_j) \right] \neq 0 \iff x_i \neq x_j, j \neq i.
+</script>
+</p>
+<p>Nesse caso, existe um único <script type="math/tex">a</script> solução desse sistema 
+que define o polinômio interpolador <script type="math/tex">p(x)</script>. </p>
+<p>Se <script type="math/tex">P_n(x_i) = Q_n(x_i)</script> para <script type="math/tex">n+1</script> pontos <script type="math/tex">x_0, x_1, 
+\dots, x_n</script>, então <script type="math/tex">P_n(x) = Q_n(x)</script> para todo <script type="math/tex">x</script>. 
+Esse resultado é direto se considerarmos as raízes 
+do polinômio <script type="math/tex">D(x) = P_n(x) - Q_n(x)</script> (que tem no máximo)
+<script type="math/tex">n</script> raízes se não for identicamente nulo.</p>
+<h2 id="polinomios-de-lagrange">Polinômios de Lagrange</h2>
+<p>Defina 
+<script type="math/tex; mode=display">
+L_{n,k}(x) = \frac{(x-x_0)\cdots(x - x_{k-1})(x - x_{k+1})\cdots(x - x_n)}{(x_k-x_0)\cdots(x_k - x_{k-1})(x_k - x_{k+1})\cdots(x_k - x_n)}.
+</script>
+</p>
+<p>É fácil ver que </p>
+<p>
+<script type="math/tex; mode=display">
+L_{n,k}(x_i) = \begin{cases}
+    0, & \text{se } i \neq k \\
+    1, & \text{se } i = k.
+\end{cases}
+</script>
+</p>
+<p>Assim, podemos definir </p>
+<p>
+<script type="math/tex; mode=display">
+p(x) = \sum_{k=0}^n f(x_k)L_{n,k}(x). 
+</script>
+</p>
+<p>que é o polinômio interpolador de Lagrange. Se os pontos 
+são diferentes, isto é, <script type="math/tex">x_0 \neq x_1 \neq \cdots \neq x_n</script>.</p>
+<blockquote>
+<p>Teorema de erro pontual na interpolação</p>
+</blockquote>
+<p>Seja <script type="math/tex">f(x) \in C^{(n+1)}[a,b]</script> e <script type="math/tex">p_n(x)</script> o polinômio 
+interpolador com os pontos distintos <script type="math/tex">x_0, x_1, \dots, x_n</script>.
+Então para todo <script type="math/tex">x \in [a,b]</script>, existe um ponto <script type="math/tex">\xi = \xi(x)</script> 
+tal que 
+<script type="math/tex; mode=display">
+\min(x_0, x_1, \dots, x_n, x) < \xi < \max(x_0, x_1, \dots, x_n, x),
+</script>
+e 
+<script type="math/tex; mode=display">
+f(x) - p_n(x) = \frac{(x-x_0)(x-x_1)\cdots(x-x_n)}{(n+1)!}f^{(n+1)}(\xi).
+</script>
+</p>
+<h2 id="fenomeno-de-runge">Fenômeno de Runge</h2>
+<p>É um problema de oscilação nas bordas de um intervalo
+que ocorre ao se usar a interpolação polinomial 
+com polinômio de alto grau em um conjunto de pontos <em>equidistantes</em>. 
+Foi descoberto por Carl David
+Tolmé Runge que mostrou que aumentar o grau não 
+aumenta precisão necessariamente. </p>
+<p>Considere a função 
+<script type="math/tex; mode=display">
+f(x) = \frac{1}{1 + 25x^2}
+</script>
+e defina <script type="math/tex">x_i = \frac{2i}{n} - 1, i \in \{0, 1, \dots, n\}</script>
+com um polinômio de grau no máximo <script type="math/tex">n</script>. Podemos provar que 
+<script type="math/tex; mode=display">
+\lim_{n \to \infty}\left(\max_{-1 \le x \le 1} |f(x) - P_n(x)|\right) = +
+\infty. 
+</script>
+</p>
+<p>Vamos verificar empiricamente, é claro. </p>
+<p><img alt="" src="../runge_phenomenon.png" /></p>
+<h2 id="polinomios-de-chebyshev">Polinômios de Chebyshev</h2>
+<p>Um tópico importante dentro da interpolação 
+e da estimação de curvas de forma geral são 
+os polinômios <strong>ortogonais</strong>. Lembrando que uma
+base ortogonal ocorre quando o produto interno 
+de dois elementos da base diferentes é nulo. 
+Isso acontece com os polinômios também, só 
+que o produto interno é </p>
+<p>
+<script type="math/tex; mode=display">
+\langle \phi_k, \phi_j \rangle = \int_a^b w(x)\phi_k(x)\phi_j(x) \, dx, 
+</script>
+em que <script type="math/tex">w(x)</script> é uma função peso. Note que essa 
+é uma extensão do produto escalar que é a soma 
+finita dos produtos dos componentes dos vetores. 
+Esse é um assunto muito interessante, mas vamos 
+ao tópico. Os polinômios de CHebyshev formam uma
+base ortogonal em <script type="math/tex">[-1,1]</script> com respeito a função
+peso <script type="math/tex">w(x) = (1 - x^2)^{-1/2}</script>. Definimos </p>
+<p>
+<script type="math/tex; mode=display">
+T_n(x) = \cos(n\arccos(x)), n \ge 0, x \in [-1,1].
+</script>
+</p>
+<p>Para verificar que <script type="math/tex">T_n</script> é um polinômio, note que </p>
+<p>
+<script type="math/tex; mode=display">
+T_0(x) = \cos(0) = 1, \quad T_1(x) = \cos(\arccos(x)) = x.
+</script>
+Além do mais, sabemos que 
+<script type="math/tex; mode=display">
+T_{n+1}(x) = \cos((n+1)\theta) = \cos(\theta)\cos(n\theta) - 
+\sin(\theta)\sin(n\theta)
+</script>
+e 
+<script type="math/tex; mode=display">
+T_{n-1}(x) = \cos((n-1)\theta) = \cos(\theta)\cos(n\theta) + 
+\sin(\theta)\sin(n\theta),
+</script>
+pondo <script type="math/tex">\theta = \arccos(x)</script>. Assim, é fácil ver que 
+<script type="math/tex; mode=display">
+T_{n+1}(x) + T_{n-1}(x) = 2xT_n(x) \implies T_{n+1}(x) = 2xT_n(x) -
+T_{n-1}(x). 
+</script>
+Por indução, conseguimos ver que <script type="math/tex">T_n</script> é de fato
+um polinômio. Esses polinômios são usados 
+para minimizar o erro de aproximação de uma 
+interpolação. No caso dos polinômios de Lagrange, 
+isso se dá pela escolha apropriada de <script type="math/tex">x_1, x_2, \dots, x_n</script>. </p>
+<p><img alt="" src="../chebyshev_polynomials.png" /></p>
+<blockquote>
+<p>Zeros do polinômio de Chebyshev</p>
+</blockquote>
+<p>O polinômio <script type="math/tex">T_n(x)</script> de grau <script type="math/tex">n \ge 1</script> tem <script type="math/tex">n</script> zeros <em>simples</em> 
+(multiplicidade <script type="math/tex">1</script>) em <script type="math/tex">[-1,1]</script> em 
+<script type="math/tex; mode=display">
+\bar{x}_k = \cos\left(\frac{2k-1}{2n}\pi\right), k = 1,\dots, n.
+</script>
+Além do mais, ele assume valores absolutos extremos em 
+<script type="math/tex; mode=display">
+x_k = \cos\left(\frac{k\pi}{n}\right) \text{ com } T_n(x_k)= (-1)^k, k =0,1,\dots,n.
+</script>
+</p>
+<blockquote>
+<p>Máximo atingido </p>
+</blockquote>
+<p>Seja <script type="math/tex">\tilde{T}_n(x) = T_n(x)2^{1-n}</script>. Temos que </p>
+<p>
+<script type="math/tex; mode=display">
+\frac{1}{2^{n-1}} = \max_{x \in [-1,1]} |\tilde{T}_n(x)| \le \max_{x \in
+[-1,1]} |P_n(x)|, 
+</script>
+para todo polinômio <em>mônico</em> <script type="math/tex">P_n(x)</script>. Além disso a igualdade só
+ocorre para o polinômio de Chebyshev. </p>
+<blockquote>
+<p>Escolha de <script type="math/tex">x_i</script> para Lagrange</p>
+</blockquote>
+<p>Lembre que </p>
+<p>
+<script type="math/tex; mode=display">
+f(x) - p(x) = \frac{f^{(n+1)}(\xi(x))}{(n+1)!}(x-x_0)\cdots(x-x_n).
+</script>
+Como <script type="math/tex">Q(x) = (x-x_0)\cdots(x-x_n)</script> é um polinômio mônico de grau <script type="math/tex">n+1</script>, 
+escolhendo <script type="math/tex">x_i</script> para serem as raízes do polinômio de Chebyshev, estaremos
+fazendo <script type="math/tex">Q(x) = \tilde{T}_{n+1}(x)</script> para todo <script type="math/tex">x \in [-1,1]</script>. 
+Assim, obtemos que 
+<script type="math/tex; mode=display">
+\frac{1}{2^{n}} = \max_{x \in [-1,1]} |(x-\bar{x}_0)(x-\bar{x}_1)\cdots(x-\bar{x}_n)|.
+</script>
+O que implica que 
+<script type="math/tex; mode=display">
+\max_{x \in [-1,1]} |f(x) - p(x)| \le \frac{1}{2^{n}(n+1)!}\max_{x \in [-1,1]} |f^{n+1}(x)|.
+</script>
+</p>
+<p><img alt="" src="../chebyshev_zeros.png" /></p>
+<h3 id="intervalo-ab">Intervalo <script type="math/tex">[a,b]</script>
+</h3>
+<p>Agora que entendemos como escolher os pontos em <script type="math/tex">[-1,1]</script>, precisamos
+extender para um intervalo fechado qualquer. Para isso, basta fazer
+a mudança de variáveis 
+<script type="math/tex; mode=display">
+\tilde{x} = \frac{1}{2}[(b-a)x + a + b].
+</script>
+</p>
+<h2 id="sugestoes">Sugestões</h2>
+<ul>
+<li><a href="https://archive.org/details/zeitschriftfrma12runggoog">Material original de 1901: o texto não está em português, 
+mas vale a pena olhar.</a></li>
+<li><a href="https://github.com/lucasmoschen/ta-sessions/tree/master/docs/analisenum">Códigos para os gráficos.</a></li>
+</ul></div>
+        
+        
+    </div>
+
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
+
+          
+          
+      </footer>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../../js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = "../.."</script>
+    
+    <script src="../../js/base.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+
+    
+    <title>Monitoria 7 - Teaching Assistant</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../../css/base.min.css" rel="stylesheet">
+    <link href="../../../css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            
+              <a class="navbar-brand" href="../../..">Teaching Assistant</a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../info/">Álgebra Linear</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../../analisenum/info/">Análise Numérica</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../../edo/info/">EDO</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../../edp/info/">EDP</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../../infestatistica/info/">Estatística</a>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://lucasmoschen.github.io">Página Inicial</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#monitoria-7">Monitoria 7</a></li>
+            <li class="second-level"><a href="#definicoes-e-teoremas">Definições e Teoremas</a></li>
+                
+            <li class="second-level"><a href="#importante">Importante</a></li>
+                
+            <li class="second-level"><a href="#exercicios">Exercícios:</a></li>
+                
+            <li class="second-level"><a href="#aplicacao-quadrados-magicos">Aplicação: Quadrados Mágicos</a></li>
+                
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="monitoria-7">Monitoria 7</h1>
+<h2 id="definicoes-e-teoremas">Definições e Teoremas</h2>
+<ul>
+<li>Quando uma linha é substituída pela soma dela com um múltiplo de outra, a nova linha pertence ao mesmo subespaço gerado pelas primeiras. Mais do que isso, o subespaço gerado é o mesmo.</li>
+<li><strong>Nulidade da Matriz:</strong> Dimensão do espaço anulado da matriz <script type="math/tex">A</script> (<script type="math/tex">anul(A)</script>). Você sabe encontrar a nulidade de uma matriz? <strong>Teorema do Posto</strong>! <script type="math/tex">anul(A) + posto(A) = n</script>.</li>
+<li>Considere <script type="math/tex">Ax = v_E</script>. Então, <script type="math/tex">A</script> é a matriz de passagem da base <script type="math/tex">B</script> para a base <script type="math/tex">E</script>, canônica. Assim, <script type="math/tex">v_B = A^{-1}v_E</script>. </li>
+<li>Transformação Linear é uma função linear entre os espaços vetorias <script type="math/tex">E</script> e <script type="math/tex">F</script>  com as propriedades de soma <script type="math/tex">T(u+v)=T(u)+T(v)</script> e <script type="math/tex">T(\alpha u) = \alpha T(u)</script>.</li>
+<li>Lembre que <script type="math/tex">T(v) = T(\alpha_1 e_1 + ... + \alpha_n e_n) = \alpha_1 T(e_1) + ... + \alpha_n T(e_n)</script>. Logo, a transformação linear está definida quando conhcemos as imagens dos elementos de uma base. Daí saí a matriz de transformação.</li>
+<li>O escalonamento mantém a relação entre as colunas das matrizes. Para se ter a intuição, basta pensar que para resolver sistemas, escalonamos as matrizes, e as incógnitas permanecem as mesmas para o sistema escalonado.</li>
+<li>Suponha que temos uma vetor <script type="math/tex">w_\beta = (a,b)_\beta</script> e queremos reescrever <script type="math/tex">w_E = (a',b')</script>, na base canônica. Para isso, precisamos fazer uma mudança de bases que envolve uma matriz de tranformação. Essa matriz é simples, pois é composta pelos vetores da base <script type="math/tex">\beta</script>. </li>
+<li><strong>Teorema:</strong> Seja uma transformação linear <script type="math/tex">A: E \to F</script>. A cada vetor <script type="math/tex">u \in \beta</script> base de <script type="math/tex">E</script>, façamos corresponder um vetor <script type="math/tex">u' \in F</script>. Então essa tranformação, tal que <script type="math/tex">Au = u'</script>, é única. </li>
+</ul>
+<h2 id="importante">Importante</h2>
+<ul>
+<li>Saber encontrar bases do espaço-coluna, do espaço-linha e do espaço-anulado (logo suas dimensões).</li>
+<li>Um funcional linear é <script type="math/tex">T: E \to \mathbb{R}</script>.</li>
+<li>Um operador linear é <script type="math/tex">T: E \to E</script>. </li>
+<li>Lembrar de conjunto gerador. </li>
+</ul>
+<h2 id="exercicios">Exercícios:</h2>
+<ol>
+<li>Prove que os seguintes polinômios são linearmente independentes: <script type="math/tex">p(x) = x^3 - 5x^2 + 1, q(x) = 2x^4 + 5x - 6, r(x) = x^2 - 5x + 2</script>. <em>Considere a base <script type="math/tex">X = \{1, x, x^2, x^3, x^4\}</script></em></li>
+<li>Seja <script type="math/tex">X</script> um conjunto de polinômios.  Se dois polinômios quaisquer de <script type="math/tex">X</script> têm graus diferentes, <script type="math/tex">X</script> é LI.</li>
+<li>Mostre que os vetores <script type="math/tex">u = (1,1)</script> e <script type="math/tex">v = (-1,1)</script> formam uma base de <script type="math/tex">\mathbb{R}^2</script>. </li>
+<li>Encontre os espaços linha, coluna e anulado da matriz:</li>
+</ol>
+<p>
+<script type="math/tex; mode=display">
+A = \left[
+\begin{array}{ccccc}
+-1 & 2 & 0 & 4 & 5\\
+3 & -7 & 2 & 0 & 1\\
+2 & -5 & 2 & 4 & 6
+\end{array}
+\right]
+</script>
+</p>
+<ol>
+<li>Seja <script type="math/tex">U = \{u_1,u_2,u_3\}</script>. Como representar o vetor <script type="math/tex">(a,b,c)</script>, como combinação linear dos vetores de <script type="math/tex">U</script>. </li>
+<li>Exiba uma base para o espaço vetorial formado pelos polinômios de grau <script type="math/tex">\leq n</script> que se anulam em <script type="math/tex">x=2</script> e <script type="math/tex">x=3</script>. Qual a dimensão dessa base? </li>
+<li>Tem-se uma transformação linear <script type="math/tex">A(-1,1) = (1,2,3)</script> e <script type="math/tex">A(2,3) = (1,1,1)</script>. Qual a matriz de tranformação de <script type="math/tex">A</script>, em relação às bases canônicas. </li>
+<li>Avalie as afirmações: </li>
+<li>( ) Seja <script type="math/tex">C = \{(x_1,x_2,x_3,x_4,x_5); x_i = 3\cdot x_{i-1}, i=2,...,5\}</script>. É um subespaço do <script type="math/tex">\mathbb{R}^5</script>. (Se verdadeiro, apresente uma base). </li>
+<li>( ) É possível encontrar dois planos do <script type="math/tex">\mathbb{R}^4</script> que se interesectem em apenas um ponto. (<em>Pense em planos com dois parâmetos livres</em>).</li>
+<li>( ) O conjunto de todas as matrizes cujo determinante é maior do que zero é um subespaço das matrizes. </li>
+<li>( ) A união de dois conjuntos LI é um conjunto LI, se  um deles é disjunto do subespaço gerado pelo outro. </li>
+<li>( ) Existe apenas uma transformação linear com <script type="math/tex">T(0,0,1) = (1,2)</script>, <script type="math/tex">T(0,1,0) = (2,3), T(1,0,0) = (4,7) </script>, onde <script type="math/tex">T: \mathbb{R}^3\to \mathbb{R}^2</script>. Isto é, não existem <script type="math/tex">x,y,z</script>, tal que <script type="math/tex">T(x,y,z) \neq T'(x,y,z)</script> com essas propriedades. </li>
+<li>( ) Se <script type="math/tex">u, v, w \in E</script> são colineares, então <script type="math/tex">Au,Av,Aw</script> também são. </li>
+<li>( ) Se <script type="math/tex">Aw = Au + Av</script>, então <script type="math/tex">w = u + v</script>.</li>
+</ol>
+<h2 id="aplicacao-quadrados-magicos">Aplicação: Quadrados Mágicos</h2>
+<p>Na monitoria 6, observamos a imagem da Melancolia I, de Albrecht Durer de 1514, em que apareceia um quadrado mágico clássico.</p>
+<p><em>Para lembrar: definimos uma matriz <script type="math/tex">n\times n</script> como quadrado mágico quando a soma de cada linha, coluna e diagonal é igual. Essa soma se chama peso. <script type="math/tex">Mag_n</script> o conjunto de todos os quadrados mágicos de ordem <script type="math/tex">n</script>.O quadrado será clássico se usarmos os todos on números entre <script type="math/tex">1</script> e <script type="math/tex">n^2</script></em>. </p>
+<p>Considere <script type="math/tex">Mag_2</script>. Você conseguiria encontrar uma base para esse subespaço das matrizes 2 por 2 (provamos que é um subespaço na semana passada)? E <script type="math/tex">Mag_3</script>? </p>
+<p><strong>Exemplo:</strong> <script type="math/tex">X = \{(1,1,1),(1,2,1)\}, Y = \{(1,0,0),(0,0,1)\}</script>
+</p></div>
+        
+        
+    </div>
+
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
+
+          
+          
+      </footer>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = "../../.."</script>
+    
+    <script src="../../../js/base.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>

@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+
+    
+    <title>Lista 2 - Análise Numérica - Teaching Assistant</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../css/base.min.css" rel="stylesheet">
+    <link href="../../css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            
+              <a class="navbar-brand" href="../..">Teaching Assistant</a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../alglin/info/">Álgebra Linear</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../info/">Análise Numérica</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../edo/info/">EDO</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../edp/info/">EDP</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../infestatistica/info/">Estatística</a>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://lucasmoschen.github.io">Página Inicial</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#lista-2-analise-numerica">Lista 2 - Análise Numérica</a></li>
+            <li class="second-level"><a href="#outras-questoes-da-lista">Outras questões da lista</a></li>
+                
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="lista-2-analise-numerica">Lista 2 - Análise Numérica</h1>
+<p><strong>Escola de Matemática Aplicada, Fundação Getulio Vargas</strong></p>
+<p><strong>Professor:</strong> Hugo A. de la Cruz Cancino</p>
+<p><strong>Monitor:</strong> Lucas Machado Moschen</p>
+<p><strong>Data da entrega:</strong> 12/09/2021</p>
+<ol>
+<li>Considere a matriz diagonal por blocos <script type="math/tex">A \in \mathbb{R}^{m^2 \times m^2}</script>
+<script type="math/tex; mode=display">
+A = \begin{bmatrix}
+    T & -I & 0 & 0 & \dots & 0 \\
+    -I & T & -I & 0 & \dots & 0 \\
+    0 & -I & T & -I & \dots & 0 \\
+    &&\dots&\dots&& \\
+    0 & \dots & 0 & 0 & -I & T 
+    \end{bmatrix}
+</script>
+onde <script type="math/tex">I  \in \mathbb{R}^{m\times m}</script> é a matriz identidade <script type="math/tex">T \in \mathbb{R}^{m\times m}</script>  é dada por
+<script type="math/tex; mode=display">
+T = \begin{bmatrix}
+    4 & -1 & 0 & 0 & \dots & 0 \\
+    -1 & 4 & -1 & 0 & \dots & 0 \\
+    0 & -1 & 4 & -1 & \dots & 0 \\
+    &&\dots&\dots&& \\
+    0 & \dots & 0 & 0 & -1 & 4 
+    \end{bmatrix}
+</script>
+</li>
+</ol>
+<p><strong>(a) O método de Gauss-Seidel aplicado ao sistema <script type="math/tex">Ax = b (b \in R^m)</script> é
+convergente <script type="math/tex">\forall m \in N</script> ? Justifique bem sua resposta.</strong></p>
+<p>Existem algumas formas de verificar esse resultado usando alguns resultados da
+literatura. De forma geral para métodos iterativos, podemos fazer:</p>
+<p>(i) Mostrar que a matriz do método <script type="math/tex">T = -(D + L)^{-1}U</script> tem o maior autovalor
+em módulo é menor do que 1. Seja <script type="math/tex">x</script> autovetor de <script type="math/tex">T</script> cujo autovalor
+correspondente é <script type="math/tex">\lambda</script>. Assim <script type="math/tex">-(D+L)^{-1}Ux = \lambda x \implies -Ux =
+\lambda(D+ L)x</script>. De fato, teríamos que <script type="math/tex">||U||||x|| \ge |\lambda|||(D+L)x||</script>
+para todo autovetor <script type="math/tex">x</script>, que pode ser considerado de norma 1. Assim, se
+conseguíssemos mostrar que <script type="math/tex">||U||/||(D+L)x|| < 1</script> para todo autovetor <script type="math/tex">x</script>,
+teríamos que <script type="math/tex">\rho(T) < 1</script>. Se tomarmos a norma máximo, é fácil ver que <script type="math/tex">||U||
+= 6</script>. Será que é fácil mostrar que <script type="math/tex">||(D+L)x|| > 6</script>? Eu acredito que não. Para
+isso teríamos que encontrar o formato dos autovalores, pois, de forma geral,
+se <script type="math/tex">x</script> é um vetor qualquer, essa desigualdade não é observada. </p>
+<p>(ii) Mostrar que <script type="math/tex">||T|| = ||(D+L)^{-1}U|| < 1</script> para alguma norma induzida.
+Infelizmente, isso também não parece trivial de se fazer, mesmo sabendo que a
+inversa de uma matriz triangular inferior é triangular inferior. </p>
+<p>(iii) A matriz <script type="math/tex">A</script> é estritamente diagonalmente dominante: isso não é verdade para
+essa matriz.</p>
+<p>(iv) A matriz <script type="math/tex">A</script> é irredutivelmente diagonalmente dominante: aqui precisamos
+mostrar que ela é diagonalmente dominante (o que de fato é, pois a diagonal é
+4, enquanto ou outros elementos da mesma linha são no máximo quatro valores
+-1) e que pelo menos uma linha vale a desigualdade estrita, o que vale para a
+primeira linha. Assim já provamos que vale a convergência de Gauss-Seidel.
+Para verificar esse teorema, <a href="https://www.jstor.org/stable/2132758?seq=4#metadata_info_tab_contents">esse
+artigo</a>
+pode ser um bom início. </p>
+<p>(v) A matriz <script type="math/tex">A</script> é positiva definida. Provamos que se <script type="math/tex">0 < \omega < 2</script>, o
+método SOR converge nesse caso. Como Gauss-Seidel é um casso particular
+<script type="math/tex">\omega = 1</script>, basta verificar a positividade. Um bom material nesse sentido é
+<a href="https://www.uio.no/studier/emner/matnat/ifi/nedlagte-emner/INF-MAT3350/h07/undervisningsmateriale/chap9slides.pdf">esse
+aqui</a>.
+Nesse caso, procurar os autovalores de <script type="math/tex">A</script> (que têm um formato bem
+conveniente) e mostrar que eles são positivos é uma boa. </p>
+<p><strong>(b) Uma boa escolha do parâmetro <script type="math/tex">\omega</script> no método SOR pode levar a uma convergência mais rápida, comparado
+com Jacobi e Seidel. Em geral determinar o valor ótimo de <script type="math/tex">\omega</script> não é um problema fácil, mas em alguns
+casos em que a matriz do sistema tem uma estrutura específica é possível achar esse valor ótimo <script type="math/tex">\omega</script> ótimo.
+Por exemplo, para a matriz <script type="math/tex">A</script> acima é conhecido que</strong></p>
+<p>
+<script type="math/tex; mode=display">
+\omega_{\mathrm{otimo}} = \frac{2}{1 + \sin\left(\frac{\pi}{m+1}\right)}.
+</script>
+</p>
+<p><strong>Implemente o método SOR para resolver o sistema <script type="math/tex">Ax = b</script>; onde <script type="math/tex">b</script> é um vetor tal que o sistema tem a
+solução exata <script type="math/tex">x = (2, 2, \dots, 2)</script>. Compare a performance do método SOR usando 4 valores diferentes
+do parâmetro <script type="math/tex">\omega</script>:</strong></p>
+<p><strong>i) <script type="math/tex">\omega = \omega_{\mathrm{otimo}}</script></strong> </p>
+<p><strong>ii) <script type="math/tex">\omega = 1</script> (o método de Seidel)</strong> </p>
+<p><strong>iii) <script type="math/tex">\omega = 0.5</script></strong></p>
+<p><strong>iv) <script type="math/tex">\omega = 0</script>,</strong></p>
+<p><strong>para 4 valores diferentes de <script type="math/tex">m</script>: <script type="math/tex">m = 50, 100, 1000, 5000</script>. Como critério de comparação use o número de iterações
+necessárias para que o erro na norma <script type="math/tex">\infty</script> seja <script type="math/tex">\le 10^{-6}</script>. Comente
+sobre os resultados obtidos.</strong></p>
+<p>A implementação desse problema pode ser encontrado na <a href="https://github.com/lucasmoschen/ta-sessions/tree/master/Numerical_Analysis/lists/list2">pasta do
+repositório</a>.</p>
+<p>Vamos lembrar que a iteração do método SOR é dada por 
+<script type="math/tex; mode=display">
+x_i^{(k)} = (1 - \omega)x_{i}^{(k-1)} + \frac{\omega}{a_{ii}}\left[b_i -
+\sum_{j-1}^{i-1} a_{ij}x_j^{(k)} - \sum_{j=i+1}^n a_{ij}x_{j}^{(k-1)} \right]
+</script>
+</p>
+<p>Para essa matriz em particular, temos uma estrutura interessante. Observe que
+para linha <script type="math/tex">i</script> temos: </p>
+<ul>
+<li>Um valor 4 na diagonal, isto é, <script type="math/tex">a_{ii} = 4</script>. </li>
+<li>Um valor -1 à esquerda de 4 (exceto na primeira linha de cada <script type="math/tex">T</script>), isto é,
+  <script type="math/tex">a_{i,i-1} = -1</script> se <script type="math/tex">i \neq 1 \mod m</script>. </li>
+<li>Um valor -1 à direita de 4 (exceto na última linha de cada <script type="math/tex">T</script>), isto é,
+  <script type="math/tex">a_{i,i+1} = -1</script> se <script type="math/tex">i \neq -1 \mod m</script>.</li>
+<li>Um valor -1 na identidade ao lado esquerdo de <script type="math/tex">T</script>, isto é,
+  <script type="math/tex">a_{i,i-m} = -1</script> se <script type="math/tex">i > m</script>. </li>
+<li>Um valor -1 na identidade ao lado direito de <script type="math/tex">T</script>, isto é,
+  <script type="math/tex">a_{i,i+m} = -1</script> se <script type="math/tex">i + m \le m^2</script>. </li>
+</ul>
+<p>A iteração se reduz a 
+<script type="math/tex; mode=display">
+x_i^{(k)} = (1 - \omega)x_{i}^{(k-1)} + \frac{\omega}{4}\left[b_i +
+x_{i-1}^{(k)} + x_{i-m}^{(k)} + x_{i+1}^{(k-1)} + x_{i+m}^{(k-1)} \right],
+</script>
+com as restrições já citadas a cima. </p>
+<p>Além disso, <script type="math/tex">b</script> também tem uma estrutura bem particular que pode ser também utilizada. Multiplicando pelo
+vetor com só valores 1 faz com que somemos as linhas. O que fazemos então é
+subtrair de 4 o número de condições verdadeiras: <script type="math/tex">i \neq 1 \mod m</script>, <script type="math/tex">i \neq -1
+\mod m</script>, <script type="math/tex">i > m</script>, e <script type="math/tex">i \le m^2 - m</script>. </p>
+<p>Uma visualização interessante do processo que podemos ter é sobre o vetor <script type="math/tex">x</script>.
+Ele é um vetor em <script type="math/tex">\mathbb{R}^{m^2}</script>. Porém podemos imagina-lo como uma matriz
+<script type="math/tex">\mathbb{R}^{m \times m}</script>. Nesse caso se <script type="math/tex">j = mq + r</script>, dizemos que <script type="math/tex">x_j =
+x_{q+1,r}</script> a menos que <script type="math/tex">j = mq</script>. Nesse caso <script type="math/tex">x_j = x_{q,m}</script>. Com essa
+estrutura, veja que <script type="math/tex">x_{i-m}</script> fica na mesma coluna de <script type="math/tex">x_i</script>, mas uma linha
+acima. Isso nos permite escrever </p>
+<p>
+<script type="math/tex; mode=display">
+x_{i,j}^{(k)} = x_{i,j}^{(k-1)} + \frac{\omega}{4}\left[x_{i, j-1}^{(k)} +
+x_{i-1,j}^{(k)} + x_{i,j+1}^{(k-1)} + x_{i+1,j}^{(k-1)} + b_{i,j} - 4x_{i,j}^{(k-1)}\right],
+</script>
+e as condições se restringem a condições de borda (isto é, <script type="math/tex">1 \le i,j \le m</script>).
+Do jeito que calculamos agora, não é possível paralelizar o cálculo. Para
+fazer isso, uma estratégia é montar o <a href="https://www.bu.edu/tech/support/research/training-consulting/online-tutorials/mpi/alliance/solvers/#:~:text=A%20Parallel%20SOR%20Red-black%20Scheme">Grid
+Red-Black</a>.</p>
+<p>Esse problema é muito custoso quando <script type="math/tex">m</script> cresce. Em particular, colocando
+<script type="math/tex">x_0</script> a uma distância de Normal(0, sd = 0.01), para fazer a seguinte figura,
+levou 11s. Porém, para <script type="math/tex">m = 1000</script>, esse tempo já foi muito superior. </p>
+<p><img alt="" src="../exercise1.png" /></p>
+<h2 id="outras-questoes-da-lista">Outras questões da lista</h2>
+<p><a href="/files/disciplines/numerical-analysis/lista2.pdf">Métodos iterativos para sistemas de equações lineares</a></p></div>
+        
+        
+    </div>
+
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
+
+          
+          
+      </footer>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../../js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = "../.."</script>
+    
+    <script src="../../js/base.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>

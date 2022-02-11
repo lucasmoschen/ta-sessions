@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+
+    
+    <title>Métodos numéricos para solução de EDOs - Teaching Assistant</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../css/base.min.css" rel="stylesheet">
+    <link href="../../css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            
+              <a class="navbar-brand" href="../..">Teaching Assistant</a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../alglin/info/">Álgebra Linear</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../info/">Análise Numérica</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../edo/info/">EDO</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../edp/info/">EDP</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../infestatistica/info/">Estatística</a>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://lucasmoschen.github.io">Página Inicial</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#metodos-numericos-para-solucao-de-edos">Métodos numéricos para solução de EDOs</a></li>
+            <li class="second-level"><a href="#metodos-numericos">Métodos numéricos</a></li>
+                
+                <li class="third-level"><a href="#metodos-de-um-passo">Métodos de um passo</a></li>
+                <li class="third-level"><a href="#metodo-de-euler">Método de Euler</a></li>
+                <li class="third-level"><a href="#metodo-de-heun">Método de Heun</a></li>
+                <li class="third-level"><a href="#metodos-de-taylor">Métodos de Taylor</a></li>
+                <li class="third-level"><a href="#metodos-runge-kutta">Métodos Runge-Kutta</a></li>
+            <li class="second-level"><a href="#equacoes-diferenciais-stiff-rigida-dificil">Equações diferenciais Stiff (rígida, difícil)</a></li>
+                
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="metodos-numericos-para-solucao-de-edos">Métodos numéricos para solução de EDOs</h1>
+<p>Problemas de valor inicial para equações diferenciais ordinárias (EDOs)
+ocorrem em quase todas as ciências, tal como a mecânica de Newton, o movimento
+das partículas, evoluções de doenças, mecânica quântica (aqui uma equação
+parcial é am ias conhecida), entre outros. No <a href="https://lucasmoschen.github.io/ta-sessions/edp/calculus_of_variations/">cálculo das variações</a>, essa
+teoria também é muito importante, como vimos no curso de EDP. Mais motivações
+dessa área são deixados para outros materiais, como <a href="https://mathinsight.org/ordinary_differential_equation_introduction">esse aqui</a>,
+<a href="https://towardsdatascience.com/ordinal-differential-equation-ode-in-python-8dc1de21323b">esse aqui</a>,
+ou algum livro de EDOs recomendado pelo curso.  </p>
+<p>O problema de valor inicial padrão envolve um sistema de equações 
+diferenciais de primeira ordem, 
+<script type="math/tex; mode=display">\frac{dy_i}{dx} = f_i(x,y_1, \dots, y_n), \quad i = 1, \dots, n</script>
+e suas condições iniciais, 
+<script type="math/tex; mode=display">y_i(a) = y_i^{(0)}, \quad i = 1, \dots n.</script>
+Uma equação de segunda ordem, tal como 
+<script type="math/tex; mode=display">y'' + y = a</script>
+pode ser transformada em um sistema de primeira ordem introduzindo 
+a variável <script type="math/tex">z = y'</script>. </p>
+<blockquote>
+<p>A existência de soluções em um sistema de EDOs é garantida quando a função
+é contínua, enquanto a unicidade é garantida quando as últimas <script type="math/tex">n-1</script>
+componentes são Lipshitz Contínuas. Mais detalhes podem ser consultados <a href="https://github.com/lucasmoschen/ta-sessions/blob/master/Ordinary_Differential_Equations/Extra/TeoremaFundamental.pdf">aqui</a>
+para um resumo, ou algum texto-livro de EDOs. </p>
+</blockquote>
+<h2 id="metodos-numericos">Métodos numéricos</h2>
+<p>Suponha que queremos resolver 
+<script type="math/tex; mode=display">\frac{dy}{dx} = f(x,y), y \in \mathbb{R}^n, x \in \mathbb{R}, y(0) = y_0.</script>
+</p>
+<p>Existem basicamente dois tipos de métodos para solução numérica de EDOs, 
+os <strong>métodos por aproximação analítica</strong> que buscam aproximar a função 
+<script type="math/tex">y(x)</script> para qualquer ponto <script type="math/tex">x \in [a,b]</script>, tomando a forma de uma expansão de
+série truncada; e os <strong>métodos variável-discreta</strong> que procuram estimar
+a função em pontos <script type="math/tex">y(x_i)</script> para <script type="math/tex">x_i \in \{x_1, \dots, x_p\} \subset [a,b]</script>. </p>
+<h3 id="metodos-de-um-passo">Métodos de um passo</h3>
+<p>Para <script type="math/tex">x \in [a,b]</script>, definimos esses tipos de método por 
+<script type="math/tex; mode=display">y_{\mathrm{next}} = y + h\Phi(x, y, h), h > 0,</script>
+em que <script type="math/tex">\Phi : [a,b] \times \mathbb{R}^n \times \mathbb{R}_{+} \to
+\mathbb{R}^n</script> com uma incrementação aproximada por passo. </p>
+<p>Chamamos de <strong>solução referência</strong> a função <script type="math/tex">u(t)</script> tal que 
+<script type="math/tex; mode=display">\frac{du}{dt} = f(t,u), x \le t \le x + h, u(x) = y.</script>
+Temos que <script type="math/tex">y_{\mathrm{next}}</script> procura estimar <script type="math/tex">u(x+h)</script>. Para avaliar essa 
+aproximação, definimos o <strong>erro de truncamento</strong> dado pela expressão
+<script type="math/tex; mode=display">T(x,y,h) = \frac{1}{h}[y_{\mathrm{next}} - u(x+h)].</script>
+Dizemos que o método, dado pela descrição de <script type="math/tex">\Phi</script>, é <strong>consistente</strong> se 
+<script type="math/tex; mode=display">T(x,y,h) \to 0, \; \text{ quando  } h \to 0.</script>
+Também dizemos que o método é de ordem <script type="math/tex">p</script> se para alguma norma (não importa
+qual nesse contexto pela equivalência das normas) e para algum <script type="math/tex">C \in
+\mathbb{R}</script>, vale que 
+<script type="math/tex; mode=display">||T(x,y,h)|| \le Ch^p.</script>
+</p>
+<h3 id="metodo-de-euler">Método de Euler</h3>
+<p>No método de Euler, temos que <script type="math/tex">\Phi(x,y,h) = f(x,y)</script>. Note que o passo 
+será a expansão de Taylor de primeira ordem: 
+<script type="math/tex; mode=display">y_{\mathrm{next}} = y + hf(x,y).</script>
+O erro de truncamento é
+<script type="math/tex; mode=display">T(x,y,h) = \frac{1}{h}(y + hf(x,y) - u(x+h)) = f(x,y) - \frac{1}{h}(u(x+h) -
+u(x)).</script>
+que é claramente consistente, porque quando <script type="math/tex">h</script> tende a 0, temos que a
+expressão de <script type="math/tex">u</script> converge para <script type="math/tex">u'(x) = f(x,y)</script>. Além disso, note que 
+<script type="math/tex; mode=display">T(x,y,h) = u'(x) - \frac{1}{h}\left(u(x) + hu'(x) + \frac{h^2}{2}u''(\xi(x)) -
+u(x)\right) = -\frac{h}{2}u''(\xi(x)),</script>
+em que <script type="math/tex">\xi(x) \in (x, x+h)</script> pelo Teorema do Valor Médio e usando a 
+expansão de Taylor. Isso nos permite mostrar que <script type="math/tex">||T(x,y,h)|| \le Ch</script> e 
+o método de Euler é de ordem <script type="math/tex">p=1</script>. </p>
+<p>Para verificar a ordem, uma maneira relativamente fácil é 
+verificar que <script type="math/tex">0 \le |y(x_k) - y_k| \le (1 + hL)|y(x_{k-1}) - y_{k-1}| +
+Dh^2</script>, em que <script type="math/tex">L</script> é a constante de Lipschitz de <script type="math/tex">f</script> e <script type="math/tex">D =
+\max_{[a,b]}||y''(\xi)||</script>.</p>
+<p>Na vida real, o método de Euler é pouco utilizado, pois o seu erro se 
+acumula ao longo das iterações e a curva fica bem diferente ao longo 
+do tempo. Lembre que ele é uma boa aproximação local, mas uma péssima 
+global. </p>
+<h3 id="metodo-de-heun">Método de Heun</h3>
+<p>Vamos tentar corrigir a separação da curva real com a aproximação 
+por Euler. O algoritmo Heun atende a esse requisito de correção. 
+Em vez de focar no ponto inicial à esquerda do intervalo em que 
+calculamos <script type="math/tex">f(x,y)</script>, usamos a informação do ponto final da curva. A ideia é
+que quando a tangente subestima o valor da função no ponto à esquerda do
+intervalo, teremos que ela superestimará quando pegarmos do ponto à direita
+(pelo menos em funções bem comportadas e <script type="math/tex">h</script> suficientemente pequeno). A
+imagem abaixo ilustra esse fato: </p>
+<p><img alt="Intuição algoritmo de Heun." src="../euler-heun.png" /></p>
+<p>Com isso, o método fica 
+<script type="math/tex; mode=display">y_n = y_{n-1} + h\frac{f(x_{n-1}, y_{n-1}) + f(x_n, y_n)}{2},</script>
+que é um método implícito. Para isso, aproximamos <script type="math/tex">y_n</script> na equação da direita
+por <script type="math/tex; mode=display">y_{n-1} + hf(x_{n-1}, y_{n-1}),</script>
+que é o método de Euler. Esse método tem ordem <script type="math/tex">p=2</script>. </p>
+<p>Para mais detalhes, <a href="http://calculuslab.deltacollege.edu/ODE/7-C-2/7-C-2-h.html">confira esse
+site</a>. </p>
+<h3 id="metodos-de-taylor">Métodos de Taylor</h3>
+<p>Considere as derivadas totais de <script type="math/tex">f</script> dadas por 
+<script type="math/tex; mode=display">f^{[0]}(x,y) = f(x,y), \\ 
+f^{[k+1]}(x,y) = f_x^{[k]}(x,y) + f_y^{[k]}(x,y)f(x,y), k \in
+\mathbb{Z}_{+}.</script>
+Portanto, 
+<script type="math/tex; mode=display">u^{(k+1)}(t) = f^{[k]}(t, u(t))</script>
+e o método se torna 
+<script type="math/tex; mode=display">\Phi(x,y,h) = f^{[0]}(x,y) + \frac{1}{2}hf^{[1]}(x,y) + \cdots
++\frac{1}{p!}h^{p-1}f^{[p-1]}(x,y).</script>
+Obteremos que o erro de truncagem é 
+<script type="math/tex; mode=display">||T(x,y,h)|| \le \frac{C_p}{(p+1)!}h^p.</script>
+</p>
+<h3 id="metodos-runge-kutta">Métodos Runge-Kutta</h3>
+<p>A ideia desses métodos é escrever 
+<script type="math/tex; mode=display">\Phi(x,y,h) = \sum_{i=1}^r \alpha_s k_s,</script>
+tal que
+<script type="math/tex; mode=display">k_1(x,y) = f(x,y)</script>
+e 
+<script type="math/tex; mode=display">k_s(x,y,h) = f\left(x + \mu_s h, y +
+h\sum_{j=1}^{s-1}\lambda_{s_j}k_j\right), 2 \le s \le r.</script>
+É natural impor que 
+<script type="math/tex; mode=display">\mu_s = \sum_{j=1}^{s-1} \lambda_{s_j}, \quad \sum_{s=1}^r \alpha_s = 1.</script>
+Por fim, basta definir esses parâmetros adicionais introduzidos. O
+Runge-Kutta clássico de ordem 4 tem que <script type="math/tex">r = 4</script>, 
+<script type="math/tex; mode=display">\alpha_1 = \alpha_4 = 1/6, \alpha_2 = \alpha_3 = 2/6,</script>
+<script type="math/tex; mode=display">\mu_2 = \mu_3 = 1/2, \mu_4 = 1.</script>
+</p>
+<p><a href="https://www.math.auckland.ac.nz/~butcher/ODE-book-2008/Tutorials/RK-methods.pdf">Esse é um tutorial</a>
+que pode ser útil. Não se deixe enganar pelo "tutorial", tem bastante
+matemática. <a href="https://www.johndcook.com/blog/2020/02/13/runge-kutta-methods/">Esse também é um bom
+resumo</a>. </p>
+<h2 id="equacoes-diferenciais-stiff-rigida-dificil">Equações diferenciais Stiff (rígida, difícil)</h2>
+<p>Os métodos numéricos para resolver EDOs têm erros inerentes que envolvem
+derivadas de ordem maior. Se essas derivadas são razoavelmente limitadas, o
+erro vai ficar controlado. Problemas de valor inicial cuja magnitude da
+derivada cresce, mas a função não, são chamados de <strong>equações stiff</strong> ou
+equações rígidas/difíceis. A solução exata delas tem termo com forma <script type="math/tex">e^{-ct}</script> em que
+<script type="math/tex">c</script> é grande.  </p>
+<p>Vamos ilustrar esse problema com o seguinte exemplo:
+<script type="math/tex; mode=display">x_1' = 9x_1 + 24x_2 + 5\cos(t) - \frac{1}{3}\sin(t), x_1(0) = 4/3,</script>
+<script type="math/tex; mode=display">x_2' = - 24x_1 - 51u_2 - 9\cos(t) + \frac{1}{3}\sin(t), x_1(0) = 2/3.</script>
+</p>
+<p>Sabemos calcular a solução desse sistema exatamente usando EDOs. Nesse caso, 
+<script type="math/tex; mode=display">x_1(t) = 2e^{-3t} -e^{-39t} + \frac{1}{3}\cos(t), \quad x_2(t) = -e^{-3t} +
+2e^{-39t} - \frac{1}{3}\cos(t).</script>
+A solução é a seguinte:</p>
+<p><img alt="example 1" src="../exact_solution_edo_example1.png" /></p>
+<p>É fácil ver que quando <script type="math/tex">t</script> cresce, ambas as funções convergem para a função
+cosseno:</p>
+<p><img alt="example 1, parte 2" src="../exact_solution_edo_example1_b.png" /></p>
+<p>Vamos aplicar o Runge Kutta com o passo <script type="math/tex">h=0.1</script> e com <script type="math/tex">h=0.05</script>. Note como a
+solução fica bem ruim para o primeiro caso: </p>
+<p><img alt="RUnge-kutta para o exemplo 1" src="../runge_kutta_solution_edo_example1.png" /></p>
+<p>Isso dá uma ideia do quão ruim uma solução pode acabar ficando dependendo do
+<script type="math/tex">h</script> escolhido. Para analisar o erro produzido por equações desse tipo, usamos
+uma <strong>equação de teste</strong>:</p>
+<p>
+<script type="math/tex; mode=display">x'(t) = Ax(t), \quad x(0) = x_0</script>
+</p>
+<p>Note que se a parte real dos autovalores de <script type="math/tex">A</script> forem todos negativos, teremos
+que a solução converge para 0. No método de Euler, por exemplo, </p>
+<p>
+<script type="math/tex; mode=display">x_n = x_{n-1} + hAx_{n-1} = (I + hA)x_{n-1},</script>
+</p>
+<p>que estabelece uma recursividade cuja solução é </p>
+<p>
+<script type="math/tex; mode=display">x_n = (I + hA)^n x_0.</script>
+</p>
+<p>Queremos, em particular, que <script type="math/tex">(I + hA)^n \to 0</script> quando <script type="math/tex">n \to \infty</script>. Se <script type="math/tex">A =
+PDP^{-1}</script> para uma matriz diagonal <script type="math/tex">D</script> e uma invertível <script type="math/tex">P</script>, então 
+<script type="math/tex; mode=display">(I +hA) = (PIP^{-1} + hPDP^{-1}) = P(I + hD)P^{-1} \implies (I +hA)^n = P(I+hD)^nP^{-1}.</script>
+</p>
+<p>Isso permite concluir que <script type="math/tex">x_n \to 0</script> somente se para cada autovalor
+<script type="math/tex">\lambda_i</script> de <script type="math/tex">A</script>, tenhamos que <script type="math/tex">|1 + \lambda_i h| < 1</script>.</p>
+<p><strong>Domínio de estabilidade:</strong> <script type="math/tex">D = \{z \in \mathbb{C} \mid |Re(z)| < 1\}</script>. </p>
+<p>Dizemos que um método é <script type="math/tex">A</script>-estável quando for aplicado à equação de teste 
+<script type="math/tex">x'(t) = \lambda x(t)</script> para <script type="math/tex">Re(\lambda) < 0</script> e <script type="math/tex">\lim x_n = 0</script> para a
+sequência gerada pelo método, para qualquer <script type="math/tex">h > 0</script> escolhido. 
+O método de Euler implícito é <script type="math/tex">A</script>-estável, pois 
+<script type="math/tex; mode=display">x_{n+1} = x_n + \lambda x_{n+1} h \implies x_{n+1} = \frac{1}{1 - \lambda
+h}x_n</script>
+e, portanto, 
+<script type="math/tex; mode=display">x_{n+1} = \left(\frac{1}{1 - \lambda h}\right)^{n+1}x_0.</script>
+</p></div>
+        
+        
+    </div>
+
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
+
+          
+          
+      </footer>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../../js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = "../.."</script>
+    
+    <script src="../../js/base.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>

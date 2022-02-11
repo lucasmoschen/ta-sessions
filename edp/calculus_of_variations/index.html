@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+
+    
+    <title>Cálculo de Variações - Teaching Assistant</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../css/base.min.css" rel="stylesheet">
+    <link href="../../css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            
+              <a class="navbar-brand" href="../..">Teaching Assistant</a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../alglin/info/">Álgebra Linear</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../analisenum/info/">Análise Numérica</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../edo/info/">EDO</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../info/">EDP</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../infestatistica/info/">Estatística</a>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://lucasmoschen.github.io">Página Inicial</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#calculo-de-variacoes">Cálculo de Variações</a></li>
+            <li class="second-level"><a href="#equacoes-caracteristicas-hamilton-jacobi">Equações características Hamilton-Jacobi</a></li>
+                
+            <li class="second-level"><a href="#o-calculo-das-variacoes">O cálculo das variações</a></li>
+                
+                <li class="third-level"><a href="#exemplo">Exemplo</a></li>
+                <li class="third-level"><a href="#equacoes-de-euler-lagrange">Equações de Euler-Lagrange</a></li>
+                <li class="third-level"><a href="#transformada-de-legendre">Transformada de Legendre</a></li>
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="calculo-de-variacoes">Cálculo de Variações</h1>
+<p>Para entender um pouco da intuição por trás e da sua importância, <a href="https://towardsdatascience.com/insights-on-the-calculus-of-variations-f50825f0ca84">esse é um
+bom texto</a>.</p>
+<h2 id="equacoes-caracteristicas-hamilton-jacobi">Equações características Hamilton-Jacobi</h2>
+<p>A equação de Hamilton Jacobi é dada pela expressão </p>
+<p>
+<script type="math/tex; mode=display">
+u_t + H(Du, x) = 0, 
+</script>
+</p>
+<p>em que <script type="math/tex">H : \mathbb{R}^{2n} \to \mathbb{R}</script> e <script type="math/tex">Du = (u_{x_1,}, \dots,
+u_{x_n})</script>. Reescreva <script type="math/tex">p = Du</script>, <script type="math/tex">p_{n+1} = u_t</script> e <script type="math/tex">q = (p,p_{n+1})</script> (como se o tempo fosse a
+dimensão <script type="math/tex">n+1</script>) e assim teremos <script type="math/tex">y = (x,t)</script> nossa variável. Podemos reescrever
+como o sistema </p>
+<p>
+<script type="math/tex; mode=display">
+G(p, p_{n+1}, z, y) = p_{n+1} + H(p, x) = 0.
+</script>
+</p>
+<p>Note que, em particular, <script type="math/tex">D_qG = (D_pG(p,x), 1)</script> e <script type="math/tex">D_yG = (D_xH(p,x), 0)</script> e
+<script type="math/tex">D_zG = 0</script>. </p>
+<p><em>Remark: Lembre que a notação <script type="math/tex">D_vG</script> é o mesmo que dizer que você vai derivar
+<script type="math/tex">G</script> com respeito a cada componente de <script type="math/tex">v</script>. Se <script type="math/tex">v \in \mathbb{R}</script>, temos que
+<script type="math/tex">D_vG = G'(v)</script>.</em></p>
+<p>Com isso, nós podemos montar as equações características (dadas pela curvas características
+<script type="math/tex">\gamma(s)</script> ), </p>
+<p>
+<script type="math/tex; mode=display">
+\begin{cases}
+    \dot{x}_1(s) = D_{p_1}G = H_{p_1}(p(s), \gamma(s)) \\
+    \dot{x}_2(s) = D_{p_2}G = H_{p_2}(p(s), \gamma(s)) \\
+    \dots \\
+    \dot{x}_n(s) = D_{p_n}G = H_{p_n}(p(s), \gamma(s)) \\
+    \dot{t}(s) = D_{p_{n+1}}G = 1 \implies t = s, \\
+\end{cases}
+</script>
+</p>
+<p>o que permite intercambiar os parâmetros <script type="math/tex">t</script> e <script type="math/tex">s</script>. </p>
+<p>
+<script type="math/tex; mode=display">
+\begin{cases}
+    \dot{p}_1(t) = -D_{x_1}G - D_zG\cdot p_1 = -H_{x_1}(p(s), \gamma(s)) \\
+    \dot{p}_2(t) = -D_{x_2}G - D_zG\cdot p_1  = -H_{x_2}(p(s), \gamma(s)) \\
+    \dots \\
+    \dot{p}_n(t) = -D_{x_n}G - D_zG\cdot p_1  = -H_{x_n}(p(s), \gamma(s)) \\
+    \dot{p}_{n+1}(t) = -D_{t}G - D_zG\cdot p_1  = 0 \\
+\end{cases}
+</script>
+</p>
+<p>e, por fim </p>
+<p>
+<script type="math/tex; mode=display">
+\begin{split}
+    \dot{z} &= D_qG\cdot q = D_pH(p(t), \gamma(t))\cdot p(t) + p^{n+1}(t) \\
+    &= D_pH(p(t), \gamma(t))\cdot p(t) - H(p(t), \gamma(s))
+\end{split}
+</script>
+</p>
+<p>Note portanto que podemos sumarizar essas equações em </p>
+<p>
+<script type="math/tex; mode=display">
+\begin{cases}
+    \dot{\gamma}(t) = D_pH(p(t),\gamma(t)) \\
+    \dot{p}(t) = -D_{x}H(p(t), \gamma(t)) \\
+    \dot{z}(t) = D_pH(p(t), \gamma(t)) - H(p(t), \gamma(t))
+\end{cases}
+</script>
+</p>
+<p>em que as primeiras duas equações são as <strong>equações de Hamilton</strong>.  A função
+<script type="math/tex">H</script> também é chamada de Hamiltoniano. Um exemplo muito conhecido
+na estatística é o <em>Hamiltonian Monte Carlo</em> (HMC), que usa
+essa estrutura para procurar no espaço dos parâmetros. </p>
+<h2 id="o-calculo-das-variacoes">O cálculo das variações</h2>
+<p>Introduzimos o Lagrangiano </p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align*}
+    L : \mathbb{R}^n \times \mathbb{R}^n &\to \mathbb{R} \\
+    (v_1,\dots,v_n,x_1,\dots,x_n) &\mapsto L(v,x).
+\end{align*}
+</script>
+</p>
+<p>Além disso, definimos o funcional <strong>ação</strong> como </p>
+<p>
+<script type="math/tex; mode=display">
+I[w(\cdot)] := \int_0^t L(\dot{w}(s), w(s))\, ds, 
+</script>
+</p>
+<p>em que as funções <script type="math/tex">w</script> são duas vezes continuamente diferenciáveis com <script type="math/tex">w(0) =
+y</script> e <script type="math/tex">w(t) = x</script> fixados anteriormente. </p>
+<p>Um problema geral do cálculo das variações é encontrar uma função <script type="math/tex">x(\cdot)</script>
+que minimiza <script type="math/tex">I[w(\cdot)]</script> dentre todas as <script type="math/tex">w</script>. </p>
+<h3 id="exemplo">Exemplo</h3>
+<p>Qual a função <script type="math/tex">y = f(x)</script> cuja curva (diferenciável) entre os pontos <script type="math/tex">(x_1, y_1)</script> e <script type="math/tex">(x_2,
+y_2)</script> tem o comprimento. Dada uma função, sabemos que seu comprimento de arco
+é </p>
+<p>
+<script type="math/tex; mode=display">
+Comp[y] = \int_{x_1}^{x_2} \sqrt{1 + y'(x)^2} \, dx.
+</script>
+</p>
+<p>Nesse caso, <script type="math/tex">L(f'(x), f(x)) = \sqrt{1 + f'(x)^2}</script> e sabemos que sua solução é
+o segmento de reta entre esses pontos. </p>
+<h3 id="equacoes-de-euler-lagrange">Equações de Euler-Lagrange</h3>
+<p>A solução ótima para o problema de cálculo das variações resolve o sistema de
+equações Euler-Lagrange:</p>
+<p>
+<script type="math/tex; mode=display">
+-\frac{d}{ds}(D_v L(\dot{x}(s), x(s))) + D_xL(\dot{x}(s), x(s)) = 0, 0 \le s
+\le t.
+</script>
+</p>
+<p>Note que resolver as equações não nos dão as funções ótimas, da mesma forma
+que derivada igual a zero não implica mínimo local de forma geral. Por isso,
+dizemos que as soluções das equações de Euler-Lagrange 
+são pontos críticos de <script type="math/tex">I[\cdot]</script>. </p>
+<p><strong>Exemplo:</strong> Seja <script type="math/tex">L(v,x) = \frac{1}{2}m||v||^2 - \phi(x)</script>, 
+em que <script type="math/tex">m > 0</script>. Então a equação de Lagrange é 
+<script type="math/tex; mode=display">
+-m\dot{v}(s) + D_x\phi(x) = 0 \implies m\ddot{x}(s) = D_x \phi(x), 
+</script>
+que a lei de Newton para uma partícula de massa <script type="math/tex">m</script> e campo 
+de forças <script type="math/tex">D_x \phi</script>.   </p>
+<p>O interessante é que, dado uma Lagrangiano <script type="math/tex">L</script>, podemos introduzir o
+<strong>Hamiltoniano</strong></p>
+<p>
+<script type="math/tex; mode=display">
+H(p,x) := p\cdot v(p,x) - L(v(p,x), x),
+</script>
+</p>
+<p>em que <script type="math/tex">v</script> é definido como a função tal que <script type="math/tex">p = D_vL(v,x)</script>. 
+Podemos demonstrar que a partir desse <script type="math/tex">H</script>, temos as equações de Hamilton, o
+que permite uma conexão entre as duas teorias. </p>
+<h3 id="transformada-de-legendre">Transformada de Legendre</h3>
+<p>Desconsidere a dependência de <script type="math/tex">H</script> em <script type="math/tex">x</script> e defina 
+<script type="math/tex">L^*(p) = \sup_{v \in \mathbb{R}^n} \{pv - L(v)\}</script>. 
+Chamamos <script type="math/tex">L^*</script> de <em>transformada de Lagrange</em>. Com 
+algumas hipóteses em <script type="math/tex">L</script> (convexidade e limitação superior 
+de <script type="math/tex">pv - L(v)</script>), sabemos que existe <script type="math/tex">v^*</script> tal que 
+<script type="math/tex; mode=display">
+L^*(v^*) = pv^* - L(v^*).
+</script>
+Se <script type="math/tex">L</script> for diferenciável, teremos que <script type="math/tex">D_vL(v^*) = p</script>
+(derive a equação a cima com respeito a <script type="math/tex">v</script> e avalie em 
+<script type="math/tex">v^*</script>). Então a equação <script type="math/tex">p = D_v L(v)</script> tem solução em <script type="math/tex">v</script>, 
+isto é, 
+<script type="math/tex; mode=display">
+L^*(p) = p v(p) - L(v(p)) = H(p).
+</script>
+Além disso, com algumas hipóteses sobre <script type="math/tex">H</script>, também podemos
+provar que <script type="math/tex">H^* = L</script>. Esse resultado é conhecido como 
+<strong>Dualidade convexa do Hamiltoniano e Lagrangiano</strong>. 
+A ideia de Dualidade vai ser melhor compreendida em 
+otimização, mas aqui, vale lembrar que 
+<script type="math/tex; mode=display">
+L^* = H, H^* = L.
+</script>
+</p>
+<p>Agora, sem a dependência do <script type="math/tex">x</script>, as equações
+características são </p>
+<p>
+<script type="math/tex; mode=display">
+\begin{cases}
+    \dot{\gamma}(t) = D_pH(p(t)) \\
+    \dot{p}(t) = 0 \\
+    \dot{z}(t) = D_pH(p(t)) - H(p(t))
+\end{cases}
+</script>
+</p>
+<p><strong>Exercício:</strong> Prove que <script type="math/tex">L^* = H, H^* = L</script> implica que 
+<script type="math/tex; mode=display">
+\begin{cases}
+   u\cdot v = L(v) + H(u) \\
+   u = D_vL(v) \\
+   v = D_uH(u)
+\end{cases}
+</script>
+</p>
+<p>Agora note que <script type="math/tex">\dot{z} = D_v H(p)\cdot p - H(p) = L(D_pH(p)) = 
+L(\dot{\gamma})</script>. Assim, para valores de tempo pequenos 
+<script type="math/tex; mode=display">
+u(x,t) = z(t) = \int_0^t L(\dot{\gamma}(s)) \, ds + g(x(0)),
+</script>
+em que <script type="math/tex">g</script> é condição de fronteira quando <script type="math/tex">t = 0</script>. Para 
+generalizar esse valor para valores de <script type="math/tex">t</script> grandes, </p>
+<p>
+<script type="math/tex; mode=display">
+u(x,t) = \inf_{w} \left\{\int_0^t L(\dot{w}(s)) \, ds + g(x(0) \mid w(t) =
+x\right\}.
+</script>
+</p>
+<p>Com mais algumas condições, conseguimos provar que essa 
+expressão tem de fato uma solução. A <strong>formula de Hopf-Lax</strong> 
+diz que a solução será </p>
+<p>
+<script type="math/tex; mode=display">
+u(x,t) = \min_{y \in \mathbb{R}^n} \left\{tL\left(\frac{x-y}{t}\right) + g(y)\right\}.
+</script>
+</p></div>
+        
+        
+    </div>
+
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
+
+          
+          
+      </footer>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../../js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = "../.."</script>
+    
+    <script src="../../js/base.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>

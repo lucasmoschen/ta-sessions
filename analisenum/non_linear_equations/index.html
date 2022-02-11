@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+
+    
+    <title>Solução de equações não lineares - Teaching Assistant</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../css/base.min.css" rel="stylesheet">
+    <link href="../../css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            
+              <a class="navbar-brand" href="../..">Teaching Assistant</a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../alglin/info/">Álgebra Linear</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../info/">Análise Numérica</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../edo/info/">EDO</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../edp/info/">EDP</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../infestatistica/info/">Estatística</a>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://lucasmoschen.github.io">Página Inicial</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#solucao-de-equacoes-nao-lineares">Solução de equações não lineares</a></li>
+            <li class="second-level"><a href="#metodo-da-bissecao">Método da Bisseção</a></li>
+                
+            <li class="second-level"><a href="#regula-falsi-metodo-da-posicao-falsa">Regula-Falsi (Método da posição falsa)</a></li>
+                
+            <li class="second-level"><a href="#iteracao-de-ponto-fixo">Iteração de Ponto Fixo</a></li>
+                
+                <li class="third-level"><a href="#teorema-do-ponto-fixo">Teorema do Ponto Fixo</a></li>
+            <li class="second-level"><a href="#metodo-de-newton-raphson">Método de Newton-Raphson</a></li>
+                
+            <li class="second-level"><a href="#sugestoes">Sugestões</a></li>
+                
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="solucao-de-equacoes-nao-lineares">Solução de equações não lineares</h1>
+<p>Considere uma população com crescimento proporcional ao seu tamanho a cada
+tempo <script type="math/tex">t</script> sujeita a migrações constantes, isto, se <script type="math/tex">x(t)</script> é o tamanho da
+população no tempo <script type="math/tex">t</script>,</p>
+<p>
+<script type="math/tex; mode=display">
+\dot{x}(t) = \lambda x(t) + \nu \implies x(t) = x(0)e^{\lambda t } +
+\frac{\nu}{\lambda}(e^{\lambda t} - 1)
+</script>
+</p>
+<p>Se sabemos <script type="math/tex">x(t), x(0)</script> e <script type="math/tex">\nu</script>, ainda não conseguimos resolver para <script type="math/tex">\lambda</script>
+esse sistema. </p>
+<p><strong>Obsevação:</strong> Muitas vezes, simplificações em sistemas de equações ou
+equações podem ajudar a resolver o problema analiticamente, que é sempre mais
+preciso. Nem sempre só jogar um sistema num solver vai resolver o problema. </p>
+<p>De forma geral, queremos resolver <script type="math/tex">f(x) = 0</script> para <script type="math/tex">f : [a,b] \to \mathbb{R}</script>,
+em geral, precisamos que <script type="math/tex">f(a)</script> e <script type="math/tex">f(b)</script> tenham sinais diferentes e <script type="math/tex">f</script> seja
+pelo menos contínua, para garantir existência de solução através do Teorema do
+Valor Intermediário. </p>
+<h2 id="metodo-da-bissecao">Método da Bisseção</h2>
+<p>Esse é um método bem simples que se embasa totalmente no Teorema do Valor
+Intermediário. Seja <script type="math/tex">x^*</script> a solução do problema, isto é, <script type="math/tex">f(x^*) = 0</script>. Tome <script type="math/tex">a_1 = a, b_1 = b, x_1 = \frac{a_1 + b_1}{2}</script>. A partir de
+<script type="math/tex">x_1</script>, verificamos o sinal de <script type="math/tex">f(x_1)</script>. Assim</p>
+<ul>
+<li>
+<script type="math/tex">f(x_1) = 0</script>: Nesse caso a solução é <script type="math/tex">x^* = x_1</script>. </li>
+<li>
+<script type="math/tex">f(x_1) < 0</script>: Nesse caso, se <script type="math/tex">f(a) < 0</script> e <script type="math/tex">f(b) > 0</script>, deve haver uma solução
+  no intervalo <script type="math/tex">[x_1, b]</script>. Por isso, definimos <script type="math/tex">a_2 = x_1</script> e <script type="math/tex">b_2 = b</script> e
+  seguimos o procedimento. Se <script type="math/tex">f(a) > 0</script> e <script type="math/tex">f(b) < 0</script>, deve haver uma solução
+  em <script type="math/tex">[a, x_1]</script> e, portanto, <script type="math/tex">a_2 = a, b_2 = x_1</script> e seguimos o procedimento. </li>
+<li>
+<script type="math/tex">f(x_1) > 0</script>: Nesse caso, se <script type="math/tex">f(a) > 0</script> e <script type="math/tex">f(b) < 0</script>, deve haver  uma solução
+  no intervalo <script type="math/tex">[x_1, b]</script>. Por isso, definimos <script type="math/tex">a_2 = x_1</script> e <script type="math/tex">b_2 = b</script> e
+  seguimos o procedimento. Se <script type="math/tex">f(a) < 0</script> e <script type="math/tex">f(b) > 0</script>, deve haver uma solução
+  em <script type="math/tex">[a, x_1]</script> e, portanto, <script type="math/tex">a_2 = a, b_2 = x_1</script> e seguimos o procedimento. </li>
+</ul>
+<p>Assim, esse processo se resume a tomar o ponto médio do intervalo e ir
+cortando pela metade o intervalo a cada iteração. Precisamos de um critério de
+parada melhor do que <script type="math/tex">f(x_k) = 0</script>, pois estamos num âmbito contínuo. Como
+cortamos o intervalo pela metade a cada iteração, é fácil ver que </p>
+<p>
+<script type="math/tex; mode=display">
+|x_n - x^*| \le \frac{b-a}{2^n}, \forall n \ge 1.
+</script>
+</p>
+<p>Nesse caso, uma condição de parada possível é <script type="math/tex">(b-a) \le 2^n \epsilon</script>, em que
+<script type="math/tex">\epsilon</script> é a minha tolerância a erro. </p>
+<p>Alguns comentários importantes: calcular </p>
+<p>
+<script type="math/tex; mode=display">
+x_n = a_n + \frac{b_n - a_n}{2}
+</script>
+</p>
+<p>é melhor numericamente do que <script type="math/tex">x_n = (a_n + b_n)/2</script>. Além disso, cuidado com a
+condição <script type="math/tex">f(a_n)f(b_n) < 0</script>, pois pode haver problema de underflow na
+multiplicação. </p>
+<h2 id="regula-falsi-metodo-da-posicao-falsa">Regula-Falsi (Método da posição falsa)</h2>
+<p>Esse é outro método bem antigo, com as primeiras aparições nos registros
+babilônicos. A ideia era encontrar <script type="math/tex">x</script> tal que <script type="math/tex">ax + b = 0</script>. Essa ideia foi
+trazida para resolver o problema de encontrar raízes de <script type="math/tex">f</script>. Nesse caso, dados
+os pontos <script type="math/tex">(a, f(a)), (b, f(b))</script>, sabemos que existe <script type="math/tex">x^* \in (a,b)</script> tal que
+<script type="math/tex">f(x^*) = 0</script> quando os sinais são trocados e <script type="math/tex">f</script> é contínua. Traçando um
+segmento entre esses pontos, em algum momento ele vai atingir o eixo <script type="math/tex">x</script> e é
+nesse ponto que teremos a iteração. A continuação do algoritmo é o mesmo do
+método da Bisseção, isto é, o intervalo vai sendo reduzido, não mais
+pelo ponto médio, mas pelo ponto de intersecção da reta que passa por
+<script type="math/tex">(a,f(a))</script> e <script type="math/tex">(b, f(b))</script> e o eixo <script type="math/tex">x</script>. </p>
+<p>A iteração desse método é dada por </p>
+<p>
+<script type="math/tex; mode=display">
+x_k = a_k - \frac{f(a_k)}{f(b_k) - f(a_k)}(b_k-a_k),  
+</script>
+</p>
+<p>que pode ser reescrita como </p>
+<p>
+<script type="math/tex; mode=display">
+x_k = \frac{a_k\cdot f(b_k) - b_k\cdot f(a_k)}{f(b_k) - f(a_k)},  
+</script>
+</p>
+<p>em que <script type="math/tex">a_k</script> e <script type="math/tex">b_k</script> são obtidos conforme o método da Bisseção.</p>
+<p>Se <script type="math/tex">|f'(x)| \ge d > 0</script> para todo <script type="math/tex">x \in [a,b]</script>, asseguramos que </p>
+<p>
+<script type="math/tex; mode=display">|x^* - x_k| \le |f(x_k)|/d.</script>
+</p>
+<h2 id="iteracao-de-ponto-fixo">Iteração de Ponto Fixo</h2>
+<p>Se <script type="math/tex">f : \mathbb{R}^n \to \mathbb{R}</script> é uma função, dizemos que <script type="math/tex">x</script> é ponto
+fixo de <script type="math/tex">f</script> quando <script type="math/tex">f(x) = x</script>. Esse nome fica claro pois <script type="math/tex">f(f(\dots(f(x)))) =
+x</script>. Note que se <script type="math/tex">g(x) = f(x) - x</script>, temos que <script type="math/tex">g(x) = 0 \iff f(x) = x</script>, isto
+é, encontrar pontos fixos de <script type="math/tex">f</script> equivale a encontrar as raízes de <script type="math/tex">g</script>. </p>
+<h3 id="teorema-do-ponto-fixo">Teorema do Ponto Fixo</h3>
+<p>Existem alguns teoremas de garantia de existência e unicidade de pontos fixos,
+com diferentes hipóteses. <a href="https://en.wikipedia.org/wiki/Fixed-point_theorem#List_of_fixed-point_theorems">Aqui tem uma lista no
+Wikipedia</a>.</p>
+<p><strong>Teorema do Ponto Fixo de Brower</strong></p>
+<p>Seja <script type="math/tex">f</script> contínua em um conjunto convexo compacto <script type="math/tex">C</script> com imagem <script type="math/tex">f(C)
+\subseteq C</script>. Então <script type="math/tex">f</script> possui ponto fixo. <a href="https://www.math3ma.com/blog/brouwers-fixed-point-theorem-proof">Aqui uma
+demonstração</a>
+interessante com um pouquinho de topologia. No nosso caso, tomamos <script type="math/tex">C =
+[a,b]</script>, o intervalo limitado e fechado na reta, isto é, se <script type="math/tex">f</script> é contínua em <script type="math/tex">[a,b]</script> e <script type="math/tex">f(x) \in [a,b]</script> para todo <script type="math/tex">x \in [a,b]</script>, isto
+é, <script type="math/tex">f([a,b]) \subseteq [a,b]</script>, então <script type="math/tex">f</script> possui ponto fixo. </p>
+<p><strong>Teorema do Ponto Fixo de Banach</strong></p>
+<p>Dizemos que uma função <script type="math/tex">f : X \to X</script>, em que <script type="math/tex">X</script> é um espaço normado completo
+é uma contração se existe <script type="math/tex">L \in [0,1)</script> tal que 
+<script type="math/tex; mode=display">||f(x) - f(y)|| \le L||x-y||.</script>
+Como exemplo, podemos tomar <script type="math/tex">X = [a,b]</script>. Se <script type="math/tex">X</script> não for vazio e <script type="math/tex">f</script> for uma
+contração, então <script type="math/tex">f</script> admite um <strong>único</strong> ponto fixo <script type="math/tex">x^*</script>. Além do mais, para
+todo <script type="math/tex">x_0 \in X</script>, a sequência iniciada em <script type="math/tex">x_0</script> que segue a iteração <script type="math/tex">x_k =
+f(x_{k-1})</script> converge para <script type="math/tex">x^*</script> (o que permite desenvolver um método). </p>
+<p>Podemos demonstrar que <script type="math/tex">||x^* - x_n|| \le \dfrac{L^n}{1 -L}||x_1 - x_0||</script>.  A
+prova pode ser <a href="https://en.wikipedia.org/wiki/Banach_fixed-point_theorem#Proof">facilmente
+encontrada</a>. </p>
+<p>Como já afirmei, se conseguirmos assegurar que <script type="math/tex">f</script> satisfaz as condições do
+Teorema, então a sequência <script type="math/tex">x_0, x_1, x_2, \dots, x_n, \dots</script> com <script type="math/tex">f(x_k) =
+x_{k-1}</script> converge para o ponto fixo <script type="math/tex">x^*</script>, que implica <script type="math/tex">g(x^*) = 0</script>.  </p>
+<h2 id="metodo-de-newton-raphson">Método de Newton-Raphson</h2>
+<p>Também chamado de método de Newton. Por Taylor, seja <script type="math/tex">f</script> pelo menos duas vezes
+derivável. Assim </p>
+<p>
+<script type="math/tex; mode=display">
+f(x^*) = f(x) + (x^* - x)f'(x) + \frac{(x^*-x)^2}{2}f''(x) + o((x^*-x)^2),
+</script>
+em que <script type="math/tex">o(x)</script> é qualquer função tal que <script type="math/tex">\lim_{x\to 0} o(x)/x = 0</script>. O método
+de Netwon assume que <script type="math/tex">(x^* - x)^2</script> é suficientemente pequeno, isto é, <script type="math/tex">x</script> está
+suficientemente próximo de <script type="math/tex">x^*</script>. Assim, </p>
+<p>
+<script type="math/tex; mode=display">
+0 \approx f(x) + f'(x)(x^* - x) \implies x^* \approx x - \frac{f(x)}{f'(x)}.
+</script>
+</p>
+<p>Com essa ideia em mente, definimos a iteração</p>
+<p>
+<script type="math/tex; mode=display">
+x_{k+1} = x_k - \frac{f(x_k)}{f'(x_k)}, 
+</script>
+</p>
+<p>em que se <script type="math/tex">x_0</script> é suficientemente próximo de <script type="math/tex">x^*</script>, então <script type="math/tex">\lim_{k \to
++\infty} x_k = x^*</script>. A ideia é que as aproximações são dadas através da
+tangente, isto é, <script type="math/tex">x_{k+1}</script>  é o ponto da intersecção do eixo <script type="math/tex">x</script> com a
+tangente de <script type="math/tex">f</script> no ponto <script type="math/tex">x_k</script>. </p>
+<p><strong>Teorema de convergência:</strong> Seja <script type="math/tex">f</script> duas vezes continuamente diferenciável
+em <script type="math/tex">[a,b]</script>. Se <script type="math/tex">f'(x^*) \neq 0</script>, existe <script type="math/tex">\delta > 0</script> tal que a sequência de
+gerada pelo método de Newton converge para todo <script type="math/tex">x_0 \in [x^* - \delta, x^* +
+\delta]</script>. </p>
+<p>A ideia dessa demonstração é introduzir a função </p>
+<p>
+<script type="math/tex; mode=display">
+g(x) = x -\frac{f(x)}{f'(x)}
+</script>
+</p>
+<p>Note que quando <script type="math/tex">f(x) =0</script>, teremos que <script type="math/tex">g(x) = x</script>, isto é, <script type="math/tex">x</script> é ponto fixo de
+<script type="math/tex">g</script>, isto é, a prova se resume a verificar as condições do Teorema do Ponto
+Fixo de Banach para algum <script type="math/tex">\delta > 0</script>. A derivada de <script type="math/tex">g</script> vai ser controlada
+em um intervalo suficientemente pequeno.</p>
+<p><strong>Condição suficiente para convergência:</strong> Voltando a expansão de Taylor, </p>
+<p>
+<script type="math/tex; mode=display">
+f(x^*) = f(x) + (x^* - x)f'(x) + \frac{(x^*-x)^2}{2}f''(z)
+</script>
+para algum <script type="math/tex">z</script> entre <script type="math/tex">x</script> e <script type="math/tex">x^*</script>. Usando a iteração de Newton, isto é, <script type="math/tex">f(x_n)
+= f'(x_n)(x_n - x_{n+1})</script>, obtemos que</p>
+<p>
+<script type="math/tex; mode=display">
+0 = f'(x_n)(x^* - x_{n+1}) +  \frac{(x^*-x_n)^2}{2}f''(z_n).
+</script>
+</p>
+<p>Definindo <script type="math/tex">e_n = (x^* - x_n)</script>, temos que </p>
+<p>
+<script type="math/tex; mode=display">
+e_{n+1} = \frac{e_n^2}{2f'(x_n)}f''(z_n).
+</script>
+</p>
+<p>Assumindo que <script type="math/tex">f'(x), f''(x) \neq 0</script> para <script type="math/tex">x \in [a,b]</script>, temos que para todo
+<script type="math/tex">x_0</script> tal que <script type="math/tex">f(x_0)f''(x_0) > 0</script>, o método converge, o que é um resultado de
+convergência global. </p>
+<h2 id="sugestoes">Sugestões</h2>
+<ul>
+<li><a href="/ta-sessions/analisenum/application_newton/non_linear_equations">Aplicação método de Newton</a></li>
+<li><a href="http://www.iosrjen.org/Papers/vol4_issue4%20(part-1)/A04410107.pdf">Comparação de métodos numéricos</a></li>
+<li><a href="http://compmath-journal.org/dnload/Robin-Kumar-and-Vipan-/CMJV06I06P0290.pdf">Convergência de métodos numéricos</a>.</li>
+<li><a href="https://computingskillset.com/solving-equations/highly-instructive-examples-for-the-newton-raphson-method/">Exemplos de aplicação do método de Newton-Raphson</a></li>
+</ul></div>
+        
+        
+    </div>
+
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
+
+          
+          
+      </footer>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../../js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = "../.."</script>
+    
+    <script src="../../js/base.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>

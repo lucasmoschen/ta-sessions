@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+
+    
+    <title>Equação da Onda - Teaching Assistant</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../css/base.min.css" rel="stylesheet">
+    <link href="../../css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            
+              <a class="navbar-brand" href="../..">Teaching Assistant</a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../alglin/info/">Álgebra Linear</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../analisenum/info/">Análise Numérica</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../edo/info/">EDO</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../info/">EDP</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../infestatistica/info/">Estatística</a>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://lucasmoschen.github.io">Página Inicial</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#equacao-da-onda">Equação da Onda</a></li>
+            <li class="second-level"><a href="#interpretacao-fisica">Interpretação física</a></li>
+                
+            <li class="second-level"><a href="#formula-dalembert">Fórmula d'Alembert</a></li>
+                
+            <li class="second-level"><a href="#extensoes">Extensões</a></li>
+                
+                <li class="third-level"><a href="#medias-esfericas-e-formulas-de-poisson-e-kirchhoff">Médias esféricas e fórmulas de Poisson e Kirchhoff</a></li>
+                <li class="third-level"><a href="#corda-finita">Corda finita</a></li>
+            <li class="second-level"><a href="#metodos-de-energia">Métodos de energia</a></li>
+                
+            <li class="second-level"><a href="#sugestoes">Sugestões</a></li>
+                
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="equacao-da-onda">Equação da Onda</h1>
+<p>Estamos interessados em entender o comportamento da EDP </p>
+<p>
+<script type="math/tex; mode=display">u_{tt} - c^2u_{xx} = 0,</script>
+</p>
+<p>sujeita a condições iniciais e de fronteira. </p>
+<h2 id="interpretacao-fisica">Interpretação física</h2>
+<p>Em uma dimensão (mais outra temporal), a equação da onda é um modelo simpleficado de uma corda vibrando e 
+<script type="math/tex">u(x,t)</script> representa o deslocamento de um ponto <script type="math/tex">x</script> no tempo <script type="math/tex">t \ge 0</script>. Suponha que a massa da 
+corda seja <script type="math/tex">\rho = \rho(x)</script> e a elasticidade seja <script type="math/tex">k = k(x)</script>. Considere o pedaço da corda <script type="math/tex">[x, x + \Delta x]</script>. 
+Então, a massa desse pedaço será <script type="math/tex">\rho(x) \Delta x</script>, sua velocidade é dada por <script type="math/tex">u_t(x,t)</script> (a derivada do deslocamento 
+com respeito ao tempo) e a sua energia cinética é <script type="math/tex">\Delta K = \rho (u_t)^2 \Delta x / 2</script> (lembre que energia cinética 
+é proporcional à massa e ao quadrado da velocidade). </p>
+<p>Portanto, a enegia cinética total será 
+<script type="math/tex; mode=display">
+K(t) = \frac{1}{2} \int_0^L \rho(x) (u_t(x,t))^2 \, dx.
+</script>
+Pela <a href="https://en.wikipedia.org/wiki/Hooke%27s_law">Lei de Hooke</a>, a energia potencial da corda é <script type="math/tex">(k/2)y^2</script> em que <script type="math/tex">y</script> é o aumento da corda dado pelo comprimento de <script type="math/tex">u(x,t)</script> na variável <script type="math/tex">x</script>. Esse <a href="https://en.wikipedia.org/wiki/Arc_length#Finding_arc_lengths_by_integrating">comprimento pode ser medido</a> usando 
+<script type="math/tex; mode=display">
+\sqrt{1 + u_x^2}
+</script>
+e, portanto, a energia potencial é 
+<script type="math/tex; mode=display">
+P(t) = \frac{1}{2}\int_0^L k(x)(1 + (u_x(x,t))^2) \, dx.
+</script>
+A <a href="https://lucasmoschen.github.io/ta-sessions/edp/calculus_of_variations/#o-calculo-das-variacoes">ação da função</a> <script type="math/tex">u</script> é, portanto, 
+<script type="math/tex; mode=display">
+I(u) = \int_0^T K(t) - P(t) \, dt = \frac{1}{2} \int_0^T\int_0^L \rho(u_t)^2 - k(1 + u_x^2) \, dx \, dt.
+</script>
+</p>
+<p>Se <script type="math/tex">u</script> minimiza essa ação, pelo Teorema de Euler-Lagrange, derivando com respeito a <script type="math/tex">u_t</script> e <script type="math/tex">u_x</script>, 
+<script type="math/tex; mode=display">
+-2\rho u_{tt} - 2(k_xu_x + ku_{xx})  = 0,
+</script>
+que implica <script type="math/tex">\rho u_{tt} = -ku_{xx} - k_xu_x</script>, isto é, se a elasticidade for constante na corda, temos a equação da onda.</p>
+<p>Note que a nossa construção supõe a velocidade inicial conhecida. Portanto, além da condição de fronteira usal, precisamos de uma condição adicional (o que era de se esperar, pois nas EDOs, esse comportamento também acontecia).</p>
+<h2 id="formula-dalembert">Fórmula d'Alembert</h2>
+<p>Considere o problema 
+<script type="math/tex; mode=display">
+\begin{cases}
+    u_{tt} - u_{xx} = 0, \\
+    u(x,0) = g(x), u_t(x,0) = h(x),
+\end{cases}
+</script>
+em que <script type="math/tex">g</script> e <script type="math/tex">h</script> são dadas. Note que 
+<script type="math/tex; mode=display">
+u_{tt} - u_{xx} = u_{tt} + u_{tx} - u_{xt} - u_{xx} = \left(\frac{\partial}{\partial t} + \frac{\partial}{\partial x}\right)(u_t - u_x) = \left(\frac{\partial}{\partial t} + \frac{\partial}{\partial x}\right)\left(\frac{\partial}{\partial t} - \frac{\partial}{\partial x}\right)u.
+</script>
+Apesar de ser uma notação de funcional que pode ser complicada, ela é muito útil para definir 
+<script type="math/tex; mode=display">
+v(x,t) = \left(\frac{\partial}{\partial t} - \frac{\partial}{\partial x}\right)u, 
+</script>
+e, então, 
+<script type="math/tex; mode=display">
+v_t + v_x = 0, (x \in \mathbb{R}, t > 0),
+</script>
+que é a equação do transporte. Sabemos que a solução para esse problema é 
+<script type="math/tex; mode=display">
+v(x,t) = a(x - t), 
+</script>
+em que <script type="math/tex">a(x) := v(x,0)</script>, e, portanto 
+<script type="math/tex; mode=display">
+u_t(x,t) - u_x(x,t) = a(x,t), 
+</script>
+que também o problema do transporte não homogêneo. Esse problema <a href="https://www.youtube.com/watch?v=1emgOSiNocE">tem solução conhecida</a>: 
+<script type="math/tex; mode=display">
+u(x,t) = \int_0^t a(x + (t-s) - s) \, ds + b(x+t) = \frac{1}{2}\int_{x-t}^{x+t} a(y) \, dy + b(x,t).
+</script>
+Além disso, em <script type="math/tex">t=0</script>, temos que <script type="math/tex">b(x,0) = g(x)</script> e <script type="math/tex">a(x) = h(x) - g'(x)</script>. Portanto, 
+<script type="math/tex; mode=display">
+u(x,t) = \frac{1}{2} \int_{x-t}^{x+t} h(y) - g'(y) \,dy + g(x+t), 
+</script>
+que implica 
+<script type="math/tex; mode=display">
+u(x,t) = \frac{1}{2}[g(x+t) + g(x-t)] + \frac{1}{2}\int_{x-t}^{x+t} h(y) \, dy.
+</script>
+</p>
+<p>Esta é a fórmula de d'Alembert. Note que na solução, assumimos que <script type="math/tex">u</script> é suficientemente suave (classe <script type="math/tex">C^2</script>). Essa condição é verificada se <script type="math/tex">g \in C^2(\mathbb{R})</script> e <script type="math/tex">h \in C^1(\mathbb{R})</script>. </p>
+<p>Dizemos, então, que a solução <script type="math/tex">u</script> tem a forma 
+<script type="math/tex; mode=display">
+u(x,t) = F(x+t) + G(x-t)
+</script>
+</p>
+<p><em>Observação: Esse desenvolvimento assume que a corda é infinita.</em></p>
+<h2 id="extensoes">Extensões</h2>
+<p>Esse é um tópico muito rico que pode ter muitas variações. Aqui apresentarei duas extensões que podem ser mais estudadas nas referêncais do curso. </p>
+<h3 id="medias-esfericas-e-formulas-de-poisson-e-kirchhoff">Médias esféricas e fórmulas de Poisson e Kirchhoff</h3>
+<p>Para dimensões espaciais <script type="math/tex">n \ge 2</script>, a solução é um pouco mais complexa. Para isso, é preciso resolver a equação de <a href="https://en.wikipedia.org/wiki/Euler%E2%80%93Poisson%E2%80%93Darboux_equation">Euler-Poisson-Darboux</a> e reduzir o problema ao formato que se possa aplicar a fórmula de d'Alembert. Para o detalhamento desse processo, o livro do professor Lawrence Evans é bastante indicado. </p>
+<h3 id="corda-finita">Corda finita</h3>
+<p>Nesse caso, temos restrições de contorno quando <script type="math/tex">x=0</script> e <script type="math/tex">x=l</script> (comprimento da corda): </p>
+<p>
+<script type="math/tex; mode=display">
+\begin{cases}
+u_{tt} = c^2u_{xx} \\
+u(0,t) = u(l,t) = 0, \forall t \ge 0, \\
+u(x,0) = f(x), x \in [0,l] \\ 
+u_t(x,0) = g(x), x \in [0,l].
+\end{cases}
+</script>
+</p>
+<p>Podemos provar o seguinte teorema: </p>
+<p><strong>Teorema:</strong> Seja <script type="math/tex">f \in C^2[0,l]</script> e <script type="math/tex">g \in C^1[0,l]</script> tais que <script type="math/tex">f, f''</script> e <script type="math/tex">g</script> se anulam em <script type="math/tex">x=0</script> e <script type="math/tex">x=l</script>, então 
+<script type="math/tex; mode=display">
+u(x,t) = \frac{F(x+ct) + F(x-ct)}{2} + \frac{1}{2c} \int_{x-ct}^{x+ct} G(s) \, ds,
+</script>
+em que <script type="math/tex">F</script> e <script type="math/tex">G</script> são extensões periódicas (período <script type="math/tex">2l</script>) e ímpares das funções <script type="math/tex">f</script> e <script type="math/tex">g</script>, respecticamente, é a única solução do problema de corda infinita. </p>
+<h4 id="o-que-e-extensao-periodica-e-impar">O que é extensão periódica e ímpar?</h4>
+<p>Dizemos que uma função <script type="math/tex">f: A \to B</script> tem período <script type="math/tex">T</script> se para todo <script type="math/tex">x \in A</script>, temos que <script type="math/tex">x+ T \in A</script> e <script type="math/tex">f(x) = f(x+ T)</script>. A função será ímpar se <script type="math/tex">f(x) = -f(-x)</script> para <script type="math/tex">x \le -l</script> Assim, definimos a extensão periódica ímpar de <script type="math/tex">f</script> como 
+<script type="math/tex; mode=display">
+F(x) = \begin{cases}
+    -f(-x + 2kl ) &x \in [(2k-1)l, 2kl] \\
+    f(x - 2kl) &x \in [2kl, (2k+1)l],\\
+\end{cases}
+</script>
+que é definida em intervalor fechados.</p>
+<h2 id="metodos-de-energia">Métodos de energia</h2>
+<p>Esses métodos nos ajudam a estudar a unicidade da solução <script type="math/tex">u</script> do problema. Considere novamente o problema 
+<script type="math/tex; mode=display">
+\begin{cases}
+    u_{tt} - u_{xx} = 0, \\
+    u(x,0) = g(x), u_t(x,0) = h(x),
+\end{cases}
+</script>
+Suponha que <script type="math/tex">u</script> e <script type="math/tex">v</script> sejam soluções para esse problema. Então <script type="math/tex">w = u - v</script> é uma solução para 
+<script type="math/tex; mode=display">
+\begin{cases}
+    u_{tt} - u_{xx} = 0, \\
+    u(x,0) =0, u_t(x,0) = 0.
+\end{cases}
+</script>
+Defina a energia 
+<script type="math/tex; mode=display">
+E(t) := \frac{1}{2}\int_U w_t^2(x,t) + w_x(x,t)^2 \, dx, 0 \le t \le T. 
+</script>
+Derivando com respeito a <script type="math/tex">t</script> e supondo <script type="math/tex">U</script> limitado com fronteira suave, temos que (Fórmula de Leibniz)
+<script type="math/tex; mode=display">
+\dot{E}(t) = \int_U w_tw_{tt} + w_xw_{tx} \, dx = \int_U w_t(w_{tt} - w_{xx}) = 0,
+</script>
+em que a segunda igualdade vem de uma integração por partes combinada com o fato de na fronteira <script type="math/tex">w = 0</script>. Portanto <script type="math/tex">E(t) = E(0)</script> para todo <script type="math/tex">T \ge t \ge 0</script>, que implica <script type="math/tex">E(t) = 0</script>. Em paricular, 
+<script type="math/tex; mode=display">
+w_t(x,t) = w_x(x,t) = 0, \forall x, t
+</script>
+e, portanto <script type="math/tex">w \equiv 0</script>. </p>
+<h2 id="sugestoes">Sugestões</h2>
+<ul>
+<li><a href="https://web.stanford.edu/class/cme324/classics/courant-friedrichs-lewy.pdf">CFL (1928)</a></li>
+<li><a href="https://www.mtnmath.com/whatrh/node66.html">Discretização da equação da onda</a></li>
+</ul></div>
+        
+        
+    </div>
+
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
+
+          
+          
+      </footer>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../../js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = "../.."</script>
+    
+    <script src="../../js/base.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>

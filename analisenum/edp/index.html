@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+
+    
+    <title>Métodos numéricos para EDPs - Teaching Assistant</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../css/base.min.css" rel="stylesheet">
+    <link href="../../css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            
+              <a class="navbar-brand" href="../..">Teaching Assistant</a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../alglin/info/">Álgebra Linear</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../info/">Análise Numérica</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../edo/info/">EDO</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../edp/info/">EDP</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../infestatistica/info/">Estatística</a>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://lucasmoschen.github.io">Página Inicial</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#metodos-numericos-para-edps">Métodos numéricos para EDPs</a></li>
+            <li class="second-level"><a href="#equacoes-elipticas">Equações Elípticas</a></li>
+                
+            <li class="second-level"><a href="#equacoes-parabolicas">Equações Parabólicas</a></li>
+                
+                <li class="third-level"><a href="#estabilidade">Estabilidade</a></li>
+                <li class="third-level"><a href="#backward-difference">Backward-Difference</a></li>
+                <li class="third-level"><a href="#crank-nicolson">Crank-Nicolson</a></li>
+            <li class="second-level"><a href="#equacoes-hiperbolicas">Equações Hiperbólicas</a></li>
+                
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="metodos-numericos-para-edps">Métodos numéricos para EDPs</h1>
+<p>Nessa seção, desenvolveremos métodos de aproximação numérica para Equações Diferenciais
+Parciais. Para detalhes sobre os tipos de equações, consulte <a href="https://lucasmoschen.github.io/ta-sessions/edp/second_order_semilinear/">esse link</a>.</p>
+<h2 id="equacoes-elipticas">Equações Elípticas</h2>
+<p>Considere a equação de Poisson 
+<script type="math/tex; mode=display">\nabla^2 u(x,y) := u_{xx}(x,y) + u_{yy}(x,y) = f(x,y)</script>
+definida em um conjunto <script type="math/tex">U</script> tal que <script type="math/tex">u(x,y) = g(x,y)</script> em <script type="math/tex">(x,y)</script> na fronteira
+de <script type="math/tex">U</script>. Em geral, tomamos <script type="math/tex">U = \{(x,y) \mid a < x < b, c < y < d\}</script>.</p>
+<p>O método consiste na aplicação do método das Diferenças Finitas em um grid de
+duas dimensões. Seja <script type="math/tex">h = (b-a)/n</script> e <script type="math/tex">k = (d-c)/m</script> o tamanho do passo, em que 
+<script type="math/tex">n</script> e <script type="math/tex">m</script> indicam a quantidade deles em cada direção. A representação do
+desenho foi retirada de
+https://sites.me.ucsb.edu/~moehlis/APC591/tutorials/tutorial5/node3.html e
+segue abaixo:</p>
+<p><img alt="" src="https://sites.me.ucsb.edu/~moehlis/APC591/tutorials/tutorial5/img31.png" /></p>
+<p>Nessa imagem <script type="math/tex">\delta x = h</script> e <script type="math/tex">\delta t = k</script>. Com o grid, obtemos que 
+<script type="math/tex">x_i = a + ih</script> e <script type="math/tex">y_j = c + jk</script>, para <script type="math/tex">i, j = 0, \dots, m</script>. Usando a expansão
+de Taylor na variável <script type="math/tex">x</script> e <script type="math/tex">y</script>, geramos a fórmula de diferenças centrada 
+<script type="math/tex; mode=display">\frac{\partial ^2 u}{\partial x^2}u(x_i, y_j) = \frac{u(x_{i+1}, y_j) -
+2u(x_{i}, y_j) + u(x_{i-1}, y_j)}{h^2} - \frac{h^2}{12}\frac{\partial^4
+u}{\partial x^4}(\xi_i, y_j), </script>
+em que <script type="math/tex">\xi_i \in (x_{i-1}, x_{i+1})</script>, e 
+<script type="math/tex; mode=display">\frac{\partial ^2 u}{\partial y^2}u(x_i, y_j) = \frac{u(x_{i}, y_{j+1}) -
+2u(x_{i}, y_j) + u(x_{i}, y_{j-1})}{k^2} - \frac{k^2}{12}\frac{\partial^4
+u}{\partial y^4}(x_i, \eta_j), </script>
+em que <script type="math/tex">\eta_i \in (y_{i-1}, y_{i+1})</script>. Aplicando na equação de Poisson, 
+<script type="math/tex; mode=display">\frac{u(x_{i+1}, y_j) -
+2u(x_{i}, y_j) + u(x_{i-1}, y_j)}{h^2} + \frac{u(x_{i}, y_{j+1}) -
+2u(x_{i}, y_j) + u(x_{i}, y_{j-1})}{k^2} = f(x_i, y_j) + \frac{h^2}{12}\frac{\partial^4
+u}{\partial x^4}(\xi_i, y_j) + \frac{k^2}{12}\frac{\partial^4
+u}{\partial y^4}(x_i, \eta_j),</script>
+com as restrições de contorno. Usando a notação <script type="math/tex">w_{ij} \approx u(x_{i}, y_j)</script>,
+multiplicando ambos os lados pro <script type="math/tex">h^2</script> e juntando os termos, obtemos que 
+<script type="math/tex; mode=display">2\left[\left(\frac{h}{k}\right)^2 + 1\right]w_{ij} - (w_{i+1,j} +
+w_{i-1,j})- \left(\frac{h}{k}\right)^2(w_{i,j+1} + w_{i,j-1}) = -h^2f(x_i,
+y_j),</script>
+que tem erro local de ordem <script type="math/tex">h^2 + k^2</script>. Note que isso formará um sistema de
+equações com variáveis desconhecidas <script type="math/tex">w_{ij}</script>. É usual denotar 
+<script type="math/tex; mode=display">w_l = w_{ij}, l = i + (m-1-j)(n-1)</script>
+para <script type="math/tex">i = 1,2, \dots, n-1</script> e <script type="math/tex">j=1,2,\dots,m-1</script>.</p>
+<h2 id="equacoes-parabolicas">Equações Parabólicas</h2>
+<p>A primeira equação é a do calor ou difusão, dada por 
+<script type="math/tex; mode=display">\frac{\partial u}{\partial t} = \frac{\partial^2 u}{\partial x^2},</script> 
+com condições 
+<script type="math/tex; mode=display">u(x,0) = f(x), u(0,t) = a(t), \text{ e } u(1,t) = b(t).</script>
+</p>
+<p>Usando a Fórmula de Taylor mais uma vez e a aproximação <script type="math/tex">w_{ij} \approx
+u(x_i, y_j)</script>, obtemos que 
+<script type="math/tex; mode=display">\frac{w_{i, j+1} - w_{ij}}{k} - \alpha^2 \frac{w_{i+1,j} - 2w_{ij} +
+w_{i-1,j}}{h^2} = 0,</script>
+que pode ser reescrito como 
+<script type="math/tex; mode=display">w_{i,j+1} = \left(1 - \frac{2\alpha^2 k }{h^2}\right)w_{ij} + \alpha^2
+\frac{k}{h^2}(w_{i+1,j} + w_{i-1,j})</script> 
+para <script type="math/tex">i=1,2, \dots, m-1</script> e <script type="math/tex">j=1,2,\dots</script>. 
+Além, disso temos os valores de contorno, 
+<script type="math/tex">w_{i0} = f(x_i)</script> para <script type="math/tex">i= 0, 1, \dots, m, w_{m j} = b(kj), \text{ and } w_{0
+j} = a(kj)</script>. </p>
+<p>Esse método de atualização é conhecido como <strong>Forward-Difference</strong> e o método
+tem erro local de ordem <script type="math/tex">O(k + h^2)</script>. Note que a atualização pode ser escrita
+em formato matricial: <script type="math/tex">w^{(j)} = Aw^{(j-1)}</script>, em que <script type="math/tex">w^{(j)} = (w_{1j},
+\dots, w_{mj})</script>. </p>
+<h3 id="estabilidade">Estabilidade</h3>
+<p>Suponha que o valor inicial <script type="math/tex">w^{(0)}</script> seja representado com erro numérico
+<script type="math/tex">e^{(0)}</script>. Esse erro vai se propagar pelas iterações, dado que 
+<script type="math/tex; mode=display">w^{(1)} = Aw^{(0)} + Ae^{(0)}, \quad w^{(2)} = A^2w^{(0)} + A^2e^{(0)},
+\quad w^{(3)} = A^3w^{(0)} + A^3e^{(0)},</script>
+e assim por diante. Isso significa que não queremos que <script type="math/tex">||A^n e^{(0)}||</script>
+cresça com <script type="math/tex">n</script>. Isso acontece se para qualquer erro, 
+<script type="math/tex; mode=display">||A^ne^{(0)}|| \le ||e^{(0)}||, \text{ for all } n.</script>
+Com isso, gostaríamos que <script type="math/tex">||A^n|| \le 1</script> e, por conseguinte, <script type="math/tex">\rho(A) \le 1</script>.
+Essa restrição implica na condição de estabilidade para esse método:
+<script type="math/tex; mode=display">\alpha^2 \frac{k}{h^2} \le \frac{1}{2}.</script>
+</p>
+<h3 id="backward-difference">Backward-Difference</h3>
+<p>Nesse método, usamos que 
+<script type="math/tex; mode=display">\frac{\partial u}{\partial t}(x_i, t_j) = \frac{u(x_i, t_j) - u(x_i,
+t_{j-1}}{k} + \frac{k}{2}\frac{\partial ^2 u}{\partial t^2}(x_i, \mu_j).</script>
+</p>
+<p>Assim, chegamos na fórmula de atualização</p>
+<p>
+<script type="math/tex; mode=display">\frac{w_{i, j} - w_{i,j-1}}{k} - \alpha^2 \frac{w_{i+1,j} - 2w_{ij} +
+w_{i-1,j}}{h^2} = 0</script>
+</p>
+<p>Denote <script type="math/tex">\lambda = \alpha^2(k/h^2)</script>. Então o método vira 
+<script type="math/tex; mode=display">(1+2\lambda)w_{ij} - \lambda w_{i+1, j} - \lambda w_{i-1,j} = w_{i, j-1}</script>
+</p>
+<p>Note que nesse caso, teremos que <script type="math/tex">Aw^{(j)} = w^{(j-1)}.</script> Podemos verificar que
+quando <script type="math/tex">\lambda > 0</script>, a matriz é <script type="math/tex">A</script> é estritamente diagonalmente dominante e
+positiva definida. Um Solver de sistema linear deve ser utilizado para
+encontrar o próximo passo <script type="math/tex">w^{(j)}</script>. Uma análise nos autovalores de <script type="math/tex">A</script> prova
+que o método backward é estável incondicionalmente. </p>
+<p>Além dela, ainda temos a fórmula <strong>Centered-Difference</strong> que diz que 
+<script type="math/tex; mode=display">\frac{w_{i,j+1} - w_{i,j-1}}{2k} = \alpha^2\frac{w_{i+1,j} - 2w_{ij} +
+w_{i-1, j}}{h^2}.</script>
+Esse método tem a vantagem de ter erro local <script type="math/tex">O(h^2 + k^2)</script>, mas tem problemas
+de estabilidade como o Forward. </p>
+<h3 id="crank-nicolson">Crank-Nicolson</h3>
+<p>A ideia desse método é tomar a média dos passo <script type="math/tex">j</script> do método Forward e do
+passo <script type="math/tex">j+1</script> do método Backward, dados por</p>
+<p>
+<script type="math/tex; mode=display">\frac{w_{i, j+1} - w_{i,j}}{k} - \alpha^2 \frac{w_{i+1,j} - 2w_{ij} +
+w_{i-1,j}}{h^2} = 0</script>
+e
+<script type="math/tex; mode=display">\frac{w_{i, j+1} - w_{i,j-1}}{k} - \alpha^2 \frac{w_{i+1,j+1} - 2w_{i,j+1} +
+w_{i-1,j+1}}{h^2} = 0</script>
+que leva a 
+<script type="math/tex; mode=display">\frac{w_{i, j+1} - w_{i,j}}{k} - \frac{\alpha^2}{2}\left[\frac{w_{i+1,j} - 2w_{ij} +
+w_{i-1,j}}{h^2} + \frac{w_{i+1,j+1} - 2w_{i,j+1} +
+w_{i-1,j+1}}{h^2}\right] = 0.</script>
+Esse método tem erro local <script type="math/tex">O(k^2 + h^2)</script>. Em forma matricial, esse método é
+da forma <script type="math/tex">Aw^{(j+1)} = Bw^{(j)}</script>. É fácil verificar que <script type="math/tex">A</script> é positiva
+definida com diagonal estritamente dominante. Além disso, o método é
+incondicionalmente estável. </p>
+<h2 id="equacoes-hiperbolicas">Equações Hiperbólicas</h2>
+<p>O principal exemplo desse tipo de equação é a <strong>equação da onda</strong> que é dada
+por <script type="math/tex">u_{tt}(x,t) = \alpha^2 u_{xx}(x,t)</script> com condições iniciais e finais
+<script type="math/tex">u(x,0) = f(x), u_t(x,0) = g(x), u(0,t) = p(t), u(l,t) = q(t)</script>, em que <script type="math/tex">0 < x
+< l</script>. As ideias do grid e da aproximação de Taylor são as mesmas, o que leva
+ao método das diferenças 
+<script type="math/tex; mode=display">\frac{w_{i,j+1} - 2w_{ij} + w_{i,j-1}}{k^2} - \alpha^2\frac{w_{i+1,j} - 2w_{ij} +
+w_{i-1, j}}{h^2} = 0.</script>
+Ponha <script type="math/tex">\lambda = \alpha k / h</script>. Então reescrevemos a equação acima como 
+<script type="math/tex; mode=display">w_{i,j+1} = 2(1 - \lambda^2)w_{i,j} + \lambda^2(w_{i+1,j} + w_{i-1,j})
+-w_{i,j-1}.</script>
+Note que para o passo <script type="math/tex">j+1</script> são necessários conhecer dois passos anteriores.
+Para calcular <script type="math/tex">w_{i2}</script> precisamos saber <script type="math/tex">w_{i0} = f(x_i)</script> e <script type="math/tex">w_{i1}</script>. Esse
+último valor vai ser aproximado usando a condição inicial da derivada <script type="math/tex">g(x)</script>, 
+obtida através de 
+<script type="math/tex; mode=display">w_{i,1} = w_{i,0} + kg(x_i).</script>
+Também podemos melhor essa aproximação de Euler usando o polinômio de
+Maclaurin em <script type="math/tex">t</script>: 
+<script type="math/tex; mode=display">w_{i,1} = w_{i,0} + kg(x_i) + \frac{\alpha^2 k^2}{2}f''(x_i),</script>
+que tem erro de aproximação <script type="math/tex">O(k^3)</script>. Esse método é estável se <script type="math/tex">\lambda \le
+1</script>. </p></div>
+        
+        
+    </div>
+
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
+
+          
+          
+      </footer>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../../js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = "../.."</script>
+    
+    <script src="../../js/base.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>

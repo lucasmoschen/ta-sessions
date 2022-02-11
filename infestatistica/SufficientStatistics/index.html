@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+
+    
+    <title>Estatísticas Suficientes - Teaching Assistant</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../css/base.min.css" rel="stylesheet">
+    <link href="../../css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            
+              <a class="navbar-brand" href="../..">Teaching Assistant</a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../alglin/info/">Álgebra Linear</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../analisenum/info/">Análise Numérica</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../edo/info/">EDO</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../edp/info/">EDP</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../info/">Estatística</a>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://lucasmoschen.github.io">Página Inicial</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#estatisticas-suficientes">Estatísticas Suficientes</a></li>
+            <li class="second-level"><a href="#definicao-unidimensional">Definição Unidimensional</a></li>
+                
+            <li class="second-level"><a href="#criterio-de-fatorizacao">Critério de Fatorização</a></li>
+                
+                <li class="third-level"><a href="#estatisticas-conjuntas-suficientes">Estatísticas Conjuntas Suficientes</a></li>
+                <li class="third-level"><a href="#criterio-de-fatorizacao_1">Critério de Fatorização</a></li>
+            <li class="second-level"><a href="#estatistica-suficiente-minima">Estatística Suficiente Mínima</a></li>
+                
+                <li class="third-level"><a href="#estatistica-de-ordem">Estatística de Ordem</a></li>
+                <li class="third-level"><a href="#estatistica-suficiente-minima_1">Estatística Suficiente Mínima</a></li>
+                <li class="third-level"><a href="#mle-e-estatistica-suficiente">MLE e Estatística Suficiente</a></li>
+                <li class="third-level"><a href="#estatisticas-suficientes-e-estimador-de-bayes">Estatísticas Suficientes e Estimador de Bayes</a></li>
+            <li class="second-level"><a href="#definicoes-adicionais">Definições Adicionais</a></li>
+                
+                <li class="third-level"><a href="#estatistica-completa">Estatística Completa</a></li>
+                <li class="third-level"><a href="#estatistica-ancillary">Estatística Ancillary</a></li>
+        <li class="first-level "><a href="#melhorando-um-estimador">Melhorando um Estimador</a></li>
+            <li class="second-level"><a href="#teorema-rao-blackwell">Teorema Rao - Blackwell</a></li>
+                
+            <li class="second-level"><a href="#inadmissibilidade">Inadmissibilidade</a></li>
+                
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="estatisticas-suficientes">Estatísticas Suficientes</h1>
+<p>A ideia por traś da estatística é, como o nome diz, ser suficiente. Uma estatística é uma função das variáveis aleatórias, como, por exemplo, <script type="math/tex">T = r(X_1, ..., X_n)</script>.  Média amostral, variância amostral, valor máximo, são todos exemplos. Imagine que temos um problema como o seguinte: </p>
+<p>Vamos imaginar que um estatístico dá um trabalho para seu estagiário para organizar os dados de forma mais eficiente possível, enquanto ele pensa no modelo. O estagiário de forma muito ingênua cria uma lista em seu Jupyter Notebook e salva o notebook com os dados na sua lista. Depois ele salva num arquivo <code>.txt</code> e vai para casa tranquilo que o trabalho acabou mais cedo. </p>
+<p>Será que era necessário ter salvo todos os dados? O estatístico no dia seuinte diz que não! E manda o estagiário estudar novamente estatística. Ele disse para estudar <strong>Estatística Suficientes</strong>.</p>
+<h3 id="definicao-unidimensional">Definição Unidimensional</h3>
+<p>Seja <script type="math/tex">X_1, ..., X_n</script> uma amostra aleatória de distribuição indexada pelo parâmetro <script type="math/tex">\theta</script>. Suponha que para todo valor que <script type="math/tex">\theta</script> assume e para todo valor que <script type="math/tex">T</script> assume (vamos chamar de <script type="math/tex">t = r(x_1, ..., x_n)</script>, nesse caso já observamos o processo e calculamos <script type="math/tex">t</script>), a distribuição conjunta condicional de <script type="math/tex">X_1, ...., X_n</script> dado <script type="math/tex">T=t</script> e <script type="math/tex">\theta</script>, isto é, dado que você observou uma estatística (a média de temperaturas, por exemplo) depende apenas de <script type="math/tex">t</script>, mas não de <script type="math/tex">\theta</script>. </p>
+<p>Isso significa que a distribuição é constante para todos os valores de <script type="math/tex">\theta</script>. Chamaremos essa estatística <script type="math/tex">T</script> de suficiente para <script type="math/tex">\theta</script>. </p>
+<hr />
+<p><strong>Obs.:</strong> Para quem estudou funções mensuráveis, podemos definir estatística como função mensurável dos dados. </p>
+<hr />
+<p>Seja <script type="math/tex">(\mathbb{T}, \mathbb{C})</script> um espaço mensurável tal que <script type="math/tex">\mathbb{C}</script> contém todos os conjuntos unitários. Se <script type="math/tex">T : \mathbb{X} \to \mathbb{T}</script> é mensuável, então é uma estatística. </p>
+<p>Seja <script type="math/tex">\mathbb{P}_0</script> uma familia paramétrica de distribuições em <script type="math/tex">(\mathbb{X}, \mathbb{B})</script>. Seja <script type="math/tex">(\Omega, \tau)</script> um espaço dos parâmetros e <script type="math/tex">\Theta: \mathbb{P}_0 \to \Omega</script> um parâmetro. Seja <script type="math/tex">T</script> uma estatística. Ela é suficiente para <script type="math/tex">\Theta</script> se para toda priori <script type="math/tex">\mu_{\Theta}</script>, existem versões da posteriori <script type="math/tex">\mu_{\Theta|X}</script> e <script type="math/tex">\mu_{\Theta|T}</script> tal que <script type="math/tex">\forall B \in \tau, \mu_{\Theta|X}(B|x) = \mu_{\Theta|T}(B|T(x))</script>, quase certamente convergente para <script type="math/tex">[\mu_X]</script> onde <script type="math/tex">\mu_X</script> é distribuição marginal de <script type="math/tex">X</script>. </p>
+<hr />
+<h2 id="criterio-de-fatorizacao">Critério de Fatorização</h2>
+<p>Teorema atribuído a Neyman-Fisher. </p>
+<p>
+<script type="math/tex">X_1,...X_n</script> amostra aleatória com pdf ou pmf <script type="math/tex">f(x|\theta)</script>, onde <script type="math/tex">\theta</script> é desconhecido. Uma estatística <script type="math/tex">T = r(X)</script> para <script type="math/tex">\theta</script> é suficiente se, e somente se, a distribuição conjunta <script type="math/tex">f_n(x|\theta)</script> pode ser fatorada para todo valor <script type="math/tex">x \in \mathbb{R}^n</script> da seguinte forma: </p>
+<p>
+<script type="math/tex; mode=display">f_n(x|\theta) = u(x)v[r(x), \theta]</script>
+</p>
+<p>Onde <script type="math/tex">u</script> e <script type="math/tex">v</script> são não negativas, <script type="math/tex">u</script> não depende de <script type="math/tex">\theta</script> e <script type="math/tex">v</script> só depende dos dados através da estatística. Isto é, não adianta você encontrar qualquer função de <script type="math/tex">x</script>, tem que encontrar a estatística <script type="math/tex">T</script> em <script type="math/tex">v</script>. </p>
+<h3 id="estatisticas-conjuntas-suficientes">Estatísticas Conjuntas Suficientes</h3>
+<p>Suponha que para cada <script type="math/tex">\theta</script>, vetor, e cada valor das estatísticas <script type="math/tex">(T_1, ..., T_k) = (t_1, ..., t_k)</script> a distribuição conjunta condicional dos dados dadas as estatísticas não depende de <script type="math/tex">\theta</script>. Veja que nesse caso, a diferença é que condiciono em <script type="math/tex">k</script> estatísticas, <script type="math/tex">k \geq 1 </script>. </p>
+<h3 id="criterio-de-fatorizacao_1">Critério de Fatorização</h3>
+<p>Sejam <script type="math/tex">r_1, ..., r_k</script> funções de <script type="math/tex">n</script> variáveis. A estatísticas <script type="math/tex">T_i = r_i(X)</script> são estatísticas suficientes conjuntas para <script type="math/tex">\theta</script> se, e somene se, a pdf conjunta <script type="math/tex">f_n(x|\theta)</script> pode ser fatorado como </p>
+<p>
+<script type="math/tex; mode=display">f_n(x|\theta) = u(x)v[r_1(x), ..., r_k(x),\theta], </script>
+</p>
+<p>para todos os valores <script type="math/tex">x \in \mathbb{R}^n</script> e <script type="math/tex">\theta \in \Omega</script>
+</p>
+<p><strong>Obs.:</strong> Podemos mostrar que qualquer função injetiva de uma estatística suficiente é uma estatística suficiente. </p>
+<h2 id="estatistica-suficiente-minima">Estatística Suficiente Mínima</h2>
+<h3 id="estatistica-de-ordem">Estatística de Ordem</h3>
+<p>Considere uma amostra aleatória e a ordene. Diremos que a nova amostra, ordenada, é uma estatística de ordem. Observe que ela funciona como uma matrix de "shifts" que opera trocando as linhas do vetor de lugar. Por isso ela é uma função. </p>
+<p>Essa estatística é sufciente conjunta para <script type="math/tex">\theta</script>. O interessante que podemos ver isso dado que o produtório não importa a ordem. </p>
+<h3 id="estatistica-suficiente-minima_1">Estatística Suficiente Mínima</h3>
+<p>É uma estatística <script type="math/tex">T</script> suficiente e, além disso, é função de todas as outras estatísticas suficientes.</p>
+<h3 id="mle-e-estatistica-suficiente">MLE e Estatística Suficiente</h3>
+<p>Seja <script type="math/tex">T</script> uma estatística suficiente para <script type="math/tex">\theta</script>. Então o estimador de máxima verossimilhança <script type="math/tex">\hat{\theta}</script> depende das observações somente através da estatística <script type="math/tex">T</script>. Além disso, se <script type="math/tex">\hat{\theta}</script> é suficiente, então é mínimo.  </p>
+<h3 id="estatisticas-suficientes-e-estimador-de-bayes">Estatísticas Suficientes e Estimador de Bayes</h3>
+<p>
+<script type="math/tex">T = r(X)</script> estatística suficiente para <script type="math/tex">\theta</script>. Então todo estimador de Bayes <script type="math/tex">\hat{\theta}</script> depende nas observações <script type="math/tex">X_1, ..., X_n</script> apenas através da estatística <script type="math/tex">T</script>. Além do mais, se for suficiente, será suficiente mínimo. </p>
+<h2 id="definicoes-adicionais">Definições Adicionais</h2>
+<p>Considere uma amostra aleatória <script type="math/tex">X_1,...,X_n</script>
+</p>
+<hr />
+<h3 id="estatistica-completa">Estatística Completa</h3>
+<p>Seja <script type="math/tex">t = T(X)</script> estatística. Se </p>
+<p>
+<script type="math/tex; mode=display">E[g(T(X))|\theta] = 0, \forall \theta \implies P[g(T(X)) = 0] = 1,</script>
+</p>
+<p>então ela é dita completa.</p>
+<hr />
+<hr />
+<h3 id="estatistica-ancillary">Estatística Ancillary</h3>
+<p>Suponha que queremos estimar <script type="math/tex">\theta</script> e <script type="math/tex">f_n(x|\theta)</script> seja a pdf conjunta. Seja <script type="math/tex">A(X)</script> uma estatística. Se a sua distribuição <strong>não</strong> depende de <script type="math/tex">\theta</script>, então será uma estatística ancillary (auxiliar?) </p>
+<p>Por exemplo, se <script type="math/tex">X_1, X_2 \sim N(\mu, \sigma^2)</script> e  <script type="math/tex">\mu</script> é desconhecido, temos que <script type="math/tex">X_1 - X_2 \sim N(0, 2\sigma^2)</script> é uma estatística auxiliar. </p>
+<hr />
+<h1 id="melhorando-um-estimador">Melhorando um Estimador</h1>
+<hr />
+<p>Suponha que temos uma amostra aleatória <script type="math/tex">X = (X_1, ..., X_n)</script> cuja pdf é <script type="math/tex">f(x|\theta)</script> e <script type="math/tex">\theta \in \Omega</script> desconhecido, tal que queremos estimar <script type="math/tex">h(\theta)</script> para alguma função <script type="math/tex">h</script>. Seja <script type="math/tex">Z = g(X_1, ..., X_n)</script>. </p>
+<p>
+<script type="math/tex; mode=display">
+E_{\theta}(Z) = \int_{-\infty}^{\infty}...\int_{-\infty}^{\infty} g(x)f_n(x|\theta)dx_1, ..., dx_n
+</script>
+</p>
+<p>Para cada estimado <script type="math/tex">\delta(X)</script> e para todo valor de <script type="math/tex">\theta</script>, definimos o MSE (Erro Médio Quadrático)</p>
+<p>
+<script type="math/tex; mode=display">
+R(\theta, \delta) = E_{\theta}\{[\delta(X) - h(\theta)]^2\}
+</script>
+</p>
+<p>Quando não atribuímos uma priori para <script type="math/tex">\theta</script>, então queremos encontrar um estimador para que o MSE seja pequeno para vários valores de <script type="math/tex">\theta</script>. </p>
+<p>Seja <script type="math/tex">T</script> uma estatística suficiente conhecida. Definimos </p>
+<p>
+<script type="math/tex; mode=display">
+\delta_0(T) = E_{\theta}\{\delta(X)|T\} \overset{1}{=} E\{\delta(X)|T\}
+</script>
+</p>
+<hr />
+<p>(1) Agora, por que podemos chamar <script type="math/tex">\delta_0</script> de estimador se depende de <script type="math/tex">\theta</script>? </p>
+<p>Como <script type="math/tex">T</script> é uma estatística suficiente, a distribuição condicionada em <script type="math/tex">T</script> e em <script type="math/tex">\theta</script> da amostra <script type="math/tex">X_1, ..., X_n</script> não depende de <script type="math/tex">\theta</script>!!! Em particular o valor esperado do estimador <script type="math/tex">\delta(T)</script>. Logo, como esse valor esperado não depende de <script type="math/tex">\theta</script>, podemos dizer sim que ele é um estimador. </p>
+<h2 id="teorema-rao-blackwell">Teorema Rao - Blackwell</h2>
+<p>Teorema 7.9.1 do livro.</p>
+<p>Seja <script type="math/tex">\delta(X)</script> um estimador e <script type="math/tex">T</script> uma estatística suficiente para <script type="math/tex">\theta</script>. O estimador <script type="math/tex">\delta_0(T)</script> definido acima, para todo valor <script type="math/tex">\theta \in \Omega</script> é:</p>
+<p>
+<script type="math/tex; mode=display">
+R(\theta, \delta_0) \leq R(\theta, \delta),
+</script>
+</p>
+<p>isto é, é um estimador com menor erro quadrático médio (MSE). Em particular se <script type="math/tex">R(\theta, \delta) < \infty</script>, a desigualdade se torna estrita, a menos que <script type="math/tex">\delta(X)</script> seja um afunção de <script type="math/tex">T</script>, isto é, se <script type="math/tex">\delta(X)</script> não for função de <script type="math/tex">T</script>, então a desigualdade será estrita. Por desigualdade estrita entenda <script type="math/tex"><</script>.</p>
+<p><strong>Obs.:</strong> Chamamos o processo de melhorar um estimador com esse teorema de "Rao-Blackwelliation".</p>
+<hr />
+<p><strong>Obs.2:</strong> Podemos generalizar um pouco mais. Para isso, pesquise sobre <a href="https://en.wikipedia.org/wiki/Convex_set">Conjuntos Convexos</a> e sobre <a href="https://en.wikipedia.org/wiki/Convex_function">Funções Convexas</a>. Em um conjunto convexo, se a nossa função de perda não for o MSE, mas for uma função convexa, o teorema também valerá. Uma suposição interessante que o Livro não impõe é que <script type="math/tex">E[||\delta(X)||) < \infty</script>.</p>
+<hr />
+<h2 id="inadmissibilidade">Inadmissibilidade</h2>
+<p>Suponha que <script type="math/tex">R(\theta, \delta)</script> é MSE. O estimador <script type="math/tex">\delta</script> é <strong>inadimissível</strong> se existe outro estimador <script type="math/tex">\delta_0</script> tal que <script type="math/tex">R(\theta, \delta_0) \leq R(\theta, \delta)</script> para todo valor de <script type="math/tex">\theta</script> e existe a desigualdade estrita em, <strong>pelo menos um</strong> valor de <script type="math/tex">\theta</script>. Dizemos nesse caso que <script type="math/tex">\delta_0</script>
+<strong>domina</strong> o estimador <script type="math/tex">\delta</script>. Um estimador <script type="math/tex">\delta_0</script> é <strong>admissível</strong> se não existe outro estimador que o domine. </p></div>
+        
+        
+    </div>
+
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
+
+          
+          
+      </footer>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../../js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = "../.."</script>
+    
+    <script src="../../js/base.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>

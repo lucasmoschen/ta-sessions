@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+
+    
+    <title>O Método das Características - Teaching Assistant</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../../css/base.min.css" rel="stylesheet">
+    <link href="../../../css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            
+              <a class="navbar-brand" href="../../..">Teaching Assistant</a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../../alglin/info/">Álgebra Linear</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../../analisenum/info/">Análise Numérica</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../../edo/info/">EDO</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../info/">EDP</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../../infestatistica/info/">Estatística</a>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://lucasmoschen.github.io">Página Inicial</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#o-metodo-das-caracteristicas">O Método das Características</a></li>
+            <li class="second-level"><a href="#descricao-do-metodo">Descrição do método</a></li>
+                
+            <li class="second-level"><a href="#f-e-linear">F é linear</a></li>
+                
+            <li class="second-level"><a href="#condicoes-de-fronteira">Condições de fronteira</a></li>
+                
+            <li class="second-level"><a href="#existencia-local-de-solucoes">Existência local de soluções</a></li>
+                
+                <li class="third-level"><a href="#teorema-da-existencia-local">Teorema da Existência Local</a></li>
+        <li class="first-level "><a href="#leis-da-conservacao">Leis da Conservação</a></li>
+            <li class="second-level"><a href="#solucao-fraca-ou-integral">Solução fraca (ou integral)</a></li>
+                
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="o-metodo-das-caracteristicas">O Método das Características</h1>
+<p>Considere a Equação Diferencial Parcial (EDP) 
+<script type="math/tex; mode=display">
+F\left(\frac{\partial u}{\partial x_1}, \dots, u, \frac{\partial
+u}{\partial x_n}, x_1, \dots, x_n\right) = F(x, u, \nabla u) = F(x, u, Du) = 0,
+</script>
+definida em um conjunto <script type="math/tex">U</script>. Além disso, suponha que <script type="math/tex">u = g</script> na fronteira
+de <script type="math/tex">U</script>, em que <script type="math/tex">g</script> é dada função suave. </p>
+<h2 id="descricao-do-metodo">Descrição do método</h2>
+<p>A ideia geral desse método é transformar a EDP em um sistema de EDOs, em que
+temos uma teoria de resolução bem estabelecida. Nisso, vamos construir
+curvas da superfície formada por <script type="math/tex">u</script> e integrar nessas curvas. Seja <script type="math/tex">\gamma(s)
+= (a_1(s), \dots, a_n(s))</script> essa curva (definida em <script type="math/tex">U</script>). Assumindo que <script type="math/tex">u</script> é duas vezes
+continuamente diferenciável, defina 
+<script type="math/tex; mode=display">
+z(s) := u(\gamma(s)).
+</script>
+Também defina <script type="math/tex">p(s) = \nabla u(\gamma(s)) = (u_{x_1}(\gamma(s)), \dots,
+u_{x_n}(\gamma(s)))</script>. Temos que (Regra da Cadeia)
+<script type="math/tex; mode=display">
+\frac{d}{ds}p_i(s) = \sum_{j=1}^n u_{x_ix_j}(\gamma(s))\frac{d}{ds}a_j(s).
+</script>
+Voltando à EDP <script type="math/tex">F(x, u, Du) = 0</script>, derivando com respeito a <script type="math/tex">x_i</script>, 
+<script type="math/tex; mode=display">
+\sum_{j=1}^n F_{u_j} (Du, u, x)u_{x_j x_i} + F_z(Du, u, x)u_{x_i} +
+F_{x_i}(Du, u, x) = 0.
+</script>
+Vamos usar essa expressão para remover as segundas derivadas de <script type="math/tex">u</script> (que são
+em geral complicadas de se encontrar) Para isso, definimos 
+<script type="math/tex; mode=display">
+\frac{d}{ds}a_i(s) = F_{p_i}(p(s), z(s), \gamma(s)), i = 1, \dots n, 
+</script>
+isto é, estamos definindo uma curva a partir de sua função tangente. Assumindo
+isso e avaliando a expressão em <script type="math/tex">\gamma(s)</script>, obtemos que <script type="math/tex">u_{x_i}(\gamma(s)) =
+p_i(s)</script>, logo 
+<script type="math/tex; mode=display">
+\sum_{j=1}^n F_{p_j} (p(s), z(s), \gamma(s))u_{x_j x_i}(\gamma(s)) + F_z(p(s), z(s), \gamma(s))p_i(s) +
+F_{x_i}(p(s), z(s), \gamma(s)) = 0.
+</script>
+Usando a expressão de <script type="math/tex">\frac{d}{ds}p_i(s)</script> dada mais acima, teremos que 
+<script type="math/tex; mode=display">
+\frac{d}{ds}p_i(s) = - F_{x_i}(p(s), z(s), \gamma(s)) - F_z(p(s), z(s),
+\gamma(s))p_i(s), 
+</script>
+o que nos dá uma EDO para a função <script type="math/tex">p(s) = \nabla u(\gamma(s))</script>. Além disso,
+diferenciando <script type="math/tex">z</script> obtemos 
+<script type="math/tex; mode=display">
+\frac{d}{ds}z(s) = \sum_{j=1}^n u_{x_j}(\gamma(s))\frac{d}{ds}a_j(s) =
+\sum_{j=1}^n p_j(s)F_{p_j}(p(s), z(s), \gamma(s)). 
+</script>
+Isso nos reduz a um sistema de EDOs: 
+<script type="math/tex; mode=display">
+\begin{cases}
+    \dot{p}(s) = - D_x F(p(s), z(s), \gamma(s)) - D_z F(p(s), z(s),
+    \gamma(s))p(s) \\
+    \dot{z}(s) = D_p F(p(s), z(s), \gamma(s))\cdot p(s) \\
+    \dot{\gamma}(s) = D_pF(p(s), z(s), \gamma(s)),
+\end{cases}
+</script>
+em que <script type="math/tex">D</script> é a derivada (no caso vetorial, mas você pode pensar indivíduo a
+indíviduo usando as expressões derivadas acima). Além disso, ao longo da curva
+<script type="math/tex">\gamma(s)</script>, 
+<script type="math/tex; mode=display">
+F(p(s), z(s), \gamma(s)) = 0, 
+</script>
+pela própria definição da <script type="math/tex">F</script>. </p>
+<h2 id="f-e-linear">F é linear</h2>
+<p>Considere <script type="math/tex">F(Du, u, x) = b(x)\cdot Du(x) + c(x)u(x) = 0</script>, isto é, o caso
+linear. Ao longo das curvas características, <script type="math/tex">F(p,z,x) = b(x)\cdot p + c(x)z</script>.
+Assim, </p>
+<p>
+<script type="math/tex; mode=display">
+\begin{cases}
+    \dot{p}(s) = - D_x F(p(s), z(s), \gamma(s)) - D_z F(p(s), z(s),
+    \gamma(s))p(s) \\
+    \dot{z}(s) = D_p F(p(s), z(s), \gamma(s))\cdot p(s) = b(\gamma(s))\cdot
+    p(s) = -c(\gamma(s))z(s) \\
+    \dot{\gamma}(s) = D_p(p(s), z(s), \gamma(s)) = b(\gamma(s)),
+\end{cases}
+</script>
+Com isso, mesmo sem saber <script type="math/tex">p</script>, ainda conseguimos derivar <script type="math/tex">z</script>, o que simplifica
+bastante o problema. </p>
+<p><img src="../example.png" alt="Exemplo de solução de EDP"
+style="width:500px;height:600px;"></p>
+<h2 id="condicoes-de-fronteira">Condições de fronteira</h2>
+<p>Anteriormente, definimos um sistema de equações diferenciais para resolver
+<script type="math/tex">u(x)</script>. Todavia, esse sistema admite infinitas soluções quando não
+especificado uma condição inicial. Para isso, tome <script type="math/tex">x_0</script> na fronteira de <script type="math/tex">U</script>,
+onde sabemos que <script type="math/tex">u = g</script>. Em geral, assumimos que essa fronteira fica no plano
+<script type="math/tex">{x_n = 0}</script> próximo de <script type="math/tex">x_0</script>. Como assim? </p>
+<ul>
+<li>Suponha que estamos com <script type="math/tex">U \subseteq \mathbb{R}^2</script> e que a solução seja dada
+  pela função <script type="math/tex">u(x,t)</script>. Estamos dizendo que se <script type="math/tex">\gamma(0) = (x_0, 0)</script>, sendo
+  <script type="math/tex">\gamma</script> a curva característica. </li>
+<li>Suponha que <script type="math/tex">U \subseteq \mathbb{R}^4</script> e que a solução seja dada
+  pela função <script type="math/tex">u(x_1, \dots, x_4)</script>. Estamos dizendo que se <script type="math/tex">\gamma(0) =
+  (x^{1}_0, x^{2}_0, x^{3}_0, 0)</script>.</li>
+</ul>
+<p>Quando temos uma variável temporal, em geral denotada po <script type="math/tex">t</script>, dizemos que ela
+sempre começa em 0, uma forma de "padronizar". Sugiro o livro do Lawrence,
+seção 3.2.3 para uma demonstração de que essa suposição faz sentido. Dado um
+<script type="math/tex">x_0</script>, falta agora definir </p>
+<p>
+<script type="math/tex; mode=display">
+p(0) = p_0, z(0) = z_0, \gamma(0) = (x_0,0). 
+</script>
+</p>
+<p>Está claro que <script type="math/tex">z_0 = u(\gamma(0)) = u(x_0, 0) = g(x_0)</script>. Além disso, </p>
+<p>
+<script type="math/tex; mode=display">
+u(x_1, \dots, x_{n-1}, 0) = g(x_1, \dots, x_{n-1})
+</script>
+</p>
+<p>na vizinhança de <script type="math/tex">x_0</script> e, portanto, podemos diferenciar para obter </p>
+<p>
+<script type="math/tex; mode=display">
+u_{x_i}(x_0,0) = g_{x_i}(x_0), \text{ para } i = 1,\dots, n-1.
+</script>
+</p>
+<p>Dessa fora, <script type="math/tex">(p_0)^i = g_{x_i}(x_0)</script> para cada <script type="math/tex">i</script>. Para determinar <script type="math/tex">(p_0)^n</script>,
+usamos a relação dada por <script type="math/tex">F</script>, isto é, 
+<script type="math/tex; mode=display">
+F(p_0, z_0, x_0) = 0,
+</script>
+por definição. As relações de <script type="math/tex">z(0)</script> e <script type="math/tex">p(0)</script> são chamadas de <em>condições de
+compatibilidade</em>. Note que pode não existir ou pode não ser único a solução de
+<script type="math/tex">p_0</script> através da equação <script type="math/tex">F = 0</script>. </p>
+<h2 id="existencia-local-de-solucoes">Existência local de soluções</h2>
+<p>Dado <script type="math/tex">y = (y_1, \dots, y_{n-1}, 0)</script>, queremos resolver </p>
+<p>
+<script type="math/tex; mode=display">
+\begin{cases}
+    \dot{p}(s) = - D_x F(p(s), z(s), \gamma(s)) - D_z F(p(s), z(s),
+    \gamma(s))p(s) \\
+    \dot{z}(s) = D_p F(p(s), z(s), \gamma(s))\cdot p(s) = b(\gamma(s))\cdot
+    p(s) = -c(\gamma(s))z(s) \\
+    \dot{\gamma}(s) = D_p(p(s), z(s), \gamma(s)) = b(\gamma(s)),
+\end{cases}
+</script>
+</p>
+<p>com <script type="math/tex">\gamma(0) = y, p(0) = p_0, z(0) = z_0</script>, com as expressões de
+compatibilidade derivadas acima. </p>
+<p><strong>Lema (Uma aplicação do Teorema da Função Inversa):</strong> Assuma que
+<script type="math/tex">F_{p_n}(p_0, z_0, x_0) \neq 0</script>. Então existe <script type="math/tex">I \ni 0 \subseteq \mathbb{R}</script>,
+uma vizinhança <script type="math/tex">W</script> de <script type="math/tex">x_0</script> na fronteira de <script type="math/tex">U</script> e uma vizinhança <script type="math/tex">V</script> de <script type="math/tex">x_0</script>
+em <script type="math/tex">\mathbb{R}^n</script>   tal que para cada <script type="math/tex">x \in V</script>, existe um único <script type="math/tex">s \in I, y
+\in W</script> tal que 
+<script type="math/tex; mode=display">
+x = \gamma(y,s) = \gamma(y_1, \dots, y_{n-1},s).
+</script>
+</p>
+<p>Essa lema é uma consequência do Teorema da Função Inversa. Não se preocupe
+tanto com a demonstração. Mas a ideia é que se provarmos que <script type="math/tex">\det
+D\gamma(x_0, 0) \neq 0</script>, valerá a invertibilidade que estamos propondo, isto
+é, um mapa <script type="math/tex">x \mapsto (y,s)</script>. </p>
+<p>Assim, seja <script type="math/tex">y = y(x)</script> e <script type="math/tex">s = s(x)</script> de forma que <script type="math/tex">x = \gamma(y,s)</script> (que exite
+pelo que o lema prova). Assim, obtemos o seguinte Teorema:</p>
+<h3 id="teorema-da-existencia-local">Teorema da Existência Local</h3>
+<p>A função <script type="math/tex">u(x) := z(y(x), s(x))</script> é solução para a EDP </p>
+<p>
+<script type="math/tex; mode=display">
+F(Du(x), u(x), x) = 0,
+</script>
+em que <script type="math/tex">x \in V</script> e <script type="math/tex">u(x) = g(x)</script> para <script type="math/tex">x \in \partial U \cap V</script>, lembrando que
+<script type="math/tex">\partial U</script> é a fronteira de <script type="math/tex">U</script>. </p>
+<h1 id="leis-da-conservacao">Leis da Conservação</h1>
+<p>Considere o problema da lei de conservação para a dimensão 1</p>
+<p>
+<script type="math/tex; mode=display">
+u_t + [f(u)]_x = 0, x \in \mathbb{R}, t > 0 \\
+u(x,0) = \phi(x).
+</script>
+</p>
+<p>Como nem sempre temos soluções diferenciáveis para <script type="math/tex">u</script>, temos que relaxar um
+pouco nossa definição de solução, e para isso introduzimos as <em>soluções
+fracas</em>. </p>
+<h2 id="solucao-fraca-ou-integral">Solução fraca (ou integral)</h2>
+<p>Lembre que um conjunto em <script type="math/tex">\mathbb{R}^n</script> é <em>compacto</em> quando é fechado e
+limitado. Uma função tem suporte compacto quando existe um compacto <script type="math/tex">\Lambda</script>
+tal que para todo <script type="math/tex">x \in \mathbb{R}^n / \Lambda</script> a função se anula. Definimos
+uma solução fraca <script type="math/tex">u</script> quando </p>
+<p>
+<script type="math/tex; mode=display">
+\int_0^{+\infty}\int_{-\infty}^{+\infty} [uv_t + f(u)v_x] \, dx \, dt +
+\int_{-\infty}^{+\infty} \phi(x) v(x,0) \, dx = 0,
+</script>
+</p>
+<p>para todas as funções infinitamente diferenciáveis definidas em um conjunto
+compacto <script type="math/tex">v</script> (que chamamos de <em>função teste</em>). Assim, a suavidade é
+transferida para a função <script type="math/tex">v</script>. De forma equivalente, </p>
+<p>
+<script type="math/tex; mode=display">
+\int_0^{+\infty}\int_{-\infty}^{+\infty} v[u + f(u)_x] \, dx \, dt = 0,
+</script>
+</p>
+<p><strong>Teorema:</strong> Se <script type="math/tex">u</script> é uma solução forte (no sentido de ser <script type="math/tex">k</script> vezes
+continuamente diferenciável), então <script type="math/tex">u</script> será uma solução fraca. </p>
+<p>Como <script type="math/tex">v</script> é um solução que é nula para um valor suficientemente grande e o
+integrando é zero na solução, então a integral converge e, em particular, será
+zero. Claro que precisamos primeiro mostrar a equivalência acima usando
+Integral por partes. </p>
+<p>Agora suponha que <script type="math/tex">u</script> é uma função não contínua em uma curva <script type="math/tex">x = \xi(t)</script>, mas
+<script type="math/tex">u</script> é suave em ambos os lados da curva (pensando em <script type="math/tex">\mathbb{R}^2</script>). Denotamos
+<script type="math/tex">u^{+}(x,t)</script> para o limite de <script type="math/tex">u</script> quando se aproxima de <script type="math/tex">(x,t)</script> pela direita e
+<script type="math/tex">u^{-}(x,t)</script> pela esquerda. Vamos mostrar que existe uma relação entre
+<script type="math/tex">\xi(t)</script>, <script type="math/tex">u^{-}</script>, e <script type="math/tex">u^+</script>.</p>
+<p><strong>Teorema:</strong> Se <script type="math/tex">u</script> é uma solução fraca com a descontinuidade mencionada
+acima, então, 
+<script type="math/tex; mode=display">
+\frac{f(u^{-}) - f(u^{+})}{u^{-} - u^{+}} = \xi'(t)
+</script>
+na curva de descontinuidade. Chamamos <script type="math/tex">\xi '(t)</script> de <em>velocidade da curva de descontinuidade</em>. 
+O denominador e o numerador são chamados de <em>saltos</em>. Essa condição é chamada
+de <strong>Condição de Salto Rankine-Hugoniot</strong>. </p>
+<p>Nas imagens você confere um exemplo de quando <script type="math/tex">u</script> não é contínua da Equação de
+Berger. </p>
+<p><img src="../example-2.png" alt="Exemplo de solução de EDP - Parte 2"
+style="width:500px;height:600px;">
+<img src="../example-3.png" alt="Exemplo de solução de EDP - Parte 3"
+style="width:500px;height:600px;">
+<img src="../example-4.png" alt="Exemplo de solução de EDP - Parte 4"
+style="width:500px;height:600px;"></p></div>
+        
+        
+    </div>
+
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
+
+          
+          
+      </footer>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = "../../.."</script>
+    
+    <script src="../../../js/base.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>

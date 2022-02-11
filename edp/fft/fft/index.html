@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+
+    
+    <title>Teoria de Fourier - Teaching Assistant</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../../css/base.min.css" rel="stylesheet">
+    <link href="../../../css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            
+              <a class="navbar-brand" href="../../..">Teaching Assistant</a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../../alglin/info/">Álgebra Linear</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../../analisenum/info/">Análise Numérica</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../../edo/info/">EDO</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../info/">EDP</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../../infestatistica/info/">Estatística</a>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://lucasmoschen.github.io">Página Inicial</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#teoria-de-fourier">Teoria de Fourier</a></li>
+            <li class="second-level"><a href="#convolucoes">Convoluções</a></li>
+                
+            <li class="second-level"><a href="#transformada-de-fourier">Transformada de Fourier</a></li>
+                
+            <li class="second-level"><a href="#transformada-de-fourier-em-espaco-discreto">Transformada de Fourier em Espaço Discreto</a></li>
+                
+            <li class="second-level"><a href="#transformada-de-fourier-em-espaco-finito">Transformada de Fourier em Espaço Finito</a></li>
+                
+            <li class="second-level"><a href="#resolvendo-uma-edp-com-fourier">Resolvendo uma EDP com Fourier</a></li>
+                
+            <li class="second-level"><a href="#adicionais">Adicionais</a></li>
+                
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="teoria-de-fourier">Teoria de Fourier</h1>
+<p>Essa seção é apenas um pequeno resumo sobre o assunto de Fourier, que é uma
+matéria bem densa e pode ficar matematicamente bem complicada. Para um
+detalhamento mais acurado da teoria, o capítulo 2 do livro <a href="https://www.cambridge.org/core/books/fourier-analysis-and-partial-differential-equations/39312A08B4D4F25F65F39581D229285B">Fourier Analysis and Partial 
+Differential Equations</a>
+dos autores Rafael Iorio e Valéria Iorio é uma boa referência. </p>
+<h2 id="convolucoes">Convoluções</h2>
+<p>Dizemos que uma transformação <script type="math/tex">L</script> é linear se <script type="math/tex">L(f + \lambda g) = L(f) +
+\lambda L(g)</script> para todas as funções <script type="math/tex">f,g</script> em um espaço apropriado, como, por
+exemplo, das contínuas e <script type="math/tex">\lambda \in \mathbb{R}</script>. Ela será invariante 
+por translações quando <script type="math/tex">L(f(x-a)) = L(f(x) - a)</script> para todo <script type="math/tex">x,a</script> em
+um espaço vetorial. Por exemplo, considere as funções <script type="math/tex">f: \mathbb{R} \to
+\mathbb{R}</script> que representam algum sinal, tipo o som. A figura abaixo 
+mostra que uma transformação invariante por translação deve levar as 
+curvas azul e vermelha no mesmo lugar.</p>
+<p><img alt="" src="../fig1.png" /></p>
+<p>Toda transformação linear <script type="math/tex">L</script> invariante por translação 
+é dada por uma convolução 
+<script type="math/tex; mode=display">L(f)(x) = (f * h)(x) := \int_{\mathbb{R}} f(u) h(x-u) \, du</script>
+em que <script type="math/tex">h = L\delta</script> e <script type="math/tex">\delta</script> é a <a href="https://en.wikipedia.org/wiki/Dirac_delta_function">delta de Dirac</a>, uma função 
+generalizada estudada na Análise Funcional que é zero em todo
+ponto diferente de zero e 
+<script type="math/tex; mode=display">\int_{\mathbb{R}} \delta(x) \, dx = 1.</script> 
+Essa propriedade advém do fato de que 
+<script type="math/tex; mode=display">\int_{\mathbb{R}} f(x) \delta(x-u) \, du = f(x),</script>
+isto é, a convolução de <script type="math/tex">f</script> por <script type="math/tex">\delta</script> é exatamente <script type="math/tex">f</script>. </p>
+<p>Essa operação de convolução satisfaz as propriedades de 
+comutatividade, associatividade, existência de elemento
+identidade (<script type="math/tex">\delta</script>), além é claro dela ser fechada 
+no espaço das funções por exemplo. É possível mostrar que
+<script type="math/tex; mode=display">\frac{d(f * g)}{dx} = \frac{df}{dx} * g = f * \frac{dg}{dx},</script>
+o que permite dizer que a convolução de funções diferenciáveis 
+é diferenciável. Podemos, portanto, definir um <a href="https://en.wikipedia.org/wiki/Group_(mathematics)">grupo</a> em que
+o espaço é das funções deriváveis e a operação é a convolução. </p>
+<p>Defina <script type="math/tex">L_h(f) = f * h</script>, isto é, <script type="math/tex">L_h</script> é uma transformação
+que faz a convolução de <script type="math/tex">f</script> por <script type="math/tex">h</script>. <a href="https://www.youtube.com/watch?v=QmcoPYUfbJ8">Nesse vídeo</a> 
+temos uma intuição com a quantidade de fumaça <script type="math/tex">S(t)</script> e 
+a quantidade de fósforos <script type="math/tex">f(t)</script> no tempo <script type="math/tex">t</script>. </p>
+<h2 id="transformada-de-fourier">Transformada de Fourier</h2>
+<p>A função <script type="math/tex">e_w(x) = e^{2\pi w x i}</script> é um autovetor do operador 
+<script type="math/tex">L_h</script> no espaço das funções para qualquer <script type="math/tex">h</script> (sim, qualquer!).
+Essa proposição é um bom exercício. Como dica, observe que o seu 
+autovetor correspondente será 
+<script type="math/tex; mode=display">\hat{h}(w) = \int_{\mathbb{R}} h(u) e^{-2\pi w u i} \, du</script>
+Chamamos essa função de <strong>função de transferência</strong>. (Note que 
+muitos dos nomes aqui vem da teoria dos sinais). Temos então 
+uma base formada pelos autovetores da transformação <script type="math/tex">L_h</script>. 
+Considere uma função <script type="math/tex">f</script> e decomponha na base formada por esses
+autovetores. Assim:
+<script type="math/tex; mode=display">f(x) = \int_{\mathbb{R}} \hat{f}(w)e_w(x) \, dw,</script>
+em que os coeficientes <script type="math/tex">\hat{f}(w)</script> precisam ser determinados. A
+extensão do somatório para integral pode ser levado apenas como intuição
+até aqui. Assim, teremos que 
+<script type="math/tex; mode=display">L_h(f) = \int_{\mathbb{R}} \hat{f}(w)L(e_w) \, dw = \int_{\mathbb{R}}
+\hat{h}(w)\hat{f}(w)e_w \, dw.</script>
+</p>
+<p>No espaço de funções, definimos o produto interno da seguinte forma: 
+<script type="math/tex; mode=display">\langle f, g \rangle = \int_{\mathbb{R}} f(x)\overline{g(x)} \, dx.</script>
+</p>
+<p>Lembre que os coeficientes de uma decomposição têm relação com o coeficiente
+interno quando a base é ortogonal. Vamos ver que esse é o caso! E então,
+teremos que 
+<script type="math/tex; mode=display">\hat{f}(w) = \langle f, e_w \rangle = \int_{\mathbb{R}} f(u)e^{-2\pi w u i}
+\, du.</script>
+</p>
+<p>Para ver que a base de funções é de fato ortogonal, precisamos do resultado
+<script type="math/tex">\langle e_{w_1}, e_{w_2} \rangle = \delta(w_1 - w_2)</script> que não vai ser
+demonstrado aqui. </p>
+<p>Definimos a <strong>Transformada de Fourier</strong> de uma função <script type="math/tex">f(t)</script> por 
+<script type="math/tex; mode=display">\hat{f}(w) = \int_{\mathbb{R}} f(u)e^{-2\pi w u i} \, du, </script>
+sempre que essa integral é definida. Resumindo, a Transformada de Fourier é a
+função que para cada <script type="math/tex">w</script> determina o coeficiente correspondente ao autovetor
+<script type="math/tex">e_w</script> da operação de convolução. </p>
+<p>A <strong>Inversa da Transformada de Fourier</strong> é dada por 
+<script type="math/tex; mode=display">f(x) = \int_{\mathbb{R}} \hat{f}(w) e^{2\pi w x i} \, dw :=
+\check{f}(x).</script>
+</p>
+<p>Uma propriedade resultante interessante é que <script type="math/tex">\check{g}(w) =
+\widehat{g(-w)}</script>. Em Teoria dos Sinais, <script type="math/tex">\hat{f}(w)</script> mede o quanto uma frequência 
+<script type="math/tex">w</script> está presente no sinal <script type="math/tex">f(x)</script>. Isso acontece, porque o sinal <script type="math/tex">e_w(x) =
+e^{2\pi w x i} = \cos(2\pi w x) + i\sin(2\pi w x)</script> é o sinal "puro" da
+frequência <script type="math/tex">w</script> e <script type="math/tex">\hat{f}(w)</script> é o peso correspondente.  Por isso, dizemos que
+<script type="math/tex">f(x)</script> está definida no domínio do tempo ou espaço enquanto <script type="math/tex">\hat{f}(w)</script> está
+no domínio da frequência. </p>
+<p><strong>Propriedades:</strong> Valem as seguintes propriedades.</p>
+<p>
+<script type="math/tex; mode=display"> \hat{\delta} = 1 \\ \widehat{f * h} = \hat{f}\cdot \hat{h} \\ 
+g(x) = f(x-a) \implies \hat{g}(w) = \hat{f}(w)e^{-2\pi w a i}
+\\
+g(x) = f(ax) \implies \hat{g}(w) =a^{-1}\hat{f}(w/a) \\
+g(x) = f'(x) \implies \hat{g}(w) = \widehat{(\delta')}\cdot \hat{f} = 2\pi w
+\hat{f}(w) i \\
+\int_{\mathbb{R}} |f(u)|^2 \, du = \int_{\mathbb{R}} |\hat{f}(w)|^2 \, dw</script>
+</p>
+<h2 id="transformada-de-fourier-em-espaco-discreto">Transformada de Fourier em Espaço Discreto</h2>
+<p>Agora considere <script type="math/tex">f(x)</script> com <script type="math/tex">x \in \mathbb{Z}</script>, por exemplo. Nesse caso, a
+função de dirac tem a diferença de <script type="math/tex">\delta(0) = 1</script>, enquanto <script type="math/tex">0</script> no resto 
+dos inteiros. Vale também que 
+<script type="math/tex; mode=display">\sum_{i=-\infty}^{+\infty} f(i)\delta(i) = f(0)</script>
+e
+<script type="math/tex; mode=display">f(n) = \sum_{i=-\infty}^{+\infty} f(i)\delta(n-i).</script>
+</p>
+<p>A convolução discreta também tem uma definição similar 
+<script type="math/tex; mode=display">Lf(n) = (f * h)(n) := \sum_{i=-\infty}^{+\infty} f(i)h(n-i).</script>
+</p>
+<p>As propriedades de convoluções contínuas, mas a derivada é 
+substituída por <script type="math/tex">\Delta(f * g) = \Delta(f) * g = f * \Delta(g)</script> para
+<script type="math/tex">\Delta(f)(n) = f(n+1) - f(n)</script>. </p>
+<p>Os autovetores da convolução são da forma <script type="math/tex">e_w(n) = e^{2\pi w n i}</script> com
+autovalores 
+<script type="math/tex; mode=display">\hat{h}(w) = \sum_{i=-\infty}^{+\infty} h(i)e^{-2\pi w a i}.</script>
+</p>
+<p>E, por fim, a transformada de Fourier de Tempo Discreto é 
+<script type="math/tex; mode=display">\hat{f}(w) =  \sum_{i=-\infty}^{+\infty} f(i) e^{-2\pi w a i},</script>
+sempre que o somatório for válido. A inversa será
+<script type="math/tex; mode=display">f(n) = \int_0^1 \hat{f}(w) e^{2\pi w n i}.</script>
+</p>
+<p>Note que <script type="math/tex">\hat{f}(w)</script> é periódica com período 1. </p>
+<h2 id="transformada-de-fourier-em-espaco-finito">Transformada de Fourier em Espaço Finito</h2>
+<p>Agora os transformadores <script type="math/tex">L</script> são do tipo <script type="math/tex">L:\mathbb{C}^N \to \mathbb{C}^N</script> e
+portanto possuem representação matricial. Em particular, vamos estar
+interessados quando 
+<script type="math/tex; mode=display">L(a_0, a_1, \dots a_{N-1}) = (b_0, \dots, b_{N-1}) \implies L(a_{N-1}, a_0,
+\dots a_{N-2}) = (b_{N-1}, b_0, \dots, b_{N-2}),</script>
+que é semelhante à invariância por translação. Seja <script type="math/tex">\{\delta_0, \dots,
+\delta_{N-1}\}</script> a base canônica de <script type="math/tex">\mathbb{R}^N</script>, em que <script type="math/tex">(\delta_i)_i = 1</script> e
+<script type="math/tex">(\delta_i)_j = 0, j \neq i</script>. Nessa base, teremos que 
+<script type="math/tex; mode=display">L = \begin{bmatrix} h_0 & h_{N-1} & \cdots & h_1 \\ 
+ h_1 & h_{0} & \cdots & h_2 \\
+ h_2 & h_{1} & \cdots & h_3 \\
+ \vdots & \vdots & \ddots & \vdots \\
+ h_{N-1} & h_{N-2} & \cdots & h_0 \\
+\end{bmatrix},</script>
+em que <script type="math/tex">L\delta_0 = (h_0, h_1, h_2, \dots, h_N)</script>. Toda transformação dessa
+maneira é dada por uma convolução circular
+<script type="math/tex; mode=display">(Lf)_j = (f *_c h ) := \sum_{k=0}^j f_k h_{j-k} + \sum_{k=j+1}^{N-1} f_k
+h_{N+j-k} = \sum_{k=0}^{N-1} f_k h_{j-k \mod N}</script>
+em que <script type="math/tex">h = L\delta_0</script>. </p>
+<p>O operador <script type="math/tex">L_h</script> dado por <script type="math/tex">L_h f = f *_c h</script>. Essa matriz tem os autovalores e
+autovetores conhecidos: se <script type="math/tex">\alpha</script> é uma raiz <script type="math/tex">N</script>-ésima da unidade, então 
+<script type="math/tex">e = (1, \alpha, \dots, \alpha^{N-1})</script> é um autovetor de <script type="math/tex">L_h</script> cujo autovalor
+é dado por 
+<script type="math/tex; mode=display">\lambda = \sum_{k=0}^{N-1} h_k e^{-\frac{2\pi k}{N} wi}.</script>
+</p>
+<p>Para obter uma base ortonormal, basta fazer <script type="math/tex">e_w = N^{-1/2}e</script>. A
+<strong>Transformada de Fourier Finita</strong> de um vetor <script type="math/tex">f = (f_0, \dots, f_{N-1})</script> é
+dada por 
+<script type="math/tex; mode=display">\hat{f}_w = \frac{1}{\sqrt{N}} \sum_{k=0}^{N-1} f_k e^{-\frac{2\pi w}{N}
+ki}.</script>
+</p>
+<p>Um comentário importante é que na literatura, essa transformação é chamada de 
+<strong>Transformada de Fourier Discreta (DFT)</strong> e em alguns textos o coeficiente
+<script type="math/tex">1/\sqrt{N}</script> é substituído por <script type="math/tex">1/N</script> ou <script type="math/tex">1</script>. A <strong>Inversa</strong> dessa transformação
+é 
+<script type="math/tex; mode=display">f = \sum_{w=0}^{N-1} \hat{f}_w e_w.</script>
+</p>
+<h2 id="resolvendo-uma-edp-com-fourier">Resolvendo uma EDP com Fourier</h2>
+<p>Vamos lembrar que se <script type="math/tex">g(x) = f'(x)</script> para uma função diferenciável <script type="math/tex">g</script>, então a
+transformada de Fourier de <script type="math/tex">g</script> é 
+<script type="math/tex; mode=display">\hat{g}(w) = 2\pi w i \hat{f}(w).</script>
+Isso é "uma mão na roda", porque quando aplicamos a transformada na derivada
+de uma função, estamos voltando para a transformada da própria função
+multiplicada por uma função linear em <script type="math/tex">w</script>. Isso acontece quando a função é
+definida na reta. Para funções definidas apenas em um intervalo, é importante 
+observar <a href="https://en.wikipedia.org/wiki/Fourier_transform#:~:text=More%20precisely%2C%20suppose%20T%20is%20large%20enough%20that%20the%20interval">o seguinte trecho do site do Wikipedia</a>.
+Nesse caso, é muito comum também encontrar a fórmula 
+<script type="math/tex; mode=display">\hat{g}(w) = w i \hat{f}(w)</script>
+para funções definidas em <script type="math/tex">[-\pi, \pi]</script>. São algumas complicações
+relacionadas à própria derivação do método. Vamos aplicar esse método na
+equação de difusão 
+<script type="math/tex; mode=display">\frac{\partial^2 u(x,t)}{\partial x^2} = c\frac{\partial u(x,t)}{\partial
+t}.</script>
+</p>
+<p>O primeiro passo é aplicar a transformação de Fourier em ambos os lados da
+equação. Na prática, o que se faz é multiplicar por <script type="math/tex">e^{-i w x}</script> (ou <script type="math/tex">e^{-2\pi
+i w x}</script>, mas lembre que é questão de parametrização) e integrar de <script type="math/tex">x = -\infty</script> a
+<script type="math/tex">x = +\infty</script>. Se a função for definida em <script type="math/tex">[-\pi, \pi]</script>, você integra nesse
+intervalo, respectivamente. Nesse caso, observe que 
+<script type="math/tex; mode=display">\widehat{u_{xx}}(w,t) = ik \widehat{u_x} = -w^2\hat{u}(w, t).</script>
+Com algumas hipóteses de regularidade, pela Regra de Leibniz,
+<script type="math/tex; mode=display">\int_{-\infty}^{+\infty} u_t(x,t)e^{-i w x} \, dx =
+\frac{d}{dt}\int_{-\infty}^{+\infty} u(x,t)e^{-i w x} \, dx</script>
+Dessa forma 
+<script type="math/tex; mode=display">\widehat{u_t}(w,t) = \frac{\partial \hat{u}}{\partial t}(w,t).</script>
+</p>
+<p>Isso faz com que tenhamos o sistema 
+<script type="math/tex; mode=display">-w^2\hat{u}(w,t) = c\hat{u}_t(w,t)</script>
+que é uma EDO com solução 
+<script type="math/tex; mode=display">\hat{u}(w,t) = \hat{u}(w,0)e^{-w^2 t/c}.</script>
+Agora, basta aplicar a transformada inversa 
+<script type="math/tex; mode=display">u(x,t) = \int_{-\infty}^{\infty} \hat{u}(w,t)e^{iw x} \, dw.</script>
+</p>
+<p>Você deve ter observado que nessa parametrização (sem o <script type="math/tex">2\pi</script> no expoente),
+eu deveria dividir cada integral por <script type="math/tex">2\pi</script> para corretamente aplicar a
+Transformada de Fourier. Acontece que elas vão se anular por esse motivo. Para
+obter <script type="math/tex">\hat{u}(w,0)</script> basta aplicar a transformada de Fourier em <script type="math/tex">u(x,0)</script>, que
+é usualmente dado. </p>
+<h2 id="adicionais">Adicionais</h2>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=spUNpyF58BY">Mas o que é a Transformada de Fourier? Uma introdução visual. 3B1B</a></li>
+<li><a href="http://dmorris.net/projects/tutorials/fourier_tutorial.pdf">Least deep and most incomplete explanation for Fourier Transform</a></li>
+<li><a href="https://towardsdatascience.com/fast-fourier-transform-937926e591cb">Implementando Fast Fourier Transform em Python</a></li>
+</ul></div>
+        
+        
+    </div>
+
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
+
+          
+          
+      </footer>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = "../../.."</script>
+    
+    <script src="../../../js/base.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>
