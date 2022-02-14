@@ -2,7 +2,7 @@
 
 Monitoria de Curvas e Superfícies
 
-- [Ementa da disciplina](/files/disciplines/curvas-superficies/Ementa_curvas_superficies.pdf)
+- [Ementa da disciplina](/files/disciplines/curvas-superficies2021/Ementa_curvas_superficies.pdf)
 - [Notebooks documentados](https://github.com/lucasmoschen/ta-sessions/tree/master/Curves_Surfaces/notebooks)
 
 ## Tópicos
@@ -30,6 +30,10 @@ classic-curves). Você pode contribuir para aumentar o acervo!
 
 ### Listas 
 
+|Número|Itens discutidos|Solução|
+|------|----------------|-------|
+|[1](/files/disciplines/curvas-superficies2022/lista1.pdf)|Conceito de curva paramétrica, vetor tangente e exemplos|[1](/ta-sessions/unavailable)|
+
 ### Notas
 
 ## Período 2021.1
@@ -44,28 +48,28 @@ classic-curves). Você pode contribuir para aumentar o acervo!
 
 |Número|Itens discutidos|Solução|
 |------|----------------|-------|
-|[1](/files/disciplines/curvas-superficies/lista1.pdf)|Conceito de curva paramétrica, vetor tangente e exemplos|[1](/ta-sessions/unavailable)|
-|[2](/files/disciplines/curvas-superficies/lista2.pdf)|Reparametrização e comprimento de arco|[2](/ta-sessions/unavailable)|
-|[3](/files/disciplines/curvas-superficies/lista3.pdf)|Comprimento de arco, curvatura e diferenciabilidade|[3](/ta-sessions/unavailable)|
-|[4](/files/disciplines/curvas-superficies/lista4.pdf)|Curvatura e torção, triedro de Frenet|[4](/ta-sessions/unavailable)|
-|[4.1](/files/disciplines/curvas-superficies/lista4-1.pdf)|Fórmulas de Frenet para não unit-speed curvas|-|
-|[5](/files/disciplines/curvas-superficies/lista5.pdf)|Superfícies regulares, mudança de parâmetro|[5](/ta-sessions/unavailable)|
-|[6](/files/disciplines/curvas-superficies/lista6.pdf)|Introdução à Topologia|[6](/ta-sessions/unavailable)|
-|[7](/files/disciplines/curvas-superficies/lista7.pdf)|Primeira forma fundamental|[7](/ta-sessions/unavailable)|
-|[8](/files/disciplines/curvas-superficies/lista8.pdf)|Formas fundamentais|[8](/ta-sessions/unavailable)|
+|[1](/files/disciplines/curvas-superficies2021/lista1.pdf)|Conceito de curva paramétrica, vetor tangente e exemplos|[1](/ta-sessions/unavailable)|
+|[2](/files/disciplines/curvas-superficies2021/lista2.pdf)|Reparametrização e comprimento de arco|[2](/ta-sessions/unavailable)|
+|[3](/files/disciplines/curvas-superficies2021/lista3.pdf)|Comprimento de arco, curvatura e diferenciabilidade|[3](/ta-sessions/unavailable)|
+|[4](/files/disciplines/curvas-superficies2021/lista4.pdf)|Curvatura e torção, triedro de Frenet|[4](/ta-sessions/unavailable)|
+|[4.1](/files/disciplines/curvas-superficies2021/lista4-1.pdf)|Fórmulas de Frenet para não unit-speed curvas|-|
+|[5](/files/disciplines/curvas-superficies2021/lista5.pdf)|Superfícies regulares, mudança de parâmetro|[5](/ta-sessions/unavailable)|
+|[6](/files/disciplines/curvas-superficies2021/lista6.pdf)|Introdução à Topologia|[6](/ta-sessions/unavailable)|
+|[7](/files/disciplines/curvas-superficies2021/lista7.pdf)|Primeira forma fundamental|[7](/ta-sessions/unavailable)|
+|[8](/files/disciplines/curvas-superficies2021/lista8.pdf)|Formas fundamentais|[8](/ta-sessions/unavailable)|
 
 ### Notas
 
 |Monitoria|Itens discutidos|Arquivo|Vídeo|
 |---------|----------------|-------|-----|
 |26/02/2021|Lista 1 e GeoGebra|-|Sim|
-|05/03/2021|Lista 2 e conceito de reparametrização|[Visualizar](/files/disciplines/curvas-superficies/monitoria05-03-2021.pdf)|Não|
-|12/03/2021|Aplicações diferenciáveis|[Visualizar](/files/disciplines/curvas-superficies/monitoria12-03-2021.pdf)|Sim|
-|19/03/2021|Lista 3 e aplicações diferenciáveis|[Visualizar](/files/disciplines/curvas-superficies/monitoria19-03-2021.pdf)|Sim|
+|05/03/2021|Lista 2 e conceito de reparametrização|[Visualizar](/files/disciplines/curvas-superficies2021/monitoria05-03-2021.pdf)|Não|
+|12/03/2021|Aplicações diferenciáveis|[Visualizar](/files/disciplines/curvas-superficies2021/monitoria12-03-2021.pdf)|Sim|
+|19/03/2021|Lista 3 e aplicações diferenciáveis|[Visualizar](/files/disciplines/curvas-superficies2021/monitoria19-03-2021.pdf)|Sim|
 |25/03/2021|Lista 4 e 4.1 e página "Curvas no Espaço"|[Frenet](/ta-sessions/curvas/notes-frenet)|Não|
-|30/04/2021|Introdução a superfícies, esfera e duplo cone|[Visualizar](/files/disciplines/curvas-superficies/monitoria30-04-2021.pdf)|Sim|
-|13/05/2021|Definições de superfícies|[Visualizar](/files/disciplines/curvas-superficies/monitoria13-05-2021.pdf)|Não|
-|20/05/2021|Lista 6 e conceitos de topologia|[Visualizar](/files/disciplines/curvas-superficies/monitoria20-05-2021.pdf)|Sim|
+|30/04/2021|Introdução a superfícies, esfera e duplo cone|[Visualizar](/files/disciplines/curvas-superficies2021/monitoria30-04-2021.pdf)|Sim|
+|13/05/2021|Definições de superfícies|[Visualizar](/files/disciplines/curvas-superficies2021/monitoria13-05-2021.pdf)|Não|
+|20/05/2021|Lista 6 e conceitos de topologia|[Visualizar](/files/disciplines/curvas-superficies2021/monitoria20-05-2021.pdf)|Sim|
   
 ## Sugestões Adicionais 
 
