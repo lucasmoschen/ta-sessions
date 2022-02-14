@@ -26,7 +26,7 @@ classic-curves). Você pode contribuir para aumentar o acervo!
 
 ## Período 2022.1
 
-- Dia: 
+- Dia: Terça-feira 16h e Quinta-feira 18h
 
 ### Listas 
 
