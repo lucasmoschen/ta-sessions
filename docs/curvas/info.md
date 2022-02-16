@@ -27,6 +27,7 @@ classic-curves). Você pode contribuir para aumentar o acervo!
 ## Período 2022.1
 
 - Dia: Terça-feira 16h e Quinta-feira 18h
+- [Monitorias gravadas](https://gvmail-my.sharepoint.com/:f:/g/personal/b37214_fgv_edu_br/Emu7FCUe9LNPh-S4HihUsyUBKmQjTK5UW3OK7riWl4JpFg?e=yspRYF)
 
 ### Listas 
 
@@ -35,6 +36,10 @@ classic-curves). Você pode contribuir para aumentar o acervo!
 |[1](/files/disciplines/curvas-superficies2022/lista1.pdf)|Conceito de curva paramétrica, vetor tangente e exemplos|[1](/ta-sessions/unavailable)|
 
 ### Notas
+
+|Monitoria|Itens discutidos|Arquivo|Vídeo|
+|---------|----------------|-------|-----|
+|15/02/2022|Lista 1 e Geogebra|[Visualizar](/files/disciplines/curvas-superficies2022/monitoria15-02-2022.pdf)|Não|
 
 ## Período 2021.1
 
