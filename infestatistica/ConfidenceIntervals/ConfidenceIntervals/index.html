@@ -197,14 +197,16 @@ B = \bar{X}_n + T_{n-1}^{-1}\left(\frac{1 + \gamma}{2}\right)\frac{\sigma '}{n^{
 <li>weight: peso da mãe em pounds.  </li>
 <li>smoke: se a mãe é fumante ou não. </li>
 </ol>
-<pre class="highlight"><code class="language-python"># Importando bibliotecas 
-import pandas as pd 
-import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
-from scipy.stats import t</code></pre>
-<pre class="highlight"><code class="language-python">birth_df = pd.read_csv("http://people.reed.edu/~jones/141/Bwt.dat")
-birth_df.head()</code></pre>
+<div class="highlight"><pre><span></span><code><span class="c1"># Importando bibliotecas </span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> 
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">t</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">birth_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;http://people.reed.edu/~jones/141/Bwt.dat&quot;</span><span class="p">)</span>
+<span class="n">birth_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div>
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -287,53 +289,59 @@ birth_df.head()</code></pre>
 </table>
 </div>
 
-<pre class="highlight"><code class="language-python">sns.histplot(data = birth_df.bwt, kde = True)
-plt.title('Histograma dos pesos dos bebês')
-plt.show()
-birth_df[birth_df.smoke == 0].bwt.hist(density = True, label = 'Não fumante')
-birth_df[birth_df.smoke == 1].bwt.hist(density = True, label = 'Fumante', alpha = 0.6)
-plt.xlabel('Peso')
-plt.legend()
-plt.show()</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">birth_df</span><span class="o">.</span><span class="n">bwt</span><span class="p">,</span> <span class="n">kde</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Histograma dos pesos dos bebês&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">birth_df</span><span class="p">[</span><span class="n">birth_df</span><span class="o">.</span><span class="n">smoke</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">bwt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">density</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Não fumante&#39;</span><span class="p">)</span>
+<span class="n">birth_df</span><span class="p">[</span><span class="n">birth_df</span><span class="o">.</span><span class="n">smoke</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">bwt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">density</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Fumante&#39;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Peso&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
 <p><img alt="png" src="../output_4_0.png" /></p>
 <p><img alt="png" src="../output_4_1.png" /></p>
 <p>Sabemos que essa é uma extração de uma população maior. Para conseguirmos mais amostras, vamos usar um procedimento chamado <strong>bootstrap</strong>. A ideia desse procedimento é criar um novas amostras a partir de uma amostra inicial, usando <code>replace = True</code> como diferencial. Vou fazer esse procedimento diversar vezes e ir calculando a média amostral. Como a média amostral é uma variável aleatória, vamos obter um histograma das realizações. </p>
 <p>Vamos supor que o peso <script type="math/tex">W_i</script> da criança <script type="math/tex">i</script> vem de uma distribuição com parâmetros <script type="math/tex">\mu</script> e <script type="math/tex">\sigma^2</script> desconhecidos. Nesse caso, <script type="math/tex">\bar{W}_i</script> virá de uma distribuição normal com parâmetros <script type="math/tex">\mu</script> e <script type="math/tex">\sigma^2/n</script>. </p>
-<pre class="highlight"><code class="language-python">ite = 10000
-n = 200
+<div class="highlight"><pre><span></span><code><span class="n">ite</span> <span class="o">=</span> <span class="mi">10000</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">200</span>
 
-bootstrap_means = np.zeros(ite)
-for i in range(ite):
-    bootstrap_sample = birth_df.sample(n = n, replace = True, random_state=i)
-    bootstrap_means[i] = bootstrap_sample.bwt.mean()</code></pre>
-<pre class="highlight"><code class="language-python">sns.histplot(bootstrap_means, kde = True)
-plt.title("Médias das amostras")
-plt.xlabel('Peso')
-plt.show()</code></pre>
+<span class="n">bootstrap_means</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">ite</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ite</span><span class="p">):</span>
+    <span class="n">bootstrap_sample</span> <span class="o">=</span> <span class="n">birth_df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="n">n</span><span class="p">,</span> <span class="n">replace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">bootstrap_means</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">bootstrap_sample</span><span class="o">.</span><span class="n">bwt</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">bootstrap_means</span><span class="p">,</span> <span class="n">kde</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Médias das amostras&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Peso&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
 <p><img alt="png" src="../output_7_0.png" /></p>
 <p>Vamos calcular o nosso intervalo de confiança com <script type="math/tex">\gamma = 0.95</script>. Temos que:</p>
-<pre class="highlight"><code class="language-python">gamma = 0.95
+<div class="highlight"><pre><span></span><code><span class="n">gamma</span> <span class="o">=</span> <span class="mf">0.95</span>
 
-A = lambda x: np.mean(x) - t.ppf(q = (1 + gamma)/2, df = len(x) - 1)*np.std(x, ddof = 1)/len(x)**(1/2)
-B = lambda x: np.mean(x) + t.ppf(q = (1 + gamma)/2, df = len(x) - 1)*np.std(x, ddof = 1)/len(x)**(1/2)</code></pre>
-<pre class="highlight"><code class="language-python">ite = 100
-n = 500
+<span class="n">A</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">t</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="n">q</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">gamma</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">df</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">ddof</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">B</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">t</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="n">q</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">gamma</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">df</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">ddof</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">ite</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">500</span>
 
-bootstrap_intervals  = np.zeros((ite,2))
-for i in range(ite):
-    bootstrap_sample = birth_df.sample(n = n, replace = True, random_state=i)
-    bootstrap_intervals[i,0] = A(bootstrap_sample.bwt)
-    bootstrap_intervals[i,1] = B(bootstrap_sample.bwt)
+<span class="n">bootstrap_intervals</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">ite</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ite</span><span class="p">):</span>
+    <span class="n">bootstrap_sample</span> <span class="o">=</span> <span class="n">birth_df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="n">n</span><span class="p">,</span> <span class="n">replace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">bootstrap_intervals</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span><span class="p">(</span><span class="n">bootstrap_sample</span><span class="o">.</span><span class="n">bwt</span><span class="p">)</span>
+    <span class="n">bootstrap_intervals</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">B</span><span class="p">(</span><span class="n">bootstrap_sample</span><span class="o">.</span><span class="n">bwt</span><span class="p">)</span>
 
-out_values = np.where((bootstrap_intervals[:,0] &gt; 119.5) | (bootstrap_intervals[:,1] &lt; 119.5))</code></pre>
-<pre class="highlight"><code class="language-python">plt.figure(figsize = (6,10))
-plt.scatter(bootstrap_intervals[:,0], np.arange(0,ite), color = 'red', label = 'a')
-plt.scatter(bootstrap_intervals[:,1], np.arange(0,ite), color = 'green', label = 'b')
-plt.scatter(bootstrap_intervals[out_values[0],0], out_values[0], color = 'black', label = 'Fora')
-plt.scatter(bootstrap_intervals[out_values[0],1], out_values[0], color = 'black')
-plt.vlines(119.5, ymin = 0, ymax = ite, linestyle = '--', alpha = 0.6, label = 'Média real')
-plt.legend()
-plt.show()</code></pre>
+<span class="n">out_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">((</span><span class="n">bootstrap_intervals</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">119.5</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">bootstrap_intervals</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mf">119.5</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">bootstrap_intervals</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">ite</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">bootstrap_intervals</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">ite</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">bootstrap_intervals</span><span class="p">[</span><span class="n">out_values</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">0</span><span class="p">],</span> <span class="n">out_values</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Fora&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">bootstrap_intervals</span><span class="p">[</span><span class="n">out_values</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">1</span><span class="p">],</span> <span class="n">out_values</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="mf">119.5</span><span class="p">,</span> <span class="n">ymin</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">ymax</span> <span class="o">=</span> <span class="n">ite</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.6</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Média real&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
 <p><img alt="png" src="../output_11_0.png" /></p>
 <h2 id="interpretacao">Interpretação</h2>
 <p>Estamos fazer uma afirmação probabilística sobre o intervalo <script type="math/tex">(A,B)</script> antes de observar os dados. Após observarmos os dados, não podemos interpretar <script type="math/tex">(a,b)</script> como um intervalo em que temos 95% de confiança de <script type="math/tex">g(\theta)</script> estar no intervalo. Antes de observarmos as amostras, temos a confiança de que 95% dos intervalos conterão <script type="math/tex">\mu</script>. </p>
@@ -409,7 +417,8 @@ Y = aX + b + E,
 </script>
 </p>
 <p>onde <script type="math/tex">E \sim N(0,\sigma^2)</script>. Nesse caso, estamos dizendo que <script type="math/tex">Y|X \sim N(aX + b, \sigma^2)</script>. Queremos estimar <script type="math/tex">a</script> e <script type="math/tex">b</script> de forma que tenhamos o melhor ajuste possível. Esse tema em específico não me interessa. Entretanto, podemos dizer que queremos estimar <script type="math/tex">aX + b</script>, a média de uma normal, mas que muda para cada <script type="math/tex">X = x</script> observado. </p>
-<pre class="highlight"><code class="language-python">sns.lmplot(x = 'gestation', y = 'bwt', data = birth_df, height = 5, ci = 95)</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;gestation&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;bwt&#39;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">birth_df</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">ci</span> <span class="o">=</span> <span class="mi">95</span><span class="p">)</span>
+</code></pre></div>
 <pre><code>&lt;seaborn.axisgrid.FacetGrid at 0x7fc517f55c18&gt;
 </code></pre>
 <p><img alt="png" src="../output_16_1.png" /></p>

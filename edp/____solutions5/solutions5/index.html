@@ -167,8 +167,8 @@ técnica funciona rapidamente, o que é interessante. Não há nenhuma outra fil
 não funcione o afinador. </p>
 <p>A entrada é uma <code>string</code> com o nome do arquivo <code>.wav</code> e a saída é a nota com
 frequência mais aproximada entre <code>C, C#, D, D#, E, F, F#, G, G#, A, A#, B</code>. </p>
-<pre class="highlight"><code matlab="matlab">note = afinador('CordaViolao.wav');
-disp('A nota tocada foi: ')
+<div class="highlight"><pre><span></span><code>note = afinador(&#39;CordaViolao.wav&#39;);
+disp(&#39;A nota tocada foi: &#39;)
 disp(note)
 
 function [note] = hps(yhat, n, N)
@@ -190,7 +190,7 @@ function [note] = hps(yhat, n, N)
 end
 
 function [strnote] = get_note(frequency)
-    notes = char({'C','C#','D','D#','E','F','F#','G','G#','A','A#','B'});
+    notes = char({&#39;C&#39;,&#39;C#&#39;,&#39;D&#39;,&#39;D#&#39;,&#39;E&#39;,&#39;F&#39;,&#39;F#&#39;,&#39;G&#39;,&#39;G#&#39;,&#39;A&#39;,&#39;A#&#39;,&#39;B&#39;});
     freqs = [523, 554,587, 622,659,698, 740,784, 831,880, 932, 988];
     % Se a frequência não está na oitava, o coloco multiplicando e dividindo
     % por 2. Sabemos que a nota será a mesma, em uma diferente frequência.
@@ -220,7 +220,8 @@ function [note] = afinador(name)
    [~, argmax] = max(yhat);
    note = freq(argmax);
    note = get_note(note);
-end</code></pre>
+end
+</code></pre></div>
 <h4 id="o-polvo">O Polvo</h4>
 <p>Nesse exercício, primeiro temos o polvo, representado pelos vetores <script type="math/tex">x</script> e <script type="math/tex">y</script>
 </p>
@@ -259,18 +260,18 @@ a matriz da transformada de Fourier: </p>
 <img src="../Imagens/Polvo-14501.png" alt="drawing" width="400"/></p>
 <p>Como conclusão, conseguimos sequências <script type="math/tex">\vec{x}(t)</script> e <script type="math/tex">\vec{y}(t)</script> que sejam
 versões suavizadas de <script type="math/tex">\vec{x}</script> e <script type="math/tex">\vec{y}</script>. </p>
-<pre class="highlight"><code matlab="matlab">polvo = csvread('Polvo.csv');
+<div class="highlight"><pre><span></span><code>polvo = csvread(&#39;Polvo.csv&#39;);
 
 c = 0.5;
 [D,x0,y0] = pre_calculation(polvo(:,1), polvo(:,2), c);
 
 figure
-plot(polvo(:,1), polvo(:,2),'r.')
+plot(polvo(:,1), polvo(:,2),&#39;r.&#39;)
 xlim([min(polvo(:,1)), max(polvo(:,1))]);
 ylim([min(polvo(:,2)), max(polvo(:,2))]);
-title('O Polvo de EDP')
-xlabel('x')
-ylabel('y')
+title(&#39;O Polvo de EDP&#39;)
+xlabel(&#39;x&#39;)
+ylabel(&#39;y&#39;)
 
 pause(2)
 
@@ -281,7 +282,7 @@ for t = 1:250:15000
    disp(t)
    pause(0.1)
    if ismember(t, [501, 10001, 14501])
-       saveas(gcf, join(["Polvo-", t, ".png"], ''));
+       saveas(gcf, join([&quot;Polvo-&quot;, t, &quot;.png&quot;], &#39;&#39;));
    end
 end
 
@@ -294,7 +295,7 @@ clear y0;
 function [D, x0, y0] = pre_calculation(x, y, c)
     % Calculate the diagonal matrix of convolucional matrix of size n
     n = length(x);
-    D = fft(c*[-2,1,zeros(1,n-3),1]');
+    D = fft(c*[-2,1,zeros(1,n-3),1]&#39;);
     x0 = ifft(x);
     y0 = ifft(y);
 end
@@ -305,7 +306,8 @@ function  [filter] = heat_filter(u0, t, D)
     % each t, the x(t) smoothed.
     filter = exp(D*t).*u0;
     filter = real(fft(filter));
-end</code></pre></div>
+end
+</code></pre></div></div>
         
         
     </div>

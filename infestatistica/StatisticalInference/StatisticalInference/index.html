@@ -161,18 +161,20 @@
 <li>Desenho de experimentos: um psicólogo quer inferir quão avesso ao risco é uma determinada população. Ele pode determinar, desenhar o experimento para isso. </li>
 </ul>
 <p><a href="https://towardsdatascience.com/statistical-inference-in-pyhton-using-pandas-numpy-part-i-c2ac0320dffe">Inferência Estatística com Python</a></p>
-<pre class="highlight"><code class="language-python">import numpy as np 
-import pandas as pd 
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> 
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> 
 
-from scipy.stats import poisson
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">poisson</span>
 
-import matplotlib.pyplot as plt
-import seaborn as sns
-sns.set()</code></pre>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+</code></pre></div>
 <h3 id="importando-os-dados">Importando os Dados</h3>
 <p>Este banco de dados inclui um registro para cada vazamento ou derramamento de oleoduto relatado à Administração de Segurança de Dutos e Materiais Perigosos desde 2010. Esses registros incluem a data e hora do incidente, operador e oleoduto, causa do incidente, tipo de líquido perigoso e quantidade perdida, ferimentos e fatalidades e custos associados.</p>
-<pre class="highlight"><code class="language-python">oil_accident_df = pd.read_csv('../data/oil_pipeline.csv')
-oil_accident_df.sample()</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">oil_accident_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../data/oil_pipeline.csv&#39;</span><span class="p">)</span>
+<span class="n">oil_accident_df</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>
+</code></pre></div>
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -244,11 +246,12 @@ oil_accident_df.sample()</code></pre>
 <p>1 rows × 48 columns</p>
 </div>
 
-<pre class="highlight"><code class="language-python">cols_of_interest = ['Accident Date/Time','Accident State','Pipeline Location',
-                    'Liquid Type','Net Loss (Barrels)','All Costs']
-data = oil_accident_df[cols_of_interest]
-data['All Costs'] = data['All Costs'] / 1000000    # unidade em milhão.
-data.sample()</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">cols_of_interest</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Accident Date/Time&#39;</span><span class="p">,</span><span class="s1">&#39;Accident State&#39;</span><span class="p">,</span><span class="s1">&#39;Pipeline Location&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;Liquid Type&#39;</span><span class="p">,</span><span class="s1">&#39;Net Loss (Barrels)&#39;</span><span class="p">,</span><span class="s1">&#39;All Costs&#39;</span><span class="p">]</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">oil_accident_df</span><span class="p">[</span><span class="n">cols_of_interest</span><span class="p">]</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;All Costs&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;All Costs&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="mi">1000000</span>    <span class="c1"># unidade em milhão.</span>
+<span class="n">data</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>
+</code></pre></div>
 <pre><code>/home/lucasmoschen/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:4: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame.
 Try using .loc[row_indexer,col_indexer] = value instead
@@ -297,7 +300,8 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 
 <p>Vamos entender um pouco como esta informação esta organizada. </p>
-<pre class="highlight"><code class="language-python">data.describe()</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">data</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</code></pre></div>
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -366,32 +370,34 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 
 <p>Vamos analisar os dados utilizando leis da probabilidade para aprender sobre a população. Veja que não temos a informação completa, apenas a partir de 2010. </p>
-<pre class="highlight"><code class="language-python">fig, ax = plt.subplots(1,2,figsize = (15,4))
+<div class="highlight"><pre><span></span><code><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
 
-sns.boxplot(data['All Costs'], data=data, ax = ax[0])
-ax[0].set_title('Custos dos Acidentes por Milhão US$')
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;All Costs&#39;</span><span class="p">],</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Custos dos Acidentes por Milhão US$&#39;</span><span class="p">)</span>
 
-sns.boxplot(data['Net Loss (Barrels)'], data=data, ax = ax[1])
-ax[1].set_title('Prejuízo Líquido (Barris)')
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Net Loss (Barrels)&#39;</span><span class="p">],</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Prejuízo Líquido (Barris)&#39;</span><span class="p">)</span>
 
-plt.show()</code></pre>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
 <p><img alt="svg" src="../output_8_0.svg" /></p>
 <p>Mas esse não era para ser um boxplot? Cade a caixa? Isso indica que valores grandes nos dois dados são muito maiores relativamente aos outros dados. Poderíamos prever o custo de um acidente usando a mediana dos valores? É de fato um modelo, mas nesse caso, parece ser ruim dado os valores grandes. </p>
 <p>O que são esses valores grandes, afinal? Em alguns casos, podem realmente apresentar erros, mas nesse caso fica difícil de afirmar. </p>
 <p>Bom. Podemos, dados esses problemas, trabalhar com outra variável disponível: o tempo do acidente. Conhecemos uma família de distribuições de probabilidade que modela frequência de acidentes em um intervalo de tempo? </p>
 <p><strong>Distribuição de Poisson:</strong> probabilidade de uma série de eventos ocorrer num certo período de tempo se estes eventos ocorrem independentemente de quando ocorreu o último evento.</p>
 <p>De forma geral, podemos dizer que isso é verdade para acidentes de óleo. Assim, temos uma <strong>variável aleatória</strong> de interesser <script type="math/tex">X</script>, que indica o número de acidentes, já temos uma distribuição para essa variável (Poisson) e já temos o parâmetro <script type="math/tex">\lambda</script> desconhecido. </p>
-<pre class="highlight"><code class="language-python">data['Accident Date/Time'] = pd.to_datetime(data['Accident Date/Time'])
-totaltimespan = np.max(data['Accident Date/Time']) - np.min(data['Accident Date/Time'])
+<div class="highlight"><pre><span></span><code><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Accident Date/Time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Accident Date/Time&#39;</span><span class="p">])</span>
+<span class="n">totaltimespan</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Accident Date/Time&#39;</span><span class="p">])</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Accident Date/Time&#39;</span><span class="p">])</span>
 
-totaltime_hour = (totaltimespan.days*24 + totaltimespan.seconds/(3600))
-totaltime_month = (totaltimespan.days + totaltimespan.seconds/(3600*24)) *12/365
+<span class="n">totaltime_hour</span> <span class="o">=</span> <span class="p">(</span><span class="n">totaltimespan</span><span class="o">.</span><span class="n">days</span><span class="o">*</span><span class="mi">24</span> <span class="o">+</span> <span class="n">totaltimespan</span><span class="o">.</span><span class="n">seconds</span><span class="o">/</span><span class="p">(</span><span class="mi">3600</span><span class="p">))</span>
+<span class="n">totaltime_month</span> <span class="o">=</span> <span class="p">(</span><span class="n">totaltimespan</span><span class="o">.</span><span class="n">days</span> <span class="o">+</span> <span class="n">totaltimespan</span><span class="o">.</span><span class="n">seconds</span><span class="o">/</span><span class="p">(</span><span class="mi">3600</span><span class="o">*</span><span class="mi">24</span><span class="p">))</span> <span class="o">*</span><span class="mi">12</span><span class="o">/</span><span class="mi">365</span>
 
-lmda_h = len(data) / totaltime_hour
-lmda_m = len(data) / totaltime_month 
+<span class="n">lmda_h</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">/</span> <span class="n">totaltime_hour</span>
+<span class="n">lmda_m</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">/</span> <span class="n">totaltime_month</span> 
 
-print('Número estimado de acidentes por hora: {}'.format(lmda_h)) 
-print('Número estimado de acidentes por mês {}'.format(lmda_m))</code></pre>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Número estimado de acidentes por hora: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">lmda_h</span><span class="p">))</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Número estimado de acidentes por mês </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">lmda_m</span><span class="p">))</span>
+</code></pre></div>
 <pre><code>Número estimado de acidentes por hora: 0.04540255169379675
 Número estimado de acidentes por mês 33.14386273647162
 
@@ -404,44 +410,47 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
   """Entry point for launching an IPython kernel.
 </code></pre>
 <p>Poderíamos ter procedimentos para estimar <script type="math/tex">\lambda</script>, mas por hora, vamos tomar ele como a média das observações. Pela Lei dos Grandes Números, sabemos que a média da Poisson é <script type="math/tex">\lambda</script> e a média amostral tende para ela.  </p>
-<pre class="highlight"><code class="language-python">lamda = 33</code></pre>
-<pre class="highlight"><code class="language-python">X = poisson(lamda)
-I = np.arange(0,60,1)  #intervalo(0,60), passo = 1
+<div class="highlight"><pre><span></span><code><span class="n">lamda</span> <span class="o">=</span> <span class="mi">33</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">X</span> <span class="o">=</span> <span class="n">poisson</span><span class="p">(</span><span class="n">lamda</span><span class="p">)</span>
+<span class="n">I</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>  <span class="c1">#intervalo(0,60), passo = 1</span>
 
-samples_poisson = np.sort(np.random.poisson(lamda,10000)) 
-Y = X.cdf(samples_poisson)     #função de densidade acumulada 
+<span class="n">samples_poisson</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">poisson</span><span class="p">(</span><span class="n">lamda</span><span class="p">,</span><span class="mi">10000</span><span class="p">))</span> 
+<span class="n">Y</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">samples_poisson</span><span class="p">)</span>     <span class="c1">#função de densidade acumulada </span>
 
-fig, ax  = plt.subplots(1,2,figsize = (20,8))
-ax[0].scatter(I,X.pmf(I) , color = 'purple')
-ax[0].set_xlabel('Número de Acidentes por mês (n)')
-ax[0].set_ylabel('P(X &lt;= n)')
-ax[0].set_title('Função de Massa de Probabilidade')
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span>  <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">X</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">I</span><span class="p">)</span> <span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;purple&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Número de Acidentes por mês (n)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;P(X &lt;= n)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Função de Massa de Probabilidade&#39;</span><span class="p">)</span>
 
-ax[1].scatter(samples_poisson, Y, color = 'purple')
-ax[1].hlines(0.5, xmin = min(samples_poisson), xmax = max(samples_poisson), 
-             linestyle = '--', color = 'black')
-ax[1].set_xlabel('Número de acidentes por mês (n)')
-ax[1].set_ylabel('P(X &lt;= n)')
-ax[1].set_title('Função de Distribuição Acumulada')
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">samples_poisson</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;purple&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">xmin</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">samples_poisson</span><span class="p">),</span> <span class="n">xmax</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">samples_poisson</span><span class="p">),</span> 
+             <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Número de acidentes por mês (n)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;P(X &lt;= n)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Função de Distribuição Acumulada&#39;</span><span class="p">)</span>
 
-plt.show()</code></pre>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
 <p><img alt="png" src="../output_13_0.png" /></p>
 <p>A partir de nosso modelo, já podemos fazer acertações probabilística!</p>
-<pre class="highlight"><code class="language-python">real_data = np.array(data['Accident Date/Time'].apply(lambda x: (x.year, x.month)))
-accidents_count = {2010 + i: {m: 0 for m in range(1,13)} for i in range(8)}
+<div class="highlight"><pre><span></span><code><span class="n">real_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Accident Date/Time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">year</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">month</span><span class="p">)))</span>
+<span class="n">accidents_count</span> <span class="o">=</span> <span class="p">{</span><span class="mi">2010</span> <span class="o">+</span> <span class="n">i</span><span class="p">:</span> <span class="p">{</span><span class="n">m</span><span class="p">:</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">13</span><span class="p">)}</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">)}</span>
 
-for info in real_data:
-    accidents_count[info[0]][info[1]] += 1
+<span class="k">for</span> <span class="n">info</span> <span class="ow">in</span> <span class="n">real_data</span><span class="p">:</span>
+    <span class="n">accidents_count</span><span class="p">[</span><span class="n">info</span><span class="p">[</span><span class="mi">0</span><span class="p">]][</span><span class="n">info</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">+=</span> <span class="mi">1</span>
 
-distribution = [accidents_count[y][m] for y in accidents_count.keys() for m in accidents_count[y].keys()]
-distribution = distribution[:-12] #Tirando 2 observações de 2017 
+<span class="n">distribution</span> <span class="o">=</span> <span class="p">[</span><span class="n">accidents_count</span><span class="p">[</span><span class="n">y</span><span class="p">][</span><span class="n">m</span><span class="p">]</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">accidents_count</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">accidents_count</span><span class="p">[</span><span class="n">y</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()]</span>
+<span class="n">distribution</span> <span class="o">=</span> <span class="n">distribution</span><span class="p">[:</span><span class="o">-</span><span class="mi">12</span><span class="p">]</span> <span class="c1">#Tirando 2 observações de 2017 </span>
 
-fig, ax = plt.subplots()
-sns.distplot(distribution, bins = 15, ax = ax, label = 'Original data', kde = False, norm_hist = True)
-ax.scatter(I,X.pmf(I) , color = 'purple', label = 'Nosso modelo')
-ax.legend()
-ax.set_title('Comparando modelo com dados reais')
-plt.show()</code></pre>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">distribution</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Original data&#39;</span><span class="p">,</span> <span class="n">kde</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">norm_hist</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">X</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">I</span><span class="p">)</span> <span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;purple&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Nosso modelo&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Comparando modelo com dados reais&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
 <p><img alt="png" src="../output_15_0.png" /></p></div>
         
         

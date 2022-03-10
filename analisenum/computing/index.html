@@ -147,8 +147,9 @@
 <h1 id="aritmetica-do-computador">Aritmética do computador</h1>
 <p>No computador, expressões como <script type="math/tex">(\sqrt{3})^2 = 3</script> não são verdadeiras. Em
 Python, 
-<pre class="highlight"><code python="python">&gt;&gt;&gt; (3**(1/2))**2
-2.9999999999999996</code></pre>
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; (3**(1/2))**2
+2.9999999999999996
+</code></pre></div>
 Erros de cálculo realizados pela máquina são chamados de <strong>erros de
 arredondamento (round-off error)</strong>. Isso acontece porque números reais são
 representados de forma finita, e não cobrem todos os números reais de fato. </p>
@@ -231,19 +232,20 @@ flutuante. </p>
 </ol>
 <p>Para conferir, você pode verificar a representação utilizando alguma linguagem
 de programação. Por exemplo, em Python, 
-<pre class="highlight"><code python="python">&gt;&gt;&gt; import struct
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; import struct
 def binary(num):
-    s = struct.pack('!d', num) # packs the num to the decimal format
-    s = struct.unpack('!Q', s)[0] # unpacks in long integer format. 
+    s = struct.pack(&#39;!d&#39;, num) # packs the num to the decimal format
+    s = struct.unpack(&#39;!Q&#39;, s)[0] # unpacks in long integer format. 
     s = bin(s) # converts to binary form.
     s = s[2:].zfill(64) # fills with zeros until reaches length 64.
-    return s[0] + ' ' + s[1:12] + ' ' + s[12:]
+    return s[0] + &#39; &#39; + s[1:12] + &#39; &#39; + s[12:]
 
 &gt;&gt;&gt; binary(1/2)
-'0 01111111110 0000000000000000000000000000000000000000000000000000'
+&#39;0 01111111110 0000000000000000000000000000000000000000000000000000&#39;
 
 &gt;&gt;&gt; binary(1/7)
-'0 01111111100 0010010010010010010010010010010010010010010010010010'</code></pre></p>
+&#39;0 01111111100 0010010010010010010010010010010010010010010010010010&#39;
+</code></pre></div></p>
 <h2 id="mensuracao-de-erros">Mensuração de erros</h2>
 <p>Seja <script type="math/tex">\bar{x}</script> uma aproximação para <script type="math/tex">x</script>. Dizemos que
 o <strong>erro absoluto</strong> é <script type="math/tex">|x - \bar{x}|</script> e o <strong>erro relativo</strong> é <script type="math/tex">|x -
@@ -258,15 +260,17 @@ t = \max\left\{s \ge 0 \, \bigg| \, \frac{|x - \bar{x}|}{|x|} \le 5 \cdot 10^{-s
 <ul>
 <li>Para printar todos os números da representação numérica (considerando arredondamento) em Python, use </li>
 </ul>
-<pre class="highlight"><code python="python">&gt;&gt;&gt; import numpy
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; import numpy
 &gt;&gt;&gt; format(numpy.pi, .20)
-'3.141592653589793116'</code></pre>
+&#39;3.141592653589793116&#39;
+</code></pre></div>
 <ul>
 <li>Para verificar o valor exatamente armazenado para o número em questão: </li>
 </ul>
-<pre class="highlight"><code python="python">&gt;&gt;&gt; from decimal import Decimal
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; from decimal import Decimal
 &gt;&gt;&gt; Decimal.from_float(0.1)
-Decimal('0.1000000000000000055511151231257827021181583404541015625')</code></pre>
+Decimal(&#39;0.1000000000000000055511151231257827021181583404541015625&#39;)
+</code></pre></div>
 <p>Para mais detalhes, consulte o <a href="https://docs.python.org/3/tutorial/floatingpoint.html">material adicional</a></p></div>
         
         

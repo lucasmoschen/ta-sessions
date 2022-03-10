@@ -166,22 +166,24 @@ que é uma circunferência </p>
 <p><strong>Curva parametrizada:</strong> Seja <script type="math/tex">I</script> um intervalo. Uma curva parametrizada é uma aplicação contínua <script type="math/tex">\alpha: I \subset \mathbb{R} \to \mathbb{R}^n</script>, muitas vezes notada como <script type="math/tex">\alpha(t) = (\alpha_1(t), ..., \alpha_n(t))</script> e <script type="math/tex">t</script> é chamado de parâmetro. Algumas definições pedem intervalo aberto. Dizemos que ela é <strong>diferenciável</strong> quando a aplicação é diferenciável. Por fim dizemos que a curva é <strong>regular</strong> quando <script type="math/tex">\alpha '(t) \neq 0, \forall t \in I</script>.</p>
 <p><strong>Observação:</strong> Definições de curva podem variar em cada livro. Alguns livros pedem que a aplicação seja de classe <script type="math/tex">C^{\infty}</script> ou suave, enquanto outras pedem apenas classe <script type="math/tex">C^2</script> e assim por diante. De forma geral exigir apenas a continuidade é mais fraco e podemos pedir diferenciabilidade ou suavidade posteriormente. </p>
 <p><strong>Traço da curva:</strong> Seja uma curma <script type="math/tex">\alpha:I \to \mathbb{R}^n</script>. Dizemos que o traço de <script type="math/tex">\alpha</script> é a imagem da aplicação <script type="math/tex">\alpha</script>, denotada <script type="math/tex">\alpha(I)</script>. Algumas definições de curva são precisamente o que definimos de traço da curva. </p>
-<pre class="highlight"><code class="language-python">import numpy as np
-import matplotlib.pyplot as plt</code></pre>
-<pre class="highlight"><code class="language-python">fig = plt.figure()
-ax = fig.gca(projection='3d')
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">gca</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
 
-# Prepare arrays x, y, z
-theta = np.linspace(-4 * np.pi, 4 * np.pi, 100)
-z = np.linspace(-2, 2, 100)
-r = z**2 + 1
-x = r * np.sin(theta)
-y = r * np.cos(theta)
+<span class="c1"># Prepare arrays x, y, z</span>
+<span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">z</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
 
-ax.plot(x, y, z, label='arbitrary parametric curve')
-ax.legend()
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;arbitrary parametric curve&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 
-plt.show()</code></pre>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
 <p><img alt="png" src="../first-definitions_files/first-definitions_2_0.png" /></p>
 <h2 id="encontrando-parametrizacoes">Encontrando parametrizações</h2>
 <h3 id="exemplo-1">Exemplo 1</h3>
@@ -189,21 +191,22 @@ plt.show()</code></pre>
 <h3 id="exemplo-2">Exemplo 2</h3>
 <p>Considere a curva <a href="https://en.wikipedia.org/wiki/Astroid">astroide</a> dada pela pela equação <script type="math/tex">x^{2/3} + y^{2/3} = 1</script>. Uma maneira é propor a parametrização dada por <script type="math/tex">x(t) = t</script> e <script type="math/tex">y(t) = (1 - t^{2/3})^{3/2}.</script> Primeiro temos que observar que <script type="math/tex">t \in [-1,1]</script> devido a raiz quadrada que tomamos na expressão - o valor dentro do parênteses não pode ser negativo. Em particular <script type="math/tex">y</script> não pode ser negativo nessa parametrização. Isso não corresponde a imagem total da curva, pois <script type="math/tex">y^{2/3} + x^{2/3} = 1</script> é simétrico em relação ao dois eixos. </p>
 <p>Poderíamos tentar adaptar essa parametrização, mas o mais conveniente é lembrar da identidade trigonométrica <script type="math/tex">cos^2(t) + sen^2(t) = 1</script>. Assim podemos escrever que <script type="math/tex">(cos(t)^3)^{2/3} + (sen(t)^3)^{2/3} = 1</script>. Como consequência <script type="math/tex">(cos^3(t), sen^3(t))</script> é uma parametrização da astroide. Note que essa curva é contínua e definida em toda reta. </p>
-<pre class="highlight"><code class="language-python"># Astroid
-fig = plt.figure(figsize = (5,5))
-ax = plt.subplot()
-ax.grid(alpha=.5)
+<div class="highlight"><pre><span></span><code><span class="c1"># Astroid</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">.5</span><span class="p">)</span>
 
-t = np.linspace(-np.pi, np.pi,100)
-x = np.cos(t)**3
-y = np.sin(t)**3
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">**</span><span class="mi">3</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">**</span><span class="mi">3</span>
 
-ax.plot(x, y, label='Astroid')
-ax.axvline(x = 0, color = 'grey', alpha = .7)
-ax.axhline(y = 0, color = 'grey', alpha = .7)
-ax.legend()
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Astroid&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;grey&#39;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">.7</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;grey&#39;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">.7</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 
-plt.show()</code></pre>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
 <p><img alt="png" src="../first-definitions_files/first-definitions_4_0.png" /></p>
 <h2 id="vetor-tangente">Vetor tangente</h2>
 <p>Em geral, quando estudamos curvas e superfícies, é comum encontrar o termo <em>suave</em> associado. A definição de função suave varia em cada contexto e pode ir desde uma função diferenciável com derivada contínua até função que tem derivada de qualquer ordem (sempre considerando o intervalo <script type="math/tex">I</script> de definição). </p>

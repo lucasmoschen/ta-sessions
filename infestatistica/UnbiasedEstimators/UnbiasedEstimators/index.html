@@ -157,42 +157,47 @@ R(\theta, \delta) = Var(\delta) + Viés(\delta)^2
 <p>
 <script type="math/tex; mode=display">s^2 = \hat{\sigma}_1^2 = \frac{1}{n-1}\sum_{i=1}^n (X_i - \bar{X}_n)^2</script>
 </p>
-<pre class="highlight"><code class="language-python"># Importando bibliotecas
-import numpy as np
-import pandas as pd 
+<div class="highlight"><pre><span></span><code><span class="c1"># Importando bibliotecas</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> 
 
-from IPython.display import display, Math  # Display latex
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Math</span>  <span class="c1"># Display latex</span>
 
-import matplotlib.pyplot as plt 
-%matplotlib inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> 
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
 
-np.random.seed(1000) # Garantindo reprodutibilidade</code></pre>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span> <span class="c1"># Garantindo reprodutibilidade</span>
+</code></pre></div>
 <h4 id="nota-por-que-garantir-reprodutibilidade">Nota: Por que garantir reprodutibilidade?</h4>
 <p>Reprodutibilidade é a ideia de tornar o processo que foi feito por você reprodutível por qualquer outra pessoa, para que ela possa obter os mesmos resultados seguindo os mesmos passos que você. </p>
 <p>Quando escolhemos um número aleatório (<em>pseudoaleatório</em> na verdade), ele muda de tempos em tempos. Mas isso vai tirar a ideia de "garantir os mesmos resultados". O resultado pode ser parecido, mas não exatamente igual. </p>
 <p>Isso é muito importante no meio científico. </p>
 <h2 id="exemplo">Exemplo</h2>
 <p>Vamos ver como se comporta esse estimador não viesado em uma população que representa o Brasil todo! Veja que eu não peguei dados online, porque quero TODA a população. Por isso vamos fazer uma simulação. A média verdadeira da distribuição é 161,1cm e o desvio padrão é 10cm. </p>
-<pre class="highlight"><code class="language-python"># Tamanho da população
-N = int(200e5)
-# População gerada por simulação, usando a distribuição normal. 
-population_height = pd.Series(np.random.normal(loc = 161.1, scale = 10, size = N))</code></pre>
+<div class="highlight"><pre><span></span><code><span class="c1"># Tamanho da população</span>
+<span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">200e5</span><span class="p">)</span>
+<span class="c1"># População gerada por simulação, usando a distribuição normal. </span>
+<span class="n">population_height</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="mf">161.1</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="n">N</span><span class="p">))</span>
+</code></pre></div>
 <p>Podemos ver a média dessa população.</p>
-<pre class="highlight"><code class="language-python">population_height.mean()</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">population_height</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</code></pre></div>
 <pre><code>161.10097546939974
 </code></pre>
 <p>O que a função <code>var</code> do pandas faz? Vamos comparar com o estimador trivial. </p>
-<pre class="highlight"><code class="language-python">ddof = 1 # Se ddof = 0, teremos a divisão por N
-population_height.var(ddof = ddof)</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">ddof</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># Se ddof = 0, teremos a divisão por N</span>
+<span class="n">population_height</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">ddof</span> <span class="o">=</span> <span class="n">ddof</span><span class="p">)</span>
+</code></pre></div>
 <pre><code>100.02715920849081
 </code></pre>
 <p>Divindindo por <script type="math/tex">N</script>
 </p>
-<pre class="highlight"><code class="language-python">sigma_square_hat = ((population_height - population_height.mean())**2).sum()/N
-sigma1_square_hat = ((population_height - population_height.mean())**2).sum()/(N-1)
+<div class="highlight"><pre><span></span><code><span class="n">sigma_square_hat</span> <span class="o">=</span> <span class="p">((</span><span class="n">population_height</span> <span class="o">-</span> <span class="n">population_height</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">/</span><span class="n">N</span>
+<span class="n">sigma1_square_hat</span> <span class="o">=</span> <span class="p">((</span><span class="n">population_height</span> <span class="o">-</span> <span class="n">population_height</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">/</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 
-display(Math(r'\hat\sigma^2 = {}'.format(sigma_square_hat)))
-display(Math(r'\hat\sigma_1^2 = {}'.format(sigma1_square_hat)))</code></pre>
+<span class="n">display</span><span class="p">(</span><span class="n">Math</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\hat\sigma^2 = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sigma_square_hat</span><span class="p">)))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Math</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\hat\sigma_1^2 = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sigma1_square_hat</span><span class="p">)))</span>
+</code></pre></div>
 <p>
 <script type="math/tex">\displaystyle \hat\sigma^2 = 100.02715420713488</script>
 </p>
@@ -201,38 +206,43 @@ display(Math(r'\hat\sigma_1^2 = {}'.format(sigma1_square_hat)))</code></pre>
 </p>
 <h3 id="estimacao-dos-parametros">Estimação dos Parâmetros</h3>
 <p>Vamos supor que não conhecemos os parâmetros da nossa população e podemos conhecer apenas uma amostra aleatória dela. Vamos fazer 500 dessas simulações </p>
-<pre class="highlight"><code class="language-python">number_simulations = 500
-sample_size = 30 
+<div class="highlight"><pre><span></span><code><span class="n">number_simulations</span> <span class="o">=</span> <span class="mi">500</span>
+<span class="n">sample_size</span> <span class="o">=</span> <span class="mi">30</span> 
 
-sample = pd.DataFrame(population_height.sample(n = number_simulations*sample_size, 
-                                               replace=True, random_state = 100), 
-                      columns = ['height'])
+<span class="n">sample</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">population_height</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="n">number_simulations</span><span class="o">*</span><span class="n">sample_size</span><span class="p">,</span> 
+                                               <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">100</span><span class="p">),</span> 
+                      <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">])</span>
 
-reshape = sample.to_numpy().reshape((-1,30))
-samples = pd.DataFrame(reshape, columns = range(0,30))</code></pre>
+<span class="n">reshape</span> <span class="o">=</span> <span class="n">sample</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">30</span><span class="p">))</span>
+<span class="n">samples</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">reshape</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">30</span><span class="p">))</span>
+</code></pre></div>
 <p>Vamos estimar a média com a média amostral que é não viesada também! Além disso ela é o MLE. Estamos estimado para cada amostra a média! Se fizermos uma média das médias, veremos que ela chegará próximo a média verdadeira. </p>
-<pre class="highlight"><code class="language-python">estimated_mean = samples.mean(axis = 1)  #Axis = 1 faz a média por linha. 
+<div class="highlight"><pre><span></span><code><span class="n">estimated_mean</span> <span class="o">=</span> <span class="n">samples</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1">#Axis = 1 faz a média por linha. </span>
 
-estimated_mean_of_means = estimated_mean.expanding().mean()</code></pre>
-<pre class="highlight"><code class="language-python">fig, ax = plt.subplots(figsize = (8,5))
-ax.plot(estimated_mean_of_means, label = 'Valor estimado')
-ax.hlines(population_height.mean(), xmin = 0, xmax = number_simulations, 
-          color = 'grey', linestyle = '--', alpha = 0.8, label = 'Valor verdadeiro')
-ax.grid(alpha = 0.4)
-ax.set_title('Estimado a média verdadeira')
-plt.show()</code></pre>
+<span class="n">estimated_mean_of_means</span> <span class="o">=</span> <span class="n">estimated_mean</span><span class="o">.</span><span class="n">expanding</span><span class="p">()</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">estimated_mean_of_means</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Valor estimado&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">population_height</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">xmin</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">xmax</span> <span class="o">=</span> <span class="n">number_simulations</span><span class="p">,</span> 
+          <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;grey&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.8</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Valor verdadeiro&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.4</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Estimado a média verdadeira&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
 <p><img alt="png" src="../output_15_0.png" /></p>
 <p>Vamos comparar os estimadores para a variância, o viesado e o não viesado.</p>
-<pre class="highlight"><code class="language-python">df = pd.DataFrame({'enviesado (dividido por n)': samples.var(ddof=0, axis = 1).expanding().mean(),
-                   'nao_viesado (dividido por n - 1)': samples.var(ddof=1, axis = 1).expanding().mean(),
-                   'verdadeiro': pd.Series(population_height.var(ddof=0), index=samples.index)})
-ax = df.plot()
-ax.set_title('Estimadores para a variância')
-ax.grid(alpha = 0.4)
+<div class="highlight"><pre><span></span><code><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;enviesado (dividido por n)&#39;</span><span class="p">:</span> <span class="n">samples</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">ddof</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">expanding</span><span class="p">()</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span>
+                   <span class="s1">&#39;nao_viesado (dividido por n - 1)&#39;</span><span class="p">:</span> <span class="n">samples</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">expanding</span><span class="p">()</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span>
+                   <span class="s1">&#39;verdadeiro&#39;</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">population_height</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">ddof</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="n">samples</span><span class="o">.</span><span class="n">index</span><span class="p">)})</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Estimadores para a variância&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.4</span><span class="p">)</span>
 
-plt.show()</code></pre>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
 <p><img alt="png" src="../output_17_0.png" /></p>
-<pre class="highlight"><code class="language-python"># Comparar com Conscistência </code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># Comparar com Conscistência </span>
+</code></pre></div></div>
         
         
     </div>

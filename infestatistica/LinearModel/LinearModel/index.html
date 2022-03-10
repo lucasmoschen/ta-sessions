@@ -160,40 +160,44 @@
 </script>
 </p>
 <p>A verificação desse resultado é direta ao derivar o funcional objetivo com respeito aos parâmetros e igualando a 0. Além disso, observar que a Hessiana é definida positiva, o que garante a existência do mínimo local (que nesse caso será global). </p>
-<pre class="highlight"><code class="language-python">import numpy as np 
-import matplotlib.pyplot as plt
-from scipy.stats import t
-from statsmodels.regression.linear_model import OLS
-plt.style.use('ggplot')
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> 
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">t</span>
+<span class="kn">from</span> <span class="nn">statsmodels.regression.linear_model</span> <span class="kn">import</span> <span class="n">OLS</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;ggplot&#39;</span><span class="p">)</span>
 
-ro = np.random.RandomState(10000)</code></pre>
+<span class="n">ro</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
+</code></pre></div>
 <p>Vamos gerar os <script type="math/tex">n</script> pontos e calcular a reta que minimiza os mínimos quadrados.</p>
-<pre class="highlight"><code class="language-python">n = 20
-x = ro.uniform(0,10, size = n)
-epsilon = ro.normal(0, scale = 3, size = n)
-beta0, beta1 = ro.uniform(0,10, size = 2)
-y = beta0 + beta1*x + epsilon
+<div class="highlight"><pre><span></span><code><span class="n">n</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">ro</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="n">n</span><span class="p">)</span>
+<span class="n">epsilon</span> <span class="o">=</span> <span class="n">ro</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="n">n</span><span class="p">)</span>
+<span class="n">beta0</span><span class="p">,</span> <span class="n">beta1</span> <span class="o">=</span> <span class="n">ro</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">beta0</span> <span class="o">+</span> <span class="n">beta1</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">epsilon</span>
 
-plt.scatter(x,y)
-plt.title('Pontos gerados')
-plt.show()</code></pre>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Pontos gerados&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
 <p><img alt="png" src="../output_3_0.png" /></p>
 <p>Estimando os coeficientes</p>
-<pre class="highlight"><code class="language-python">beta1_hat = np.dot(y - y.mean(), x - x.mean())/np.dot(x - x.mean(), x - x.mean())
-beta0_hat = y.mean() - beta1_hat*x.mean()
+<div class="highlight"><pre><span></span><code><span class="n">beta1_hat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">y</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">x</span> <span class="o">-</span> <span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">x</span> <span class="o">-</span> <span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="n">beta0_hat</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">-</span> <span class="n">beta1_hat</span><span class="o">*</span><span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 
-t = np.linspace(0,10,1000)
-plt.scatter(x,y, label = r'$\beta_0$ = {:.2f}, $\beta_1$ = {:.2f}'.format(beta0, beta1))
-plt.plot(t,beta0_hat + beta1_hat*t, color = 'blue', label = r'$\beta_0$ = {:.2f}, $\beta_1$ = {:.2f}'.format(beta0_hat, beta1_hat))
-plt.legend()
-plt.title('Reta mínimos quadrados')
-plt.show()</code></pre>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;$\beta_0$ = </span><span class="si">{:.2f}</span><span class="s1">, $\beta_1$ = </span><span class="si">{:.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">beta0</span><span class="p">,</span> <span class="n">beta1</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">beta0_hat</span> <span class="o">+</span> <span class="n">beta1_hat</span><span class="o">*</span><span class="n">t</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;$\beta_0$ = </span><span class="si">{:.2f}</span><span class="s1">, $\beta_1$ = </span><span class="si">{:.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">beta0_hat</span><span class="p">,</span> <span class="n">beta1_hat</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Reta mínimos quadrados&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
 <p><img alt="png" src="../output_5_0.png" /></p>
 <p>Agora vamos usar numpy para a estimação. Observe que o resultado coincide com o calculado usando a fórmula derivada. </p>
-<pre class="highlight"><code class="language-python"># adiciona coluna de 1 para lidar com o beta_0
-xlinha = np.c_[np.ones(n),x]   
-sol, _, _, _ = np.linalg.lstsq(xlinha, y, rcond = None)
-print(sol)</code></pre>
+<div class="highlight"><pre><span></span><code><span class="c1"># adiciona coluna de 1 para lidar com o beta_0</span>
+<span class="n">xlinha</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">),</span><span class="n">x</span><span class="p">]</span>   
+<span class="n">sol</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">lstsq</span><span class="p">(</span><span class="n">xlinha</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">rcond</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sol</span><span class="p">)</span>
+</code></pre></div>
 <pre><code>[3.40285283 3.52323316]
 </code></pre>
 <h3 id="varias-variaveis">Várias variáveis</h3>
@@ -282,47 +286,54 @@ U \le -T_{n-2}^{-1}(1 - \alpha_0)
 </script>
 quando é do tipo maior ou igual. </p>
 <p><strong>Exemplo:</strong> Vamos testar a hipótese de que <script type="math/tex">\beta_1 = 0</script> em relação a curva anterior. Só para lembrar: </p>
-<pre class="highlight"><code class="language-python">t = np.linspace(0,10,1000)
-plt.scatter(x,y, label = r'$\beta_0$ = {:.2f}, $\beta_1$ = {:.2f}'.format(beta0, beta1))
-plt.plot(t,beta0_hat + beta1_hat*t, color = 'blue', label = r'$\beta_0$ = {:.2f}, $\beta_1$ = {:.2f}'.format(beta0_hat, beta1_hat))
-plt.legend()
-plt.title('Reta mínimos quadrados')
-plt.show()</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;$\beta_0$ = </span><span class="si">{:.2f}</span><span class="s1">, $\beta_1$ = </span><span class="si">{:.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">beta0</span><span class="p">,</span> <span class="n">beta1</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">beta0_hat</span> <span class="o">+</span> <span class="n">beta1_hat</span><span class="o">*</span><span class="n">t</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;$\beta_0$ = </span><span class="si">{:.2f}</span><span class="s1">, $\beta_1$ = </span><span class="si">{:.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">beta0_hat</span><span class="p">,</span> <span class="n">beta1_hat</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Reta mínimos quadrados&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
 <p><img alt="png" src="../output_13_0.png" /></p>
 <p>Nesse caso temos <script type="math/tex">c_0 = \bar{c} = 0</script> e <script type="math/tex">c_1 = 1</script>. Assim:</p>
-<pre class="highlight"><code class="language-python"># O denominador da divisão é n - ddof
-sx2 = np.var(x, ddof = n - 1)
-S2 = sum((y - beta0_hat - beta1_hat*x)**2)
-sigma_prime = (S2/(n-2))**(1/2)
-# Estatística de teste
-U = np.sqrt(sx2)*beta1_hat/sigma_prime</code></pre>
+<div class="highlight"><pre><span></span><code><span class="c1"># O denominador da divisão é n - ddof</span>
+<span class="n">sx2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">ddof</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">S2</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">((</span><span class="n">y</span> <span class="o">-</span> <span class="n">beta0_hat</span> <span class="o">-</span> <span class="n">beta1_hat</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">sigma_prime</span> <span class="o">=</span> <span class="p">(</span><span class="n">S2</span><span class="o">/</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">))</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1"># Estatística de teste</span>
+<span class="n">U</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sx2</span><span class="p">)</span><span class="o">*</span><span class="n">beta1_hat</span><span class="o">/</span><span class="n">sigma_prime</span>
+</code></pre></div>
 <p>Seja <script type="math/tex">\alpha_0 = 0.05</script> o nível de significância</p>
-<pre class="highlight"><code class="language-python">alpha0 = 0.05
-abs(U) &gt;= t.ppf(1 - alpha0/2, df = n-2)</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">alpha0</span> <span class="o">=</span> <span class="mf">0.05</span>
+<span class="nb">abs</span><span class="p">(</span><span class="n">U</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">t</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha0</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">df</span> <span class="o">=</span> <span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+</code></pre></div>
 <pre><code>True
 </code></pre>
 <p>Como isso é verdade, rejeitamos a hipótese nula!</p>
 <h3 id="intervalos-de-confianca">Intervalos de confiança</h3>
 <p>Temos que <script type="math/tex">c_0\hat{\beta}_0 + c_1\hat{\beta}_1 \pm \sigma '\left[\frac{c_0^2}{n} + \frac{(c_0\bar{x} - c_1)^2}{s_x^2}\right]^{1/2}T_{n-2}^{-1}\left(1 - \frac{\alpha_0}{2}\right)</script> é un intervalo de confiança <script type="math/tex">1 - \alpha_0</script> para <script type="math/tex">c_0\beta_0 + c_1\beta_1</script>. Para encontrar esse intervalo basta encontrar o conjunto de todos os valores <script type="math/tex">\bar{c}</script> para que a hipótese nula seja rejeitada a nível de significância <script type="math/tex">\alpha_0</script>. </p>
 <p>No nosso exemplo, um intervalo para <script type="math/tex">\beta_1</script> é </p>
-<pre class="highlight"><code class="language-python">[beta1_hat - sigma_prime*(1/np.sqrt(sx2))*t.ppf(1 - alpha0/2, df = n-2), 
- beta1_hat + sigma_prime*(1/np.sqrt(sx2))*t.ppf(1 - alpha0/2, df = n-2)]</code></pre>
+<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="n">beta1_hat</span> <span class="o">-</span> <span class="n">sigma_prime</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sx2</span><span class="p">))</span><span class="o">*</span><span class="n">t</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha0</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">df</span> <span class="o">=</span> <span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">),</span> 
+ <span class="n">beta1_hat</span> <span class="o">+</span> <span class="n">sigma_prime</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sx2</span><span class="p">))</span><span class="o">*</span><span class="n">t</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha0</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">df</span> <span class="o">=</span> <span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)]</span>
+</code></pre></div>
 <pre><code>[3.00233584703191, 4.044130469815932]
 </code></pre>
 <p>Usando o pacote <code>statsmodels</code></p>
-<pre class="highlight"><code class="language-python">model = OLS(y,xlinha)
-result = model.fit()
-print(result.params)</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">model</span> <span class="o">=</span> <span class="n">OLS</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">xlinha</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
+</code></pre></div>
 <pre><code>[3.40285283 3.52323316]
 </code></pre>
 <p>Observe que os parâmetros estimados são os mesmo que encontramos com <code>numpy</code> e na mão. Também observe que o tvalor calculado coincide com nossa estatística U</p>
-<pre class="highlight"><code class="language-python">print('Nossa: {}'.format(U))
-print('Statsmodels: {}'.format(result.tvalues[1]))</code></pre>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Nossa: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">U</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Statsmodels: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">tvalues</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+</code></pre></div>
 <pre><code>Nossa: 14.210167788464632
 Statsmodels: 14.21016778846464
 </code></pre>
 <p>Podemos colocar <script type="math/tex">c_0 = 0</script> e <script type="math/tex">c_1 = 1</script> e obteremos o intervalo de confiança como desejávamos!</p>
-<pre class="highlight"><code class="language-python">result.t_test([0,1])</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">result</span><span class="o">.</span><span class="n">t_test</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+</code></pre></div>
 <pre><code>&lt;class 'statsmodels.stats.contrast.ContrastResults'&gt;
                              Test for Constraints                             
 ==============================================================================
