@@ -49,7 +49,7 @@ classic-curves). Você pode contribuir para aumentar o acervo!
 |17/02/2022|Lista 1 e exercícios adicionais|[Visualizar](/files/disciplines/curvas-superficies2022/monitoria17-02-2022.pdf)|Sim|
 |08/03/2022|Reparametrização pelo comprimento de arco|[Visualizar](/files/disciplines/curvas-superficies2022/monitoria08-03-2022.pdf)|Sim|
 |10/03/2022|Lista 3|[Visualizar](/files/disciplines/curvas-superficies2022/monitoria08-03-2022.pdf)|Não|
-|10/03/2022|Lista 3 SageMath|[Visualizar]()|Não|
+|10/03/2022|Lista 3 SageMath|[Visualizar](https://nbviewer.org/github/lucasmoschen/ta-sessions/blob/master/Curves_Surfaces/notebooks/lista3.ipynb)|Não|
 
 ## Período 2021.1
 
