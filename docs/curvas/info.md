@@ -24,6 +24,10 @@ classic-curves). Você pode contribuir para aumentar o acervo!
 |[Formas fundamentais](/ta-sessions/curvas/fundamental-forms)|
 |[Curvatura Gaussiana, média, e principais](/ta-sessions/curvas/surface-curvature)|
 
+|Sagemath|
+|---|
+|[Notebook introdutório](https://nbviewer.org/github/lucasmoschen/ta-sessions/blob/master/Curves_Surfaces/notebooks/sagemath.ipynb)|
+
 ## Período 2022.1
 
 - Dia: Terça-feira 16h e Quinta-feira 18h
@@ -41,7 +45,8 @@ classic-curves). Você pode contribuir para aumentar o acervo!
 |Monitoria|Itens discutidos|Arquivo|Vídeo|
 |---------|----------------|-------|-----|
 |15/02/2022|Lista 1 e Geogebra|[Visualizar](/files/disciplines/curvas-superficies2022/monitoria15-02-2022.pdf)|Não|
-|17/02/2022|Lista 1 e exercícios adicionais|[Visualizar](/files/disciplines/curvas-superficies2022/monitoria17-02-2022.pdf)|Não|
+|17/02/2022|Lista 1 e exercícios adicionais|[Visualizar](/files/disciplines/curvas-superficies2022/monitoria17-02-2022.pdf)|Sim|
+|10/03/2022|Reparametrização pelo comprimento de arco|[Visualizar](/files/disciplines/curvas-superficies2022/monitoria10-03-2022.pdf)|Sim|
 
 ## Período 2021.1
 
