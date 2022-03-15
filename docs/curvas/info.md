@@ -101,6 +101,7 @@ classic-curves). Você pode contribuir para aumentar o acervo!
 ### Recursos Computacionais
 
 - [Recursos Geogebra de curvas](https://www.geogebra.org/search/curves)
+- [Recursos Maxima de curvas](http://gkerns.people.ysu.edu/maxima/maximaintro/maximaintro.pdf)
 - [Lista de sistemas algébricos](https://en.wikipedia.org/wiki/List_of_computer_algebra_systems):
   Eu tenho bastante familiaridade com o SymPy (Python) e Matlab. 
 - [Comandos CAS Geogebra](https://wiki.geogebra.org/en/CAS_Specific_Commands)
