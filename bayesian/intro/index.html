@@ -147,6 +147,8 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
         <li class="first-level active"><a href="#introducao">Introdução</a></li>
+            <li class="second-level"><a href="#paradigma-bayesiano">Paradigma bayesiano</a></li>
+                
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
@@ -172,9 +174,26 @@
 <p>
 <script type="math/tex; mode=display">n \sim Hypergeometric(N, q_1, q_2).</script>
 </p>
-<p>Sabemos que <script type="math/tex">\mathbb{E}[n] = (q_1/N) \cdot q_2 \implies \hat{N} = q_1 \cdot q_2 / n</script> é um possível estimador para <script type="math/tex">N</script>. Note que esse estimador não é necessariamente não enviesado, pois <script type="math/tex">\mathbb{E}[1/n] \neq 1/\mathbb{E}[n]</script>
+<p>Sabemos que <script type="math/tex">\mathbb{E}[n] = (q_1/N) \cdot q_2 \implies \hat{N} = q_1 \cdot q_2 / n</script> é um possível estimador para <script type="math/tex">N</script>. Note que esse estimador não é necessariamente não enviesado, pois <script type="math/tex">\mathbb{E}[1/n] \neq 1/\mathbb{E}[n]</script>.</p>
+<hr />
+<ul>
+<li>
+<p>Para aproximar uma distribuição de probabilidade de um fenômeno, duas abordagens estatíticas são usadas: <strong>não paramétrica</strong> e <strong>paramétrica</strong>. Na primeira, a estimativa procura assumir o mínimo possível, procurando uma estimação funcional. Já a segunda, representa através de uma densidade parametrizada, em que o parâmetro de dimensão finita é desconhecido.</p>
+</li>
+<li>
+<p>Um modelo estatístico paramétrico consiste de observações de uma variável aleatória <script type="math/tex">x \in \mathcal{}</script> (espaço de estados) com distribuição cuja densidade é <script type="math/tex">f(x | \theta)</script> e <script type="math/tex">\theta \in \Omega</script> (espaço dos parâmetros) é desconhecido com dimensão finita. </p>
+</li>
+<li>
+<p>Logo, métodos estatísticos permitem fazer inferência sobre <script type="math/tex">\theta</script> a partir de <script type="math/tex">x</script>, enquanto a modelagem probabilística caracteriza o comportamento de observações futuras condicionadas em <script type="math/tex">\theta</script>. </p>
+</li>
+</ul>
+<h2 id="paradigma-bayesiano">Paradigma bayesiano</h2>
+<p>No paradigma bayesiano, as quantidades desconhecidas são tratadas como variável aleatória, incluindo o parâmetro <script type="math/tex">\theta</script>. Assim, se temos um modelo <script type="math/tex">P_{\theta}</script> para <script type="math/tex">x</script>, precisamos de uma distribuição para <script type="math/tex">\theta</script>, a qual chamamos de <strong>distribuição a priori</strong>. Com elas, construímos uma distribuição em <script type="math/tex">\mathcal{X} \times \Omega</script>. Em particular, </p>
+<p>
+<script type="math/tex; mode=display">Pr((x,\theta) \in B) = \int_{\Omega} \int_{\mathcal{X}} I_B(u, v) f_{x | \theta}(u|v)f_{\theta}(v) \, du \, dv,</script>
 </p>
-<hr /></div>
+<p>se <script type="math/tex">f_{\theta}</script> for a densidade da distribuição de <script type="math/tex">\theta</script>. </p>
+<p>Matematicamente, probabilidades podem representar crenças numericamente, relacionando informação com probabilidade. A Regra de Bayes provê um método racional para atualizar crenças frente a novas informações. O processo indutivo de atualizar crenças com Bayes é chamada de inferência bayesiana. </p></div>
         
         
     </div>
