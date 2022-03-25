@@ -150,8 +150,9 @@
             <li class="second-level"><a href="#paradigma-bayesiano">Paradigma bayesiano</a></li>
                 
                 <li class="third-level"><a href="#teorema-de-bayes">Teorema de Bayes</a></li>
-            <li class="second-level"><a href="#_1"></a></li>
+            <li class="second-level"><a href="#principio-da-verossimilhanca-e-principio-da-suficiencia">Princípio da Verossimilhança e Princípio da Suficiência</a></li>
                 
+                <li class="third-level"><a href="#suficiencia">Suficiência</a></li>
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
@@ -210,7 +211,10 @@ em que <script type="math/tex">\pi(\theta)</script> é a densidade da priori do 
 <script type="math/tex; mode=display">\Pr(a < p < b | X=x) = \frac{\int_a^b p^x(1-p)^{n-x} \, dp}{B(x+1, n-x+1)},</script>
 em que <script type="math/tex">B</script> é a <a href="https://en.wikipedia.org/wiki/Beta_function">função Beta</a>.</p>
 <hr />
-<h2 id="_1"></h2></div>
+<p>Enquanto a estatística clássica é dirigida por princípios justificados axiomaticamente, a abordagem bayesiana incorpora esses princípios sem a restrição sobre os procedimentos e também rejeita outros pincípios. Por exemplo, o conceito de estimadores não enviesados, em geral preferidos na estatística clássica, impõe restrições fortes sobre os procedimentos adotados e leva a performances ineficientes (ver <a href="https://en.wikipedia.org/wiki/Stein%27s_example">exemplo de Stein</a>). Isso acontece, pois a justificativa é assintótica, já que em média o estimador é correto. </p>
+<h2 id="principio-da-verossimilhanca-e-principio-da-suficiencia">Princípio da Verossimilhança e Princípio da Suficiência</h2>
+<h3 id="suficiencia">Suficiência</h3>
+<p>Se <script type="math/tex">x \sim f(x | \theta)</script>, uma função <script type="math/tex">T: \mathcal{X} \to \mathbb{R}^k</script> (estatística) é <strong>suficiente</strong> se a distribuição de <script type="math/tex">x</script> condicionada em <script type="math/tex">T(x)</script> não depende em <script type="math/tex">\theta</script>. Para mais detalhes, ver <a href="/ta-sessions/infestatistica/SufficientStatistics/">aqui</a>. De forma simplificada, <script type="math/tex">T(x)</script> traz toda a informação sobre <script type="math/tex">\theta</script> advinda de <script type="math/tex">x</script>.</p></div>
         
         
     </div>
