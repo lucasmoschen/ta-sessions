@@ -6,7 +6,9 @@ nav:
   - Curvas: curvas/info.md
   - EDO: edo/info.md
   - EDP: edp/info.md
-  - Estatística: infestatistica/info.md
+  - Estatística: 
+    - Inferência Estatística: infestatistica/info.md
+    - Estatística Bayesiana: bayesian/info.md
 
 theme:
   name: null

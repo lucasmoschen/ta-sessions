@@ -23,6 +23,8 @@ alterações, você pode usar o Issues do Github.
     - Professor [Moacyr Alvim Horta Barbosa da Silva](https://emap.fgv.br/corpo-docente/moacyr-alvim-horta-barbosa-silva)
 - Curvas e Superfícies (2022.1)
     - Professora [Asla Medeiros e Sá](https://sites.google.com/view/aslasa/home)
+- Estatística Bayesiana (2022.3)
+    - Professor [Eduardo Fonseca Mendes](https://sites.google.com/site/dudafmendes/)
 
 ## Referências interessantes de matemática 
 
