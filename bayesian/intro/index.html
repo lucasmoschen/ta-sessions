@@ -147,8 +147,6 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
         <li class="first-level active"><a href="#introducao">Introdução</a></li>
-            <li class="second-level"><a href="#sabemos-que-mathbben-q_1n-cdot-q_2-implies-hatn-q_1-cdot-q_2-n-e-um-possivel-estimador-para-n-note-que-esse-estimador-nao-e-necessariamente-nao-enviesado-pois-mathbbe1n-neq-1mathbben">Sabemos que \mathbb{E}[n] = (q_1/N) \cdot q_2 \implies \hat{N} = q_1 \cdot q_2 / n é um possível estimador para N. Note que esse estimador não é necessariamente não enviesado, pois \mathbb{E}[1/n] \neq 1/\mathbb{E}[n]</a></li>
-                
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
@@ -172,10 +170,11 @@
 <p><code>📝</code> <strong>Exemplo (modelo capture-recapture)</strong></p>
 <p>Suponha que queremos estimar o número de ônibus <script type="math/tex">N</script> em uma cidade. Uma forma de fazer isso é a seguinte: contamos a quantidade vista de ônibus em um dia (<script type="math/tex">q_1</script>) e armazenamos a identificação de cada um. No dia seguinte, fazemos a mesma coisa e obtemos (<script type="math/tex">q_2</script>). Seja <script type="math/tex">n</script> o número de ônibus que vimos nos dois dias. Qual a distribuição de <script type="math/tex">n</script>? Olhando para o segundo dia, em uma população de tamanho <script type="math/tex">N</script>, tínhamos <script type="math/tex">q_1</script> ônibus de interesse para recontar. Nossa amostra é de tamanho <script type="math/tex">q_2</script>. Isso define a <a href="https://en.wikipedia.org/wiki/Hypergeometric_distribution">distribuição hipergeométrica</a>, pois a amostragem do segundo dia é sem reposição (note que simplificamos que só podemos ver o mesmo ônibus uma vez). Logo</p>
 <p>
-<script type="math/tex">n \sim Hypergeometric(N, q_1, q_2).</script>
+<script type="math/tex; mode=display">n \sim Hypergeometric(N, q_1, q_2).</script>
 </p>
-<h2 id="sabemos-que-mathbben-q_1n-cdot-q_2-implies-hatn-q_1-cdot-q_2-n-e-um-possivel-estimador-para-n-note-que-esse-estimador-nao-e-necessariamente-nao-enviesado-pois-mathbbe1n-neq-1mathbben">Sabemos que <script type="math/tex">\mathbb{E}[n] = (q_1/N) \cdot q_2 \implies \hat{N} = q_1 \cdot q_2 / n</script> é um possível estimador para <script type="math/tex">N</script>. Note que esse estimador não é necessariamente não enviesado, pois <script type="math/tex">\mathbb{E}[1/n] \neq 1/\mathbb{E}[n]</script>
-</h2></div>
+<p>Sabemos que <script type="math/tex">\mathbb{E}[n] = (q_1/N) \cdot q_2 \implies \hat{N} = q_1 \cdot q_2 / n</script> é um possível estimador para <script type="math/tex">N</script>. Note que esse estimador não é necessariamente não enviesado, pois <script type="math/tex">\mathbb{E}[1/n] \neq 1/\mathbb{E}[n]</script>
+</p>
+<hr /></div>
         
         
     </div>
