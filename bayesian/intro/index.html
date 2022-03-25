@@ -190,10 +190,19 @@
 <h2 id="paradigma-bayesiano">Paradigma bayesiano</h2>
 <p>No paradigma bayesiano, as quantidades desconhecidas são tratadas como variável aleatória, incluindo o parâmetro <script type="math/tex">\theta</script>. Assim, se temos um modelo <script type="math/tex">P_{\theta}</script> para <script type="math/tex">x</script>, precisamos de uma distribuição para <script type="math/tex">\theta</script>, a qual chamamos de <strong>distribuição a priori</strong>. Com elas, construímos uma distribuição em <script type="math/tex">\mathcal{X} \times \Omega</script>. Em particular, </p>
 <p>
-<script type="math/tex; mode=display">Pr((x,\theta) \in B) = \int_{\Omega} \int_{\mathcal{X}} I_B(u, v) f_{x | \theta}(u|v)f_{\theta}(v) \, du \, dv,</script>
+<script type="math/tex; mode=display">\Pr((x,\theta) \in B) = \int_{\Omega} \int_{\mathcal{X}} I_B(u, v) f_{x | \theta}(u|v)f_{\theta}(v) \, du \, dv,</script>
 </p>
 <p>se <script type="math/tex">f_{\theta}</script> for a densidade da distribuição de <script type="math/tex">\theta</script>. </p>
-<p>Matematicamente, probabilidades podem representar crenças numericamente, relacionando informação com probabilidade. A Regra de Bayes provê um método racional para atualizar crenças frente a novas informações. O processo indutivo de atualizar crenças com Bayes é chamada de inferência bayesiana. </p></div>
+<p>Matematicamente, probabilidades podem representar crenças numericamente, relacionando informação com probabilidade. A Regra de Bayes provê um método racional para atualizar crenças frente a novas informações. O processo indutivo de atualizar crenças com Bayes é chamada de inferência bayesiana. </p>
+<p><strong>Teorema de Bayes:</strong> Se <script type="math/tex">E</script> é um evento com probabilidade positiva e <script type="math/tex">A</script> é um outro evento, temos que 
+<script type="math/tex; mode=display">\Pr(A | E) = \frac{\Pr(E |A) \Pr(A)}{\Pr(E)}.</script>
+Podemos expressar através de densidades, com 
+<script type="math/tex; mode=display">p(\theta | x) = \frac{f(x|\theta)\pi(\theta)}{\int_{\Omega} f(x|t)\pi(t) \, dt},</script>
+em que <script type="math/tex">\pi(\theta)</script> é a densidade da priori do parâmetro <script type="math/tex">\theta</script> e <script type="math/tex">p(\theta | x)</script> é chamada de <strong>distribuição a posteriori</strong> de <script type="math/tex">\theta</script>. Além disso, como o parâmetro <script type="math/tex">\theta</script> é desconhecido, também denotamos a densidade de <script type="math/tex">x</script> condicionada em <script type="math/tex">\theta</script> como uma função de <script type="math/tex">\theta</script>, após observar <script type="math/tex">x</script>. Nesse caso, chamamos de <strong>função de verossimilhança</strong> <script type="math/tex">l(\theta | x) = f(x | \theta)</script> para cada <script type="math/tex">\theta \in \Omega</script> e <script type="math/tex">x</script> observado. O denominador da expressão acima é chamada de <strong>densidade preditiva a priori</strong> e não depende de <script type="math/tex">\theta</script>. É a marginal no espaço de estados.</p>
+<p>A distribuição a priori encapsula a informação disponível sobre o parâmetro <script type="math/tex">\theta</script> antes do experimento, incluindo a incerteza residual.</p>
+<hr />
+<p><code>📝</code> <strong>Exemplo (modelo capture-recapture)</strong></p>
+<hr /></div>
         
         
     </div>
