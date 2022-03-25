@@ -149,6 +149,9 @@
         <li class="first-level active"><a href="#introducao">Introdução</a></li>
             <li class="second-level"><a href="#paradigma-bayesiano">Paradigma bayesiano</a></li>
                 
+                <li class="third-level"><a href="#teorema-de-bayes">Teorema de Bayes</a></li>
+            <li class="second-level"><a href="#_1"></a></li>
+                
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
@@ -194,15 +197,20 @@
 </p>
 <p>se <script type="math/tex">f_{\theta}</script> for a densidade da distribuição de <script type="math/tex">\theta</script>. </p>
 <p>Matematicamente, probabilidades podem representar crenças numericamente, relacionando informação com probabilidade. A Regra de Bayes provê um método racional para atualizar crenças frente a novas informações. O processo indutivo de atualizar crenças com Bayes é chamada de inferência bayesiana. </p>
-<p><strong>Teorema de Bayes:</strong> Se <script type="math/tex">E</script> é um evento com probabilidade positiva e <script type="math/tex">A</script> é um outro evento, temos que 
+<h3 id="teorema-de-bayes">Teorema de Bayes</h3>
+<p>Se <script type="math/tex">E</script> é um evento com probabilidade positiva e <script type="math/tex">A</script> é um outro evento, temos que 
 <script type="math/tex; mode=display">\Pr(A | E) = \frac{\Pr(E |A) \Pr(A)}{\Pr(E)}.</script>
 Podemos expressar através de densidades, com 
 <script type="math/tex; mode=display">p(\theta | x) = \frac{f(x|\theta)\pi(\theta)}{\int_{\Omega} f(x|t)\pi(t) \, dt},</script>
 em que <script type="math/tex">\pi(\theta)</script> é a densidade da priori do parâmetro <script type="math/tex">\theta</script> e <script type="math/tex">p(\theta | x)</script> é chamada de <strong>distribuição a posteriori</strong> de <script type="math/tex">\theta</script>. Além disso, como o parâmetro <script type="math/tex">\theta</script> é desconhecido, também denotamos a densidade de <script type="math/tex">x</script> condicionada em <script type="math/tex">\theta</script> como uma função de <script type="math/tex">\theta</script>, após observar <script type="math/tex">x</script>. Nesse caso, chamamos de <strong>função de verossimilhança</strong> <script type="math/tex">l(\theta | x) = f(x | \theta)</script> para cada <script type="math/tex">\theta \in \Omega</script> e <script type="math/tex">x</script> observado. O denominador da expressão acima é chamada de <strong>densidade preditiva a priori</strong> e não depende de <script type="math/tex">\theta</script>. É a marginal no espaço de estados.</p>
-<p>A distribuição a priori encapsula a informação disponível sobre o parâmetro <script type="math/tex">\theta</script> antes do experimento, incluindo a incerteza residual.</p>
+<p>A distribuição a priori encapsula a informação disponível sobre o parâmetro <script type="math/tex">\theta</script> antes do experimento, incluindo a incerteza residual. Cox (1946, 1961) and Savage (1954, 1972) provaram que se priori e verossimilhança representam crenças racionais, a regra de Bayes é o método ótimo de atualizar essas crenças sobre o parâmetro dada nova informação. Claro que, em geral, não conseguimos exploxar as crenças de modo perfeito e a posteriori não vai ser ótima, nesse sentido. </p>
 <hr />
-<p><code>📝</code> <strong>Exemplo (modelo capture-recapture)</strong></p>
-<hr /></div>
+<p><code>📝</code> <strong>Exemplo (Bayes, 1974)</strong></p>
+<p>Uma bola de sinuca <script type="math/tex">O</script> é rolada em uma linha de comprimento 1. É natural assumir que ela tem uma distribuição uniforme de parar em qualquer lugar, só dependendo da força exercida sobre ela. Seja <script type="math/tex">p</script> o ponto de parada. Em seguida, rolamos uma outra bola <script type="math/tex">n</script> vezes e contamos a quantidade de vezes (<script type="math/tex">X</script>) que ela parou antes de <script type="math/tex">B</script>. Nesse caso, observado <script type="math/tex">X=x</script>, queremos inferir <script type="math/tex">p</script>. Se <script type="math/tex">p</script> fosse conhecido, qual seria distribuição de <script type="math/tex">X</script>? Veja que temos <script type="math/tex">n</script> experimentos independentes e idênticos de sucesso ou falha, com probabilidade de sucesso <script type="math/tex">p</script> (lembrando da distribuição uniforme!). Nesse caso <script type="math/tex">X|p \sim Bernoulli(n, p)</script>. Com essas configurações, podemos verificar que 
+<script type="math/tex; mode=display">\Pr(a < p < b | X=x) = \frac{\int_a^b p^x(1-p)^{n-x} \, dp}{B(x+1, n-x+1)},</script>
+em que <script type="math/tex">B</script> é a <a href="https://en.wikipedia.org/wiki/Beta_function">função Beta</a>.</p>
+<hr />
+<h2 id="_1"></h2></div>
         
         
     </div>
