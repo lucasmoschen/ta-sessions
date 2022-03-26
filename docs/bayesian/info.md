@@ -14,9 +14,11 @@ utilizados são:
 |Conceitos|
 |-|
 |[Introdução](/ta-sessions/bayesian/intro)|
+|[Teorema de De Finetti](/ta-sessions/bayesian/finetti)
 
 ## Exercícios
 
 ## Material adicional
 
+- [WHAT IS BAYESIAN/FREQUENTIST INFERENCE?](https://normaldeviate.wordpress.com/2012/11/17/what-is-bayesianfrequentist-inference/)
 - [Github da disciplina de 2021](https://github.com/maxbiostat/BayesianStatisticsCourse/)
