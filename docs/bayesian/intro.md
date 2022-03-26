@@ -148,3 +148,33 @@ Para a especificação de um modelo (paramétrico) segundo o preceito bayesiano,
 $$ \int_{\Omega} \pi(\theta) \, d\theta = + \infty.$$
 Nesse caso temos uma **distribuição imprópria** ou generalizada. 
 
+---
+``📝`` **Exemplo**
+
+Suponha que tenhamos $X \sim Normal(\theta, 1)$, em que $\theta \in \mathbb{R}$. Queremos uma priori normal em $\theta$, mas não temos muita certeza de sua localização. Logo, uma variância baixa seria uma péssima escolha. Seja $\theta \sim Normal(0, n^2)$. Qual a variância que podemos dizer que não é baixa? Se fizermos $n \to +\infty$, não teremos mais uma distribuição normal.
+
+---
+
+Nesses casos, escolhemos uma medida sobre $\Omega$, cuja posteriori calculada exista, com respeito a $\lambda$. Nesse caso, basta verificar se 
+$$\int_{\Omega} f_{X|\Theta}(x|t) \, d\lambda(t)$$
+é finita e positiva. Nesse caso, definimos a posteriori segundo a sua fórmula pelo Teorema de Bayes. Para definir matematicamente, de forma precisa, a distribuição imprópria, existem algumas tentativas.
+
+(1) Remover a restrição de que a probabilidade do espaço é 1. 
+
+(2) Probabilidades são finitamente aditivas, e não contavelmente aditivas.
+
+Em ambos os casos, muitos resultados de probabilidade falham.
+
+Alguns comentários sobre prioris impróprias destacados por Robert (páginas 27-31):
+
+- Muitas vezes, a definição de prioris impróprias são derivadas por métodos automáticos, quando tem-se pouca ou nenhuma informação sobre o parâmetro antes de observar o dado (nenhuma informação é uma expressão exagerada sujeita à crítica, também).
+
+- Se a posteriori estiver bem definida, e os estimadores resultantes tiverem boa performance, já temos uma boa justificativa para usar a priori. 
+
+- Distribuições impróprias podem muitas vezes serem vistas como limite de distribuições próprias, isto é, são casos extremos onde a informação a priori não é confiável.
+
+- Essas distribuições têm justificativas frequentistas, em geral.
+
+- Prioris impróprias não tem interpretação probabilística. 
+
+- A posteriori **precisa** ser bem-definida. Computacionalmente, amostrar da posteriori se ela for mal-definida vai levar a problemas de estimação. Logo, é essencial verificar se o denominador é finito e positivo.
