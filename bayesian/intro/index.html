@@ -289,7 +289,17 @@ Logo, inferências sobre <script type="math/tex">\lambda</script> só devem se b
 <h3 id="distribuicoes-a-priori-improprias">Distribuições a priori impróprias</h3>
 <p>Para a especificação de um modelo (paramétrico) segundo o preceito bayesiano, é preciso definir uma família paramétrica para as observações <script type="math/tex">X</script> e uma distribuição a priori para <script type="math/tex">\theta</script>. É importante destacar que ambas são escolhas que introduzem subjetividade. Para especificar uma priori, traduzimos conhecimento prévio em uma distribuição de probabilidade. Nem sempre, temos uma informação suficiente para tal. Uma maneira usual de contornar essa situação é construir uma sequência de distribuições no espaço de parâmetros e tomar <script type="math/tex">\pi</script> como a distribuição limite. Todavia, ela poderá sofrer com a propriedade que 
 <script type="math/tex; mode=display"> \int_{\Omega} \pi(\theta) \, d\theta = + \infty.</script>
-Nesse caso temos uma <strong>distribuição imprópria</strong> ou generalizada. </p></div>
+Nesse caso temos uma <strong>distribuição imprópria</strong> ou generalizada. </p>
+<hr />
+<p><code>📝</code> <strong>Exemplo</strong></p>
+<p>Suponha que tenhamos <script type="math/tex">X \sim Normal(\theta, 1)</script>, em que <script type="math/tex">\theta \in \mathbb{R}</script>. Queremos uma priori normal em <script type="math/tex">\theta</script>, mas não temos muita certeza de sua localização. Logo, uma variância baixa seria uma péssima escolha. Seja <script type="math/tex">\theta \sim Normal(0, n^2)</script>. Qual a variância que podemos dizer que não é baixa? Se fizermos <script type="math/tex">n \to +\infty</script>, não teremos mais uma distribuição normal.</p>
+<hr />
+<p>Nesses casos, escolhemos uma medida sobre <script type="math/tex">\Omega</script>, cuja posteriori calculada exista, com respeito a <script type="math/tex">\lambda</script>. Nesse caso, basta verificar se 
+<script type="math/tex; mode=display">\int_{\Omega} f_{X|\Theta}(x|t) \, d\lambda(t)</script>
+é finita e positiva. Nesse caso, definimos a posteriori segundo a sua fórmula pelo Teorema de Bayes. Para definir matematicamente, de forma precisa, a distribuição imprópria, existem algumas tentativas.</p>
+<p>(1) Remover a restrição de que a probabilidade do espaço é 1. </p>
+<p>(2) Probabilidades são finitamente aditivas, e não contavelmente aditivas.</p>
+<p>Em ambos os casos, muitos resultados de probabilidade falham.</p></div>
         
         
     </div>
