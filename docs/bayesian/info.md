@@ -20,7 +20,7 @@ utilizados são:
 
 |Monitoria|Itens discutidos|Arquivo|
 |---------|----------------|-------|
-|28/03/2022|Princípio de Verossimilhança, Prioris impróprias e material|[Visualizar](/files/disciplines/bayesian-statistics/monitoria28-03-2022.pdf)|
+|28/03/2022|Princípio de Verossimilhança, Prioris impróprias e material adicional|[Visualizar](/files/disciplines/bayesian-statistics/monitoria28-03-2022.pdf)|
 
 ## Listas
 
