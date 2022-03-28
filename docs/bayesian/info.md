@@ -16,7 +16,17 @@ utilizados são:
 |[Introdução](/ta-sessions/bayesian/intro)|
 |[Teorema de De Finetti](/ta-sessions/bayesian/finetti)
 
-## Exercícios
+## Notas
+
+|Monitoria|Itens discutidos|Arquivo|
+|---------|----------------|-------|
+|28/03/2022|Princípio de Verossimilhança, Prioris impróprias e material|[Visualizar](/files/disciplines/bayesian-statistics/monitoria28-03-2022.pdf)|
+
+## Listas
+
+|Número|Exercícios|Solução|Extras|
+|------|----------------|-------|-------|
+|1|Capítulo 1 The Bayesian Choice: 1.17, 1.26, 1.32, 1.41|[1](/files/disciplines/bayesian-statistics/solutions1.pdf)|1.16, 1.25, 1.39, 1.43, 1.47, 1.50|
 
 ## Material adicional
 
