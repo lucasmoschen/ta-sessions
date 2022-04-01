@@ -15,7 +15,7 @@ classic-curves). Você pode contribuir para aumentar o acervo!
 |[Definições preliminares](/ta-sessions/curvas/first-definitions)|
 |[Curvatura](/ta-sessions/curvas/curvature/curvature)|
 |[Curvas no espaço](/ta-sessions/curvas/space-curves)|
-|[Notas sobre equações de Frenet](/ta-sessions/curvas/notVes-frenet)|
+|[Notas sobre equações de Frenet](/ta-sessions/curvas/notes-frenet)|
 
 |Conceitos introdutórios de superfícies|
 |---|
