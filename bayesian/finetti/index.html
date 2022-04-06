@@ -151,6 +151,9 @@
                 
             <li class="second-level"><a href="#teorema-de-de-finetti">Teorema de De Finetti</a></li>
                 
+                <li class="third-level"><a href="#variaveis-aleatorias-bernoulli">Variáveis aleatórias Bernoulli</a></li>
+                <li class="third-level"><a href="#versao-finita">Versão Finita</a></li>
+                <li class="third-level"><a href="#versao-infinita">Versão infinita</a></li>
             <li class="second-level"><a href="#links-relevantes">Links relevantes</a></li>
                 
     </ul>
@@ -198,8 +201,29 @@ Essa probabilidade tem visão subjetiva.
 Mesmo que o cálculo de probabilidades seja diferente, se os indivíduos assumem permutabilidade das variáveis aleatórias, então eles acreditam na existência de <script type="math/tex">\theta</script>, de forma que condicionado em <script type="math/tex">\theta</script>, as variáveis são IID Bernoulli(<script type="math/tex">\theta</script>).</em></p>
 <hr />
 <h2 id="teorema-de-de-finetti">Teorema de De Finetti</h2>
-<p>pg 24-28 shervish</p>
-<p>A demonstração se encontra entre as páginas 33-49.  </p>
+<p>O teorema de De Finetti conecta os conceitos de permutabilidade com o de independência e distribuição idêntica condicionada em uma outra variável aleatória. 
+Por fim, ele relaciona essa variável condicionadora com o que chamamos de parâmetro, cerne dos modelos estatísticos paramétricos.</p>
+<h3 id="variaveis-aleatorias-bernoulli">Variáveis aleatórias Bernoulli</h3>
+<p>Considere uma sequência de variáveis aleatórias <script type="math/tex">\{X_n\}_{n=1}^{+\infty}</script> distribuídas conforme Bernoulli. 
+A sequência é permutável se, e somente se, existe uma variável aleatória <script type="math/tex">\theta \in [0,1]</script> tal que <script type="math/tex">\{X_n \mid \theta\}_{n=1}^{+\infty}</script> é uma sequência IID Bernoulli(<script type="math/tex">\theta</script>). 
+Além do mais, se a sequência é permutável, a distribuição de <script type="math/tex">\theta</script> é única e 
+<script type="math/tex; mode=display">\frac{1}{n}\sum_{i=1}^n X_i \to \theta</script> 
+quase certamente.</p>
+<h3 id="versao-finita">Versão Finita</h3>
+<p>Suponha que <script type="math/tex">X_1, \dots, X_n</script> são variáveis aleatórias em um espaço de Borel <script type="math/tex">(\mathcal{X}, \mathcal{B})</script>. 
+Seja <script type="math/tex">X = (X_1, \dots, X_n)</script> e para cada <script type="math/tex">B \in \mathcal{B}</script>, seja <script type="math/tex">P_n(B) = \sum_{i=1}^n 1_{X_i \in B}/n</script> a distribuição empírica de <script type="math/tex">X</script>.
+As variáveis aleatórias são permutáveis se, e somente se, para toda <script type="math/tex">k</script>-tupla de distintos elementos de <script type="math/tex">X</script>, a distribuição conjunta de <script type="math/tex">(X_{i_1}, \dots, X_{i_k})</script>, condicionadas em <script type="math/tex">P_n = P</script> é a de uma amostra aleatória simples sem reposição da distribuição <script type="math/tex">P</script>. 
+Nesse caso, tomamos <script type="math/tex">k</script> amostras sem reposição de uma urna tal que cada bola tem a mesma probabilidade de ser retirada.</p>
+<h3 id="versao-infinita">Versão infinita</h3>
+<p>Seja <script type="math/tex">(S, \mathcal{A}, \mu)</script> um espaço de probabilidade e <script type="math/tex">(\mathcal{X}, \mathcal{B})</script> um espaço de Borel. Para cada <script type="math/tex">n</script>, seja <script type="math/tex">X_n : S \to \mathcal{X}</script> mensurável.
+A sequência <script type="math/tex">\{X_n\}_{n \in \mathbb{N}}</script> é permutável se, e somente se, existe uma medida de probabilidade <em>aleatória</em> <script type="math/tex">P</script> em <script type="math/tex">(\mathcal{X}, \mathcal{B})</script> tal que, condicionada em <script type="math/tex">P</script>, a sequência é IID com distribuição <script type="math/tex">P</script>. 
+Nesse caso, <script type="math/tex">P</script> é única e <script type="math/tex">P_n(B)</script> converge para <script type="math/tex">P(B)</script> quase certamente para cada <script type="math/tex">B \in \mathcal{B}</script>.</p>
+<p>Alguns pontos importantes: </p>
+<p>(1) Um espaço de Borel: Seja <script type="math/tex">(\mathcal{X}, \mathcal{B})</script> um espaço mensurável. Se existe uma função bimensurável (mensurável bijetiva com inversa mensurável) <script type="math/tex">\phi : \mathcal{X} \to R \subseteq \mathbb{R}</script> com <script type="math/tex">R</script> Borel, então <script type="math/tex">(\mathcal{X}, \mathcal{B})</script> é espaço de Borel.</p>
+<p>(2) Medida de probabilidade aleatória: Seja <script type="math/tex">\mathcal{P}</script> o conjunto de todas as medidas de probabilidade em <script type="math/tex">(\mathcal{X}, \mathcal{B})</script> e <script type="math/tex">\mathcal{C}_{\mathcal{P}}</script> uma <script type="math/tex">\sigma</script>-álgebra de subconjuntos <script type="math/tex">\mathcal{P}</script> de forma que <script type="math/tex">g_B : \mathcal{P} \to \mathbb{R}</script> sejam mensuráveis, com <script type="math/tex">g_B(P) = P(B)</script>. 
+Em particular, a função <script type="math/tex">P : S \to \mathcal{S}</script> é medida de probabilidade aleatória, em que <script type="math/tex">(S, \mathcal{A}, \mu)</script> é espaço de probabilidade.</p>
+<p>Esse teorema foi estendido para sequência de variáveis aleatórias não permutáveis.</p>
+<p>A demonstração se encontra entre as páginas 33-49 do livro de Schervish.</p>
 <h2 id="links-relevantes">Links relevantes</h2>
 <ul>
 <li>
