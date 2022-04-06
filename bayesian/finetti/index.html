@@ -159,9 +159,16 @@
 
 <h1 id="teorema-da-representacao-de-de-finetti">Teorema da Representação de De Finetti</h1>
 <p>Considere uma sequência <script type="math/tex">X_1, \dots, X_n</script> de variáveis aleatórias indicadoras (assumem valor <script type="math/tex">0</script> ou <script type="math/tex">1</script>). 
-Em geral, assumimos que elas são independentes e identicamente distribuídas, implicando em algo do tipo:
+Em geral, assumimos que elas são independentes e identicamente distribuídas (IID), implicando em algo do tipo:
 <script type="math/tex; mode=display">\Pr(X_n = x_n \mid X_1 = x_1, \dots, X_{n-1} = x_{n-1}) = \Pr(X_n = x_n).</script>
-Desta forma, assumindo essa propriedade e que <script type="math/tex">\Pr(X = 1) = \Pr(X = 0) = 1/2</script>, mesmo que eu visualizasse um milhão de variáveis sendo <script type="math/tex">1</script>, eu acreditaria que a milionésima primeira ainda teria a mesma probabilidade.</p>
+Desta forma, assumindo essa propriedade e que <script type="math/tex">\Pr(X = 1) = \Pr(X = 0) = 1/2</script>, mesmo que eu visualizasse um milhão de variáveis sendo <script type="math/tex">1</script>, eu acreditaria que a milionésima primeira ainda teria a mesma probabilidade.
+Logo, observar um experimento não traria informação para a moeda. 
+Com isso, De Finetti introduziu um conceito mais fraco, o de permutabilidade.
+Em particular, ele demonstrou, para esse caso de variáveis binárias, que existe uma variável <script type="math/tex">\theta</script> com distribuição <script type="math/tex">\mu_{\theta}</script> tal que 
+<script type="math/tex; mode=display">\Pr(X_1 = x_1, \dots, X_n = x_n) = \int_0^1 \theta^s(1-\theta)^{n-s} d\mu_{\theta}(\theta),</script>
+com <script type="math/tex">s = x_1 + \cdots + x_n</script>.
+Portanto, sob a hipótese de permutabilidade, existe um parâmetro <script type="math/tex">\theta</script> tal que esse parâmetro é uma função do limite das distribuições empíricas e, em particular, as variáveis são IID condicionadas em <script type="math/tex">\theta</script>. 
+Isso permite a introdução de modelos estatísticos bayesianos de uma forma natural.</p>
 <h2 id="permutabilidade">Permutabilidade</h2>
 <p>Em uma análise estatística, existem diversas quantidades sobre as quais somos incertos. 
 Por exemplo, considere uma população e uma determinada doença. 
@@ -195,7 +202,12 @@ Mesmo que o cálculo de probabilidades seja diferente, se os indivíduos assumem
 <p>A demonstração se encontra entre as páginas 33-49.  </p>
 <h2 id="links-relevantes">Links relevantes</h2>
 <ul>
-<li><a href="https://stats.stackexchange.com/questions/34465/what-is-so-cool-about-de-finettis-representation-theorem">What is so cool about de Finetti's representation theorem?</a></li>
+<li>
+<p><a href="https://stats.stackexchange.com/questions/34465/what-is-so-cool-about-de-finettis-representation-theorem">What is so cool about de Finetti's representation theorem?</a></p>
+</li>
+<li>
+<p><a href="https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1751-5823.2008.00059.x">Exchangeability, Correlation, and Bayes' Effect, Ben O'Neill</a>: esse paper discute a diferença da estatística bayesiana e frequentista sobre os valores observados, relacionando com o conceito de permutabilidade.</p>
+</li>
 </ul></div>
         
         
