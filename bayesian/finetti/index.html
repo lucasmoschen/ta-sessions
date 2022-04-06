@@ -151,12 +151,17 @@
                 
             <li class="second-level"><a href="#teorema-de-de-finetti">Teorema de De Finetti</a></li>
                 
+            <li class="second-level"><a href="#links-relevantes">Links relevantes</a></li>
+                
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
 <h1 id="teorema-da-representacao-de-de-finetti">Teorema da Representação de De Finetti</h1>
-<p>https://stats.stackexchange.com/questions/34465/what-is-so-cool-about-de-finettis-representation-theorem</p>
+<p>Considere uma sequência <script type="math/tex">X_1, \dots, X_n</script> de variáveis aleatórias indicadoras (assumem valor <script type="math/tex">0</script> ou <script type="math/tex">1</script>). 
+Em geral, assumimos que elas são independentes e identicamente distribuídas, implicando em algo do tipo:
+<script type="math/tex; mode=display">\Pr(X_n = x_n \mid X_1 = x_1, \dots, X_{n-1} = x_{n-1}) = \Pr(X_n = x_n).</script>
+Desta forma, assumindo essa propriedade e que <script type="math/tex">\Pr(X = 1) = \Pr(X = 0) = 1/2</script>, mesmo que eu visualizasse um milhão de variáveis sendo <script type="math/tex">1</script>, eu acreditaria que a milionésima primeira ainda teria a mesma probabilidade.</p>
 <h2 id="permutabilidade">Permutabilidade</h2>
 <p>Em uma análise estatística, existem diversas quantidades sobre as quais somos incertos. 
 Por exemplo, considere uma população e uma determinada doença. 
@@ -178,9 +183,20 @@ Em particular, apenas essa hipótese vai implicar que existe uma medida para <sc
 Também podemos afirmar que <strong>IID implica permutabilidade</strong>. 
 Todavia, a recíproca não é verdadeira. Se <script type="math/tex">X_1, X_2, \dots</script> são (condicionalmente) IID dado <script type="math/tex">Y</script>, as variáveis são permutáveis, mas não IID necessariamente.
 De forma simples, a permutabilidade é uma hipótese fraca quando se deseja simetria entre as variáveis, e que o índice delas seja "irrelevante". </p>
+<hr />
+<p><em>Observação: probabilidade é vista como um limite de frequências por uma grande parte dos estatísticos. 
+Em particular, isso exige a tomada de uma quantidade infinita de variáveis, o que é impossível.
+O Teorema de Finetti a seguir esclarece que o limite de frequências de 1s na sequência Bernoulli, denominado <script type="math/tex">\theta</script> é apenas uma probabilidade condicional dada informação desconhecida.
+Essa probabilidade tem visão subjetiva. 
+Mesmo que o cálculo de probabilidades seja diferente, se os indivíduos assumem permutabilidade das variáveis aleatórias, então eles acreditam na existência de <script type="math/tex">\theta</script>, de forma que condicionado em <script type="math/tex">\theta</script>, as variáveis são IID Bernoulli(<script type="math/tex">\theta</script>).</em></p>
+<hr />
 <h2 id="teorema-de-de-finetti">Teorema de De Finetti</h2>
 <p>pg 24-28 shervish</p>
-<p>A demonstração se encontra entre as páginas 33-49.  </p></div>
+<p>A demonstração se encontra entre as páginas 33-49.  </p>
+<h2 id="links-relevantes">Links relevantes</h2>
+<ul>
+<li><a href="https://stats.stackexchange.com/questions/34465/what-is-so-cool-about-de-finettis-representation-theorem">What is so cool about de Finetti's representation theorem?</a></li>
+</ul></div>
         
         
     </div>
