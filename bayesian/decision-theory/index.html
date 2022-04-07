@@ -156,6 +156,8 @@
                 
             <li class="second-level"><a href="#criticas">Críticas</a></li>
                 
+            <li class="second-level"><a href="#links">Links</a></li>
+                
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
@@ -182,16 +184,68 @@ em que o mínimo de <script type="math/tex">L</script> é em 0. Além disso, a d
 Usualmente <script type="math/tex">L(t) = t^2</script> é a perda escolhida.</p>
 <hr />
 <h2 id="funcao-utilidade">Função utilidade</h2>
-<p>Utilidade é definida como o oposto de perda e são utilizadas quando se pretende ordenar consequências de decisões. 
-Ou seja, a utilidade relaciona os possíveis resultados de uma decisão, como, por exemplo, o lucro da empresa.
-Seja <script type="math/tex">\mathcal{R}</script> o espaço das recompensas, que assumimos possuir uma ordenação total <script type="math/tex">\le</script> de forma que para todo <script type="math/tex">r_1, r_2 \in R</script>, tem-se que <script type="math/tex">r_1 \le r_2</script> ou <script type="math/tex">r_2 \le r_1</script> e <script type="math/tex">r_1 \le r_2</script> com <script type="math/tex">r_2 \le r_3</script> implica em <script type="math/tex">r_1 \le r_3</script>. 
-A primeira propriedade permite comparar qualquer duas recompensas, enquanto a segunda é a transitividade.
-Nas aplicações em geral, as recompensas obtidas por determinadas decisões são desconhecidas. 
-Por exemplo, </p>
+<p>Utilidade é definida como o oposto de perda e é utilizada quando se pretende ordenar consequências de decisões. 
+Ou seja, a utilidade sumariza os possíveis resultados de uma decisão, como, por exemplo, o lucro da empresa.
+Seja <script type="math/tex">\mathcal{R}</script> o espaço das recompensas, que assumimos possuir uma ordenação total <script type="math/tex">\le</script> de forma que para todo <script type="math/tex">r_1, r_2 \in R</script>, tem-se que <script type="math/tex">r_1 \le r_2</script> ou <script type="math/tex">r_2 \le r_1</script> e <script type="math/tex">r_1 \le r_2</script> com <script type="math/tex">r_2 \le r_3</script> implica <script type="math/tex">r_1 \le r_3</script>. 
+A primeira propriedade permite comparar qualquer duas recompensas, enquanto a segunda é a transitividade e fixa uma noção que esperaríamos de recompensas.</p>
+<p>Agora, vamos estender essa noção de ordem para <script type="math/tex">\mathcal{P}</script>, o espaço das distribuições de probabilidade em <script type="math/tex">\mathcal{R}</script>.
+Assumimos que <script type="math/tex">\le</script> está disponível em <script type="math/tex">\mathcal{P}</script> e que satisfaz </p>
+<p>(H1) ordem total;</p>
+<p>(H2) transitividade.</p>
+<p>No caso, de certa forma, <script type="math/tex">\mathcal{R} \subseteq \mathcal{P}</script> através das distribuições de Dirac com massa em um ponto <script type="math/tex">r \in \mathcal{R}</script> específico.</p>
+<p>Queremos construir uma função <script type="math/tex">U</script> em <script type="math/tex">\mathcal{R}</script> que chamaremos de <strong>função de utilidade</strong> através da relação <script type="math/tex">\le</script>. 
+Através da seguinte axiomatização, conseguimos assegurar tal existência.
+Observe que se a relação 
+<script type="math/tex; mode=display">\mathbb{E}^{P_1}[U(r)] \le \mathbb{E}^{P_2}[U(r)]</script>
+for equivalente a <script type="math/tex">P_1 \le P_2</script>, então conseguimos determinar a existência dessa relação em <script type="math/tex">\mathcal{P}</script>, o que dá uma espécie de recíproca do que queremos encontrar.</p>
+<p>Considere o conjunto das distribuições definidas em um suporte limitado <script type="math/tex">\mathcal{P}_{B}</script>. 
+Uma mistura é definida como <script type="math/tex">P = \alpha P_1 + (1-\alpha)P_2</script>, em que <script type="math/tex">\alpha \in (0,1)</script>. 
+Assumimos que</p>
+<p>(H3) Se <script type="math/tex">P_1 \le P_2</script>, temos que <script type="math/tex">\forall P \in \mathcal{P}</script>, <script type="math/tex">\alpha P_1 + (1-\alpha) P \le \alpha P_2 + (1-\alpha) P</script>.</p>
+<p>(H4) Se <script type="math/tex">P_1 \le P_2 \le P_3</script>, então existem <script type="math/tex">\alpha, \beta \in (0,1)</script> de forma que, 
+<script type="math/tex; mode=display">\alpha P_1 + (1-\alpha) P_3 \le P_2 \le \beta P_1 + (1-\beta)P_3.</script>
+</p>
+<p>Note que H4 implica que se <script type="math/tex">r_1 \le r \le r_2</script> com <script type="math/tex">r_1 < r_2</script>, então existe um único <script type="math/tex">\alpha \in [0,1]</script> de forma que <script type="math/tex">r = \alpha r_1 + (1-\alpha)r_2</script>. Para demonstrar esse resultado, basta supor a não existência e usar um argumento de supremo e ínfimo associado à hipótese de (H4). 
+Com esse resultado, dados <script type="math/tex">r_1 < r_2</script>, defina <script type="math/tex">U</script> da seguinte forma:
+<script type="math/tex; mode=display">
+\begin{cases}
+    U(r) = v, &\text{se } r_1 \le r \le r_2 \text{ e } r = vr_2 + (1-v)r_1 \\
+    U(r) = -\frac{v}{1-v}, &\text{se } r \le r_1 \text{ e } r_1 = vr_2 + (1-v)r \\
+    U(r) = \frac{1}{v}, &\text{se } r_2 \le r \text{ e } r_2 = vr + (1-v)r_1.
+\end{cases}
+</script>
+</p>
+<p>Com essa definição, temos que <script type="math/tex">U(r_1) = 1</script> e <script type="math/tex">U(r_2) = 0</script>. 
+Além do mais, <script type="math/tex">U</script> preserva relação de ordem e se <script type="math/tex">r = \alpha r_1 + (1-\alpha)r_2</script>, então teremos que <script type="math/tex">U(r) = \alpha U(r_1) + (1-\alpha) U(r_2)</script>.</p>
+<p>Agora, precisamos extender a definição de <script type="math/tex">U</script> para <script type="math/tex">\mathcal{P}_{B}</script>, o que existe uma hipótese adicional. 
+Defina 
+<script type="math/tex; mode=display">
+\alpha(r) = \frac{U(r) - U(r_1)}{U(r_2) - U(r_1)}, \beta = \int_{[r_1, r_2]} \alpha(r) dP(r),
+</script>
+em que <script type="math/tex">P([r_1, r_2]) = 1</script>. 
+Note que <script type="math/tex">\alpha</script> é obtido a partir das relações do parágrafo anterior, isto é, sabemos que para cada <script type="math/tex">r</script>, existe <script type="math/tex">\alpha(r)</script>, de forma que <script type="math/tex">r = \alpha(r) r_1 + (1-\alpha(r))r_2</script> e obtemos <script type="math/tex">\alpha</script> através da fórmula <script type="math/tex">U(r) = \alpha(r) U(r_1) + (1-\alpha(r)) U(r_2)</script>.
+Além disso <script type="math/tex">\beta</script> indica a probabilidade de selecionarmos <script type="math/tex">r_1</script> quando escolhemos uma loteria <script type="math/tex">r = \alpha(r) r_1 + (1-\alpha(r))r_2</script> segundo a distribuição de probabilidade <script type="math/tex">P</script>.
+Assumimos que </p>
+<p>(H5) P = \beta \delta_{r_2} + (1-\beta) \delta_{r_1}</p>
+<p>Com isso, é possível definir a função de utilidade em <script type="math/tex">\mathcal{P}_B</script>. 
+Dos resultados que se seguem, considere o seguinte teorema:</p>
+<blockquote>
+<p><strong>Teorema:</strong> Sejam <script type="math/tex">P_1, P_2 \in \mathcal{P}_B</script>. Então <script type="math/tex">P_1 \le P_2</script> se, e somente se, <script type="math/tex">\mathbb{E}^{P_1}[U(r)] \le \mathbb{E}^{P_2}[U(r)]</script>. Além do mais, se outra função de utilidade <script type="math/tex">U^*</script> satisfaz a relação de equivalência, então existem constantes <script type="math/tex">a > 0</script> e <script type="math/tex">b</script> de forma que <script type="math/tex">U^*(\cdot) = a U(\cdot) + b</script>.</p>
+</blockquote>
+<p>Com duas hipóteses adicionais, podemos extender esse resultado para <script type="math/tex">\mathcal{P}_E</script> que é o conjunto das distribuições <script type="math/tex">P</script> que tem <script type="math/tex">\mathbb{E}^P[U(r)]</script> finita.</p>
+<p>Algumas críticas ao formalismo incluem: é impossível que um indivíduo consiga comparar quaisquer duas recompensas. 
+Além do mais, a transitividade é algo forte demais. Às vezes, resultados da vida real levam à não transitividade.
+A extensão de <script type="math/tex">\mathcal{R}</script> para <script type="math/tex">\mathcal{P}</script> também é bastante problematizada, mas explica um pouco da relação da priori com a escolha da função de perda, no sentido bayesiano.</p>
+<p>Um exemplo interessante é o <a href="https://en.wikipedia.org/wiki/St._Petersburg_paradox">paradoxo de Saint Petersburg</a> que argumenta que o valor esperado do prêmio é infinito, mas a quantidade que os jogadores recebem é em geral baixa. 
+Uma solução possível para esse paradoxo é mudar a função de utilidade para uma limitada.</p>
 <h3 id="relacao-entre-utilidade-e-perda">Relação entre utilidade e perda</h3>
 <h2 id="maximalidade-e-admissibilidade">Maximalidade e admissibilidade</h2>
 <h2 id="perdas-classicas">Perdas clássicas</h2>
-<h2 id="criticas">Críticas</h2></div>
+<h2 id="criticas">Críticas</h2>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="https://onlinelibrary.wiley.com/doi/book/10.1002/0471729000">Optimal Statistical Decisions, Morris DeGroot</a>: esse livro expande os resultados de teoria da decisão apresentados no livro do Robert.</li>
+</ul></div>
         
         
     </div>
