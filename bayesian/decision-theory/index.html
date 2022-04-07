@@ -149,8 +149,7 @@
         <li class="first-level active"><a href="#teoria-da-decisao">Teoria da Decisão</a></li>
             <li class="second-level"><a href="#funcao-utilidade">Função utilidade</a></li>
                 
-            <li class="second-level"><a href="#relacao-entre-utilidade-e-perda">Relação entre utilidade e perda</a></li>
-                
+                <li class="third-level"><a href="#relacao-entre-utilidade-e-perda">Relação entre utilidade e perda</a></li>
             <li class="second-level"><a href="#maximalidade-e-admissibilidade">Maximalidade e admissibilidade</a></li>
                 
             <li class="second-level"><a href="#perdas-classicas">Perdas clássicas</a></li>
@@ -172,12 +171,24 @@ Uma função de perda é uma função <script type="math/tex">L : \Omega \times 
 Quando <script type="math/tex">\mathcal{D} = h(\Omega)</script>, temos que <script type="math/tex">L(\theta, d)</script> mede o erro em obter <script type="math/tex">h(\theta)</script> por <script type="math/tex">d</script>.
 Escolher uma função de perda de maneira a considerar o problema em questão não é uma tarefa fácil. 
 A complexidade envolvida em defini-la a partir de conceitos subjetivos leva ao uso de perdas matematicamente tratáveis, como a perda quadrática ou absoluta, por exemplo.</p>
-<p>Então, uma inferência bayesiana, do ponto de vista da Teoria da Decisão, os três fatores principais são: a família paramétrica de distribuições das observações, a distribuição a priori dos parâmetros, e a função de perda associada às decisões. Inclusive a subjetividade em definir a função de perda e a priori não pode ser separada, conforme destacado por <a href="https://scirp.org/reference/referencespapers.aspx?referenceid=1164705">Lindley (1985)</a>. </p>
+<p>Então, em uma inferência bayesiana, do ponto de vista da Teoria da Decisão, os três fatores principais são: a família paramétrica de distribuições das observações, a distribuição a priori dos parâmetros, e a função de perda associada às decisões. Inclusive a subjetividade em definir a função de perda e a priori não pode ser separada, conforme destacado por <a href="https://www.wiley.com/en-us/Making+Decisions%2C+2nd+Edition-p-9780471908081">Lindley (1985)</a>. </p>
 <hr />
 <p><code>📝</code> <strong>Exemplo (Função de perda)</strong></p>
+<p>Considere o problema de estimar a <script type="math/tex">\mathbb{E}[x] = \theta</script>, em que <script type="math/tex">x \sim Normal(\theta, \sigma^2)</script>, em que <script type="math/tex">\sigma^2</script> é conhecido.
+Nesse caso, <script type="math/tex">\mathcal{D} = \Omega = \mathbb{R}</script>. 
+Uma ideia é usar a perda da forma 
+<script type="math/tex; mode=display">L\left(\frac{\delta - \theta}{\sigma}\right), \delta \in \mathcal{D}, \theta \in \Omega,</script>
+em que o mínimo de <script type="math/tex">L</script> é em 0. Além disso, a divisão pelo desvio padrão reduz o viés de variância grande, principalmente quando a dimensão de <script type="math/tex">\theta</script> aumenta. 
+Usualmente <script type="math/tex">L(t) = t^2</script> é a perda escolhida.</p>
 <hr />
 <h2 id="funcao-utilidade">Função utilidade</h2>
-<h2 id="relacao-entre-utilidade-e-perda">Relação entre utilidade e perda</h2>
+<p>Utilidade é definida como o oposto de perda e são utilizadas quando se pretende ordenar consequências de decisões. 
+Ou seja, a utilidade relaciona os possíveis resultados de uma decisão, como, por exemplo, o lucro da empresa.
+Seja <script type="math/tex">\mathcal{R}</script> o espaço das recompensas, que assumimos possuir uma ordenação total <script type="math/tex">\le</script> de forma que para todo <script type="math/tex">r_1, r_2 \in R</script>, tem-se que <script type="math/tex">r_1 \le r_2</script> ou <script type="math/tex">r_2 \le r_1</script> e <script type="math/tex">r_1 \le r_2</script> com <script type="math/tex">r_2 \le r_3</script> implica em <script type="math/tex">r_1 \le r_3</script>. 
+A primeira propriedade permite comparar qualquer duas recompensas, enquanto a segunda é a transitividade.
+Nas aplicações em geral, as recompensas obtidas por determinadas decisões são desconhecidas. 
+Por exemplo, </p>
+<h3 id="relacao-entre-utilidade-e-perda">Relação entre utilidade e perda</h3>
 <h2 id="maximalidade-e-admissibilidade">Maximalidade e admissibilidade</h2>
 <h2 id="perdas-classicas">Perdas clássicas</h2>
 <h2 id="criticas">Críticas</h2></div>
