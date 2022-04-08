@@ -152,8 +152,14 @@
                 <li class="third-level"><a href="#relacao-entre-utilidade-e-perda">Relação entre utilidade e perda</a></li>
             <li class="second-level"><a href="#maximalidade-e-admissibilidade">Maximalidade e admissibilidade</a></li>
                 
+                <li class="third-level"><a href="#maximalidade">Maximalidade</a></li>
+                <li class="third-level"><a href="#admissibilidade">Admissibilidade</a></li>
             <li class="second-level"><a href="#perdas-classicas">Perdas clássicas</a></li>
                 
+                <li class="third-level"><a href="#perda-quadratica">Perda quadrática</a></li>
+                <li class="third-level"><a href="#perda-absoluta">Perda absoluta</a></li>
+                <li class="third-level"><a href="#perda-0-1">Perda 0-1</a></li>
+                <li class="third-level"><a href="#perdas-intrinsecas">Perdas intrínsecas</a></li>
             <li class="second-level"><a href="#criticas">Críticas</a></li>
                 
             <li class="second-level"><a href="#links">Links</a></li>
@@ -299,6 +305,7 @@ em que <script type="math/tex">1_{v}</script> é a massa de Dirac em <script typ
 \inf_{\delta \in \mathcal{D}} r(\pi, \delta) = \inf_{\delta^* \in \mathcal{D}^*} r(\pi, \delta^*) = r(\pi).
 </script>
 Como um procedimento randomizado é a média de riscos de estimadores não randomizados, ele não pode melhorá-los.</p>
+<h3 id="maximalidade">Maximalidade</h3>
 <blockquote>
 <p><strong>Risco minimax</strong>: <script type="math/tex">\bar{R} = \inf_{\delta \in \mathcal{D}^*} \sup_{\theta} R(\theta, \delta) = \inf_{\delta \in \mathcal{D}^*} \sup_{\theta} \mathbb{E}_{\theta}[L(\theta, \delta(x))]</script>. 
 Um estimador minimax é um estimador <script type="math/tex">\delta_0</script> que satisfaz <script type="math/tex">\sup_{\theta} R(\theta, \delta_0) = \bar{R}</script>. </p>
@@ -318,11 +325,13 @@ Esse resultado é um caso particular do <em>Teorema Rao-Blackwell</em>.</p>
 </script>
 A <strong>distribuição menos favorável</strong> é <script type="math/tex">\pi^*</script> tal que <script type="math/tex">r(\pi^*) = \underbar{R}</script>. 
 O problema de estimação tem um <em>valor</em> quando <script type="math/tex">\underbar{R} = \bar{R}</script>.</p>
+<p>Um resultado interessante é que se <script type="math/tex">\delta</script> é estimador de Bayes com respeito a <script type="math/tex">\pi</script> e <script type="math/tex">R(\theta, \delta) \le r(\pi)</script> para todo <script type="math/tex">\theta \in \Omega</script>, então <script type="math/tex">\delta</script> é estimador minimax e <script type="math/tex">\pi</script> é a distribuição menos favorável.</p>
 <blockquote>
 <p><strong>Teorema:</strong> Considere um problema estatístico que possua um valor, uma distribuição menos favorável <script type="math/tex">\pi_0</script> e um estimador minimax <script type="math/tex">\delta^{\pi_0}</script>. 
 Então se <script type="math/tex">\Omega \subseteq \mathbb{R}</script> é compacto e <script type="math/tex">R(\theta, \delta^{\pi_0})</script> é função analítica de <script type="math/tex">\theta</script>, então <script type="math/tex">\pi_0</script> tem suporte finito ou <script type="math/tex">R(\theta, \delta^{\pi_0})</script> é constante.</p>
 </blockquote>
 <p>Esse teorema mostra que o minimax não é um bom estimador do ponto de vista bayesiano, dado que (1) ele pode ser randomizado ou (2) ele pode levar a prioris não realísticas com suporte finito.</p>
+<h3 id="admissibilidade">Admissibilidade</h3>
 <blockquote>
 <p><strong>Admissibilidade:</strong> Um estimador <script type="math/tex">\delta_0</script> é inadmissível se existe um estimador <script type="math/tex">\delta_1</script> que domina <script type="math/tex">\delta_0</script>, isto é, <script type="math/tex">R(\theta, \delta_0) \ge R(\theta, \delta_1)</script> para todo <script type="math/tex">\theta \in \Omega</script>, e pelo menos para um valor <script type="math/tex">\theta_0</script>, vale a desigualdade estrita. 
 Caso contrário, o estimador é admissível.</p>
@@ -331,7 +340,33 @@ Caso contrário, o estimador é admissível.</p>
 Logo, faz sentido considerar maximalidade simultaneamente. 
 O interessante é que se existe um único estimador minimax, então ele é admissível. 
 A recíproca é falsa em geral, mas se <script type="math/tex">\delta_0</script> é admissível com risco constante, então ele é o único estimador minimax.</p>
+<p>A relação de admissibilidade com estimadores de Bayes é bem estrita: </p>
+<p>(1) Se a priori <script type="math/tex">\pi</script> é estritamente positiva em <script type="math/tex">\Omega</script>, com risco de Bayes finito, e a função de risco é contínua em <script type="math/tex">\theta</script> para todo <script type="math/tex">\delta</script>, então o estimador de Bayes <script type="math/tex">\delta^{\pi}</script> é admissível.</p>
+<p>(2) Se o estimador de Bayes <script type="math/tex">\delta^{\pi}</script> é único, então ele é admissível.</p>
 <h2 id="perdas-classicas">Perdas clássicas</h2>
+<p>Essas perdas são tratáveis matematicamente e bem documentadas, mesmo que não representem perfeitamente o problema em questão. </p>
+<h3 id="perda-quadratica">Perda quadrática</h3>
+<p>É definida como <script type="math/tex">L(\theta, d) = (\theta - d)^2</script>. 
+Provavelmente a perda mais utilizada.
+Penalizada fortemente desvios altos.
+Mas, como a perda é convexa e vale a desigualdade de Jensen mencionada mais acima, o que exclui estimadores randomizados.
+O interessante é que, sob essa perda, o estimador de Bayes é a média a posteriori, um dos valores que pensaríamos naturalmente, mesmo sem adicionar a carga da teoria da decisão.</p>
+<p><strong>Proposição:</strong> O estimador de Bayes <script type="math/tex">\delta^{\pi}</script> associado com a perda quadrática <script type="math/tex">L</script> é a esperança a posteriori <script type="math/tex">\delta^{\pi}(x) = \mathbb{E}^{\pi}[\theta | x]</script>. 
+O resultado imediato ocorre quando <script type="math/tex">L(\theta, \delta) = w(\theta)(\theta - \delta)^2</script>, como uma ponderação. 
+Nesse caso, o estimador de Bayes é 
+<script type="math/tex; mode=display">\delta^{\pi}(x) = \frac{\mathbb{E}^{\pi}[w(\theta) \theta | x]}{\mathbb{E}^{\pi}[w(\theta)| x]}.</script>
+</p>
+<h3 id="perda-absoluta">Perda absoluta</h3>
+<p>Uma alternativa à perda quadrática é <script type="math/tex">L(\theta, d) = |\theta - d|</script>, que pode ser generalizada para 
+<script type="math/tex; mode=display">
+L_{k_1, k_2}(\theta, \delta) = \begin{cases}
+k_2(\theta - d) &\text{se } \theta > d \\
+k_1(d - \theta) &\text{c.c.}
+\end{cases}
+</script>
+</p>
+<h3 id="perda-0-1">Perda 0-1</h3>
+<h3 id="perdas-intrinsecas">Perdas intrínsecas</h3>
 <h2 id="criticas">Críticas</h2>
 <h2 id="links">Links</h2>
 <ul>
