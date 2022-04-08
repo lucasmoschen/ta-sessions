@@ -15,7 +15,7 @@ utilizados são:
 |-|
 |[Introdução](/ta-sessions/bayesian/intro)|
 |[Teorema de De Finetti](/ta-sessions/bayesian/finetti)
-|[Teoria da decisão](ta-sessions/bayesian/decision-theory)|
+|[Teoria da decisão](/ta-sessions/bayesian/decision-theory)|
 
 ## Notas
 
