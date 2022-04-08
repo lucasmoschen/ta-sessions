@@ -312,6 +312,16 @@ Outra proposta é verificar que o conjunto das funções de risco em <script typ
 <p><strong>Teorema:</strong> Se <script type="math/tex">\mathcal{D} \subseteq \mathbb{R}^k</script> é um conjunto convexo compacto e <script type="math/tex">L(\theta, d)</script> é contínua e convexa como função de <script type="math/tex">d</script> para <script type="math/tex">\theta</script> fixado, então existe um estimador minimax não randomizado. 
 O estimador será não randomizado pela <a href="https://en.wikipedia.org/wiki/Jensen%27s_inequality">desigualdade de Jensen</a>. 
 Esse resultado é um caso particular do <em>Teorema Rao-Blackwell</em>.</p>
+<p>O <em>risco de Bayes</em> é sempre menor do que o <em>risco minimax</em>, o que é expresso matematicamente por 
+<script type="math/tex; mode=display">
+\underbar{R} = \sup_{\pi} r(\pi) = \sup_{\pi} \inf_{\delta \in \mathcal{D}} r(\pi, \delta) \le \bar{R} = \inf_{d \in \mathcal{D}^*} \sup_{\theta} R(\theta, \delta).
+</script>
+A <strong>distribuição menos favorável</strong> é <script type="math/tex">\pi^*</script> tal que <script type="math/tex">r(\pi^*) = \underbar{R}</script>. 
+O problema de estimação tem um <em>valor</em> quando <script type="math/tex">\underbar{R} = \bar{R}</script>.</p>
+<blockquote>
+<p><strong>Teorema:</strong> Considere um problema estatístico que possua um valor, uma distribuição menos favorável <script type="math/tex">\pi_0</script> e um estimador minimax <script type="math/tex">\delta^{\pi_0}</script>. 
+Então se <script type="math/tex">\Omega \subseteq \mathbb{R}</script> é compacto e <script type="math/tex">R(\theta, \delta^{\pi_0})</script> é função analítica de <script type="math/tex">\theta</script>, então <script type="math/tex">\pi_0</script> tem suporte finito ou <script type="math/tex">R(\theta, \delta^{\pi_0})</script> é constante.</p>
+</blockquote>
 <h2 id="perdas-classicas">Perdas clássicas</h2>
 <h2 id="criticas">Críticas</h2>
 <h2 id="links">Links</h2>
