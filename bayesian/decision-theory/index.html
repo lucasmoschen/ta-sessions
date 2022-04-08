@@ -244,6 +244,13 @@ Seja <script type="math/tex">U(\theta, d) = \mathbb{E}_{\theta, d}[U(r)]</script
 Temos que <script type="math/tex">U</script> mede uma proximidade entre <script type="math/tex">d</script> e <script type="math/tex">h(\theta)</script>.
 Após definir a função de utilidade, fazemos <script type="math/tex">L(\theta, d) = -U(\theta, d) \ge 0</script> como a função de perda. 
 Note que essa desigualdade implica que <script type="math/tex">U</script> é limitada superiormente por <script type="math/tex">0</script>. </p>
+<p>É claro que <script type="math/tex">\min_d L(\theta, d)</script>, quando <script type="math/tex">\theta</script> é desconhecido, é praticamente impossível, pois deveríamos ter um resultado uniforme em <script type="math/tex">\Omega</script>. Por isso, os <strong>frequentistas</strong> usam a noção de <strong>perda média</strong> ou <strong>risco frequentista</strong>:
+<script type="math/tex; mode=display">
+R(\theta, \delta) = \mathbb{E}_{\theta}[L(\theta, \delta(x))] = \int_{\mathcal{X}} L(\theta, delta(x)) f(x|\theta) \, dx,
+</script>
+em que <script type="math/tex">\delta(x)</script> é a decisão baseada em <script type="math/tex">x</script> quando <script type="math/tex">x \sim f(x|\theta)</script>.
+Chamamos <script type="math/tex">\delta</script> de <strong>estimador</strong>, enquanto <script type="math/tex">\delta(x)</script> de estimativa. 
+No cenário frequentista, estimadores são comparados segundo a performance a longo-prazo, para todos os valores de <script type="math/tex">\theta</script>.</p>
 <h2 id="maximalidade-e-admissibilidade">Maximalidade e admissibilidade</h2>
 <h2 id="perdas-classicas">Perdas clássicas</h2>
 <h2 id="criticas">Críticas</h2>
