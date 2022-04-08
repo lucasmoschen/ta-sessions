@@ -192,6 +192,8 @@ $$
 A **distribuição menos favorável** é $\pi^*$ tal que $r(\pi^*) = \underbar{R}$. 
 O problema de estimação tem um *valor* quando $\underbar{R} = \bar{R}$.
 
+Um resultado interessante é que se $\delta$ é estimador de Bayes com respeito a $\pi$ e $R(\theta, \delta) \le r(\pi)$ para todo $\theta \in \Omega$, então $\delta$ é estimador minimax e $\pi$ é a distribuição menos favorável.
+
 > **Teorema:** Considere um problema estatístico que possua um valor, uma distribuição menos favorável $\pi_0$ e um estimador minimax $\delta^{\pi_0}$. 
 Então se $\Omega \subseteq \mathbb{R}$ é compacto e $R(\theta, \delta^{\pi_0})$ é função analítica de $\theta$, então $\pi_0$ tem suporte finito ou $R(\theta, \delta^{\pi_0})$ é constante.
 
@@ -225,15 +227,74 @@ Penalizada fortemente desvios altos.
 Mas, como a perda é convexa e vale a desigualdade de Jensen mencionada mais acima, o que exclui estimadores randomizados.
 O interessante é que, sob essa perda, o estimador de Bayes é a média a posteriori, um dos valores que pensaríamos naturalmente, mesmo sem adicionar a carga da teoria da decisão.
 
-**Proposição:** O estimador de Bayes $\delta^{\pi}$ associado com a perda quadrática $L$ é a esperança a posteriori $\delta^{\pi}(x) = \mathbb{E}^{\pi}[\theta | x]$.
+**Proposição:** O estimador de Bayes $\delta^{\pi}$ associado com a perda quadrática $L$ é a esperança a posteriori $\delta^{\pi}(x) = \mathbb{E}^{\pi}[\theta | x]$. 
+O resultado imediato ocorre quando $L(\theta, \delta) = w(\theta)(\theta - \delta)^2$, como uma ponderação. 
+Nesse caso, o estimador de Bayes é 
+$$\delta^{\pi}(x) = \frac{\mathbb{E}^{\pi}[w(\theta) \theta | x]}{\mathbb{E}^{\pi}[w(\theta)| x]}.$$
 
 ### Perda absoluta
 
+Uma alternativa à perda quadrática é $L(\theta, d) = |\theta - d|$, que pode ser generalizada para 
+$$
+L_{k_1, k_2}(\theta, \delta) = \begin{cases}
+k_2(\theta - d) &\text{se } \theta > d \\
+k_1(d - \theta) &\text{c.c.}
+\end{cases}
+$$
+A penalização para desvios maiores é menor, apesar de manter a convexidade.
+é possível também propor uma perda como uma mistura dessas perdas. 
+Em uma região próxima de zero, usamos a perda quadrática. Depois, usamos a perda absoluta.
+Com essa perda, por exemplo, não existe estimador de Bayes em forma fechada.
+
+O estimador de Bayes associado a $L_{k_1, k_2}(\theta, \delta)$ e a $\pi$ é um quartil $k_2/(k_1 + k_2)$ de $\pi(\theta | x)$. Em particular, quando $k_1 = k_2$, o estimador é a mediana a posteriori.
+
 ### Perda 0-1
+
+Essa perda é mais utilizada no contexto de teste de hipóteses. Ela é definida como $L(\theta, \delta) = 1 - 1_{\theta = \delta}$.
+
+---
+``📝`` **Exemplo (Teste de hipóteses)**
+
+Seja o teste de hipóteses $H_0 : \theta \in \Omega_0$ e $H_1 : \theta \in \Omega_1$. 
+Então $\mathcal{D} = \{0, 1\}$ em que $0$ significa rejeitar $H_0$.
+Logo queremos estimar a função $1_{\theta \in \Omega_0}$. 
+O risco frequentista é 
+$$
+R(\theta, \delta) = \begin{cases}
+    \Pr_{\theta}(\delta(x) = 0), &\text{se } \theta \in \Omega_0 \\
+    \Pr_{\theta}(\delta(x) = 1), &\text{c.c.,}
+\end{cases}
+$$
+que são os erros do tipo 1 e do tipo 2, respectivamente.
+
+---
+
+O estimador de Bayes é dado por 
+$$
+\delta^{\pi}(x) = \begin{cases}
+    1 &\text{se }\Pr(\theta \in \Omega_0 | x) > \Pr(\theta \in \Omega_1 | x) \\
+    0, &\text{c.c.}
+\end{cases}
+$$
 
 ### Perdas intrínsecas
 
-## Críticas
+Às vezes, estamos em uma situação não informativa sobre a parametrização natural e a escolha da função de perda.
+O estimador de Bayes não é invariante por transformações biunívocas em geral.
+Dessa forma, pode ser interessante obter perdas invariantes.
+Nesse caso, comparar $f(\cdot | \delta)$ com $f(\cdot | \theta)$ pode ser interessante, isto é, definir 
+$$
+L(\theta, \delta) = d(f(\cdot | \theta), f(\cdot | \delta)).
+$$
+Duas distâncias usuais são: (1) entropia, Kullback–Leibler divergence, ou (2) Hellinger. Elas resultam nas seguintes perdas:
+
+$$
+(1) L_e(\theta, \delta) = \mathbb{E}_{\theta}\left[\log\left(\frac{f(x|\theta)}{f(x|\delta)}\right)\right].
+$$
+
+$$
+(2) L_H(\theta, \delta) = \frac{1}{2}\mathbb{E}_{\theta}\left[\left(\sqrt{\frac{f(x|\delta)}{f(x|\theta)}} - 1\right)^2\right].
+$$
 
 ## Links
 
