@@ -80,7 +80,7 @@ Note que $\alpha$ é obtido a partir das relações do parágrafo anterior, isto
 Além disso $\beta$ indica a probabilidade de selecionarmos $r_1$ quando escolhemos uma loteria $r = \alpha(r) r_1 + (1-\alpha(r))r_2$ segundo a distribuição de probabilidade $P$.
 Assumimos que 
 
-(H5) P = \beta \delta_{r_2} + (1-\beta) \delta_{r_1}
+(H5) $P = \beta \delta_{r_2} + (1-\beta) \delta_{r_1}$.
 
 Com isso, é possível definir a função de utilidade em $\mathcal{P}_B$. 
 Dos resultados que se seguem, considere o seguinte teorema:
@@ -106,7 +106,7 @@ Note que essa desigualdade implica que $U$ é limitada superiormente por $0$.
 
 É claro que $\min_d L(\theta, d)$, quando $\theta$ é desconhecido, é praticamente impossível, pois deveríamos ter um resultado uniforme em $\Omega$. Por isso, os **frequentistas** usam a noção de **perda média** ou **risco frequentista**:
 $$
-R(\theta, \delta) = \mathbb{E}_{\theta}[L(\theta, \delta(x))] = \int_{\mathcal{X}} L(\theta, delta(x)) f(x|\theta) \, dx,
+R(\theta, \delta) = \mathbb{E}_{\theta}[L(\theta, \delta(x))] = \int_{\mathcal{X}} L(\theta, \delta(x)) f(x|\theta) \, dx,
 $$
 em que $\delta(x)$ é a decisão baseada em $x$ quando $x \sim f(x|\theta)$.
 Chamamos $\delta$ de **estimador**, enquanto $\delta(x)$ de estimativa. 

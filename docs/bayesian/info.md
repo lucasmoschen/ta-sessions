@@ -28,7 +28,8 @@ utilizados são:
 |Número|Exercícios|Solução|Extras|
 |------|----------------|-------|-------|
 |1|Capítulo 1 The Bayesian Choice: 1.17, 1.26, 1.32, 1.41|[1](/files/disciplines/bayesian-statistics/solutions1.pdf)|1.16, 1.25, 1.39, 1.43, 1.47, 1.50|
-|2|Capítulo 2 The Bayesian Choice: 2.13, 2.25, 2.28, 2.36, 2.48|[2](/files/disciplines/bayesian-statistics/solutions2.pdf)|2.11, 2.18, 2.19, 2.23, 2.51|
+|2|Capítulo 2 The Bayesian Choice: 2.13, 2.25, 2.28, 2.36, 2.42|[2](/files/disciplines/bayesian-statistics/solutions2.pdf)|2.11, 2.18, 2.19, 2.23, 2.51|
+|3|Livro Optimal Statistical Decisions, Capítulo 6|[3](/files/disciplines/bayesian-statistics/solutions3.pdf)|-|
 
 ## Material adicional
 
