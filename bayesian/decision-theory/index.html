@@ -275,6 +275,43 @@ O risco bayesiano é o valor <script type="math/tex">r(\pi) = r(\pi, \delta^{\pi
 </blockquote>
 <p>Note que para perdas estritamente convexas, o estimador de Bayes é único.</p>
 <h2 id="maximalidade-e-admissibilidade">Maximalidade e admissibilidade</h2>
+<p>Considere <script type="math/tex">\mathcal{D}^*</script> o espaço das distribuições de probabilidade em <script type="math/tex">\mathcal{D}</script>. 
+Um <strong>estimador aleatorizado</strong> <script type="math/tex">\delta^*</script> significa tomar uma decisão de acordo com a densidade de probabilidade <script type="math/tex">\delta^*(x, \cdot)</script>. 
+A perda é definida como 
+<script type="math/tex; mode=display">
+L(\theta, \delta^*(x)) = \int_{\mathcal{D}} L(\theta, a) \delta^*(x, a) \, da.
+</script>
+Usar esse estimador não é usual porque ele adiciona ruído em um fenômeno para tomar uma decisão sob incerteza.
+Além do mais, ele não obedece o Princípio da Verossimilhança, dado que para o mesmo valor de <script type="math/tex">x</script>, podem existir vários valores estimados.</p>
+<hr />
+<p><code>📝</code> <strong>Exemplo (Estimador randomizado)</strong></p>
+<p>Podemos definir um estimador randomizado segundo
+<script type="math/tex; mode=display">
+\delta^*(x_1, x_2)(t) = \begin{cases}
+    1_{2t = x_1 + x_2} &\text{se } x_1 \neq x_2  \\
+    [1_{t = x_1 - 1} + 1_{t = x_1 + 1}]/2 &\text{se } x_1 = x_2,
+\end{cases}
+</script>
+em que <script type="math/tex">1_{v}</script> é a massa de Dirac em <script type="math/tex">v</script>. </p>
+<hr />
+<p>Para toda priori <script type="math/tex">\pi</script>, o risco de Bayes é o mesmo no conjunto dos estimadores randomizados e não randomizados, isto é, 
+<script type="math/tex; mode=display">
+\inf_{\delta \in \mathcal{D}} r(\pi, \delta) = \inf_{\delta^* \in \mathcal{D}^*} r(\pi, \delta^*) = r(\pi).
+</script>
+Como um procedimento randomizado é a média de riscos de estimadores não randomizados, ele não pode melhorá-los.</p>
+<blockquote>
+<p><strong>Risco minimax</strong>: <script type="math/tex">\bar{R} = \inf_{\delta \in \mathcal{D}^*} \sup_{\theta} R(\theta, \delta) = \inf_{\delta \in \mathcal{D}^*} \sup_{\theta} \mathbb{E}_{\theta}[L(\theta, \delta(x))]</script>. 
+Um estimador minimax é um estimador <script type="math/tex">\delta_0</script> que satisfaz <script type="math/tex">\sup_{\theta} R(\theta, \delta_0) = \bar{R}</script>. </p>
+</blockquote>
+<p>Note que esse estimador, toma o pior caso para <script type="math/tex">\theta</script> e então minimiza para os procedimentos desse pior caso. 
+Esse método enxerga a natureza como um agente inimigo que tende a escolher o pior caso.</p>
+<p>O estimador minimax nem sempre existe. 
+Para isso, condições suficientes precisam ser estudadas.
+Se <script type="math/tex">\Omega</script> é finito e <script type="math/tex">L</script> é contínua, então existe uma estratégia minimax.
+Outra proposta é verificar que o conjunto das funções de risco em <script type="math/tex">\mathcal{D}</script> é compacto em um espaço maior em que <script type="math/tex">\mathcal{D}</script> está inserido e que a perda é constante.</p>
+<p><strong>Teorema:</strong> Se <script type="math/tex">\mathcal{D} \subseteq \mathbb{R}^k</script> é um conjunto convexo compacto e <script type="math/tex">L(\theta, d)</script> é contínua e convexa como função de <script type="math/tex">d</script> para <script type="math/tex">\theta</script> fixado, então existe um estimador minimax não randomizado. 
+O estimador será não randomizado pela <a href="https://en.wikipedia.org/wiki/Jensen%27s_inequality">desigualdade de Jensen</a>. 
+Esse resultado é um caso particular do <em>Teorema Rao-Blackwell</em>.</p>
 <h2 id="perdas-classicas">Perdas clássicas</h2>
 <h2 id="criticas">Críticas</h2>
 <h2 id="links">Links</h2>
