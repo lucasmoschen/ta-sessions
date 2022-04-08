@@ -255,6 +255,24 @@ No cenário frequentista, estimadores são comparados segundo a performance a lo
 Logo, o dado observado não é considerado nesse caso, o que é uma crítica ao método.
 Além disso, existe uma controvérsia sobre a ideia de repetir experimentos, conceito importante para o frequentismo. 
 Por fim, para cada <script type="math/tex">\delta</script>, temos que <script type="math/tex">R(\cdot, \delta)</script> é uma função e, portanto, não induz uma ordem total no conjunto de procedimentos.</p>
+<p>No procedimento bayesiano, já integramos sobre o espaço de <script type="math/tex">\Omega</script> dos parâmetros. 
+Assim, usamos a <strong>perda esperada a posteriori</strong>:
+<script type="math/tex; mode=display">
+\varrho(\pi, d \mid x) = \mathbb{E}^{\pi}[L(\theta, d)| x] = \int_{\Omega} L(\theta, d) \pi(\theta \mid x) \, d \theta, 
+</script>
+em que <script type="math/tex">\pi(\theta \mid x) \propto f(x \mid \theta)\pi(\theta)</script>. 
+O <strong>erro integrado</strong> é definido como 
+<script type="math/tex; mode=display">
+r(\pi, \delta) = \mathbb{E}^{\pi}[R(\theta, \delta)] = \int_{\Omega} \int_{\mathcal{X}} L(\theta, \delta(x)) f(x|\theta) \, dx \, \pi(\theta) \, d\theta = \int_{\mathcal{X}} \varrho(\pi, \delta(x) | x) m(x) \, dx,
+</script>
+em que a última relação é uma aplicação do Teorema de Fubini dado que <script type="math/tex">L \ge 0</script>.
+Além do mais, para minimizar <script type="math/tex">r(\pi, \delta)</script>, para cada <script type="math/tex">x</script>, podemos tomar <script type="math/tex">d = \delta(x)</script> que minimiza <script type="math/tex">\varrho(\pi, d | x)</script>, pela última igualdade da expressão acima.</p>
+<blockquote>
+<p><strong>Estimador de Bayes:</strong> Seja uma priori <script type="math/tex">\pi</script> e uma perda <script type="math/tex">L</script>. 
+O estimador de Bayes é <script type="math/tex">\delta^{\pi}</script> que minimiza <script type="math/tex">r(\pi, \delta)</script>. 
+Em particular, para cada <script type="math/tex">x</script>, temos que <script type="math/tex">\delta^{\pi}(x) = \argmin_d \varrho(\pi, d | x)</script>. 
+O risco bayesiano pe o valor <script type="math/tex">r(\pi) = r(\pi, \delta^{\pi})</script>.</p>
+</blockquote>
 <h2 id="maximalidade-e-admissibilidade">Maximalidade e admissibilidade</h2>
 <h2 id="perdas-classicas">Perdas clássicas</h2>
 <h2 id="criticas">Críticas</h2>
