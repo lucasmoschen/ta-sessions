@@ -322,6 +322,11 @@ O problema de estimação tem um <em>valor</em> quando <script type="math/tex">\
 <p><strong>Teorema:</strong> Considere um problema estatístico que possua um valor, uma distribuição menos favorável <script type="math/tex">\pi_0</script> e um estimador minimax <script type="math/tex">\delta^{\pi_0}</script>. 
 Então se <script type="math/tex">\Omega \subseteq \mathbb{R}</script> é compacto e <script type="math/tex">R(\theta, \delta^{\pi_0})</script> é função analítica de <script type="math/tex">\theta</script>, então <script type="math/tex">\pi_0</script> tem suporte finito ou <script type="math/tex">R(\theta, \delta^{\pi_0})</script> é constante.</p>
 </blockquote>
+<p>Esse teorema mostra que o minimax não é um bom estimador do ponto de vista bayesiano, dado que (1) ele pode ser randomizado ou (2) ele pode levar a prioris não realísticas com suporte finito.</p>
+<blockquote>
+<p><strong>Admissibilidade:</strong> Um estimador <script type="math/tex">\delta_0</script> é inadmissível se existe um estimador <script type="math/tex">\delta_1</script> que domina <script type="math/tex">\delta_0</script>, isto é, <script type="math/tex">R(\theta, \delta_0) \ge R(\theta, \delta_1)</script> para todo <script type="math/tex">\theta \in \Omega</script>, e pelo menos para um valor <script type="math/tex">\theta_0</script>, vale a desigualdade estrita. 
+Caso contrário, o estimador é admissível.</p>
+</blockquote>
 <h2 id="perdas-classicas">Perdas clássicas</h2>
 <h2 id="criticas">Críticas</h2>
 <h2 id="links">Links</h2>
