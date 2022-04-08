@@ -327,6 +327,10 @@ Então se <script type="math/tex">\Omega \subseteq \mathbb{R}</script> é compac
 <p><strong>Admissibilidade:</strong> Um estimador <script type="math/tex">\delta_0</script> é inadmissível se existe um estimador <script type="math/tex">\delta_1</script> que domina <script type="math/tex">\delta_0</script>, isto é, <script type="math/tex">R(\theta, \delta_0) \ge R(\theta, \delta_1)</script> para todo <script type="math/tex">\theta \in \Omega</script>, e pelo menos para um valor <script type="math/tex">\theta_0</script>, vale a desigualdade estrita. 
 Caso contrário, o estimador é admissível.</p>
 </blockquote>
+<p>Construir um estimador apenas considerando a admissibilidade não é uma boa estratégia, afinal <script type="math/tex">\delta(x) = \theta_0 \in \Omega</script> é um estimador que tem valor exato para <script type="math/tex">\theta = \theta_0</script>.
+Logo, faz sentido considerar maximalidade simultaneamente. 
+O interessante é que se existe um único estimador minimax, então ele é admissível. 
+A recíproca é falsa em geral, mas se <script type="math/tex">\delta_0</script> é admissível com risco constante, então ele é o único estimador minimax.</p>
 <h2 id="perdas-classicas">Perdas clássicas</h2>
 <h2 id="criticas">Críticas</h2>
 <h2 id="links">Links</h2>
