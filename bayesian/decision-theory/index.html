@@ -160,8 +160,6 @@
                 <li class="third-level"><a href="#perda-absoluta">Perda absoluta</a></li>
                 <li class="third-level"><a href="#perda-0-1">Perda 0-1</a></li>
                 <li class="third-level"><a href="#perdas-intrinsecas">Perdas intrínsecas</a></li>
-            <li class="second-level"><a href="#criticas">Críticas</a></li>
-                
             <li class="second-level"><a href="#links">Links</a></li>
                 
     </ul>
@@ -364,10 +362,54 @@ k_2(\theta - d) &\text{se } \theta > d \\
 k_1(d - \theta) &\text{c.c.}
 \end{cases}
 </script>
-</p>
+A penalização para desvios maiores é menor, apesar de manter a convexidade.
+é possível também propor uma perda como uma mistura dessas perdas. 
+Em uma região próxima de zero, usamos a perda quadrática. Depois, usamos a perda absoluta.
+Com essa perda, por exemplo, não existe estimador de Bayes em forma fechada.</p>
+<p>O estimador de Bayes associado a <script type="math/tex">L_{k_1, k_2}(\theta, \delta)</script> e a <script type="math/tex">\pi</script> é um quartil <script type="math/tex">k_2/(k_1 + k_2)</script> de <script type="math/tex">\pi(\theta | x)</script>. Em particular, quando <script type="math/tex">k_1 = k_2</script>, o estimador é a mediana a posteriori.</p>
 <h3 id="perda-0-1">Perda 0-1</h3>
+<p>Essa perda é mais utilizada no contexto de teste de hipóteses. Ela é definida como <script type="math/tex">L(\theta, \delta) = 1 - 1_{\theta = \delta}</script>.</p>
+<hr />
+<p><code>📝</code> <strong>Exemplo (Teste de hipóteses)</strong></p>
+<p>Seja o teste de hipóteses <script type="math/tex">H_0 : \theta \in \Omega_0</script> e <script type="math/tex">H_1 : \theta \in \Omega_1</script>. 
+Então <script type="math/tex">\mathcal{D} = \{0, 1\}</script> em que <script type="math/tex">0</script> significa rejeitar <script type="math/tex">H_0</script>.
+Logo queremos estimar a função <script type="math/tex">1_{\theta \in \Omega_0}</script>. 
+O risco frequentista é 
+<script type="math/tex; mode=display">
+R(\theta, \delta) = \begin{cases}
+    \Pr_{\theta}(\delta(x) = 0), &\text{se } \theta \in \Omega_0 \\
+    \Pr_{\theta}(\delta(x) = 1), &\text{c.c.,}
+\end{cases}
+</script>
+que são os erros do tipo 1 e do tipo 2, respectivamente.</p>
+<hr />
+<p>O estimador de Bayes é dado por 
+<script type="math/tex; mode=display">
+\delta^{\pi}(x) = \begin{cases}
+    1 &\text{se }\Pr(\theta \in \Omega_0 | x) > \Pr(\theta \in \Omega_1 | x) \\
+    0, &\text{c.c.}
+\end{cases}
+</script>
+</p>
 <h3 id="perdas-intrinsecas">Perdas intrínsecas</h3>
-<h2 id="criticas">Críticas</h2>
+<p>Às vezes, estamos em uma situação não informativa sobre a parametrização natural e a escolha da função de perda.
+O estimador de Bayes não é invariante por transformações biunívocas em geral.
+Dessa forma, pode ser interessante obter perdas invariantes.
+Nesse caso, comparar <script type="math/tex">f(\cdot | \delta)</script> com <script type="math/tex">f(\cdot | \theta)</script> pode ser interessante, isto é, definir 
+<script type="math/tex; mode=display">
+L(\theta, \delta) = d(f(\cdot | \theta), f(\cdot | \delta)).
+</script>
+Duas distâncias usuais são: (1) entropia, Kullback–Leibler divergence, ou (2) Hellinger. Elas resultam nas seguintes perdas:</p>
+<p>
+<script type="math/tex; mode=display">
+(1) L_e(\theta, \delta) = \mathbb{E}_{\theta}\left[\log\left(\frac{f(x|\theta)}{f(x|\delta)}\right)\right].
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+(2) L_H(\theta, \delta) = \frac{1}{2}\mathbb{E}_{\theta}\left[\left(\sqrt{\frac{f(x|\delta)}{f(x|\theta)}} - 1\right)^2\right].
+</script>
+</p>
 <h2 id="links">Links</h2>
 <ul>
 <li><a href="https://onlinelibrary.wiley.com/doi/book/10.1002/0471729000">Optimal Statistical Decisions, Morris DeGroot</a>: esse livro expande os resultados de teoria da decisão apresentados no livro do Robert.</li>
