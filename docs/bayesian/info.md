@@ -22,6 +22,7 @@ utilizados são:
 |Monitoria|Itens discutidos|Arquivo|
 |---------|----------------|-------|
 |28/03/2022|Princípio de Verossimilhança, Prioris impróprias e material adicional|[Visualizar](/files/disciplines/bayesian-statistics/monitoria28-03-2022.pdf)|
+|08/04/2022|Teoria da decisão e lista 2|Monitoria presencial|
 
 ## Listas
 
