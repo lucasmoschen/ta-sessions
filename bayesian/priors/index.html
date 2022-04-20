@@ -154,8 +154,7 @@
             <li class="second-level"><a href="#prioris-conjugadas">Prioris conjugadas</a></li>
                 
                 <li class="third-level"><a href="#familia-exponencial-e-distribuicoes-conjugadas">Família exponencial e distribuições conjugadas</a></li>
-            <li class="second-level"><a href="#criticas-e-extensoes">Críticas e extensões</a></li>
-                
+                <li class="third-level"><a href="#extensoes">Extensões</a></li>
             <li class="second-level"><a href="#distribuicoes-a-priori-nao-informativas">Distribuições a priori não informativas</a></li>
                 
                 <li class="third-level"><a href="#priori-de-laplace">Priori de Laplace</a></li>
@@ -163,7 +162,7 @@
                 <li class="third-level"><a href="#priori-de-jeffreys">Priori de Jeffreys</a></li>
                 <li class="third-level"><a href="#prioris-de-referencia">Prioris de referência</a></li>
                 <li class="third-level"><a href="#prioris-matching">Prioris matching</a></li>
-            <li class="second-level"><a href="#validacao-a-posteriori">Validação a posteriori</a></li>
+            <li class="second-level"><a href="#pontuacoes-finais">Pontuações finais</a></li>
                 
     </ul>
 </div></div>
@@ -261,14 +260,92 @@ cuja posteriori é dada por <script type="math/tex">\pi(\theta | \mu + x, \lambd
 \frac{\mu + n\bar{x}}{\lambda + n}, 
 </script>
 quando <script type="math/tex">\mu \in \mathcal{X}</script>.</p>
-<h2 id="criticas-e-extensoes">Críticas e extensões</h2>
+<h3 id="extensoes">Extensões</h3>
+<p>Considere o seguinte exemplo</p>
+<hr />
+<p><code>📝</code> <strong>Exemplo <a href="https://statistics.stanford.edu/technical-reports/quantifying-prior-opinion">[Diaconis, Ylvisaker; 1985]</a></strong></p>
+<p>Quando a moeda é girada pela borda e observamos o resultado quando ela cai, temos um viés maior para um lado do que para o outro devido a irregularidades. Seja <script type="math/tex">x \sim Binomial(n, p)</script> o número de caras nesse experimento após <script type="math/tex">n</script> jogadas. 
+Como sabemos que existe uma irregularidade, poderíamos pensar em uma priori para <script type="math/tex">p</script> que tivesse uma cara bimodal, dado peso para as duas possibilidades. Isso não é possível com a família conjugada beta. 
+Uma forma de fazer isso é, portanto, através de misturas de distribuições beta.</p>
+<hr />
+<p>Com esse exemplo, podemos ver que misturas de distribuições conjugadas definem uma família conjugada maior que dá maior flexibilidade para o formato de uma distribuição a priori. 
+Além disso, podemos verificar que a mistura de distribuições pode aproximar qualquer distribuição a priori sob a <a href="https://en.wikipedia.org/wiki/L%C3%A9vy%E2%80%93Prokhorov_metric">distância de Prokhorov</a>.</p>
 <h2 id="distribuicoes-a-priori-nao-informativas">Distribuições a priori não informativas</h2>
+<p>Quando pouca (ou nenhuma) informação sobre <script type="math/tex">\theta</script> está disponível, é difícil justificar a escolha com base subjetiva.
+Nesse caso, uma alternativa é usar a distribuição dos dados para, a partir dela, definir uma distribuição a priori.
+Chamamos essas prioris de <strong>não informativas</strong>. 
+Mas devemos que lembrar que uma distribuição ser não informativa não significa que ignorância total está sendo representada probabilisticamente.
+Elas podem ser usadas como prioris de referência, todavia.</p>
 <h3 id="priori-de-laplace">Priori de Laplace</h3>
+<p>Laplace sugeriu construir a distribuição a priori baseado no <strong>Princípio da Razão Insuficiente</strong>, em que eventos elementares são equiprováveis. 
+Nesse caso, adotamos a priori uniforme.
+Se o espaço de parâmetros não for compacto, isso nos leva à uma distribuição imprópria, por consequência. 
+Além disso, se fizermos uma transformação biunívoca <script type="math/tex">\eta = g(\theta)</script>, a priori para <script type="math/tex">\eta</script> não será uniforme pela Fórmula da Mudança de Variáveis, isto é, a informação sobre <script type="math/tex">\theta</script> não foi criada a partir dessa transformação, mas a distribuição não é uniforme.</p>
 <h3 id="prioris-invariantes">Prioris invariantes</h3>
+<p>O conceito de invariância é bem profundo na matemática e, com base nesse conceito, podemos construir distribuições invariantes a reparametrização. Por exemplo, a família <script type="math/tex">f(x - \theta)</script> é invariante à translação, isto é, <script type="math/tex">y = x - x_0</script> tem distribuição da mesma família para todo <script type="math/tex">x_0</script>, <script type="math/tex">f(x - (\theta - x_0))</script>. Chamamos <script type="math/tex">\theta</script> de <em>parâmetro de locação</em>.</p>
 <h3 id="priori-de-jeffreys">Priori de Jeffreys</h3>
+<p>A Priori de Jeffreys é baseada na <a href="https://lucasmoschen.github.io/ta-sessions/infestatistica/FisherInformation/FisherInformation/">Informação de Fisher</a> dada pela expressão:
+<script type="math/tex; mode=display">
+I(\theta) = \mathbb{E}_{\theta}\left[\left(\frac{\partial \log f(X|\theta)}{\partial \theta}\right)^2\right],
+</script>
+no caso unidimensional. A distribuição de Jeffreys é definida por 
+<script type="math/tex; mode=display">
+\pi^*(\theta) \propto I^{1/2}(\theta).
+</script>
+Note que <script type="math/tex">I(\theta) = I(h(\theta))(h'(\theta))^2</script> se <script type="math/tex">h</script> é uma transformação biunívoca. 
+Nesse caso, <script type="math/tex">\pi^*(h(\theta)) \propto I^{1/2}(h(\theta)) = I^{1/2}(\theta)/|h'(\theta)|</script>, exatamente o que esperávamos usando a mudança de variáveis. 
+Logo, essa priori é invariante à reparametrização.
+Além disso, <script type="math/tex">I(\theta)</script> é uma medida da quantidade de informação trazida pelo modelo sobre <script type="math/tex">\theta</script>.
+Na prática, prioris de Jeffreys são usualmente impróprias.
+No caso multidimensional, 
+<script type="math/tex; mode=display">
+\pi^*(\theta) \propto [det(I(\theta))]^{1/2}
+</script>
+é a priori de Jeffreys. 
+Todavia, usar esse procedimento para construir prioris leva a paradoxos e incoerências.</p>
+<p><strong>Observação:</strong> A priori de Jeffreys para família de locação é constante.</p>
+<hr />
+<p><code>📝</code> <strong>Exemplo (caso normal)</strong></p>
+<p>Suponha que <script type="math/tex">x \sim N(\mu, \sigma^2)</script> com <script type="math/tex">\theta = (\mu, \sigma^2)</script> desconhecido. Nesse caso, podemos calcular que 
+<script type="math/tex; mode=display">
+I(\theta) = \begin{bmatrix}
+1/\sigma^2 & 0 \\ 0 & 2/\sigma^2
+\end{bmatrix},
+</script>
+e, portanto, <script type="math/tex">\pi(\theta) \propto 1/\sigma^2</script>. Se assumirmos que <script type="math/tex">\mu</script> e <script type="math/tex">\sigma</script> são independentes a priori, todavia, teremos que <script type="math/tex">\pi(\mu, \sigma) = 1/\sigma</script> como priori não informativa e também a medida de Haar invariante ao modelo locação-scala.</p>
+<hr />
+<p>Essa priori, todavia, não obedece ao Princípio da Verossimilhança, dado que a informação de Fisher de dois modelos diferentes podem ser diferentes, mesmo que as verossimilhanças sejam proporcionais. <a href="https://stats.stackexchange.com/questions/194448/do-you-have-to-adhere-to-the-likelihood-principle-to-be-a-bayesian">Confira essa resposta.</a>.</p>
 <h3 id="prioris-de-referencia">Prioris de referência</h3>
+<p><a href="https://people.eecs.berkeley.edu/~jordan/sail/readings/bernardo-1979.pdf">[Bernardo; 1979]</a> propôs um procedimento para construir prioris não informativas, ou como ele destaca, um procedimento para obter prioris de forma que a posteriori aproxime aquela que adviria de uma informação a priori vaga.
+Seja <script type="math/tex">x \sim f(x | \theta)</script> e <script type="math/tex">\theta = (\theta_1, \theta_2)</script>, em que <script type="math/tex">\theta_1</script> é o parâmetro de interesse. A priori de referência primeiro define <script type="math/tex">\pi(\theta_2 | \theta_1)</script> usando a priori de Jeffreys através <script type="math/tex">f(x|\theta)</script> quando <script type="math/tex">\theta_1</script> é fixado. 
+Depois, ele calcula 
+<script type="math/tex; mode=display">
+\tilde{f}(x|\theta_1) = \int f(x|\theta) \pi(\theta_2|\theta_1) \, d\theta_2
+</script>
+e calcula a priori de Jeffreys para <script type="math/tex">\theta_1</script> baseando-se em <script type="math/tex">\tilde{f}</script>. 
+Assim, o processo elimina os parâmetros que não são de interesse.
+O algoritmo se generaliza para mais camadas de parâmetros.</p>
 <h3 id="prioris-matching">Prioris matching</h3>
-<h2 id="validacao-a-posteriori">Validação a posteriori</h2></div>
+<p>Uma forma, no mínimo curiosa, de construir prioris não informativas é baseada em propriedades frequentistas, isto é, em que propriedades funcionem em média considerando <script type="math/tex">x</script>.
+Seja <script type="math/tex">C_x</script> um conjunto de confiança a posteriori nível <script type="math/tex">\alpha</script>, isto é, 
+<script type="math/tex; mode=display">
+p(g(\theta) \in C_x | x) = 1-\alpha.
+</script>
+Esse conjunto define tem cobertura frequentista <script type="math/tex">\Pr_{\theta}(g(\theta) \in C_x)</script>, em que nesse caso <script type="math/tex">C_x</script> é a variável aleatória. 
+Em geral, quando <script type="math/tex">C_x = (-\infty, k_{\alpha}(x))</script>, então <script type="math/tex">\Pr_{\theta}(\theta \le k_{\alpha}(x)) = 1 - \alpha + O(n^{-1/2})</script>. No caso da priori de Jeffreys, isso se torna <script type="math/tex">O(n^{-1})</script> que decresce mais rapidamente. 
+Para mais detalhes, <a href="https://projecteuclid.org/ebook/Download?urlid=10.1214/lnms/1215091929&amp;isFullBook=false">consulte esse link</a>.</p>
+<h2 id="pontuacoes-finais">Pontuações finais</h2>
+<ul>
+<li>
+<p>Informação a priori não consegue ser traduzida em uma distribuição de probabilidade única. Além disso, ela é bastante complicada, principalmente em se tratando de definir caudas de forma subjetiva. </p>
+</li>
+<li>
+<p>Se alguma informação é disponível, usá-la favorece inferências quando comparado a abordagens não informativas.</p>
+</li>
+<li>
+<p>Análise de sensibilidade é um tópico importante, que verifica a influência da escolha da priori nas inferências. Para essa análise, assumimos que a priori <script type="math/tex">\pi</script> mora em alguma classe de distribuições, que mensura a incerteza sobre <script type="math/tex">\pi</script>. Essas classes podem ser: (i) prioris conjugadas: convenientes matematicamente; (ii) momentos definidos: a classe de distribuições que tem determinados momentos limitados impõe condições fortes sobre a cauda e inclui muitas distribuições impossíveis; (iii) classes de vizinhança: pondera por um <script type="math/tex">\epsilon</script> uma outra classe de distribuições <script type="math/tex">Q</script> a ser escolhida; entre outras.</p>
+</li>
+</ul></div>
         
         
     </div>
