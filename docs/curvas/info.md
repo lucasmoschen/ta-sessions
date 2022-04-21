@@ -52,6 +52,9 @@ classic-curves). Você pode contribuir para aumentar o acervo!
 |08/03/2022|Reparametrização pelo comprimento de arco|[Visualizar](/files/disciplines/curvas-superficies2022/monitoria08-03-2022.pdf)|Sim|
 |10/03/2022|Lista 3|[Visualizar](/files/disciplines/curvas-superficies2022/monitoria08-03-2022.pdf)|Não|
 |10/03/2022|Lista 3 SageMath|[Visualizar](https://nbviewer.org/github/lucasmoschen/ta-sessions/blob/master/Curves_Surfaces/notebooks/lista3.ipynb)|Não|
+|24/03/2022|Transformação linear e diferenciabilidade|Monitoria presencial|Não|
+|31/03/2022|Dúvidas sobre o trabalho da disciplina|Monitoria presencial|Não|
+|07/04/2022|Diferenciabilidade e lista 4|Monitoria presencial|Não|
 
 ## Período 2021.1
 
