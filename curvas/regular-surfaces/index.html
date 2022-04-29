@@ -161,19 +161,16 @@
         <div class="col-md-9" role="main">
 
 <h1 id="superficies">Superfícies</h1>
-<p><strong>Definição:</strong> Dizemos que <script type="math/tex">S \subseteq \mathbb{R}^n</script> é uma <em>superfície</em> se
-para todo ponto <script type="math/tex">p \in S</script>, existe um conjunto aberto <script type="math/tex">U \subset \mathbb{R}^2</script>
-e um conjunto aberto <script type="math/tex">W \subseteq \mathbb{R}^3</script> contendo <script type="math/tex">p</script> tal que <script type="math/tex">S \cap
-W</script> é homeomorfo a <script type="math/tex">U</script>.  O homeomorfismo <script type="math/tex">\sigma : U \to S \cap W</script> é um
-<em>patch</em> ou <em>parametrização</em>. A coleção desses homeomorfismos que cobrem <script type="math/tex">S</script> é
-chamada de <em>atlas</em>. </p>
+<p>Poderíamos definir uma superfície da mesma forma que fizemos com curvas, só que com o domínio sendo um subconjunto convexo de <script type="math/tex">\mathbb{R}^2</script>. 
+Só que isso não abrigaria superfícies como a esfera, por exemplo. 
+De forma geral, vamos querer que uma superfície seja um subconjunto em <script type="math/tex">\mathbb{R}^3</script> que localmente pareça um plano.</p>
+<p><strong>Definição:</strong> Dizemos que <script type="math/tex">S \subseteq \mathbb{R}^n</script> é uma <em>superfície</em> se para todo ponto <script type="math/tex">p \in S</script>, existe um conjunto aberto <script type="math/tex">U \subset \mathbb{R}^2</script> e um conjunto aberto <script type="math/tex">W \subseteq \mathbb{R}^3</script> contendo <script type="math/tex">p</script> tal que <script type="math/tex">S \cap W</script> é homeomorfo a <script type="math/tex">U</script>.<br />
+O homeomorfismo <script type="math/tex">\sigma : U \to S \cap W</script> é um <em>patch</em> ou <em>parametrização local</em>. 
+A coleção desses homeomorfismos que cobrem <script type="math/tex">S</script> é chamada de <em>atlas</em>. </p>
 <p>Dizemos que <script type="math/tex">S \cap W</script> é aberto em <script type="math/tex">S</script> sempre que <script type="math/tex">W</script> for aberto. </p>
-<p>Observe que para cada ponto da superfície, olhamos para uma vizinhança dele
-(conjunto aberto que o contém) e essa vizinhança restrita à superfície deve
-ser "parecida" com um subconjunto do plano. Quando caminhamos no planeta,
-temos a sensação de caminharmos num plano justamente por esse conceito. </p>
-<p>Também observe que nosso atlas pode ser formado por uma quantidade infinita de
-patches, mas, em geral, existe um número mínimo.</p>
+<p>Observe que para cada ponto da superfície, olhamos para uma vizinhança dele (conjunto aberto que o contém). Essa vizinhança restrita à superfície deve ser "parecida" com um subconjunto do plano. 
+Quando caminhamos no planeta, temos a sensação de caminharmos num plano justamente por esse conceito. </p>
+<p>Também observe que nosso atlas pode ser formado por uma quantidade infinita de patches, mas, em geral, existe um número mínimo.</p>
 <h2 id="superficies-suaves">Superfícies suaves</h2>
 <p><strong>Definição:</strong> Um patch <script type="math/tex">\sigma : U \to \mathbb{R}^3</script> é <em>regular</em> se é uma
 função suave (diferenciável nas três componentes com derivadas parciais
