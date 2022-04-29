@@ -25,6 +25,7 @@ utilizados são:
 |28/03/2022|Princípio de Verossimilhança, Prioris impróprias e material adicional|[Visualizar](/files/disciplines/bayesian-statistics/monitoria28-03-2022.pdf)|
 |08/04/2022|Teoria da decisão e lista 2|Monitoria presencial|
 |18/04/2022|Probabilidade Subjetiva|[Visualizar](/files/disciplines/bayesian-statistics/probabilidade-subjetiva-resumo.pdf)|
+|22/04/2022|Família exponencial|Indisponível|
 
 ## Listas
 
@@ -34,7 +35,7 @@ utilizados são:
 |2|Capítulo 2 The Bayesian Choice: 2.13, 2.25, 2.28, 2.36, 2.42|[2](/files/disciplines/bayesian-statistics/solutions2.pdf)|2.11, 2.18, 2.19, 2.23, 2.51|
 |3|Livro Optimal Statistical Decisions, Capítulo 6|[3](/files/disciplines/bayesian-statistics/solutions3.pdf)|-|
 |4|Capítulo 3 The Bayesian Choice: 3.15, 3.21, 3.35, 3.37|[4](/files/disciplines/bayesian-statistics/solutions4.pdf)|3.2, 3.6, 3.30, 3.53, 3.59|
-|5|Capítulo 3 The Bayesian Choice: 3.44, 3.51, 3.57, 3.58, 3.63|[4](/files/disciplines/bayesian-statistics/solutions5.pdf)|-|
+|5|Capítulo 3 The Bayesian Choice: 3.44, 3.51, 3.57, 3.58, 3.63|[5](/files/disciplines/bayesian-statistics/solutions5.pdf)|-|
 
 ## Material adicional
 
