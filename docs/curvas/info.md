@@ -30,7 +30,7 @@ classic-curves). Você pode contribuir para aumentar o acervo!
 
 ## Período 2022.1
 
-- Dia: Terça-feira 16h e Quinta-feira 18h
+- Dia: Quinta-feira 16h
 - [Monitorias gravadas](https://gvmail-my.sharepoint.com/:f:/g/personal/b37214_fgv_edu_br/Emu7FCUe9LNPh-S4HihUsyUBKmQjTK5UW3OK7riWl4JpFg?e=yspRYF)
 
 ### Listas 
@@ -56,6 +56,8 @@ classic-curves). Você pode contribuir para aumentar o acervo!
 |24/03/2022|Transformação linear e diferenciabilidade|Monitoria presencial|Não|
 |31/03/2022|Dúvidas sobre o trabalho da disciplina|Monitoria presencial|Não|
 |07/04/2022|Diferenciabilidade e lista 4|Monitoria presencial|Não|
+|29/04/2022|Definição de superfície|Monitoria presencial|Não|
+|02/05/2022|Lista 5|Monitoria presencial|Não|
 
 ## Período 2021.1
 
