@@ -147,11 +147,50 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
         <li class="first-level active"><a href="#estimacao-pontual-em-inferencia-bayesiana">Estimação pontual em inferência bayesiana</a></li>
+            <li class="second-level"><a href="#teoria-da-decisao-em-inferencia-bayesiana">Teoria da decisão em inferência bayesiana</a></li>
+                
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h1 id="estimacao-pontual-em-inferencia-bayesiana">Estimação pontual em inferência bayesiana</h1></div>
+<h1 id="estimacao-pontual-em-inferencia-bayesiana">Estimação pontual em inferência bayesiana</h1>
+<p>Inferência bayesiana sobre um parâmetro de interesse <script type="math/tex">\theta</script> após observar os dados nos dá uma distribuição de probabilidade <script type="math/tex">p(\theta | x)</script>, a distribuição a posteriori.
+Resumir essa informação pontualmente em um estimador é de interesse do agente tomador de decisão. 
+Por exemplo, se a quantidade de interesse é <script type="math/tex">h(\theta)</script>, a média a posteriori de <script type="math/tex">h(\theta)</script> sob a distribuição a posteriori <script type="math/tex">p(\cdot|x)</script> é um possível estimador.</p>
+<p>Sem definir uma perda, não há como selecionar um melhor estimador. 
+Um possível estimador é o <strong>máximo a posteriori</strong> (MAP) que é definido como a moda da distribuição a posteriori, isto é, o valor de <script type="math/tex">\theta</script> cuja densidade é a mais alta.
+Se <script type="math/tex">\theta \in \{0,1\}</script>, a perda associada a esse estimador é a 0-1. 
+Para o caso contínuo, defina <script type="math/tex">L_{\epsilon}(\theta, d) = 1_{\|\theta - d\| \ge \epsilon}</script>. 
+O estimador que minimizar <script type="math/tex">L_{\epsilon}</script> quando <script type="math/tex">\epsilon \to 0</script> é o MAP.</p>
+<p>Como maximizar <script type="math/tex">p(\theta | x)</script> em <script type="math/tex">\theta</script> é equivalente a maximizar <script type="math/tex">\log l(\theta|x) + \log\pi(\theta)</script>, o MAP pode ser visto como um estimador de máxima verossimilhança com penalização.
+Além do mais, sob algumas condições de regularidade, as propriedades assintóticas do MLE clássico são preservadas, o que faz sentido dado que quando <script type="math/tex">n</script> aumenta, a informação da verossimilhança é predominante se comparada com a informação da priori, que é fixa.</p>
+<p>Quando atribuímos um estimador <script type="math/tex">\delta^{\pi}(x)</script> para <script type="math/tex">h(\theta)</script>, também podemos medir sua <strong>precisão</strong> através de alguma esperança, por exemplo o erro quadrado a posteriori
+<script type="math/tex; mode=display">
+\mathbb{E}^{p}[(\delta^{\pi}(x) - h(\theta))^2 | x],
+</script>
+que é, em particular, a variância sob <script type="math/tex">p</script> de <script type="math/tex">h(\theta)</script> condicionada em <script type="math/tex">x</script> quando o estimador é a média a posteriori de <script type="math/tex">h(\theta)</script>.</p>
+<h2 id="teoria-da-decisao-em-inferencia-bayesiana">Teoria da decisão em inferência bayesiana</h2>
+<p>Lembramos que dada uma perda <script type="math/tex">L(\theta, \delta)</script> e uma distribuição a priori <script type="math/tex">\pi</script>, o estimador de Bayes <script type="math/tex">\delta^{\pi}(x)</script> é solução de 
+<script type="math/tex; mode=display">
+\min \mathbb{E}^p[L(\theta, \delta)|x]
+</script>
+</p>
+<p><strong>Lema:</strong> Seja <script type="math/tex">f(x|\theta) = h(x)e^{\theta\cdot x - \psi(\theta)}</script> uma distribuição da família exponencial. 
+Assim, a média a posteriori de <script type="math/tex">\theta</script> é dada por
+<script type="math/tex; mode=display">
+\delta^{\pi}(x) = \nabla \log m(x) - \nabla \log h(x),
+</script>
+em que <script type="math/tex">m(x)</script> é a distribuição marginal do dado. 
+Esse resultado é como se fosse o dual da relação dos momentos de <script type="math/tex">f</script> com <script type="math/tex">\psi</script>.</p>
+<p>Dada uma perda <script type="math/tex">L(\theta, \delta)</script> e o estimador de Bayes associado <script type="math/tex">\delta^{\pi}(x)</script>, podemos estimar a performance dele através da estimativa da perda <script type="math/tex">L(\theta, \delta^{\pi}(x))</script> através de 
+<script type="math/tex; mode=display">
+\tilde{L}(\theta,  \delta^{\pi}, \gamma) = [\gamma(x) - L(\theta, \delta^{\pi}(x))]^2.
+</script>
+O estimador de Bayes para <script type="math/tex">L(\theta, \delta^{\pi}(x))</script> segundo essa perda é 
+<script type="math/tex; mode=display">
+\gamma^{\pi}(x) = \mathbb{E}[L(\theta, \delta^{\pi}(x))|x].
+</script>
+Quando <script type="math/tex">L</script> é a perda quadrática, note que <script type="math/tex">\gamma^{\pi}(x) = \operatorname{Var}^{\pi}(\theta | x)</script>.</p></div>
         
         
     </div>
