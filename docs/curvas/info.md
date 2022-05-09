@@ -42,6 +42,7 @@ classic-curves). Você pode contribuir para aumentar o acervo!
 |[3](/files/disciplines/curvas-superficies2022/lista3.pdf)|Comprimento de arco, curvatura e diferenciabilidade|[3](/files/disciplines/curvas-superficies2022/solutions3.pdf)|
 |[4](/files/disciplines/curvas-superficies2022/lista4.pdf)|Curvatura e torção, triedro de Frenet|[4](/files/disciplines/curvas-superficies2022/solutions4.pdf)|
 |[5](/files/disciplines/curvas-superficies2022/lista5.pdf)|Superfícies regulares, mudança de parâmetro|[5](/files/disciplines/curvas-superficies2022/solutions5.pdf)|
+|[6](/files/disciplines/curvas-superficies2022/lista6.pdf)|Superfícies e desenhos|[6](/files/disciplines/curvas-superficies2022/solutions6.pdf)|
 
 
 ### Notas
