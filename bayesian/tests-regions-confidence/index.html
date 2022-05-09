@@ -11,7 +11,7 @@
     <link rel="shortcut icon" href="../../img/favicon.ico">
 
     
-    <title>Tests and Confidence Regions - Teaching Assistant</title>
+    <title>Testes e regiões de confiança - Teaching Assistant</title>
     
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
@@ -146,12 +146,55 @@
         
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="first-level active"><a href="#tests-and-confidence-regions">Tests and Confidence Regions</a></li>
+        <li class="first-level active"><a href="#testes-e-regioes-de-confianca">Testes e regiões de confiança</a></li>
+            <li class="second-level"><a href="#uma-primeira-abordagem">Uma primeira abordagem</a></li>
+                
+                <li class="third-level"><a href="#fator-de-bayes">Fator de Bayes</a></li>
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h1 id="tests-and-confidence-regions">Tests and Confidence Regions</h1></div>
+<h1 id="testes-e-regioes-de-confianca">Testes e regiões de confiança</h1>
+<p>Com a abordagem bayesiana, podemos fazer afirmações do tipo <script type="math/tex">\pi(\theta \in \Theta_0 | x)</script>, o que é difere da proposta frequentista, já que lá o parâmetro é fixo, apesar de desconhecido. 
+Alguns bayesianos acreditam que o teste, em especial o teste com hipótese nula pontual, não deveria ser realizado por diversos motivos: representação redutiva do modelo; priori modificada de forma não natural para representar a questão pontual; falta de estrutura baseada em teoria da decisão; impossibilidade do uso de prioris impróprias.</p>
+<h2 id="uma-primeira-abordagem">Uma primeira abordagem</h2>
+<p>Considere um modelo <script type="math/tex">f(x|\theta)</script> com <script type="math/tex">\theta \in \Theta</script>. 
+Queremos verificar <script type="math/tex">H_0 : \theta \in \Theta_0</script> com <script type="math/tex">\Theta_0 \subseteq \Theta</script> sendo um subconjunto de interesse.
+Chamamos <script type="math/tex">H_0</script> de <strong>hipótese nula</strong>. 
+Em contrapartida, temos a <strong>hipótese alternativa</strong> <script type="math/tex">H_1 : \theta \in \Theta_1</script> com <script type="math/tex">\Theta_0 \cap \Theta_1 = \emptyset</script> e <script type="math/tex">\theta</script> pertencendo a um dos dois conjuntos.</p>
+<p>A perda proposta por Neyman e Pearson é 
+<script type="math/tex; mode=display">
+L(\theta, \varphi) = \begin{cases}
+    1 &\text{se } \varphi \neq 1_{\Theta_0}(\theta), \\
+    0 &\text{c.c.}
+\end{cases}
+</script>
+Para essa perda, o estimador de Bayes é 
+<script type="math/tex; mode=display">
+\varphi^{\pi}(x) = \begin{cases}
+    1 &\text{se } \Pr(\theta \in \Theta_0 | x) > \Pr(\theta \in \Theta_1 | x), \\
+    0 &\text{c.c.}
+\end{cases}
+</script>
+Podemos generalizar essa perda para
+<script type="math/tex; mode=display">
+L(\theta, \varphi) = \begin{cases}
+    0 &\text{se } \varphi = 1_{\Theta_0}(\theta), \\
+    a_0 &\text{se } \theta \in \Theta_0 \text{ e } \varphi = 0, \\
+    a_1 &\text{se } \theta \in \Theta_1 \text{ e } \varphi = 1, 
+\end{cases}
+</script>
+cujo estimador de Bayes é <script type="math/tex">\varphi^{\pi}(x) = 1</script> se <script type="math/tex">\Pr(\theta \in \Theta_0 | x) > a_1/(a_0 + a_1)</script>, sendo essa fração o <strong>level de aceitação</strong>.</p>
+<h3 id="fator-de-bayes">Fator de Bayes</h3>
+<p>Definimos o fator de Bayes como a razão das razões da posteriori e da priori:
+<script type="math/tex; mode=display">
+B_{01}^{\pi}(x) = \frac{\Pr(\theta \in \Theta_0 | x)}{\Pr(\theta \in \Theta_1 | x)}\Big /\frac{\Pr(\theta \in \Theta_0)}{\Pr(\theta \in \Theta_1)} = \frac{\int_{\Theta_0} f(x|\theta)\pi_0(\theta) \, d\theta}{\int_{\Theta_1} f(x|\theta)\pi_1(\theta) \, d\theta},
+</script>
+que avalia a modificação das chances de <script type="math/tex">\Theta_0</script> contra <script type="math/tex">\Theta_1</script>. 
+Observe que <script type="math/tex">\pi_i</script> é a distribuição a priori sob <script type="math/tex">H_i</script>.</p>
+<p>Jeffreys desenvolveu uma escala fora da uma configuração baseada em teoria da decisão para avaliar a evidência trazida por <script type="math/tex">x</script> contra <script type="math/tex">H_0</script>, considerando o valor <script type="math/tex">\log_{10}(B_{10}^{\pi})</script>: 
+<script type="math/tex; mode=display">0 < \text{ pobre } < 0.5 < \text{ substancial } < 1 < \text{ forte } < 2 < \text{ decisiva } < +\infty</script>
+</p></div>
         
         
     </div>
