@@ -203,6 +203,28 @@ Para o teste $\varphi$ logo acima, quando a distribuição amostral é contínua
 
 ### Intervalos de credibilidade
 
+Para uma priori $\pi$, um conjunto $C_x$ é dito conjunto $\alpha-credível$ se 
+$$
+\Pr^{\pi}(\theta \in C_x|x) \ge 1-\alpha.
+$$
+Essa região é chamada de **região HPD** ("highest posterior density") quando pode ser escrita sob a forma 
+$$
+\{\theta; \pi(\theta | x) > k_{\alpha}\} \subset C_x^{\pi} \subset \{\theta; \pi(\theta|x) \ge k_{\alpha}\},
+$$
+em que $k_{\alpha}$ é o maior valor tal que $\Pr^{\pi}(\theta \in C_x^{\pi}|x) \ge 1-\alpha$.
+Essas regiões *minimizam o volume entre as regiões $\alpha$-credíveis*.
+
+Uma alternativa é definir um intervalo $[C_1(x), C_2(x)]$ tal que
+$$
+\Pr^{\pi}(\theta < C_1(x)|x) = \Pr(\theta > C_2(x)|x) = \alpha/2.
+$$
+
 ### Intervalos de confiança clássicos
 
-### Avaliação baseada em teoria da decisão
+Sob a teoria de Neyman-Pearson, regiões de confiança podem ser estabelecidas a partir de testes UMPU. 
+Seja $C_{\theta} = \{x : \varphi_{\theta} = 1\}$ a região de não rejeição de $H_0: \theta = \theta_0$. 
+Note que 
+$$
+C_x = \{\theta : x \in C_{\theta}\} = \{\theta : \varphi_{\theta}(x) = 1\}
+$$
+e $\Pr(\theta \in \C_x) = 1 - \alpha$. De forma mais geral, se vale que $\Pr(\theta \in \C_x) \ge 1 - \alpha$ para todo $\theta \in \Theta$, então $C_x$ é dita **região de confiança**.
