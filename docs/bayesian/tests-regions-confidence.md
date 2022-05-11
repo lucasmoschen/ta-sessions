@@ -32,7 +32,7 @@ L(\theta, \varphi) = \begin{cases}
     a_1 &\text{se } \theta \in \Theta_1 \text{ e } \varphi = 1, 
 \end{cases}
 $$
-cujo estimador de Bayes é $\varphi^{\pi}(x) = 1$ se $\Pr(\theta \in \Theta_0 | x) > a_1/(a_0 + a_1)$, sendo essa fração o **level de aceitação**.
+cujo estimador de Bayes é $\varphi^{\pi}(x) = 1$ se $\Pr(\theta \in \Theta_0 | x) > a_1/(a_0 + a_1)$, sendo essa fração o **nível de aceitação**.
 
 ### Fator de Bayes
 
@@ -72,7 +72,7 @@ Apesar de hipóteses pontuais serem problemáticas, elas têm muita utilidade na
 
 Assim, teremos a priori $\pi(\theta) = \varrho_0 1_{\theta = \theta_0} + (1-\varrho_0)g_1(\theta)$ com posteriori
 $$
-\pi(\Theta_0 | x) = \frac{f(x|\theta_0) \varrho_0}{f(x|\theta_0\varrho_0 + (1-\varrho_0)m_1(x))},
+\pi(\Theta_0 | x) = \frac{f(x|\theta_0) \varrho_0}{f(x|\theta_0)\varrho_0 + (1-\varrho_0)m_1(x))},
 $$
 em que $m_1$ é a marginal dos dados sob $H_1$. Em particular, o Fator de Bayes é 
 $$
@@ -107,11 +107,11 @@ que é o **p-valor** desse mesmo teste.
 
 A abordagem clássica da teoria de testagem é de Neyman-Pearson. Com isso, consideramos a seguinte definição:
 
-**Poder:** O poder de um procedimento de teste $\varphi$ é a probabilidade de rejeitar $H_0$ sob a hipótese alternativa, isto é, $\beta(\theta) = 1 - \mathbb{E}_{\theta}[\varphi(x)]$ quando $\theta \in Theta_1$. A quantidade $1- \beta(\theta)$ é o *erro do tipo II*, enquanto o *erro do tipo I* é $1-\mathbb{E}_{\theta}[\varphi(x)]$ quando $\theta \in \Theta_0$. 
+**Poder:** O poder de um procedimento de teste $\varphi$ é a probabilidade de rejeitar $H_0$ sob a hipótese alternativa, isto é, $\beta(\theta) = 1 - \mathbb{E}_{\theta}[\varphi(x)]$ quando $\theta \in \Theta_1$. A quantidade $1- \beta(\theta)$ é o *erro do tipo II*, enquanto o *erro do tipo I* é $1-\mathbb{E}_{\theta}[\varphi(x)]$ quando $\theta \in \Theta_0$. 
 Em resumo, 
 
-- $\theta \in \Theta_0 \implies \mathbb{E}_{\theta}[\varphi(x)]$ é erro do tipo I.
-- $\theta \in \Theta_1 \implies 1-\mathbb{E}_{\theta}[\varphi(x)]$ é erro do tipo II.
+- $\theta \in \Theta_0 \implies 1-\mathbb{E}_{\theta}[\varphi(x)]$ é erro do tipo I.
+- $\theta \in \Theta_1 \implies \mathbb{E}_{\theta}[\varphi(x)]$ é erro do tipo II.
 
 ### Testes UMP
 
@@ -122,8 +122,41 @@ C_{\alpha} = \{\varphi : \sup_{\theta \in \Theta_0} \mathbb{E}_{\theta}[L(\theta
 $$
 
 Um teste $\varphi$ é dito **Uniformemente Mais Poderoso (UMP)** a nível $\alpha$ se $\varphi \in C_{\alpha}$ e se ele minimiza o risco frequentista uniformemente em $\Theta_1$ em $C_{\alpha}$.
+Esse método é desbalanceado com respeito às hipóteses, porque o erro do tipo II pode ser muito grande, mesmo quando $\Theta_0$ é uma transformação contínua de $\Theta_1$. 
+
+**Proposição:** Seja $f(x|\theta)$ uma distribuição que possua razão de verossimilhança crescente em $T(x)$, isto é, para $\theta_1 > \theta_2$, a função $f(x|\theta_1) / f(x|\theta_2)$ cresce com $T(x)$. Se queremos testar $H_0 : \theta \le \theta_0$, existe um teste UMP da forma 
+$$
+\varphi(x) = \begin{cases}
+	1 &\text{se } T(x) < c, \\
+    \gamma &\text{se } T(x) = c, \\
+    0 &\text{c.c.},    
+\end{cases}
+$$
+de forma que $\mathbb{E}_{\theta_0}[\varphi(x)] = \alpha$. 
+
+---
+``📝`` **Exemplo (Família exponencial)**
+
+Seja $f(x|\theta)$ da família exponencial, isto é, 
+$$
+\log \frac{f(x|\theta_1)}{f(x|\theta_2)} = \theta_1\cdot x - \psi(\theta_1) - \theta_2 \cdot x + \psi(\theta_2) = (\theta_1 - \theta_2)\cdot x - (\psi(\theta_1) - \psi(\theta_2)),
+$$
+que é crescente em $T(x) = x$.
+
+---
+
+Podemos construir uma proposição no mesmo sentido da anterior, só que quando $H_0$ é do tipo $\theta \not\in (\theta_1, \theta_2)$ e a densidade do dado pertence à família exponencial. 
+Nesse caso o teste UMP é da forma $\varphi(x) = 1$ se $T(x) \not \in [c_1, c_2]$ e $\varphi(x) = \gamma_i$ se $T(x) = c_i$, em que $c_i$ e $\gamma_i$ são escolhidos a partir da condição de que $\mathbb{E}_{\theta_i}[\varphi(x)] = \alpha$.
+No caso em que o papel de $H_0$ é trocado com o de $H_1$, não existe teste UMP. 
+Nessas situações, podemos restringir a classe de testes para os não enviesados, em que
+$$
+\sup_{\Theta_0} \Pr_{\theta}(\varphi(x) = 0) \le \inf_{\Theta_1} \Pr_{\theta}(\varphi(x) = 0). 
+$$
+Isso leva a noção de teste **Uniformemente Mais Poderoso não enviesado (UMPU)**. 
 
 ### Prioris menos favoráveis
+
+
 
 ### p-valores
 
