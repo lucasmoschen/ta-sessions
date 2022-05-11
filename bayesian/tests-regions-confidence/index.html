@@ -160,7 +160,6 @@
                 
                 <li class="third-level"><a href="#intervalos-de-credibilidade">Intervalos de credibilidade</a></li>
                 <li class="third-level"><a href="#intervalos-de-confianca-classicos">Intervalos de confiança clássicos</a></li>
-                <li class="third-level"><a href="#avaliacao-baseada-em-teoria-da-decisao">Avaliação baseada em teoria da decisão</a></li>
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
@@ -344,8 +343,29 @@ Alternativamente, se <script type="math/tex">\varphi</script> é admissível, ex
 <p>Para o teste <script type="math/tex">\varphi</script> logo acima, quando a distribuição amostral é contínua com respeito a Lebesgue, o p-valor é inadmissível.</p>
 <h2 id="regioes-de-confianca">Regiões de confiança</h2>
 <h3 id="intervalos-de-credibilidade">Intervalos de credibilidade</h3>
+<p>Para uma priori <script type="math/tex">\pi</script>, um conjunto <script type="math/tex">C_x</script> é dito conjunto <script type="math/tex">\alpha-credível</script> se 
+<script type="math/tex; mode=display">
+\Pr^{\pi}(\theta \in C_x|x) \ge 1-\alpha.
+</script>
+Essa região é chamada de <strong>região HPD</strong> ("highest posterior density") quando pode ser escrita sob a forma 
+<script type="math/tex; mode=display">
+\{\theta; \pi(\theta | x) > k_{\alpha}\} \subset C_x^{\pi} \subset \{\theta; \pi(\theta|x) \ge k_{\alpha}\},
+</script>
+em que <script type="math/tex">k_{\alpha}</script> é o maior valor tal que <script type="math/tex">\Pr^{\pi}(\theta \in C_x^{\pi}|x) \ge 1-\alpha</script>.
+Essas regiões <em>minimizam o volume entre as regiões <script type="math/tex">\alpha</script>-credíveis</em>.</p>
+<p>Uma alternativa é definir um intervalo <script type="math/tex">[C_1(x), C_2(x)]</script> tal que
+<script type="math/tex; mode=display">
+\Pr^{\pi}(\theta < C_1(x)|x) = \Pr(\theta > C_2(x)|x) = \alpha/2.
+</script>
+</p>
 <h3 id="intervalos-de-confianca-classicos">Intervalos de confiança clássicos</h3>
-<h3 id="avaliacao-baseada-em-teoria-da-decisao">Avaliação baseada em teoria da decisão</h3></div>
+<p>Sob a teoria de Neyman-Pearson, regiões de confiança podem ser estabelecidas a partir de testes UMPU. 
+Seja <script type="math/tex">C_{\theta} = \{x : \varphi_{\theta} = 1\}</script> a região de não rejeição de <script type="math/tex">H_0: \theta = \theta_0</script>. 
+Note que 
+<script type="math/tex; mode=display">
+C_x = \{\theta : x \in C_{\theta}\} = \{\theta : \varphi_{\theta}(x) = 1\}
+</script>
+e <script type="math/tex">\Pr(\theta \in \C_x) = 1 - \alpha</script>. De forma mais geral, se vale que <script type="math/tex">\Pr(\theta \in \C_x) \ge 1 - \alpha</script> para todo <script type="math/tex">\theta \in \Theta</script>, então <script type="math/tex">C_x</script> é dita <strong>região de confiança</strong>.</p></div>
         
         
     </div>
