@@ -154,11 +154,24 @@ $$
 $$
 Isso leva a noção de teste **Uniformemente Mais Poderoso não enviesado (UMPU)**. 
 
-### Prioris menos favoráveis
-
-
+Outra forma de construir testes é baseada na distribuição (em geral assintótica) de 
+$$
+\frac{\sup_{\Theta_0} f(x|\theta)}{\sup_{\Theta_1} f(x|\theta)}.
+$$
 
 ### p-valores
+
+O p-valor associado a um teste é o menor nível de significância $\alpha$ para o qual a hipótese nula é rejeitada.  
+Para a hipótese nula pontual, uma definição mais geral considera como p-valor qualquer estatística com distribuição uniforme sob a hipótese nula. 
+Algumas críticas: 
+
+- O p-valor contradiz o Princípio da Verossimilhança, pois envolve a distribuição inteira da observação;
+
+- Não são avaliados sob nenhum função de perda, loho não tem otimalidade intrínseca;
+
+- O p-valor é frequentemente visto como uma aproximação para $\Pr(\theta \in \Theta_0|x)$, apesar de isso ser insignificante em uma configuração frequentista.
+
+- p-valores não sumarizam toda a informação do teste, afinal o erro do tipo II é omitido. Isso é perigoso, afinal na prática o p-valor é visto como o procedimento de teste. 
 
 ### Respostas bayesianas menos favoráveis
 
