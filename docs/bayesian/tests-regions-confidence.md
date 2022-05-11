@@ -173,11 +173,31 @@ Algumas críticas:
 
 - p-valores não sumarizam toda a informação do teste, afinal o erro do tipo II é omitido. Isso é perigoso, afinal na prática o p-valor é visto como o procedimento de teste. 
 
-### Respostas bayesianas menos favoráveis
-
-### Caso unilateral
-
 ## Uma segunda abordagem
+
+A ideia é construir uma alternativa a Newyman-Pearson que justifique o uso de probabilidades a posteriori como medidas para testes.
+A primeira modificação é alterar o espaço de decisões $\mathcal{D} = \{0,1\}$ para o intervalo $[0,1]$.
+Queremos que eles indiquem o grau de evidência a favor de $H_0$.
+
+**Proposição:** Sob a perda $L_2(\theta, \delta) = (\delta - I_{\Theta_0}(\theta))^2$, o estimador de Bayes associado a $\pi$ é a probabilidade a posteriori $\varphi^{\pi}(x) = \Pr^{\pi}(\theta \in \Theta_0|x)$.
+
+Essa proposição é consequência direta de o estimador de Bayes ser a média a posteriori de $I_{\Theta_0}(\theta)$.
+
+Consideremos a família exponencial natural
+$$
+f(x|\theta) = e^{\theta x - \psi(\theta)}.
+$$
+
+Para a hipótese nula unilateral $H_0 : \theta \le \theta_0$, um intervalo $[t_1, t_2]$ é dito conjunto **truncação** para $\varphi$ quando $\varphi(t) = 1$ se $t < t_1$ e $\varphi(t) = 0$ para $t > t_2$. 
+No caso de uma hipótese bilateral, vale quando $\varphi(t) = 0$ para $t \not \in [t_1, t_2]$.
+Para a hipótese bilateral com $H_0 : \theta \in [\theta_1, \theta_2]$, um estimador $\varphi$ com conjunto truncação $[t_1, t_2]$ é admissível se existe uma medida de probabilidade $\pi_0$ em $[\theta_1, \theta_2]$ e uma medida $\sigma$-finita $\pi_1$ em $[\theta_1, \theta_2]^c$ tal que 
+$$
+\varphi(x) = \frac{\int f(x|\theta) \pi_0(\theta) \, d\theta}{\int f(x|\theta) \pi_0(\theta) \, d\theta + \int f(x|\theta) \pi_1(\theta) \, d\theta},
+$$
+para $x \in [t_1, t_2]$. 
+Alternativamente, se $\varphi$ é admissível, existem $[t_1, t_2]$, $\pi_0$ e $\pi_1$ satisfazendo a relação acima.
+
+Para o teste $\varphi$ logo acima, quando a distribuição amostral é contínua com respeito a Lebesgue, o p-valor é inadmissível.
 
 ## Regiões de confiança
 
