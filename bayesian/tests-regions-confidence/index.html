@@ -153,10 +153,7 @@
             <li class="second-level"><a href="#comparacao-com-a-abordagem-classica">Comparação com a abordagem clássica</a></li>
                 
                 <li class="third-level"><a href="#testes-ump">Testes UMP</a></li>
-                <li class="third-level"><a href="#prioris-menos-favoraveis">Prioris menos favoráveis</a></li>
                 <li class="third-level"><a href="#p-valores">p-valores</a></li>
-                <li class="third-level"><a href="#respostas-bayesianas-menos-favoraveis">Respostas bayesianas menos favoráveis</a></li>
-                <li class="third-level"><a href="#caso-unilateral">Caso unilateral</a></li>
             <li class="second-level"><a href="#uma-segunda-abordagem">Uma segunda abordagem</a></li>
                 
             <li class="second-level"><a href="#regioes-de-confianca">Regiões de confiança</a></li>
@@ -198,7 +195,7 @@ L(\theta, \varphi) = \begin{cases}
     a_1 &\text{se } \theta \in \Theta_1 \text{ e } \varphi = 1, 
 \end{cases}
 </script>
-cujo estimador de Bayes é <script type="math/tex">\varphi^{\pi}(x) = 1</script> se <script type="math/tex">\Pr(\theta \in \Theta_0 | x) > a_1/(a_0 + a_1)</script>, sendo essa fração o <strong>level de aceitação</strong>.</p>
+cujo estimador de Bayes é <script type="math/tex">\varphi^{\pi}(x) = 1</script> se <script type="math/tex">\Pr(\theta \in \Theta_0 | x) > a_1/(a_0 + a_1)</script>, sendo essa fração o <strong>nível de aceitação</strong>.</p>
 <h3 id="fator-de-bayes">Fator de Bayes</h3>
 <p>Definimos o fator de Bayes como a razão das razões da posteriori e da priori:
 <script type="math/tex; mode=display">
@@ -232,7 +229,7 @@ B_{10} = \frac{\int_0^1 \left\{\prod_{i=1}^G \int_0^1 p_i^{y_i}(1-p_i)^{n_i-y_i}
 Apesar de hipóteses pontuais serem problemáticas, elas têm muita utilidade na prática. </p>
 <p>Assim, teremos a priori <script type="math/tex">\pi(\theta) = \varrho_0 1_{\theta = \theta_0} + (1-\varrho_0)g_1(\theta)</script> com posteriori
 <script type="math/tex; mode=display">
-\pi(\Theta_0 | x) = \frac{f(x|\theta_0) \varrho_0}{f(x|\theta_0\varrho_0 + (1-\varrho_0)m_1(x))},
+\pi(\Theta_0 | x) = \frac{f(x|\theta_0) \varrho_0}{f(x|\theta_0)\varrho_0 + (1-\varrho_0)m_1(x))},
 </script>
 em que <script type="math/tex">m_1</script> é a marginal dos dados sob <script type="math/tex">H_1</script>. Em particular, o Fator de Bayes é 
 <script type="math/tex; mode=display">
@@ -259,12 +256,92 @@ isto é, a posteriori é limitada superiormente por um valor baixo. Fenômeno pa
 que é o <strong>p-valor</strong> desse mesmo teste.</p>
 <hr />
 <h2 id="comparacao-com-a-abordagem-classica">Comparação com a abordagem clássica</h2>
+<p>A abordagem clássica da teoria de testagem é de Neyman-Pearson. Com isso, consideramos a seguinte definição:</p>
+<p><strong>Poder:</strong> O poder de um procedimento de teste <script type="math/tex">\varphi</script> é a probabilidade de rejeitar <script type="math/tex">H_0</script> sob a hipótese alternativa, isto é, <script type="math/tex">\beta(\theta) = 1 - \mathbb{E}_{\theta}[\varphi(x)]</script> quando <script type="math/tex">\theta \in \Theta_1</script>. A quantidade <script type="math/tex">1- \beta(\theta)</script> é o <em>erro do tipo II</em>, enquanto o <em>erro do tipo I</em> é <script type="math/tex">1-\mathbb{E}_{\theta}[\varphi(x)]</script> quando <script type="math/tex">\theta \in \Theta_0</script>. 
+Em resumo, </p>
+<ul>
+<li>
+<script type="math/tex">\theta \in \Theta_0 \implies 1-\mathbb{E}_{\theta}[\varphi(x)]</script> é erro do tipo I.</li>
+<li>
+<script type="math/tex">\theta \in \Theta_1 \implies \mathbb{E}_{\theta}[\varphi(x)]</script> é erro do tipo II.</li>
+</ul>
 <h3 id="testes-ump">Testes UMP</h3>
-<h3 id="prioris-menos-favoraveis">Prioris menos favoráveis</h3>
+<p>Testes frequentistas buscam minimizar o risco frequentista <script type="math/tex">\mathbb{E}_{\theta}[L(\theta, \varphi(x))]</script> sob <script type="math/tex">H_1</script>. 
+Em particular, minimiza-se na classe de procesdimentos <script type="math/tex">C_{\alpha}</script>, em que <script type="math/tex">\alpha \in (0,1)</script> e 
+<script type="math/tex; mode=display">
+C_{\alpha} = \{\varphi : \sup_{\theta \in \Theta_0} \mathbb{E}_{\theta}[L(\theta, \varphi(x))] =  \sup_{\theta \in \Theta_0} \Pr_{\theta}(\varphi(x) = 0) \le \alpha \}.
+</script>
+</p>
+<p>Um teste <script type="math/tex">\varphi</script> é dito <strong>Uniformemente Mais Poderoso (UMP)</strong> a nível <script type="math/tex">\alpha</script> se <script type="math/tex">\varphi \in C_{\alpha}</script> e se ele minimiza o risco frequentista uniformemente em <script type="math/tex">\Theta_1</script> em <script type="math/tex">C_{\alpha}</script>.
+Esse método é desbalanceado com respeito às hipóteses, porque o erro do tipo II pode ser muito grande, mesmo quando <script type="math/tex">\Theta_0</script> é uma transformação contínua de <script type="math/tex">\Theta_1</script>. </p>
+<p><strong>Proposição:</strong> Seja <script type="math/tex">f(x|\theta)</script> uma distribuição que possua razão de verossimilhança crescente em <script type="math/tex">T(x)</script>, isto é, para <script type="math/tex">\theta_1 > \theta_2</script>, a função <script type="math/tex">f(x|\theta_1) / f(x|\theta_2)</script> cresce com <script type="math/tex">T(x)</script>. Se queremos testar <script type="math/tex">H_0 : \theta \le \theta_0</script>, existe um teste UMP da forma 
+<script type="math/tex; mode=display">
+\varphi(x) = \begin{cases}
+    1 &\text{se } T(x) < c, \\
+    \gamma &\text{se } T(x) = c, \\
+    0 &\text{c.c.},    
+\end{cases}
+</script>
+de forma que <script type="math/tex">\mathbb{E}_{\theta_0}[\varphi(x)] = \alpha</script>. </p>
+<hr />
+<p><code>📝</code> <strong>Exemplo (Família exponencial)</strong></p>
+<p>Seja <script type="math/tex">f(x|\theta)</script> da família exponencial, isto é, 
+<script type="math/tex; mode=display">
+\log \frac{f(x|\theta_1)}{f(x|\theta_2)} = \theta_1\cdot x - \psi(\theta_1) - \theta_2 \cdot x + \psi(\theta_2) = (\theta_1 - \theta_2)\cdot x - (\psi(\theta_1) - \psi(\theta_2)),
+</script>
+que é crescente em <script type="math/tex">T(x) = x</script>.</p>
+<hr />
+<p>Podemos construir uma proposição no mesmo sentido da anterior, só que quando <script type="math/tex">H_0</script> é do tipo <script type="math/tex">\theta \not\in (\theta_1, \theta_2)</script> e a densidade do dado pertence à família exponencial. 
+Nesse caso o teste UMP é da forma <script type="math/tex">\varphi(x) = 1</script> se <script type="math/tex">T(x) \not \in [c_1, c_2]</script> e <script type="math/tex">\varphi(x) = \gamma_i</script> se <script type="math/tex">T(x) = c_i</script>, em que <script type="math/tex">c_i</script> e <script type="math/tex">\gamma_i</script> são escolhidos a partir da condição de que <script type="math/tex">\mathbb{E}_{\theta_i}[\varphi(x)] = \alpha</script>.
+No caso em que o papel de <script type="math/tex">H_0</script> é trocado com o de <script type="math/tex">H_1</script>, não existe teste UMP. 
+Nessas situações, podemos restringir a classe de testes para os não enviesados, em que
+<script type="math/tex; mode=display">
+\sup_{\Theta_0} \Pr_{\theta}(\varphi(x) = 0) \le \inf_{\Theta_1} \Pr_{\theta}(\varphi(x) = 0). 
+</script>
+Isso leva a noção de teste <strong>Uniformemente Mais Poderoso não enviesado (UMPU)</strong>. </p>
+<p>Outra forma de construir testes é baseada na distribuição (em geral assintótica) de 
+<script type="math/tex; mode=display">
+\frac{\sup_{\Theta_0} f(x|\theta)}{\sup_{\Theta_1} f(x|\theta)}.
+</script>
+</p>
 <h3 id="p-valores">p-valores</h3>
-<h3 id="respostas-bayesianas-menos-favoraveis">Respostas bayesianas menos favoráveis</h3>
-<h3 id="caso-unilateral">Caso unilateral</h3>
+<p>O p-valor associado a um teste é o menor nível de significância <script type="math/tex">\alpha</script> para o qual a hipótese nula é rejeitada.<br />
+Para a hipótese nula pontual, uma definição mais geral considera como p-valor qualquer estatística com distribuição uniforme sob a hipótese nula. 
+Algumas críticas: </p>
+<ul>
+<li>
+<p>O p-valor contradiz o Princípio da Verossimilhança, pois envolve a distribuição inteira da observação;</p>
+</li>
+<li>
+<p>Não são avaliados sob nenhum função de perda, loho não tem otimalidade intrínseca;</p>
+</li>
+<li>
+<p>O p-valor é frequentemente visto como uma aproximação para <script type="math/tex">\Pr(\theta \in \Theta_0|x)</script>, apesar de isso ser insignificante em uma configuração frequentista.</p>
+</li>
+<li>
+<p>p-valores não sumarizam toda a informação do teste, afinal o erro do tipo II é omitido. Isso é perigoso, afinal na prática o p-valor é visto como o procedimento de teste. </p>
+</li>
+</ul>
 <h2 id="uma-segunda-abordagem">Uma segunda abordagem</h2>
+<p>A ideia é construir uma alternativa a Newyman-Pearson que justifique o uso de probabilidades a posteriori como medidas para testes.
+A primeira modificação é alterar o espaço de decisões <script type="math/tex">\mathcal{D} = \{0,1\}</script> para o intervalo <script type="math/tex">[0,1]</script>.
+Queremos que eles indiquem o grau de evidência a favor de <script type="math/tex">H_0</script>.</p>
+<p><strong>Proposição:</strong> Sob a perda <script type="math/tex">L_2(\theta, \delta) = (\delta - I_{\Theta_0}(\theta))^2</script>, o estimador de Bayes associado a <script type="math/tex">\pi</script> é a probabilidade a posteriori <script type="math/tex">\varphi^{\pi}(x) = \Pr^{\pi}(\theta \in \Theta_0|x)</script>.</p>
+<p>Essa proposição é consequência direta de o estimador de Bayes ser a média a posteriori de <script type="math/tex">I_{\Theta_0}(\theta)</script>.</p>
+<p>Consideremos a família exponencial natural
+<script type="math/tex; mode=display">
+f(x|\theta) = e^{\theta x - \psi(\theta)}.
+</script>
+</p>
+<p>Para a hipótese nula unilateral <script type="math/tex">H_0 : \theta \le \theta_0</script>, um intervalo <script type="math/tex">[t_1, t_2]</script> é dito conjunto <strong>truncação</strong> para <script type="math/tex">\varphi</script> quando <script type="math/tex">\varphi(t) = 1</script> se <script type="math/tex">t < t_1</script> e <script type="math/tex">\varphi(t) = 0</script> para <script type="math/tex">t > t_2</script>. 
+No caso de uma hipótese bilateral, vale quando <script type="math/tex">\varphi(t) = 0</script> para <script type="math/tex">t \not \in [t_1, t_2]</script>.
+Para a hipótese bilateral com <script type="math/tex">H_0 : \theta \in [\theta_1, \theta_2]</script>, um estimador <script type="math/tex">\varphi</script> com conjunto truncação <script type="math/tex">[t_1, t_2]</script> é admissível se existe uma medida de probabilidade <script type="math/tex">\pi_0</script> em <script type="math/tex">[\theta_1, \theta_2]</script> e uma medida <script type="math/tex">\sigma</script>-finita <script type="math/tex">\pi_1</script> em <script type="math/tex">[\theta_1, \theta_2]^c</script> tal que 
+<script type="math/tex; mode=display">
+\varphi(x) = \frac{\int f(x|\theta) \pi_0(\theta) \, d\theta}{\int f(x|\theta) \pi_0(\theta) \, d\theta + \int f(x|\theta) \pi_1(\theta) \, d\theta},
+</script>
+para <script type="math/tex">x \in [t_1, t_2]</script>. 
+Alternativamente, se <script type="math/tex">\varphi</script> é admissível, existem <script type="math/tex">[t_1, t_2]</script>, <script type="math/tex">\pi_0</script> e <script type="math/tex">\pi_1</script> satisfazendo a relação acima.</p>
+<p>Para o teste <script type="math/tex">\varphi</script> logo acima, quando a distribuição amostral é contínua com respeito a Lebesgue, o p-valor é inadmissível.</p>
 <h2 id="regioes-de-confianca">Regiões de confiança</h2>
 <h3 id="intervalos-de-credibilidade">Intervalos de credibilidade</h3>
 <h3 id="intervalos-de-confianca-classicos">Intervalos de confiança clássicos</h3>
