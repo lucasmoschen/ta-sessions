@@ -105,7 +105,23 @@ que é o **p-valor** desse mesmo teste.
 
 ## Comparação com a abordagem clássica
 
+A abordagem clássica da teoria de testagem é de Neyman-Pearson. Com isso, consideramos a seguinte definição:
+
+**Poder:** O poder de um procedimento de teste $\varphi$ é a probabilidade de rejeitar $H_0$ sob a hipótese alternativa, isto é, $\beta(\theta) = 1 - \mathbb{E}_{\theta}[\varphi(x)]$ quando $\theta \in Theta_1$. A quantidade $1- \beta(\theta)$ é o *erro do tipo II*, enquanto o *erro do tipo I* é $1-\mathbb{E}_{\theta}[\varphi(x)]$ quando $\theta \in \Theta_0$. 
+Em resumo, 
+
+- $\theta \in \Theta_0 \implies \mathbb{E}_{\theta}[\varphi(x)]$ é erro do tipo I.
+- $\theta \in \Theta_1 \implies 1-\mathbb{E}_{\theta}[\varphi(x)]$ é erro do tipo II.
+
 ### Testes UMP
+
+Testes frequentistas buscam minimizar o risco frequentista $\mathbb{E}_{\theta}[L(\theta, \varphi(x))]$ sob $H_1$. 
+Em particular, minimiza-se na classe de procesdimentos $C_{\alpha}$, em que $\alpha \in (0,1)$ e 
+$$
+C_{\alpha} = \{\varphi : \sup_{\theta \in \Theta_0} \mathbb{E}_{\theta}[L(\theta, \varphi(x))] =  \sup_{\theta \in \Theta_0} \Pr_{\theta}(\varphi(x) = 0) \le \alpha \}.
+$$
+
+Um teste $\varphi$ é dito **Uniformemente Mais Poderoso (UMP)** a nível $\alpha$ se $\varphi \in C_{\alpha}$ e se ele minimiza o risco frequentista uniformemente em $\Theta_1$ em $C_{\alpha}$.
 
 ### Prioris menos favoráveis
 
