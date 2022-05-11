@@ -150,6 +150,20 @@
             <li class="second-level"><a href="#uma-primeira-abordagem">Uma primeira abordagem</a></li>
                 
                 <li class="third-level"><a href="#fator-de-bayes">Fator de Bayes</a></li>
+            <li class="second-level"><a href="#comparacao-com-a-abordagem-classica">Comparação com a abordagem clássica</a></li>
+                
+                <li class="third-level"><a href="#testes-ump">Testes UMP</a></li>
+                <li class="third-level"><a href="#prioris-menos-favoraveis">Prioris menos favoráveis</a></li>
+                <li class="third-level"><a href="#p-valores">p-valores</a></li>
+                <li class="third-level"><a href="#respostas-bayesianas-menos-favoraveis">Respostas bayesianas menos favoráveis</a></li>
+                <li class="third-level"><a href="#caso-unilateral">Caso unilateral</a></li>
+            <li class="second-level"><a href="#uma-segunda-abordagem">Uma segunda abordagem</a></li>
+                
+            <li class="second-level"><a href="#regioes-de-confianca">Regiões de confiança</a></li>
+                
+                <li class="third-level"><a href="#intervalos-de-credibilidade">Intervalos de credibilidade</a></li>
+                <li class="third-level"><a href="#intervalos-de-confianca-classicos">Intervalos de confiança clássicos</a></li>
+                <li class="third-level"><a href="#avaliacao-baseada-em-teoria-da-decisao">Avaliação baseada em teoria da decisão</a></li>
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
@@ -192,9 +206,69 @@ B_{01}^{\pi}(x) = \frac{\Pr(\theta \in \Theta_0 | x)}{\Pr(\theta \in \Theta_1 | 
 </script>
 que avalia a modificação das chances de <script type="math/tex">\Theta_0</script> contra <script type="math/tex">\Theta_1</script>. 
 Observe que <script type="math/tex">\pi_i</script> é a distribuição a priori sob <script type="math/tex">H_i</script>.</p>
-<p>Jeffreys desenvolveu uma escala fora da uma configuração baseada em teoria da decisão para avaliar a evidência trazida por <script type="math/tex">x</script> contra <script type="math/tex">H_0</script>, considerando o valor <script type="math/tex">\log_{10}(B_{10}^{\pi})</script>: 
-<script type="math/tex; mode=display">0 < \text{ pobre } < 0.5 < \text{ substancial } < 1 < \text{ forte } < 2 < \text{ decisiva } < +\infty</script>
-</p></div>
+<p>Jeffreys desenvolveu uma escala (fora da uma configuração baseada em teoria da decisão) para avaliar a evidência trazida por <script type="math/tex">x</script> contra <script type="math/tex">H_0</script>, considerando o valor <script type="math/tex">\log_{10}(B_{10}^{\pi})</script>: 
+<script type="math/tex; mode=display">0 < \text{ pobre } < 0.5 < \text{ substancial } < 1 < \text{ forte } < 2 < \text{ decisiva } < +\infty.</script>
+</p>
+<hr />
+<p><code>📝</code> <strong>Exemplo (Basquete)</strong></p>
+<p>Um jogador de basquete tem "mão quente" quando tem bons e maus dias, ao invés de uma probabilidade fixa de vencer em um lançamento.
+O modelo base é <script type="math/tex">H_0: y_i \sim B(n_i, p)</script> para cada jogo <script type="math/tex">i=1,\dots, G</script> (<script type="math/tex">p</script> é fixo). 
+A Alternativa é que <script type="math/tex">p</script> varia com o dia.
+Considere a priori <script type="math/tex">p_i \sim Beta(\xi/\omega, (1-\xi)/\omega)</script>, de forma que <script type="math/tex">\xi = \mathbb{E}[p_i|\xi] \sim Unif(0,1)</script>. 
+Isto é, estamos fixando as médias das jogadas dos dias e afirmando que alguns dias teremos <script type="math/tex">p_i > \xi</script> e outros <script type="math/tex">p_i < \xi</script>, é claro com alguma probabilidade. 
+Além do mais, consideramos <script type="math/tex">p \sim Unif(0,1)</script>. 
+O fator de Bayes é 
+<script type="math/tex; mode=display">
+B_{10} = \frac{\int_0^1 \left\{\prod_{i=1}^G \int_0^1 p_i^{y_i}(1-p_i)^{n_i-y_i}p_i^{\alpha-1}(1-p_i)^{\beta-1} \, dp_i \right\}\left(\Gamma(1/\omega)/\Gamma(\xi/\omega)\Gamma((1-\xi)/\omega)\right)^G \, d\xi}{\int_0^1 p^{\sum y_i}(1-p)^{\sum (n_i-y_i)} \, dp}
+</script>
+</p>
+<p>No paper <a href="https://sites.stat.washington.edu/raftery/Research/PDF/kass1995.pdf">Kass, Raftery (1995)</a>, verificou-se que para <script type="math/tex">\omega = 0.005</script>, temos <script type="math/tex">B_{10} = 0.16</script>, que dá baixa evidência a favor de <script type="math/tex">H_1</script>, isto é, que existem bons e maus dias. Escolhemos <script type="math/tex">\omega</script> olhando para <script type="math/tex">Var(p_i | \xi) = \xi(1-\xi)/(1+\omega^{-1}) \implies \omega^{-1} = \xi(1-\xi)/Var(p_i) - 1.</script>
+</p>
+<hr />
+<p>Note que se <script type="math/tex">H_0</script> for pontual, não conseguimos usar o Fator de Bayes. Para esses casos, precisamos definir 
+<script type="math/tex; mode=display">
+\pi(\theta) = \Pr(\theta \in \Theta_0) \pi_{0}(\theta) + \Pr(\theta \in \Theta_1) \pi_{1}(\theta) = \varrho_0 \pi_0(\theta) + \varrho_1 \pi_1(\theta).
+</script>
+Apesar de hipóteses pontuais serem problemáticas, elas têm muita utilidade na prática. </p>
+<p>Assim, teremos a priori <script type="math/tex">\pi(\theta) = \varrho_0 1_{\theta = \theta_0} + (1-\varrho_0)g_1(\theta)</script> com posteriori
+<script type="math/tex; mode=display">
+\pi(\Theta_0 | x) = \frac{f(x|\theta_0) \varrho_0}{f(x|\theta_0\varrho_0 + (1-\varrho_0)m_1(x))},
+</script>
+em que <script type="math/tex">m_1</script> é a marginal dos dados sob <script type="math/tex">H_1</script>. Em particular, o Fator de Bayes é 
+<script type="math/tex; mode=display">
+B_{01}^{\pi}(x) = \frac{f(x|\theta_0)}{m_1(x)},
+</script>
+levando à relação
+<script type="math/tex; mode=display">
+\pi(\Theta_0 | x) = \left[1 + \frac{1-\varrho_0}{\varrho_0} \frac{1}{B_{01}(x)}\right]^{-1}.
+</script>
+</p>
+<hr />
+<p><code>📝</code> <strong>Exemplo (Distribuição normal)</strong></p>
+<p>Considere <script type="math/tex">x \sim \operatorname{Normal}(\theta, 1)</script> e <script type="math/tex">H_0: \theta = 0</script>. 
+Se usarmos a priori imprópria <script type="math/tex">\pi(\theta) = \frac{1}{2}1_{\theta = 0} + \frac{1}{2}</script>, teremos que a posteriori de <script type="math/tex">H_0</script> será 
+<script type="math/tex; mode=display">
+\pi(\theta = 0 | x) = \frac{e^{-x^2/2}}{e^{-x^2/2} + \int e^{-(x-\theta)^2/2} \, d\theta} = \frac{1}{1 + \sqrt{2\pi}e^{x^2/2}} \le 0.285,
+</script>
+isto é, a posteriori é limitada superiormente por um valor baixo. Fenômeno parecido acontece quando <script type="math/tex">\Theta_0</script> é um conjunto compacto. </p>
+<p>Uma questão interessante é que para os níveis tradicionais, que ocorrem quando <script type="math/tex">x = 1.65, 1.96</script> e <script type="math/tex">2.58</script> (respectivamente níveis <script type="math/tex">0.1, 0.05, 0.01</script>), a posteriori de <script type="math/tex">H_0</script> é próxima a esses valores (quando a priori é a medida de Lebesgue).</p>
+<p>Em particular, quando <script type="math/tex">H_0 : \theta \le 0</script> para <script type="math/tex">\pi(\theta) = 1</script>, temos que 
+<script type="math/tex; mode=display">
+\pi(\theta \le 0 | x) = \Phi(-x),
+</script>
+que é o <strong>p-valor</strong> desse mesmo teste.</p>
+<hr />
+<h2 id="comparacao-com-a-abordagem-classica">Comparação com a abordagem clássica</h2>
+<h3 id="testes-ump">Testes UMP</h3>
+<h3 id="prioris-menos-favoraveis">Prioris menos favoráveis</h3>
+<h3 id="p-valores">p-valores</h3>
+<h3 id="respostas-bayesianas-menos-favoraveis">Respostas bayesianas menos favoráveis</h3>
+<h3 id="caso-unilateral">Caso unilateral</h3>
+<h2 id="uma-segunda-abordagem">Uma segunda abordagem</h2>
+<h2 id="regioes-de-confianca">Regiões de confiança</h2>
+<h3 id="intervalos-de-credibilidade">Intervalos de credibilidade</h3>
+<h3 id="intervalos-de-confianca-classicos">Intervalos de confiança clássicos</h3>
+<h3 id="avaliacao-baseada-em-teoria-da-decisao">Avaliação baseada em teoria da decisão</h3></div>
         
         
     </div>
