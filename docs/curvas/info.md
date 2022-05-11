@@ -59,6 +59,7 @@ classic-curves). Você pode contribuir para aumentar o acervo!
 |07/04/2022|Diferenciabilidade e lista 4|Monitoria presencial|Não|
 |29/04/2022|Definição de superfície|Monitoria presencial|Não|
 |02/05/2022|Lista 5|Monitoria presencial|Não|
+|09/05/2022|Lista 5|Monitoria presencial|Não|
 
 ## Período 2021.1
 
