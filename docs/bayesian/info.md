@@ -19,6 +19,7 @@ utilizados são:
 |[Distribuições a priori](/ta-sessions/bayesian/priors)|
 |[Bayesian Point Estimation](/ta-sessions/bayesian/point-estimation)|
 |[Testes e regiões de confiança](/ta-sessions/bayesian/tests-regions-confidence)|
+|[Escolha de modelos](/ta-sessions/bayesian/model-choice)|
 
 ## Notas
 
@@ -40,6 +41,7 @@ utilizados são:
 |5|Capítulo 3 The Bayesian Choice: 3.44, 3.51, 3.57, 3.58, 3.63|[5](/files/disciplines/bayesian-statistics/solutions5.pdf)|-|
 |6|Capítulo 4 The Bayesian Choice: 4.5, 4.17, 4.40, 4.44|[6](/files/disciplines/bayesian-statistics/solutions6.pdf)|-|
 |7|Capítulo 5 The Bayesian Choice: 5.2, 5.6, 5.12, 5.42|[7](/files/disciplines/bayesian-statistics/solutions7.pdf)|5.11|
+|8|Capítulo 7 The Bayesian Choice: 7.1, 7.5, 7.12, 7,20|[8](/files/disciplines/bayesian-statistics/solutions8.pdf)|-|
 
 ## Material adicional
 
