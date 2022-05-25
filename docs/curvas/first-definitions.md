@@ -9,13 +9,13 @@ que é uma circunferência
 
 <img alt = "circle" src = "/ta-sessions/curvas/first-definitions_files/circle-curve.png" width = 200> 
 
-ou talvez na reta $y = ax + b$. Chamamos essas curvas de **curvas de nível**, aquelas que são do tipo $f(x,y) = c$ para uma função $f:\mathbb{R}^2 \to \mathbb{R}$ continua. Todavia uma definição um tanto melhor é pensar em uma curva como um caminho traçado por um ponto se movimentando. 
+ou a reta $y = ax + b$. Chamamos essas curvas de **curvas de nível**, aquelas que são do tipo $f(x,y) = c$ para alguma função $f:\mathbb{R}^2 \to \mathbb{R}$ continua. Isso se deve ao fato de que a curva é o conjunto de pontos no plano cuja quantidade $f(x,y)$ atinge o nível $c$. Todavia uma definição um tanto melhor é pensar em uma curva como um caminho traçado por um ponto se movimentando, conceito que é formalizado a seguir.
 
 **Curva parametrizada:** Seja $I$ um intervalo. Uma curva parametrizada é uma aplicação contínua $\alpha: I \subset \mathbb{R} \to \mathbb{R}^n$, muitas vezes notada como $\alpha(t) = (\alpha_1(t), ..., \alpha_n(t))$ e $t$ é chamado de parâmetro. Algumas definições pedem intervalo aberto. Dizemos que ela é **diferenciável** quando a aplicação é diferenciável. Por fim dizemos que a curva é **regular** quando $\alpha '(t) \neq 0, \forall t \in I$.
 
 **Observação:** Definições de curva podem variar em cada livro. Alguns livros pedem que a aplicação seja de classe $C^{\infty}$ ou suave, enquanto outras pedem apenas classe $C^2$ e assim por diante. De forma geral exigir apenas a continuidade é mais fraco e podemos pedir diferenciabilidade ou suavidade posteriormente. 
 
-**Traço da curva:** Seja uma curma $\alpha:I \to \mathbb{R}^n$. Dizemos que o traço de $\alpha$ é a imagem da aplicação $\alpha$, denotada $\alpha(I)$. Algumas definições de curva são precisamento o que definimos de traço da curva. 
+**Traço da curva:** Seja uma curma $\alpha:I \to \mathbb{R}^n$. Dizemos que o traço de $\alpha$ é a imagem da aplicação $\alpha$, denotada $\alpha(I)$. Algumas definições de curva são precisamente o que definimos de traço da curva. 
 
 
 ```python
@@ -41,7 +41,6 @@ ax.legend()
 plt.show()
 ```
 
-
 ![png](first-definitions_files/first-definitions_2_0.png)
 
 
@@ -49,7 +48,7 @@ plt.show()
 
 ### Exemplo 1
 
-Vamos encontrar uma parametrização para a *parábola*  $y = x^2$ na reta. Seja $\gamma(t) = (\gamma_1(t), \gamma_2(t))$. Pela relação, temos que $\gamma_2(t) = \gamma_1(t)^2, \forall t \in \mathbb{R}$. Uma solução trivial sera colocar $\gamma_1(t) = t$. Nesse caso, $\gamma(t) = (t,t^2)$ é uma curva cujo traço é uma parábola. Observe que essa **não é a única parametrização**. Por exemplo $(\frac{t}{2}, \frac{t^2}{4})$ também é uma parametrização na reta. Isso levanta uma questão: temos duas parametrizações diferentes para a mesma curva. Como dizer que elas são iguais, em um certo sentido, já que suas imagens são iguais? 
+Vamos encontrar uma parametrização para a *parábola*  $y = x^2$ na reta. Seja $\gamma(t) = (\gamma_1(t), \gamma_2(t))$. Pela relação, temos que $\gamma_2(t) = \gamma_1(t)^2, \forall t \in \mathbb{R}$. Uma solução trivial é colocar $\gamma_1(t) = t$. Nesse caso, $\gamma(t) = (t,t^2)$ é uma curva cujo traço é uma parábola. Observe que essa **não é a única parametrização**. Por exemplo $(\frac{t}{2}, \frac{t^2}{4})$ também é uma parametrização na reta. Isso levanta uma questão: temos duas parametrizações diferentes para a mesma curva. Como dizer que elas são iguais, em um certo sentido, já que suas imagens são iguais? 
 
 ### Exemplo 2 
 
@@ -82,7 +81,7 @@ plt.show()
 
 ## Vetor tangente
 
-Em geral, quando estudamos curvas e superfícies, é comum encontrar o tempo *suave* associado. A definição de função suavde varia em cada contexto e pode ir desde uma função diferenciável com função contínua até função que tem derivada de qualquer ordem (sempre considerando o intervalo $I$ de definição. 
+Em geral, quando estudamos curvas e superfícies, é comum encontrar o termo *suave* associado. A definição de função suave varia em cada contexto e pode ir desde uma função diferenciável com derivada contínua até função que tem derivada de qualquer ordem (sempre considerando o intervalo $I$ de definição). 
 
 Lembre que se $\gamma(t) = (\gamma_1(t), ..., \gamma_n(t)$, a derivada de $\gamma$ é 
 $$\dot{\gamma(t)} = (\dot{\gamma_1}(t), ..., \dot{\gamma_n}(t)).$$
@@ -105,7 +104,7 @@ s(t) = \int_{t_0}^t ||\dot{\gamma}(s)||ds
 $$
 Se escolhermos um ponto $\tilde{t}_0$ diferente, o resultado será diferente. 
 
-Dizemos que a curva tem **velocidade unitária** se $||\dot{\gamma}(t)|| = 1$
+Dizemos que a curva tem **velocidade unitária** (ou é parametrizada pelo comprimento de arco    ) se $||\dot{\gamma}(t)|| = 1$
 
 ## Reparametrização
 

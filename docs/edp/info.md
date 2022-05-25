@@ -3,8 +3,6 @@
 Monitoria de Equações Diferenciais Parciais correspondente ao período de 2021.2.  
 
 - Dia: Quinta-feira, 18h até 20h
-- [Link Google Meet](https://meet.google.com/cgc-upbq-emp)
-- [Monitorias gravadas](https://gvmail-my.sharepoint.com/:f:/g/personal/b37214_fgv_edu_br/ErWT7sNUNNxGpA4ZW-G1AQoBo2kwjGCnP8ln40pHyYE6Mw?e=f55z2T)
 
 ## Tópicos
 
@@ -29,11 +27,11 @@ Monitoria de Equações Diferenciais Parciais correspondente ao período de 2021
 
 |Número|Itens discutidos|Solução|
 |------|----------------|-------|
-|[1](/files/disciplines/edp/lista1.pdf)|Equações diferenciais ordinárias|[1](/files/disciplines/edp/solutions1.pdf)|
-|[2](/files/disciplines/edp/lista2.pdf)|Método das características|[2](/files/disciplines/edp/solutions2.pdf)|
-|[3](/files/disciplines/edp/lista3.pdf)|Método das características e energia|[3](/files/disciplines/edp/solutions3.pdf)|
-|[4](/files/disciplines/edp/lista4.pdf)|Equação da onda|[4](/files/disciplines/edp/solutions4.pdf)|
-|[5](/files/disciplines/edp/lista5.pdf)|Transformada de Fourier e Equação do Calor|[5](/ta-sessions/edp/solutions5/solutions5)|
+|[1](/files/disciplines/edp/lista1.pdf)|Equações diferenciais ordinárias|[1](/ta-sessions/unavailable)|
+|[2](/files/disciplines/edp/lista2.pdf)|Método das características|[2](/ta-sessions/unavailable)|
+|[3](/files/disciplines/edp/lista3.pdf)|Método das características e energia|[3](/ta-sessions/unavailable)|
+|[4](/files/disciplines/edp/lista4.pdf)|Equação da onda|[4](/ta-sessions/unavailable)|
+|[5](/files/disciplines/edp/lista5.pdf)|Transformada de Fourier e Equação do Calor|[5](/ta-sessions/unavailable)|
 
 ## Notas
   
@@ -48,7 +46,7 @@ Monitoria de Equações Diferenciais Parciais correspondente ao período de 2021
 
 |Ano|Bimestre|Questões|Soluções|Observações|
 |---|--------|--------|--------|-----------|
-|2021|A1|[ver arquivo](/files/disciplines/edp/a1.pdf)|[ver arquivo](/files/disciplines/edp/a1_solutions.pdf)|[ver código](https://github.com/lucasmoschen/ta-sessions/tree/master/Partial_Differential_Equations/lists/a1/)|
+|2021|A1|[ver arquivo](/files/disciplines/edp/a1.pdf)|[ver arquivo](/ta-sessions/unavailable)|[ver código](/ta-sessions/unavailable)|
 
 ## Sugestões Adicionais 
 

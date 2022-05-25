@@ -1,12 +1,14 @@
-site_name: Teaching Assistant 
+site_name: Teaching Assistant
 nav: 
   - Home: index.md
-  - Análise Numérica: analisenum/info.md
-  - EDP: edp/info.md
-  - Curvas: curvas/info.md
-  - Estatística: infestatistica/info.md
-  - EDO: edo/info.md
   - Álgebra Linear: alglin/info.md
+  - Análise Numérica: analisenum/info.md
+  - Curvas: curvas/info.md
+  - EDO: edo/info.md
+  - EDP: edp/info.md
+  - Estatística: 
+    - Inferência Estatística: infestatistica/info.md
+    - Estatística Bayesiana: bayesian/info.md
 
 theme:
   name: null

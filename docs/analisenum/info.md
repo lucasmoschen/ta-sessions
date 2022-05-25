@@ -3,8 +3,6 @@
 Monitoria de Introdução à Análise Numérica correspondente ao período de 2021.2.  
 
 - Dia: Sexta-feira, 11:10am até 12:50pm
-- [Link Google Meet](https://meet.google.com/kfq-nuoh-bos)
-- [Monitorias gravadas](https://gvmail-my.sharepoint.com/:f:/g/personal/b37214_fgv_edu_br/EkgP0bSiAJBPpG2Avs9YZ00BD1DxPUgYnQN67pfjGmYzEA?e=ShRNLV)
 - [Ementa da disciplina](/files/disciplines/numerical-analysis/ementa.pdf)
 
 ## Tópicos
@@ -25,12 +23,12 @@ Monitoria de Introdução à Análise Numérica correspondente ao período de 20
 
 |Número|Itens discutidos|Solução|
 |------|----------------|-------|
-|[1](/files/disciplines/numerical-analysis/lista1.pdf)|Aritmética do computador e equação recursiva|[1](/files/disciplines/numerical-analysis/solutions1.pdf)|
-|[2](/ta-sessions/analisenum/lista2)|Métodos iterativos para sistemas de equações lineares|[2](/files/disciplines/numerical-analysis/solutions2.pdf)|
-|[3](/files/disciplines/numerical-analysis/lista3.pdf)|Soluções de equações não lineares|[3](/files/disciplines/numerical-analysis/solutions3.pdf)|
-|[4](/files/disciplines/numerical-analysis/lista4.pdf)|Interpolação polinomial|[4](/files/disciplines/numerical-analysis/solutions4.pdf)|
-|[5](/files/disciplines/numerical-analysis/lista5.pdf)|Métodos numéricos para EDOs|[5](/files/disciplines/numerical-analysis/solutions5.pdf)|
-|[6](/files/disciplines/numerical-analysis/lista6.pdf)|Métodos numéricos para EDPs|[6](/files/disciplines/numerical-analysis/solutions6.pdf)|
+|[1](/files/disciplines/numerical-analysis/lista1.pdf)|Aritmética do computador e equação recursiva|[1](/ta-sessions/unavailable)|
+|[2](/ta-sessions/analisenum/lista2)|Métodos iterativos para sistemas de equações lineares|[2](/ta-sessions/unavailable)|
+|[3](/files/disciplines/numerical-analysis/lista3.pdf)|Soluções de equações não lineares|[3](/ta-sessions/unavailable)|
+|[4](/files/disciplines/numerical-analysis/lista4.pdf)|Interpolação polinomial|[4](/ta-sessions/unavailable)|
+|[5](/files/disciplines/numerical-analysis/lista5.pdf)|Métodos numéricos para EDOs|[5](/ta-sessions/unavailable)|
+|[6](/files/disciplines/numerical-analysis/lista6.pdf)|Métodos numéricos para EDPs|[6](/ta-sessions/unavailable)|
 
 ## Notas
   
@@ -42,8 +40,8 @@ Monitoria de Introdução à Análise Numérica correspondente ao período de 20
 
 |Ano|Bimestre|Prova|Soluções|
 |---|--------|-----|--------|
-|2020|A1|[ver arquivo](/files/disciplines/numerical-analysis/prova_a1_2020.pdf)|[ver arquivo](/files/disciplines/numerical-analysis/solucoes_a1_2020_parcial.pdf)|
-|2021|A1|[ver arquivo](/files/disciplines/numerical-analysis/prova_a1_2021.pdf)|[ver arquivo](/files/disciplines/numerical-analysis/solucoes_a1_2021.pdf)|
+|2020|A1|[ver arquivo](/files/disciplines/numerical-analysis/prova_a1_2020.pdf)|[ver arquivo](/ta-sessions/unavailable)|
+|2021|A1|[ver arquivo](/files/disciplines/numerical-analysis/prova_a1_2021.pdf)|[ver arquivo](/ta-sessions/unavailable)|
 
 ## Sugestões Adicionais 
 

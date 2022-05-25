@@ -2,7 +2,7 @@
 
 Este website foi desenvolvido para concentrar as informações sobre as
 monitorias que dei ao longo da minha vida acadêmica. Em particular durante a
-Graduação na Escola de Matemática Aplicada na Fundação Getulio Vargas (EMAp/FGV). 
+Graduação na Escola de Matemática Aplicada na Fundação Getulio Vargas ([FGV/EMAp](https://emap.fgv.br/)). 
 
 Eu espero que a informação aqui contida seja de interesse! Para sugestões e
 alterações, você pode usar o Issues do Github. 
@@ -21,6 +21,10 @@ alterações, você pode usar o Issues do Github.
     - Professor [Hugo A. de la Cruz Cancino](https://emap.fgv.br/corpo-docente/hugo-de-la-cruz-cancino)
 - Equações Diferenciais Parciais (2021.2)
     - Professor [Moacyr Alvim Horta Barbosa da Silva](https://emap.fgv.br/corpo-docente/moacyr-alvim-horta-barbosa-silva)
+- Curvas e Superfícies (2022.1)
+    - Professora [Asla Medeiros e Sá](https://sites.google.com/view/aslasa/home)
+- Estatística Bayesiana (2022.3)
+    - Professor [Eduardo Fonseca Mendes](https://sites.google.com/site/dudafmendes/)
 
 ## Referências interessantes de matemática 
 
