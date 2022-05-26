@@ -37,13 +37,14 @@ classic-curves). Você pode contribuir para aumentar o acervo!
 
 |Número|Itens discutidos|Solução|
 |------|----------------|-------|
-|[1](/files/disciplines/curvas-superficies2022/lista1.pdf)|Conceito de curva paramétrica, vetor tangente e exemplos|[1](/files/disciplines/curvas-superficies2022/solutions1.pdf)|
-|[2](/files/disciplines/curvas-superficies2022/lista2.pdf)|Reparametrização e comprimento de arco|[2](/files/disciplines/curvas-superficies2022/solutions2.pdf)|
-|[3](/files/disciplines/curvas-superficies2022/lista3.pdf)|Comprimento de arco, curvatura e diferenciabilidade|[3](/files/disciplines/curvas-superficies2022/solutions3.pdf)|
-|[4](/files/disciplines/curvas-superficies2022/lista4.pdf)|Curvatura e torção, triedro de Frenet|[4](/files/disciplines/curvas-superficies2022/solutions4.pdf)|
-|[5](/files/disciplines/curvas-superficies2022/lista5.pdf)|Superfícies regulares, mudança de parâmetro|[5](/files/disciplines/curvas-superficies2022/solutions5.pdf)|
-|[6](/files/disciplines/curvas-superficies2022/lista6.pdf)|Superfícies e desenhos|[6](/files/disciplines/curvas-superficies2022/solutions6.pdf)|
-|[7](/files/disciplines/curvas-superficies2022/lista7.pdf)|Topologia|[7](/files/disciplines/curvas-superficies2022/solutions7.pdf)|
+|[1](/files/disciplines/curvas-superficies2022/lista1.pdf)|Conceito de curva paramétrica, vetor tangente e exemplos|[1](/ta-sessions/unavailable)|
+|[2](/files/disciplines/curvas-superficies2022/lista2.pdf)|Reparametrização e comprimento de arco|[2](/ta-sessions/unavailable)|
+|[3](/files/disciplines/curvas-superficies2022/lista3.pdf)|Comprimento de arco, curvatura e diferenciabilidade|[3](/ta-sessions/unavailable)|
+|[4](/files/disciplines/curvas-superficies2022/lista4.pdf)|Curvatura e torção, triedro de Frenet|[4](/ta-sessions/unavailable)|
+|[5](/files/disciplines/curvas-superficies2022/lista5.pdf)|Superfícies regulares, mudança de parâmetro|[5](/ta-sessions/unavailable)|
+|[6](/files/disciplines/curvas-superficies2022/lista6.pdf)|Superfícies e desenhos|[6](/ta-sessions/unavailable)|
+|[7](/files/disciplines/curvas-superficies2022/lista7.pdf)|Topologia|[7](/ta-sessions/unavailable)|
+|[7](/files/disciplines/curvas-superficies2022/lista8.pdf)|Primeira e segunda formas fundamentais|[8](/ta-sessions/unavailable)|
 
 
 ### Notas
