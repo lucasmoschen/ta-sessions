@@ -44,7 +44,7 @@ classic-curves). Você pode contribuir para aumentar o acervo!
 |[5](/files/disciplines/curvas-superficies2022/lista5.pdf)|Superfícies regulares, mudança de parâmetro|[5](/ta-sessions/unavailable)|
 |[6](/files/disciplines/curvas-superficies2022/lista6.pdf)|Superfícies e desenhos|[6](/ta-sessions/unavailable)|
 |[7](/files/disciplines/curvas-superficies2022/lista7.pdf)|Topologia|[7](/ta-sessions/unavailable)|
-|[7](/files/disciplines/curvas-superficies2022/lista8.pdf)|Primeira e segunda formas fundamentais|[8](/ta-sessions/unavailable)|
+|[8](/files/disciplines/curvas-superficies2022/lista8.pdf)|Primeira e segunda formas fundamentais|[8](/ta-sessions/unavailable)|
 
 
 ### Notas
