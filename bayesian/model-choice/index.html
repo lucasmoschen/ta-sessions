@@ -147,11 +147,97 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
         <li class="first-level active"><a href="#escolha-de-modelos">Escolha de modelos</a></li>
+            <li class="second-level"><a href="#framework-padrao">Framework padrão</a></li>
+                
+                <li class="third-level"><a href="#modelagem-a-priori">Modelagem a priori</a></li>
+                <li class="third-level"><a href="#fator-de-bayes">Fator de Bayes</a></li>
+                <li class="third-level"><a href="#criterio-de-schwartz">Critério de Schwartz</a></li>
+                <li class="third-level"><a href="#desvio-bayesiano">Desvio bayesiano</a></li>
+            <li class="second-level"><a href="#ideias-adicionais">Ideias adicionais</a></li>
+                
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h1 id="escolha-de-modelos">Escolha de modelos</h1></div>
+<h1 id="escolha-de-modelos">Escolha de modelos</h1>
+<p>Podemos considerar a <strong>escolha de modelos</strong> como um caso especial de testagem, afinal estamos testando qual modelo usar.
+Todavia, cuidado adicional deve ser tomado porque estamos lidando com modelos potencialmente bastante diferentes, diferente de apenas verificarmos se o parâmetro de um modelo específico mora em uma região do espaço de parâmetros.</p>
+<p>Estamos agora considerando que a distribuição dos dados <script type="math/tex">f</script> é desconhecida, o que torna mais difícil condicionar em <script type="math/tex">x</script>.
+Isso também levanta a pergunta se <script type="math/tex">f</script> pertence mesmo à família considerada <script type="math/tex">\{f_{\theta} : \theta \in \Theta\}</script> e, de forma mais pronfunda, se um modelo verdadeiro de fato existe. 
+Considere inicialmente uma situação que temos modelos paramétricos competindo:
+<script type="math/tex; mode=display">
+\mathcal{M}_i : x \sim f_i(x|\theta_i). \theta_i \in \Theta_i,  i \in I. 
+</script>
+Do ponto de vista bayesiano, poderíamos contruir uma distribuição a priori para <script type="math/tex">I</script>, e todas as inferências deveriam ser baseadas na posteriori definida em <script type="math/tex">I</script>.
+Em geral, <script type="math/tex">I</script> é um conjunto pequeno, com distribuições conhecidas.</p>
+<hr />
+<p><code>📝</code> <strong>Exemplo</strong></p>
+<p>Em problemas de contagem, por exemplo o número de acidentes de carro em uma rodovia em um período de tempo, estamos modelando <script type="math/tex">N</script>. Podemos atribuir duas distribuições distitas: <script type="math/tex">\mathcal{M}_1 : N \sim \operatorname{Poi}(\lambda)</script> ou <script type="math/tex">\mathcal{M}_2 : N \sim \operatorname{NegBin}(m,p)</script>. 
+Note que a dimensão dos parâmetros é completamente diferente e cada distribuição tem suas particularidades.</p>
+<hr />
+<p>Podemos também atribuir modelos não paramétricos, quando pouca informação sobre o processo gerador é obtido. 
+Nesse caso, <script type="math/tex">I</script> é infinito e possivelmente não enumerável.
+Outro problema que precisamos enfrentar, é que modelos diferentes podem ter resultados similares e serem apropriados, mesmo que não sejam os verdadeiros (se é que isso existe!).
+Por fim, existe a situação de compararmos modelos em que um é submodelo do outro. 
+Nesse caso, em geral o modelo maior vai apresentar uma perda quadrática menor, por exemplo, mas mais parâmetros são estimados a partir da mesma amostra. 
+O clássico exemplo dessa situação é a escolha das variáveis que vão compor uma regressão linear. </p>
+<h2 id="framework-padrao">Framework padrão</h2>
+<h3 id="modelagem-a-priori">Modelagem a priori</h3>
+<p>Podemos extender o espaço dos parâmetros para <script type="math/tex">\boldsymbol{\Theta} = \cup_{i\in I} \{i\}\times \Theta_i</script>, em que <script type="math/tex">\mu \in I</script> é também um parâmetro.
+Assim, podemos definir <script type="math/tex">p_{i}</script> como a probabilidade a priori para o modelo <script type="math/tex">\mathcal{M}_i</script>. 
+Com isso, o Teorema de Bayes diz que 
+<script type="math/tex; mode=display">
+p(\mathcal{M}_i | x) \propto p_i\int_{\Theta_i}  f_i(x|\theta_i) \pi_i(\theta_i) \, d\theta_i.
+</script>
+Quando <script type="math/tex">I</script> é infinito, a construção da priori <script type="math/tex">(\pi_i, p_i)</script> para cada <script type="math/tex">i \in I</script> é delicada. 
+Além do mais, quando um modelo <script type="math/tex">i</script> é submodelo de outro <script type="math/tex">j</script>, deveria haver uma coerência entre <script type="math/tex">\pi_i</script> e <script type="math/tex">\pi_j</script> e, talvez, entre <script type="math/tex">p_i</script> e <script type="math/tex">p_j</script>. 
+Um outro ponto importante é que parâmetros comuns a modelos diferentes devem ser tratados como entidades separadas.
+Exceções devem ser consideradas caso a caso.</p>
+<h3 id="fator-de-bayes">Fator de Bayes</h3>
+<p>O fator de Bayes
+<script type="math/tex; mode=display">
+B_{12} = \frac{P(\mathcal{M}_1|x)}{P(\mathcal{M}_2|x)} \bigg/ \frac{P(\mathcal{M}_1)}{P(\mathcal{M}_2)}
+</script>
+é usado para comparar os modelos <script type="math/tex">\mathcal{M}_1</script> e <script type="math/tex">\mathcal{M}_2</script>. 
+O problema acontece quando queremos comparar muitos modelos.</p>
+<h3 id="criterio-de-schwartz">Critério de Schwartz</h3>
+<p>Considere a <em>expansão de Laplace</em> 
+<script type="math/tex; mode=display">
+\int_{\Theta} \exp\{n h(\theta)\} \, d\theta = \exp\{n h(\hat\theta)\} (2\pi)^{p/2} n^{-p/2} |H^{-1}(\hat\theta)| + O(n^{-1}),
+</script>
+em que <script type="math/tex">\hat{\theta}</script> é o argumento máximo de <script type="math/tex">h</script> e <script type="math/tex">H</script>é a Hessiana de <script type="math/tex">h</script>. 
+Aplicando essa aproximação ao fator de Bayes, obtemos 
+<script type="math/tex; mode=display">
+B_{12} \approx \frac{L_{1,n}(\hat\theta_{1,n})}{L_{2,n}(\hat\theta_{2,n})}\bigg|\frac{H_1^{-1}(\hat\theta_{1,n})}{H_2^{-1}(\hat\theta_{2,n})}\bigg|\left(\frac{n}{2\pi}\right)^{(p_1-p_2)/2},
+</script>
+em que <script type="math/tex">L_{i,n}</script> é a verossimilhança do modelo <script type="math/tex">i</script> para <script type="math/tex">n</script> observações e <script type="math/tex">\hat{\theta}_{i,n}</script> o respectivo argumento máximo.
+Portanto, 
+<script type="math/tex; mode=display">
+\log(B_{12}) \approx \log\lambda_n + \frac{p_2-p_1}{2}\log(n) + K(\hat\theta_{1,2}, \hat\theta_{2,n}),
+</script>
+em que <script type="math/tex">\lambda_n = L_{1,n}(\hat\theta_{1,n}) / L_{2,n}(\hat\theta_{2,n})</script>
+O critério de Schwartz é dado por 
+<script type="math/tex; mode=display">
+S = -\log \lambda_n - \frac{p_2-p_1}{2}\log(n) 
+</script>
+quando <script type="math/tex">\mathcal{M}_1 \subset \mathcal{M}_2</script> e o termo restante é negligenciável.</p>
+<p>Esse critério também é conhecido como <em>Critério de Informação de Bayes</em> (BIC). 
+Substituindo <script type="math/tex">1/2</script> por <script type="math/tex">\log(2)</script>, e temos o primeiro termo multiplicado por 2, temos o <em>Critério de Informação Akaike</em> (AIC). 
+Apesar de ser uma aproximação de primeira ordem para o fator de Bayes, a dependência na priori desaparece, e a comparação só é válida para modelos regulares, logo a relevância em Inferência Bayesiana é menor. </p>
+<h3 id="desvio-bayesiano">Desvio bayesiano</h3>
+<p>Uma alternativa ao AIC e ao BIC é o <em>Critério de Informação de Desvio</em> (DIC), definido como 
+<script type="math/tex; mode=display">
+\mathbb{E}[D(\theta)|x] + p_D = \mathbb{E}[D(\theta)|x] + (\mathbb{E}[D(\theta)|x] - D(\mathbb{E}[\theta|x])),
+</script>
+em que <script type="math/tex">D(\theta) = -2\log(f(x|\theta))</script> é uma medida de desvio. e <script type="math/tex">p_D</script>é uma penalização. 
+Assim, quanto menor o valor de <script type="math/tex">DIC</script>, melhor o modelo. </p>
+<h2 id="ideias-adicionais">Ideias adicionais</h2>
+<blockquote>
+<p><strong>Modelo médio:</strong> Uma forma de lidar com a escolha de modelos é não escolher um de fato, mas sim, incluir todos os modelos para lidar com a incerteza do modelo propriamente.
+Isso nem sempre é possível em questões científicas, já que a escolha de um modelo explicativo pode ser relevante.
+Além do mais, essa maneira parece infringir a parcimônia.</p>
+<p><strong>Projeção de modelos:</strong> essa abordagem é baseada na ideia de projetar um modelo <script type="math/tex">f(y|\theta)</script> em submodelos através de restrições em <script type="math/tex">\theta</script>. Isso permite a construção de uma única priori para <script type="math/tex">\theta</script> e, portanto, acomoda bem prioris impróprias. Dada uma restrição <script type="math/tex">\Theta_0</script>, uma ideia é considerar uma restrição aceitável se <script type="math/tex">d(f(\cdot|\theta). \Theta_0)< \epsilon</script>, em que <script type="math/tex">d</script> é uma medida de divergência, tal como a pseudo-distância de Kullback-Leibler.</p>
+</blockquote></div>
         
         
     </div>
