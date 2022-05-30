@@ -62,6 +62,9 @@ classic-curves). Você pode contribuir para aumentar o acervo!
 |29/04/2022|Definição de superfície|Monitoria presencial|Não|
 |02/05/2022|Lista 5|Monitoria presencial|Não|
 |09/05/2022|Lista 5|Monitoria presencial|Não|
+|26/05/2022|Lista 6|Monitoria presencial|Não|
+|29/05/2022|Lista 6|[Visualizar](/files/disciplines/curvas-superficies2022/monitoria29-06-2022.pdf)|Não|
+
 
 ## Período 2021.1
 
