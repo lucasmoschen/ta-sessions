@@ -42,6 +42,7 @@ utilizados são:
 |6|Capítulo 4 The Bayesian Choice: 4.5, 4.17, 4.40, 4.44|[6](/files/disciplines/bayesian-statistics/solutions6.pdf)|-|
 |7|Capítulo 5 The Bayesian Choice: 5.2, 5.6, 5.12, 5.42|[7](/files/disciplines/bayesian-statistics/solutions7.pdf)|5.11|
 |8|Capítulo 7 The Bayesian Choice: 7.1, 7.5, 7.12, 7,20|[8](/files/disciplines/bayesian-statistics/solutions8.pdf)|-|
+|9|Capítulo 10 The Bayesian Choice: 10.6, 10.9, 10.14, 10.17|[9](/files/disciplines/bayesian-statistics/solutions9.pdf)|-|
 
 ## Material adicional
 
