@@ -64,6 +64,8 @@ classic-curves). Você pode contribuir para aumentar o acervo!
 |09/05/2022|Lista 5|Monitoria presencial|Não|
 |26/05/2022|Lista 6|Monitoria presencial|Não|
 |29/05/2022|Lista 7|[Visualizar](/files/disciplines/curvas-superficies2022/monitoria29-05-2022.pdf)|Não|
+|07/06/2022|Cálculo em superfícies|[Visualizar](/files/disciplines/curvas-superficies2022/calculo.pdf)|Não|
+|07/06/2022|Formas fundamentais|[Visualizar](/files/disciplines/curvas-superficies2022/formas-fundamentais.pdf)|Não|
 
 
 ## Período 2021.1
