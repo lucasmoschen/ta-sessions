@@ -1,4 +1,4 @@
-site_name: Teaching Assistant
+site_name: Teaching Assistance
 nav: 
   - Home: index.md
   - Álgebra Linear: alglin/info.md
