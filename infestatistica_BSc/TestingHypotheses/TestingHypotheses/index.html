@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+
+    
+    <title>Teste de Hipóteses: Definições - Teaching Assistance</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../../css/base.min.css" rel="stylesheet">
+    <link href="../../../css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            
+              <a class="navbar-brand" href="../../..">Teaching Assistance</a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Graduação <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../alglin/info/">Álgebra Linear</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../analisenum/info/">Análise Numérica</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../curvas/info/">Curvas</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../edo/info/">Equações Diferenciais Ordinárias</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../edp/info/">Equações Diferenciais Parciais</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../info/">Inferência Estatística</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pós-graduação <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../bayesian/info/">Estatística Bayesiana</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../infestatistica_MSc/info/">Inferência Estatística</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://lucasmoschen.github.io">Página Inicial</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#teste-de-hipoteses-definicoes">Teste de Hipóteses: Definições</a></li>
+            <li class="second-level"><a href="#hipotese-nula-e-alternativa">Hipótese Nula e Alternativa</a></li>
+                
+            <li class="second-level"><a href="#hipotese-simples-e-composta">Hipótese Simples e Composta</a></li>
+                
+            <li class="second-level"><a href="#hipotese-unilateral-e-bilateral">Hipótese Unilateral e Bilateral</a></li>
+                
+            <li class="second-level"><a href="#regiao-critica">Região Crítica</a></li>
+                
+            <li class="second-level"><a href="#estatistica-de-teste">Estatística de Teste</a></li>
+                
+                <li class="third-level"><a href="#observacao-sobre-a-divisao-de-conjuntos">Observação sobre a divisão de conjuntos</a></li>
+            <li class="second-level"><a href="#funcao-de-poder-e-tipos-de-erro">Função de Poder e Tipos de Erro</a></li>
+                
+                <li class="third-level"><a href="#funcao-poder">Função Poder</a></li>
+                <li class="third-level"><a href="#erros-i-e-ii">Erros I e II</a></li>
+            <li class="second-level"><a href="#niveltamanho">Nível/Tamanho</a></li>
+                
+            <li class="second-level"><a href="#p-valor">P-valor</a></li>
+                
+        <li class="first-level "><a href="#equivalencia-entre-testes-e-conjuntos-de-confianca">Equivalência entre Testes e Conjuntos de Confiança</a></li>
+            <li class="second-level"><a href="#teorema">Teorema</a></li>
+                
+        <li class="first-level "><a href="#compreensao-e-implementacao">Compreensão e Implementação</a></li>
+            <li class="second-level"><a href="#exemplo">Exemplo</a></li>
+                
+        <li class="first-level "><a href="#testes-de-razao-verossimilhanca">Testes de Razão Verossimilhança</a></li>
+            <li class="second-level"><a href="#teorema_1">Teorema:</a></li>
+                
+            <li class="second-level"><a href="#testes-nao-enviesados">Testes não enviesados</a></li>
+                
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="teste-de-hipoteses-definicoes">Teste de Hipóteses: Definições</h1>
+<ol>
+<li>Hipótese Nula e Alternativa </li>
+<li>Região Crítica </li>
+<li>Estatística de Teste</li>
+<li>Função de Poder</li>
+<li>Tipos de Erro </li>
+<li>Nível e tamanho do teste</li>
+<li>P-valor</li>
+</ol>
+<p>Temos um problema estatístico que envolve um parâmetro <script type="math/tex">\theta</script> tal que tenha valor desconhecido, mas reside em um espaço <script type="math/tex">\Omega</script>. Suponha que particionemos <script type="math/tex">\Omega = \Omega_1 \dot\cup ~\Omega_2</script> e o estatístico está interessado se <script type="math/tex">\theta</script> está em <script type="math/tex">\Omega_0</script> ou está em <script type="math/tex">\Omega_1</script>. </p>
+<h2 id="hipotese-nula-e-alternativa">Hipótese Nula e Alternativa</h2>
+<p>Dizemos que <script type="math/tex">H_0</script> é a hipótese de que <script type="math/tex">\theta \in \Omega_0</script> e chamamos <script type="math/tex">H_0</script> de <strong>hipótese nula</strong>, enquanto <script type="math/tex">H_1</script> é a hipótese alternativa e representa <script type="math/tex">\theta \in H_1</script>. Queremos decidir qual das hipóteses é verdadeira (e só uma será, porque a partição é disjunta). Se decidimos que <script type="math/tex">\theta \in \Omega_1</script>, rejeitamos <script type="math/tex">H_0</script>, e se <script type="math/tex">\theta \in \Omega_0</script>, não rejeitamos <script type="math/tex">H_0</script>. </p>
+<h2 id="hipotese-simples-e-composta">Hipótese Simples e Composta</h2>
+<p>Suponha que <script type="math/tex">X_1, ..., X_n</script> formam uma amostra aleatória com pdf <script type="math/tex">f(x|\theta)</script>. Queremos testar a hipótese de que </p>
+<p>
+<script type="math/tex; mode=display">
+H_0: \theta \in \Omega_0
+</script>
+<script type="math/tex; mode=display">
+H_1: \theta \in \Omega_1
+</script>
+</p>
+<p>Se <script type="math/tex">\Omega_i</script> contem apenas um valor, então <script type="math/tex">H_i</script> é dita hipótese simples. Se contém mais de um valor, dizemos que é composta. </p>
+<h2 id="hipotese-unilateral-e-bilateral">Hipótese Unilateral e Bilateral</h2>
+<p>Seja <script type="math/tex">\theta</script> um parâmetro unidimensional. Dizemos que a hipótese <script type="math/tex">H_0</script> é unilateral (ou <em>one tailed</em>) quando é da forma <script type="math/tex">\theta \leq \theta_0</script> ou <script type="math/tex">\theta \geq \theta_0</script>. Ela será bilateral quando é do tipo <script type="math/tex">H_0 \neq \theta_0</script>. </p>
+<h2 id="regiao-critica">Região Crítica</h2>
+<p>Suponha que queremos testar a hipótese de que </p>
+<p>
+<script type="math/tex; mode=display">
+H_0: \theta \in \Omega_0 \text{ e } H_1: \theta \in \Omega_1
+</script>
+</p>
+<p>Quando queremos decidir qual hipótese escolher, observamos uma amostra dessa distribuição no espaço de amostras <script type="math/tex">S</script>. O dever do estatístico é especificar um procedimento que particione o conjunto em dois subconjuntos <script type="math/tex">S_0</script> e <script type="math/tex">S_1</script>, onde <script type="math/tex">S_1</script> contém os valores de <script type="math/tex">X</script> que rejeitam <script type="math/tex">H_0</script>. </p>
+<p><strong>Região crítica</strong> é o conjunto <script type="math/tex">S_1</script>, isto é, o conjunto de amostras que, a partir de um procedimento, rejeita <script type="math/tex">H_0</script>. </p>
+<p><img alt="cr" src="../critical_region_draw.jpg" /></p>
+<h2 id="estatistica-de-teste">Estatística de Teste</h2>
+<p>Seja <script type="math/tex">X_1, ..., X_n \overset{iid}{\sim} F(\theta)</script>. Sejam <script type="math/tex">T = r(X)</script> uma estatística e <script type="math/tex">R</script> um subconjunto da reta. Suponha que nosso procedimento de teste é o seguinte: </p>
+<blockquote>
+<p>Rejeitamos <script type="math/tex">H_0</script> se <script type="math/tex">T\in R</script>.</p>
+</blockquote>
+<p>Chamamos <script type="math/tex">T</script> de <strong>estatística de teste</strong> e <script type="math/tex">R</script> de <strong>região de rejeição</strong>. Dessa forma a região crítica será: <script type="math/tex">S_1 = \{x \in S: r(x) \in R\}</script>. </p>
+<p>Na prática a maioria dos testes é do tipo</p>
+<blockquote>
+<p>Rejeitamos <script type="math/tex">H_0</script> se <script type="math/tex">T \geq c, c \in \mathbb{R}</script>.</p>
+</blockquote>
+<h3 id="observacao-sobre-a-divisao-de-conjuntos">Observação sobre a divisão de conjuntos</h3>
+<p>É importante lembrar que há duas diferentes divisões:
+<script type="math/tex">\Omega = \Omega_0 \dot\cup \Omega_1</script>, que é a divisão do espaço dos parâmetros, e <script type="math/tex">S = S_1 \dot\cup S_1</script> é a divisão do espaço das amostras. Mas qual a relação entre eles? Se <script type="math/tex">X \in S_1</script>, então rejeitamos a hipótese <script type="math/tex">\theta \in \Omega_0</script>. Além do mais, podemos encontrar <script type="math/tex">S_1</script> e <script type="math/tex">S_2</script>, mas dificilmente saberemos em qual dos conjuntos <script type="math/tex">\theta</script> pertence. </p>
+<h2 id="funcao-de-poder-e-tipos-de-erro">Função de Poder e Tipos de Erro</h2>
+<h3 id="funcao-poder">Função Poder</h3>
+<p>Seja <script type="math/tex">\delta</script> um procedimento de teste (como esse assinalado acima). Se <script type="math/tex">S_1</script> é a região crítica, </p>
+<p>
+<script type="math/tex; mode=display">
+\pi(\theta|\delta) = P(X \in S_1|\theta) = P(T \in R|\theta)
+</script>
+</p>
+<p>Sendo que a última igualdade ocorre quando o proocedimento de teste é o citado acima. </p>
+<p><strong>O seu significado?</strong></p>
+<p>É a probabilidade, para cada valor de <script type="math/tex">\theta</script>, de que <script type="math/tex">\delta</script> rejeita <script type="math/tex">H_0</script>. Queremos, intuitivamente que:</p>
+<p>
+<script type="math/tex; mode=display">
+\theta \in \Omega_0 \rightarrow \text{ Queremos não rejeitar} H_0 \rightarrow \pi(\theta|\delta) = 0 
+</script>
+<script type="math/tex; mode=display">
+\theta \in \Omega_1 \rightarrow \text{ Queremos rejeitar} H_0 \rightarrow \pi(\theta|\delta) = 1 
+</script>
+</p>
+<p>Entretanto isso não é em geral o que acontece. Por isso definimos:</p>
+<h3 id="erros-i-e-ii">Erros I e II</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>
+<script type="math/tex">\theta \in \Omega_0</script>
+</th>
+<th>
+<script type="math/tex">\theta \in \Omega_1</script>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<script type="math/tex">\delta</script> rejeita <script type="math/tex">H_0</script>
+</td>
+<td>Erro Tipo I</td>
+<td>Certo</td>
+</tr>
+<tr>
+<td>
+<script type="math/tex">\delta</script> não rejeita <script type="math/tex">H_0</script>
+</td>
+<td>Certo</td>
+<td>Erro Tipo II</td>
+</tr>
+</tbody>
+</table>
+<p>Portanto se <script type="math/tex">\theta \in \Omega_0, \pi(\theta|\delta)</script> é a probabilidade de cometermos o erro do tipo I. Se <script type="math/tex">\theta \in \Omega_1, 1 - \pi(\theta|\delta)</script> é a probabilidade de cometer o erro do tipo II. </p>
+<h2 id="niveltamanho">Nível/Tamanho</h2>
+<p>Um teste que satisfaz <script type="math/tex">\pi(\theta|\delta) \leq \alpha_0, \forall \theta \in \Omega_0</script> é chamado de teste <strong>nível</strong> <script type="math/tex">\alpha_0</script>, ou que o teste tem nível de significância <script type="math/tex">\alpha_0</script>.  O <strong>tamanho</strong> de um teste é
+<script type="math/tex">\alpha(\delta) = \sup_{\theta \in \Omega_0} \pi(\theta, \delta)</script>. Um teste terá nível <script type="math/tex">\alpha_0</script> se, e só se, seu tamanho for no máximo <script type="math/tex">\alpha_0</script>. </p>
+<h2 id="p-valor">P-valor</h2>
+<p>É o menor nível <script type="math/tex">\alpha_0</script> tal que rejeitaríamos a hipótese nula a nível <script type="math/tex">\alpha_0</script> com os dados observados. </p>
+<blockquote>
+<p>Se rejeitamos a hipótese nula se, e somente se, o p-valor é no máximo <script type="math/tex">\alpha_0</script>, estamos usando um teste com nível de significância <script type="math/tex">\alpha_0</script>.</p>
+</blockquote>
+<h1 id="equivalencia-entre-testes-e-conjuntos-de-confianca">Equivalência entre Testes e Conjuntos de Confiança</h1>
+<h3 id="teorema">Teorema</h3>
+<p>Seja <script type="math/tex">\vec{X} = (X_1,...,X_n) \overset{iid}{\sim} F(\theta)</script>. Seja <script type="math/tex">g(\theta)</script>, e suponha que para todo valor <script type="math/tex">c</script> na imagem de <script type="math/tex">g</script> (ou seja, <script type="math/tex">c = g(x)</script>, para algum <script type="math/tex">x</script>), exista um teste <script type="math/tex">\delta_c</script> de nível <script type="math/tex">\alpha_0</script> para a hipótese </p>
+<p>
+<script type="math/tex; mode=display">
+H_{0,c}:g(\theta) = c, ~ H_{1,c}: g(\theta) \neq c
+</script>
+</p>
+<p>Defina </p>
+<p>
+<script type="math/tex">\omega(x) := \{c: \delta_c \text{ não rejeita } H_{0,c} \text{ se } \vec{X} = \vec{x} \text{ é observado } \}</script>. </p>
+<p>Então:
+<script type="math/tex; mode=display">
+P[g(\theta_0) \in \omega(\vec{X})|\theta = \theta_0] \geq 1 - \alpha_0,
+</script>
+</p>
+<p>para todo valor <script type="math/tex">\theta \in \Omega</script>. </p>
+<h1 id="compreensao-e-implementacao">Compreensão e Implementação</h1>
+<p>Teste de hipótese é um método para que façamos decisões estatísticas a partir dos dados. É uma forma de compreender (fazer inferância sobre) um parâmetro. </p>
+<blockquote>
+<p><strong>Exemplo:</strong> Belgas tem, em média, maior altura do que peruanos. </p>
+<p><strong>Exemplo 2:</strong> Temperatura não é um fator relevante para o processo de cultivo de uva.</p>
+</blockquote>
+<p>Estamos avaliando afirmações mutualmente exclusivas, <em>ou os belgas tem maior altura do que os peruanos, ou não tem!</em> Queremos saber qual dessas afirmações é suportada pelos dados que obtivermos. </p>
+<p>A hipótese nula é a afirmação a ser testada e muitas vezes estabelece uma conjectura de que as características observadas em uma população são por um acaso, isto é, o fator a ser estudado "não existe". Por exemplo: o número de voos entre Rio de Janeiro e São Paulo não tem correlação com o nível do mar no Japão. </p>
+<p>Em geral queremos anulá-la, rejeitá-la (daí o nome). </p>
+<h3 id="exemplo">Exemplo</h3>
+<p>Vamos considerar um exemplo simples utilizando a distribuição normal. É a distribuição com cálculos simples e uma boa visualização. A ideia nesse exemplo vai ser a seguinte: </p>
+<blockquote>
+<p>O preço do quilo ouro varia diariamente e essa variação em unidade de dólares será nosso objeto de interesse. Por exemplo: Se no dia 1 o preço mil e no dia 2 o preço era 1 050 e no dia 3 o preço é 1 025 temos que <script type="math/tex">X_1 = 50</script> e <script type="math/tex">X_2 = -25</script>. Vamos supor que as variações entre dois diferentes pares de dias são independentes (essa já uma simplificação da realidade!)</p>
+</blockquote>
+<p>Primeiro vamos importar os dados. </p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.patches</span> <span class="k">as</span> <span class="nn">mpatches</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">gold_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../data/gold.csv&#39;</span><span class="p">,</span> <span class="n">low_memory</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="c1"># There has a lot of data. I will get average diary from USD price </span>
+<span class="n">gold_df</span> <span class="o">=</span> <span class="n">gold_df</span><span class="p">[[(</span><span class="s1">&#39;Priced In&#39;</span><span class="p">,</span> <span class="s1">&#39;Price Type&#39;</span><span class="p">,</span> <span class="s1">&#39;Summary&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;USD&#39;</span><span class="p">,</span> <span class="s1">&#39;Ask&#39;</span><span class="p">,</span> <span class="s1">&#39;Average&#39;</span><span class="p">)]]</span>
+<span class="n">gold_df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Day&#39;</span><span class="p">,</span> <span class="s1">&#39;Price&#39;</span><span class="p">]</span>
+<span class="n">gold_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Day</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1/01/68</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2/01/68</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3/01/68</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4/01/68</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5/01/68</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p>Observe que existem diversos Nan values. Na prática eu teria que fazer alguma espécie de limpeza rigorosa. Nesse caso, para tornar tudo bem simples, vou apenas limpar. Também precisamos garantir que as informações estejam em formato <code>float</code>. </p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Inplace assegura que eu não crie outro DataFrame</span>
+<span class="n">gold_df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">gold_df</span><span class="o">.</span><span class="n">Price</span> <span class="o">=</span> <span class="n">gold_df</span><span class="o">.</span><span class="n">Price</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">gold_df</span><span class="p">[</span><span class="s1">&#39;Price&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Preço do Ouro em Dólares&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<p><img alt="png" src="../output_11_0.png" /></p>
+<div class="highlight"><pre><span></span><code><span class="n">variation</span> <span class="o">=</span> <span class="n">gold_df</span><span class="o">.</span><span class="n">Price</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">variation</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">((</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span><span class="mi">50</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Distribuição da variação diária&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<p><img alt="png" src="../output_12_0.png" /></p>
+<p>De fato não parece uma normal (na verdade uma distribuição de cauda mais pesada talvez fosse interessante. Mas tudo bem!), mas vamos modelar dessa forma. A partir de agora vamos nos preocupar mais com as definições para dar a devida interpretação. O exemplo é só motivador. </p>
+<p><strong>Qual hipótese queremos testar? O que queremos saber sobre a variação?</strong></p>
+<p>A pergunta que nasce é o seguinte: será que a média dessa distribuição é 0? Isto é, será que se calcularmos as médias das variações, teremos que com infinitas observações, o resultado seria 0? Isso é importante porque vai nos ajudar a identificar se existe uma tendência de crescimento nas variações diárias. </p>
+<blockquote>
+<p><strong>Hipótese Nula:</strong> <script type="math/tex">\mu = 0</script>, onde <script type="math/tex">X_1, ..., X_n \sim N(\mu, \sigma^2)</script>.</p>
+<p><strong>Hipótese Alternativa:</strong> <script type="math/tex">\mu \neq 0</script>. </p>
+</blockquote>
+<p>Vamos supor que <script type="math/tex">\sigma</script> é conhecido e que <script type="math/tex">\sigma^2 = 73</script>, mas a média é desconhecida. </p>
+<ol>
+<li><strong>Quem é <script type="math/tex">\Omega_0</script> e <script type="math/tex">\Omega_1</script>?</strong></li>
+</ol>
+<p>
+<script type="math/tex">\Omega_0</script> é a região dos parâmetros onde a hipótese nula é verdadeira, isto é <script type="math/tex">\Omega_0 = \{0\}</script>, é um conjunto unitário. Por outro lado <script type="math/tex">\Omega_1 = \mathbb{R} - \{0\}</script>, por que a média pode assumir, em teoria, qualquer valor real. </p>
+<ol>
+<li><strong>Qual é a região crítica?</strong></li>
+</ol>
+<p>Bom, ainda não podemos determinar essa resposta, afinal para determinar a região crítica (subconjunto do espaço dos estados em que se rejeita a hipótese nula), precisamos de um procedimento de teste. Mas vamos imaginar que o espaço de estados é <script type="math/tex">S = \mathbb{R}^2</script>, pois vamos considerar apenas duas amostras, inicialmente (queremos visualizar S). </p>
+<ol>
+<li><strong>Qual será nosso procedimento de teste?</strong></li>
+</ol>
+<p>Procedimento de teste é uma maneira de tomarmos uma decisão. Ele tem a forma: rejeitamos <script type="math/tex">H_0</script> se isso acontecer. </p>
+<p>Um exemplo bobo seria: Rejeitamos a hipótese nula se <script type="math/tex">0 \not \in (\min(X_1, X_2), \max(X_1, X_2))</script>
+</p>
+<p>O problema é que em geral esse tipo de procedimento não é interessante. Para isso estabelecemos uma <strong>estatística de teste</strong> <script type="math/tex">T</script> e uma <strong>Região de Rejeição</strong> <script type="math/tex">T</script>, tal que nosso procedimento seja: </p>
+<blockquote>
+<p>Rejeitamos <script type="math/tex">H_0</script> se <script type="math/tex">T \in R</script>. </p>
+</blockquote>
+<p>Nesse caso vamos considerar <script type="math/tex">T = \frac{X_1 + X_2}{2}</script> e vamos rejeitar a hipótese se <script type="math/tex">|T|</script> estiver muito longe de <script type="math/tex">0</script>, isto é, se <script type="math/tex">|T| \geq c</script>. Portanto definimor nossa <strong>Região de Rejeição</strong> como <script type="math/tex">(-\infty,-c]\cup[c, + \infty)</script>, o que reduz nosso problema a determinar <script type="math/tex">c</script>. </p>
+<p>Qual <script type="math/tex">c</script> seria razoável? 4, 5, 1? Essa pergunta não vai ser respondida. Antes vamos visualizar como fica a região crítica (2). Rejeitamos a hipótese se </p>
+<p>
+<script type="math/tex; mode=display">
+\left|\frac{X_1 + X_2}{2}\right| \geq c \rightarrow |X_1 + X_2| \geq 2c \rightarrow X_1 + X_2 \geq 2c \text{ ou } X_1 + X_2 \leq -2c
+</script>
+</p>
+<p>Assim: <script type="math/tex">S_1 = \{(x_1, x_2): x_1 + x_2 \geq 2c \text{ ou } x_1 + x_2 \leq -2c\}</script>
+</p>
+<div class="highlight"><pre><span></span><code><span class="n">C</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+<span class="n">decision</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">c</span><span class="p">:</span> <span class="mi">1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">logical_or</span><span class="p">(</span><span class="n">x1</span> <span class="o">+</span> <span class="n">x2</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="o">*</span><span class="n">c</span><span class="p">,</span> <span class="n">x1</span> <span class="o">+</span> <span class="n">x2</span> <span class="o">&lt;=</span> <span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">c</span><span class="p">)</span>
+<span class="n">x1</span><span class="p">,</span><span class="n">x2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mf">0.5</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mf">0.5</span><span class="p">))</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">21</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">C</span><span class="p">):</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span><span class="n">x2</span><span class="p">,</span><span class="n">decision</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span><span class="n">x2</span><span class="p">,</span> <span class="n">c</span><span class="p">),</span> <span class="n">levels</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;#fdcdac&#39;</span><span class="p">,</span> <span class="s1">&#39;#cbd5e8&#39;</span><span class="p">])</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$x_1$&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$x_2$&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Região Crítica quando c = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">c</span><span class="p">),</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span> <span class="o">=</span> <span class="p">[</span><span class="n">mpatches</span><span class="o">.</span><span class="n">Patch</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#fdcdac&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$S_0$&#39;</span><span class="p">),</span>
+                            <span class="n">mpatches</span><span class="o">.</span><span class="n">Patch</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#cbd5e8&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$S_1$&#39;</span><span class="p">)])</span>
+
+    <span class="n">sample</span> <span class="o">=</span> <span class="n">gold_df</span><span class="o">.</span><span class="n">Price</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">X1</span><span class="p">,</span> <span class="n">X2</span> <span class="o">=</span> <span class="n">sample</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">sample</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X1</span><span class="p">,</span> <span class="n">X2</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">X1</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">X2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;$(X_1, X_2)$&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">15</span><span class="p">)</span>
+</code></pre></div>
+<p><img alt="png" src="../output_15_0.png" /></p>
+<ol>
+<li><strong>Como a função poder entra nessa história?</strong></li>
+</ol>
+<p>A função poder é uma função do parâmetro, no caso <script type="math/tex">\mu</script>, e retorna a probabilidade de rejeitarmos a hipótese, considerando esse parâmetro. Isto é, </p>
+<p>
+<script type="math/tex; mode=display">
+\pi(\mu) = P_{\mu}((X_1, X_2) \in S_1)
+</script>
+</p>
+<p>O que poderíamos fazer, então, é obter a distribuição conjunta de <script type="math/tex">(X_1, X_2)</script> e integrar na região <script type="math/tex">S_1</script>. </p>
+<p>Vamos considerar dois casos separados:</p>
+<ul>
+<li>
+<p>
+<script type="math/tex">\mu \in \Omega_0</script>: Não sabemos disso, e em geral não é possível sabermos. Nesse caso <script type="math/tex">\pi(\mu)</script> indica a probabilidade de rejeitarmos a hipótese nula, mesmo ela sendo verdadeira (chamamos isso de Erro do Tipo I).</p>
+</li>
+<li>
+<p>
+<script type="math/tex">\mu \in \Omega_1</script>: Nesse caso <script type="math/tex">\pi(\mu)</script> indica a probabilidade de rejeitarmos a hipótese nula, quando de ela é falsa. Nesse caso <script type="math/tex">1 - \pi(\mu)</script> é a probabilidade de não rejeitarmos a hipótese nula, quando de fato deveríamos (chamamos de Erro do Tipo II). ]</p>
+</li>
+</ul>
+<p>A função poder se trata mais do teste que estamos usando do que os dados em si. Por isso, podemos comparar testes usando essa função poder. Então vamos ver nesse caso quem é a função poder! Vou calcular usando um método numérico para que peguem a ideia. Agora é possível fazer as contas, mas nem sempre é trivial. Assim teremos apenas aproximação da função poder. </p>
+<div class="highlight"><pre><span></span><code><span class="n">C</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+<span class="n">mu_v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">10000</span>
+<span class="n">power</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">C</span><span class="p">),</span><span class="nb">len</span><span class="p">(</span><span class="n">mu_v</span><span class="p">)))</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">C</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">mu</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">mu_v</span><span class="p">):</span> 
+        <span class="n">X1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="n">mu</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="mi">73</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="n">n</span><span class="p">)</span>
+        <span class="n">X2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="n">mu</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="mi">73</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="n">n</span><span class="p">)</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">X1</span> <span class="o">+</span> <span class="n">X2</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="o">*</span><span class="n">c</span><span class="p">)</span> <span class="o">+</span> <span class="nb">sum</span><span class="p">(</span><span class="n">X1</span> <span class="o">+</span> <span class="n">X2</span> <span class="o">&lt;=</span> <span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">c</span><span class="p">))</span><span class="o">/</span><span class="n">n</span>
+        <span class="n">power</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">p</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mu_v</span><span class="p">,</span> <span class="n">power</span><span class="p">[</span><span class="n">i</span><span class="p">,:],</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;c = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Função poder&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\mu$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Prob&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<p><img alt="png" src="../output_17_0.png" /></p>
+<ol>
+<li>Vamos definir <script type="math/tex">c</script> agora? </li>
+</ol>
+<p>Sim, vamos. Para isso vamos usar o ponto (4) e a definição de tamanho do teste. Uma forma possível de se fazer isso é a seguinte: limitamos o Erro I por <script type="math/tex">\alpha_0</script> e miniminizamos o Erro II, isso é minimizamos <script type="math/tex">1 - \pi(\mu)</script> quando <script type="math/tex">\mu \neq 0</script>, ou melhor, maximizamos <script type="math/tex">\pi(\mu)</script>. </p>
+<p>Para isso dizemos que o tamanho do teste é o máximo da função poder, quando <script type="math/tex">\theta \in \Omega_0</script>. Nesse caso <script type="math/tex">\alpha(\delta) = \pi(0)</script>. Queremos, então que:</p>
+<p>
+<script type="math/tex; mode=display">
+\pi(0) = P_{\mu = 0}(T \geq c) \leq \alpha_0
+</script>
+</p>
+<p>Precisamos então encontrar <script type="math/tex">c</script> tal que <script type="math/tex">\pi(\mu) = P_{\mu \neq 0}(T \ge c)</script> seja maximado.</p>
+<p>Observamos que, quando <script type="math/tex">\mu = 0</script>, <script type="math/tex">T \sim N(0, \sigma^2/2) \rightarrow \sqrt{2}T/\sigma = Z \sim N(0,1)</script>. Logo </p>
+<p>
+<script type="math/tex; mode=display">P(|T| \ge c) = P(|Z| \ge \sqrt{2}c/\sigma) = 2(1 - \Phi(\sqrt{2}c/\sigma)) \leq \alpha_0</script>
+</p>
+<p>Para maximizar <script type="math/tex">\pi(\mu)</script> em <script type="math/tex">\Omega_1</script>, observamos que <script type="math/tex">\pi(\mu)</script> decresce com <script type="math/tex">c</script> (os gráficos acima representam bem isso). Como queremos maximizar, gostaríamos de tomar <script type="math/tex">c</script> o mínimo possível, restrito a </p>
+<p>
+<script type="math/tex; mode=display">2(1 - \Phi(\sqrt{2}c/\sigma)) \leq \alpha_0 \rightarrow 1 - \alpha_0/2 \leq \Phi(\sqrt{2}c/\sigma)</script>
+</p>
+<p>como vimos acima. Estamos lidando com uma função inversível, então </p>
+<p>
+<script type="math/tex; mode=display">
+\frac{\sigma}{\sqrt{2}}\Phi^{-1}(1 - \alpha_0/2) \leq c
+</script>
+</p>
+<p>O melhor valor de <script type="math/tex">c</script> que respeita essa condição e maximiza a relação é, portanto </p>
+<p>
+<script type="math/tex; mode=display">
+c = \frac{\sigma}{\sqrt{2}}\Phi^{-1}(1 - \alpha_0/2) 
+</script>
+</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
+</code></pre></div>
+<p>Lembre que <script type="math/tex">\alpha_0</script> indica o máximo de Erro I que aceitamos. </p>
+<div class="highlight"><pre><span></span><code><span class="n">alpha0</span> <span class="o">=</span> <span class="mf">0.05</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">73</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha0</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</code></pre></div>
+<pre><code>11.841167465893536
+</code></pre>
+<p>É bem próximo do gráfico acima mostrado, quando testamos para <script type="math/tex">c = 10</script>. </p>
+<div class="highlight"><pre><span></span><code><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">norm</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">73</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">t</span><span class="p">[(</span><span class="n">t</span> <span class="o">&lt;</span> <span class="o">-</span><span class="n">c</span><span class="p">)],</span> <span class="n">X</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">t</span><span class="p">[(</span><span class="n">t</span> <span class="o">&lt;</span> <span class="o">-</span><span class="n">c</span><span class="p">)]),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">t</span><span class="p">[(</span><span class="n">t</span> <span class="o">&gt;</span> <span class="n">c</span><span class="p">)],</span> <span class="n">X</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">t</span><span class="p">[(</span><span class="n">t</span> <span class="o">&gt;</span> <span class="n">c</span><span class="p">)]),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Distribuição Normal e Região de Rejeição&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<p><img alt="png" src="../output_23_0.png" /></p>
+<p>Por exemplo vamos tirar duas amostras de nossa distribuição</p>
+<div class="highlight"><pre><span></span><code><span class="n">X1</span><span class="p">,</span> <span class="n">X2</span> <span class="o">=</span> <span class="n">gold_df</span><span class="o">.</span><span class="n">Price</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">X1</span> <span class="o">+</span> <span class="n">X2</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+<span class="n">T</span> <span class="o">&gt;=</span> <span class="n">c</span>
+</code></pre></div>
+<pre><code>False
+</code></pre>
+<ol>
+<li>Mas como escolher <script type="math/tex">\alpha_0</script> agora? </li>
+</ol>
+<p>Agora entra o conceito mais complexo, o do p-valor. Ele está associado à ideia de escolher o menor <script type="math/tex">\alpha_0</script> possível, para que rejeitemos a hipótese nula. Isso significa o seguinte:</p>
+<blockquote>
+<p>Queremos minimizar o Erro do Tipo I e rejeitar a Hipótese Nula com os dados que obtivemos. Se o p-valor for muito alto, significa que o Erro do Tipo I é grande se rejeitarmos a hipótese nula. Você apostaria que podemos rejeitar a hipótese nula nesse caso? Agora, se o p-valor for pequeno e rejeitarmos nossa hipótese nula, o erro do tipo I vai ser pequeno, então apostar que a hipótese nula deva ser rejeitada é mais confortável.</p>
+</blockquote>
+<p>Assim não escolhemos <script type="math/tex">\alpha_0</script>, só observamos seu menor valor e vemos se faz sentido. Em geral se p-valor &lt; 0.05, as pessoas rejeitam a hipótese nula. </p>
+<p>No nosso caso calcular o p-valor é tranquilo. Para calcular o p-valor, <strong>precisamos dos dados</strong>. Queremos rejeitar a hipótese nula, isto é, queremos que <script type="math/tex">t \geq c</script> que <script type="math/tex">\alpha_0</script> seja o menor possível, onde <script type="math/tex">t</script> é o valor observado de <script type="math/tex">T</script>. Vamos diminuindo <script type="math/tex">\alpha_0</script> e para cada <script type="math/tex">\alpha_0</script> podemos calcular <script type="math/tex">c</script> e verificamos se <script type="math/tex">t \ge c</script>. Podemos fazer isso até que <script type="math/tex">c = t</script>, assim:
+<script type="math/tex; mode=display">
+t = \frac{\sigma}{\sqrt{2}}\Phi^{-1}(1 - \alpha_0/2) \rightarrow \alpha_0 = 2\left(1 - \Phi\left(\frac{\sqrt{2}}{\sigma}t\right)\right)
+</script>
+</p>
+<div class="highlight"><pre><span></span><code><span class="n">p_value</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">73</span><span class="p">)</span><span class="o">*</span><span class="n">T</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">p_value</span><span class="p">)</span>
+</code></pre></div>
+<pre><code>0.8477386286989927
+</code></pre>
+<p>Como o p-valor é alto, não faz sentido rejeitar a hipótese nula. </p>
+<p>Encerramos a atividade aqui!</p>
+<h1 id="testes-de-razao-verossimilhanca">Testes de Razão Verossimilhança</h1>
+<p>São testes baseados na <a href="https://lucasmoschen.github.io/TA_sessions/infestatistica/MaximumLikelihoodEstimator/MaximumLikelihoodEstimator/#funcao-verossimilhanca">verossimilhaça</a> do modelo <script type="math/tex">f_n(x|\theta)</script>. Suponha que queremos testar a hipótese: </p>
+<p>
+<script type="math/tex; mode=display">
+H_0: \theta \in \Omega_0
+</script>
+<script type="math/tex; mode=display">
+H_1: \theta \in \Omega_1
+</script>
+</p>
+<p>Vamos lembrar que a função de verossimilhança tende a ser mais alta próximo do valor verdadeiro do parâmetro. Com isso em mente, gostaríamos de saber se a verossimilhança é maior em <script type="math/tex">\Omega_0</script> ou em <script type="math/tex">\Omega_1</script>. Para isso, definimos a <strong>estatística de razão de verossimilhança</strong>:
+<script type="math/tex; mode=display">
+\Lambda(x) = \frac{\sup_{\theta \in \Omega_0}f_n(x|\theta)}{\sup_{\theta \in \Omega}f_n(x|\theta)}
+</script>
+Observe que o denominador é o valor da função de verossimilhança no Estimador de Máxima Verossimilhança. Se o parâmetro verdadeiro estiver em <script type="math/tex">\Omega_0</script>, o númerador deve ser mais alto em <script type="math/tex">\Omega_0</script>, então a estatística se aproxima de 1. Baseado nisso, o <strong>teste de razão de verossimilhança</strong> é:</p>
+<blockquote>
+<p>Rejeitamos <script type="math/tex">H_0</script> se <script type="math/tex">\Lambda(x) \le k</script>, para algum <script type="math/tex">k</script>. </p>
+</blockquote>
+<h3 id="teorema_1">Teorema:</h3>
+<p>Seja <script type="math/tex">\Omega \in \mathbb{R}^p</script> aberto e suponha que <script type="math/tex">H_0</script> seja <script type="math/tex">\theta_{i_1} = \theta_{01}, ..., \theta_{i_k} = \theta_{0k}</script>, onde <script type="math/tex">\theta = (\theta_1, ..., \theta_p)</script>. Assuma que <script type="math/tex">H_0</script> seja verdadeira e a função de verossimilhança satisfaça as condições para que o MLE seja assintoticamente normal e assintoticamente eficiente. Então:
+<script type="math/tex; mode=display">
+-2\log\Lambda(x) \overset{d}{\to} \chi^2(k)
+</script>
+(converge em distribuição quando <script type="math/tex">n \to \infty</script>).</p>
+<p>A demonstração pode ser encontrada no <a href="https://www.statlect.com/fundamentals-of-statistics/likelihood-ratio-test">StatLect</a></p>
+<h2 id="testes-nao-enviesados">Testes não enviesados</h2>
+<p>Um teste é dito não enviesado se <script type="math/tex">\forall \theta \in \Omega_0</script> e <script type="math/tex">\theta ' \in \Omega_1,</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\pi(\theta|\delta) \le \pi(\theta '|\delta)
+</script>
+</p>
+<p>Não é muito utilizado dado seu difícil cálculo numérico e não traz resultados quem valem a pena. </p></div>
+        
+        
+    </div>
+
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
+
+          
+          
+      </footer>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = "../../.."</script>
+    
+    <script src="../../../js/base.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>

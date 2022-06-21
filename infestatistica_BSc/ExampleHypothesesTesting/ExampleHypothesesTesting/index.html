@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+
+    
+    <title>Simples Exemplos em Teste de Hipóteses - Teaching Assistance</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../../css/base.min.css" rel="stylesheet">
+    <link href="../../../css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            
+              <a class="navbar-brand" href="../../..">Teaching Assistance</a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Graduação <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../alglin/info/">Álgebra Linear</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../analisenum/info/">Análise Numérica</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../curvas/info/">Curvas</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../edo/info/">Equações Diferenciais Ordinárias</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../edp/info/">Equações Diferenciais Parciais</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../info/">Inferência Estatística</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pós-graduação <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../bayesian/info/">Estatística Bayesiana</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../infestatistica_MSc/info/">Inferência Estatística</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://lucasmoschen.github.io">Página Inicial</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#simples-exemplos-em-teste-de-hipoteses">Simples Exemplos em Teste de Hipóteses</a></li>
+            <li class="second-level"><a href="#referencia-dr-tirthajyoti-sarkar-fremont-94536">Referência:  Dr. Tirthajyoti Sarkar, Fremont, 94536</a></li>
+                
+            <li class="second-level"><a href="#proporcao-de-uma-populacao">Proporção de uma População</a></li>
+                
+                <li class="third-level"><a href="#teste-z-para-proporcoes">Teste Z para proporções</a></li>
+                <li class="third-level"><a href="#conclusao-do-teste-de-hipoteses">Conclusão do teste de hipóteses</a></li>
+            <li class="second-level"><a href="#diferenca-entre-propocoes-de-duas-populacoes">Diferença entre propoções de duas populações</a></li>
+                
+                <li class="third-level"><a href="#teste-t-para-proporcoes">Teste T para proporções</a></li>
+                <li class="third-level"><a href="#conclusao-sobre-o-teste-de-hipoteses">Conclusão sobre o teste de hipóteses</a></li>
+                <li class="third-level"><a href="#mas-o-que-acontece-se-essas-proporcoes-se-mantiveram-para-mais-pessoas">Mas o que acontece se essas proporções se mantiveram para mais pessoas?</a></li>
+            <li class="second-level"><a href="#diferenca-entre-medias-de-populacoes">Diferença entre médias de populações</a></li>
+                
+                <li class="third-level"><a href="#vamos-usar-o-t-test-descrito-em-welch">Vamos usar o t-test descrito em Welch.</a></li>
+                <li class="third-level"><a href="#conclusao-no-teste-de-hipoteses">Conclusão no teste de hipóteses</a></li>
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="simples-exemplos-em-teste-de-hipoteses">Simples Exemplos em Teste de Hipóteses</h1>
+<h3 id="referencia-dr-tirthajyoti-sarkar-fremont-94536">Referência:  <a href="https://github.com/tirthajyoti">Dr. Tirthajyoti Sarkar</a>, Fremont, 94536</h3>
+<p>Vamos lembrar que nosso objetivo é testar hipóteses científicas com uma formulação estatística, a fim de fazer alguma inferência sobre os parâmetros de algum modelo. </p>
+<p>Os testes que serão discutidos nesse notebook são: </p>
+<ol>
+<li>Proporção de uma população. </li>
+<li>Deferença entre proporção de populações</li>
+<li>Média de uma população. </li>
+<li>Diferença enre médias de populações. </li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</code></pre></div>
+<h2 id="proporcao-de-uma-populacao">Proporção de uma População</h2>
+<ol>
+<li>
+<p><strong>Questão</strong>: Em anos anteriores, 52% dos pais acreditavam que a falta de sono era causada por eletrônicos e as médias sociais em seus filhos e filhas adolescentes. E agora, como essa proporção se encontra? </p>
+</li>
+<li>
+<p><strong>População</strong>: Pais com filhos e filhas adolescentes de 13 a 18 anos. </p>
+</li>
+<li>
+<p><strong>Parâmetro de interesse:</strong> <script type="math/tex">p</script>
+</p>
+</li>
+<li>
+<p>
+<script type="math/tex">H_0: p \le 0.52</script> e <script type="math/tex">H_1: p > 0.52</script>. </p>
+</li>
+<li>
+<p><strong>Dados:</strong> Pesquisa entre 1018 pessoas: 56% acreditam agora. </p>
+</li>
+</ol>
+<h3 id="teste-z-para-proporcoes">Teste Z para proporções</h3>
+<p>Vamos usar um teste chamado teste Z, considerando que $X_1 , ..., X_n \sim Bernoulli(p)</p>
+<p>
+<script type="math/tex; mode=display">
+Z = \frac{\bar{X}_n - \pi_0}{\sqrt{(\pi_0(1 - \pi_0)/n)}}
+</script>
+</p>
+<p>Onde <script type="math/tex">\pi_0</script> é o valor limiar, no caso 0.52. </p>
+<p>Observe que quando <script type="math/tex">p = \pi_0</script>, a estatística <script type="math/tex">Z</script> é aproximadamente normal padrão quando <script type="math/tex">n</script> cresce. </p>
+<p>O que esse teste mensura? No denominador, temos o desvio padrão de quando <script type="math/tex">p = \pi_0</script>. Portanto, estamos medindo a distância entre a média amostral e o limiar em unidades de desvio padrão. Nosso procedimento de teste será, portanto, se <script type="math/tex">Z \ge c</script>, rejeitamos <script type="math/tex">H_0</script>, mas com nível de significância <script type="math/tex">\alpha_0</script>, isto é: </p>
+<p>
+<script type="math/tex; mode=display">
+P(Z \ge c|p \le \pi_0) \le \alpha_0
+</script>
+</p>
+<p>Podemos conferir que </p>
+<p>
+<script type="math/tex; mode=display">
+\begin{split}
+P(Z \ge c) &= P\left(\frac{\bar{X}_n - \pi_0}{\sqrt{(\pi_0(1 - \pi_0)/n)}} \ge c\right) \\
+&= P\left(\frac{\bar{X}_n - p}{\sqrt{(p(1 - p)/n)}}\frac{\sqrt{(p(1 - p)/n)}}{\sqrt{(\pi_0(1 - \pi_0)/n)}} + \frac{p - \pi_0}{\sqrt{(\pi_0(1 - \pi_0)/n)}} \ge c\right) \\
+&= P\left(\frac{\bar{X}_n - p}{\sqrt{(p(1 - p)/n)}} \ge c\frac{\sqrt{\pi_0(1 - \pi_0)}}{\sqrt{p(1 - p)}} - \frac{p - \pi_0}{\sqrt{(p(1 - p)/n)}}\right) \\
+&\approx 1 - \Phi\left(c\frac{\sqrt{\pi_0(1 - \pi_0)}}{\sqrt{p(1 - p)}} - \frac{p - \pi_0}{\sqrt{(p(1 - p)/n)}}\right), \text{ pelo Teo. Central do Limite}
+\end{split}
+</script>
+</p>
+<p>Assim podemos encontrar <script type="math/tex">\alpha_0</script> a partir do máximo que essa quantidade assume (Mas  com uma obseevação bem detalhada, quando <script type="math/tex">n</script> é grande, <script type="math/tex">p = 0.52</script> é o maximizador)</p>
+<p>Mas como isso funciona na prática, propriamente dito.</p>
+<p>Tenho que escolher um valor limiar para o p-valor, isto é, se p-valor for menor do que esse limiar, eu rejeito a hipótese. Vou ficar esse limiar em 0.05, mas isso é arbitrário, apesar da literatura costumar usá-lo. </p>
+<div class="highlight"><pre><span></span><code><span class="n">n</span> <span class="o">=</span> <span class="mi">1018</span>
+<span class="n">pnull</span> <span class="o">=</span> <span class="mf">.52</span>
+<span class="n">phat</span> <span class="o">=</span> <span class="mf">.56</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">ztest</span><span class="p">,</span> <span class="n">pvalue</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">proportions_ztest</span><span class="p">(</span><span class="n">count</span> <span class="o">=</span> <span class="n">phat</span><span class="o">*</span><span class="n">n</span><span class="p">,</span>   <span class="c1">#número de sucessos</span>
+                                           <span class="n">nobs</span> <span class="o">=</span> <span class="n">n</span><span class="p">,</span>          <span class="c1">#número de observações</span>
+                                           <span class="n">value</span> <span class="o">=</span> <span class="n">pnull</span><span class="p">,</span>    <span class="c1">#pi_0</span>
+                                           <span class="n">alternative</span> <span class="o">=</span> <span class="s1">&#39;larger&#39;</span><span class="p">)</span> <span class="c1">#hipótese alternativa </span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;O valor da estatística de teste foi </span><span class="si">{}</span><span class="s1"> e o p-valor </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ztest</span><span class="p">,</span> <span class="n">pvalue</span><span class="p">))</span>                        
+</code></pre></div>
+<pre><code>O valor da estatística de teste foi 0.6392739759907055 e o p-valor 0.26132235751888716
+</code></pre>
+<h3 id="conclusao-do-teste-de-hipoteses">Conclusão do teste de hipóteses</h3>
+<p>Como o p-valor foi menor do que nosso limiar, nós temos evidência para rejeitar a hipótese nula que dizia que a prporção teria permanecido ou até diminuído. </p>
+<p>Isso não significa que aceitamos a hipótese alternativa, apenas que temos evidência para acreditar que a proporção seja maior do que 0.52. </p>
+<div class="highlight"><pre><span></span><code><span class="n">n</span> <span class="o">=</span> <span class="mi">1018</span>
+<span class="n">pnull</span> <span class="o">=</span> <span class="mf">.52</span>
+<span class="n">phat</span> <span class="o">=</span> <span class="mf">.53</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">ztest</span><span class="p">,</span> <span class="n">pvalue</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">proportions_ztest</span><span class="p">(</span><span class="n">count</span> <span class="o">=</span> <span class="n">phat</span><span class="o">*</span><span class="n">n</span><span class="p">,</span>   <span class="c1">#número de sucessos</span>
+                                           <span class="n">nobs</span> <span class="o">=</span> <span class="n">n</span><span class="p">,</span>          <span class="c1">#número de observações</span>
+                                           <span class="n">value</span> <span class="o">=</span> <span class="n">pnull</span><span class="p">,</span>    <span class="c1">#pi_0</span>
+                                           <span class="n">alternative</span> <span class="o">=</span> <span class="s1">&#39;larger&#39;</span><span class="p">)</span> <span class="c1">#hipótese alternativa </span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;O valor da estatística de teste foi </span><span class="si">{}</span><span class="s1"> e o p-valor </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ztest</span><span class="p">,</span> <span class="n">pvalue</span><span class="p">))</span>        
+</code></pre></div>
+<pre><code>O valor da estatística de teste foi 0.6392739759907055 e o p-valor 0.26132235751888716
+</code></pre>
+<h2 id="diferenca-entre-propocoes-de-duas-populacoes">Diferença entre propoções de duas populações</h2>
+<ol>
+<li>
+<p><strong>Questão</strong>: Existe diferença significativa entre pais ingleses e pais alemães que reportaram que seus filhos e filhas tiveram aulas de natação? </p>
+</li>
+<li>
+<p><strong>População</strong>: Pais com filhos e filhas ingleses e alemães. </p>
+</li>
+<li>
+<p><strong>Parâmetro de interesse:</strong> <script type="math/tex">p_{ingleses} = p_i</script> e <script type="math/tex">p_{alemaes} = p_a</script>.  </p>
+</li>
+<li>
+<p>
+<script type="math/tex">H_0: p_i - p_a = 0</script> e <script type="math/tex">H_1: p_i - p_a \neq 0</script>. </p>
+</li>
+<li>
+<p><strong>Dados:</strong> 247 pais ingleses responderam e dentre eles 36.8% reportaram que sim. Pais alemães foram 308, 38.9% que disseram sim. </p>
+</li>
+</ol>
+<h3 id="teste-t-para-proporcoes">Teste T para proporções</h3>
+<p>Na verdade, poderíamos usar o teste Z, com a mesma ideia, só que nesse caso, teríamos que tomar um pouco de cuidado com o denominador, dado que agora existem duas médias, então nosso estimador para o desvio padrão deve levar em conta esses dois fatores e <script type="math/tex">n</script> deve ser suficientemente grande para que não tenhamos problema. </p>
+<p>Para evitar isso, vamos usar o T teste. A estatística de teste é a seguinte, tratando como <script type="math/tex">X</script> e <script type="math/tex">Y</script> as duas amostras consideradas. </p>
+<p>
+<script type="math/tex; mode=display">
+t = \frac{\bar{X}_n - \bar{Y}_m}{SE}
+</script>
+</p>
+<p>Nesse caso <script type="math/tex">SE</script> é o erro entre a diferença entre a médias: isso tem um pequeno problema quando <script type="math/tex">m \neq n</script>. Então fazer as contas no papel não é trivial. </p>
+<p>Confira <a href="https://en.wikipedia.org/wiki/Student%27s_t-test#Independent_two-sample_t-test">aqui</a> as definições de SE precisas. </p>
+<p>Como nossa intenção é apenas usar esse teste, vamos mostrar como isso pode ser prático. </p>
+<div class="highlight"><pre><span></span><code><span class="n">n</span> <span class="o">=</span> <span class="mi">247</span>
+<span class="n">pi</span> <span class="o">=</span> <span class="mf">.368</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="mi">308</span>
+<span class="n">pa</span> <span class="o">=</span> <span class="mf">.389</span>
+
+<span class="c1"># Gerando as populações</span>
+
+<span class="n">england</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="n">pi</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="n">n</span><span class="p">)</span>
+<span class="n">germany</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="n">pa</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="n">m</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">_</span><span class="p">,</span> <span class="n">p_value</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">england</span><span class="p">,</span> <span class="n">germany</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;O p-valor foi </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p_value</span><span class="p">))</span>
+</code></pre></div>
+<pre><code>O p-valor foi 0.2615435082780627
+</code></pre>
+<h3 id="conclusao-sobre-o-teste-de-hipoteses">Conclusão sobre o teste de hipóteses</h3>
+<p>Dado que o p-valor é maior do que nosso limiar, não podemos rejeitar a hipótese nula. Nesse caso, a diferença das proporções nas popuçações não foi nada mais do que meramente uma aleatoriedade. </p>
+<h3 id="mas-o-que-acontece-se-essas-proporcoes-se-mantiveram-para-mais-pessoas">Mas o que acontece se essas proporções se mantiveram para mais pessoas?</h3>
+<div class="highlight"><pre><span></span><code><span class="n">n</span> <span class="o">=</span> <span class="mi">5000</span>
+<span class="n">pi</span> <span class="o">=</span> <span class="mf">.37</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="mi">5000</span>
+<span class="n">pa</span> <span class="o">=</span> <span class="mf">.389</span>
+
+<span class="n">england</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="n">pi</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="n">n</span><span class="p">)</span>
+<span class="n">germany</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="n">pa</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="n">m</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">_</span><span class="p">,</span> <span class="n">p_value</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">england</span><span class="p">,</span> <span class="n">germany</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;O p-valor foi </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p_value</span><span class="p">))</span>
+</code></pre></div>
+<pre><code>O p-valor foi 0.027721099791980015
+</code></pre>
+<h2 id="diferenca-entre-medias-de-populacoes">Diferença entre médias de populações</h2>
+<ol>
+<li>
+<p><strong>Questão</strong>: Considerando os adultos nos dados da <a href="https://www.cdc.gov/nchs/nhanes/index.htm">NHAMES</a>, homens tem maior média de <a href="https://www.cdc.gov/healthyweight/assessing/bmi/index.html">Índice de  Massa Corpórea</a> do que mulheres? </p>
+</li>
+<li>
+<p><strong>População</strong>: Adultos na base NHAMES. </p>
+</li>
+<li>
+<p><strong>Parâmetro de interesse:</strong> <script type="math/tex">\mu_{homens} = \mu_h</script> e <script type="math/tex">\mu_{mulheres} = \mu_m</script>.  </p>
+</li>
+<li>
+<p>
+<script type="math/tex">H_0: \mu_1 = \mu_2</script> e <script type="math/tex">H_1: \mu_1 \neq \mu_2</script>. </p>
+</li>
+<li>
+<p><strong>Dados:</strong> </p>
+</li>
+</ol>
+<p>2976 mulheres adultas</p>
+<p>
+<script type="math/tex">\hat{\mu}_m = 29.94</script>
+<br />
+<script type="math/tex">\hat{\sigma}_m = 7.75</script>
+</p>
+<p>2759 homens adultos</p>
+<p>
+<script type="math/tex">\hat{\mu}_h = 28.78</script>
+<br />
+<script type="math/tex">\hat{\sigma}_h = 6.25</script>
+</p>
+<div class="highlight"><pre><span></span><code><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/kshedden/statswpy/master/NHANES/merged/nhanes_2015_2016.csv&quot;</span>
+<span class="n">da</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">da</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>SEQN</th>
+      <th>ALQ101</th>
+      <th>ALQ110</th>
+      <th>ALQ130</th>
+      <th>SMQ020</th>
+      <th>RIAGENDR</th>
+      <th>RIDAGEYR</th>
+      <th>RIDRETH1</th>
+      <th>DMDCITZN</th>
+      <th>DMDEDUC2</th>
+      <th>...</th>
+      <th>BPXSY2</th>
+      <th>BPXDI2</th>
+      <th>BMXWT</th>
+      <th>BMXHT</th>
+      <th>BMXBMI</th>
+      <th>BMXLEG</th>
+      <th>BMXARML</th>
+      <th>BMXARMC</th>
+      <th>BMXWAIST</th>
+      <th>HIQ210</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>83732</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>62</td>
+      <td>3</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>...</td>
+      <td>124.0</td>
+      <td>64.0</td>
+      <td>94.8</td>
+      <td>184.5</td>
+      <td>27.8</td>
+      <td>43.3</td>
+      <td>43.6</td>
+      <td>35.9</td>
+      <td>101.1</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>83733</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>6.0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>53</td>
+      <td>3</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>...</td>
+      <td>140.0</td>
+      <td>88.0</td>
+      <td>90.4</td>
+      <td>171.4</td>
+      <td>30.8</td>
+      <td>38.0</td>
+      <td>40.0</td>
+      <td>33.2</td>
+      <td>107.9</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>83734</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>1</td>
+      <td>78</td>
+      <td>3</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>...</td>
+      <td>132.0</td>
+      <td>44.0</td>
+      <td>83.4</td>
+      <td>170.1</td>
+      <td>28.8</td>
+      <td>35.6</td>
+      <td>37.0</td>
+      <td>31.0</td>
+      <td>116.5</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>83735</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2</td>
+      <td>2</td>
+      <td>56</td>
+      <td>3</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>...</td>
+      <td>134.0</td>
+      <td>68.0</td>
+      <td>109.8</td>
+      <td>160.9</td>
+      <td>42.4</td>
+      <td>38.5</td>
+      <td>37.7</td>
+      <td>38.3</td>
+      <td>110.1</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>83736</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2</td>
+      <td>2</td>
+      <td>42</td>
+      <td>4</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>...</td>
+      <td>114.0</td>
+      <td>54.0</td>
+      <td>55.2</td>
+      <td>164.9</td>
+      <td>20.3</td>
+      <td>37.4</td>
+      <td>36.0</td>
+      <td>27.2</td>
+      <td>80.4</td>
+      <td>2.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 28 columns</p>
+</div>
+
+<div class="highlight"><pre><span></span><code><span class="n">females</span> <span class="o">=</span> <span class="n">da</span><span class="p">[</span><span class="n">da</span><span class="p">[</span><span class="s2">&quot;RIAGENDR&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">male</span> <span class="o">=</span> <span class="n">da</span><span class="p">[</span><span class="n">da</span><span class="p">[</span><span class="s2">&quot;RIAGENDR&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">n_m</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">females</span><span class="p">)</span>
+<span class="n">mu_m</span> <span class="o">=</span> <span class="n">females</span><span class="p">[</span><span class="s2">&quot;BMXBMI&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">sd_m</span> <span class="o">=</span> <span class="n">females</span><span class="p">[</span><span class="s2">&quot;BMXBMI&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+
+<span class="p">(</span><span class="n">n_m</span><span class="p">,</span> <span class="n">mu_m</span><span class="p">,</span> <span class="n">sd_m</span><span class="p">)</span>
+</code></pre></div>
+<pre><code>(2976, 29.939945652173996, 7.75331880954568)
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">n_h</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">male</span><span class="p">)</span>
+<span class="n">mu_h</span> <span class="o">=</span> <span class="n">male</span><span class="p">[</span><span class="s2">&quot;BMXBMI&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">sd_h</span> <span class="o">=</span> <span class="n">male</span><span class="p">[</span><span class="s2">&quot;BMXBMI&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+
+<span class="p">(</span><span class="n">n_h</span><span class="p">,</span> <span class="n">mu_h</span><span class="p">,</span> <span class="n">sd_h</span><span class="p">)</span>
+</code></pre></div>
+<pre><code>(2759, 28.778072111846985, 6.252567616801485)
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Histogram BMI para mulheres&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">females</span><span class="p">[</span><span class="s2">&quot;BMXBMI&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">(),</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkred&#39;</span><span class="p">,</span><span class="n">bins</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Histogram BMI para homens&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">male</span><span class="p">[</span><span class="s2">&quot;BMXBMI&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">(),</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<p><img alt="svg" src="../ExampleHypothesesTesting_21_0.svg" /></p>
+<h3 id="vamos-usar-o-t-test-descrito-em-welch">Vamos usar o t-test descrito em <a href="https://en.wikipedia.org/wiki/Welch%27s_t-test">Welch</a>.</h3>
+<p>Temos que usá-lo porque não conhecemos a variância. Se conhecessemos, poderíamos usar o teste normal mesmo e se soubéssemos que são iguais, mas desconhecessemos, poderíamos usar o ttest ques estudamos no <a href="https://lucasmoschen.github.io/TA_sessions/infestatistica/TestingHypothesesII/TestingHypothesesII/#comparando-medias-de-duas-normais">capítulo 9.5</a>. </p>
+<div class="highlight"><pre><span></span><code><span class="n">sm</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">x1</span> <span class="o">=</span> <span class="n">females</span><span class="p">[</span><span class="s2">&quot;BMXBMI&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">(),</span> 
+                   <span class="n">x2</span> <span class="o">=</span> <span class="n">male</span><span class="p">[</span><span class="s2">&quot;BMXBMI&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">(),</span>
+                   <span class="n">alternative</span><span class="o">=</span><span class="s1">&#39;two-sided&#39;</span><span class="p">,</span> 
+                   <span class="n">value</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># diferença na hipótese nula</span>
+</code></pre></div>
+<pre><code>(6.175593353138302, 7.050275578095374e-10, 5660.0)
+</code></pre>
+<h3 id="conclusao-no-teste-de-hipoteses">Conclusão no teste de hipóteses</h3>
+<p>Como o p-valor é bem pequeno, nós podemos rejeitar a hipótese nula, o que significa que existe diferença estatística entre as médias. Isso não responde se a o índice é mais alto para homens, mas podemos fazer o teste unilateral e perceber que de fato isso de fato acontece segundo os dados.</p>
+<div class="highlight"><pre><span></span><code><span class="n">sm</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">x1</span> <span class="o">=</span> <span class="n">females</span><span class="p">[</span><span class="s2">&quot;BMXBMI&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">(),</span> 
+                   <span class="n">x2</span> <span class="o">=</span> <span class="n">male</span><span class="p">[</span><span class="s2">&quot;BMXBMI&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">(),</span>
+                   <span class="n">alternative</span><span class="o">=</span><span class="s1">&#39;larger&#39;</span><span class="p">,</span> 
+                   <span class="n">value</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># diferença na hipótese nula</span>
+</code></pre></div>
+<pre><code>(6.175593353138302, 3.525137789047687e-10, 5660.0)
+</code></pre></div>
+        
+        
+    </div>
+
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
+
+          
+          
+      </footer>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = "../../.."</script>
+    
+    <script src="../../../js/base.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>

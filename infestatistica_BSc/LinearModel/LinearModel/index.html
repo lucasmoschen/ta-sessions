@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+
+    
+    <title>Modelo Linear - Teaching Assistance</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../../css/base.min.css" rel="stylesheet">
+    <link href="../../../css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            
+              <a class="navbar-brand" href="../../..">Teaching Assistance</a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Graduação <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../alglin/info/">Álgebra Linear</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../analisenum/info/">Análise Numérica</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../curvas/info/">Curvas</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../edo/info/">Equações Diferenciais Ordinárias</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../edp/info/">Equações Diferenciais Parciais</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../info/">Inferência Estatística</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pós-graduação <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../bayesian/info/">Estatística Bayesiana</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../infestatistica_MSc/info/">Inferência Estatística</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://lucasmoschen.github.io">Página Inicial</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#modelo-linear">Modelo Linear</a></li>
+            <li class="second-level"><a href="#minimos-quadrados">Mínimos quadrados</a></li>
+                
+                <li class="third-level"><a href="#varias-variaveis">Várias variáveis</a></li>
+            <li class="second-level"><a href="#regressao">Regressão</a></li>
+                
+                <li class="third-level"><a href="#regressao-linear-simples">Regressão Linear Simples</a></li>
+            <li class="second-level"><a href="#inferencia-sobre-regressao-linear-simples">Inferência sobre regressão linear simples</a></li>
+                
+                <li class="third-level"><a href="#teste-de-hipoteses-sobre-os-coeficientes">Teste de hipóteses sobre os coeficientes</a></li>
+                <li class="third-level"><a href="#intervalos-de-confianca">Intervalos de confiança</a></li>
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="modelo-linear">Modelo Linear</h1>
+<h2 id="minimos-quadrados">Mínimos quadrados</h2>
+<p>Sejam os pontos <script type="math/tex">(x_1, y_1), ..., (x_n,y_n)</script>. A reta que minimiza <script type="math/tex">\sum_{i=1}^n (y_i - (\beta_0 + \beta_1 x_i))^2</script> segundo <script type="math/tex">\beta_0</script> e <script type="math/tex">\beta_1</script> tem inclinação e intecepto</p>
+<p>
+<script type="math/tex; mode=display">
+\hat{\beta}_1 = \dfrac{\sum_{i=1}^n (y_i - \bar{y})(x_i - \bar{x})}{\sum_{i=1}^n (x_i - \bar{x})^2}
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\hat{\beta}_0 = \bar{y} - \hat{\beta}_1\bar{x}
+</script>
+</p>
+<p>A verificação desse resultado é direta ao derivar o funcional objetivo com respeito aos parâmetros e igualando a 0. Além disso, observar que a Hessiana é definida positiva, o que garante a existência do mínimo local (que nesse caso será global). </p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> 
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">t</span>
+<span class="kn">from</span> <span class="nn">statsmodels.regression.linear_model</span> <span class="kn">import</span> <span class="n">OLS</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;ggplot&#39;</span><span class="p">)</span>
+
+<span class="n">ro</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
+</code></pre></div>
+<p>Vamos gerar os <script type="math/tex">n</script> pontos e calcular a reta que minimiza os mínimos quadrados.</p>
+<div class="highlight"><pre><span></span><code><span class="n">n</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">ro</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="n">n</span><span class="p">)</span>
+<span class="n">epsilon</span> <span class="o">=</span> <span class="n">ro</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="n">n</span><span class="p">)</span>
+<span class="n">beta0</span><span class="p">,</span> <span class="n">beta1</span> <span class="o">=</span> <span class="n">ro</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">beta0</span> <span class="o">+</span> <span class="n">beta1</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">epsilon</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Pontos gerados&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<p><img alt="png" src="../output_3_0.png" /></p>
+<p>Estimando os coeficientes</p>
+<div class="highlight"><pre><span></span><code><span class="n">beta1_hat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">y</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">x</span> <span class="o">-</span> <span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">x</span> <span class="o">-</span> <span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="n">beta0_hat</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">-</span> <span class="n">beta1_hat</span><span class="o">*</span><span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;$\beta_0$ = </span><span class="si">{:.2f}</span><span class="s1">, $\beta_1$ = </span><span class="si">{:.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">beta0</span><span class="p">,</span> <span class="n">beta1</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">beta0_hat</span> <span class="o">+</span> <span class="n">beta1_hat</span><span class="o">*</span><span class="n">t</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;$\beta_0$ = </span><span class="si">{:.2f}</span><span class="s1">, $\beta_1$ = </span><span class="si">{:.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">beta0_hat</span><span class="p">,</span> <span class="n">beta1_hat</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Reta mínimos quadrados&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<p><img alt="png" src="../output_5_0.png" /></p>
+<p>Agora vamos usar numpy para a estimação. Observe que o resultado coincide com o calculado usando a fórmula derivada. </p>
+<div class="highlight"><pre><span></span><code><span class="c1"># adiciona coluna de 1 para lidar com o beta_0</span>
+<span class="n">xlinha</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">),</span><span class="n">x</span><span class="p">]</span>   
+<span class="n">sol</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">lstsq</span><span class="p">(</span><span class="n">xlinha</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">rcond</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sol</span><span class="p">)</span>
+</code></pre></div>
+<pre><code>[3.40285283 3.52323316]
+</code></pre>
+<h3 id="varias-variaveis">Várias variáveis</h3>
+<p>Nesse caso, queremos encontrar um hiperplano que minimiza </p>
+<p>
+<script type="math/tex; mode=display">
+Q = \sum_{i=1}^n (y_i - (\beta_0 + \beta_1 x_{i1} + \dots + \beta_k x_{ik}))^2
+</script>
+</p>
+<p>Nesse caso teremos <script type="math/tex">k+1</script> equações para resolver. </p>
+<h2 id="regressao">Regressão</h2>
+<p>Dizemos que <script type="math/tex">X_1, \dots, X_k</script> são preditores e <script type="math/tex">Y</script> é a resposta. A esperança condicional da resposta dados os preditores é chamada de função regressão. Assim a regressão de <script type="math/tex">Y</script> sobre <script type="math/tex">X_1, \dots, X_k</script> depende dos valores <script type="math/tex">x_1, \dots, x_k</script> assumidos pelos preditores. Vamos assumir que estamos com uma regressão linear e, portanto, </p>
+<p>
+<script type="math/tex; mode=display">
+E[Y|x_1,\dots,x_k] = \beta_0 + \beta_1 x_1 + \dots \beta_k x_k
+</script>
+</p>
+<p>onde os coeficientes <script type="math/tex">\beta_j</script> são coeficientes de regressão, que são desconhecidos (parâmetros do modelo). </p>
+<h3 id="regressao-linear-simples">Regressão Linear Simples</h3>
+<p>Nesse caso <script type="math/tex">Y = \beta_0 + \beta_1 x + \varepsilon</script> para cada <script type="math/tex">X = x</script> e, em geral, <script type="math/tex">\varepsilon \sim N(0, \sigma^2)</script>. </p>
+<p>Assumimos que </p>
+<ol>
+<li>Os preditores são conhecidos; </li>
+<li>A distribuição de <script type="math/tex">Y</script> condicionada em <script type="math/tex">x_1, ..., x_n</script> é normal. </li>
+<li>A média condicional é linear com parâmetros <script type="math/tex">\beta_0</script> e <script type="math/tex">\beta_1</script>.</li>
+<li>Homoscedasticidade, isto é, variância constante. </li>
+<li>Independência das respostas dadas as covariáveis. </li>
+</ol>
+<p><strong>Teorema:</strong> Os estimadores de máxima verossimilhança de <script type="math/tex">\beta_0</script> e <script type="math/tex">\beta_1</script> são os de mínimos quadrados e de <script type="math/tex">\sigma^2</script> é 
+<script type="math/tex; mode=display">
+\hat{\sigma}^2 = \frac{1}{n}\sum_{i=1}^n (y_i - \hat{\beta}_0 - \hat{\beta}_1x_i)^2
+</script>
+</p>
+<p><strong>Distribuição dos estimadores:</strong> Considere os estimadores de mínimos quadrados como função das variáveis aleatórias <script type="math/tex">Y_1,...,Y_n</script> dados os preditores <script type="math/tex">x_1,...,x_n</script>.</p>
+<p>
+<script type="math/tex; mode=display">
+\hat{\beta}_1 \sim \mathcal{N}(\beta_1, \sigma^2/s_x^2)
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\hat{\beta}_0 \sim \mathcal{N}\left(\beta_0, \sigma^2\left(\frac{1}{n} + \frac{\bar{x}^2}{s_x^2}\right)\right)
+</script>
+</p>
+<p>tal que <script type="math/tex">Cov(\hat{\beta}_0, \hat{\beta}_1) = \frac{\bar{x}\sigma^2}{s_x^2}</script>. Em particular a distribuição conjunta desses parâmetros é uma normal bivariada com as médias, vaiâncias e covariância especificadas acima. <em>As distribuições são todas condicionadas em <script type="math/tex">X_i = x_i</script>.</em></p>
+<p>Além disso, se <script type="math/tex">n \ge 3, \hat{\sigma}^2</script> é independente de <script type="math/tex">(\hat{\beta}_0, \hat{\beta}_1)</script> e <script type="math/tex">n\hat{\sigma}^2/\sigma^2</script> tem distribuição <script type="math/tex">\chi^2</script> com <script type="math/tex">n-2</script> graus de liberdade.</p>
+<h2 id="inferencia-sobre-regressao-linear-simples">Inferência sobre regressão linear simples</h2>
+<h3 id="teste-de-hipoteses-sobre-os-coeficientes">Teste de hipóteses sobre os coeficientes</h3>
+<p>Defina 
+<script type="math/tex; mode=display">
+S^2 = \sum_{i=1}^n (Y_i - \hat{\beta}_0 - \hat{\beta}_1 x_i)^2
+</script>
+<script type="math/tex; mode=display">
+\sigma ' = \left(\dfrac{S^2}{n-2}\right)^{1/2}
+</script>
+</p>
+<p>Sejam <script type="math/tex">c_0, c_1</script> e <script type="math/tex">\bar{c}</script> números especificados onde <script type="math/tex">c_i \neq 0</script> para algum <script type="math/tex">i</script> e suponha que queiramos testar </p>
+<p>
+<script type="math/tex; mode=display">
+H_0: c_0 \beta_0 + c_1 \beta_1 = \bar{c}
+</script>
+<script type="math/tex; mode=display">
+H_1: c_0 \beta_0 + c_1 \beta_1 \neq \bar{c}
+</script>
+</p>
+<p>Para cada <script type="math/tex">\alpha_0 \in (0,1)</script> um teste de hipóteses com nível <script type="math/tex">\alpha_0</script> é rejeitar <script type="math/tex">H_0</script> se <script type="math/tex">|U| \ge T_{n-2}^{-1}(1 - \alpha_0/2)</script>, onde 
+<script type="math/tex; mode=display">
+U = \left[\frac{c_0^2}{n} + \frac{(c_0\bar{x} - c_1)^2}{s_x^2}\right]^{-1/2}\left(\frac{c_0\hat{\beta}_0 + c_1\hat{\beta}_1 - \bar{c}}{\sigma '}\right)
+</script>
+</p>
+<p>Para ver isso, basta olhar a variável <script type="math/tex">W</script> que tem distribuição normal padrão</p>
+<p>
+<script type="math/tex; mode=display">
+W = \left[\frac{c_0^2}{n} + \frac{(c_0\bar{x} - c_1)^2}{s_x^2}\right]^{-1/2}\left(\frac{c_0\hat{\beta}_0 + c_1\hat{\beta}_1 - \bar{c}}{\sigma}\right)
+</script>
+</p>
+<p>e que <script type="math/tex">S^2/\sigma^2 \sim \chi^2_{n-2}</script>
+</p>
+<p>A mesma derivação pode ser usada para testes unilaterais. A diferença é que rejeitaremos quando 
+<script type="math/tex; mode=display">
+U \ge T_{n-2}^{-1}(1 - \alpha_0)
+</script>
+quando a hipótese nula é uma desiguldade do tipo menor igual ou 
+<script type="math/tex; mode=display">
+U \le -T_{n-2}^{-1}(1 - \alpha_0)
+</script>
+quando é do tipo maior ou igual. </p>
+<p><strong>Exemplo:</strong> Vamos testar a hipótese de que <script type="math/tex">\beta_1 = 0</script> em relação a curva anterior. Só para lembrar: </p>
+<div class="highlight"><pre><span></span><code><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;$\beta_0$ = </span><span class="si">{:.2f}</span><span class="s1">, $\beta_1$ = </span><span class="si">{:.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">beta0</span><span class="p">,</span> <span class="n">beta1</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">beta0_hat</span> <span class="o">+</span> <span class="n">beta1_hat</span><span class="o">*</span><span class="n">t</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;$\beta_0$ = </span><span class="si">{:.2f}</span><span class="s1">, $\beta_1$ = </span><span class="si">{:.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">beta0_hat</span><span class="p">,</span> <span class="n">beta1_hat</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Reta mínimos quadrados&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<p><img alt="png" src="../output_13_0.png" /></p>
+<p>Nesse caso temos <script type="math/tex">c_0 = \bar{c} = 0</script> e <script type="math/tex">c_1 = 1</script>. Assim:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># O denominador da divisão é n - ddof</span>
+<span class="n">sx2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">ddof</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">S2</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">((</span><span class="n">y</span> <span class="o">-</span> <span class="n">beta0_hat</span> <span class="o">-</span> <span class="n">beta1_hat</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">sigma_prime</span> <span class="o">=</span> <span class="p">(</span><span class="n">S2</span><span class="o">/</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">))</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1"># Estatística de teste</span>
+<span class="n">U</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sx2</span><span class="p">)</span><span class="o">*</span><span class="n">beta1_hat</span><span class="o">/</span><span class="n">sigma_prime</span>
+</code></pre></div>
+<p>Seja <script type="math/tex">\alpha_0 = 0.05</script> o nível de significância</p>
+<div class="highlight"><pre><span></span><code><span class="n">alpha0</span> <span class="o">=</span> <span class="mf">0.05</span>
+<span class="nb">abs</span><span class="p">(</span><span class="n">U</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">t</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha0</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">df</span> <span class="o">=</span> <span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+</code></pre></div>
+<pre><code>True
+</code></pre>
+<p>Como isso é verdade, rejeitamos a hipótese nula!</p>
+<h3 id="intervalos-de-confianca">Intervalos de confiança</h3>
+<p>Temos que <script type="math/tex">c_0\hat{\beta}_0 + c_1\hat{\beta}_1 \pm \sigma '\left[\frac{c_0^2}{n} + \frac{(c_0\bar{x} - c_1)^2}{s_x^2}\right]^{1/2}T_{n-2}^{-1}\left(1 - \frac{\alpha_0}{2}\right)</script> é un intervalo de confiança <script type="math/tex">1 - \alpha_0</script> para <script type="math/tex">c_0\beta_0 + c_1\beta_1</script>. Para encontrar esse intervalo basta encontrar o conjunto de todos os valores <script type="math/tex">\bar{c}</script> para que a hipótese nula seja rejeitada a nível de significância <script type="math/tex">\alpha_0</script>. </p>
+<p>No nosso exemplo, um intervalo para <script type="math/tex">\beta_1</script> é </p>
+<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="n">beta1_hat</span> <span class="o">-</span> <span class="n">sigma_prime</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sx2</span><span class="p">))</span><span class="o">*</span><span class="n">t</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha0</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">df</span> <span class="o">=</span> <span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">),</span> 
+ <span class="n">beta1_hat</span> <span class="o">+</span> <span class="n">sigma_prime</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sx2</span><span class="p">))</span><span class="o">*</span><span class="n">t</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha0</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">df</span> <span class="o">=</span> <span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)]</span>
+</code></pre></div>
+<pre><code>[3.00233584703191, 4.044130469815932]
+</code></pre>
+<p>Usando o pacote <code>statsmodels</code></p>
+<div class="highlight"><pre><span></span><code><span class="n">model</span> <span class="o">=</span> <span class="n">OLS</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">xlinha</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
+</code></pre></div>
+<pre><code>[3.40285283 3.52323316]
+</code></pre>
+<p>Observe que os parâmetros estimados são os mesmo que encontramos com <code>numpy</code> e na mão. Também observe que o tvalor calculado coincide com nossa estatística U</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Nossa: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">U</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Statsmodels: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">tvalues</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+</code></pre></div>
+<pre><code>Nossa: 14.210167788464632
+Statsmodels: 14.21016778846464
+</code></pre>
+<p>Podemos colocar <script type="math/tex">c_0 = 0</script> e <script type="math/tex">c_1 = 1</script> e obteremos o intervalo de confiança como desejávamos!</p>
+<div class="highlight"><pre><span></span><code><span class="n">result</span><span class="o">.</span><span class="n">t_test</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+</code></pre></div>
+<pre><code>&lt;class 'statsmodels.stats.contrast.ContrastResults'&gt;
+                             Test for Constraints                             
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+c0             3.5232      0.248     14.210      0.000       3.002       4.044
+==============================================================================
+</code></pre></div>
+        
+        
+    </div>
+
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
+
+          
+          
+      </footer>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = "../../.."</script>
+    
+    <script src="../../../js/base.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>

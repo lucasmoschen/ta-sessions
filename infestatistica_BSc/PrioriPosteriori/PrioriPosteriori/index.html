@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+
+    
+    <title>Distribuições a Priori e a Posteriori - Teaching Assistance</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../../css/base.min.css" rel="stylesheet">
+    <link href="../../../css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            
+              <a class="navbar-brand" href="../../..">Teaching Assistance</a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Graduação <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../alglin/info/">Álgebra Linear</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../analisenum/info/">Análise Numérica</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../curvas/info/">Curvas</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../edo/info/">Equações Diferenciais Ordinárias</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../edp/info/">Equações Diferenciais Parciais</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../info/">Inferência Estatística</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pós-graduação <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../bayesian/info/">Estatística Bayesiana</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../infestatistica_MSc/info/">Inferência Estatística</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://lucasmoschen.github.io">Página Inicial</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#distribuicoes-a-priori-e-a-posteriori">Distribuições a Priori e a Posteriori</a></li>
+            <li class="second-level"><a href="#priori">Priori</a></li>
+                
+            <li class="second-level"><a href="#posteriori">Posteriori</a></li>
+                
+                <li class="third-level"><a href="#teorema">Teorema</a></li>
+            <li class="second-level"><a href="#funcao-de-verossimilhanca">Função de Verossimilhança</a></li>
+                
+            <li class="second-level"><a href="#observacoes-sequenciais-e-predicoes">Observações Sequenciais e Predições</a></li>
+                
+                <li class="third-level"><a href="#frequentistas">Frequentistas</a></li>
+                <li class="third-level"><a href="#bayesianos">Bayesianos</a></li>
+            <li class="second-level"><a href="#principio-de-verossimilhanca">Princípio de Verossimilhança</a></li>
+                
+                <li class="third-level"><a href="#gerando-os-dados">Gerando os dados</a></li>
+            <li class="second-level"><a href="#especificando-o-modelo">Especificando o modelo</a></li>
+                
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="distribuicoes-a-priori-e-a-posteriori">Distribuições a Priori e a Posteriori</h1>
+<h2 id="priori">Priori</h2>
+<p>Tratamos <script type="math/tex">\theta</script> de um modelo como uma variável aleatória e atribuimos uma distribuição para esse parâmetro. O nome será distribuição a priori. Ao fazer modelagens, ela é em geral pré-definida pelo modelador, que é em geral aconselhado por um especialista. </p>
+<h2 id="posteriori">Posteriori</h2>
+<p>Sejam <script type="math/tex">X_1, ..., X_n</script> v.a. observadas e um parâmetro <script type="math/tex">\theta</script> desconhecido. A distribuição de <script type="math/tex">\theta</script> condicionado nas variáveis aleatórias é a distribuição a posteriori. Observe a relação com o Teorema de Bayes. </p>
+<h3 id="teorema">Teorema</h3>
+<p>Suponha que <script type="math/tex">X_1, ..., X_n</script> formam uma amostra aleatória de uma distribuição <script type="math/tex">f(x|\theta)</script>. Suponha que o parâmetro seja desconhecido e que a distribuição da priori seja <script type="math/tex">\xi(\theta)</script>. Então, a distribuição a posteriori é:</p>
+<p>
+<script type="math/tex; mode=display">\xi(\theta|x) = \frac{f(x_1|\theta)...f(x_n|\theta)\xi(\theta)}{g_n(x)}, \theta \in \Omega</script>
+</p>
+<p>Onde <script type="math/tex">g_n</script> é a distribuição marginal conjunta de <script type="math/tex">X_1,...,X_n</script>
+</p>
+<p>Observe que, essencialmente <script type="math/tex">\xi(\theta|x) \propto f(x_1|\theta)...f(x_n|\theta)\xi(\theta)</script>, mas que sua integral seja <script type="math/tex">1</script>. Queremos que essa função seja integrável e a integral sobre o domínio seja <script type="math/tex">1</script>. </p>
+<h2 id="funcao-de-verossimilhanca">Função de Verossimilhança</h2>
+<p>Quando a função de densidade de probabilidade <script type="math/tex">f_n(x|\theta)</script> das observações de uma amostra aleatória é vista como uma função de <script type="math/tex">\theta</script>, chamamos ela de função de verossimilhança.</p>
+<p>
+<script type="math/tex; mode=display">
+\theta \mapsto f_n(x|\theta) := L(\theta|x)
+</script>
+</p>
+<h2 id="observacoes-sequenciais-e-predicoes">Observações Sequenciais e Predições</h2>
+<p>Nesse caso a ordem das variáveis <script type="math/tex">X_1, ..., X_n</script> importam (como uma série temporal, por exemplo). Nesse caso, podemos, iterativamente fazer: </p>
+<p>
+<script type="math/tex; mode=display">\xi(\theta|x_1) \propto f(x_1|\theta)\xi(\theta)</script>
+<script type="math/tex; mode=display">\xi(\theta|x_1,...,x_{n+1}) \propto f(x_n|\theta)\xi(\theta|x_1,....,x_n)</script>
+</p>
+<p>Isso acontece dada a independência das variáveis aleatórias.</p>
+<p><a href="https://github.com/fonnesbeck/scipy2014_tutorial/blob/master/1_Introduction-to-Bayes.ipynb">Notebook de Referência</a></p>
+<h3 id="frequentistas">Frequentistas</h3>
+<ul>
+<li>Os dados observados são considerados aleatórios, realidados de um processo aleatório. </li>
+<li>Os parâmetros do modelo são fixos e desconhecidos</li>
+<li>Queremos derivas estimadores para os parâmetros desconhecidos. </li>
+</ul>
+<h3 id="bayesianos">Bayesianos</h3>
+<ul>
+<li>Os dados são fixos, isto é, vieram de um processo aleatório, mas depois eles não se alteram. </li>
+<li>Os parâmetros são usualmente representados por distribuições, são variáveis aleatórias. </li>
+<li>Fórmula de Bayes. </li>
+</ul>
+<h4 id="simples-exemplo-de-inferencia-bayesiana">Simples exemplo de inferência Bayesiana</h4>
+<p>Hemofilia é uma disordem genética que prejudica a coagulação em resposta a rupturas em vasos sanguíneos. É recessiva ligada ao cromossomo X. Isso implica que homens com 1 gene são afetados, enquanto as mulheres não são afetadas, mas portadoras.  </p>
+<p>Considere uma mulher cuja mãe é portadora e tem um irmão afetado. Ela se casa com um homem não afetado. A mulher tem dois filhos consecutivos que não são afetados. Será que a mãe é portadora?</p>
+<p>A pergunra é simples. Vamos tentar usar um pouco do que sabemos. Seja <script type="math/tex">W = 1</script> se a mulher é portadora e <script type="math/tex">W = 0</script> se ela não for portadora. Queremos saber <script type="math/tex">P(W = 1|s_1 = 0, s_2 = 0)</script>, isto é, os filhos não são afetados. </p>
+<p>Que informação nós temos ? A mãe dela é portadora, portanto uma priori interessante é:</p>
+<p>
+<script type="math/tex; mode=display">P(W = 1) = 0.5 \Rightarrow O(W = 1) = \frac{P(W=1)}{P(W=0)} = 1 \text{ chances (odds) a priori }</script>
+</p>
+<p>Podemos calcular a função de verossimilhança: </p>
+<p>
+<script type="math/tex; mode=display">L(W = 1|s_1 = 0, s_2 = 0) = F(s_1 = 0, s_2 = 0 | W = 1) = (0.5)(0.5) = 0.25</script>
+<script type="math/tex; mode=display">L(W = 0|s_1 = 0, s_2 = 0) = (1)(1) = 1</script>
+</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">priori</span> <span class="o">=</span> <span class="mf">0.5</span>   <span class="c1"># P(W = 1)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="mf">0.5</span>        <span class="c1"># prob de um filho ser afetado </span>
+
+<span class="n">Likelihood</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">w</span><span class="p">,</span> <span class="n">s</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">([(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">i</span><span class="p">,</span> <span class="n">p</span><span class="o">**</span><span class="n">i</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">p</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">i</span><span class="p">))[</span><span class="n">w</span><span class="p">]</span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">s</span><span class="p">])</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">posteriori</span> <span class="o">=</span> <span class="n">Likelihood</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">s</span><span class="p">)</span><span class="o">*</span><span class="n">priori</span><span class="o">/</span><span class="p">(</span><span class="n">Likelihood</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">s</span><span class="p">)</span><span class="o">*</span><span class="n">priori</span> <span class="o">+</span> <span class="n">Likelihood</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">s</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">priori</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A probabilidade da mãe portar é </span><span class="si">{}</span><span class="s2"> com dois filhos não portadores.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">posteriori</span><span class="p">))</span>
+</code></pre></div>
+<pre><code>A probabilidade da mãe portar é 0.2 com dois filhos não portadores.
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">s</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># terceiro filho </span>
+
+<span class="n">priori</span> <span class="o">=</span> <span class="n">posteriori</span>
+
+<span class="n">posteriori</span> <span class="o">=</span> <span class="n">Likelihood</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">s</span><span class="p">)</span><span class="o">*</span><span class="n">priori</span><span class="o">/</span><span class="p">(</span><span class="n">Likelihood</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">s</span><span class="p">)</span><span class="o">*</span><span class="n">priori</span> <span class="o">+</span> <span class="n">Likelihood</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">s</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">priori</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A probabilidade da mãe portar é </span><span class="si">{:.3f}</span><span class="s2"> com três filhos não portadores.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">posteriori</span><span class="p">))</span>
+</code></pre></div>
+<pre><code>A probabilidade da mãe portar é 0.111 com três filhos não portadores.
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">priori</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="n">p</span> <span class="o">=</span> <span class="mf">0.5</span> 
+<span class="n">s</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">posteriori</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">50</span><span class="p">):</span> 
+    <span class="n">posteriori</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Likelihood</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">s</span><span class="p">)</span><span class="o">*</span><span class="n">priori</span><span class="o">/</span><span class="p">(</span><span class="n">Likelihood</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">s</span><span class="p">)</span><span class="o">*</span><span class="n">priori</span> <span class="o">+</span> <span class="n">Likelihood</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">s</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">priori</span><span class="p">)))</span>
+    <span class="n">priori</span> <span class="o">=</span> <span class="n">posteriori</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="n">priori</span> <span class="o">=</span> <span class="mf">0.5</span> 
+<span class="n">posteriori2</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">50</span><span class="p">):</span> 
+    <span class="n">posteriori2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Likelihood</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">s</span><span class="p">)</span><span class="o">*</span><span class="n">priori</span><span class="o">/</span><span class="p">(</span><span class="n">Likelihood</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">s</span><span class="p">)</span><span class="o">*</span><span class="n">priori</span> <span class="o">+</span> <span class="n">Likelihood</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">s</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">priori</span><span class="p">)))</span>
+    <span class="n">priori</span> <span class="o">=</span> <span class="n">posteriori2</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">p</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">))]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span> <span class="n">posteriori</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Situação 1&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span> <span class="n">posteriori2</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Situação 2&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Probabilidade dado cada filho&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<p><img alt="svg" src="../output_6_0.svg" /></p>
+<h2 id="principio-de-verossimilhanca">Princípio de Verossimilhança</h2>
+<p>Afirma que para uma inferência sobre um parâmetro <script type="math/tex">\theta</script>, <strong>toda evidência de qualquer observação</strong> de uma variável aleatória <script type="math/tex">X = x</script> com distribuição <script type="math/tex">X \sim f(x|\theta)</script> se encontra na função de verossimilhança <script type="math/tex">L(\theta|x)</script>.</p>
+<p>A interpretação é de que qualquer observação de <script type="math/tex">X</script> pode construir conclusões sobre <script type="math/tex">\theta</script>. Além disso, se pudéssemos obter informação de <script type="math/tex">\theta</script> sobre outra variável aleatória <script type="math/tex">Y</script> com verossimilhança <script type="math/tex">\tilde{L}</script>, teremos que <script type="math/tex">L(\theta|x) = c\cdot \tilde{L}(\theta|y)</script>. Isto é, as conclusões sobre o parâmetro  não dependem da observação feita. </p>
+<p><strong>Qual o problema?</strong></p>
+<p><a href="https://en.wikipedia.org/wiki/Harold_Jeffreys">Jeffreys</a>: 
+"An hypothesis that may be true is rejected because it has failed to predict observable results that have not occurred. "</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pymc3</span> <span class="k">as</span> <span class="nn">pm</span> 
+<span class="kn">from</span> <span class="nn">pymc3</span> <span class="kn">import</span> <span class="n">Model</span><span class="p">,</span> <span class="n">Normal</span><span class="p">,</span> <span class="n">Slice</span>
+<span class="kn">from</span> <span class="nn">pymc3</span> <span class="kn">import</span> <span class="n">sample</span>
+<span class="kn">from</span> <span class="nn">pymc3</span> <span class="kn">import</span> <span class="n">traceplot</span> 
+<span class="kn">from</span> <span class="nn">pymc3.distributions</span> <span class="kn">import</span> <span class="n">Interpolated</span> 
+
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span> 
+
+<span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;seaborn-darkgrid&#39;</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="gerando-os-dados">Gerando os dados</h3>
+<p>
+<script type="math/tex; mode=display">Y = \alpha + \beta_0\cdot X_1 + \beta_1\cdot X_2 + \text{erro}</script>
+</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># True parameters </span>
+<span class="n">alpha_true</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">beta0_true</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">beta1_true</span> <span class="o">=</span> <span class="mi">13</span>
+
+<span class="c1"># Size of the dataset </span>
+<span class="n">size</span> <span class="o">=</span> <span class="mi">100</span> 
+
+<span class="c1"># Random variables </span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">X1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+<span class="n">X2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">size</span><span class="p">)</span><span class="o">*</span><span class="mf">0.2</span>
+
+<span class="n">e</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+
+<span class="n">Y</span> <span class="o">=</span> <span class="n">alpha_true</span> <span class="o">+</span> <span class="n">beta0_true</span> <span class="o">*</span> <span class="n">X1</span> <span class="o">+</span> <span class="n">beta1_true</span> <span class="o">*</span> <span class="n">X2</span> <span class="o">+</span> <span class="n">e</span>
+</code></pre></div>
+<h2 id="especificando-o-modelo">Especificando o modelo</h2>
+<p>Vamos fazer um modelo simples aqui, só para mostrar essa biblioteca nova. A ideia é mostrar como funciona a ideia de priori e posteriori. </p>
+<p>Vamos dizer que <script type="math/tex">Y \sim N(\mu, 1)</script>, onde </p>
+<p>
+<script type="math/tex">\mu = \alpha + \beta_1 X_1 + \beta_2 X_2</script>
+</p>
+<div class="highlight"><pre><span></span><code><span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">()</span>  <span class="c1">#cria um novo modelo, que em Python, é um objeto</span>
+
+<span class="k">with</span> <span class="n">model</span><span class="p">:</span>      <span class="c1"># Isso cria um contexto em python</span>
+
+    <span class="c1"># Vamos dizer nossas prioris!</span>
+    <span class="n">alpha</span> <span class="o">=</span> <span class="n">Normal</span><span class="p">(</span><span class="s1">&#39;alpha&#39;</span><span class="p">,</span> <span class="n">mu</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">sigma</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">beta0</span> <span class="o">=</span> <span class="n">Normal</span><span class="p">(</span><span class="s1">&#39;beta0&#39;</span><span class="p">,</span> <span class="n">mu</span> <span class="o">=</span> <span class="mi">12</span><span class="p">,</span> <span class="n">sigma</span>  <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">beta1</span> <span class="o">=</span> <span class="n">Normal</span><span class="p">(</span><span class="s1">&#39;beta1&#39;</span><span class="p">,</span> <span class="n">mu</span> <span class="o">=</span> <span class="mi">18</span><span class="p">,</span> <span class="n">sigma</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="c1"># Valor esperado da saída </span>
+    <span class="n">mu</span> <span class="o">=</span> <span class="n">alpha</span> <span class="o">+</span> <span class="n">beta0</span><span class="o">*</span><span class="n">X1</span> <span class="o">+</span> <span class="n">beta1</span><span class="o">*</span><span class="n">X2</span>
+
+    <span class="c1"># Verossimilhança das observações </span>
+    <span class="n">Y_obs</span> <span class="o">=</span> <span class="n">Normal</span><span class="p">(</span><span class="s1">&#39;Y_obs&#39;</span><span class="p">,</span> <span class="n">mu</span> <span class="o">=</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">observed</span> <span class="o">=</span> <span class="n">Y</span><span class="p">)</span>
+
+    <span class="c1"># Amostras da distribuição </span>
+    <span class="n">trace</span> <span class="o">=</span> <span class="n">sample</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+</code></pre></div>
+<pre><code>Auto-assigning NUTS sampler...
+Initializing NUTS using jitter+adapt_diag...
+Multiprocess sampling (2 chains in 2 jobs)
+NUTS: [beta1, beta0, alpha]
+█Sampling 2 chains for 1_000 tune and 1_000 draw iterations (2_000 + 2_000 draws total) took 3 seconds.
+</code></pre>
+<p>A próxima função é um plot de distribuição a priori amostrada (que é basicamente um histograma) de cada parâmetro. Veja que parece um chiado em torno da média. </p>
+<div class="highlight"><pre><span></span><code><span class="n">traceplot</span><span class="p">(</span><span class="n">trace</span><span class="p">);</span>
+</code></pre></div>
+<p><img alt="svg" src="../output_14_0.svg" /></p>
+<p>Agora que nós temos os dados gerados <script type="math/tex">Y</script>, vamos atualizar nosso conhecimento, nossa confiança nos parâmetros, através da distribuição a posteriori. Os dados devem ser independentes a ada interação para que valha o que estudamos. Para isso, precisamos calcular a posteriori de cada parâmetro. Nesse caso, vamos utilizar uma aproximação para a distribuição, utlizando aproximação <a href="https://en.wikipedia.org/wiki/Kernel_density_estimation">Kernel</a>. Não se preocupe com isso, é só para mostrar que estamos calculado a posteriori</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">from_posterior</span><span class="p">(</span><span class="n">param</span><span class="p">,</span> <span class="n">samples</span><span class="p">):</span>
+
+    <span class="n">smin</span><span class="p">,</span> <span class="n">smax</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">samples</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">samples</span><span class="p">)</span>
+    <span class="n">width</span> <span class="o">=</span> <span class="n">smax</span> <span class="o">-</span> <span class="n">smin</span>
+
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">smin</span><span class="p">,</span> <span class="n">smax</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+    <span class="n">y</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">gaussian_kde</span><span class="p">(</span><span class="n">samples</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+
+    <span class="c1"># what was never sampled should have a small probability but not 0,</span>
+    <span class="c1"># so we&#39;ll extend the domain and use linear approximation of density on it</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([[</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">width</span><span class="p">],</span> <span class="n">x</span><span class="p">,</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">width</span><span class="p">]])</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+    <span class="k">return</span> <span class="n">Interpolated</span><span class="p">(</span><span class="n">param</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</code></pre></div>
+<p>Agora, vamos gerar mais dados e usar a Fórmula de Bayes e usaremos uma forma sequencial das observações, isto é, a posteriori da iteração <script type="math/tex">n-1</script> será a priori da iteração <script type="math/tex">n</script>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">traces</span> <span class="o">=</span> <span class="p">[</span><span class="n">trace</span><span class="p">]</span>      <span class="c1"># salva os traços para que plotamos depois. </span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>   <span class="c1"># _ indica uma variável que não é usada </span>
+
+    <span class="c1">#  Gerando mais e mais dados!</span>
+    <span class="n">X1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+    <span class="n">X2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.2</span>
+    <span class="n">e</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+    <span class="n">Y</span> <span class="o">=</span> <span class="n">alpha_true</span> <span class="o">+</span> <span class="n">beta0_true</span> <span class="o">*</span> <span class="n">X1</span> <span class="o">+</span> <span class="n">beta1_true</span> <span class="o">*</span> <span class="n">X2</span> <span class="o">+</span> <span class="n">e</span>
+
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">()</span>
+    <span class="k">with</span> <span class="n">model</span><span class="p">:</span>
+        <span class="c1"># As novas prioris são as posterioris </span>
+        <span class="n">alpha</span> <span class="o">=</span> <span class="n">from_posterior</span><span class="p">(</span><span class="s1">&#39;alpha&#39;</span><span class="p">,</span> <span class="n">trace</span><span class="p">[</span><span class="s1">&#39;alpha&#39;</span><span class="p">])</span>
+        <span class="n">beta0</span> <span class="o">=</span> <span class="n">from_posterior</span><span class="p">(</span><span class="s1">&#39;beta0&#39;</span><span class="p">,</span> <span class="n">trace</span><span class="p">[</span><span class="s1">&#39;beta0&#39;</span><span class="p">])</span>
+        <span class="n">beta1</span> <span class="o">=</span> <span class="n">from_posterior</span><span class="p">(</span><span class="s1">&#39;beta1&#39;</span><span class="p">,</span> <span class="n">trace</span><span class="p">[</span><span class="s1">&#39;beta1&#39;</span><span class="p">])</span>
+
+        <span class="c1"># EValor esperado da saída </span>
+        <span class="n">mu</span> <span class="o">=</span> <span class="n">alpha</span> <span class="o">+</span> <span class="n">beta0</span> <span class="o">*</span> <span class="n">X1</span> <span class="o">+</span> <span class="n">beta1</span> <span class="o">*</span> <span class="n">X2</span>
+
+        <span class="c1"># Calculando a verossimilhança dos novos dados </span>
+        <span class="n">Y_obs</span> <span class="o">=</span> <span class="n">Normal</span><span class="p">(</span><span class="s1">&#39;Y_obs&#39;</span><span class="p">,</span> <span class="n">mu</span> <span class="o">=</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">observed</span> <span class="o">=</span> <span class="n">Y</span><span class="p">)</span>
+
+        <span class="c1"># Amostrando da posteriori, porque não estamos calculando a forma fechada </span>
+        <span class="n">trace</span> <span class="o">=</span> <span class="n">sample</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+        <span class="n">traces</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">trace</span><span class="p">)</span>
+</code></pre></div>
+<pre><code>Auto-assigning NUTS sampler...
+Initializing NUTS using jitter+adapt_diag...
+Multiprocess sampling (2 chains in 2 jobs)
+NUTS: [beta1, beta0, alpha]
+█Sampling 2 chains for 1_000 tune and 1_000 draw iterations (2_000 + 2_000 draws total) took 5 seconds.
+The number of effective samples is smaller than 25% for some parameters.
+Auto-assigning NUTS sampler...
+Initializing NUTS using jitter+adapt_diag...
+Multiprocess sampling (2 chains in 2 jobs)
+NUTS: [beta1, beta0, alpha]
+█Sampling 2 chains for 1_000 tune and 1_000 draw iterations (2_000 + 2_000 draws total) took 3 seconds.
+Auto-assigning NUTS sampler...
+Initializing NUTS using jitter+adapt_diag...
+Multiprocess sampling (2 chains in 2 jobs)
+NUTS: [beta1, beta0, alpha]
+█Sampling 2 chains for 1_000 tune and 1_000 draw iterations (2_000 + 2_000 draws total) took 3 seconds.
+Auto-assigning NUTS sampler...
+Initializing NUTS using jitter+adapt_diag...
+Multiprocess sampling (2 chains in 2 jobs)
+NUTS: [beta1, beta0, alpha]
+█Sampling 2 chains for 1_000 tune and 1_000 draw iterations (2_000 + 2_000 draws total) took 3 seconds.
+Auto-assigning NUTS sampler...
+Initializing NUTS using jitter+adapt_diag...
+Multiprocess sampling (2 chains in 2 jobs)
+NUTS: [beta1, beta0, alpha]
+█Sampling 2 chains for 1_000 tune and 1_000 draw iterations (2_000 + 2_000 draws total) took 4 seconds.
+Auto-assigning NUTS sampler...
+Initializing NUTS using jitter+adapt_diag...
+Multiprocess sampling (2 chains in 2 jobs)
+NUTS: [beta1, beta0, alpha]
+█Sampling 2 chains for 1_000 tune and 1_000 draw iterations (2_000 + 2_000 draws total) took 5 seconds.
+The estimated number of effective samples is smaller than 200 for some parameters.
+Auto-assigning NUTS sampler...
+Initializing NUTS using jitter+adapt_diag...
+Multiprocess sampling (2 chains in 2 jobs)
+NUTS: [beta1, beta0, alpha]
+█Sampling 2 chains for 1_000 tune and 1_000 draw iterations (2_000 + 2_000 draws total) took 4 seconds.
+The rhat statistic is larger than 1.4 for some parameters. The sampler did not converge.
+The estimated number of effective samples is smaller than 200 for some parameters.
+Auto-assigning NUTS sampler...
+Initializing NUTS using jitter+adapt_diag...
+Multiprocess sampling (2 chains in 2 jobs)
+NUTS: [beta1, beta0, alpha]
+█Sampling 2 chains for 1_000 tune and 1_000 draw iterations (2_000 + 2_000 draws total) took 4 seconds.
+The number of effective samples is smaller than 25% for some parameters.
+Auto-assigning NUTS sampler...
+Initializing NUTS using jitter+adapt_diag...
+Multiprocess sampling (2 chains in 2 jobs)
+NUTS: [beta1, beta0, alpha]
+█Sampling 2 chains for 1_000 tune and 1_000 draw iterations (2_000 + 2_000 draws total) took 4 seconds.
+The acceptance probability does not match the target. It is 0.8800702431829607, but should be close to 0.8. Try to increase the number of tuning steps.
+Auto-assigning NUTS sampler...
+Initializing NUTS using jitter+adapt_diag...
+Multiprocess sampling (2 chains in 2 jobs)
+NUTS: [beta1, beta0, alpha]
+█Sampling 2 chains for 1_000 tune and 1_000 draw iterations (2_000 + 2_000 draws total) took 3 seconds.
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="c1"># Definindo cores </span>
+<span class="n">cmap</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">autumn</span>      
+
+<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">param</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="s1">&#39;alpha&#39;</span><span class="p">,</span> <span class="s1">&#39;beta0&#39;</span><span class="p">,</span> <span class="s1">&#39;beta1&#39;</span><span class="p">]):</span>
+
+    <span class="k">for</span> <span class="n">update_i</span><span class="p">,</span> <span class="n">trace</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">traces</span><span class="p">):</span>
+
+        <span class="n">samples</span> <span class="o">=</span> <span class="n">trace</span><span class="p">[</span><span class="n">param</span><span class="p">]</span>
+        <span class="n">smin</span><span class="p">,</span> <span class="n">smax</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">samples</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">samples</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">smin</span><span class="p">,</span> <span class="n">smax</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">gaussian_kde</span><span class="p">(</span><span class="n">samples</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+
+        <span class="n">ax</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">cmap</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">update_i</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">traces</span><span class="p">)),</span> <span class="n">alpha</span> <span class="o">=</span> <span class="n">update_i</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">traces</span><span class="p">))</span>
+
+    <span class="n">ax</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">axvline</span><span class="p">({</span><span class="s1">&#39;alpha&#39;</span><span class="p">:</span> <span class="n">alpha_true</span><span class="p">,</span> <span class="s1">&#39;beta0&#39;</span><span class="p">:</span> <span class="n">beta0_true</span><span class="p">,</span> <span class="s1">&#39;beta1&#39;</span><span class="p">:</span> <span class="n">beta1_true</span><span class="p">}[</span><span class="n">param</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Frequency&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">param</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span>
+</code></pre></div>
+<p><img alt="svg" src="../output_19_0.svg" /></p>
+<div class="highlight"><pre><span></span><code>
+</code></pre></div></div>
+        
+        
+    </div>
+
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
+
+          
+          
+      </footer>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = "../../.."</script>
+    
+    <script src="../../../js/base.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>

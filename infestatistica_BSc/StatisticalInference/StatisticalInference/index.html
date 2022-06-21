@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+
+    
+    <title>Inferência Estatística - Teaching Assistance</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../../css/base.min.css" rel="stylesheet">
+    <link href="../../../css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            
+              <a class="navbar-brand" href="../../..">Teaching Assistance</a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Graduação <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../alglin/info/">Álgebra Linear</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../analisenum/info/">Análise Numérica</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../curvas/info/">Curvas</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../edo/info/">Equações Diferenciais Ordinárias</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../edp/info/">Equações Diferenciais Parciais</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../info/">Inferência Estatística</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pós-graduação <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../bayesian/info/">Estatística Bayesiana</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../infestatistica_MSc/info/">Inferência Estatística</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://lucasmoschen.github.io">Página Inicial</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#inferencia-estatistica">Inferência Estatística</a></li>
+            <li class="second-level"><a href="#modelo-estatistico">Modelo Estatístico</a></li>
+                
+            <li class="second-level"><a href="#espaco-dos-parametros">Espaço dos Parâmetros</a></li>
+                
+            <li class="second-level"><a href="#estatistica">Estatística</a></li>
+                
+            <li class="second-level"><a href="#problemas-estudados">Problemas estudados</a></li>
+                
+                <li class="third-level"><a href="#importando-os-dados">Importando os Dados</a></li>
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="inferencia-estatistica">Inferência Estatística</h1>
+<p>Procedimento que objetiva produzir uma proposição probabilísitca sobre um modelo estatístico. </p>
+<h2 id="modelo-estatistico">Modelo Estatístico</h2>
+<p>Identificar variáveis aleatórias de interesse, especificar uma distribuição conjunta (ou família), parâmetros relevantes e uma especificação para uma distribuição para os parâmetros desconhecidos (baysianos adoram essa parte, <script type="math/tex">p \sim N(0,1)</script>)</p>
+<h2 id="espaco-dos-parametros">Espaço dos Parâmetros</h2>
+<p>Uma característica ou uma combinação de características para determinar uma distribuição conjunta para as variáveis aleatórias forma o parâmetro, que pertence a um espaço denominado <script type="math/tex">\Omega</script>.  </p>
+<h2 id="estatistica">Estatística</h2>
+<p>Função das variáveis aleatórias observáveis</p>
+<h2 id="problemas-estudados">Problemas estudados</h2>
+<ul>
+<li>Predição: Baseado na época do ano que estamos, fatores climatológicos dos últimos dias, entre outros fatores, qual a probabilidade de chuva amanhã?</li>
+<li>Problemas de decisão estatística: É relacionado ao risco e teste de hipóteses. 
+<a href="https://math.stackexchange.com/questions/2842793/what-is-meant-by-a-statistical-decision-problem">Resposta considerável</a></li>
+<li>Desenho de experimentos: um psicólogo quer inferir quão avesso ao risco é uma determinada população. Ele pode determinar, desenhar o experimento para isso. </li>
+</ul>
+<p><a href="https://towardsdatascience.com/statistical-inference-in-pyhton-using-pandas-numpy-part-i-c2ac0320dffe">Inferência Estatística com Python</a></p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> 
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> 
+
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">poisson</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+</code></pre></div>
+<h3 id="importando-os-dados">Importando os Dados</h3>
+<p>Este banco de dados inclui um registro para cada vazamento ou derramamento de oleoduto relatado à Administração de Segurança de Dutos e Materiais Perigosos desde 2010. Esses registros incluem a data e hora do incidente, operador e oleoduto, causa do incidente, tipo de líquido perigoso e quantidade perdida, ferimentos e fatalidades e custos associados.</p>
+<div class="highlight"><pre><span></span><code><span class="n">oil_accident_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../data/oil_pipeline.csv&#39;</span><span class="p">)</span>
+<span class="n">oil_accident_df</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>
+</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Report Number</th>
+      <th>Supplemental Number</th>
+      <th>Accident Year</th>
+      <th>Accident Date/Time</th>
+      <th>Operator ID</th>
+      <th>Operator Name</th>
+      <th>Pipeline/Facility Name</th>
+      <th>Pipeline Location</th>
+      <th>Pipeline Type</th>
+      <th>Liquid Type</th>
+      <th>...</th>
+      <th>Other Fatalities</th>
+      <th>Public Fatalities</th>
+      <th>All Fatalities</th>
+      <th>Property Damage Costs</th>
+      <th>Lost Commodity Costs</th>
+      <th>Public/Private Property Damage Costs</th>
+      <th>Emergency Response Costs</th>
+      <th>Environmental Remediation Costs</th>
+      <th>Other Costs</th>
+      <th>All Costs</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>871</th>
+      <td>20120202</td>
+      <td>17135</td>
+      <td>2012</td>
+      <td>6/15/2012 3:50 PM</td>
+      <td>31476</td>
+      <td>ROSE ROCK MIDSTREAM L.P.</td>
+      <td>BURKETT DISCHARGE</td>
+      <td>ONSHORE</td>
+      <td>UNDERGROUND</td>
+      <td>CRUDE OIL</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>6020.0</td>
+      <td>200.0</td>
+      <td>2500.0</td>
+      <td>10500.0</td>
+      <td>8500.0</td>
+      <td>16000.0</td>
+      <td>43720</td>
+    </tr>
+  </tbody>
+</table>
+<p>1 rows × 48 columns</p>
+</div>
+
+<div class="highlight"><pre><span></span><code><span class="n">cols_of_interest</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Accident Date/Time&#39;</span><span class="p">,</span><span class="s1">&#39;Accident State&#39;</span><span class="p">,</span><span class="s1">&#39;Pipeline Location&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;Liquid Type&#39;</span><span class="p">,</span><span class="s1">&#39;Net Loss (Barrels)&#39;</span><span class="p">,</span><span class="s1">&#39;All Costs&#39;</span><span class="p">]</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">oil_accident_df</span><span class="p">[</span><span class="n">cols_of_interest</span><span class="p">]</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;All Costs&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;All Costs&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="mi">1000000</span>    <span class="c1"># unidade em milhão.</span>
+<span class="n">data</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>
+</code></pre></div>
+<pre><code>/home/lucasmoschen/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:4: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  after removing the cwd from sys.path.
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Accident Date/Time</th>
+      <th>Accident State</th>
+      <th>Pipeline Location</th>
+      <th>Liquid Type</th>
+      <th>Net Loss (Barrels)</th>
+      <th>All Costs</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>263</th>
+      <td>10/11/2010 4:10 PM</td>
+      <td>NJ</td>
+      <td>ONSHORE</td>
+      <td>REFINED AND/OR PETROLEUM PRODUCT (NON-HVL), LI...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p>Vamos entender um pouco como esta informação esta organizada. </p>
+<div class="highlight"><pre><span></span><code><span class="n">data</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Net Loss (Barrels)</th>
+      <th>All Costs</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>2795.000000</td>
+      <td>2795.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>132.194050</td>
+      <td>0.834033</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>1185.019252</td>
+      <td>16.578298</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>0.000000</td>
+      <td>0.005040</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>0.000000</td>
+      <td>0.023129</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>2.000000</td>
+      <td>0.117232</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>30565.000000</td>
+      <td>840.526118</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p>Vamos analisar os dados utilizando leis da probabilidade para aprender sobre a população. Veja que não temos a informação completa, apenas a partir de 2010. </p>
+<div class="highlight"><pre><span></span><code><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;All Costs&#39;</span><span class="p">],</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Custos dos Acidentes por Milhão US$&#39;</span><span class="p">)</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Net Loss (Barrels)&#39;</span><span class="p">],</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Prejuízo Líquido (Barris)&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<p><img alt="svg" src="../output_8_0.svg" /></p>
+<p>Mas esse não era para ser um boxplot? Cade a caixa? Isso indica que valores grandes nos dois dados são muito maiores relativamente aos outros dados. Poderíamos prever o custo de um acidente usando a mediana dos valores? É de fato um modelo, mas nesse caso, parece ser ruim dado os valores grandes. </p>
+<p>O que são esses valores grandes, afinal? Em alguns casos, podem realmente apresentar erros, mas nesse caso fica difícil de afirmar. </p>
+<p>Bom. Podemos, dados esses problemas, trabalhar com outra variável disponível: o tempo do acidente. Conhecemos uma família de distribuições de probabilidade que modela frequência de acidentes em um intervalo de tempo? </p>
+<p><strong>Distribuição de Poisson:</strong> probabilidade de uma série de eventos ocorrer num certo período de tempo se estes eventos ocorrem independentemente de quando ocorreu o último evento.</p>
+<p>De forma geral, podemos dizer que isso é verdade para acidentes de óleo. Assim, temos uma <strong>variável aleatória</strong> de interesser <script type="math/tex">X</script>, que indica o número de acidentes, já temos uma distribuição para essa variável (Poisson) e já temos o parâmetro <script type="math/tex">\lambda</script> desconhecido. </p>
+<div class="highlight"><pre><span></span><code><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Accident Date/Time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Accident Date/Time&#39;</span><span class="p">])</span>
+<span class="n">totaltimespan</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Accident Date/Time&#39;</span><span class="p">])</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Accident Date/Time&#39;</span><span class="p">])</span>
+
+<span class="n">totaltime_hour</span> <span class="o">=</span> <span class="p">(</span><span class="n">totaltimespan</span><span class="o">.</span><span class="n">days</span><span class="o">*</span><span class="mi">24</span> <span class="o">+</span> <span class="n">totaltimespan</span><span class="o">.</span><span class="n">seconds</span><span class="o">/</span><span class="p">(</span><span class="mi">3600</span><span class="p">))</span>
+<span class="n">totaltime_month</span> <span class="o">=</span> <span class="p">(</span><span class="n">totaltimespan</span><span class="o">.</span><span class="n">days</span> <span class="o">+</span> <span class="n">totaltimespan</span><span class="o">.</span><span class="n">seconds</span><span class="o">/</span><span class="p">(</span><span class="mi">3600</span><span class="o">*</span><span class="mi">24</span><span class="p">))</span> <span class="o">*</span><span class="mi">12</span><span class="o">/</span><span class="mi">365</span>
+
+<span class="n">lmda_h</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">/</span> <span class="n">totaltime_hour</span>
+<span class="n">lmda_m</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">/</span> <span class="n">totaltime_month</span> 
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Número estimado de acidentes por hora: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">lmda_h</span><span class="p">))</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Número estimado de acidentes por mês </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">lmda_m</span><span class="p">))</span>
+</code></pre></div>
+<pre><code>Número estimado de acidentes por hora: 0.04540255169379675
+Número estimado de acidentes por mês 33.14386273647162
+
+
+/home/lucasmoschen/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:1: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  """Entry point for launching an IPython kernel.
+</code></pre>
+<p>Poderíamos ter procedimentos para estimar <script type="math/tex">\lambda</script>, mas por hora, vamos tomar ele como a média das observações. Pela Lei dos Grandes Números, sabemos que a média da Poisson é <script type="math/tex">\lambda</script> e a média amostral tende para ela.  </p>
+<div class="highlight"><pre><span></span><code><span class="n">lamda</span> <span class="o">=</span> <span class="mi">33</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">X</span> <span class="o">=</span> <span class="n">poisson</span><span class="p">(</span><span class="n">lamda</span><span class="p">)</span>
+<span class="n">I</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>  <span class="c1">#intervalo(0,60), passo = 1</span>
+
+<span class="n">samples_poisson</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">poisson</span><span class="p">(</span><span class="n">lamda</span><span class="p">,</span><span class="mi">10000</span><span class="p">))</span> 
+<span class="n">Y</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">samples_poisson</span><span class="p">)</span>     <span class="c1">#função de densidade acumulada </span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span>  <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">X</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">I</span><span class="p">)</span> <span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;purple&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Número de Acidentes por mês (n)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;P(X &lt;= n)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Função de Massa de Probabilidade&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">samples_poisson</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;purple&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">xmin</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">samples_poisson</span><span class="p">),</span> <span class="n">xmax</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">samples_poisson</span><span class="p">),</span> 
+             <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Número de acidentes por mês (n)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;P(X &lt;= n)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Função de Distribuição Acumulada&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<p><img alt="png" src="../output_13_0.png" /></p>
+<p>A partir de nosso modelo, já podemos fazer acertações probabilística!</p>
+<div class="highlight"><pre><span></span><code><span class="n">real_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Accident Date/Time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">year</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">month</span><span class="p">)))</span>
+<span class="n">accidents_count</span> <span class="o">=</span> <span class="p">{</span><span class="mi">2010</span> <span class="o">+</span> <span class="n">i</span><span class="p">:</span> <span class="p">{</span><span class="n">m</span><span class="p">:</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">13</span><span class="p">)}</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">)}</span>
+
+<span class="k">for</span> <span class="n">info</span> <span class="ow">in</span> <span class="n">real_data</span><span class="p">:</span>
+    <span class="n">accidents_count</span><span class="p">[</span><span class="n">info</span><span class="p">[</span><span class="mi">0</span><span class="p">]][</span><span class="n">info</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="n">distribution</span> <span class="o">=</span> <span class="p">[</span><span class="n">accidents_count</span><span class="p">[</span><span class="n">y</span><span class="p">][</span><span class="n">m</span><span class="p">]</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">accidents_count</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">accidents_count</span><span class="p">[</span><span class="n">y</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()]</span>
+<span class="n">distribution</span> <span class="o">=</span> <span class="n">distribution</span><span class="p">[:</span><span class="o">-</span><span class="mi">12</span><span class="p">]</span> <span class="c1">#Tirando 2 observações de 2017 </span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">distribution</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Original data&#39;</span><span class="p">,</span> <span class="n">kde</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">norm_hist</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">X</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">I</span><span class="p">)</span> <span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;purple&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Nosso modelo&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Comparando modelo com dados reais&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<p><img alt="png" src="../output_15_0.png" /></p></div>
+        
+        
+    </div>
+
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
+
+          
+          
+      </footer>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = "../../.."</script>
+    
+    <script src="../../../js/base.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>
