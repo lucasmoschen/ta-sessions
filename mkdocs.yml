@@ -1,14 +1,17 @@
 site_name: Teaching Assistance
 nav: 
   - Home: index.md
-  - Álgebra Linear: alglin/info.md
-  - Análise Numérica: analisenum/info.md
-  - Curvas: curvas/info.md
-  - EDO: edo/info.md
-  - EDP: edp/info.md
-  - Estatística: 
-    - Inferência Estatística: infestatistica/info.md
+  - Graduação: 
+    - Álgebra Linear: alglin/info.md
+    - Análise Numérica: analisenum/info.md
+    - Curvas: curvas/info.md
+    - Equações Diferenciais Ordinárias: edo/info.md
+    - Equações Diferenciais Parciais: edp/info.md
+    - Inferência Estatística: infestatistica_BSc/info.md
+  - Pós-graduação: 
     - Estatística Bayesiana: bayesian/info.md
+    - Inferência Estatística: infestatistica_MSc/info.md
+
 
 theme:
   name: null

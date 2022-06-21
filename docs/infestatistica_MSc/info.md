@@ -1,0 +1,41 @@
+# Informações Gerais 
+
+Monitoria de Inferência Estatística (Mestrado) correspondente ao período de 2022.4.  
+
+- [GitHub Professor](https://github.com/maxbiostat/Statistical_Inference_MSc)
+
+## Tópicos 
+
+Os tópicos cobertos na disciplina são os seguintes
+
+## Exercícios 
+
+Os exercícios resolvidos estão disponíveis:
+
+### Prova 1
+
+|Seção|Título|Exercícios|Soluções|
+|-----|------|----------|--------|
+
+
+### Prova 2
+
+|Seção|Título|Exercícios|Soluções|
+|-----|------|----------|--------|
+
+## Resumos 
+  
+## Documentos Adicionais 
+
+- [Theory of Statistical
+  Estimation (Ronald Fisher)](https://www.cambridge.org/core/journals/mathematical-proceedings-of-the-cambridge-philosophical-society/article/theory-of-statistical-estimation/7A05FB68C83B36C0E91D42C76AB177D4):
+  problema da estimação é abordado e as técnicas apresentadas por Ronald
+  Fisher. Ele se debruça sobre estatísticas eficientes e suficientes. 
+
+- [Mathematical Foudations Statistics (Ronald
+  Fisher)](https://royalsocietypublishing.org/doi/pdf/10.1098/rsta.1922.0009):
+  referência em estatística com principais conceitos da matéria. 
+
+- [Digital TextBook Statlect](https://www.statlect.com/)
+
+- [Bayesian x Frequentist Inference](https://normaldeviate.wordpress.com/2012/11/17/what-is-bayesianfrequentist-inference/)
