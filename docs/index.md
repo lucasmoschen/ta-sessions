@@ -9,22 +9,33 @@ alterações, você pode usar o Issues do Github.
 
 ## Tópicos abordados 
 
-- Álgebra Linear (2019.2)
-    - Professor [Eduardo Wagner](https://emap.fgv.br/corpo-docente/eduardo-wagner)
-- Equações Diferenciais Ordinárias (2020.1)
-    - Professora [Maria Izabel Camacho](https://emap.fgv.br/corpo-docente/maria-izabel-tavares-camacho)
-- Inferência à Estatística (2020.2)
+- Análise Funcional (2022.5)
+    - Professora [Maria Soledad Aronna](https://sites.google.com/view/aronna/home)
+- Inferência Estatística (2022.5)
     - Professor [Luiz Max de Carvalho](https://emap.fgv.br/corpo-docente/luiz-max-fagundes-de-carvalho)
-- Curvas e Superfícies (2021.1)
-    - Professora [Asla Medeiros e Sá](https://sites.google.com/view/aslasa/home)
-- Introdução à Análise Numérica (2021.2)
-    - Professor [Hugo A. de la Cruz Cancino](https://emap.fgv.br/corpo-docente/hugo-de-la-cruz-cancino)
-- Equações Diferenciais Parciais (2021.2)
-    - Professor [Moacyr Alvim Horta Barbosa da Silva](https://emap.fgv.br/corpo-docente/moacyr-alvim-horta-barbosa-silva)
-- Curvas e Superfícies (2022.1)
-    - Professora [Asla Medeiros e Sá](https://sites.google.com/view/aslasa/home)
 - Estatística Bayesiana (2022.3)
     - Professor [Eduardo Fonseca Mendes](https://sites.google.com/site/dudafmendes/)
+- Curvas e Superfícies (2022.1)
+    - Professora [Asla Medeiros e Sá](https://sites.google.com/view/aslasa/home)
+- Equações Diferenciais Parciais (2021.2)
+    - Professor [Moacyr Alvim Horta Barbosa da Silva](https://emap.fgv.br/corpo-docente/moacyr-alvim-horta-barbosa-silva)
+- Introdução à Análise Numérica (2021.2)
+    - Professor [Hugo A. de la Cruz Cancino](https://emap.fgv.br/corpo-docente/hugo-de-la-cruz-cancino)
+- Curvas e Superfícies (2021.1)
+    - Professora [Asla Medeiros e Sá](https://sites.google.com/view/aslasa/home)
+- Inferência Estatística (2020.2)
+    - Professor [Luiz Max de Carvalho](https://emap.fgv.br/corpo-docente/luiz-max-fagundes-de-carvalho)
+- Equações Diferenciais Ordinárias (2020.1)
+    - Professora [Maria Izabel Camacho](https://emap.fgv.br/corpo-docente/maria-izabel-tavares-camacho)
+- Álgebra Linear (2019.2)
+    - Professor [Eduardo Wagner](https://emap.fgv.br/corpo-docente/eduardo-wagner)
+
+
+
+
+
+
+
 
 ## Referências interessantes de matemática 
 
