@@ -9,6 +9,7 @@ nav:
     - Equações Diferenciais Parciais: edp/info.md
     - Inferência Estatística: infestatistica_BSc/info.md
   - Pós-graduação: 
+    - Análise Funcional: functional_analysis/info.md
     - Estatística Bayesiana: bayesian/info.md
     - Inferência Estatística: infestatistica_MSc/info.md
 
