@@ -11,7 +11,7 @@
     <link rel="shortcut icon" href="../../img/favicon.ico">
 
     
-    <title>Formas fundamentais - Teaching Assistance</title>
+    <title>Análise Funcional - Teaching Assistance</title>
     
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
@@ -93,7 +93,7 @@
                         
                             
 <li >
-    <a href="../info/">Curvas</a>
+    <a href="../../curvas/info/">Curvas</a>
 </li>
 
                         
@@ -120,13 +120,13 @@
                 
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pós-graduação <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
-<li >
-    <a href="../../functional_analysis/info/">Análise Funcional</a>
+<li class="active">
+    <a href="./">Análise Funcional</a>
 </li>
 
                         
@@ -154,6 +154,16 @@
                             <i class="fas fa-search"></i> Search
                         </a>
                     </li>
+                    <li >
+                        <a rel="prev" href="../../infestatistica_BSc/info/">
+                            <i class="fas fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="next" href="../../bayesian/info/">
+                            Next <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </li>
                     <li>
                         <a href="https://lucasmoschen.github.io">Página Inicial</a>
                     </li>
@@ -167,134 +177,67 @@
         
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="first-level active"><a href="#formas-fundamentais">Formas fundamentais</a></li>
-            <li class="second-level"><a href="#primeira-forma-fundamental">Primeira forma fundamental</a></li>
+        <li class="first-level active"><a href="#informacoes-gerais">Informações Gerais</a></li>
+            <li class="second-level"><a href="#topicos">Tópicos</a></li>
                 
-                <li class="third-level"><a href="#isometrias-em-superficies">Isometrias em superfícies</a></li>
-            <li class="second-level"><a href="#segunda-forma-fundamental">Segunda forma fundamental</a></li>
+            <li class="second-level"><a href="#exercicios">Exercícios</a></li>
                 
-            <li class="second-level"><a href="#mapa-de-gauss-e-de-weingarten">Mapa de Gauss e de Weingarten</a></li>
+                <li class="third-level"><a href="#prova-1">Prova 1</a></li>
+                <li class="third-level"><a href="#prova-2">Prova 2</a></li>
+            <li class="second-level"><a href="#resumos">Resumos</a></li>
+                
+            <li class="second-level"><a href="#documentos-adicionais">Documentos Adicionais</a></li>
                 
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h1 id="formas-fundamentais">Formas fundamentais</h1>
-<h2 id="primeira-forma-fundamental">Primeira forma fundamental</h2>
-<p>A primeira preocupação que podemos ter em uma superfície é medir a distância
-entre dois pontos (o ser humano sempre fez isso de diversas formas no planeta
-terra). Para isso, introduzimos o conceito da <em>primeira forma fundamental</em>. </p>
-<p><strong>Definição:</strong> Seja <script type="math/tex">p</script> um ponto na superfície de <script type="math/tex">S</script>. A primeira forma
-fundamental de <script type="math/tex">S</script> em <script type="math/tex">p</script> associa <script type="math/tex">v, w \in T_pS</script> ao escalar 
-<script type="math/tex; mode=display">
-\langle v, w \rangle_{p,S} = v \cdot w
-</script>
-Seja <script type="math/tex">v \in T_pS</script>. Então, podemos representar <script type="math/tex">w</script> como uma combinação linear
-dos vetores <script type="math/tex">\sigma_u</script> e <script type="math/tex">\sigma_v</script>: <script type="math/tex">w = \lambda \sigma_u + \mu \sigma_v</script>.
-Assim
-<script type="math/tex; mode=display">
-\langle w, w \rangle = \lambda^2\langle \sigma_u, \sigma_u \rangle +
-2\lambda\mu\langle \sigma_u, \sigma_v \rangle + \mu^2\langle \sigma_v,
-\sigma_v \rangle
-</script>
-Definimos <script type="math/tex">E = ||\sigma_u||^2, F = \sigma_u \cdot \sigma_v, G =
-||\sigma_v||^2</script> e assim, exprimimos a forma fundamental como 
-<script type="math/tex; mode=display">
-Edu^2 + 2Fdudv + Gdv^2
-</script>
-em que <script type="math/tex">du = \lambda</script> e <script type="math/tex">dv = \mu</script>. </p>
-<p>Se <script type="math/tex">\gamma(t) = \sigma(u(t), v(t))</script>, podemos calcular o comprimento de arco
-utilizando que <script type="math/tex">\dot{\gamma} = \dot{u}\sigma_u + \dot{v}\sigma_v</script> e, então, 
-<script type="math/tex; mode=display">
-||\dot{\gamma}||^2 = E\dot{u}^2 + 2F\dot{u}\dot{v} + G\dot{v}^2
-</script>
-Portanto 
-<script type="math/tex; mode=display">
-L(\gamma) = \int (E\dot{u}^2 + 2F\dot{u}\dot{v} + G\dot{v}^2)^{1/2} dt
-</script>
-</p>
-<h3 id="isometrias-em-superficies">Isometrias em superfícies</h3>
-<p>Se <script type="math/tex">\mathcal{S}_1</script> e <script type="math/tex">\mathcal{S}_2</script> são superfícies, dizemos que eles são
-<em>localmente isométricos</em> se qualquer curva de <script type="math/tex">\mathcal{S}_1</script> pode ser levada
-por um mapa suave para uma curva em <script type="math/tex">\mathcal{S}_2</script> de mesmo comprimento, isto
-é, toda curva pode ser levada de uma superfície para outra, mantendo
-comprimento. O mapa que realiza essa função é uma <em>isometria local</em>. </p>
-<p>Seja o mapa <script type="math/tex">D_pf : T_p\mathcal{S}_1 \to T_{f(p)}\mathcal{S}_2</script> a derivada da
-função suave <script type="math/tex">f</script> entre as superfícies. Podemos provar que <script type="math/tex">f</script> será uma
-isometria local se, e somente se, <script type="math/tex">D_p\mathcal{S}_1</script> é uma isometria (isto é,
-preserva distâncias) para todo ponto <script type="math/tex">p \in \mathcal{S}_1</script>. Lembrando que por
-isometria, queremos dizer que 
-<script type="math/tex; mode=display">
-\langle v, v \rangle_p = \langle D_p f(v), D_p f(v) \rangle_{f(p)}.
-</script>
-Se <script type="math/tex">f</script> for uma isometria local, ele será um difeomorfismo local dada a
-invertibilidade de sua derivada <script type="math/tex">D_pf</script>. </p>
-<p>Um corolário interessante é que para todo mapa <script type="math/tex">\sigma_1</script> de <script type="math/tex">\mathcal{S}_1</script>,
-os patches <script type="math/tex">\sigma_1</script> de <script type="math/tex">\mathcal{S}_1</script>, e <script type="math/tex">f \circ \sigma_1</script> de
-<script type="math/tex">\mathcal{S}_2</script> tem a mesma forma fundamental. </p>
-<h2 id="segunda-forma-fundamental">Segunda forma fundamental</h2>
-<p>Seja <script type="math/tex">p=\sigma(u,v)</script> um ponto em uma superfície. A medida que nos afastamos de
-<script type="math/tex">(u,v)</script>, a superfície se distancia do plano tangente segundo a distância
-(aproximada) 
-<script type="math/tex; mode=display">
-(\sigma(u + \Delta u, v + \Delta v) - \sigma(u,v))\cdot N.
-</script>
-Pelo teorema de Taylor, essa distância vale 
-<script type="math/tex; mode=display">
-(\sigma_u\Delta u + \sigma_v\Delta v + \frac{1}{2}(\sigma_{uu}(\Delta u)^2 +
-2\sigma_{uv}\Delta u\Delta v + \sigma_{vv}(\Delta v)^2) + R(\Delta u, \Delta
-v))\cdot N
-</script>
-onde esse esse resto sobre <script type="math/tex">(\Delta u)^2 + (\Delta v)^2</script> tende a 0. Como <script type="math/tex">N</script> é
-perpendicular a <script type="math/tex">\sigma_u, \sigma_v</script>, o resto da expressão é escrita como 
-<script type="math/tex; mode=display">
-\frac{1}{2}(e(\Delta u)^2 + 2f\Delta u\Delta v + g(\Delta v)^2) + R(\Delta u,
-\Delta v),
-</script>
-em que 
-<script type="math/tex; mode=display">
-e = \sigma_{uu}\cdot N, f = \sigma_{uv}\cdot N, f = \sigma_{vv}\cdot N.
-</script>
-A expressão acima é a <em>segunda forma fundamental</em> e está associada ao
-curvamento da superfície em relação ao plano tangente. </p>
-<h2 id="mapa-de-gauss-e-de-weingarten">Mapa de Gauss e de Weingarten</h2>
-<p><strong>Mapa de Gauss:</strong> O mapa <script type="math/tex">\mathcal{G} : \mathcal{S} \to \mathcal{S}^2</script> que
-associa cada ponto da superfície <script type="math/tex">p \in \mathcal{S}</script>, o ponto <script type="math/tex">N_p \in
-\mathcal{S}^2</script> que é o vetor normal unitário de <script type="math/tex">\mathcal{S}</script> em <script type="math/tex">p</script>. </p>
-<p>Medimos a variação de <script type="math/tex">N</script> ao longo de <script type="math/tex">\mathcal{S}</script> pela derivada 
-<script type="math/tex; mode=display">
-D_p \mathcal{G} : T_p\mathcal{S} \to T_{\mathcal{G}(p)}\mathcal{S}^2.
-</script>
-Seja <script type="math/tex">q = \mathcal{G}(p)</script>. O plano tangente a esse ponto é perpendicular a <script type="math/tex">q</script>
-e passa pela origem. Observe, no entanto, que esse plano, é perpendicular a
-<script type="math/tex">N_p</script>, que é exatamente <script type="math/tex">T_p\mathcal{S}</script>. Portanto esse mapa pode ser escrito
-como 
-<script type="math/tex; mode=display">
-D_p \mathcal{G} : T_p\mathcal{S} \to  T_p\mathcal{S}.
-</script>
-</p>
-<p><strong>Mapa de Weingarten:</strong> O <em>mapa de Weingarten</em> da superfície <script type="math/tex">\mathcal{S}</script> no
-ponto <script type="math/tex">p</script> é definida como <script type="math/tex">\mathcal{W}_{p,S} = - D_p\mathcal{S}</script>. A segunda
-forma fundamental pode ser equivalentemente escrita como 
-<script type="math/tex; mode=display">
-\langle \langle v, w \rangle \rangle_{p,S} := \langle \mathcal{W}_{p,S}(v), w
-\rangle_{p,S}, v, w \in T_p\mathcal{S}. 
-</script>
-</p>
-<p>Podemos provar essa relação, além de provar que o mapa de Weingarten é
-<a href="https://en.wikipedia.org/wiki/Self-adjoint_operator#Bounded_self-adjoint_operators">autoadjunto</a>.</p>
-<p><strong>Curvatura normal e geodésica:</strong> Seja uma curva <script type="math/tex">\gamma</script> na superfície
-<script type="math/tex">\mathcal{S}</script>. A segunda derivada de <script type="math/tex">\gamma</script> (relacionada com sua curvatura)
-pode ser escrita como combinação linear 
-<script type="math/tex; mode=display">
-\ddot{\gamma} = \kappa_n N + \kappa_g(N\times\dot{\gamma}).
-</script>
-Chamamos <script type="math/tex">\kappa_n</script> de curvatura normal e <script type="math/tex">\kappa_g</script> de geodésica. Em geral só
-a magnitude desses valores é bem definida. Além disso 
-<script type="math/tex; mode=display">
-\kappa_n = L\dot{u}^2 + 2M\dot{u}\dot{v} + N\dot{v}^2
-</script>
-</p></div>
+<h1 id="informacoes-gerais">Informações Gerais</h1>
+<p>Monitoria de Análise Funcional: Fundamentos (Doutorado) correspondente ao período de 2022.4.  </p>
+<h2 id="topicos">Tópicos</h2>
+<p>Os tópicos cobertos na disciplina são os seguintes</p>
+<h2 id="exercicios">Exercícios</h2>
+<p>Os exercícios resolvidos estão disponíveis:</p>
+<h3 id="prova-1">Prova 1</h3>
+<table>
+<thead>
+<tr>
+<th>Seção</th>
+<th>Título</th>
+<th>Exercícios</th>
+<th>Soluções</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="prova-2">Prova 2</h3>
+<table>
+<thead>
+<tr>
+<th>Seção</th>
+<th>Título</th>
+<th>Exercícios</th>
+<th>Soluções</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="resumos">Resumos</h2>
+<h2 id="documentos-adicionais">Documentos Adicionais</h2></div>
         
         
     </div>
