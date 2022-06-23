@@ -4,6 +4,8 @@ Monitoria de Inferência Estatística (Mestrado) correspondente ao período de 2
 
 - [GitHub Professor](https://github.com/maxbiostat/Statistical_Inference_MSc)
 
+- Monitoria: Quartas-feiras, 18h. [Link 18h-19h](https://meet.google.com/ebj-cgog-gry), [Link 19h-20h](https://meet.google.com/mrp-noed-qxp) 
+
 ## Tópicos 
 
 Os tópicos cobertos na disciplina são os seguintes
