@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+
+    
+    <title>Revisão de Probabilidade - Teaching Assistance</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../../css/base.min.css" rel="stylesheet">
+    <link href="../../../css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            
+              <a class="navbar-brand" href="../../..">Teaching Assistance</a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Graduação <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../alglin/info/">Álgebra Linear</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../analisenum/info/">Análise Numérica</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../curvas/info/">Curvas</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../edo/info/">Equações Diferenciais Ordinárias</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../edp/info/">Equações Diferenciais Parciais</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../infestatistica_BSc/info/">Inferência Estatística</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pós-graduação <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../functional_analysis/info/">Análise Funcional</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../bayesian/info/">Estatística Bayesiana</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../info/">Inferência Estatística</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://lucasmoschen.github.io">Página Inicial</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#revisao-de-probabilidade">Revisão de Probabilidade</a></li>
+            <li class="second-level"><a href="#medida">Medida</a></li>
+                
+            <li class="second-level"><a href="#integracao">Integração</a></li>
+                
+            <li class="second-level"><a href="#eventos-e-variaveis-aleatorias">Eventos e variáveis aleatórias</a></li>
+                
+            <li class="second-level"><a href="#densidades">Densidades</a></li>
+                
+            <li class="second-level"><a href="#esperanca">Esperança</a></li>
+                
+            <li class="second-level"><a href="#vetores-aleatorios">Vetores Aleatórios</a></li>
+                
+            <li class="second-level"><a href="#medida-produto">Medida produto</a></li>
+                
+            <li class="second-level"><a href="#independencia">Independência</a></li>
+                
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="revisao-de-probabilidade">Revisão de Probabilidade</h1>
+<p>Nessa seção, vamos introduzir alguns conceitos chave de probabilidade e medida para a compreensão do curso de estatística.</p>
+<h2 id="medida">Medida</h2>
+<p>Uma medida atribui um valor não negativo a subconjuntos <script type="math/tex">A \subseteq \mathcal{X}</script>, com certas propriedades que gostaríamos de ter. Por exemplo, se <script type="math/tex">\mathcal{X}</script> for um conjunto enumerável, como os números naturais, poderíamos definir uma medida para <script type="math/tex">A</script> como 
+<script type="math/tex; mode=display">
+\mu(A) = |A| = \text{número de elementos de } A,
+</script>
+conhecida como <strong>medida de contagem</strong>.
+No caso em que <script type="math/tex">\mathcal{X} = \mathbb{R}^n</script> para algum <script type="math/tex">n</script>, podemos definir a noção de volume de <script type="math/tex">A</script> com 
+<script type="math/tex; mode=display">
+\mu(A) = \int_{\mathbb{R}^n} I\{\boldsymbol{x} \in A\} \, d\boldsymbol{x},
+</script>
+conhecida como <strong>medida de Lebesgue</strong>. Para tornar esse conceito mais rigoroso, definimos uma <strong><script type="math/tex">\sigma</script>-algebra</strong> como </p>
+<blockquote>
+<p>Uma coleção de subconjuntos <script type="math/tex">\mathcal{A}</script> de <script type="math/tex">\mathcal{X}</script>, isto é, <script type="math/tex">\mathcal{A} \subseteq \mathcal{P}\mathcal{X}</script> (conjunto das partes de <script type="math/tex">\mathcal{X}</script> é uma <script type="math/tex">\sigma</script>-álgebra se: </p>
+</blockquote>
+<p><strong>i)</strong> <script type="math/tex">\emptyset \in \mathcal{A}</script>.</p>
+<p><strong>ii)</strong> Se <script type="math/tex">A \in \mathcal{A}</script>, então <script type="math/tex">A^c \in \mathcal{A}</script>.</p>
+<p><strong>iii)</strong> Se <script type="math/tex">A_1, A_2, \dots \in \mathcal{A}</script>, então <script type="math/tex">\cup_{i=1}^{\infty} A_i \in \mathcal{A}</script>.</p>
+<blockquote>
+<p>Uma <strong>medida</strong>, portanto, é uma função <script type="math/tex">\mu : \mathcal{A} \to \mathbb{R}_{+}</script> que satisfaz a propriedade de que se a sequência <script type="math/tex">A_1, A_2, \dots</script> é disjunta dois a dois, então 
+<script type="math/tex; mode=display">
+\mu\left(\cup_{i=1}^n A_i\right) = \sum_{i=1}^n \mu(A_i).
+</script>
+</p>
+</blockquote>
+<p>Podemos definir algumas características de interesse para medidas:</p>
+<ul>
+<li>
+<script type="math/tex">\mu</script> é medida <strong>finita</strong> se <script type="math/tex">\mu(\mathcal{X}) < +\infty</script>.</li>
+<li>
+<script type="math/tex">\mu</script> é medida <strong><script type="math/tex">\sigma</script>-finita</strong> se existe uma <script type="math/tex">A_1, A_2, \dots \in \mathcal{A}</script> com <script type="math/tex">\mu(A_i) < +\infty</script> tal que <script type="math/tex">\mathcal{X} = \cup_{i=1}^n A_i</script>.</li>
+<li>
+<script type="math/tex">\mu</script> é medida <strong>de probabilidade</strong> se <script type="math/tex">\mu(\mathcal{X}) = 1</script>.</li>
+</ul>
+<p>Chamamos o par <script type="math/tex">(\mathcal{X}, \mathcal{A})</script> de <strong>espaço mensurável</strong> e a tripla <script type="math/tex">(\mathcal{X}, \mathcal{A}, \mu)</script> de <strong>espaço medida</strong>. No caso em que <script type="math/tex">\mu</script> é medida de probabilidade, temos um <strong>espaço de probabilidade</strong>.</p>
+<p>Se <script type="math/tex">\mu(N)=0</script>, dizemos que <script type="math/tex">N</script> tem medida nula. Se alguma propriedade <script type="math/tex">\tau</script> vale <strong>quase sempre</strong>, queremos dizer que o conjunto em que <script type="math/tex">\tau</script> não vale tem medida nula.</p>
+<p><em>Observação: Os axiomas da probabilidade ou de Kolmogorov são os seguintes três: (I) <script type="math/tex">P(A) \ge 0</script> para todo evento <script type="math/tex">A</script>, (II) <script type="math/tex">P(\mathcal{X}) = 1</script> e (III) <script type="math/tex">P(\cup_{i=1}^n A_i) = \sum_{i=1}^n P(A_i)</script> para uma sequência disjunta. 
+O terceiro axioma é chamado de *</em>aditividade contável<strong>. 
+Alguns estatísticos, como deFinetti, acreditam que esse axioma é muito forte e auto-evidente.
+Para isso, sugerem a **aditividade finita</strong> <script type="math/tex">P(A \cup B) = P(A) + P(B)</script> para <script type="math/tex">A \cap B = \emptyset</script>.
+Essa alteração, todavia, gera complicações que não, necessariamente, melhoram o entendimento dos conceitos.*</p>
+<h2 id="integracao">Integração</h2>
+<blockquote>
+<p>Uma função <script type="math/tex">f</script> com valores reais e definida em <script type="math/tex">\mathcal{X}</script> é <strong>mensurável</strong> se o conjunto
+<script type="math/tex; mode=display">
+f^{-1}(B) = \{x \in \mathcal{X} : f(x) \in B\}
+</script>
+pertence a <script type="math/tex">\mathcal{A}</script> para todo <script type="math/tex">B</script>
+<a href="https://en.wikipedia.org/wiki/Borel_set">conjunto de Borel</a>. Podemos tomar <script type="math/tex">B</script> da forma <script type="math/tex">(-\infty, b)</script>, por exemplo. Podemos mostrar que funções contínuas ou contínuas por partes são mensuráveis.</p>
+</blockquote>
+<p>Podemos então, definir propriedades básicas da integral de Lebesgue. Denote <script type="math/tex">1_A(x) = I(x \in A)</script>. Assim:</p>
+<p><strong>(1)</strong> <script type="math/tex">\int 1_A \, d\mu = \mu(A)</script>.</p>
+<p><strong>(2)</strong> Se <script type="math/tex">f</script> e <script type="math/tex">g</script> são funções mensuráveis não negativas e <script type="math/tex">a,b > 0</script>: 
+<script type="math/tex; mode=display">
+\int (af + bg) \, d\mu = a\int f \, d\mu + b\int g \, d\mu
+</script>
+</p>
+<p><strong>(3)</strong> Se <script type="math/tex">0 \le f_1 \le f_2 \le \dots</script> e <script type="math/tex">f(x) = \lim_{n\to\infty} f_n(x)</script>, então
+<script type="math/tex; mode=display">
+\int f \, d\mu = \lim_{n\to \infty} \int f_n \, d\mu,
+</script>
+e essa propriedade é o <a href="https://en.wikipedia.org/wiki/Monotone_convergence_theorem"><strong>Teorema da Convergência Monótona</strong></a>. </p>
+<p>Uma <strong>função simples</strong> é uma função constante por partes que assume um valor finito de valores <script type="math/tex">a_1, \dots a_n</script>. Podemos escrever uma função simples como 
+<script type="math/tex; mode=display">
+s(x) = \sum_{i=1}^n a_i 1_{A_i}(x),
+</script>
+para alguns <script type="math/tex">A_1, \dots, A_n</script> disjuntos, e obter que 
+<script type="math/tex; mode=display">
+\int s \, d\mu = \sum_{i=1}^n a_i \mu(A_i).
+</script>
+Além disso, um teorema bem interessante mostra que se <script type="math/tex">f</script> é não negativa e mensurável, então existe uma sequência de funções simples <script type="math/tex">f_1 \le f_2 \le \dots \le f</script> com <script type="math/tex">f = \lim f_n</script>. Isso mostra que qualquer função não negativa mensurável pode ser integrada. </p>
+<p>Por fim, basta ver que <script type="math/tex">f(x) = f^{+}(x) - f^{-}(x) = \max\{0, f(x)\} - (-\min\{f(x), 0\})</script> é a soma de duas funções não negativas, e portanto, pode ser integrada através de 
+<script type="math/tex; mode=display">
+\int f \, d\mu = \int f^+ \, d\mu - \int f^{-} \, d\mu.
+</script>
+Dizemos que <script type="math/tex">f</script> é <strong>integrável</strong> se 
+<script type="math/tex; mode=display">
+\int |f| \, d\mu < +\infty.
+</script>
+</p>
+<p>Algumas consequências importantes: </p>
+<ul>
+<li>
+<p>Se <script type="math/tex">f = 0</script> quase sempre, então <script type="math/tex">\int f \, d\mu = 0</script>
+</p>
+</li>
+<li>
+<p>Se <script type="math/tex">f \ge 0</script> e <script type="math/tex">\int f \, d\mu = 0</script>, então <script type="math/tex">f = 0</script> quase sempre. </p>
+</li>
+<li>
+<p>Se <script type="math/tex">f = g</script> quase sempre, então <script type="math/tex">\int f \, d\mu = \int g \, d\mu</script> se uma das integrais existe.</p>
+</li>
+<li>
+<p>Se <script type="math/tex">\int 1_{(c,x)} f \, d\mu = 0</script> para todo <script type="math/tex">x > c</script>, então <script type="math/tex">f(x) = 0</script> quase sempre em <script type="math/tex">x > c</script>. </p>
+</li>
+<li>
+<p>Se <script type="math/tex">f > g</script> são integráveis, então <script type="math/tex">\int f\, d\mu > \int g \, d\mu</script>, a menos que <script type="math/tex">\mu</script> seja identicamente nula.</p>
+</li>
+</ul>
+<h2 id="eventos-e-variaveis-aleatorias">Eventos e variáveis aleatórias</h2>
+<p>Seja <script type="math/tex">(\mathcal{X}, \mathcal{A}, P)</script> um espaço de probabilidade. Dizemos que <script type="math/tex">A \in \mathcal{A}</script> é um <strong>evento</strong>. 
+Todos os possíveis desfechos de um experimento dado pelo conjunto <script type="math/tex">\mathcal{X}</script> formam o <strong>espaço amostral</strong>.
+Uma <strong>variável aleatória</strong> é uma função mensurável <script type="math/tex">X : \mathcal{X} \to \mathbb{R}</script>. A <strong>distribuição</strong> de <script type="math/tex">X</script> é <script type="math/tex">Q</script>, iso é, <script type="math/tex">X \sim Q</script> quando 
+<script type="math/tex; mode=display">
+Q(B) = P(\{x \in \mathcal{X} | X(x) \in A\}) := P(X \in B),
+</script>
+isto é, <script type="math/tex">Q</script> é definida nos conjuntos de Borel de <script type="math/tex">\mathbb{R}</script>. A <strong>função de distribuição acumulada</strong> de <script type="math/tex">X</script> é a função
+<script type="math/tex; mode=display">
+F_X(x) = P(X \le x) = Q((-\infty, x]),
+</script>
+para <script type="math/tex">x \in \mathbb{R}</script>.</p>
+<h2 id="densidades">Densidades</h2>
+<p>Uma medida é absolutamente contínua com respeito a outra se ela dá volume <script type="math/tex">0</script> para as regiões que a outra também dá, isto é:</p>
+<blockquote>
+<p>Sejam <script type="math/tex">P</script> e <script type="math/tex">\mu</script> medidas definidas em <script type="math/tex">(\mathcal{X}, \mathcal{A})</script>. Dizemos que <script type="math/tex">P</script> é absolutamente contínua com respeito a <script type="math/tex">\mu</script> se <script type="math/tex">P(A) = 0</script> sempre que <script type="math/tex">\mu(A) = 0</script>. Nesse caso, escrevemos que <script type="math/tex">P \ll \mu</script>. Também dizemos que <script type="math/tex">\mu</script> domina <script type="math/tex">P</script>.</p>
+</blockquote>
+<p><strong>Teorema de Radon-Nikodym:</strong> Se uma medida <script type="math/tex">P</script> finita é absolutamente contínua com respeito a uma medida <script type="math/tex">\mu</script>
+<script type="math/tex">\sigma</script>-finita, então existe uma função mensurável <script type="math/tex">f</script> tal que 
+<script type="math/tex; mode=display">
+P(A) = \int_A f \, d\mu := \int f1_A \, d\mu.
+</script>
+Chamamos <script type="math/tex">f</script> de derivada Radon-Nikodym de <script type="math/tex">P</script> com respeito a <script type="math/tex">\mu</script>, ou a densidade de <script type="math/tex">P</script> com respeito a <script type="math/tex">\mu</script> e escrevemos 
+<script type="math/tex; mode=display">
+f = \frac{dP}{d\mu}.
+</script>
+Vejam que de fato isso generaliza a noção de derivada, pois pelo Teorema fundamental do Cálculo, 
+<script type="math/tex; mode=display">
+F(x) = \int_a^x f(t) \, dt \implies f = \frac{d F}{d x},
+</script>
+em que nesse caso estamos tomando a medida de Lebesgue na reta. Concluímos também que a densidade de <script type="math/tex">P</script> é determinada a menos de um conjunto de medida nula.</p>
+<h2 id="esperanca">Esperança</h2>
+<p>Se <script type="math/tex">X</script> é uma variável aleatória definida em <script type="math/tex">(\mathcal{X}, \mathcal{A}, P)</script>, o <strong>valor esperado</strong> de <script type="math/tex">X</script> é definido como
+<script type="math/tex; mode=display">
+\mathbb{E}[X] = \int X \, dP.
+</script>
+Se <script type="math/tex">X \sim P_X</script>, podemos mostrar que 
+<script type="math/tex; mode=display">
+\mathbb{E}[X] = \int x dP_X(x).
+</script>
+Além do mais, se <script type="math/tex">Y = f(X)</script>, então
+<script type="math/tex; mode=display">
+\mathbb{E}[Y] = \int f \, dP_X.
+</script>
+Se <script type="math/tex">P_X</script> tem densidade <script type="math/tex">p</script> com respeito a <script type="math/tex">\mu</script>, então
+<script type="math/tex; mode=display">
+\int f \, dP_X = \int fp\, d\mu.
+</script>
+Finalmente, definimos <script type="math/tex">\operatorname{Var}(X) = \mathbb{E}[(X - \mathbb{E}[X])^2]</script>, <script type="math/tex">\operatorname{Cov}(X,Y) = \mathbb{E}[(X-\mathbb{E}[X])(Y-\mathbb{E}[Y])]</script> e <script type="math/tex">\operatorname{Cor}(X,Y) = \operatorname{Cov}(X,Y)\big/\sqrt{\operatorname{Var}(X) \operatorname{Var}(Y)}</script>.</p>
+<h2 id="vetores-aleatorios">Vetores Aleatórios</h2>
+<p>Seja agora uma função <script type="math/tex">X : \mathcal{X} \to \mathbb{R}^n</script> mensurável (no sentido dos conjuntos de Borel em <script type="math/tex">\mathbb{R}^n</script>). Se <script type="math/tex">X \sim P_X</script> e <script type="math/tex">P_X</script> é absolutamente contínua com respeito a medida de Lebesgue em <script type="math/tex">\mathbb{R}^n</script> com densidade <script type="math/tex">p</script>, temos que 
+<script type="math/tex; mode=display">
+P_X(B) = \int_{B} p(x) \, dx.
+</script>
+A esperança de <script type="math/tex">X</script> é 
+<script type="math/tex; mode=display">
+\mathbb{E}[X] = \begin{pmatrix}
+    \mathbb{E}[X_1] \\ 
+    \vdots \\
+    \mathbb{E}[X_n]
+\end{pmatrix}.
+</script>
+E se <script type="math/tex">T : \mathbb{R}^n \to \mathbb{R}</script> é mensurável, então <script type="math/tex">T(X)</script> é variável aleatória com 
+<script type="math/tex; mode=display">
+\mathbb{E}[T(X)] = \int T \, dP_X.
+</script>
+</p>
+<h2 id="medida-produto">Medida produto</h2>
+<p>Sejam <script type="math/tex">(\mathcal{X}, \mathcal{A}, \mu)</script> e <script type="math/tex">(\mathcal{Y}, \mathcal{B}, \nu)</script> espaços de medida. Então existe uma única medida <script type="math/tex">\mu \times \nu</script> chamada de <strong>medida produto</strong> em <script type="math/tex">(\mathcal{X} \times \mathcal{Y}, \sigma(\mathcal{A} \times \mathcal{B}))</script> tal que 
+<script type="math/tex; mode=display">
+(\mu \times \nu)(A \times B) = \mu(A)\nu(B),
+</script>
+para <script type="math/tex">A \in \mathcal{A}</script> e <script type="math/tex">B \in \mathcal{B}</script>. 
+Denotamos <script type="math/tex">\sigma(C)</script> como a menor <script type="math/tex">\sigma</script>-álgebra que contém <script type="math/tex">C</script>.</p>
+<p>Com respeito a integração, obtemos o seguinte teorema </p>
+<p><strong>Teorema de Fubini:</strong> Se <script type="math/tex">f \ge 0</script>, então 
+<script type="math/tex; mode=display">
+\int f \, d(\mu \times \nu) = \int\left[\int f(x,y) \, d\nu(y)\right] \, d\mu(x) =  \int\left[\int f(x,y) \, d\mu(x)\right] \, d\nu(y).
+</script>
+Além do mais, se <script type="math/tex">f \ge 0</script> não é satisfeito, mas <script type="math/tex">f</script> é integrável com respeito a <script type="math/tex">\mu \times \nu</script>, a relação ainda é válida.</p>
+<h2 id="independencia">Independência</h2>
+<p>A partir da definição de medida produto, podemos falar do conceito de independência de duas variáveis aleatórias. Sejam dois vetores aleatórios <script type="math/tex">X(\cdot) \subseteq \mathbb{R}^n</script> e <script type="math/tex">Y(\cdot) \subseteq \mathbb{R}^m</script>. Dizemos que eles são <strong>independentes</strong> se
+<script type="math/tex; mode=display">
+P(X \in A, Y \in B) = P(X \in A)P(Y \in B),
+</script>
+para todos os conjuntos de Borel <script type="math/tex">A</script> e <script type="math/tex">B</script>.</p>
+<p>Seja <script type="math/tex">Z = (X,Y)</script> em <script type="math/tex">\mathbb{R}^{n+m}</script>. Temos que <script type="math/tex">Z \in A \times B</script> se, e só se, <script type="math/tex">X \in A</script> e <script type="math/tex">Y \in B</script>. Nesse caso, 
+<script type="math/tex; mode=display">
+P_Z(A \times B) = P_X(A)P_Y(B) \implies P_Z = P_A \times P_Y.
+</script>
+A densidade de <script type="math/tex">Z</script> também é dada pelo produto das densidades de <script type="math/tex">X</script> e <script type="math/tex">Y</script> pelo Teorema de Fubini.</p>
+<p>Finalmente, temos o resultado de que se <script type="math/tex">X_1, \dots, X_n</script> são vetores aleatórios independentes e se <script type="math/tex">f_1, \dots, f_n</script> são funções mensuráveis, então <script type="math/tex">f_1(X_1), \dots, f_n(X_n)</script> são independentes.</p></div>
+        
+        
+    </div>
+
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
+
+          
+          
+      </footer>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = "../../.."</script>
+    
+    <script src="../../../js/base.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>
