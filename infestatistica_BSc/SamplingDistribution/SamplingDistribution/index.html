@@ -688,7 +688,7 @@ AAAALWlsc3QAAAAlqXRvbwAAAB1kYXRhAAAAAQAAAABMYXZmNTguNDUuMTAw
 <p>Sejam <script type="math/tex">\hat{\mu} = \bar{X}_n</script> e <script type="math/tex">\hat{\sigma}^2 = \frac{1}{n}\sum_{i=1}^n (X_i - \bar{X}_n)^2</script> a média e variância amostrais, respectivamente. Então <script type="math/tex">\hat{\mu}</script> tem distribuição normal com média <script type="math/tex">\mu</script> e variância <script type="math/tex">\sigma^2 /n</script>, enquanto <script type="math/tex">n\hat{\sigma}^2/\sigma^2</script> tem a distribuição <script type="math/tex">\chi^2(n-1)</script>, isto é, com <script type="math/tex">n-1</script> grau de liberdade. Além disso elas são independentes. </p>
 <p>Esse teorema é um pouco mais complexo e, na verdade, essa seria uma espécie de aplicação do teorema, na verdade. O teorema de Basu diz que: </p>
 <blockquote>
-<p>Se <script type="math/tex">T</script> é uma estatística suficiente <a href="https://lucasmoschen.github.io/TA_sessions/infestatistica/SufficientStatistics/#definicoes-adicionais">completa</a> (Considere, nesse teorema, <script type="math/tex">g</script> uma função integrável limitada) para <script type="math/tex">\theta</script> e <script type="math/tex">A</script> uma estatística ancillary, então <script type="math/tex">T</script> é independente de <script type="math/tex">A</script>. Nesse caso <script type="math/tex">\hat{\mu}</script> é completa suficiente e <script type="math/tex">\hat{\sigma}^2</script> é ancillary, por que não depende de <script type="math/tex">\mu</script>. </p>
+<p>Se <script type="math/tex">T</script> é uma estatística suficiente <a href="https://lucasmoschen.github.io/TA_sessions/infestatistica_BSc/SufficientStatistics/#definicoes-adicionais">completa</a> (Considere, nesse teorema, <script type="math/tex">g</script> uma função integrável limitada) para <script type="math/tex">\theta</script> e <script type="math/tex">A</script> uma estatística ancillary, então <script type="math/tex">T</script> é independente de <script type="math/tex">A</script>. Nesse caso <script type="math/tex">\hat{\mu}</script> é completa suficiente e <script type="math/tex">\hat{\sigma}^2</script> é ancillary, por que não depende de <script type="math/tex">\mu</script>. </p>
 </blockquote>
 <p>O mais interessante é que essa propriedade é só vista com a <a href="https://arxiv.org/pdf/1810.01768.pdf">distribuição normal</a>! Olhem a página 9.  </p>
 <h3 id="demonstracao">Demonstração</h3>
@@ -816,11 +816,11 @@ f(x) = \frac{\Gamma\left(\frac{m+1}{2}\right)}{(m\pi)^{1/2}\Gamma\left(\frac{m}{
 <h3 id="ferramentas-para-demonstrar-a-convergencia">Ferramentas para demonstrar a convergência</h3>
 <ol>
 <li>
-<p><a href="https://lucasmoschen.github.io/TA_sessions/infestatistica/LargeRandomSamples/LargeRandomSamples/#metodo-delta">Teorema de Slutsky</a>: Considere o corolário com <script type="math/tex">f(x,y) = \frac{x}{y}</script>
+<p><a href="https://lucasmoschen.github.io/TA_sessions/infestatistica_BSc/LargeRandomSamples/LargeRandomSamples/#metodo-delta">Teorema de Slutsky</a>: Considere o corolário com <script type="math/tex">f(x,y) = \frac{x}{y}</script>
 </p>
 </li>
 <li>
-<p><a href="https://lucasmoschen.github.io/TA_sessions/infestatistica/LargeRandomSamples/LargeRandomSamples/#lei-dos-grandes-numeros">Lei dos Grandes Números</a>: Escreva a qui-quadrado como soma de normais. </p>
+<p><a href="https://lucasmoschen.github.io/TA_sessions/infestatistica_BSc/LargeRandomSamples/LargeRandomSamples/#lei-dos-grandes-numeros">Lei dos Grandes Números</a>: Escreva a qui-quadrado como soma de normais. </p>
 </li>
 </ol>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">t</span><span class="p">,</span> <span class="n">norm</span><span class="p">,</span> <span class="n">cauchy</span>
