@@ -150,7 +150,7 @@ O conceito de invariância é bem profundo na matemática e, com base nesse conc
 
 ### Priori de Jeffreys
 
-A Priori de Jeffreys é baseada na [Informação de Fisher](https://lucasmoschen.github.io/ta-sessions/infestatistica/FisherInformation/FisherInformation/) dada pela expressão:
+A Priori de Jeffreys é baseada na [Informação de Fisher](https://lucasmoschen.github.io/ta-sessions/infestatistica_BSc/FisherInformation/FisherInformation/) dada pela expressão:
 $$
 I(\theta) = \mathbb{E}_{\theta}\left[\left(\frac{\partial \log f(X|\theta)}{\partial \theta}\right)^2\right],
 $$

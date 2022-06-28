@@ -482,7 +482,7 @@ Encerramos a atividade aqui!
 
 # Testes de Razão Verossimilhança 
 
-São testes baseados na [verossimilhaça](https://lucasmoschen.github.io/TA_sessions/infestatistica/MaximumLikelihoodEstimator/MaximumLikelihoodEstimator/#funcao-verossimilhanca) do modelo $f_n(x|\theta)$. Suponha que queremos testar a hipótese: 
+São testes baseados na [verossimilhaça](https://lucasmoschen.github.io/TA_sessions/infestatistica_BSc/MaximumLikelihoodEstimator/MaximumLikelihoodEstimator/#funcao-verossimilhanca) do modelo $f_n(x|\theta)$. Suponha que queremos testar a hipótese: 
 
 $$
 H_0: \theta \in \Omega_0

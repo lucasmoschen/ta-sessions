@@ -758,7 +758,7 @@ $$
 V = \frac{S_x^2/(m-1)}{S_y^2/(n-1)}
 $$
 
-Rejeitaremos $X_0$ se $V \ge c$, onde $c$ será escolhido para que esse teste tenha nível de significância $\alpha_0$. Esse teste é chamado de teste F, pois a distribuição de $(\sigma_1^2/\sigma_2^2)V$ é F com parâmetros $m-1$ e $n-1$. Em particular se $\sigma_1^2 = \sigma_2^2$, $V$ tem distribuição F. Onde a [distribuição F é descrita aqui](https://lucasmoschen.github.io/TA_sessions/infestatistica/SamplingDistribution/SamplingDistribution/#distribuicao-f). 
+Rejeitaremos $X_0$ se $V \ge c$, onde $c$ será escolhido para que esse teste tenha nível de significância $\alpha_0$. Esse teste é chamado de teste F, pois a distribuição de $(\sigma_1^2/\sigma_2^2)V$ é F com parâmetros $m-1$ e $n-1$. Em particular se $\sigma_1^2 = \sigma_2^2$, $V$ tem distribuição F. Onde a [distribuição F é descrita aqui](https://lucasmoschen.github.io/TA_sessions/infestatistica_BSc/SamplingDistribution/SamplingDistribution/#distribuicao-f). 
 
 ## Função Poder
 

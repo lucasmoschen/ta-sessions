@@ -513,7 +513,7 @@ Sejam $\hat{\mu} = \bar{X}_n$ e $\hat{\sigma}^2 = \frac{1}{n}\sum_{i=1}^n (X_i -
 
 Esse teorema é um pouco mais complexo e, na verdade, essa seria uma espécie de aplicação do teorema, na verdade. O teorema de Basu diz que: 
 
-> Se $T$ é uma estatística suficiente [completa](https://lucasmoschen.github.io/TA_sessions/infestatistica/SufficientStatistics/#definicoes-adicionais) (Considere, nesse teorema, $g$ uma função integrável limitada) para $\theta$ e $A$ uma estatística ancillary, então $T$ é independente de $A$. Nesse caso $\hat{\mu}$ é completa suficiente e $\hat{\sigma}^2$ é ancillary, por que não depende de $\mu$. 
+> Se $T$ é uma estatística suficiente [completa](https://lucasmoschen.github.io/TA_sessions/infestatistica_BSc/SufficientStatistics/#definicoes-adicionais) (Considere, nesse teorema, $g$ uma função integrável limitada) para $\theta$ e $A$ uma estatística ancillary, então $T$ é independente de $A$. Nesse caso $\hat{\mu}$ é completa suficiente e $\hat{\sigma}^2$ é ancillary, por que não depende de $\mu$. 
 
 O mais interessante é que essa propriedade é só vista com a [distribuição normal](https://arxiv.org/pdf/1810.01768.pdf)! Olhem a página 9.  
 
@@ -654,9 +654,9 @@ Da mesma forma que a distribuição normal e a distribuição Cauchy, a distribu
 
 ### Ferramentas para demonstrar a convergência
 
-1. [Teorema de Slutsky](https://lucasmoschen.github.io/TA_sessions/infestatistica/LargeRandomSamples/LargeRandomSamples/#metodo-delta): Considere o corolário com $f(x,y) = \frac{x}{y}$ 
+1. [Teorema de Slutsky](https://lucasmoschen.github.io/TA_sessions/infestatistica_BSc/LargeRandomSamples/LargeRandomSamples/#metodo-delta): Considere o corolário com $f(x,y) = \frac{x}{y}$ 
 
-2. [Lei dos Grandes Números](https://lucasmoschen.github.io/TA_sessions/infestatistica/LargeRandomSamples/LargeRandomSamples/#lei-dos-grandes-numeros): Escreva a qui-quadrado como soma de normais. 
+2. [Lei dos Grandes Números](https://lucasmoschen.github.io/TA_sessions/infestatistica_BSc/LargeRandomSamples/LargeRandomSamples/#lei-dos-grandes-numeros): Escreva a qui-quadrado como soma de normais. 
 
 
 ```python

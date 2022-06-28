@@ -452,7 +452,7 @@ plt.show()
 
 ### Vamos usar o t-test descrito em [Welch](https://en.wikipedia.org/wiki/Welch%27s_t-test). 
 
-Temos que usá-lo porque não conhecemos a variância. Se conhecessemos, poderíamos usar o teste normal mesmo e se soubéssemos que são iguais, mas desconhecessemos, poderíamos usar o ttest ques estudamos no [capítulo 9.5](https://lucasmoschen.github.io/TA_sessions/infestatistica/TestingHypothesesII/TestingHypothesesII/#comparando-medias-de-duas-normais). 
+Temos que usá-lo porque não conhecemos a variância. Se conhecessemos, poderíamos usar o teste normal mesmo e se soubéssemos que são iguais, mas desconhecessemos, poderíamos usar o ttest ques estudamos no [capítulo 9.5](https://lucasmoschen.github.io/TA_sessions/infestatistica_BSc/TestingHypothesesII/TestingHypothesesII/#comparando-medias-de-duas-normais). 
 
 
 ```python

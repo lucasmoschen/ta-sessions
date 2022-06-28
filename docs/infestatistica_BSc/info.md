@@ -15,31 +15,31 @@ Linguagem de Programação Python.
 
 |Conceitos Introdutórios|
 |---|
-|[Grandes Amostras](/ta-sessions/infestatistica/LargeRandomSamples/LargeRandomSamples)|
-|[Introdução](/ta-sessions/infestatistica/StatisticalInference/StatisticalInference)|
-|[Priori e Posteriori](/ta-sessions/infestatistica/PrioriPosteriori/PrioriPosteriori)|
-|[Distribuição Amostral](/ta-sessions/infestatistica/SamplingDistribution/SamplingDistribution)|
+|[Grandes Amostras](/ta-sessions/infestatistica_BSc/LargeRandomSamples/LargeRandomSamples)|
+|[Introdução](/ta-sessions/infestatistica_BSc/StatisticalInference/StatisticalInference)|
+|[Priori e Posteriori](/ta-sessions/infestatistica_BSc/PrioriPosteriori/PrioriPosteriori)|
+|[Distribuição Amostral](/ta-sessions/infestatistica_BSc/SamplingDistribution/SamplingDistribution)|
 
 |Estimadores|
 |---|
-|[Distribuições Conjugada e Estimador de Bayes](/ta-sessions/infestatistica/ConjugateDistributions/ConjugateDistributions)|
-|[Estimador de Máxima Verossimilhança](/ta-sessions/infestatistica/MaximumLikelihoodEstimator/MaximumLikelihoodEstimator)|
-|[Estatísticas Suficientes](/ta-sessions/infestatistica/SufficientStatistics)|
-|[Intervalos de Confiança](/ta-sessions/infestatistica/ConfidenceIntervals/ConfidenceIntervals)|
-|[Análise Bayesiana da Normal](/ta-sessions/infestatistica/BayesianAnalysisNormal/BayesianAnalysisNormal)|
-|[Estimadores não enviesados](/ta-sessions/infestatistica/UnbiasedEstimators/UnbiasedEstimators)|
-|[Informação de Fisher](/ta-sessions/infestatistica/FisherInformation/FisherInformation)|
+|[Distribuições Conjugada e Estimador de Bayes](/ta-sessions/infestatistica_BSc/ConjugateDistributions/ConjugateDistributions)|
+|[Estimador de Máxima Verossimilhança](/ta-sessions/infestatistica_BSc/MaximumLikelihoodEstimator/MaximumLikelihoodEstimator)|
+|[Estatísticas Suficientes](/ta-sessions/infestatistica_BSc/SufficientStatistics)|
+|[Intervalos de Confiança](/ta-sessions/infestatistica_BSc/ConfidenceIntervals/ConfidenceIntervals)|
+|[Análise Bayesiana da Normal](/ta-sessions/infestatistica_BSc/BayesianAnalysisNormal/BayesianAnalysisNormal)|
+|[Estimadores não enviesados](/ta-sessions/infestatistica_BSc/UnbiasedEstimators/UnbiasedEstimators)|
+|[Informação de Fisher](/ta-sessions/infestatistica_BSc/FisherInformation/FisherInformation)|
 
 |Testes de Hipótese|
 |---|
-|[Teste de Hipóteses](/ta-sessions/infestatistica/TestingHypotheses/TestingHypotheses)|
-|[Teste de Hipóteses II](/ta-sessions/infestatistica/TestingHypothesesII/TestingHypothesesII)|
-|[Exemplos Básicos Testes de Hipótese](/ta-sessions/infestatistica/ExampleHypothesesTesting/ExampleHypothesesTesting)|
-|[Testes Uniformemente mais Poderosos](/ta-sessions/infestatistica/TestsUniformlyPoweful/TestsUniformlyPoweful)|
+|[Teste de Hipóteses](/ta-sessions/infestatistica_BSc/TestingHypotheses/TestingHypotheses)|
+|[Teste de Hipóteses II](/ta-sessions/infestatistica_BSc/TestingHypothesesII/TestingHypothesesII)|
+|[Exemplos Básicos Testes de Hipótese](/ta-sessions/infestatistica_BSc/ExampleHypothesesTesting/ExampleHypothesesTesting)|
+|[Testes Uniformemente mais Poderosos](/ta-sessions/infestatistica_BSc/TestsUniformlyPoweful/TestsUniformlyPoweful)|
 
 |Modelos Lineares|
 |---|
-|[Modelos Lineares Simples](/ta-sessions/infestatistica/LinearModel/LinearModel)|
+|[Modelos Lineares Simples](/ta-sessions/infestatistica_BSc/LinearModel/LinearModel)|
 
 
 ## Exercícios 
