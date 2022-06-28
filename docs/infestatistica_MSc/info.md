@@ -10,7 +10,7 @@ Monitoria de Inferência Estatística (Mestrado) correspondente ao período de 2
 
 |Conceitos Introdutórios|
 |---|
-|[Revisão de probabilidade](/ta-sessions/infestatistica/probability/probability)|
+|[Revisão de probabilidade](/ta-sessions/infestatistica_MSc/probability/probability)|
 
 ## Exercícios 
 
