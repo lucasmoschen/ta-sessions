@@ -2,6 +2,8 @@
 
 Monitoria de Análise Funcional: Fundamentos (Doutorado) correspondente ao período de 2022.4.  
 
+- Horário: Quintas-feiras, 14h. [Link 14h-15h](meet.google.com/crb-jvfo-pqy), [Link 15h-16h](meet.google.com/tcg-fxzx-mwx)
+
 ## Tópicos 
 
 Os tópicos cobertos na disciplina são os seguintes
