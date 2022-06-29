@@ -35,7 +35,7 @@ $$
 
 Seja $f(\boldsymbol{x}|\theta)$ a densidade de uma distribuição de $\boldsymbol{X} = (X_1, \dots, X_n)$ (com respeito a uma medida $\nu$ $\sigma$-finita, como a medida de Lebesgue em $\mathbb{R}^n$). Então $T(\boldsymbol{X})$ é estatística suficiente para $\theta$ se, e somente se, existem funções $m_1$ e m_2$ tal que 
 $$
-f(\boldsymbol{x}|\theta) = m_1(\boldsymbol{x})m_2(T(\boldsymbol{x}) | \theta), \forall \theta \in \Theta.
+f(\boldsymbol{x}|\theta) = m_1(\boldsymbol{x})m_2(T(\boldsymbol{x}) , \theta), \forall \theta \in \Theta.
 $$
 
 O lema 2.24 demonstrado no livro de Schervish determina que sob as hipóteses do teorema de Fisher-Neyman e assumindo que $T$ é suficiente, obtemos que existe uma medida em $(\mathcal{T}, \mathcal{C})$ que domina a distribuição de probabilidade de $T$ e define a densidade de $T=t$ sob o parâmetro $\theta$ como $m_2(t,\theta)$.
