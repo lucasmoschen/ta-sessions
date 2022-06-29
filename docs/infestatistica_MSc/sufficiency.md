@@ -1,0 +1,2 @@
+# Estatística suficiente
+

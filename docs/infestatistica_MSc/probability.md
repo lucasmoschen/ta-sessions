@@ -282,6 +282,10 @@ e seja $Q_x$ a medida de probabilidade com densidade $P_{Y|X}(\cdot|x)$ com resp
 Se $x \not \in E$, então defina $p_{Y|X}(y|x) = p_0(y)$ em que $p_0$ é densidade de uma distribuição de probabilidade $P_0$ arbitrária e seja $Q_x = P_0$. 
 Então $Q$ é distribuição condicional de $Y$ dado $X=x$. 
 
+## Conceitos de convergência 
+
+TODO
+
 ## Material adicional
 
 - [Notas de Terence Tao](https://terrytao.wordpress.com/2015/09/29/275a-notes-0-foundations-of-probability-theory/): notas que iniciam com um pouco da ideia da construção de probabilidade, probabilidade em espaços discretos e introdução de medida em probabilidade. 

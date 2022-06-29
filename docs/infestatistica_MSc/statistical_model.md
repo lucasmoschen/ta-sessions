@@ -10,3 +10,15 @@ No caso de um modelo bayesiano, exigimos uma distribuição de probabilidade em 
 
 Estamos interessados, em particular, em **modelos identificáveis**, isto é, quando uma família de distribuições de probabilidade satisfaz: $P_{\theta} = P_{\theta '} \implies \theta = \theta '$. 
 Em outras palavras, a função $P$ é injetiva.
+
+## Função de verossimilhança
+
+Denote $f(\boldsymbol{x}|\theta)$ a densidade da distribuição de $\boldsymbol{X} = (X_1, \dots, X_n)$ com respeito à medida de Lebesgue em $\mathbb{R}^n$, pertence a uma família de distribuições parametrizada por $\theta$.
+Dada a observação $\boldsymbol{X} = \boldsymbol{x}$, a **função de verossimilhança** é a função 
+$$
+L : \Theta \to \mathbb{R}_+
+$$
+definida como $L(\theta | \boldsymbol{x}) = f(\boldsymbol{x}|\theta)$. 
+Note que se $L(\theta_1 | \boldsymbol{x}) > L(\theta_2 | \boldsymbol{x})$, queremos dizer que é mais provável que $\theta = \theta_1$ do que $\theta = \theta_2$ quando observamos $\boldsymbol{x}$.
+
+
