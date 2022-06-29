@@ -24,14 +24,16 @@ Os exercícios resolvidos estão disponíveis:
 
 ### Prova 1
 
-|Seção|Título|Exercícios|Soluções|
-|-----|------|----------|--------|
+|Lista|Tópicos|Solução|
+|-----|-------|-------|
+|[1](https://github.com/maxbiostat/Statistical_Inference_MSc/blob/main/listas/lista1_InfEst_MSc.pdf)|Verossimilhança e suficiência|[1](/ta-sessions/unavailable/)|
 
 
 ### Prova 2
 
-|Seção|Título|Exercícios|Soluções|
-|-----|------|----------|--------|
+|Lista|Tópicos|Solução|
+|-----|-------|-------|
+
 
 ## Resumos 
   
