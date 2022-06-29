@@ -168,6 +168,8 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
         <li class="first-level active"><a href="#modelo-estatistico">Modelo estatístico</a></li>
+            <li class="second-level"><a href="#funcao-de-verossimilhanca">Função de verossimilhança</a></li>
+                
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
@@ -180,7 +182,15 @@ Uma obra de arte em forma de artigo sobre o tema é discorrido no artigo <a href
 Um <strong>modelo estatístico paramétrico</strong> é um conjunto de parâmetros <script type="math/tex">\Theta</script> junto de uma função <script type="math/tex">P : \Theta \to \mathcal{F}(\mathcal{X})</script> que para cada parâmetro <script type="math/tex">\theta \in \Theta</script>, define uma distribuição de probabilidade <script type="math/tex">P(\theta) = P_\theta</script> definida em <script type="math/tex">\mathcal{X}</script>. 
 No caso de um modelo bayesiano, exigimos uma distribuição de probabilidade em <script type="math/tex">\Theta</script>, a <strong>distribuição a priori</strong>.</p>
 <p>Estamos interessados, em particular, em <strong>modelos identificáveis</strong>, isto é, quando uma família de distribuições de probabilidade satisfaz: <script type="math/tex">P_{\theta} = P_{\theta '} \implies \theta = \theta '</script>. 
-Em outras palavras, a função <script type="math/tex">P</script> é injetiva.</p></div>
+Em outras palavras, a função <script type="math/tex">P</script> é injetiva.</p>
+<h2 id="funcao-de-verossimilhanca">Função de verossimilhança</h2>
+<p>Denote <script type="math/tex">f(\boldsymbol{x}|\theta)</script> a densidade da distribuição de <script type="math/tex">\boldsymbol{X} = (X_1, \dots, X_n)</script> com respeito à medida de Lebesgue em <script type="math/tex">\mathbb{R}^n</script>, pertence a uma família de distribuições parametrizada por <script type="math/tex">\theta</script>.
+Dada a observação <script type="math/tex">\boldsymbol{X} = \boldsymbol{x}</script>, a <strong>função de verossimilhança</strong> é a função 
+<script type="math/tex; mode=display">
+L : \Theta \to \mathbb{R}_+
+</script>
+definida como <script type="math/tex">L(\theta | \boldsymbol{x}) = f(\boldsymbol{x}|\theta)</script>. 
+Note que se <script type="math/tex">L(\theta_1 | \boldsymbol{x}) > L(\theta_2 | \boldsymbol{x})</script>, queremos dizer que é mais provável que <script type="math/tex">\theta = \theta_1</script> do que <script type="math/tex">\theta = \theta_2</script> quando observamos <script type="math/tex">\boldsymbol{x}</script>.</p></div>
         
         
     </div>
