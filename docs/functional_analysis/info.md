@@ -6,22 +6,21 @@ Monitoria de Análise Funcional: Fundamentos (Doutorado) correspondente ao perí
 
 ## Tópicos 
 
-Os tópicos cobertos na disciplina são os seguintes
+Os tópicos cobertos na disciplina estão separados em três partes:
+
+|Parte 1|
+|-------|
+|[Espaços métricos](/ta-sessions/functional_analysis/metric_spaces)|
+|[Isometrias e completamento](/ta-sessions/unavailable)|
+|[Compacidade em espaços métricos](/ta-sessions/unavailable)|
 
 ## Exercícios 
 
 Os exercícios resolvidos estão disponíveis:
 
-### Prova 1
-
-|Seção|Título|Exercícios|Soluções|
-|-----|------|----------|--------|
-
-
-### Prova 2
-
-|Seção|Título|Exercícios|Soluções|
-|-----|------|----------|--------|
+|Lista|Tópicos|Solução|
+|-----|-------|-------|
+|[1](/ta-sessions/unavailable)|Espaços métricos|[1](/ta-sessions/unavailable)|
 
 ## Resumos 
   
