@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+
+    
+    <title>Espaços métricos - Teaching Assistance</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../css/base.min.css" rel="stylesheet">
+    <link href="../../css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            
+              <a class="navbar-brand" href="../..">Teaching Assistance</a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Graduação <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../alglin/info/">Álgebra Linear</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../analisenum/info/">Análise Numérica</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../curvas/info/">Curvas</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../edo/info/">Equações Diferenciais Ordinárias</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../edp/info/">Equações Diferenciais Parciais</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../infestatistica_BSc/info/">Inferência Estatística</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pós-graduação <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../info/">Análise Funcional</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../bayesian/info/">Estatística Bayesiana</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../infestatistica_MSc/info/">Inferência Estatística</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://lucasmoschen.github.io">Página Inicial</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#espacos-metricos">Espaços métricos</a></li>
+            <li class="second-level"><a href="#nocoes-topologicas">Noções topológicas</a></li>
+                
+            <li class="second-level"><a href="#continuidade">Continuidade</a></li>
+                
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="espacos-metricos">Espaços métricos</h1>
+<p>Queremos introduzir o conceito de distância entre pontos em um espaço. Com isso bem definido, a noção de limite, fundamental para a área da Análise (e talvez um dos pontos que mais a distancie da Álgebra), fica bem entendida, já que estamos dizendo que uma sequência de pontos se aproxima cada vez mais de um ponto do espaço.
+A ideia de se aproximar se conecta naturalmente com a distância entre os pontos diminuir.</p>
+<p><strong>Definição:</strong> Seja <script type="math/tex">X</script> um conjunto qualquer e <script type="math/tex">d : X \times X \to \mathbb{R}</script> uma função que satisfaz, para quaisquer <script type="math/tex">x,y,z \in X</script>, as seguintes propriedades:</p>
+<p><strong>(1)</strong> <script type="math/tex">d(x,y) \ge 0</script> e <script type="math/tex">d(x,y) = 0</script> se, e somente se, <script type="math/tex">x=y</script>, isto é, a distância é sempre positiva, a menos quando a medidos de um ponto a ele mesmo, o que naturalmente queremos que seja zero;</p>
+<p><strong>(2)</strong> <script type="math/tex">d(x,y) = d(y,x)</script>, isto é, a distância entre dois pontos independe da ordem com que se inicia a medida;</p>
+<p><strong>(3)</strong> <script type="math/tex">d(x,y) \le d(x,z) + d(z,y)</script>, a desigualdade triangular.</p>
+<p>Chamamos a função <script type="math/tex">d</script> de <strong>métrica</strong> e o par <script type="math/tex">(X,d)</script> de <strong>espaço métrico</strong>.</p>
+<hr />
+<p><code>📝</code> <strong>Exemplo (Métrica trivial)</strong></p>
+<p>Considere <script type="math/tex">X</script> um conjunto qualquer e defina para <script type="math/tex">x,y \in X</script>,
+<script type="math/tex; mode=display">
+d(x,y) = \begin{cases}
+    1 &\text{se } x \neq y \\
+    0 &\text{se } x=y.
+\end{cases}
+</script>
+</p>
+<p>É claro que as condições (1) e (2) são satisfeitas. A condição (3) também é trivial no caso em que <script type="math/tex">x = y</script>. Se <script type="math/tex">x \neq y</script>, note que <script type="math/tex">d(x,z) + d(z,y) \ge 1</script>, pois <script type="math/tex">d(x,z) = 1</script> ou <script type="math/tex">d(y,z) = 1</script>, dado que <script type="math/tex">z</script> não pode ser simultaneamente igual a <script type="math/tex">x</script> e <script type="math/tex">y</script>.</p>
+<hr />
+<hr />
+<p><code>📝</code> <strong>Exemplo (Métrica - Norma 2)</strong></p>
+<p>Seja <script type="math/tex">X = \mathbb{R}^n</script> e considere <script type="math/tex">d</script> para <script type="math/tex">x,y \in X</script>,
+<script type="math/tex; mode=display">
+d(x,y) = ||x-y||_2 := \sqrt{(x_1-y_1)^2 + \dots + (x_n+y_n)^2},
+</script>
+conhecida como norma-2 no estudo de Álgebra Linear. Mais uma vez, as condições (1) e (2) são triviais. Já a condição (3) é um pouco mais complicada e pode ser demonstrada usando a desigualdade de Cauchy-Schwartz.</p>
+<p>Outras métricas podem ser definidas nesse espaço como a norma 1 ou a norma infinito.</p>
+<hr />
+<hr />
+<p><code>📝</code> <strong>Exemplo (Métrica - Norma infinito para funções contínuas)</strong></p>
+<p>Seja <script type="math/tex">X = C[a,b]</script>, o espaço das funções contínuas definidas no intervalo <script type="math/tex">[a,b]</script> e considere <script type="math/tex">d</script> para <script type="math/tex">f,g \in X</script>,
+<script type="math/tex; mode=display">
+d(f,g) = \max_{x \in [a,b]} |f(x) - g(x)|.
+</script>
+O primeiro passo nessa métrica é demonstrar que ela está bem definida, isto é, será que a função <script type="math/tex">h(x) = |f(x) - g(x)|</script> tem máximo no intervalo <script type="math/tex">[a,b]</script>? Sabemos que sim pelo <a href="https://en.wikipedia.org/wiki/Extreme_value_theorem">Teorema do valor extremo</a>. As condições (1) e (2) para que <script type="math/tex">d</script> seja métrica são trivialmente satisfeitas. Já a terceira condição é consequência da desigualdade triangular da métrica 
+<script type="math/tex; mode=display">
+d(x,y) = |x-y|
+</script>
+definida nos reais.
+O que acontece com funções não contínuas? E se trocarmos o máximo pelo supremo?</p>
+<hr />
+<hr />
+<p><code>📝</code> <strong>Exemplo (Pseudo-métrica)</strong></p>
+<p>Seja <script type="math/tex">X = C[a,b]</script> e defina para <script type="math/tex">f,g \in X</script>,
+<script type="math/tex; mode=display">
+d(f,g) = |f(a) - g(a)|.
+</script>
+É claro que <script type="math/tex">d</script> satisfaz as condições (2) e (3) e que <script type="math/tex">d(f,g) \ge 0</script>. Todavia, <script type="math/tex">d(f,g) = 0</script> não implica que <script type="math/tex">f = g</script>, só fazer <script type="math/tex">g \equiv f(a) < f(b)</script> para verificar esse fato. Chamamos funções que satisfazem (2) e (3), mas não satisfazem essa parte da primeira propriedade de pseudo-métrica.</p>
+<hr />
+<h2 id="nocoes-topologicas">Noções topológicas</h2>
+<p>Seja <script type="math/tex">(X,d)</script> um espaço métrico. Vamos definir alguns conceitos importantes de topologia segundo o ponto de vista de espaços métricos:</p>
+<p><strong>Bola aberta:</strong> Tome <script type="math/tex">x \in X</script> e <script type="math/tex">r > 0</script>, então a bola aberta de centro <script type="math/tex">x</script> e raio <script type="math/tex">r</script> é o conjunto <script type="math/tex">B_r(x) = \{y \in X | d(x,y) < r\}</script>.</p>
+<p><strong>Ponto interior:</strong> Tome <script type="math/tex">A \subseteq X</script>. Dizemos que <script type="math/tex">x \in A</script> é ponto interior de <script type="math/tex">A</script> se para algum <script type="math/tex">r > 0</script>, <script type="math/tex">B_r(x) \subseteq A</script>. Definimos o <strong>interior</strong> de <script type="math/tex">A</script> como o conjunto <script type="math/tex">\mathring{A} = \{x \in A | x \text{ é ponto interior}\}</script>.</p>
+<p><strong>Conjunto aberto:</strong> <script type="math/tex">A</script> é conjunto aberto se <script type="math/tex">A = \mathring{A}</script>. </p>
+<p>Seja <script type="math/tex">\mathcal{O}</script> a família de conjuntos abertos de <script type="math/tex">X</script>. Então <script type="math/tex">\mathcal{O}</script> satisfaz:</p>
+<p><strong>(i)</strong> <script type="math/tex">\emptyset \in \mathcal{O}</script> e <script type="math/tex">X \in \mathcal{O}</script>.</p>
+<p><strong>(ii)</strong> Se <script type="math/tex">O_{\alpha} \in \mathcal{O}</script> para <script type="math/tex">\alpha \in \Alpha</script> sendo um conjunto de índices arbitrário, então <script type="math/tex">\cup_{\alpha \in \Alpha} O_{\alpha} \in \mathcal{O}</script>. </p>
+<p><strong>(iii)</strong> Se <script type="math/tex">O_1, \dots, O_n \in \mathcal{O}</script> para <script type="math/tex">n \in \mathbb{N}</script>, então <script type="math/tex">\cap_{i=1}^n O_i \in \mathcal{O}</script>.</p>
+<p><em>Observação: Podemos definir uma Topologia partindo de (i)-(iii) como axiomas.</em></p>
+<p><em>Observação 2: Se considerarmos o item (iii) com <script type="math/tex">n = \infty</script>, a propriedade não vale! Para isso, basta considerar <script type="math/tex">O_i = (-i^{-1}, i^{-1}) \subseteq \mathbb{R}</script>.</em></p>
+<p><strong>Ponto de aderência:</strong> Um ponto <script type="math/tex">x</script> é um ponto de aderência de um conjunto <script type="math/tex">A \subseteq X</script> se para qualquer <script type="math/tex">r > 0</script>, <script type="math/tex">B_r(x) \cap A \neq \emptyset</script>. O conjunto desses pontos é chamado de <strong>fecho</strong> e é denotado por <script type="math/tex">\bar{A}</script>.</p>
+<p>Em particular, a partir dessa definição, podemos concluir que (i) <script type="math/tex">A \subseteq \bar{A}</script>, (ii) se <script type="math/tex">A \subseteq B</script>, então <script type="math/tex">\bar{A} \subseteq \bar{B}</script>, e (iii) <script type="math/tex">\overline{A \cup B} = \bar{A} \cup \bar{B}</script>.</p>
+<hr />
+<p><code>📝</code> <strong>Exemplo (Espaço <script type="math/tex">L^2</script> e funções contínuas)</strong></p>
+<p>Seja <script type="math/tex">X = L^2(0,T)</script>, o espaço de funções Lebesgue mensuráveis definidas em <script type="math/tex">[0,T]</script> que satisfaçam 
+<script type="math/tex; mode=display">
+\int_X |f(x)|^2 \, dx < +\infty
+</script>
+com métrica para <script type="math/tex">f,g \in X</script> definida por
+<script type="math/tex; mode=display">
+d(f,g) = \left(\int_X (f(x) - g(x))^2 \, dx\right)^{1/2}.
+</script>
+Se <script type="math/tex">A = C[0,T]</script> é o conjunto das funções contínuas em <script type="math/tex">[0,T]</script>, sabemos que <script type="math/tex">A \subset X</script>. Além disso, 
+<script type="math/tex">\bar{A} = X</script>. Dizemos que <script type="math/tex">A</script> é <strong>denso</strong> em <script type="math/tex">X</script> (veja <a href="https://math.stackexchange.com/questions/226049/continuous-functions-on-0-1-is-dense-in-lp0-1-for-1-leq-p-infty">esse link</a>).</p>
+<hr />
+<p><strong>Ponto limite (acumulação):</strong>  O ponto <script type="math/tex">x</script> é ponto limite de <script type="math/tex">A \subseteq X</script> se, e somente se, para todo <script type="math/tex">r > 0</script>, <script type="math/tex">B_r(x) \cap A</script> contém infinitos pontos. 
+O conjunto desses pontos é o <strong>conjunto derivado</strong> e é denotado por <script type="math/tex">A '</script>. Um ponto <script type="math/tex">x \in A</script> que não é limite é chamado de <strong>ponto isolado</strong>.</p>
+<p><strong>Convergência:</strong> Seja <script type="math/tex">\{x_n\}_{n \in \mathbb{N}} \subseteq X</script> uma sequência de pontos. Dizemos que <script type="math/tex">\{x_n\}</script> converge para o ponto <script type="math/tex">x</script> se para todo <script type="math/tex">r > 0</script>, existe <script type="math/tex">N(r)</script> tal que <script type="math/tex">n > N(r)</script> implica <script type="math/tex">x_n \in S_r(x)</script>. Nesse caso, denotamos por <script type="math/tex">x_n \to x</script>. Logo, a definição de convergência é equivalente a afirmar que <script type="math/tex">d(x,x_n) \to 0</script> nos reais.</p>
+<p>Uma consequência dessa definição é que <script type="math/tex">x \in \bar{A}</script> se, e somente se, existe uma sequência <script type="math/tex">\{x_n\}</script> tal que <script type="math/tex">x_n \in A</script> para todo <script type="math/tex">n \in \mathbb{N}</script> e <script type="math/tex">x_n \to x</script>.</p>
+<p><strong>Conjunto fechado:</strong> Dizemos que <script type="math/tex">A</script> é fechado se <script type="math/tex">A</script> contém todos os seus pontos limite, isto é, <script type="math/tex">A' \subseteq A</script>. De forma equivalente <script type="math/tex">A = \bar{A}</script>.</p>
+<p><strong>Teorema (relação entre conjuntos abertos e fechados):</strong>  <script type="math/tex">A</script> é fechado se, e somente se, <script type="math/tex">A^c</script> é aberto. 
+Esse teorema permite usar as propriedades de abertos para fechados através da <a href="https://en.wikipedia.org/wiki/De_Morgan%27s_laws">lei de DeMorgan</a>.</p>
+<blockquote>
+<p><em>"How often have I said to you that when you have eliminated the impossible, whatever remains, however improbable, must be the truth?"</em> - Sherlock Holmes. (Quantas vezes eu falei para você que quando você eliminou o impossível, qualquer coisa que sobra, mesmo que improvável, deve ser verdadeiro? - tradução livre)</p>
+</blockquote>
+<h2 id="continuidade">Continuidade</h2>
+<p>Sejam <script type="math/tex">(X,d)</script> e <script type="math/tex">(Y,d')</script> dois espaços métricos e <script type="math/tex">f: X \to Y</script> uma função. <script type="math/tex">f</script> é dita <strong>contínua</strong> no ponto <script type="math/tex">x_0 \in X</script> se para qualquer <script type="math/tex">\epsilon > 0</script>, existe <script type="math/tex">\delta > 0</script> tal que 
+<script type="math/tex; mode=display">
+f(B_{\delta}(x_0)) \subseteq B_{\epsilon}(f(x_0)).
+</script>
+A função é contínua em <script type="math/tex">X</script> se for contínua em todos os pontos de <script type="math/tex">X</script>.</p>
+<p>Intuitivamente, estamos dizendo que a função <script type="math/tex">f</script> mapeia uma vizinhança de <script type="math/tex">x_0</script> suficientemente pequena em uma vizinhança arbitrariamente pequena de <script type="math/tex">f(x_0)</script>, isto é, por mais pequena que seja a vizinhança tomada de <script type="math/tex">f(x_0)</script>, a função <script type="math/tex">f</script> é tão "regular", que ela encontra uma vizinhança de <script type="math/tex">x_0</script> para mapear na de <script type="math/tex">f(x_0)</script>. Por <strong>vizinhança</strong> de <script type="math/tex">x</script>, queremos dizer um conjunto aberto que contenha <script type="math/tex">x</script>. De forma equivalente, uma bola aberta de centro <script type="math/tex">x</script>.</p>
+<p><strong>Teorema:</strong> <script type="math/tex">f: X \to Y</script> é contínua no ponto <script type="math/tex">x \in X</script> se, e somente se, para todo sequência de pontos <script type="math/tex">\{x_n\}</script> com <script type="math/tex">x_n \to x</script>, vale que <script type="math/tex">f(x_n) \to f(x)</script>.  </p>
+<hr />
+<p>Um rascunho para a demonstração é o seguinte: </p>
+<ul>
+<li>
+<p>(Necessidade): Suponha <script type="math/tex">f</script> contínua e tome <script type="math/tex">x_n \to x</script>. Nesse caso, para todo <script type="math/tex">\epsilon > 0</script>, existe <script type="math/tex">\delta</script> tal que <script type="math/tex">f(B_{\delta}(x)) \subseteq B_{\epsilon}(f(x))</script>. Para <script type="math/tex">n</script> suficientemente grande, teremos que <script type="math/tex">x_n \in B_{\delta}(x_0)</script> e, portanto, <script type="math/tex">f(x_n) \in B_{\epsilon}(f(x))</script>. Como <script type="math/tex">\epsilon</script> é arbitrariamente pequeno, <script type="math/tex">f(x_n) \to f(x)</script>.</p>
+</li>
+<li>
+<p>(Suficiência) Tome <script type="math/tex">\epsilon > 0</script>. Suponha que para todo <script type="math/tex">\delta_n = 1/n</script>, exista <script type="math/tex">y_n</script> tal que 
+<script type="math/tex; mode=display">
+d(f(y_n), f(x)) \ge \epsilon,
+</script>
+isto é, <script type="math/tex">y_n \in B_{\delta_n}(x)</script>, mas <script type="math/tex">f(y_n) \not \in B_{\epsilon}(f(x))</script>. 
+Está claro que <script type="math/tex">y_n \to x</script>, mas <script type="math/tex">f(y_n) \not \to f(x)</script>, o que implica que <script type="math/tex">f</script> não é contínua em <script type="math/tex">x</script>. Provamos pela contrapositiva.</p>
+</li>
+</ul>
+<hr />
+<p>Outra equivalência com continuidade é a seguinte:</p>
+<p><strong>Teorema:</strong> A função <script type="math/tex">f: X \to Y</script> é contínua se, e somente se, para todo conjunto <script type="math/tex">F \subseteq Y</script> fechado (aberto), <script type="math/tex">f^{-1}(F)</script> é fechado (aberto) em <script type="math/tex">X</script>.</p></div>
+        
+        
+    </div>
+
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
+
+          
+          
+      </footer>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../../js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = "../.."</script>
+    
+    <script src="../../js/base.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>
