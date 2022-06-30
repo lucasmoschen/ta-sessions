@@ -11,7 +11,7 @@ Os tópicos cobertos na disciplina estão separados em três partes:
 |Parte 1|
 |-------|
 |[Espaços métricos](/ta-sessions/functional_analysis/metric_spaces)|
-|[Isometrias e completamento](/ta-sessions/funcional_analysis/isometries)|
+|[Isometrias e completamento](/ta-sessions/functional_analysis/isometries)|
 |[Compacidade em espaços métricos](/ta-sessions/unavailable)|
 
 ## Exercícios 
