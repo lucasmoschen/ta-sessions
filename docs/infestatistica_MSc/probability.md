@@ -4,7 +4,7 @@ Nessa seção, vamos introduzir alguns conceitos chave de probabilidade e medida
 
 ## Medida
 
-Uma medida atribui um valor não negativo a subconjuntos $A \subseteq \mathcal{X}$, com certas propriedades que gostaríamos de ter. Por exemplo, se $\mathcal{X}$ for um conjunto enumerável, como os números naturais, poderíamos definir uma medida para $A$ como 
+Uma medida atribui um valor não negativo a subconjuntos $A \subseteq \mathcal{X}$, com certas propriedades que intuitivamente gostaríamos de observar. Por exemplo, se $\mathcal{X}$ for um conjunto enumerável, como os números naturais, poderíamos definir uma medida para $A$ como 
 $$
 \mu(A) = |A| = \text{número de elementos de } A,
 $$
@@ -13,9 +13,9 @@ No caso em que $\mathcal{X} = \mathbb{R}^n$ para algum $n$, podemos definir a no
 $$
 \mu(A) = \int_{\mathbb{R}^n} I\{\boldsymbol{x} \in A\} \, d\boldsymbol{x},
 $$
-conhecida como **medida de Lebesgue**. Para tornar esse conceito mais rigoroso, definimos uma **$\sigma$-algebra** como 
+conhecida como **medida de Lebesgue**. Para tornar esse conceito mais rigoroso, definimos uma **$\sigma$-álgebra** como 
 
-> Uma coleção de subconjuntos $\mathcal{A}$ de $\mathcal{X}$, isto é, $\mathcal{A} \subseteq \mathcal{P}\mathcal{X}$ (conjunto das partes de $\mathcal{X}$ é uma $\sigma$-álgebra se: 
+> Uma coleção de subconjuntos $\mathcal{A}$ de $\mathcal{X}$, isto é, $\mathcal{A} \subseteq \mathcal{P}(\mathcal{X})$ (conjunto das partes de $\mathcal{X}$) é uma $\sigma$-álgebra se: 
 
 **i)** $\emptyset \in \mathcal{A}$.
 
@@ -23,34 +23,34 @@ conhecida como **medida de Lebesgue**. Para tornar esse conceito mais rigoroso, 
 
 **iii)** Se $A_1, A_2, \dots \in \mathcal{A}$, então $\cup_{i=1}^{\infty} A_i \in \mathcal{A}$.
 
-> Uma **medida**, portanto, é uma função $\mu : \mathcal{A} \to \mathbb{R}_{+}$ que satisfaz a propriedade de que se a sequência $A_1, A_2, \dots$ é disjunta dois a dois, então 
-$$
-\mu\left(\cup_{i=1}^n A_i\right) = \sum_{i=1}^n \mu(A_i).
-$$
+> Uma **medida** é uma função $\mu : \mathcal{A} \to \mathbb{R}_{+}$ que satisfaz a propriedade de que se a sequência $A_1, A_2, \dots$ é disjunta dois a dois, então 
+> $$
+\mu\left(\cup_{i=1}^{\infty} A_i\right) = \sum_{i=1}^{\infty} \mu(A_i),
+> $$
+> chamada de axioma da aditividade enumerável.
 
 Podemos definir algumas características de interesse para medidas:
 
 - $\mu$ é medida **finita** se $\mu(\mathcal{X}) < +\infty$.
-- $\mu$ é medida **$\sigma$-finita** se existe uma $A_1, A_2, \dots \in \mathcal{A}$ com $\mu(A_i) < +\infty$ tal que $\mathcal{X} = \cup_{i=1}^n A_i$.
+- $\mu$ é medida **$\sigma$-finita** se existe  sequência $A_1, A_2, \dots \in \mathcal{A}$ com $\mu(A_i) < +\infty$ tal que $\mathcal{X} = \cup_{i=1}^n A_i$.
 - $\mu$ é medida **de probabilidade** se $\mu(\mathcal{X}) = 1$.
 
 Chamamos o par $(\mathcal{X}, \mathcal{A})$ de **espaço mensurável** e a tripla $(\mathcal{X}, \mathcal{A}, \mu)$ de **espaço medida**. No caso em que $\mu$ é medida de probabilidade, temos um **espaço de probabilidade**.
 
 Se $\mu(N)=0$, dizemos que $N$ tem medida nula. Se alguma propriedade $\tau$ vale **quase sempre**, queremos dizer que o conjunto em que $\tau$ não vale tem medida nula.
 
-*Observação: Os axiomas da probabilidade ou de Kolmogorov são os seguintes três: (I) $P(A) \ge 0$ para todo evento $A$, (II) $P(\mathcal{X}) = 1$ e (III) $P(\cup_{i=1}^n A_i) = \sum_{i=1}^n P(A_i)$ para uma sequência disjunta. 
-O terceiro axioma é chamado de **aditividade contável**. 
-Alguns estatísticos, como deFinetti, acreditam que esse axioma é muito forte e auto-evidente.
-Para isso, sugerem a **aditividade finita** $P(A \cup B) = P(A) + P(B)$ para $A \cap B = \emptyset$.
-Essa alteração, todavia, gera complicações que não, necessariamente, melhoram o entendimento dos conceitos.*
+*Observação: Os axiomas da probabilidade ou de Kolmogorov são os três seguintes: (I) $P(A) \ge 0$ para todo evento $A$, (II) $P(\mathcal{X}) = 1$ e (III) $P(\cup_{i=1}^n A_i) = \sum_{i=1}^n P(A_i)$ para uma sequência disjunta. 
+Alguns estatísticos, como deFinetti, acreditam que o axioma (III) é muito forte e pouco auto-evidente.
+Para isso, sugerem a **aditividade finita** $P(A \cup B) = P(A) + P(B)$ quando $A \cap B = \emptyset$.
+Essa alteração, todavia, gera complicações que não, necessariamente, melhoram o entendimento dos conceitos de probabilidade.*
 
 ## Integração
 
 > Uma função $f$ com valores reais e definida em $\mathcal{X}$ é **mensurável** se o conjunto
-$$
+> $$
 f^{-1}(B) = \{x \in \mathcal{X} : f(x) \in B\}
-$$
-pertence a $\mathcal{A}$ para todo $B$ [conjunto de Borel](https://en.wikipedia.org/wiki/Borel_set). Podemos tomar $B$ da forma $(-\infty, b)$, por exemplo. Podemos mostrar que funções contínuas ou contínuas por partes são mensuráveis.
+> $$
+> pertence a $\mathcal{A}$ para todo $B$ [conjunto de Borel](https://en.wikipedia.org/wiki/Borel_set). Podemos tomar $B$ da forma $(-\infty, b)$, por exemplo. Podemos mostrar que funções contínuas ou contínuas por partes são mensuráveis.
 
 Podemos então, definir propriedades básicas da integral de Lebesgue. Denote $1_A(x) = I(x \in A)$. Assim:
 
@@ -71,7 +71,7 @@ Uma **função simples** é uma função constante por partes que assume um valo
 $$
 s(x) = \sum_{i=1}^n a_i 1_{A_i}(x),
 $$
-para alguns $A_1, \dots, A_n$ disjuntos, e obter que 
+para $A_1, \dots, A_n$ disjuntos, e obter que 
 $$
 \int s \, d\mu = \sum_{i=1}^n a_i \mu(A_i).
 $$
@@ -102,7 +102,7 @@ Algumas consequências importantes:
 
 Seja $(\mathcal{X}, \mathcal{A}, P)$ um espaço de probabilidade. Dizemos que $A \in \mathcal{A}$ é um **evento**. 
 Todos os possíveis desfechos de um experimento dado pelo conjunto $\mathcal{X}$ formam o **espaço amostral**.
-Uma **variável aleatória** é uma função mensurável $X : \mathcal{X} \to \mathbb{R}$. A **distribuição** de $X$ é $Q$, iso é, $X \sim Q$ quando 
+Uma **variável aleatória** é uma função mensurável $X : \mathcal{X} \to \mathbb{R}$. A **distribuição** de $X$ é $Q$, isto é, $X \sim Q$ quando 
 $$
 Q(B) = P(\{x \in \mathcal{X} | X(x) \in A\}) := P(X \in B),
 $$
@@ -129,6 +129,8 @@ Uma medida é absolutamente contínua com respeito a outra se ela dá volume $0$
 
 > Sejam $P$ e $\mu$ medidas definidas em $(\mathcal{X}, \mathcal{A})$. Dizemos que $P$ é absolutamente contínua com respeito a $\mu$ se $P(A) = 0$ sempre que $\mu(A) = 0$. Nesse caso, escrevemos que $P \ll \mu$. Também dizemos que $\mu$ domina $P$.
 
+Logo $P \ll \mu$ é equivalente a observar que o suporte de $\mu$ contém o suporte de $P$.
+
 **Teorema de Radon-Nikodym:** Se uma medida $P$ finita é absolutamente contínua com respeito a uma medida $\mu$ $\sigma$-finita, então existe uma função mensurável $f$ tal que 
 $$
 P(A) = \int_A f \, d\mu := \int f1_A \, d\mu.
@@ -141,7 +143,7 @@ Vejam que de fato isso generaliza a noção de derivada, pois pelo Teorema funda
 $$
 F(x) = \int_a^x f(t) \, dt \implies f = \frac{d F}{d x},
 $$
-em que nesse caso estamos tomando a medida de Lebesgue na reta. Concluímos também que a densidade de $P$ é determinada a menos de um conjunto de medida nula.
+em que nesse caso estamos tomando a medida de Lebesgue na reta como medida dominante. Concluímos também que a densidade de $P$ é determinada a menos de um conjunto de medida nula.
 
 ## Esperança 
 
@@ -165,7 +167,7 @@ Finalmente, definimos $\operatorname{Var}(X) = \mathbb{E}[(X - \mathbb{E}[X])^2]
 
 ## Vetores Aleatórios
 
-Seja agora uma função $X : \mathcal{X} \to \mathbb{R}^n$ mensurável (no sentido dos conjuntos de Borel em $\mathbb{R}^n$). Se $X \sim P_X$ e $P_X$ é absolutamente contínua com respeito a medida de Lebesgue em $\mathbb{R}^n$ com densidade $p$, temos que 
+Seja $X : \mathcal{X} \to \mathbb{R}^n$ uma função mensurável (no sentido dos conjuntos de Borel em $\mathbb{R}^n$). Se $X \sim P_X$ e $P_X$ é absolutamente contínua com respeito a medida de Lebesgue em $\mathbb{R}^n$ com densidade $p$, temos que 
 $$
 P_X(B) = \int_{B} p(x) \, dx.
 $$
@@ -237,7 +239,10 @@ A partir dos Axiomas da Probabilidade, podemos obter alguns resultados important
 
 3) $P(\cup_{i=1}^{\infty} A_i) \le \sum_{i=1}^{\infty} P(A_i)$
 
-## Condicionando 
+## Condicionando
+
+Considere duas variáveis aleatórias $X$ e $Y$ não independentes. 
+Com isso, se observamos $X=x$, temos alguma informação adicional sobre $Y$, e sua distribuição marginal não representa mais a totalidade.
 
 Considere $X$ e $Y$ duas variáveis discretas definidas em $\mathcal{X}$ e $\mathcal{Y}$, respectivamente. 
 Definimos a **probabilidade condicional** de $X = x_i$ dado $Y = y_j$ como 
@@ -274,7 +279,7 @@ Como consequência, probabilidades e esperanças condicionais são definidas a m
 
 Escrevemos então que $Y|X=x \sim Q_x$.
 
-**Teorema (densidade condicional):** Suponha que $X$ e $Y$ sejam vetores aleatórios com densidade conjunta $p_Z$ com respeito a $\mu \times \nu$. Seja $E = \{x : p_X(x) > 0\}. Para $x \in E$, defina 
+**Teorema (densidade condicional):** Suponha que $X$ e $Y$ sejam vetores aleatórios com densidade conjunta $p_Z$ com respeito a $\mu \times \nu$. Seja $E = \{x : p_X(x) > 0\}$. Para $x \in E$, defina 
 $$
 p_{Y|X}(y|x) = \frac{p_Z(x,y)}{p_X(x)},
 $$
@@ -282,9 +287,34 @@ e seja $Q_x$ a medida de probabilidade com densidade $P_{Y|X}(\cdot|x)$ com resp
 Se $x \not \in E$, então defina $p_{Y|X}(y|x) = p_0(y)$ em que $p_0$ é densidade de uma distribuição de probabilidade $P_0$ arbitrária e seja $Q_x = P_0$. 
 Então $Q$ é distribuição condicional de $Y$ dado $X=x$. 
 
+Uma consequência é que 
+$$
+\mathbb{E}[X] = \mathbb{E}[\mathbb{E}[X|Y]],
+$$
+quando as esperanças existem. Essa relação é conhecida como **Lei da Probabilidade Total** ou **Lei da Esperança Total**.
+
+**Teorema:** Seja $(\mathcal{X}, \mathcal{B})$ um espaço de Borel com medida $\nu_{\mathcal{X}}$ $\sigma$-finita. Sejam $X$ uma variável (vetor) aleatória e $g$ uma função mensurável. Defina $Y = g(X)$. Suponha que a distribuição de $X$ tenha densidade $f_X$ com respeito a $\nu_{\mathcal{X}}$.
+A distribuição conjunta $\mu_{X,Y}$ de $X,Y$ é absolutamente contínua a $\nu$, que é definida por
+$$
+\nu(C) = \nu_{\mathcal{X}}(\{x \in \mathcal{X} : (x,g(x)) \in C\}),
+$$
+e $\mu_{X,Y}$ tem densidade $f_{X,Y}(x,y) = f_{X}(x)I_{g(x)}(y)$.
+Além do mais, 
+$$
+f_{X|Y}(x|y) = \frac{f_X(x)}{f_Y(y)}I_{g(x)}(y). 
+$$
+Esse resultado é o Corolário B.55 descrito no livro do Schervish.
+
 ## Conceitos de convergência 
 
-TODO
+Veja Apêndice B.4 do livro do Schervish (p. 634) e a seção 5.5 do livro de Casella e Berger (p. 232).
+
+Conceitos abordados:
+- Convergência em probabilidade e a Lei Fraca dos Grandes Números;
+- Convergência quase certa ou com probabilidade 1 e a Lei Forte dos Grandes Números;
+- Convergência em distribuição e o Teorema Central do Limite;
+- Convergência fraca através de integrais, equivalente à convergência em distribuição;
+- Teorema de Slutsky e o Teorema da função contínua.
 
 ## Material adicional
 
