@@ -200,7 +200,7 @@
 <h1 id="revisao-de-probabilidade">Revisão de Probabilidade</h1>
 <p>Nessa seção, vamos introduzir alguns conceitos chave de probabilidade e medida para a compreensão do curso de estatística.</p>
 <h2 id="medida">Medida</h2>
-<p>Uma medida atribui um valor não negativo a subconjuntos <script type="math/tex">A \subseteq \mathcal{X}</script>, com certas propriedades que gostaríamos de ter. Por exemplo, se <script type="math/tex">\mathcal{X}</script> for um conjunto enumerável, como os números naturais, poderíamos definir uma medida para <script type="math/tex">A</script> como 
+<p>Uma medida atribui um valor não negativo a subconjuntos <script type="math/tex">A \subseteq \mathcal{X}</script>, com certas propriedades que intuitivamente gostaríamos de observar. Por exemplo, se <script type="math/tex">\mathcal{X}</script> for um conjunto enumerável, como os números naturais, poderíamos definir uma medida para <script type="math/tex">A</script> como 
 <script type="math/tex; mode=display">
 \mu(A) = |A| = \text{número de elementos de } A,
 </script>
@@ -209,36 +209,35 @@ No caso em que <script type="math/tex">\mathcal{X} = \mathbb{R}^n</script> para 
 <script type="math/tex; mode=display">
 \mu(A) = \int_{\mathbb{R}^n} I\{\boldsymbol{x} \in A\} \, d\boldsymbol{x},
 </script>
-conhecida como <strong>medida de Lebesgue</strong>. Para tornar esse conceito mais rigoroso, definimos uma <strong><script type="math/tex">\sigma</script>-algebra</strong> como </p>
+conhecida como <strong>medida de Lebesgue</strong>. Para tornar esse conceito mais rigoroso, definimos uma <strong><script type="math/tex">\sigma</script>-álgebra</strong> como </p>
 <blockquote>
-<p>Uma coleção de subconjuntos <script type="math/tex">\mathcal{A}</script> de <script type="math/tex">\mathcal{X}</script>, isto é, <script type="math/tex">\mathcal{A} \subseteq \mathcal{P}\mathcal{X}</script> (conjunto das partes de <script type="math/tex">\mathcal{X}</script> é uma <script type="math/tex">\sigma</script>-álgebra se: </p>
+<p>Uma coleção de subconjuntos <script type="math/tex">\mathcal{A}</script> de <script type="math/tex">\mathcal{X}</script>, isto é, <script type="math/tex">\mathcal{A} \subseteq \mathcal{P}(\mathcal{X})</script> (conjunto das partes de <script type="math/tex">\mathcal{X}</script>) é uma <script type="math/tex">\sigma</script>-álgebra se: </p>
 </blockquote>
 <p><strong>i)</strong> <script type="math/tex">\emptyset \in \mathcal{A}</script>.</p>
 <p><strong>ii)</strong> Se <script type="math/tex">A \in \mathcal{A}</script>, então <script type="math/tex">A^c \in \mathcal{A}</script>.</p>
 <p><strong>iii)</strong> Se <script type="math/tex">A_1, A_2, \dots \in \mathcal{A}</script>, então <script type="math/tex">\cup_{i=1}^{\infty} A_i \in \mathcal{A}</script>.</p>
 <blockquote>
-<p>Uma <strong>medida</strong>, portanto, é uma função <script type="math/tex">\mu : \mathcal{A} \to \mathbb{R}_{+}</script> que satisfaz a propriedade de que se a sequência <script type="math/tex">A_1, A_2, \dots</script> é disjunta dois a dois, então 
+<p>Uma <strong>medida</strong> é uma função <script type="math/tex">\mu : \mathcal{A} \to \mathbb{R}_{+}</script> que satisfaz a propriedade de que se a sequência <script type="math/tex">A_1, A_2, \dots</script> é disjunta dois a dois, então 
 <script type="math/tex; mode=display">
-\mu\left(\cup_{i=1}^n A_i\right) = \sum_{i=1}^n \mu(A_i).
+\mu\left(\cup_{i=1}^{\infty} A_i\right) = \sum_{i=1}^{\infty} \mu(A_i),
 </script>
-</p>
+chamada de axioma da aditividade enumerável.</p>
 </blockquote>
 <p>Podemos definir algumas características de interesse para medidas:</p>
 <ul>
 <li>
 <script type="math/tex">\mu</script> é medida <strong>finita</strong> se <script type="math/tex">\mu(\mathcal{X}) < +\infty</script>.</li>
 <li>
-<script type="math/tex">\mu</script> é medida <strong><script type="math/tex">\sigma</script>-finita</strong> se existe uma <script type="math/tex">A_1, A_2, \dots \in \mathcal{A}</script> com <script type="math/tex">\mu(A_i) < +\infty</script> tal que <script type="math/tex">\mathcal{X} = \cup_{i=1}^n A_i</script>.</li>
+<script type="math/tex">\mu</script> é medida <strong><script type="math/tex">\sigma</script>-finita</strong> se existe  sequência <script type="math/tex">A_1, A_2, \dots \in \mathcal{A}</script> com <script type="math/tex">\mu(A_i) < +\infty</script> tal que <script type="math/tex">\mathcal{X} = \cup_{i=1}^n A_i</script>.</li>
 <li>
 <script type="math/tex">\mu</script> é medida <strong>de probabilidade</strong> se <script type="math/tex">\mu(\mathcal{X}) = 1</script>.</li>
 </ul>
 <p>Chamamos o par <script type="math/tex">(\mathcal{X}, \mathcal{A})</script> de <strong>espaço mensurável</strong> e a tripla <script type="math/tex">(\mathcal{X}, \mathcal{A}, \mu)</script> de <strong>espaço medida</strong>. No caso em que <script type="math/tex">\mu</script> é medida de probabilidade, temos um <strong>espaço de probabilidade</strong>.</p>
 <p>Se <script type="math/tex">\mu(N)=0</script>, dizemos que <script type="math/tex">N</script> tem medida nula. Se alguma propriedade <script type="math/tex">\tau</script> vale <strong>quase sempre</strong>, queremos dizer que o conjunto em que <script type="math/tex">\tau</script> não vale tem medida nula.</p>
-<p><em>Observação: Os axiomas da probabilidade ou de Kolmogorov são os seguintes três: (I) <script type="math/tex">P(A) \ge 0</script> para todo evento <script type="math/tex">A</script>, (II) <script type="math/tex">P(\mathcal{X}) = 1</script> e (III) <script type="math/tex">P(\cup_{i=1}^n A_i) = \sum_{i=1}^n P(A_i)</script> para uma sequência disjunta. 
-O terceiro axioma é chamado de *</em>aditividade contável<strong>. 
-Alguns estatísticos, como deFinetti, acreditam que esse axioma é muito forte e auto-evidente.
-Para isso, sugerem a **aditividade finita</strong> <script type="math/tex">P(A \cup B) = P(A) + P(B)</script> para <script type="math/tex">A \cap B = \emptyset</script>.
-Essa alteração, todavia, gera complicações que não, necessariamente, melhoram o entendimento dos conceitos.*</p>
+<p><em>Observação: Os axiomas da probabilidade ou de Kolmogorov são os três seguintes: (I) <script type="math/tex">P(A) \ge 0</script> para todo evento <script type="math/tex">A</script>, (II) <script type="math/tex">P(\mathcal{X}) = 1</script> e (III) <script type="math/tex">P(\cup_{i=1}^n A_i) = \sum_{i=1}^n P(A_i)</script> para uma sequência disjunta. 
+Alguns estatísticos, como deFinetti, acreditam que o axioma (III) é muito forte e pouco auto-evidente.
+Para isso, sugerem a *</em>aditividade finita** <script type="math/tex">P(A \cup B) = P(A) + P(B)</script> quando <script type="math/tex">A \cap B = \emptyset</script>.
+Essa alteração, todavia, gera complicações que não, necessariamente, melhoram o entendimento dos conceitos de probabilidade.*</p>
 <h2 id="integracao">Integração</h2>
 <blockquote>
 <p>Uma função <script type="math/tex">f</script> com valores reais e definida em <script type="math/tex">\mathcal{X}</script> é <strong>mensurável</strong> se o conjunto
@@ -264,7 +263,7 @@ e essa propriedade é o <a href="https://en.wikipedia.org/wiki/Monotone_converge
 <script type="math/tex; mode=display">
 s(x) = \sum_{i=1}^n a_i 1_{A_i}(x),
 </script>
-para alguns <script type="math/tex">A_1, \dots, A_n</script> disjuntos, e obter que 
+para <script type="math/tex">A_1, \dots, A_n</script> disjuntos, e obter que 
 <script type="math/tex; mode=display">
 \int s \, d\mu = \sum_{i=1}^n a_i \mu(A_i).
 </script>
@@ -300,7 +299,7 @@ Dizemos que <script type="math/tex">f</script> é <strong>integrável</strong> s
 <h2 id="eventos-e-variaveis-aleatorias">Eventos e variáveis aleatórias</h2>
 <p>Seja <script type="math/tex">(\mathcal{X}, \mathcal{A}, P)</script> um espaço de probabilidade. Dizemos que <script type="math/tex">A \in \mathcal{A}</script> é um <strong>evento</strong>. 
 Todos os possíveis desfechos de um experimento dado pelo conjunto <script type="math/tex">\mathcal{X}</script> formam o <strong>espaço amostral</strong>.
-Uma <strong>variável aleatória</strong> é uma função mensurável <script type="math/tex">X : \mathcal{X} \to \mathbb{R}</script>. A <strong>distribuição</strong> de <script type="math/tex">X</script> é <script type="math/tex">Q</script>, iso é, <script type="math/tex">X \sim Q</script> quando 
+Uma <strong>variável aleatória</strong> é uma função mensurável <script type="math/tex">X : \mathcal{X} \to \mathbb{R}</script>. A <strong>distribuição</strong> de <script type="math/tex">X</script> é <script type="math/tex">Q</script>, isto é, <script type="math/tex">X \sim Q</script> quando 
 <script type="math/tex; mode=display">
 Q(B) = P(\{x \in \mathcal{X} | X(x) \in A\}) := P(X \in B),
 </script>
@@ -320,6 +319,7 @@ Isso é equivalente a notar que <script type="math/tex">F_X(x) = F_Y(x)</script>
 <blockquote>
 <p>Sejam <script type="math/tex">P</script> e <script type="math/tex">\mu</script> medidas definidas em <script type="math/tex">(\mathcal{X}, \mathcal{A})</script>. Dizemos que <script type="math/tex">P</script> é absolutamente contínua com respeito a <script type="math/tex">\mu</script> se <script type="math/tex">P(A) = 0</script> sempre que <script type="math/tex">\mu(A) = 0</script>. Nesse caso, escrevemos que <script type="math/tex">P \ll \mu</script>. Também dizemos que <script type="math/tex">\mu</script> domina <script type="math/tex">P</script>.</p>
 </blockquote>
+<p>Logo <script type="math/tex">P \ll \mu</script> é equivalente a observar que o suporte de <script type="math/tex">\mu</script> contém o suporte de <script type="math/tex">P</script>.</p>
 <p><strong>Teorema de Radon-Nikodym:</strong> Se uma medida <script type="math/tex">P</script> finita é absolutamente contínua com respeito a uma medida <script type="math/tex">\mu</script>
 <script type="math/tex">\sigma</script>-finita, então existe uma função mensurável <script type="math/tex">f</script> tal que 
 <script type="math/tex; mode=display">
@@ -333,7 +333,7 @@ Vejam que de fato isso generaliza a noção de derivada, pois pelo Teorema funda
 <script type="math/tex; mode=display">
 F(x) = \int_a^x f(t) \, dt \implies f = \frac{d F}{d x},
 </script>
-em que nesse caso estamos tomando a medida de Lebesgue na reta. Concluímos também que a densidade de <script type="math/tex">P</script> é determinada a menos de um conjunto de medida nula.</p>
+em que nesse caso estamos tomando a medida de Lebesgue na reta como medida dominante. Concluímos também que a densidade de <script type="math/tex">P</script> é determinada a menos de um conjunto de medida nula.</p>
 <h2 id="esperanca">Esperança</h2>
 <p>Se <script type="math/tex">X</script> é uma variável aleatória definida em <script type="math/tex">(\mathcal{X}, \mathcal{A}, P)</script>, o <strong>valor esperado</strong> de <script type="math/tex">X</script> é definido como
 <script type="math/tex; mode=display">
@@ -353,7 +353,7 @@ Se <script type="math/tex">P_X</script> tem densidade <script type="math/tex">p<
 </script>
 Finalmente, definimos <script type="math/tex">\operatorname{Var}(X) = \mathbb{E}[(X - \mathbb{E}[X])^2]</script>, <script type="math/tex">\operatorname{Cov}(X,Y) = \mathbb{E}[(X-\mathbb{E}[X])(Y-\mathbb{E}[Y])]</script> e <script type="math/tex">\operatorname{Cor}(X,Y) = \operatorname{Cov}(X,Y)\big/\sqrt{\operatorname{Var}(X) \operatorname{Var}(Y)}</script>.</p>
 <h2 id="vetores-aleatorios">Vetores Aleatórios</h2>
-<p>Seja agora uma função <script type="math/tex">X : \mathcal{X} \to \mathbb{R}^n</script> mensurável (no sentido dos conjuntos de Borel em <script type="math/tex">\mathbb{R}^n</script>). Se <script type="math/tex">X \sim P_X</script> e <script type="math/tex">P_X</script> é absolutamente contínua com respeito a medida de Lebesgue em <script type="math/tex">\mathbb{R}^n</script> com densidade <script type="math/tex">p</script>, temos que 
+<p>Seja <script type="math/tex">X : \mathcal{X} \to \mathbb{R}^n</script> uma função mensurável (no sentido dos conjuntos de Borel em <script type="math/tex">\mathbb{R}^n</script>). Se <script type="math/tex">X \sim P_X</script> e <script type="math/tex">P_X</script> é absolutamente contínua com respeito a medida de Lebesgue em <script type="math/tex">\mathbb{R}^n</script> com densidade <script type="math/tex">p</script>, temos que 
 <script type="math/tex; mode=display">
 P_X(B) = \int_{B} p(x) \, dx.
 </script>
@@ -414,6 +414,8 @@ com respeito a <script type="math/tex">\mu</script>.</p>
 <p>3) <script type="math/tex">P(\cup_{i=1}^{\infty} A_i) \le \sum_{i=1}^{\infty} P(A_i)</script>
 </p>
 <h2 id="condicionando">Condicionando</h2>
+<p>Considere duas variáveis aleatórias <script type="math/tex">X</script> e <script type="math/tex">Y</script> não independentes. 
+Com isso, se observamos <script type="math/tex">X=x</script>, temos alguma informação adicional sobre <script type="math/tex">Y</script>, e sua distribuição marginal não representa mais a totalidade.</p>
 <p>Considere <script type="math/tex">X</script> e <script type="math/tex">Y</script> duas variáveis discretas definidas em <script type="math/tex">\mathcal{X}</script> e <script type="math/tex">\mathcal{Y}</script>, respectivamente. 
 Definimos a <strong>probabilidade condicional</strong> de <script type="math/tex">X = x_i</script> dado <script type="math/tex">Y = y_j</script> como 
 <script type="math/tex; mode=display">
@@ -442,15 +444,38 @@ Como consequência, probabilidades e esperanças condicionais são definidas a m
 <p>2) <script type="math/tex">Q_x(B)</script> é função mensurável de <script type="math/tex">x</script> para todo Borel <script type="math/tex">B</script>;</p>
 <p>3) <script type="math/tex">P(X \in A, Y \in B) = \int_A Q_x(B) \, dP_X(x)</script>.</p>
 <p>Escrevemos então que <script type="math/tex">Y|X=x \sim Q_x</script>.</p>
-<p><strong>Teorema (densidade condicional):</strong> Suponha que <script type="math/tex">X</script> e <script type="math/tex">Y</script> sejam vetores aleatórios com densidade conjunta <script type="math/tex">p_Z</script> com respeito a <script type="math/tex">\mu \times \nu</script>. Seja <script type="math/tex">E = \{x : p_X(x) > 0\}. Para </script>x \in E<script type="math/tex">, defina 
+<p><strong>Teorema (densidade condicional):</strong> Suponha que <script type="math/tex">X</script> e <script type="math/tex">Y</script> sejam vetores aleatórios com densidade conjunta <script type="math/tex">p_Z</script> com respeito a <script type="math/tex">\mu \times \nu</script>. Seja <script type="math/tex">E = \{x : p_X(x) > 0\}</script>. Para <script type="math/tex">x \in E</script>, defina 
 <script type="math/tex; mode=display">
 p_{Y|X}(y|x) = \frac{p_Z(x,y)}{p_X(x)},
 </script>
-e seja </script>Q_x<script type="math/tex"> a medida de probabilidade com densidade </script>P_{Y|X}(\cdot|x)<script type="math/tex"> com respeito a </script>\nu<script type="math/tex">.
-Se </script>x \not \in E<script type="math/tex">, então defina </script>p_{Y|X}(y|x) = p_0(y)<script type="math/tex"> em que </script>p_0<script type="math/tex"> é densidade de uma distribuição de probabilidade </script>P_0<script type="math/tex"> arbitrária e seja </script>Q_x = P_0<script type="math/tex">. 
-Então </script>Q<script type="math/tex"> é distribuição condicional de </script>Y<script type="math/tex"> dado </script>X=x$. </p>
+e seja <script type="math/tex">Q_x</script> a medida de probabilidade com densidade <script type="math/tex">P_{Y|X}(\cdot|x)</script> com respeito a <script type="math/tex">\nu</script>.
+Se <script type="math/tex">x \not \in E</script>, então defina <script type="math/tex">p_{Y|X}(y|x) = p_0(y)</script> em que <script type="math/tex">p_0</script> é densidade de uma distribuição de probabilidade <script type="math/tex">P_0</script> arbitrária e seja <script type="math/tex">Q_x = P_0</script>. 
+Então <script type="math/tex">Q</script> é distribuição condicional de <script type="math/tex">Y</script> dado <script type="math/tex">X=x</script>. </p>
+<p>Uma consequência é que 
+<script type="math/tex; mode=display">
+\mathbb{E}[X] = \mathbb{E}[\mathbb{E}[X|Y]],
+</script>
+quando as esperanças existem. Essa relação é conhecida como <strong>Lei da Probabilidade Total</strong> ou <strong>Lei da Esperança Total</strong>.</p>
+<p><strong>Teorema:</strong> Seja <script type="math/tex">(\mathcal{X}, \mathcal{B})</script> um espaço de Borel com medida <script type="math/tex">\nu_{\mathcal{X}}</script>
+<script type="math/tex">\sigma</script>-finita. Sejam <script type="math/tex">X</script> uma variável (vetor) aleatória e <script type="math/tex">g</script> uma função mensurável. Defina <script type="math/tex">Y = g(X)</script>. Suponha que a distribuição de <script type="math/tex">X</script> tenha densidade <script type="math/tex">f_X</script> com respeito a <script type="math/tex">\nu_{\mathcal{X}}</script>.
+A distribuição conjunta <script type="math/tex">\mu_{X,Y}</script> de <script type="math/tex">X,Y</script> é absolutamente contínua a <script type="math/tex">\nu</script>, que é definida por
+<script type="math/tex; mode=display">
+\nu(C) = \nu_{\mathcal{X}}(\{x \in \mathcal{X} : (x,g(x)) \in C\}),
+</script>
+e <script type="math/tex">\mu_{X,Y}</script> tem densidade <script type="math/tex">f_{X,Y}(x,y) = f_{X}(x)I_{g(x)}(y)</script>.
+Além do mais, 
+<script type="math/tex; mode=display">
+f_{X|Y}(x|y) = \frac{f_X(x)}{f_Y(y)}I_{g(x)}(y). 
+</script>
+Esse resultado é o Corolário B.55 descrito no livro do Schervish.</p>
 <h2 id="conceitos-de-convergencia">Conceitos de convergência</h2>
-<p>TODO</p>
+<p>Veja Apêndice B.4 do livro do Schervish (p. 634) e a seção 5.5 do livro de Casella e Berger (p. 232).</p>
+<p>Conceitos abordados:
+- Convergência em probabilidade e a Lei Fraca dos Grandes Números;
+- Convergência quase certa ou com probabilidade 1 e a Lei Forte dos Grandes Números;
+- Convergência em distribuição e o Teorema Central do Limite;
+- Convergência fraca através de integrais, equivalente à convergência em distribuição;
+- Teorema de Slutsky e o Teorema da função contínua.</p>
 <h2 id="material-adicional">Material adicional</h2>
 <ul>
 <li>

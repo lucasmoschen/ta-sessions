@@ -170,7 +170,9 @@
         <li class="first-level active"><a href="#estatistica-suficiente">Estatística suficiente</a></li>
             <li class="second-level"><a href="#fatorizacao-de-fisher-neyman">Fatorização de Fisher-Neyman</a></li>
                 
-            <li class="second-level"><a href="#estatistica-suficiente-minima">Estatística suficiente mínima</a></li>
+            <li class="second-level"><a href="#estatistica-suficiente-minima-e-completa">Estatística suficiente mínima e completa</a></li>
+                
+            <li class="second-level"><a href="#ancilaridade">Ancilaridade</a></li>
                 
     </ul>
 </div></div>
@@ -208,17 +210,81 @@ P_{\theta}(Y \in B) = \mathbb{E}_{\theta}[P_{\theta}(Y \in B|T)] = \mathbb{E}_{\
 <p><strong>Proposição:</strong> A estatística de ordem <script type="math/tex">(X_{(1)}, \dots, X_{(n)})</script> é estatística suficiente.</p>
 <h2 id="fatorizacao-de-fisher-neyman">Fatorização de Fisher-Neyman</h2>
 <p>Seja <script type="math/tex">f(\boldsymbol{x}|\theta)</script> a densidade de uma distribuição de <script type="math/tex">\boldsymbol{X} = (X_1, \dots, X_n)</script> (com respeito a uma medida <script type="math/tex">\nu</script>
-<script type="math/tex">\sigma</script>-finita, como a medida de Lebesgue em <script type="math/tex">\mathbb{R}^n</script>). Então <script type="math/tex">T(\boldsymbol{X})</script> é estatística suficiente para <script type="math/tex">\theta</script> se, e somente se, existem funções <script type="math/tex">m_1</script> e m_2$ tal que 
+<script type="math/tex">\sigma</script>-finita, como a medida de Lebesgue em <script type="math/tex">\mathbb{R}^n</script>). Então <script type="math/tex">T(\boldsymbol{X})</script> é estatística suficiente para <script type="math/tex">\theta</script> se, e somente se, existem funções <script type="math/tex">m_1</script> e <script type="math/tex">m_2</script> tal que 
 <script type="math/tex; mode=display">
 f(\boldsymbol{x}|\theta) = m_1(\boldsymbol{x})m_2(T(\boldsymbol{x}) , \theta), \forall \theta \in \Theta.
 </script>
 </p>
 <p>O lema 2.24 demonstrado no livro de Schervish determina que sob as hipóteses do teorema de Fisher-Neyman e assumindo que <script type="math/tex">T</script> é suficiente, obtemos que existe uma medida em <script type="math/tex">(\mathcal{T}, \mathcal{C})</script> que domina a distribuição de probabilidade de <script type="math/tex">T</script> e define a densidade de <script type="math/tex">T=t</script> sob o parâmetro <script type="math/tex">\theta</script> como <script type="math/tex">m_2(t,\theta)</script>.</p>
-<h2 id="estatistica-suficiente-minima">Estatística suficiente mínima</h2>
-<p>TODO</p>
-<p>pg. 46 KN
-pg. 305 CB
-pg. 92 SH</p></div>
+<h2 id="estatistica-suficiente-minima-e-completa">Estatística suficiente mínima e completa</h2>
+<p>A estatística de ordem é uma estatística que pouco reduz a informação do dado. 
+De fato, só retira a questão da ordenação. 
+Todavia, algumas vezes uma estatística mais simples também é suficiente e, por isso, faz sentido definir quando ela é mínima.</p>
+<blockquote>
+<p>Uma estatística suficiente <script type="math/tex">T</script> é dita <strong>suficiente mínima</strong> se para toda estatística <script type="math/tex">U</script>, existe uma função mensurável <script type="math/tex">g</script> tal que <script type="math/tex">T = g(U)</script> para todo <script type="math/tex">\theta</script>.</p>
+</blockquote>
+<p><strong>Teorema (Lehmann-Scheffé):</strong> Seja <script type="math/tex">f(x|\theta)</script> a densidade e <script type="math/tex">T</script> uma função mensurável tal que <script type="math/tex">T(x) = T(y) \iff y \in D(x)</script>, com
+<script type="math/tex; mode=display">
+D(x) = \{y \in \mathcal{X} : f(y|\theta) = f(x|\theta)h(x,y), \forall \theta \text{ e alguma função } h(x,y) \}.
+</script>
+</p>
+<hr />
+<p><code>📝</code> <strong>Exemplo</strong>
+}
+Seja <script type="math/tex">X_1, \dots, X_n \overset{iid}{\sim} \operatorname{Bernoulli}(\theta)</script>. Temos que 
+<script type="math/tex; mode=display">
+f(x_1,\dots,x_n|\theta) = \theta^{S_x}(1-\theta)^{n-S_x},
+</script>
+em que <script type="math/tex">S_x = \sum_{i=1}^n x_i</script>. 
+Assim
+<script type="math/tex; mode=display">
+\frac{f(x_1,\dots,x_n|\theta)}{f(y_1,\dots,y_n|\theta)} = \left(\frac{\theta}{1-\theta}\right)^{S_x-S_y},
+</script>
+que independe de <script type="math/tex">\theta</script> se, e somente se, <script type="math/tex">S_x = S_y</script>. 
+Isso mostra que <script type="math/tex">T(x) = S_x</script> é estatística suficiente mínima.</p>
+<hr />
+<hr />
+<p><code>📝</code> <strong>Exemplo - Família Exponencial</strong></p>
+<p>Considere uma distribuição com densidade 
+<script type="math/tex; mode=display">
+p_{\theta}(x) = \exp\{\eta(\theta)\cdot T(x) - B(\theta)\}h(x)
+</script>
+com respeito a medida de Lebesgue. 
+Pelo Teorema da Fatorização <script type="math/tex">T(x)</script> é estatística suficiente.
+Assim
+<script type="math/tex; mode=display">
+\log\left(\frac{p_{\theta}(y)}{p_{\theta}(x)}\right) = \eta(\theta)\cdot (T(y) - T(x)) + \log(h(y)) - \log(h(x)).
+</script>
+Logo <script type="math/tex">T</script> é estatística suficiente mínima se, e somente se, o complemento ortogonal de <script type="math/tex">\eta(\theta)</script> possui apenas o <script type="math/tex">0</script>.</p>
+<hr />
+<blockquote>
+<p>Uma estatística <script type="math/tex">T</script> é dita <strong>completa</strong> se para toda função <script type="math/tex">g</script> mensurável e <script type="math/tex">\theta \in \Theta</script>, <script type="math/tex">\mathbb{E}_{\theta}[g(T)] = 0</script> implique <script type="math/tex">g(T) = 0</script>. Ela será <strong>completa limitada</strong> se adicionamos a condição de que <script type="math/tex">g</script> é limitada.</p>
+</blockquote>
+<p><strong>Teorema de Bahadur:</strong> Se <script type="math/tex">U</script> é uma estatística suficiente completa limitada e de dimensão finita, então ela é suficiente mínima.</p>
+<p>Ideias da demonstração:</p>
+<ul>
+<li>Tome uma outra estatística <script type="math/tex">T</script> e defina <script type="math/tex">V_i(U) = (1 + \exp\{U_i\})^{-1}</script> para cada componente de <script type="math/tex">U</script>. Note que <script type="math/tex">V</script> é limitada.</li>
+<li>Defina <script type="math/tex">H_i(t)</script> como o valor esperado de <script type="math/tex">V_i</script> dado que <script type="math/tex">T=t</script> e <script type="math/tex">L_i(u)</script> como o valor esperado de  <script type="math/tex">H_i(T)</script> quando <script type="math/tex">U=u</script>, que não dependem de <script type="math/tex">\theta</script>, pois as estatísticas são suficientes.</li>
+<li>Veja que <script type="math/tex">\mathbb{E}_{\theta}[V_i(U) - L_i(U)] = 0</script>, o que implica que <script type="math/tex">\mathbb{P}(V_i = L_i) = 1</script> pois <script type="math/tex">U</script> é completa.</li>
+<li>Conclua usando a Lei da Variância Total que <script type="math/tex">U_i = V_i^{-1}(H_i(T))</script>.</li>
+</ul>
+<p>Note que se <script type="math/tex">U</script> é completa, então <script type="math/tex">U</script> é completa limitada, o que nos dá um resultado mais claro: Uma estatística suficiente e completa é suficiente mínima.</p>
+<h2 id="ancilaridade">Ancilaridade</h2>
+<p>Na outra ponta, temos estatísticas que são independentes do parâmetro.</p>
+<blockquote>
+<p>Uma estatística <script type="math/tex">U</script> é dita anciliar se a sua distribuição independe de <script type="math/tex">\theta</script>.</p>
+</blockquote>
+<hr />
+<p><code>📝</code> <strong>Exemplo - Caso normal</strong></p>
+<p>Sejam <script type="math/tex">X_1, X_2 \overset{iid}{\sim} \operatorname{Normal}(\mu, 1)</script> e defina <script type="math/tex">U = X_2 - X_1</script>. Soma de normais independentes faz com que 
+<script type="math/tex">U \sim \operatorname{Normal}(0, 2)</script> e <script type="math/tex">U</script> é anciliar.</p>
+<hr />
+<p>Se <script type="math/tex">T=(T_1, T_2)</script> é estatística suficiente mínima e <script type="math/tex">T_2</script> é anciliar, dizemos que <script type="math/tex">T_1</script> é <strong>suficiente condicionalmente</strong> dado <script type="math/tex">T_2</script>.</p>
+<p>Quando uma estatística é anciliar, não significa que ela não tem importância e, portanto, deveria ser ignorada. 
+Significa que se ela fosse a única observação possível, não mudaríamos a informação sobre <script type="math/tex">\theta</script>. 
+Podemos, todavia, alterar a informação sobre outras quantidades, todavia.</p>
+<p>Uma estatística ancilar <script type="math/tex">U</script> é <strong>maximal</strong> se toda outra estatística ancilar é função de <script type="math/tex">U</script>.</p>
+<p><strong>Teorema de Basu:</strong> se <script type="math/tex">T</script> é uma estatística suficiente completa limitada e <script type="math/tex">U</script> é anciliar, então <script type="math/tex">U</script> e <script type="math/tex">T</script> são independentes sob <script type="math/tex">P_{\theta}</script> para qualquer <script type="math/tex">\theta</script>.</p></div>
         
         
     </div>
