@@ -8,7 +8,7 @@
     
     
     
-    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
 
     
     <title>Estatística suficiente - Teaching Assistance</title>
@@ -19,9 +19,9 @@
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
     <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
     <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
-    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
-    <link href="../../css/base.min.css" rel="stylesheet">
-    <link href="../../css/cinder.min.css" rel="stylesheet">
+    <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../../css/base.min.css" rel="stylesheet">
+    <link href="../../../css/cinder.min.css" rel="stylesheet">
 
     
         
@@ -59,7 +59,7 @@
             <!-- Main title -->
 
             
-              <a class="navbar-brand" href="../..">Teaching Assistance</a>
+              <a class="navbar-brand" href="../../..">Teaching Assistance</a>
             
         </div>
 
@@ -70,7 +70,7 @@
                 
                 
                     <li >
-                        <a href="../..">Home</a>
+                        <a href="../../..">Home</a>
                     </li>
                 
                 
@@ -81,37 +81,37 @@
                         
                             
 <li >
-    <a href="../../alglin/info/">Álgebra Linear</a>
+    <a href="../../../alglin/info/">Álgebra Linear</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../analisenum/info/">Análise Numérica</a>
+    <a href="../../../analisenum/info/">Análise Numérica</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../curvas/info/">Curvas</a>
+    <a href="../../../curvas/info/">Curvas</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../edo/info/">Equações Diferenciais Ordinárias</a>
+    <a href="../../../edo/info/">Equações Diferenciais Ordinárias</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../edp/info/">Equações Diferenciais Parciais</a>
+    <a href="../../../edp/info/">Equações Diferenciais Parciais</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../infestatistica_BSc/info/">Inferência Estatística</a>
+    <a href="../../../infestatistica_BSc/info/">Inferência Estatística</a>
 </li>
 
                         
@@ -126,19 +126,19 @@
                         
                             
 <li >
-    <a href="../../functional_analysis/info/">Análise Funcional</a>
+    <a href="../../../functional_analysis/info/">Análise Funcional</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../bayesian/info/">Estatística Bayesiana</a>
+    <a href="../../../bayesian/info/">Estatística Bayesiana</a>
 </li>
 
                         
                             
 <li >
-    <a href="../info/">Inferência Estatística</a>
+    <a href="../../info/">Inferência Estatística</a>
 </li>
 
                         
@@ -174,6 +174,10 @@
                 
             <li class="second-level"><a href="#ancilaridade">Ancilaridade</a></li>
                 
+            <li class="second-level"><a href="#computacional">Computacional</a></li>
+                
+                <li class="third-level"><a href="#amostrando">Amostrando!</a></li>
+                <li class="third-level"><a href="#ancilaridade_1">Ancilaridade</a></li>
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
@@ -284,7 +288,124 @@ Logo <script type="math/tex">T</script> é estatística suficiente mínima se, e
 Significa que se ela fosse a única observação possível, não mudaríamos a informação sobre <script type="math/tex">\theta</script>. 
 Podemos, todavia, alterar a informação sobre outras quantidades, todavia.</p>
 <p>Uma estatística ancilar <script type="math/tex">U</script> é <strong>maximal</strong> se toda outra estatística ancilar é função de <script type="math/tex">U</script>.</p>
-<p><strong>Teorema de Basu:</strong> se <script type="math/tex">T</script> é uma estatística suficiente completa limitada e <script type="math/tex">U</script> é anciliar, então <script type="math/tex">U</script> e <script type="math/tex">T</script> são independentes sob <script type="math/tex">P_{\theta}</script> para qualquer <script type="math/tex">\theta</script>.</p></div>
+<p><strong>Teorema de Basu:</strong> se <script type="math/tex">T</script> é uma estatística suficiente completa limitada e <script type="math/tex">U</script> é anciliar, então <script type="math/tex">U</script> e <script type="math/tex">T</script> são independentes sob <script type="math/tex">P_{\theta}</script> para qualquer <script type="math/tex">\theta</script>.</p>
+<h2 id="computacional">Computacional</h2>
+<p>Nesse notebook, que está disponível <a href="https://nbviewer.org/github/lucasmoschen/ta-sessions/blob/master/Statistical_Inference_MSc/Notebooks/Sufficient_Statistics.ipynb">neste link</a>, faremos alguns poucos experimentos para ilustrar fatos verificados no capítulo de Estatística Suficiente.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+</code></pre></div>
+<h3 id="amostrando">Amostrando!</h3>
+<p>Seja <script type="math/tex">X_1, \dots, X_n</script> uma amostra aleatória de uma distribuição <script type="math/tex">P_{\theta}</script>. 
+Seja <script type="math/tex">T(X)</script> uma estatística suficiente. 
+Sabemos que <script type="math/tex">\mathbb{P}(X_1, \dots, X_n | T(X) = t)</script> independe de <script type="math/tex">\theta</script>.
+Suponha então que temos dois experimentadores. 
+O primeiro captura todas as amostras e passa para o segundo experimentador apenas o valor de <script type="math/tex">T(X)</script> para economizar!
+Vamos verificar que o segundo experimentador consegue, agora, obter amostras fake da amostra original.</p>
+<p>Vamos começar com um exemplo simples: <script type="math/tex">X_1, \dots, X_n \sim \operatorname{Normal}(\mu, 1)</script>. Uma estatística suficiente (mínima, inclusive) nesse caso é <script type="math/tex">\bar{X} = n^{-1}(X_1 + \dots + X_n)</script>.</p>
+<p>Sabemos que <script type="math/tex">\bar{X} \sim \operatorname{Normal}(\mu, n^{-1})</script>. Assim, 
+<script type="math/tex; mode=display">
+f(X_1, \dots, X_n | \bar{X} = t) = \frac{(2\pi)^{-n/2}\exp\{-1/2 \sum_{i=1}^n(x_i-\mu)^2\}}{(2\pi n^{-1})^{-1/2}\exp\{-n/2(t-\mu)^2\}} \propto \exp\left\{-\frac{1}{2}(S_x^2 - 2\mu n t + n\mu^2 - nt^2 + 2\mu n t - n\mu^2).\right\} = \exp\left\{-\frac{1}{2}\sum_{i=1}^n (x_i^2 - t^2)\right\},
+</script>
+em que <script type="math/tex">S_x^2 = \sum_{i=1}^n x_i^2</script> e <script type="math/tex">X_n = nt - \sum_{i=1}^{n-1} X_i</script>.</p>
+<p>Note que podemos escrever 
+<script type="math/tex; mode=display">
+f(X_1, \dots, X_{n-1} | \bar{X} = t) \propto \exp\left\{nt^2/2\right\}\exp\left\{-\frac{1}{2}\left[\sum_{i=1}^{n-1} x_i^2 + \left(nt - \sum_{i=1}^{n-1} x_i\right)^2 \right]\right\} = \exp\left\{nt^2/2\right\}\exp\left\{-\frac{1}{2}\left[\sum_{i=1}^{n-1} x_i^2 + n^2t^2 - 2nt\sum_{i=1}^{n-1} x_i + \left(\sum_{i=1}^{n-1} x_i\right)^2\right]\right\}
+</script>
+</p>
+<p>Assim, 
+<script type="math/tex; mode=display">
+\begin{split}
+f(X_1, \dots, X_{n-1} | \bar{X} = t) &\propto \exp\left\{nt^2/2\right\}\exp\left\{-\frac{1}{2}\left[\sum_{i=1}^{n-1} (x_i^2 - 2nt x_i + nt^2) +nt^2 + \left(\sum_{i=1}^{n-1} x_i\right)^2\right]\right\} \\
+&= \exp\left\{-\frac{1}{2}\left[\sum_{i=1}^{n-1} (x_i^2 - 2t x_i + t^2) - 2(n-1)t\sum_{i=1}^{n-1} x_i + (n-1)^2t^2 + \left(\sum_{i=1}^{n-1} x_i\right)^2\right]\right\} \\
+&= \exp\left\{-\frac{1}{2}\left[\sum_{i=1}^{n-1} (x_i - t)^2 + \left(\sum_{i=1}^{n-1} (x_i - t)\right)^2 \right]\right\} \\
+&= \exp\left\{-\frac{1}{2}\left[\sum_{i=1}^{n-1} (x_i - t)^2 + \sum_{j=1}^{n-1} \sum_{i=1}^{n-1} (x_j-t)(x_i - t) \right]\right\}
+\end{split}
+</script>
+</p>
+<p>Com isso, observamos que <script type="math/tex">X_1, \dots, X_n | \bar{X} = t</script> tem distribuição Normal Multivariada com <script type="math/tex">\mathbb{E}[X_i] = t</script> para <script type="math/tex">i=1,\dots,n-1</script>
+e matriz de covariância (dada pela inversa) 
+<script type="math/tex; mode=display">
+\Sigma^{-1} = I_{n-1} + \begin{bmatrix}
+1 & \cdots & 1 \\
+\vdots & \ddots & \vdots \\
+1 & \cdots & 1
+\end{bmatrix} := I + A
+</script>
+</p>
+<p>Veja que <script type="math/tex">\Sigma = I - A/n</script> (mostre!). </p>
+<p>Assim, <script type="math/tex">X_1, \dots, X_{n-1} | \bar{X} = t \sim \operatorname{Normal}((t,\dots,t), I - A/n)</script>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">mu</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">Sigma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span><span class="o">/</span><span class="n">n</span>
+</code></pre></div>
+<p>Façamos um exemplo em que <script type="math/tex">\mu = 2</script> verdadeiro (e desconhecido para os dois estatísticos). Vamos fazer o seguinte experimento <script type="math/tex">M</script> vezes, com <script type="math/tex">M = 100000</script>. Para o primeiro estatístico, oferecemos <script type="math/tex">n</script> amostras. Para o segundo estatístico, só oferecemos a média dessas amostras e ele vai utilizar as contas acima para gerar outras <script type="math/tex">n</script> amostras, isto, ele gerará amostras novas a partir de <script type="math/tex">X_1, \dots, X_{n-1} | \bar{X} = t \sim \operatorname{Normal}((t,\dots,t), I - A/n)</script>, pois ele conhecerá <script type="math/tex">\bar{X}</script>. </p>
+<p>Como faremos esses experimentos diversas vezes, vamos obter <script type="math/tex">M</script> amostras de <script type="math/tex">X_1</script> para o estatístico 1, e o estatístico 2 vai produzir outras <script type="math/tex">M</script> a partir da distribuição calculada. Provamos que a distribuição delas será a mesma. Vamos verificar graficamente através do histograma.</p>
+<div class="highlight"><pre><span></span><code><span class="n">mu</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">M</span> <span class="o">=</span> <span class="mi">100000</span>
+
+<span class="n">estatistico1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">monte_carlo_simulation</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+<span class="n">estatistico2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">samples</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">monte_carlo_simulation</span><span class="p">)):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="n">mu</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+    <span class="n">x_fake</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">(</span><span class="n">mean</span><span class="o">=</span><span class="n">t</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">cov</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span><span class="o">/</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">x_n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">*</span> <span class="n">t</span> <span class="o">-</span> <span class="n">x_fake</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="n">x_fake</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">x_fake</span><span class="p">,</span> <span class="n">x_n</span><span class="p">])</span>
+
+    <span class="n">estatistico1</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span>
+    <span class="n">estatistico2</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">x_fake</span>
+</code></pre></div>
+<pre><code>100%|█████████████████████████████████| 100000/100000 [00:19&lt;00:00, 5034.15it/s]
+</code></pre>
+<p>Veja que de fato os histogramas são muito similares, como esperávamos! Assim, apenas tendo o valor da média, o estatístico 2 foi capaz de produzir novas amostras a partir da mesma distribuição do estatístico 1!</p>
+<div class="highlight"><pre><span></span><code><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">estatistico1</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Estatístico 1&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">estatistico2</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Estatístico 2&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Comparando a distribuição do dado contra o dado falso&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<p><img alt="png" src="../output_9_0.png" /></p>
+<h3 id="ancilaridade_1">Ancilaridade</h3>
+<p>Uma estatística anciliar não depende do parâmetro, então não pode atualizar a informação sobre ele. 
+Será que significa que ela pode ser ignorada? 
+Vamos verificar isso com um exemplo numérico. Seja <script type="math/tex">X_1, \dots, X_n \overset{iid}{\sim} \operatorname{Unif}[\theta-1/2, \theta+1/2]</script>. Assim 
+<script type="math/tex; mode=display">
+f(x_1, \dots, x_n | \theta) = \prod_{i=1}^n 1\{\theta -1/2 < x_i < \theta+1/2\} = 1\{\theta - 1/2 < \min\{x_i\}\}1\{\theta + 1/2 > \max\{x_i\}\}
+</script>
+Portanto <script type="math/tex">T(X) = (\min(X_i), \max(X_i))</script> é estatística suficiente mínima.
+Seja <script type="math/tex">U(X) = \max(X_i) - \min(X_i)</script>.
+Vamos verificar que <script type="math/tex">U</script> é estatística anciliar </p>
+<p>Defina <script type="math/tex">Y_i = X_i - \theta + 1/2 \sim \operatorname{Uniform}(0,1)</script>. Assim, 
+<script type="math/tex; mode=display">
+U = \max(X_i) - \min(X_i) = \max(X_i-\theta+1/2) - \min(X_i-\theta+1/2) = \max(Y_i) - \min(Y_i).
+</script>
+Como a distribuição de <script type="math/tex">Y</script> independe de <script type="math/tex">\theta</script>, temos que a distribuição de <script type="math/tex">U</script> também independe, o que mostra que <script type="math/tex">U</script> é estatística anciliar.</p>
+<p>Vamos visualizar a distribuição de <script type="math/tex">U</script> de duas formas: partindo de <script type="math/tex">X</script> e partido de <script type="math/tex">Y</script>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">theta</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">theta</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">theta</span><span class="o">+</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">100000</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">100000</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+
+<span class="c1"># Estamos tomando o máximo de cada linha de X e obtendo 100000 amostras para X.</span>
+<span class="n">U1</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">X</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">U2</span> <span class="o">=</span> <span class="n">Y</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">Y</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+<p>Note que de fato as distribuições são muito similares.</p>
+<div class="highlight"><pre><span></span><code><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">U1</span><span class="p">,</span>  <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;U = max(X_i) - min(X_i)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">U2</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;U = max(Y_i) - min(Y_i)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Comparando a distribuição de U&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<p><img alt="png" src="../output_13_0.png" /></p>
+<p>Se observamos que <script type="math/tex">U(X) = u</script>, podemos calcular que <script type="math/tex">\max(x_i) | U = u \sim \operatorname{Unif}(\theta-1/2+u, \theta+1/2)</script>. 
+Assim, a distribuição de uma estatística muda com outra anciliar.</p></div>
         
         
     </div>
@@ -304,7 +425,7 @@ Podemos, todavia, alterar a informação sobre outras quantidades, todavia.</p>
       </footer>
     
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="../../js/bootstrap-3.0.3.min.js"></script>
+    <script src="../../../js/bootstrap-3.0.3.min.js"></script>
 
     
     <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
@@ -312,11 +433,11 @@ Podemos, todavia, alterar a informação sobre outras quantidades, todavia.</p>
     <script>hljs.initHighlightingOnLoad();</script>
     
 
-    <script>var base_url = "../.."</script>
+    <script>var base_url = "../../.."</script>
     
-    <script src="../../js/base.js"></script>
+    <script src="../../../js/base.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script src="../../search/main.js"></script>
+    <script src="../../../search/main.js"></script>
 
     <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
