@@ -16,7 +16,7 @@ Monitoria de Inferência Estatística (Mestrado) correspondente ao período de 2
 
 |Propriedades de estimadores|
 |---|
-|[Suficiência](/ta-sessions/infestatistica_MSc/sufficiency)|
+|[Suficiência](/ta-sessions/infestatistica_MSc/sufficiency/sufficiency)|
 
 ## Exercícios 
 
