@@ -198,10 +198,10 @@ mu = 2
 n = 10
 M = 100000
 
-estatistico1 = np.zeros((monte_carlo_simulation, n))
-estatistico2 = np.zeros_like(samples)
+estatistico1 = np.zeros((M, n))
+estatistico2 = np.zeros_like(estatistico1)
 
-for k in tqdm(range(monte_carlo_simulation)):
+for k in tqdm(range(M)):
     x = np.random.normal(loc=mu, scale=1, size=n)
     t = x.mean()
 
