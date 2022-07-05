@@ -6,5 +6,9 @@ site/
 *.log
 *.synctex.gz
 *.out
+*.xdv
+*.bcf
+*.run.xml
+*.pdf
 
 deploy.sh
