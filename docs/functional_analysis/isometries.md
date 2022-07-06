@@ -63,9 +63,59 @@ Como $L \not \in X$, então a sequência não converge em $X e $X$ não é compl
 
 ---
 
+**Proposição:** Duas sequências são **assintóticas** quando $d(x_n, y_n) \to 0 $.
+Isso cria uma relação de equivalência no espaço das sequências.
+Além do mais, se $\{x_n\}$ é Cauchy /converge para $x$, $\{y_n\}$ também será / converge.
+
 ## Completamento 
 
 Seja $(X,d)$ um espaço métrico. O espaço métrico completo $(X^*, d^*)$ é um **completamento** de $(X,d)$ se $(X,d)$ é isométrico a um subespaço $(X_0, d^*)$ denso em $(X^*, d^*)$, isto é, que satisfaz, $\bar{X}_0 = X^*$. Nesse caso, todo ponto de $X^*$ é ponto de aderência de $X_0$, que é equivalente a $X$ no sentido de preservar a métrica.
 
 **Teorema:** Todo espaço métrico $(X,d)$ tem um completamento $(X^*, d^*)$ e, além do mais, se $(X^{**}, d^{**})$ é um completamento de $(X,d)$, então $(X^*, d^*)$ é isométrico a $(X^{**}, d^{**})$.
 
+
+---
+``📝`` **Os números racionais (continuação)**
+
+Vimos que $\{\mathbb{Q}, d\}$ é um espaço métrico não completo para $d(x,y) = |x,y|$.
+Pelo Teorema acima, existe um espaço métrico $(\mathbb{Q}^*, d^*\}$ completo de forma que $\mathbb{Q}$ é isométrico a um subconjunto denso de $\mathbb{Q}^*$.
+Além disso, sabemos que ele é único a menos de uma isometria.
+Essa é uma forma de construir os números reais: o completamento dos números racionais. 
+Para isso, basta definir um número real como a classe de equivalência das sequências de Cauchy nos racionais com a relação de duas sequências estarem na mesma classe se são assintóticas. 
+
+Mais detalhes dessa construção, consulte o [Exercício 31 da lista](https://lucasmoschen.github.io/files/disciplines/functional-analysis/paper_sheet_metric_spaces.pdf).
+
+---
+
+**Proposição:** Seja $A \subseteq X$ em que $(X,d)$ seja um espaço métrico completo. 
+Então $(A,d)$ é um espaço métrico com $(\bar{A}, d)$ sendo seu completamento.
+
+---
+``📝`` **Homeomorfismo, não isometria!**
+
+Note que $\mathbb{R}$ é homeomorfo a $(0,1)$ através ta transformação $f(x) = \frac{1}{\pi}tan^{-1}(x) + 1/2$.
+Todavia, um é completo, enquanto o outro não é.
+
+---
+
+### Teorema de Baire
+
+> Seja $(X,d)$ um espaço métrico. 
+Um subconjunto $S \subseteq X$ é dito **denso em lugar algum** se $S$ não é denso em nenhum subconjunto aberto não vazio $U \subseteq X$.
+
+**Teorema:** Um espaço métrico completo não pode ser coberto por um número enumerável de conjuntos densos em lugar algum.
+
+## Espaços Separáveis
+
+Temos os seguintes tipos de espaços métricos, cada um "maior" do que o anterior.
+
+- **Espaço métrico finito:** existe um número finito de distância para calcular entre os pontos do espaço.
+- **Espaço métrico enumerável:** com um número infinito de pontos, um algoritmo pode calcular distâncias precisamente, mas isso pode tomar tempo.
+- **Espaço métrico separável:** pontos podem ser aproximados por um de um número contável de pontos. Qualquer distância pode ser calculada de forma aproximada.
+- **Espaço métrico não separável:** Pode não existir algoritmo para calcular distância entre pontos genéricos.
+
+> Um espaço métrico $(X,d)$ é **separável** quando ele contém um subconjunto denso enumerável.
+
+Espaços métricos enumeráveis são separáveis por definição. Temos que $\mathbb{R}$ é separável, pois $\mathbb{Q}$ é denso em $\mathbb{R}$.
+
+**Proposição:** O produto de dois espaços separáveis é separável.
