@@ -20,7 +20,7 @@ Os exercícios resolvidos estão disponíveis:
 
 |Lista|Tópicos|Última atualização|Solução|
 |-----|-------|------------------|-------|
-|[1](https://lucasmoschen.github.io/files/disciplines/functional-analysis/paper_sheet_metric_spaces.pdf)|Espaços métricos|02/07/2022|[1](/ta-sessions/unavailable)|
+|[1](https://lucasmoschen.github.io/files/disciplines/functional-analysis/paper_sheet_metric_spaces.pdf)|Espaços métricos|06/07/2022|[1](/ta-sessions/unavailable)|
 
 ## Resumos 
   
