@@ -12,7 +12,7 @@ Os tópicos cobertos na disciplina estão separados em três partes:
 |-------|
 |[Espaços métricos](/ta-sessions/functional_analysis/metric_spaces)|
 |[Isometrias e completamento](/ta-sessions/functional_analysis/isometries)|
-|[Compacidade em espaços métricos](/ta-sessions/unavailable)|
+|[Compacidade em espaços métricos](/ta-sessions/functional_analysis/compactness)|
 
 ## Exercícios 
 
@@ -20,7 +20,7 @@ Os exercícios resolvidos estão disponíveis:
 
 |Lista|Tópicos|Última atualização|Para entregar|Solução|
 |-----|-------|------------------|-------------|-------|
-|[1](https://lucasmoschen.github.io/files/disciplines/functional-analysis/paper_sheet_metric_spaces.pdf)|Espaços métricos|06/07/2022|4,8,27,29,30|[1](/ta-sessions/unavailable)|
+|[1](https://lucasmoschen.github.io/files/disciplines/functional-analysis/paper_sheet_metric_spaces.pdf)|Espaços métricos|06/07/2022|4,8,27,29,30|[1](/ta-sessions/functional-analysis/compactness)|
 
 ## Resumos 
   

@@ -59,7 +59,7 @@ o que implica que $x_n^2 \ge 1$ para todo $n$ e, $x_{n+1} \le x_n$ pela desigual
 $$
 L = L/2 + 1/L \implies 2L^2 = L^2 +2 \implies L = \sqrt{2}.
 $$
-Como $L \not \in X$, então a sequência não converge em $X e $X$ não é completo.
+Como $L \not \in X$, então a sequência não converge em $X$ e $X$ não é completo.
 
 ---
 
