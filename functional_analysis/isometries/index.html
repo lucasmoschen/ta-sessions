@@ -172,6 +172,9 @@
                 
             <li class="second-level"><a href="#completamento">Completamento</a></li>
                 
+                <li class="third-level"><a href="#teorema-de-baire">Teorema de Baire</a></li>
+            <li class="second-level"><a href="#espacos-separaveis">Espaços Separáveis</a></li>
+                
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
@@ -223,9 +226,47 @@ L = L/2 + 1/L \implies 2L^2 = L^2 +2 \implies L = \sqrt{2}.
 </script>
 Como <script type="math/tex">L \not \in X</script>, então a sequência não converge em <script type="math/tex">X e </script>X$ não é completo.</p>
 <hr />
+<p><strong>Proposição:</strong> Duas sequências são <strong>assintóticas</strong> quando <script type="math/tex">d(x_n, y_n) \to 0 </script>.
+Isso cria uma relação de equivalência no espaço das sequências.
+Além do mais, se <script type="math/tex">\{x_n\}</script> é Cauchy /converge para <script type="math/tex">x</script>, <script type="math/tex">\{y_n\}</script> também será / converge.</p>
 <h2 id="completamento">Completamento</h2>
 <p>Seja <script type="math/tex">(X,d)</script> um espaço métrico. O espaço métrico completo <script type="math/tex">(X^*, d^*)</script> é um <strong>completamento</strong> de <script type="math/tex">(X,d)</script> se <script type="math/tex">(X,d)</script> é isométrico a um subespaço <script type="math/tex">(X_0, d^*)</script> denso em <script type="math/tex">(X^*, d^*)</script>, isto é, que satisfaz, <script type="math/tex">\bar{X}_0 = X^*</script>. Nesse caso, todo ponto de <script type="math/tex">X^*</script> é ponto de aderência de <script type="math/tex">X_0</script>, que é equivalente a <script type="math/tex">X</script> no sentido de preservar a métrica.</p>
-<p><strong>Teorema:</strong> Todo espaço métrico <script type="math/tex">(X,d)</script> tem um completamento <script type="math/tex">(X^*, d^*)</script> e, além do mais, se <script type="math/tex">(X^{**}, d^{**})</script> é um completamento de <script type="math/tex">(X,d)</script>, então <script type="math/tex">(X^*, d^*)</script> é isométrico a <script type="math/tex">(X^{**}, d^{**})</script>.</p></div>
+<p><strong>Teorema:</strong> Todo espaço métrico <script type="math/tex">(X,d)</script> tem um completamento <script type="math/tex">(X^*, d^*)</script> e, além do mais, se <script type="math/tex">(X^{**}, d^{**})</script> é um completamento de <script type="math/tex">(X,d)</script>, então <script type="math/tex">(X^*, d^*)</script> é isométrico a <script type="math/tex">(X^{**}, d^{**})</script>.</p>
+<hr />
+<p><code>📝</code> <strong>Os números racionais (continuação)</strong></p>
+<p>Vimos que <script type="math/tex">\{\mathbb{Q}, d\}</script> é um espaço métrico não completo para <script type="math/tex">d(x,y) = |x,y|</script>.
+Pelo Teorema acima, existe um espaço métrico <script type="math/tex">(\mathbb{Q}^*, d^*\}</script> completo de forma que <script type="math/tex">\mathbb{Q}</script> é isométrico a um subconjunto denso de <script type="math/tex">\mathbb{Q}^*</script>.
+Além disso, sabemos que ele é único a menos de uma isometria.
+Essa é uma forma de construir os números reais: o completamento dos números racionais. 
+Para isso, basta definir um número real como a classe de equivalência das sequências de Cauchy nos racionais com a relação de duas sequências estarem na mesma classe se são assintóticas. </p>
+<p>Mais detalhes dessa construção, consulte o <a href="https://lucasmoschen.github.io/files/disciplines/functional-analysis/paper_sheet_metric_spaces.pdf">Exercício 31 da lista</a>.</p>
+<hr />
+<p><strong>Proposição:</strong> Seja <script type="math/tex">A \subseteq X</script> em que <script type="math/tex">(X,d)</script> seja um espaço métrico completo. 
+Então <script type="math/tex">(A,d)</script> é um espaço métrico com <script type="math/tex">(\bar{A}, d)</script> sendo seu completamento.</p>
+<hr />
+<p><code>📝</code> <strong>Homeomorfismo, não isometria!</strong></p>
+<p>Note que <script type="math/tex">\mathbb{R}</script> é homeomorfo a <script type="math/tex">(0,1)</script> através ta transformação <script type="math/tex">f(x) = \frac{1}{\pi}tan^{-1}(x) + 1/2</script>.
+Todavia, um é completo, enquanto o outro não é.</p>
+<hr />
+<h3 id="teorema-de-baire">Teorema de Baire</h3>
+<blockquote>
+<p>Seja <script type="math/tex">(X,d)</script> um espaço métrico. 
+Um subconjunto <script type="math/tex">S \subseteq X</script> é dito <strong>denso em lugar algum</strong> se <script type="math/tex">S</script> não é denso em nenhum subconjunto aberto não vazio <script type="math/tex">U \subseteq X</script>.</p>
+</blockquote>
+<p><strong>Teorema:</strong> Um espaço métrico completo não pode ser coberto por um número enumerável de conjuntos densos em lugar algum.</p>
+<h2 id="espacos-separaveis">Espaços Separáveis</h2>
+<p>Temos os seguintes tipos de espaços métricos, cada um "maior" do que o anterior.</p>
+<ul>
+<li><strong>Espaço métrico finito:</strong> existe um número finito de distância para calcular entre os pontos do espaço.</li>
+<li><strong>Espaço métrico enumerável:</strong> com um número infinito de pontos, um algoritmo pode calcular distâncias precisamente, mas isso pode tomar tempo.</li>
+<li><strong>Espaço métrico separável:</strong> pontos podem ser aproximados por um de um número contável de pontos. Qualquer distância pode ser calculada de forma aproximada.</li>
+<li><strong>Espaço métrico não separável:</strong> Pode não existir algoritmo para calcular distância entre pontos genéricos.</li>
+</ul>
+<blockquote>
+<p>Um espaço métrico <script type="math/tex">(X,d)</script> é <strong>separável</strong> quando ele contém um subconjunto denso enumerável.</p>
+</blockquote>
+<p>Espaços métricos enumeráveis são separáveis por definição. Temos que <script type="math/tex">\mathbb{R}</script> é separável, pois <script type="math/tex">\mathbb{Q}</script> é denso em <script type="math/tex">\mathbb{R}</script>.</p>
+<p><strong>Proposição:</strong> O produto de dois espaços separáveis é separável.</p></div>
         
         
     </div>
