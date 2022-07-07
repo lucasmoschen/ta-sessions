@@ -134,7 +134,7 @@ Se para toda sequência de pontos de $A$, existe uma subsequência convergente, 
 
 ### Compacidade contável e sequencial
 
-Um conjunto $A$ é **compacto contável** se todo subconjunto infinito de $A$ tem um ponto limite em $A$.
+> Um conjunto $A$ é **compacto contável** se todo subconjunto infinito de $A$ tem um ponto limite em $A$.
 
 **Teorema:** Compacidade implica compacidade contável.
 
@@ -149,7 +149,7 @@ mas é impossível existir subcobertura finita e, portanto, $A$ não é compacto
 
 ---
 
-Um conjunto $A$ é **compacto sequencialmente** se, para toda sequência em $A$, existe uma subsequência convergente com limite em $A$.
+> Um conjunto $A$ é **compacto sequencialmente** se, para toda sequência em $A$, existe uma subsequência convergente com limite em $A$.
 
 **Teorema:** Compacidade e compacidade sequencial são equivalentes em espaços métricos.
 
