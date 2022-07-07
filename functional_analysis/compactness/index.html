@@ -172,6 +172,12 @@
                 
             <li class="second-level"><a href="#conjuntos-totalmente-limitados">Conjuntos totalmente limitados</a></li>
                 
+            <li class="second-level"><a href="#compacidade_1">Compacidade</a></li>
+                
+                <li class="third-level"><a href="#compacidade-relativa-e-epsilon-net">Compacidade relativa e \epsilon-net</a></li>
+                <li class="third-level"><a href="#compacidade-contavel-e-sequencial">Compacidade contável e sequencial</a></li>
+            <li class="second-level"><a href="#observacoes-finais">Observações finais:</a></li>
+                
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
@@ -186,6 +192,12 @@
 \cap_{n\in\mathbb{N}} F_n \neq \emptyset.
 </script>
 </p>
+<blockquote>
+<p><strong>Cobertura:</strong> Seja <script type="math/tex">I</script> um conjunto de índices. 
+Dizemos que <script type="math/tex">\{G_{\alpha}\}_{\alpha \in I}</script> é uma <strong>cobertura</strong> de <script type="math/tex">A</script> se <script type="math/tex">A \subseteq \cup_{\alpha \in I} G_{\alpha}</script>.
+Se <script type="math/tex">I</script> é finito, chamamos de <strong>cobertura finita</strong>. 
+Se <script type="math/tex">G_{\alpha}</script> é aberto para todo <script type="math/tex">\alpha \in I</script>, chamamos de <strong>cobertura aberta</strong>.</p>
+</blockquote>
 <h2 id="conjuntos-limitados">Conjuntos limitados</h2>
 <p>Um subconjunto <script type="math/tex">A</script> do espaço métrico <script type="math/tex">(X,d)</script> é <strong>limitado</strong> se existe <script type="math/tex">M \in \mathbb{R}</script> tal que <script type="math/tex">d(A) \le M</script>. 
 A distância entre um ponto e um conjunto é dado por 
@@ -200,10 +212,106 @@ d(B,C) = \inf_{x \in B, y \in C} d(x,y).
 <p>A união finita de conjuntos limitados é limitada. 
 Outra relação é que um conjunto <script type="math/tex">B</script> é limitado se existe uma bola que o contém.</p>
 <h2 id="conjuntos-totalmente-limitados">Conjuntos totalmente limitados</h2>
-<p>-&gt; Conjunto limitado
--&gt; Cobertura
--&gt; Compacto
--&gt; Se A é compacto, é fechado e limitado</p></div>
+<p>Um conjunto <script type="math/tex">B \subseteq X</script> é <strong>totalmente limitado</strong> se pode ser coberto por um número finito de bolas de raio <script type="math/tex">\epsilon</script>, isto é,
+<script type="math/tex; mode=display">
+\forall \epsilon > 0, \text{ existem pontos } a_1, \dots, a_n \text{ tal que } B \subseteq \cup_{i=1}^n B_{\epsilon}(a_n).
+</script>
+</p>
+<p>Temos que todo conjunto totalmente limitado é limitado. </p>
+<hr />
+<p><code>📝</code> <strong>Exemplo</strong></p>
+<p>Tome <script type="math/tex">A = [0,1]</script> em <script type="math/tex">(\mathbb{R}, d)</script>. 
+<script type="math/tex">A</script> é totalmente limitado, pois, para todo <script type="math/tex">\epsilon > 0</script>, 
+<script type="math/tex; mode=display">
+A \subseteq \cup_{i=0}^n ((i-1)\epsilon, (i+1)\epsilon) = \cup_{i=0}^n B_{\epsilon}(i\epsilon),
+</script>
+tomando <script type="math/tex">n \in \mathbb{N}</script> de forma que <script type="math/tex">(n+1)\epsilon > 1</script>.</p>
+<hr />
+<hr />
+<p><code>📝</code> <strong>Nem todo conjunto limitado é totalmente limitado</strong></p>
+<p>Considere a métrica trivial <script type="math/tex">d(x,y) = 1 \iff x \neq y</script> e <script type="math/tex">X = \mathbb{N}</script>. 
+O conjunto <script type="math/tex">A</script> dos números pares é limitado, pois, 
+<script type="math/tex; mode=display">
+d(A) = \sup_{m,n \in A} d(m,n) = 1.
+</script>
+Mas, para <script type="math/tex">\epsilon < 1</script>, <script type="math/tex">B_{\epsilon}(x) = \{x\}</script> para todo <script type="math/tex">x \in \mathbb{N}</script>. 
+Logo <script type="math/tex">A</script> não pode ser totalmente limitado.</p>
+<hr />
+<p><strong>Proposição:</strong> Uma função uniformemente contínua mapeia conjuntos totalmente limitados em conjuntos totalmente limitados.</p>
+<h2 id="compacidade_1">Compacidade</h2>
+<blockquote>
+<p>Um conjunto <script type="math/tex">A</script> é <strong>compacto</strong> se para toda cobertura aberta, existe uma subcobertura finita.</p>
+</blockquote>
+<p>Para mostrar que um conjunto não é compacto, basta selecionar uma cobertura aberta que não possua cobertura finita. </p>
+<hr />
+<p><code>📝</code> <strong>Conjunto não compacto</strong></p>
+<p>O conjunto <script type="math/tex">I = (0,1)</script> não é compacto em <script type="math/tex">\mathbb{R}</script>. Tome a cobertura <script type="math/tex">\{I_n\}</script> com <script type="math/tex">I_n = (1/n, 1)</script>. De fato, se <script type="math/tex">x \in (0,1)</script>, para <script type="math/tex">n > x^{-1}</script> vale que <script type="math/tex">x \in (1/n, 1)</script>, o que mostra que <script type="math/tex">\{I_n\}</script> é de fato uma cobertura aberta.
+Observe que <script type="math/tex">I_{n} \subseteq I_{n+1}</script>. 
+Com isso, <script type="math/tex">\cup_{i=1}^k I_{n_i} = (1/\max_{i=1,\dots,k} n_i, 1)</script>, que não pode cobrir <script type="math/tex">(0,1)</script>. </p>
+<hr />
+<p><strong>Teorema:</strong> Seja <script type="math/tex">(X,d)</script> um espaço métrico. Se <script type="math/tex">A</script> é conjunto compacto, então <script type="math/tex">A</script> é fechado e limitado.</p>
+<hr />
+<p>Ideias da demonstração: </p>
+<p><strong>(1) <script type="math/tex">A</script> é fechado:</strong> tome <script type="math/tex">y \in A^c</script> e mostra-se que existe <script type="math/tex">B</script> aberto contendo <script type="math/tex">y</script> com <script type="math/tex">A \cap B = \emptyset</script>, isto é, <script type="math/tex">y \not \in \bar{A}</script>. Isso mostra que <script type="math/tex">A = \bar{A}</script>.
+Para definir <script type="math/tex">B</script>, para cada <script type="math/tex">x \in A</script>, sabemos que existe <script type="math/tex">\epsilon_x</script> de forma que <script type="math/tex">B_{\epsilon_x}(x) \cap  B_{\epsilon_x}(y) = \emptyset</script>. Além disso, <script type="math/tex">\{B_{\epsilon_x}(x)\}</script> define uma cobertura aberta de <script type="math/tex">A</script> que possui subcobertura finita <script type="math/tex">\{B_{\epsilon_{x_i}}(x_i)\}_{i=1}^n</script>. Defina <script type="math/tex">B = \cap_{i=1}^n B_{\epsilon_{x_i}}(x_i)</script>.</p>
+<p><strong>(2) <script type="math/tex">A</script> é limitado:</strong> Note que <script type="math/tex">A \subseteq \cup_{x \in A} B_1(x)</script> e, portanto, existe subcobertura finita <script type="math/tex">\{B_1(x_i)\}_{i=1}^n</script>.
+Defina <script type="math/tex">a = \max d(x_i, x_j)</script>. Se <script type="math/tex">A</script> fosse ilimitado, existiriam <script type="math/tex">x,y \in A</script> de forma que <script type="math/tex">d(x,y) > a + 2</script>. 
+Porém, <script type="math/tex">x \in B_1(x_i)</script> e <script type="math/tex">y \in B_1(x_j)</script> para alguns <script type="math/tex">i, j</script>. 
+Portanto, 
+<script type="math/tex; mode=display">
+a + 2 < d(x,y) \le d(x, x_i) + d(x_i, x_j) + d(x_j, y) < a + 2,
+</script>
+um absurdo, que indica que <script type="math/tex">A</script> é limitado.</p>
+<hr />
+<p><strong>Proposição:</strong> Funções contínuas mapeiam conjuntos compactos em compactos. Com isso, a imagem de conjuntos compactos tem mínimo e máximo.</p>
+<hr />
+<p><code>📝</code> <strong>Intervalo fechado e limitado</strong></p>
+<p>O conjunto <script type="math/tex">A = [a,b]</script> é compacto em <script type="math/tex">\mathbb{R}</script>.
+Seja <script type="math/tex">\{A_i\}</script> uma cobertura aberta de <script type="math/tex">A</script>. Suponha que não exista subcobertura finita. 
+Portanto, <script type="math/tex">[a,(a+b)/2]</script> ou <script type="math/tex">[(a+b)/2, b]</script> não admite subcobertura finita: chame de <script type="math/tex">[a_1, b_1]</script>. 
+Mesmo assim, <script type="math/tex">[a_1,(a_1+b_1)/2]</script> ou <script type="math/tex">[(a_1+b_1)/2, b_1]</script> não admite subcobertura finita: chame de <script type="math/tex">[a_2, b_2]</script>.
+Assim, estamos definido um sequência de intervalos fechados encaixados <script type="math/tex">[a_n, b_n]</script> com <script type="math/tex">d([a_n, b_n]) \to 0</script>.</p>
+<p>As sequências <script type="math/tex">\{a_n\}</script> e <script type="math/tex">\{b_n\}</script> são sequências monótonas limitadas e, portanto convergentes, com <script type="math/tex">\lim a_n = \lim b_n = x</script>, pois <script type="math/tex">d(a_n, b_n) \to 0</script>. 
+É claro que <script type="math/tex">x \in A</script>, pois <script type="math/tex">A</script> é fechado. 
+Nesse caso, <script type="math/tex">x \in A_i</script> para algum <script type="math/tex">i</script> e, por ser aberto, 
+<script type="math/tex">x \in B_{r}(x) \subseteq A_i</script>.
+Para <script type="math/tex">n</script> suficientemente grande, <script type="math/tex">a_n, b_n \in B_r(x)</script>, o que implica que <script type="math/tex">[a_n, b_n] \subseteq B_r(x)</script>, o que contradiz o fato de ser uma sequência que não pode ser coberta de forma finita. 
+Essa contradição mostra que existe subcobertura finita e, portanto, <script type="math/tex">[a,b]</script> é fechado.</p>
+<hr />
+<h3 id="compacidade-relativa-e-epsilon-net">Compacidade relativa e <script type="math/tex">\epsilon</script>-net</h3>
+<blockquote>
+<p>Um conjunto é <strong>relativamente compacto</strong> se <script type="math/tex">\bar{A}</script> é compacto. </p>
+</blockquote>
+<p>Um exemplo é <script type="math/tex">I=(0,1)</script>, que não é compacto, mas <script type="math/tex">[0,1]</script> é. Também é fácil ver que um conjunto compacto é relativamente compacto, dado que é necessariamente fechado e <script type="math/tex">\bar{A} = A</script>.</p>
+<blockquote>
+<p>Um conjunto de pontos <script type="math/tex">N</script> é uma <script type="math/tex">\epsilon</script>-net com respeito a um conjunto <script type="math/tex">A</script> se, para todo <script type="math/tex">x \in A</script>, existe <script type="math/tex">y \in N</script> tal que <script type="math/tex">d(x,y) < \epsilon</script>.</p>
+</blockquote>
+<p>A ideia de uma <script type="math/tex">\epsilon</script>-net é que um conjunto de pontos estão <script type="math/tex">\epsilon</script> próximos de qualquer ponto de <script type="math/tex">A</script>.</p>
+<p><strong>Teorema:</strong> Seja <script type="math/tex">A</script> um subconjunto em um espaço métrico.
+Se para toda sequência de pontos de <script type="math/tex">A</script>, existe uma subsequência convergente, então <script type="math/tex">A</script> é totalmente limitado.</p>
+<h3 id="compacidade-contavel-e-sequencial">Compacidade contável e sequencial</h3>
+<p>Um conjunto <script type="math/tex">A</script> é <strong>compacto contável</strong> se todo subconjunto infinito de <script type="math/tex">A</script> tem um ponto limite em <script type="math/tex">A</script>.</p>
+<p><strong>Teorema:</strong> Compacidade implica compacidade contável.</p>
+<hr />
+<p>Ideias da prova.</p>
+<hr />
+<p>Um conjunto <script type="math/tex">A</script> é <strong>compacto sequencialmente</strong> se, para toda sequência em <script type="math/tex">A</script>, existe uma subsequência convergente com limite em <script type="math/tex">A</script>.</p>
+<p><strong>Teorema:</strong> Compacidade e compacidade sequencial são equivalentes em espaços métricos.</p>
+<hr />
+<p>Ideias da prova.</p>
+<hr />
+<p><strong>Teorema:</strong> Em um espaço métrico, compacidade relativa implica totalmente limitada. Se ele for completo, totalmente limitada implica compacidade relativa.</p>
+<hr />
+<p>Ideias da prova.</p>
+<hr />
+<h2 id="observacoes-finais">Observações finais:</h2>
+<ul>
+<li>Funções contínuas preservam compacidade;</li>
+<li>Funções uniformemente contínuas preservam totalmente limitados;</li>
+<li>Funções Lipschitz contínuas preservam limitados.</li>
+<li>Compacidade, compacidade contável e compacidade sequencial são conceitos equivalentes em espaços métricos.</li>
+<li>Se <script type="math/tex">A</script> é compacto, então <script type="math/tex">A</script> é fechado e totalmente limitado. Se o espaço métrico é completo, então <script type="math/tex">A</script> ser fechado e totalmente limitado implica que <script type="math/tex">A</script> é compacto.</li>
+</ul></div>
         
         
     </div>
