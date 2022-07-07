@@ -293,17 +293,29 @@ Se para toda sequência de pontos de <script type="math/tex">A</script>, existe 
 <p>Um conjunto <script type="math/tex">A</script> é <strong>compacto contável</strong> se todo subconjunto infinito de <script type="math/tex">A</script> tem um ponto limite em <script type="math/tex">A</script>.</p>
 <p><strong>Teorema:</strong> Compacidade implica compacidade contável.</p>
 <hr />
-<p>Ideias da prova.</p>
+<p>A ideia da prova é mostrar que um conjunto não compacto contável, também não é compacto.
+Para isso, deve existir <script type="math/tex">M = \{x_1, x_2, \dots\} \subseteq A</script> infinito enumerável que não tenha pontos limites de <script type="math/tex">A</script>. 
+Mas com isso, podemos fazer uma sequência de conjuntos abertos de forma que <script type="math/tex">E_n \cap M = \{x_n\}</script>. Se <script type="math/tex">x \in A / M</script>, então existe um aberto <script type="math/tex">E(x)</script> com <script type="math/tex">E(x) \cap M = \emptyset</script>. A união dos conjuntos <script type="math/tex">E(x)</script> para <script type="math/tex">x \in A / M</script> não contém pontos de M. Além disso, todo ponto de <script type="math/tex">E_n</script> só contém um ponto de <script type="math/tex">M</script>, mas
+<script type="math/tex; mode=display">
+A \subseteq \cup_{n\in\mathbb{N}} E_n \cup \cup_{x  \in A/M} E(x),
+</script>
+mas é impossível existir subcobertura finita e, portanto, <script type="math/tex">A</script> não é compacto, como queríamos verificar.</p>
 <hr />
 <p>Um conjunto <script type="math/tex">A</script> é <strong>compacto sequencialmente</strong> se, para toda sequência em <script type="math/tex">A</script>, existe uma subsequência convergente com limite em <script type="math/tex">A</script>.</p>
 <p><strong>Teorema:</strong> Compacidade e compacidade sequencial são equivalentes em espaços métricos.</p>
 <hr />
-<p>Ideias da prova.</p>
+<p>Que compacidade implica compacidade sequencial, prova-se que compacidade contável implica sequencial. 
+Não é complicado, todavia, porque a partir de uma sequência em <script type="math/tex">A</script>, usamos que o conjunto desses pontos (quando infinito) tem ponto limite em <script type="math/tex">A</script>. Justamente, isso implica que existe subsequência convergente em <script type="math/tex">A</script>.</p>
+<p>A volta é um pouco mais complicada e parte de uma cobertura aberta <script type="math/tex">\{G_{\alpha}\}</script> e define-se 
+<script type="math/tex; mode=display">\delta_0 = \inf\{\sup \{a : \exists \alpha; B_a(x) \subseteq G_{\alpha}\} | x \in A\},</script>
+que está bem definido, pois <script type="math/tex">G_{\alpha}</script> é aberto e cobre <script type="math/tex">A</script>.
+Toma-se uma sequência <script type="math/tex">\delta(x_n) \to \delta_0</script> para se provar que <script type="math/tex">\delta_0 > 0</script>. 
+Para isso, usamos o fato que a sequência <script type="math/tex">\{x_n\}</script> tem subsequência convergente com limite em <script type="math/tex">A</script>, isto é, <script type="math/tex">x_{n_k} \to x_0 \in A</script>. Em particular, prova-se que <script type="math/tex">\delta_0 \ge \delta(x_0)/4 > 0</script> com um pouco de álgebra.
+Como toda sequência tem subsequência convergente, vale que o conjunto é totalmente limitado.
+Daí para <script type="math/tex">\delta_0 > \epsilon > 0</script>, existe <script type="math/tex">\epsilon</script>-net finita com centros <script type="math/tex">y_1, \dots, y_n \in A</script>.
+Isso implica que <script type="math/tex">B_{\epsilon}(y_i) \subseteq G_i</script> e, portanto, <script type="math/tex">\{G_1, \dots, G_n\}</script> formam uma subcobertura finita.</p>
 <hr />
 <p><strong>Teorema:</strong> Em um espaço métrico, compacidade relativa implica totalmente limitada. Se ele for completo, totalmente limitada implica compacidade relativa.</p>
-<hr />
-<p>Ideias da prova.</p>
-<hr />
 <h2 id="observacoes-finais">Observações finais:</h2>
 <ul>
 <li>Funções contínuas preservam compacidade;</li>
