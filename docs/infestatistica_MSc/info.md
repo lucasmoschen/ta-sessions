@@ -39,8 +39,7 @@ Os exercícios resolvidos estão disponíveis:
 
 |Monitoria|Itens discutidos|Arquivo|
 |---------|----------------|-------|
-|04/07/2022|Conceitos da lista 1|[ver arquivo](https://lucasmoschen.github.io/files/disciplines/statistical_inference/monitoria_04_07_2022.pdf
-)|
+|04/07/2022|Conceitos da lista 1|[ver arquivo](https://lucasmoschen.github.io/files/disciplines/statistical_inference/monitoria_04_07_2022.pdf)|
   
 ## Documentos Adicionais 
 
