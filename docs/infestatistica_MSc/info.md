@@ -13,6 +13,7 @@ Monitoria de Inferência Estatística (Mestrado) correspondente ao período de 2
 |[Revisão de probabilidade](/ta-sessions/infestatistica_MSc/probability)|
 |[Modelo estatístico](/ta-sessions/infestatistica_MSc/statistical_model)|
 |[Amostras aleatórias](/ta-sessions/infestatistica_MSc/random_samples)|
+|[Função de risco](/ta-sessions/infestatistica_MSc/risk_function)|
 |[Família Exponencial](/ta-sessions/infestatistica_MSc/exponential_family/exponential_family)|
 
 |Propriedades de estimadores|

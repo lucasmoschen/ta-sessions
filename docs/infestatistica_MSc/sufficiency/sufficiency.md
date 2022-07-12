@@ -275,3 +275,43 @@ plt.show()
     
 Se observamos que $U(X) = u$, podemos calcular que $\max(x_i) | U = u \sim \operatorname{Unif}(\theta-1/2+u, \theta+1/2)$. 
 Assim, a distribuição de uma estatística muda com outra anciliar.
+
+## Estimadores aleatórios e convexidade
+
+O seguinte resultado é a Desigualdade de Jensen:
+
+> Seja $I$ um intervalo aberto tal que $\mathbb{P}(X \in I) = 1$ e $f$ uma [função convexa](https://en.wikipedia.org/wiki/Convex_function#Definition). 
+Se $X$ é integrável, então 
+> $$
+f\left(\mathbb{E}[X]\right) \le \mathbb{E}[f(X)].
+> $$
+> Se $f$ é estritamente convexa, a desigualdade é estrita a menos que $X$ seja constante com probabilidade 1.
+
+Um **estimador randomizado** é um estimador que pode ser construído a partir de uma estatística suficiente $T$ com a geração auxiliar de números aleatórios, isto é, é uma função que mapeia $x \in \mathcal{X}$ a uma variável aleatória $Y(x)$ com distribuição $P_x$.
+
+**Teorema:** Seja $X \sim P_{\theta} \in \mathcal{P}$ e $T = T(X)$ uma estatística suficiente.
+Então, para qualquer estimador $\phi(X)$ para $g(\theta)$, existe um estimador randomizado baseado em $T$ que tem a mesma função de risco de $\phi(X)$.
+
+---
+Ideia da prova: a distribuição de $X$ condicionada em $T$ não depende de $\theta$, pois $T$ é suficiente.
+Seja $r(\cdot, T=t)$ essa distribuição.
+Assim, uma variável aleatória $Y$ com essa distribuição tem a mesma distribuição marginal de $X$, como verificamos [aqui](https://lucasmoschen.github.io/ta-sessions/infestatistica_MSc/sufficiency/sufficiency/). 
+Em particular $\phi(Y)$ tem a mesma distribuição de $\phi(X)$.
+
+---
+
+### Teorema de Rao-Blackwell
+
+Sejam $T$ uma estatística suficiente para $\theta$ de uma família de distribuições $P_{\theta}$ e $\delta$ um estimador de $g(\theta)$.
+Defina $\eta(T) = \mathbb{E}[\delta(X)|T]$.
+Se $R(\theta, \delta) < +\infty$, em que $R$ é a [função de risco](https://lucasmoschen.github.io/ta-sessions/infestatistica_MSc/risk_function/) para uma perda $L$, e $L(\theta, \cdot)$ é convexa, então
+$$
+R(\theta, \eta) \le R(\theta, \delta).
+$$
+Além do mais, se a perda é estritamente convexa, a desigualdade é estrita a menos que $\delta(X) = \eta(T)$ com probabilidade 1.
+Esse resultado é uma consequência direta da Desigualdade de Jensen.
+
+Esse resultado mostra que para perdas convexas, sob a ótica do risco apenas, os únicos estimadores interessantes são aqueles que são função de $T$ e não de $X$ (visto que estamos integrando em $X$).
+Além do mais, qualquer estimador randomizado é pior do que o não randomizado tomando a esperança dele condicionada em um estatística suficiente. 
+
+*Observação: $\eta(T)$ é uma estatística, pois não depende de $\theta$, dado que $T$ é suficiente.*
