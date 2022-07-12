@@ -123,23 +123,40 @@ Note que a diferença entre os estimadores é pequena, pois $n$ é razoavelmente
 
 ### Erro quadrático
 
-
+Seja $L(\theta, d) = (\theta - d)^2$ a perda quadrática.
+A função de risco $R(\theta, \phi)$ para o estimador $\phi(X)$ é dada por 
+$$
+\begin{split}
+R(\theta, \phi) &= \mathbb{E}_{\theta}[(\theta-\varphi(X))^2] \\
+&= \mathbb{E}_{\theta}[(\theta-\mathbb{E}[\varphi(X)] + \mathbb{E}[\varphi(X)] - \varphi(X))^2] \\
+&= (\theta-\mathbb{E}[\varphi(X)])^2 + 2(\theta-\mathbb{E}[\varphi(X)])(\mathbb{E}_{\theta}[\mathbb{E}[\varphi(X)] - \varphi(X))] + \mathbb{E}_{\theta}[(\mathbb{E}[\varphi(X)] - \varphi(X))^2] \\ 
+&= b_{\phi}(\theta)^2 + 2(\theta-\mathbb{E}[\varphi(X)])(\mathbb{E}[\varphi(X)]-\mathbb{E}[\varphi(X)]) + \operatorname{Var}(\phi(X)) \\
+&= b_{\phi}(\theta)^2 + \operatorname{Var}(\phi(X)).
+\end{split}
+$$
+Portanto, para estimadores não enviesados, o risco é dado somente pela variância do estimador.
 
 ## Estimação não enviesada de menor variância
 
-Cap 5.1.1 Schervish
-Cap 7.3.2 Casella
+> Um estimador não enviesado $\phi$ é **uniformly minimum variance unbiased estimator (UMVUE)** (estimador não enviesada de variância uniformemente mínima) se $\phi$ tem variância finita e, para todo estimador não enviesado, $Var_{\theta} \phi(X) \le Var_{\theta} \psi(X), \forall \theta \in \Omega$.
+
+Essa definição leva ao seguinte importante teorema:
+
+**Teorema (Lehmann-Scheffé):** Se $T$ é uma estatística completa, então todos os estimadores não enviesados de $g(\theta)$, que são funções de $T$, mas não de $X$, são iguais quase certamente para todo $\theta$.
+Além disso, se existe um estimador não enviesado que é função de uma estatística suficiente completa, então ele é UMVUE.
+
+Cap 5.1.1 Schervish (298 - 301)
+Cap 7.3.2 Casella (330 - 342)
+Cap 5.1 Keenet (61 - 66)
 
 ## Limites inferiores para a variância
 
-Cap 5.1.2 Schervish
+Cap 5.1.2 Schervish (301  307)
+Cap 4.5 Keener (71 - 77)
 
 ## Estimador de Máxima Verossimilhança
 
-Cap 5.1.3 Schervish
-Cap 7.2.2 Casella
+Cap 5.1.3 Schervish (307 - 309)
+Cap 7.2.2 Casella (315 - 324)
 
-Olhar cap 7.3.3 Cassella
-
-
-KN, Cap 4;
+Obs.: incluir alguns pensamentos de cap 7.3.3 Cassella (342 - 348)
