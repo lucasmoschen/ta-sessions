@@ -4,7 +4,7 @@ Monitoria de Análise Funcional: Fundamentos (Doutorado) correspondente ao perí
 
 - Horário: Quintas-feiras, 14h. [Link 14h-15h](meet.google.com/crb-jvfo-pqy), [Link 15h-16h](meet.google.com/tcg-fxzx-mwx)
 
-## Tópicos 
+## Tópicos
 
 Os tópicos cobertos na disciplina estão separados em três partes:
 
@@ -13,6 +13,7 @@ Os tópicos cobertos na disciplina estão separados em três partes:
 |[Espaços métricos](/ta-sessions/functional_analysis/metric_spaces)|
 |[Isometrias e completamento](/ta-sessions/functional_analysis/isometries)|
 |[Compacidade em espaços métricos](/ta-sessions/functional_analysis/compactness)|
+|[Teorema de Arzelà-Ascoli](/ta-sessions/functional_analysis/arzela)|
 
 ## Exercícios 
 
