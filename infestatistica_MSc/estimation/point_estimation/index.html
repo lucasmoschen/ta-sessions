@@ -168,6 +168,9 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
         <li class="first-level active"><a href="#estimacao-pontual">Estimação pontual</a></li>
+            <li class="second-level"><a href="#estimador-nao-enviesado">Estimador não enviesado</a></li>
+                
+                <li class="third-level"><a href="#erro-quadratico">Erro quadrático</a></li>
             <li class="second-level"><a href="#estimacao-nao-enviesada-de-menor-variancia">Estimação não enviesada de menor variância</a></li>
                 
             <li class="second-level"><a href="#limites-inferiores-para-a-variancia">Limites inferiores para a variância</a></li>
@@ -179,17 +182,19 @@
         <div class="col-md-9" role="main">
 
 <h1 id="estimacao-pontual">Estimação pontual</h1>
-<p>Um <strong>estimator pontual</strong> de uma <script type="math/tex">g(\theta)</script> é uma estatística que toma valores em <script type="math/tex">\operatorname{Imagem}(g)</script>.
-Mais formalmente:</p>
+<p>Um <strong>estimator pontual</strong> de uma <script type="math/tex">g(\theta)</script> é uma estatística que toma valores em <script type="math/tex">\operatorname{Imagem}(g)</script>.</p>
+<h2 id="estimador-nao-enviesado">Estimador não enviesado</h2>
+<p>Mais formalmente:</p>
 <blockquote>
 <p>Sejam <script type="math/tex">\Omega</script> espaço de parâmetros de uma família paramétrica de distribuições <script type="math/tex">P_{\theta}</script> e <script type="math/tex">g : \Omega \to G</script> uma função mensurável (contínua, por exemplo). 
-Uma função <script type="math/tex">\phi : \mathcal{X} \to G</script> é <strong>estimador</strong> de <script type="math/tex">g(\theta)</script>, em que <script type="math/tex">\mathcal{X}</script> é o espaço amostral.
+Uma função <script type="math/tex">\phi : \mathcal{X} \to G' \supseteq G</script> é <strong>estimador</strong> de <script type="math/tex">g(\theta)</script>, em que <script type="math/tex">\mathcal{X}</script> é o espaço amostral.
 Dizemos que <script type="math/tex">\phi</script> é <strong>não enviesado</strong> se 
 <script type="math/tex; mode=display">
 \mathbb{E}_{\theta}[\phi(X)] = g(\theta), \forall \theta \in \Omega.
 </script>
 Além do mais, o viés de um estimador é dado por <script type="math/tex">b_{\phi}(\theta) = \mathbb{E}_{\theta}[\phi(X)] - g(\theta)</script>.</p>
 </blockquote>
+<p>Um estimador é uma função das amostras, enquanto uma <strong>estimativa</strong> é uma avaliação dessa função em observações.</p>
 <hr />
 <p><code>📝</code> <strong>Exemplo (Normal)</strong></p>
 <p>Seja <script type="math/tex">X_1 \dots, X_n \overset{iid}{\sim} Normal(\mu, \sigma^2)</script>, em que <script type="math/tex">\theta = (\mu, \sigma^2) \in \mathbb{R} \times \mathbb{R}_+</script> é o parâmetro.
@@ -278,14 +283,36 @@ Ou seja, apesar de <script type="math/tex">\psi</script> ser não enviesado e <s
 Nesse caso, temos uma probabilidade alta de obter uma estimação 100% maior ou menor do que o valor verdadeiro de <script type="math/tex">\rho</script>.</p>
 <p>Note que a diferença entre os estimadores é pequena, pois <script type="math/tex">n</script> é razoavelmente grande e <script type="math/tex">\psi</script> tem viés baixo.</p>
 <hr />
+<h3 id="erro-quadratico">Erro quadrático</h3>
+<p>Seja <script type="math/tex">L(\theta, d) = (\theta - d)^2</script> a perda quadrática.
+A função de risco <script type="math/tex">R(\theta, \phi)</script> para o estimador <script type="math/tex">\phi(X)</script> é dada por 
+<script type="math/tex; mode=display">
+\begin{split}
+R(\theta, \phi) &= \mathbb{E}_{\theta}[(\theta-\varphi(X))^2] \\
+&= \mathbb{E}_{\theta}[(\theta-\mathbb{E}[\varphi(X)] + \mathbb{E}[\varphi(X)] - \varphi(X))^2] \\
+&= (\theta-\mathbb{E}[\varphi(X)])^2 + 2(\theta-\mathbb{E}[\varphi(X)])(\mathbb{E}_{\theta}[\mathbb{E}[\varphi(X)] - \varphi(X))] + \mathbb{E}_{\theta}[(\mathbb{E}[\varphi(X)] - \varphi(X))^2] \\ 
+&= b_{\phi}(\theta)^2 + 2(\theta-\mathbb{E}[\varphi(X)])(\mathbb{E}[\varphi(X)]-\mathbb{E}[\varphi(X)]) + \operatorname{Var}(\phi(X)) \\
+&= b_{\phi}(\theta)^2 + \operatorname{Var}(\phi(X)).
+\end{split}
+</script>
+Portanto, para estimadores não enviesados, o risco é dado somente pela variância do estimador.</p>
 <h2 id="estimacao-nao-enviesada-de-menor-variancia">Estimação não enviesada de menor variância</h2>
-<p>Cap 5.1.1 Schervish</p>
+<blockquote>
+<p>Um estimador não enviesado <script type="math/tex">\phi</script> é <strong>uniformly minimum variance unbiased estimator (UMVUE)</strong> (estimador não enviesada de variância uniformemente mínima) se <script type="math/tex">\phi</script> tem variância finita e, para todo estimador não enviesado, <script type="math/tex">Var_{\theta} \phi(X) \le Var_{\theta} \psi(X), \forall \theta \in \Omega</script>.</p>
+</blockquote>
+<p>Essa definição leva ao seguinte importante teorema:</p>
+<p><strong>Teorema (Lehmann-Scheffé):</strong> Se <script type="math/tex">T</script> é uma estatística completa, então todos os estimadores não enviesados de <script type="math/tex">g(\theta)</script>, que são funções de <script type="math/tex">T</script>, mas não de <script type="math/tex">X</script>, são iguais quase certamente para todo <script type="math/tex">\theta</script>.
+Além disso, se existe um estimador não enviesado que é função de uma estatística suficiente completa, então ele é UMVUE.</p>
+<p>Cap 5.1.1 Schervish (298 - 301)
+Cap 7.3.2 Casella (330 - 342)
+Cap 5.1 Keenet (61 - 66)</p>
 <h2 id="limites-inferiores-para-a-variancia">Limites inferiores para a variância</h2>
-<p>Cap 5.1.2 Schervish</p>
+<p>Cap 5.1.2 Schervish (301  307)
+Cap 4.5 Keener (71 - 77)</p>
 <h2 id="estimador-de-maxima-verossimilhanca">Estimador de Máxima Verossimilhança</h2>
-<p>Cap 5.1.3 Schervish</p>
-<p>KN, Cap 4;
-CB, Cap 7.</p></div>
+<p>Cap 5.1.3 Schervish (307 - 309)
+Cap 7.2.2 Casella (315 - 324)</p>
+<p>Obs.: incluir alguns pensamentos de cap 7.3.3 Cassella (342 - 348)</p></div>
         
         
     </div>

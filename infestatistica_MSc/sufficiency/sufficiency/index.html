@@ -178,8 +178,9 @@
                 
                 <li class="third-level"><a href="#amostrando">Amostrando!</a></li>
                 <li class="third-level"><a href="#ancilaridade_1">Ancilaridade</a></li>
-            <li class="second-level"><a href="#teorema-de-rao-blackwell">Teorema de Rao-Blackwell</a></li>
+            <li class="second-level"><a href="#estimadores-aleatorios-e-convexidade">Estimadores aleatórios e convexidade</a></li>
                 
+                <li class="third-level"><a href="#teorema-de-rao-blackwell">Teorema de Rao-Blackwell</a></li>
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
@@ -408,7 +409,37 @@ Como a distribuição de <script type="math/tex">Y</script> independe de <script
 <p><img alt="png" src="../output_13_0.png" /></p>
 <p>Se observamos que <script type="math/tex">U(X) = u</script>, podemos calcular que <script type="math/tex">\max(x_i) | U = u \sim \operatorname{Unif}(\theta-1/2+u, \theta+1/2)</script>. 
 Assim, a distribuição de uma estatística muda com outra anciliar.</p>
-<h2 id="teorema-de-rao-blackwell">Teorema de Rao-Blackwell</h2></div>
+<h2 id="estimadores-aleatorios-e-convexidade">Estimadores aleatórios e convexidade</h2>
+<p>O seguinte resultado é a Desigualdade de Jensen:</p>
+<blockquote>
+<p>Seja <script type="math/tex">I</script> um intervalo aberto tal que <script type="math/tex">\mathbb{P}(X \in I) = 1</script> e <script type="math/tex">f</script> uma <a href="https://en.wikipedia.org/wiki/Convex_function#Definition">função convexa</a>. 
+Se <script type="math/tex">X</script> é integrável, então 
+<script type="math/tex; mode=display">
+f\left(\mathbb{E}[X]\right) \le \mathbb{E}[f(X)].
+</script>
+Se <script type="math/tex">f</script> é estritamente convexa, a desigualdade é estrita a menos que <script type="math/tex">X</script> seja constante com probabilidade 1.</p>
+</blockquote>
+<p>Um <strong>estimador randomizado</strong> é um estimador que pode ser construído a partir de uma estatística suficiente <script type="math/tex">T</script> com a geração auxiliar de números aleatórios, isto é, é uma função que mapeia <script type="math/tex">x \in \mathcal{X}</script> a uma variável aleatória <script type="math/tex">Y(x)</script> com distribuição <script type="math/tex">P_x</script>.</p>
+<p><strong>Teorema:</strong> Seja <script type="math/tex">X \sim P_{\theta} \in \mathcal{P}</script> e <script type="math/tex">T = T(X)</script> uma estatística suficiente.
+Então, para qualquer estimador <script type="math/tex">\phi(X)</script> para <script type="math/tex">g(\theta)</script>, existe um estimador randomizado baseado em <script type="math/tex">T</script> que tem a mesma função de risco de <script type="math/tex">\phi(X)</script>.</p>
+<hr />
+<p>Ideia da prova: a distribuição de <script type="math/tex">X</script> condicionada em <script type="math/tex">T</script> não depende de <script type="math/tex">\theta</script>, pois <script type="math/tex">T</script> é suficiente.
+Seja <script type="math/tex">r(\cdot, T=t)</script> essa distribuição.
+Assim, uma variável aleatória <script type="math/tex">Y</script> com essa distribuição tem a mesma distribuição marginal de <script type="math/tex">X</script>, como verificamos <a href="https://lucasmoschen.github.io/ta-sessions/infestatistica_MSc/sufficiency/sufficiency/">aqui</a>. 
+Em particular <script type="math/tex">\phi(Y)</script> tem a mesma distribuição de <script type="math/tex">\phi(X)</script>.</p>
+<hr />
+<h3 id="teorema-de-rao-blackwell">Teorema de Rao-Blackwell</h3>
+<p>Sejam <script type="math/tex">T</script> uma estatística suficiente para <script type="math/tex">\theta</script> de uma família de distribuições <script type="math/tex">P_{\theta}</script> e <script type="math/tex">\delta</script> um estimador de <script type="math/tex">g(\theta)</script>.
+Defina <script type="math/tex">\eta(T) = \mathbb{E}[\delta(X)|T]</script>.
+Se <script type="math/tex">R(\theta, \delta) < +\infty</script>, em que <script type="math/tex">R</script> é a <a href="https://lucasmoschen.github.io/ta-sessions/infestatistica_MSc/risk_function/">função de risco</a> para uma perda <script type="math/tex">L</script>, e <script type="math/tex">L(\theta, \cdot)</script> é convexa, então
+<script type="math/tex; mode=display">
+R(\theta, \eta) \le R(\theta, \delta).
+</script>
+Além do mais, se a perda é estritamente convexa, a desigualdade é estrita a menos que <script type="math/tex">\delta(X) = \eta(T)</script> com probabilidade 1.
+Esse resultado é uma consequência direta da Desigualdade de Jensen.</p>
+<p>Esse resultado mostra que para perdas convexas, sob a ótica do risco apenas, os únicos estimadores interessantes são aqueles que são função de <script type="math/tex">T</script> e não de <script type="math/tex">X</script> (visto que estamos integrando em <script type="math/tex">X</script>).
+Além do mais, qualquer estimador randomizado é pior do que o não randomizado tomando a esperança dele condicionada em um estatística suficiente. </p>
+<p><em>Observação: <script type="math/tex">\eta(T)</script> é uma estatística, pois não depende de <script type="math/tex">\theta</script>, dado que <script type="math/tex">T</script> é suficiente.</em></p></div>
         
         
     </div>

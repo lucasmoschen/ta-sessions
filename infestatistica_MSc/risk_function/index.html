@@ -173,7 +173,32 @@
         <div class="col-md-9" role="main">
 
 <h1 id="funcoes-de-risco">Funções de risco</h1>
-<p>Podemos ver a inferência estatística como a arte de aprender sobre uma quantidade desconhecida <script type="math/tex">\theta</script> a partir de dados <script type="math/tex">X</script>, através de uma conexão dada por um modelo probabilístico <script type="math/tex">X \sim P_{\theta}</script>.</p></div>
+<p>Podemos ver a inferência estatística como a arte de aprender sobre uma quantidade desconhecida <script type="math/tex">\theta</script> a partir de dados <script type="math/tex">X</script>, através de uma conexão definida a partir de um modelo probabilístico <script type="math/tex">X \sim P_{\theta}</script>. 
+Para estudar a performance de estimadores de <script type="math/tex">g(\theta)</script>, conceito introduzido em <a href="https://lucasmoschen.github.io/ta-sessions/infestatistica_MSc/estimation/point_estimation/">Estimação pontual</a>, uma abordagem formalizada é a <a href="https://lucasmoschen.github.io/ta-sessions/bayesian/decision-theory">Teoria da Decisão</a>. 
+Aqui introduziremos esses conceitos, mas uma visão mais geral sob a ótica de Inferência Bayesiana pode ser encontra <a href="https://lucasmoschen.github.io/ta-sessions/bayesian/decision-theory">aqui</a>.</p>
+<blockquote>
+<p>Seja <script type="math/tex">\mathcal{D}</script> o espaço das decisões (por exemplo, uma estimativa é uma decisão) e <script type="math/tex">\Omega</script> o espaço dos parâmetros. 
+Uma função de perda é uma função <script type="math/tex">L : \Omega \times \mathcal{D} \to [0, +\infty]</script> e avalia uma penalidade <script type="math/tex">L(\theta, d)</script> em tomar a decisão <script type="math/tex">d</script> com respeito a <script type="math/tex">\theta</script>. 
+Quando <script type="math/tex">\mathcal{D} = h(\Omega)</script>, temos que <script type="math/tex">L(\theta, d)</script> mede o erro em obter <script type="math/tex">h(\theta)</script> por <script type="math/tex">d</script>.</p>
+</blockquote>
+<p>Sendo <script type="math/tex">\phi(X)</script> um estimador para <script type="math/tex">\theta</script> (uma estatística que busca aproximá-lo), <script type="math/tex">L(\theta, \phi(X))</script> é uma variável aleatória que pode ser grande, mesmo que <script type="math/tex">\delta</script> seja um bom estimador. 
+Com isso, definimos a <strong>função de risco</strong> <script type="math/tex">R</script> como a perda média em usar <script type="math/tex">\phi(X)</script> para estimar <script type="math/tex">\theta</script>
+<script type="math/tex; mode=display">
+R(\theta, \phi) = \mathbb{E}_{\theta}[L(\theta, \phi(X))], 
+</script>
+isto é, tomando a esperança quando <script type="math/tex">X \sim P_{\theta}</script>.</p>
+<hr />
+<p><code>📝</code> <strong>Exemplo (caso binomial)</strong></p>
+<p>Seja <script type="math/tex">X \sim Binomial(n, p)</script> com <script type="math/tex">n</script> conhecido. 
+Um estimador para <script type="math/tex">p</script> é <script type="math/tex">\phi(X) = X/n</script>.
+Seja <script type="math/tex">L(\theta, d) = (\theta - d)^2</script> a perda quadrática.
+Assim, a função de risco para <script type="math/tex">\phi</script> é 
+<script type="math/tex; mode=display">
+R(p, \phi) = \mathbb{E}_{p}[(p - X/n)^2] = Var_p(X/n) = \frac{np(1-p)}{n^2} = \frac{p(1-p)}{n}, p \in [0,1].
+</script>
+</p>
+<hr />
+<p>A função de risco tem um problema clássico: é difícil comparar dois estimadores quaisquer, pois um pode ter risco menor em certas regiões e maior em outras.</p></div>
         
         
     </div>
