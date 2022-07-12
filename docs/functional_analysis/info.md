@@ -26,7 +26,6 @@ Os exercícios resolvidos estão disponíveis:
 
 |Monitoria|Itens discutidos|Arquivo|
 |---------|----------------|-------|
-|07/07/2022|Conceitos da lista 1|[ver arquivo](https://lucasmoschen.github.io/files/disciplines/functional-analysis/monitoria_07_07_2022.pdf
-)|
+|07/07/2022|Conceitos da lista 1|[ver arquivo](https://lucasmoschen.github.io/files/disciplines/functional-analysis/monitoria_07_07_2022.pdf)|
 
 ## Documentos Adicionais
