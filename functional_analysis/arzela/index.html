@@ -179,7 +179,7 @@
 </script>
 Nós provamos que esta tupla é um espaço métrico completo na lista. 
 Vamos estender esse espaço para as funções contínuas <script type="math/tex">f : X \to Y</script>, em que <script type="math/tex">(X, d_X)</script> e <script type="math/tex">(Y, d_Y)</script> são espaços métricos.
-O teorema de Arzelà apresenta um critério de compacidade para subconjunto de <script type="math/tex">C(X,Y)</script>.</p>
+O teorema de Arzelà apresenta um critério de compacidade para subconjuntos de <script type="math/tex">C(X,Y)</script>.</p>
 <blockquote>
 <p>Seja <script type="math/tex">f:X\to Y</script> uma função. Ela é dita <strong>função limitada</strong> se <script type="math/tex">im(f)</script> é um conjunto limitado em <script type="math/tex">Y</script>, isto é, <script type="math/tex">\exists M > 0</script> tal que <script type="math/tex">\forall a,b \in X, d_Y(f(a), f(b)) \le M</script>.</p>
 </blockquote>
@@ -188,18 +188,33 @@ Além disso, se <script type="math/tex">Y</script> é completo, então o espaço
 <ul>
 <li>
 <p>Mostrar que <script type="math/tex">d</script> define uma métrica não é complicado pois ela herda as propriedades de <script type="math/tex">d_Y</script>. 
-Além disso, ela é limitada, pois <script type="math/tex">d_Y(f(x), g(x)) \le d(im(f) \cup im(g)), \forall x</script>.</p>
+Além disso, ela é limitada, pois <script type="math/tex">d_Y(f(x), g(x)) \le \operatorname{diam}(im(f) \cup im(g)), \forall x</script>.</p>
 </li>
 <li>
-<p>A completude vem do fato de que a convergência ponto a ponto ocorre pela completude de <script type="math/tex">Y</script> e do fato de que a convergência é uniforme, dado que o supremo é limitado.</p>
+<p>A completude vem do fato de que a convergência ponto a ponto ocorre pela completude de <script type="math/tex">Y</script> e do fato de que a convergência é uniforme, dado que se o supremo é limitado e, todo ponto é.</p>
 </li>
 </ul>
 <p>Denotamos <script type="math/tex">C_b(X,Y)</script> o conjunto das funções contínuas limitadas de <script type="math/tex">X</script> a <script type="math/tex">Y</script>. Se <script type="math/tex">Y = \mathbb{C}</script>, denotamos por <script type="math/tex">C(X)</script>.
 Se <script type="math/tex">f_n \to f</script> em <script type="math/tex">C_b(X,Y)</script>, chamamos de <strong>convergência uniforme</strong>.</p>
-<ul>
-<li>página 80 - Muscat</li>
-<li>página 54 - Kolmogorov</li>
-</ul></div>
+<p><strong>Teorema (Stone-Weierstra</strong><script type="math/tex">\beta</script>
+<strong>):</strong> Os polinôomios (em <script type="math/tex">z</script> e <script type="math/tex">\bar{z}</script>) são densos em <script type="math/tex">C(K)</script> quando <script type="math/tex">K \subseteq \mathbb{C}</script> é compacto.</p>
+<hr />
+<p>A demonstração dada no livro do Muscat consiste em cinco etapas:</p>
+<p><strong>(I)</strong> Existe uma sequência de polinômios que aproxima <script type="math/tex">|x|</script> em <script type="math/tex">x \in [-1,1]</script>. Defina <script type="math/tex">q_{n+1}(x) = q_n(x) + (x^2 - q_n(x)^2)</script> e <script type="math/tex">q_0(x) = 0</script>. Primeiro mostra-se a convergência ponto a ponto, depois a uniforme.</p>
+<p><strong>(II)</strong> Seja <script type="math/tex">f \in C(K, \mathbb{R})</script> com <script type="math/tex">c = \max_{x \in K} |f(x)| > 0</script>. Então <script type="math/tex">|f/c|</script> pode ser aproximado por <script type="math/tex">q_n \circ f/c</script>. 
+Além do mais, se <script type="math/tex">p_n \to f</script>, então <script type="math/tex">cq_n \circ (p_n/c) \to |f|</script>.</p>
+<p><strong>(III)</strong> Se <script type="math/tex">f</script> e <script type="math/tex">g</script> podem ser aproximados por polinômios, então <script type="math/tex">f+g</script> e <script type="math/tex">f-g</script> também podem. Portanto <script type="math/tex">|f-g|</script>, <script type="math/tex">\max\{f,g\}</script> e <script type="math/tex">\min\{f,g\}</script> também podem ser aproximados.</p>
+<p><strong>(IV)</strong> Polinômios reais são densos em <script type="math/tex">C(K, \mathbb{R})</script>. Para isso, tome uma função <script type="math/tex">f \in C(K, \mathbb{R})</script> e <script type="math/tex">z \neq w</script>. Seja <script type="math/tex">p_{w,z}</script> a a reta que passa por <script type="math/tex">f(w)</script> e <script type="math/tex">f(z)</script> e defina <script type="math/tex">U_{z,w}</script> como o conjunto dos pontos <script type="math/tex">a \in K</script> que satisfazem <script type="math/tex">p_{w,z}(a) < f(a) + \epsilon</script>, claramente aberto e não-vazio, cuja união sobre <script type="math/tex">w \neq z</script> cobre <script type="math/tex">K</script> (que é compacto e, portanto, admite subcobertura finita). Assim <script type="math/tex">g_{z} := \min\{p_{z,w_1}, \dots, p_{z,w_M}\} < f + \epsilon</script> pode ser aproximada por polinômios (<script type="math/tex">w_1, \dots, w_M</script> é a subcobertura finita). 
+Faz-se o mesmo com os conjuntos <script type="math/tex">V_z = \{a \in K : g_z(a) > f(a) - \epsilon\}</script>. </p>
+<p><strong>(V)</strong> Para <script type="math/tex">f \in C(K)</script>, basta escrever <script type="math/tex">f = u + iv</script>, em que <script type="math/tex">u</script> e <script type="math/tex">v</script> tem imagem nos reais.</p>
+<hr />
+<blockquote>
+<p>Um conjunto <script type="math/tex">F \subseteq C(X,Y)</script> é <strong>equicontínuo</strong> se para todo <script type="math/tex">\epsilon > 0</script>, existe <script type="math/tex">\delta > 0</script> tal que para toda função <script type="math/tex">f \in F</script>, se <script type="math/tex">x, x' \in X</script> satisfazem <script type="math/tex">d_X(x,x') < \delta</script>, então <script type="math/tex">d(f(x), f(x')) < \epsilon</script>.  </p>
+</blockquote>
+<p>Com isso, um conjunto desses contém funções uniformemente contínuas e, além disso, o valor de <script type="math/tex">\delta</script> é selecionado independente da função escolhida.</p>
+<p><strong>Teorema de Arzelà-Ascoli:</strong> Seja <script type="math/tex">K</script> compacto. Então <script type="math/tex">F \subseteq C(K,Y)</script> é totalmente limitado se, e somente se, <script type="math/tex">F K = \{f(x) : f \in F, x \in K\}</script> é totalmente limitado em <script type="math/tex">Y</script> e <script type="math/tex">F</script> é equicontínuo.</p>
+<p>Uma versão um pouco simplificada que pode ser encontrada na literatura:</p>
+<p>Uma condição suficiente e necessária para que <script type="math/tex">F \subseteq C([a,b], \mathbb{R})</script> seja compacto em <script type="math/tex">C[a,b]</script> é que <script type="math/tex">F</script> seja equicontínuo e <em>uniformemente limitado</em>, isto é, existe um <script type="math/tex">M</script> tal que <script type="math/tex">|f(x)| < M</script> para todo <script type="math/tex">x \in [a,b]</script> e para todo <script type="math/tex">f \in F</script>.</p></div>
         
         
     </div>
