@@ -221,13 +221,17 @@ Portanto, o estimador $\phi(T) = T(T-1)/(n^2 - n)$ se $T \ge 2$ e $\phi(T) = 0$ 
 
 ## Limites inferiores para a variância
 
-Cap 7.3.2. Cassela (335 - 342)
-Cap 5.1.2 Schervish (301  307)
-Cap 4.5 Keener (71 - 77)
+- Cap 7.3.2. Cassela (335 - 342)
+- Cap 5.1.2 Schervish (301  307)
+- Cap 4.5 Keener (71 - 77)
 
 ## Estimador de Máxima Verossimilhança
 
-Cap 5.1.3 Schervish (307 - 309)
-Cap 7.2.2 Casella (315 - 324)
+- Cap 5.1.3 Schervish (307 - 309)
+- Cap 7.2.2 Casella (315 - 324)
+
+## Método dos Momentos 
+
+- Cap 7.2.1 Cassela (312 - 315)
 
 Obs.: incluir alguns pensamentos de cap 7.3.3 Cassella (342 - 348)
