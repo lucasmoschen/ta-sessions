@@ -168,7 +168,7 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
         <li class="first-level active"><a href="#estimacao-pontual">Estimação pontual</a></li>
-            <li class="second-level"><a href="#estimador-nao-enviesado">Estimador não enviesado</a></li>
+            <li class="second-level"><a href="#vies-de-um-estimador">Viés de um estimador</a></li>
                 
                 <li class="third-level"><a href="#erro-quadratico">Erro quadrático</a></li>
             <li class="second-level"><a href="#estimacao-nao-enviesada-de-menor-variancia">Estimação não enviesada de menor variância</a></li>
@@ -182,17 +182,21 @@
         <div class="col-md-9" role="main">
 
 <h1 id="estimacao-pontual">Estimação pontual</h1>
-<p>Um <strong>estimator pontual</strong> de uma <script type="math/tex">g(\theta)</script> é uma estatística que toma valores em <script type="math/tex">\operatorname{Imagem}(g)</script>.</p>
-<h2 id="estimador-nao-enviesado">Estimador não enviesado</h2>
-<p>Mais formalmente:</p>
+<p>Um <strong>estimator pontual</strong> de uma <script type="math/tex">g(\theta)</script> é uma estatística que toma valores em <script type="math/tex">\operatorname{Imagem}(g)</script>.
+Mais formalmente:</p>
 <blockquote>
 <p>Sejam <script type="math/tex">\Omega</script> espaço de parâmetros de uma família paramétrica de distribuições <script type="math/tex">P_{\theta}</script> e <script type="math/tex">g : \Omega \to G</script> uma função mensurável (contínua, por exemplo). 
-Uma função <script type="math/tex">\phi : \mathcal{X} \to G' \supseteq G</script> é <strong>estimador</strong> de <script type="math/tex">g(\theta)</script>, em que <script type="math/tex">\mathcal{X}</script> é o espaço amostral.
-Dizemos que <script type="math/tex">\phi</script> é <strong>não enviesado</strong> se 
+Uma função <script type="math/tex">\phi : \mathcal{X} \to G' \supseteq G</script> é <strong>estimador</strong> de <script type="math/tex">g(\theta)</script>, em que <script type="math/tex">\mathcal{X}</script> é o espaço amostral.</p>
+</blockquote>
+<p>Vamos explorar formas de comparar estimadores pontuais.</p>
+<h2 id="vies-de-um-estimador">Viés de um estimador</h2>
+<blockquote>
+<p>Dizemos que <script type="math/tex">\phi</script> é <strong>não enviesado</strong> se 
 <script type="math/tex; mode=display">
 \mathbb{E}_{\theta}[\phi(X)] = g(\theta), \forall \theta \in \Omega.
 </script>
-Além do mais, o viés de um estimador é dado por <script type="math/tex">b_{\phi}(\theta) = \mathbb{E}_{\theta}[\phi(X)] - g(\theta)</script>.</p>
+Além do mais, o viés de um estimador é dado por <script type="math/tex">b_{\phi}(\theta) = \mathbb{E}_{\theta}[\phi(X)] - g(\theta)</script>.
+Se existe um estimador não enviesado para <script type="math/tex">g(\theta)</script>, dizemos que <script type="math/tex">g</script> é U-estimável.</p>
 </blockquote>
 <p>Um estimador é uma função das amostras, enquanto uma <strong>estimativa</strong> é uma avaliação dessa função em observações.</p>
 <hr />
@@ -285,7 +289,7 @@ Nesse caso, temos uma probabilidade alta de obter uma estimação 100% maior ou 
 <hr />
 <h3 id="erro-quadratico">Erro quadrático</h3>
 <p>Seja <script type="math/tex">L(\theta, d) = (\theta - d)^2</script> a perda quadrática.
-A função de risco <script type="math/tex">R(\theta, \phi)</script> para o estimador <script type="math/tex">\phi(X)</script> é dada por 
+A <a href="https://lucasmoschen.github.io/ta-sessions/infestatistica_MSc/risk_function/">função de risco</a> <script type="math/tex">R(\theta, \phi)</script> para o estimador <script type="math/tex">\phi(X)</script> é dada por 
 <script type="math/tex; mode=display">
 \begin{split}
 R(\theta, \phi) &= \mathbb{E}_{\theta}[(\theta-\varphi(X))^2] \\
@@ -297,17 +301,77 @@ R(\theta, \phi) &= \mathbb{E}_{\theta}[(\theta-\varphi(X))^2] \\
 </script>
 Portanto, para estimadores não enviesados, o risco é dado somente pela variância do estimador.</p>
 <h2 id="estimacao-nao-enviesada-de-menor-variancia">Estimação não enviesada de menor variância</h2>
+<p>Note que quando queremos avaliar o melhor estimador, estamos lidando com uma classe bem grande para comparar. 
+Por exemplo, o estimador <script type="math/tex">\hat{\theta} = 0</script> para todo <script type="math/tex">\theta</script> tem o menor MSE em <script type="math/tex">\theta = 0</script>, mas é um estimador horrível quando <script type="math/tex">\theta</script> se afasta de zero.
+Nesse, sentido uma forma de avaliar estimadores é restringindo a classe de interesse. 
+Uma classe considerada razoável é a dos estimadores não enviesados.
+Nesse caso, os MSEs serão iguais às variâncias dos estimadores.</p>
 <blockquote>
-<p>Um estimador não enviesado <script type="math/tex">\phi</script> é <strong>uniformly minimum variance unbiased estimator (UMVUE)</strong> (estimador não enviesada de variância uniformemente mínima) se <script type="math/tex">\phi</script> tem variância finita e, para todo estimador não enviesado, <script type="math/tex">Var_{\theta} \phi(X) \le Var_{\theta} \psi(X), \forall \theta \in \Omega</script>.</p>
+<p>Um estimador não enviesado <script type="math/tex">\phi</script> é <strong>uniformly minimum variance unbiased estimator (UMVUE)</strong> (estimador não enviesado de variância uniformemente mínima) se <script type="math/tex">\phi</script> tem variância finita e, para todo estimador não enviesado, <script type="math/tex">Var_{\theta} \phi(X) \le \operatorname{Var}_{\theta} \psi(X), \forall \theta \in \Omega</script>.</p>
 </blockquote>
 <p>Essa definição leva ao seguinte importante teorema:</p>
 <p><strong>Teorema (Lehmann-Scheffé):</strong> Se <script type="math/tex">T</script> é uma estatística completa, então todos os estimadores não enviesados de <script type="math/tex">g(\theta)</script>, que são funções de <script type="math/tex">T</script>, mas não de <script type="math/tex">X</script>, são iguais quase certamente para todo <script type="math/tex">\theta</script>.
 Além disso, se existe um estimador não enviesado que é função de uma estatística suficiente completa, então ele é UMVUE.</p>
-<p>Cap 5.1.1 Schervish (298 - 301)
-Cap 7.3.2 Casella (330 - 342)
-Cap 5.1 Keenet (61 - 66)</p>
+<hr />
+<p>Ideia da prova: Sejam <script type="math/tex">\phi_1(T)</script> e <script type="math/tex">\phi_2(T)</script> estimadores não enviesados de <script type="math/tex">g(\theta)</script>. 
+Então <script type="math/tex">\mathbb{E}_{\theta}[\phi_1(T) - \phi_2(T)] = 0</script> para todo <script type="math/tex">\theta</script>.
+Como <script type="math/tex">T</script> é uma estatística completa, vale que <script type="math/tex">\phi_1(T) = \phi_2(T)</script> quase certamente.
+Agora suponha que <script type="math/tex">T</script> é estatística suficiente completa e seja <script type="math/tex">\phi(T)</script> um estimador não enviesado.
+Tome um estimador não enviesado <script type="math/tex">\psi(X)</script> e defina <script type="math/tex">\phi'(T) = \mathbb{E}[\psi(X)|T]</script>. Usando a perda quadrática, pelo <a href="https://lucasmoschen.github.io/ta-sessions/infestatistica_MSc/sufficiency/sufficiency/#teorema-de-rao-blackwell">Teorema de Rao-Blackwell</a>, <script type="math/tex">\operatorname{Var}_{\theta}(\phi ') = R(\theta, \phi ') \le R(\theta, \psi) = \operatorname{Var}_{\theta}(\psi)</script> para todo <script type="math/tex">\theta</script>.
+Portanto <script type="math/tex">\phi '</script> é UMVUE. Além disso, como acabamos de provar, <script type="math/tex">\phi = \phi '</script> quase certamente e, portanto, também é UMVUE.</p>
+<hr />
+<p>Note que basta a existência de um estimador não enviesado <script type="math/tex">\delta</script> e de uma estatística completa <script type="math/tex">T</script> para que encontremos um estimador UMVUE usando Rao-Blackwell:
+<script type="math/tex; mode=display">
+\phi(T) = \mathbb{E}_{\theta}[\delta(X) | T].
+</script>
+</p>
+<p>Considere o exemplo para o caso normal.</p>
+<hr />
+<p><code>📝</code> <strong>Exemplo (Distribuição normal - ela de novo)</strong></p>
+<p>Seja <script type="math/tex">X_1, \dots, X_n \overset{iid}{\sim} N(\mu, \sigma^2)</script> e <script type="math/tex">\theta = (\mu, \sigma^2)</script>.
+Então
+<script type="math/tex; mode=display">
+\bar{X} = \frac{1}{n}\sum_{i=1}^n X_i, S^2 = \frac{1}{n-1}\sum_{i=1}^n (X_i - \bar{X})^2
+</script>
+são estatísticas suficientes e completas, além de serem estimadores não enviesados para <script type="math/tex">\mu</script> e <script type="math/tex">\sigma^2</script> respectivamente.
+Pelo Teorema acima, qualquer função deles é um UMVUE pelo resultado acima, para <script type="math/tex">\mu</script> e <script type="math/tex">\sigma^2</script>, respectivamente.
+Todavia, é possível verificar que <script type="math/tex">S^2</script> não minimiza o erro quadrado.</p>
+<p><em>Obs.: para mostrar a suficiência, o Teorema da Fatorização é suficiente. Já a completude vem do fato de que o espaço de parâmetros natural contém um conjunto aberto em <script type="math/tex">\mathbb{R}^2</script></em>.</p>
+<hr />
+<p>Quando não existem estatísticas completas, o seguinte resultado pode ser útil:</p>
+<p><strong>Teorema:</strong> Uma condição suficiente e necessária para que um estimador <script type="math/tex">\delta</script> de <script type="math/tex">\mathbb{E}_{\theta} \delta(X)</script> seja UMVUE é que para todo <script type="math/tex">U</script> que satisfaça <script type="math/tex">\forall \theta, \mathbb{E}_{\theta}[U] = 0</script>, valha que <script type="math/tex">\operatorname{Cov}_{\theta}(\delta(X), U(X)) = 0</script>
+</p>
+<hr />
+<p><code>📝</code> <strong>Exemplo (Bernoulli)</strong></p>
+<p>Seja <script type="math/tex">X_1, \dots, X_n \sim \overset{iid}{\sim} Bernoulli(\theta)</script>.
+Temos que <script type="math/tex">T(X) = \sum_{i=1}^n X_i</script> é uma estatística suficiente completa para <script type="math/tex">\theta</script>.
+Além disso, sabemos que <script type="math/tex">T(X) \sim Binomial(n,\theta)</script>.
+Em particular, <script type="math/tex">T</script> é estatística completa, pois o espaço de parâmetros natural da distribuição binomial tem interior não vazio.
+Considere <script type="math/tex">g(\theta) = \theta^2</script>. 
+Um estimador não enviesado para <script type="math/tex">g</script> é <script type="math/tex">\delta(X) = X_1 X_2</script>.
+Nesse caso, o estimador UMVUE de <script type="math/tex">g</script> é <script type="math/tex">\mathbb{E}[\delta(X)|T]</script>, isto é, 
+<script type="math/tex; mode=display">
+\phi(T) = \mathbb{E}_{\theta}[X_1X_2|T] = \mathbb{P}_{\theta}(X_1 = 1, X_2 = 1 | T = t).
+</script>
+Podemos calcular essa probabilidade pela definição de probabilidade condicional, mas vamos fazer isso intuitivamente.
+Temos <script type="math/tex">n</script> espaços e <script type="math/tex">t</script> bolinhas para preencher <script type="math/tex">t</script> desses espaços. </p>
+<ul>
+<li>
+<p>Quantas formas eu tenho de posicionar as bolinhas? <script type="math/tex">\choose{n}{t}</script>. </p>
+</li>
+<li>
+<p>Quantas dessas formas eu tenho interesse? Posiciono duas bolinhas nas primeiras posições (veja que preciso de <script type="math/tex">t \ge 2</script>) e tenho <script type="math/tex">\choose{n-2}{t-2}</script> formas de posicionar as outras bolinhas. Portanto:</p>
+</li>
+</ul>
+<p>
+<script type="math/tex; mode=display">
+\mathbb{P}_{\theta}(X_1 = 1, X_2 = 1 | T = t) = \frac{(n-2)(n-3)\cdots(n-t+1)\cdot t(t-1)\cdots 1}{(t-2)(t-1)\cdots 1 \cdot n(n-1)\cdots(n-t+1)}
+</script>
+</p>
+<hr />
 <h2 id="limites-inferiores-para-a-variancia">Limites inferiores para a variância</h2>
-<p>Cap 5.1.2 Schervish (301  307)
+<p>Cap 7.3.2. Cassela (335 - 342)
+Cap 5.1.2 Schervish (301  307)
 Cap 4.5 Keener (71 - 77)</p>
 <h2 id="estimador-de-maxima-verossimilhanca">Estimador de Máxima Verossimilhança</h2>
 <p>Cap 5.1.3 Schervish (307 - 309)
