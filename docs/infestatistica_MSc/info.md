@@ -20,6 +20,7 @@ Monitoria de Inferência Estatística (Mestrado) correspondente ao período de 2
 |---|
 |[Suficiência](/ta-sessions/infestatistica_MSc/sufficiency/sufficiency)|
 |[Estimação pontual](/ta-sessions/infestatistica_MSc/estimation/point_estimation)|
+|[Introdução a grandes amostras](/ta-sessions/infestatistica_MSc/estimation/large_sample)|
 
 ## Exercícios 
 
