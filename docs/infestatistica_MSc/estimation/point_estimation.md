@@ -40,11 +40,11 @@ No exemplo a seguir, mostramos que não existe estimador não enviesado para a t
 ---
 ``📝`` **Exemplo (Exponencial)**
 
-Seja $X \sim Exponencial(\lambda)$, em que $\lambda \in \R_+$ é o parâmetro. 
+Seja $X \sim Exponencial(\lambda)$, em que $\lambda \in \mathbb{R}_+$ é o parâmetro. 
 Seja $\phi(X)$ um estimador não enviesado para $\lambda$.
 Então
 $$
-\mathbb{E}_{\lambda}[\phi(X)] = \lambda \int_0^{+\infty} \phi(x) \exp(-\lambda x) \, dx = \lambda, \forall \lambda \in \R_+. 
+\mathbb{E}_{\lambda}[\phi(X)] = \lambda \int_0^{+\infty} \phi(x) \exp(-\lambda x) \, dx = \lambda, \forall \lambda \in \mathbb{R}_+. 
 $$
 Dividindo ambos os lados por $\lambda$ e diferenciando com respeito a $\lambda$, pela [Regra de Leibniz](https://en.wikipedia.org/wiki/Leibniz_integral_rule):
 $$
