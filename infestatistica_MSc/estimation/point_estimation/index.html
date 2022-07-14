@@ -217,11 +217,11 @@ o que mostra que <script type="math/tex">\bar{X}</script> é não enviesado.</p>
 No exemplo a seguir, mostramos que não existe estimador não enviesado para a taxa da distribuição exponencial.</p>
 <hr />
 <p><code>📝</code> <strong>Exemplo (Exponencial)</strong></p>
-<p>Seja <script type="math/tex">X \sim Exponencial(\lambda)</script>, em que <script type="math/tex">\lambda \in \R_+</script> é o parâmetro. 
+<p>Seja <script type="math/tex">X \sim Exponencial(\lambda)</script>, em que <script type="math/tex">\lambda \in \mathbb{R}_+</script> é o parâmetro. 
 Seja <script type="math/tex">\phi(X)</script> um estimador não enviesado para <script type="math/tex">\lambda</script>.
 Então
 <script type="math/tex; mode=display">
-\mathbb{E}_{\lambda}[\phi(X)] = \lambda \int_0^{+\infty} \phi(x) \exp(-\lambda x) \, dx = \lambda, \forall \lambda \in \R_+. 
+\mathbb{E}_{\lambda}[\phi(X)] = \lambda \int_0^{+\infty} \phi(x) \exp(-\lambda x) \, dx = \lambda, \forall \lambda \in \mathbb{R}_+. 
 </script>
 Dividindo ambos os lados por <script type="math/tex">\lambda</script> e diferenciando com respeito a <script type="math/tex">\lambda</script>, pela <a href="https://en.wikipedia.org/wiki/Leibniz_integral_rule">Regra de Leibniz</a>:
 <script type="math/tex; mode=display">
