@@ -1,18 +1,21 @@
 # Estimação pontual
 
 Um **estimator pontual** de uma $g(\theta)$ é uma estatística que toma valores em $\operatorname{Imagem}(g)$.
-
-## Estimador não enviesado
-
 Mais formalmente:
 
 > Sejam $\Omega$ espaço de parâmetros de uma família paramétrica de distribuições $P_{\theta}$ e $g : \Omega \to G$ uma função mensurável (contínua, por exemplo). 
 Uma função $\phi : \mathcal{X} \to G' \supseteq G$ é **estimador** de $g(\theta)$, em que $\mathcal{X}$ é o espaço amostral.
-Dizemos que $\phi$ é **não enviesado** se 
+
+Vamos explorar formas de comparar estimadores pontuais.
+
+## Viés de um estimador
+
+> Dizemos que $\phi$ é **não enviesado** se 
 > $$
 \mathbb{E}_{\theta}[\phi(X)] = g(\theta), \forall \theta \in \Omega.
 > $$
 > Além do mais, o viés de um estimador é dado por $b_{\phi}(\theta) = \mathbb{E}_{\theta}[\phi(X)] - g(\theta)$.
+> Se existe um estimador não enviesado para $g(\theta)$, dizemos que $g$ é U-estimável.
 
 Um estimador é uma função das amostras, enquanto uma **estimativa** é uma avaliação dessa função em observações.
 
@@ -124,7 +127,7 @@ Note que a diferença entre os estimadores é pequena, pois $n$ é razoavelmente
 ### Erro quadrático
 
 Seja $L(\theta, d) = (\theta - d)^2$ a perda quadrática.
-A função de risco $R(\theta, \phi)$ para o estimador $\phi(X)$ é dada por 
+A [função de risco](https://lucasmoschen.github.io/ta-sessions/infestatistica_MSc/risk_function/) $R(\theta, \phi)$ para o estimador $\phi(X)$ é dada por 
 $$
 \begin{split}
 R(\theta, \phi) &= \mathbb{E}_{\theta}[(\theta-\varphi(X))^2] \\
@@ -138,19 +141,87 @@ Portanto, para estimadores não enviesados, o risco é dado somente pela variân
 
 ## Estimação não enviesada de menor variância
 
-> Um estimador não enviesado $\phi$ é **uniformly minimum variance unbiased estimator (UMVUE)** (estimador não enviesada de variância uniformemente mínima) se $\phi$ tem variância finita e, para todo estimador não enviesado, $Var_{\theta} \phi(X) \le Var_{\theta} \psi(X), \forall \theta \in \Omega$.
+Note que quando queremos avaliar o melhor estimador, estamos lidando com uma classe bem grande para comparar. 
+Por exemplo, o estimador $\hat{\theta} = 0$ para todo $\theta$ tem o menor MSE em $\theta = 0$, mas é um estimador horrível quando $\theta$ se afasta de zero.
+Nesse, sentido uma forma de avaliar estimadores é restringindo a classe de interesse. 
+Uma classe considerada razoável é a dos estimadores não enviesados.
+Nesse caso, os MSEs serão iguais às variâncias dos estimadores.
+
+> Um estimador não enviesado $\phi$ é **uniformly minimum variance unbiased estimator (UMVUE)** (estimador não enviesado de variância uniformemente mínima) se $\phi$ tem variância finita e, para todo estimador não enviesado, $Var_{\theta} \phi(X) \le \operatorname{Var}_{\theta} \psi(X), \forall \theta \in \Omega$.
 
 Essa definição leva ao seguinte importante teorema:
 
 **Teorema (Lehmann-Scheffé):** Se $T$ é uma estatística completa, então todos os estimadores não enviesados de $g(\theta)$, que são funções de $T$, mas não de $X$, são iguais quase certamente para todo $\theta$.
 Além disso, se existe um estimador não enviesado que é função de uma estatística suficiente completa, então ele é UMVUE.
 
-Cap 5.1.1 Schervish (298 - 301)
-Cap 7.3.2 Casella (330 - 342)
-Cap 5.1 Keenet (61 - 66)
+---
+Ideia da prova: Sejam $\phi_1(T)$ e $\phi_2(T)$ estimadores não enviesados de $g(\theta)$. 
+Então $\mathbb{E}_{\theta}[\phi_1(T) - \phi_2(T)] = 0$ para todo $\theta$.
+Como $T$ é uma estatística completa, vale que $\phi_1(T) = \phi_2(T)$ quase certamente.
+Agora suponha que $T$ é estatística suficiente completa e seja $\phi(T)$ um estimador não enviesado.
+Tome um estimador não enviesado $\psi(X)$ e defina $\phi'(T) = \mathbb{E}[\psi(X)|T]$. Usando a perda quadrática, pelo [Teorema de Rao-Blackwell](https://lucasmoschen.github.io/ta-sessions/infestatistica_MSc/sufficiency/sufficiency/#teorema-de-rao-blackwell), $\operatorname{Var}_{\theta}(\phi ') = R(\theta, \phi ') \le R(\theta, \psi) = \operatorname{Var}_{\theta}(\psi)$ para todo $\theta$.
+Portanto $\phi '$ é UMVUE. Além disso, como acabamos de provar, $\phi = \phi '$ quase certamente e, portanto, também é UMVUE.
+
+---
+
+Note que basta a existência de um estimador não enviesado $\delta$ e de uma estatística completa $T$ para que encontremos um estimador UMVUE usando Rao-Blackwell:
+$$
+\phi(T) = \mathbb{E}_{\theta}[\delta(X) | T].
+$$
+
+Considere o exemplo para o caso normal.
+
+---
+``📝`` **Exemplo (Distribuição normal - ela de novo)**
+
+Seja $X_1, \dots, X_n \overset{iid}{\sim} N(\mu, \sigma^2)$ e $\theta = (\mu, \sigma^2)$.
+Então
+$$
+\bar{X} = \frac{1}{n}\sum_{i=1}^n X_i, S^2 = \frac{1}{n-1}\sum_{i=1}^n (X_i - \bar{X})^2
+$$
+são estatísticas suficientes e completas, além de serem estimadores não enviesados para $\mu$ e $\sigma^2$ respectivamente.
+Pelo Teorema acima, qualquer função deles é um UMVUE pelo resultado acima, para $\mu$ e $\sigma^2$, respectivamente.
+Todavia, é possível verificar que $S^2$ não minimiza o erro quadrado.
+
+*Obs.: para mostrar a suficiência, o Teorema da Fatorização é suficiente. Já a completude vem do fato de que o espaço de parâmetros natural contém um conjunto aberto em $\mathbb{R}^2$*.
+
+---
+
+Quando não existem estatísticas completas, o seguinte resultado pode ser útil:
+
+**Teorema:** Uma condição suficiente e necessária para que um estimador $\delta$ de $\mathbb{E}_{\theta} \delta(X)$ seja UMVUE é que para todo $U$ que satisfaça $\forall \theta, \mathbb{E}_{\theta}[U] = 0$, valha que $\operatorname{Cov}_{\theta}(\delta(X), U(X)) = 0$
+
+---
+``📝`` **Exemplo (Bernoulli)**
+
+Seja $X_1, \dots, X_n \sim \overset{iid}{\sim} Bernoulli(\theta)$.
+Temos que $T(X) = \sum_{i=1}^n X_i$ é uma estatística suficiente completa para $\theta$.
+Além disso, sabemos que $T(X) \sim Binomial(n,\theta)$.
+Em particular, $T$ é estatística completa, pois o espaço de parâmetros natural da distribuição binomial tem interior não vazio.
+Considere $g(\theta) = \theta^2$. 
+Um estimador não enviesado para $g$ é $\delta(X) = X_1 X_2$.
+Nesse caso, o estimador UMVUE de $g$ é $\mathbb{E}[\delta(X)|T]$, isto é, 
+$$
+\phi(T) = \mathbb{E}_{\theta}[X_1X_2|T] = \mathbb{P}_{\theta}(X_1 = 1, X_2 = 1 | T = t).
+$$
+Podemos calcular essa probabilidade pela definição de probabilidade condicional, mas vamos fazer isso intuitivamente.
+Temos $n$ espaços e $t$ bolinhas para preencher $t$ desses espaços. 
+
+- Quantas formas eu tenho de posicionar as bolinhas? $n \choose t$. 
+
+- Quantas dessas formas eu tenho interesse? Posiciono duas bolinhas nas primeiras posições (veja que preciso de $t \ge 2$) e tenho $n-2 \choose t-2$ formas de posicionar as outras bolinhas. Portanto:
+
+$$
+\mathbb{P}_{\theta}(X_1 = 1, X_2 = 1 | T = t) = \frac{(n-2)(n-3)\cdots(n-t+1)\cdot t(t-1)\cdots 1}{(t-2)(t-1)\cdots 1 \cdot n(n-1)\cdots(n-t+1)} = \frac{t(t-1)}{n(n-1)}.
+$$
+
+Portanto, o estimador $\phi(T) = T(T-1)/(n^2 - n)$ se $T \ge 2$ e $\phi(T) = 0$ se $T \le 1$ é UMVUE para $g(\theta) = \theta^2$.
+
+---
 
 ## Limites inferiores para a variância
 
+Cap 7.3.2. Cassela (335 - 342)
 Cap 5.1.2 Schervish (301  307)
 Cap 4.5 Keener (71 - 77)
 

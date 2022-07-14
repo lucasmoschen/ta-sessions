@@ -28,5 +28,19 @@ $$
 
 ---
 
-
 A função de risco tem um problema clássico: é difícil comparar dois estimadores quaisquer, pois um pode ter risco menor em certas regiões e maior em outras.
+
+---
+``📝`` **Exemplos de riscos**
+
+Para cada perda $L$, definimos um risco $R$. A seguir, temos alguns mais famosos.
+
+- Perda quadrática ($L(\theta, d) = (\theta - d)^2$): mean squared error (erro médio quadrado) ou MSE.
+
+- Perda absoluta ($L(\theta, d) = |\theta - d|$): mean absolute error (erro médio absoluto) ou MAE.
+
+- Perda absoluta percentual ($L(\theta, d) = |\theta - d|/|\theta|$): mean absolute percentage error (erro médio absoluto percentual) ou MAPE.
+
+- etc.
+
+---
