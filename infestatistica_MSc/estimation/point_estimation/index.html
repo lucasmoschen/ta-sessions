@@ -357,17 +357,18 @@ Podemos calcular essa probabilidade pela definição de probabilidade condiciona
 Temos <script type="math/tex">n</script> espaços e <script type="math/tex">t</script> bolinhas para preencher <script type="math/tex">t</script> desses espaços. </p>
 <ul>
 <li>
-<p>Quantas formas eu tenho de posicionar as bolinhas? <script type="math/tex">\choose{n}{t}</script>. </p>
+<p>Quantas formas eu tenho de posicionar as bolinhas? <script type="math/tex">n \choose t</script>. </p>
 </li>
 <li>
-<p>Quantas dessas formas eu tenho interesse? Posiciono duas bolinhas nas primeiras posições (veja que preciso de <script type="math/tex">t \ge 2</script>) e tenho <script type="math/tex">\choose{n-2}{t-2}</script> formas de posicionar as outras bolinhas. Portanto:</p>
+<p>Quantas dessas formas eu tenho interesse? Posiciono duas bolinhas nas primeiras posições (veja que preciso de <script type="math/tex">t \ge 2</script>) e tenho <script type="math/tex">n-2 \choose t-2</script> formas de posicionar as outras bolinhas. Portanto:</p>
 </li>
 </ul>
 <p>
 <script type="math/tex; mode=display">
-\mathbb{P}_{\theta}(X_1 = 1, X_2 = 1 | T = t) = \frac{(n-2)(n-3)\cdots(n-t+1)\cdot t(t-1)\cdots 1}{(t-2)(t-1)\cdots 1 \cdot n(n-1)\cdots(n-t+1)}
+\mathbb{P}_{\theta}(X_1 = 1, X_2 = 1 | T = t) = \frac{(n-2)(n-3)\cdots(n-t+1)\cdot t(t-1)\cdots 1}{(t-2)(t-1)\cdots 1 \cdot n(n-1)\cdots(n-t+1)} = \frac{t(t-1)}{n(n-1)}.
 </script>
 </p>
+<p>Portanto, o estimador <script type="math/tex">\phi(T) = T(T-1)/(n^2 - n)</script> se <script type="math/tex">T \ge 2</script> e <script type="math/tex">\phi(T) = 0</script> se <script type="math/tex">T \le 1</script> é UMVUE para <script type="math/tex">g(\theta) = \theta^2</script>.</p>
 <hr />
 <h2 id="limites-inferiores-para-a-variancia">Limites inferiores para a variância</h2>
 <p>Cap 7.3.2. Cassela (335 - 342)
