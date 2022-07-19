@@ -383,10 +383,63 @@ isto é, dada uma observação, estamos igualando momentos empíricos aos moment
 <p>Um problema com o método de momentos é que ele nem sempre provê estimativas no espaço dos parâmetros. 
 Isso pode acontecer se a variabilidade nos dados é muito grande.</p>
 <h2 id="estimador-de-maxima-verossimilhanca">Estimador de Máxima Verossimilhança</h2>
-<ul>
-<li>Cap 5.1.3 Schervish (307 - 309)</li>
-<li>Cap 7.2.2 Casella (315 - 324)</li>
-</ul></div>
+<p>Outro método para derivar estimadores é o de maximar a função de verossimilhança.</p>
+<blockquote>
+<p>Seja <script type="math/tex">X</script> uma variável aleatória cuja distribuição tem densidade <script type="math/tex">f(x|\theta)</script>.
+Se <script type="math/tex">X=x</script> é observado, a função do parâmetro <script type="math/tex">L(\theta|x) = f(x|\theta)</script> é a <strong>função de verossimilhança</strong>.
+O <strong>estimador de máxima verossimilhança (MLE)</strong> de <script type="math/tex">\theta</script> é o valor 
+<script type="math/tex; mode=display">
+\hat{\theta} = \operatorname{arg}\max_{\theta \in \Omega} f(x|\theta),
+</script>
+isto é, é o valor do parâmetro em <script type="math/tex">\Omega</script> que maximiza a função de verossimilhança.</p>
+</blockquote>
+<hr />
+<p><code>📝</code> <strong>Exemplo (Uniforme)</strong></p>
+<p>Considere <script type="math/tex">X_1, \dots, X_n \overset{iid}{\sim} \operatorname{Unif}(0,\theta)</script>, cuja densidade é 
+<script type="math/tex; mode=display">
+f_n(x|\theta) = \frac{1}{\theta^n}I_{[0,\theta]}(\max_{i} x_i).
+</script>
+Supondo observada a amostra, queremos encontrar <script type="math/tex">\theta \ge \max_i x_i</script> (caso contrário, a densidade se anularia) que maximize <script type="math/tex">\theta^{-n}</script>. 
+Isso acontece quando <script type="math/tex">\theta</script> é mínimo. 
+Nesse caso, <script type="math/tex">\hat{\theta} = \max_i x_i</script>.
+Observe que se tivéssemos tomado intervalo aberto, ao invés de fechado, teríamos que <script type="math/tex">\theta > \max_i x_i</script>, mas não poderia ser igual de fato.
+Nessa situação, não existe MLE, visto que para qualquer <script type="math/tex">\theta > \max_i x_i</script>, existe <script type="math/tex">\theta '</script> tal que <script type="math/tex">\theta > \theta ' > \max_i x_i</script>.</p>
+<hr />
+<p>Mesmo quando o MLE existe, não há garantias de que ele é único.
+Porém, se ele existe, ele satisfaz a seguinte propriedade chamada de <strong>invariância</strong></p>
+<p><strong>Teorema:</strong> Seja <script type="math/tex">g : \Omega \to G</script> uma função mensurável.
+Suponha que exista um espaço <script type="math/tex">U</script> e uma função <script type="math/tex">h : \Omega \to G \times G'</script> bijetiva tal que <script type="math/tex">h(\theta) = (g(\theta), g'(\theta))</script> para alguma função <script type="math/tex">G</script>.
+Se <script type="math/tex">\hat{\theta}</script> é MLE de <script type="math/tex">\theta</script>, então <script type="math/tex">g(\hat{\theta})</script> é MLE de <script type="math/tex">g(\theta)</script>.</p>
+<p>Note que uma consequência direta é que transformações bijetivas levam MLEs em MLEs.</p>
+<p>Note que <script type="math/tex">\hat{\theta}</script> maximiza a verossimilhança se, e somente se, maximiza o logaritmo da verossimilhança. 
+Com isso, temos uma abordagem mais simples para encontrar o MLE de distribuições da família exponencial, pois 
+<script type="math/tex; mode=display">
+\log L(\theta|x) = \log h(x) - A(\theta) + x\cdot \theta.
+</script>
+Se o MLE <script type="math/tex">\hat{\theta}</script> ocorre no interior do espaço de parâmetros natural, as derivadas parciais de <script type="math/tex">\log L(\theta)</script> se anulam em <script type="math/tex">\theta = \hat{\theta}</script>.
+Em particular, 
+<script type="math/tex; mode=display">
+x = \nabla A(\theta) = \mathbb{E}_{\theta}[X],
+</script>
+como visto <a href="https://lucasmoschen.github.io/ta-sessions/infestatistica_MSc/exponential_family/exponential_family/#identidade-para-os-momentos">aqui</a>, o que implica que o MLE de <script type="math/tex">\theta</script> é o valor tal que <script type="math/tex">x = \mathbb{E}_{\hat{\theta}}[X]</script>.</p>
+<p>Portanto o procedimento padrão para encontrar o MLE é o seguinte:</p>
+<ol>
+<li>
+<p>Verificar se a verossimilhança tem alguma estrutura que facilite maximizar, como no caso da distribuição uniforme.</p>
+</li>
+<li>
+<p>Tomar o logaritmo da verossimilhança e encontrar o ponto crítico derivando e igualando a zero para pontos no interior do espaço de parâmetros.</p>
+</li>
+<li>
+<p>Verificar condições de suficiência para os pontos críticos. Por exemplo: segunda derivada negativa (ou Hessiana no caso de multivariada negativa definida). </p>
+</li>
+<li>
+<p>Verificar a fronteira se necessário.</p>
+</li>
+<li>
+<p>Utilizar recursos numéricos.</p>
+</li>
+</ol></div>
         
         
     </div>
