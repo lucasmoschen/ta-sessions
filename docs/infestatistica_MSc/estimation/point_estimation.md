@@ -219,31 +219,22 @@ Portanto, o estimador $\phi(T) = T(T-1)/(n^2 - n)$ se $T \ge 2$ e $\phi(T) = 0$ 
 
 ---
 
+## Método dos Momentos
+
+O método de momentos é uma abordagem para derivar estimadores para os parâmetros do modelo a partir dos dados.
+Ele é simples para ser definido, mas pode apresentar vários problemas como estimador.
+Considere uma amostra aleatória $X = (X_1, \dots, X_n)$ com densidade $f_n(x|\theta)$, com $\theta \in \Omega \subseteq \mathbb{R}^k$.
+Então, o estimador do método de momentos para $\theta$ é a solução do sistema 
+$$
+m_i = \mu_i(\theta), i=1,\dots,k,
+$$
+em que $m_i = \sum_{j=1}^n X_j^i$ é o $i$-ésimo momento empírico da amostra e $\mu_i(\theta) = \mathbb{E}_{\theta}[X^i]$, 
+isto é, dada uma observação, estamos igualando momentos empíricos aos momentos da distribuição.
+
+Um problema com o método de momentos é que ele nem sempre provê estimativas no espaço dos parâmetros. 
+Isso pode acontecer se a variabilidade nos dados é muito grande.
+
 ## Estimador de Máxima Verossimilhança
 
 - Cap 5.1.3 Schervish (307 - 309)
 - Cap 7.2.2 Casella (315 - 324)
-
-## Método dos Momentos 
-
-- Cap 7.2.1 Cassela (312 - 315)
-
-Obs.: incluir alguns pensamentos de cap 7.3.3 Cassella (342 - 348)
-
-### Distribuição assintótica de um estimador eficiente 
-
-Assuma as hipóteses do teorema de Cramér-Rao. Seja $T$ um estimador eficiente para a sua média $m(\theta)$ e $m'(\theta) \neq 0$. Então: 
-
-$$
-\frac{[nI(\theta)]^{1/2}}{m'(\theta)}[T - m(\theta)] \overset{d}{\to} N(0,1)
-$$
-
-### Distribuição assintótica do MLE
-
-Suponha que obtemos $\hat{\theta}_n$ resolvendo a equação $\lambda_n'(x|\theta) = 0$, isto é, maximizando a log-verossimilhança (MLE). E suponha que $\lambda_n''$ e $\lambda_n'''$ existem e satisfazem certas condições de regularidade. Então 
-
-$$
-[nI(\theta)]^{1/2}(\hat{\theta}_n - \theta) \overset{d}{\to} N(0,1)
-$$
-
-Como o MLE é não enviesado, então se ele for Eficiente, já sabemos que esse teorema é verdade pelo anterior. (se ele é não enviesado)
