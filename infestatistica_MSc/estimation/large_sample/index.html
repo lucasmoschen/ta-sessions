@@ -172,6 +172,8 @@
                 
             <li class="second-level"><a href="#propriedades-assintoticas-mle">Propriedades assintóticas MLE</a></li>
                 
+                <li class="third-level"><a href="#distribuicao-assintotica-de-um-estimador-eficiente">Distribuição assintótica de um estimador eficiente</a></li>
+                <li class="third-level"><a href="#distribuicao-assintotica-do-mle">Distribuição assintótica do MLE</a></li>
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
@@ -186,7 +188,22 @@
 <ul>
 <li>KN, Cap 8 e 9;</li>
 <li>SV, Cap 7.3.</li>
-</ul></div>
+</ul>
+<h3 id="distribuicao-assintotica-de-um-estimador-eficiente">Distribuição assintótica de um estimador eficiente</h3>
+<p>Assuma as hipóteses do teorema de Cramér-Rao. Seja <script type="math/tex">T</script> um estimador eficiente para a sua média <script type="math/tex">m(\theta)</script> e <script type="math/tex">m'(\theta) \neq 0</script>. Então: </p>
+<p>
+<script type="math/tex; mode=display">
+\frac{[nI(\theta)]^{1/2}}{m'(\theta)}[T - m(\theta)] \overset{d}{\to} N(0,1)
+</script>
+</p>
+<h3 id="distribuicao-assintotica-do-mle">Distribuição assintótica do MLE</h3>
+<p>Suponha que obtemos <script type="math/tex">\hat{\theta}_n</script> resolvendo a equação <script type="math/tex">\lambda_n'(x|\theta) = 0</script>, isto é, maximizando a log-verossimilhança (MLE). E suponha que <script type="math/tex">\lambda_n''</script> e <script type="math/tex">\lambda_n'''</script> existem e satisfazem certas condições de regularidade. Então </p>
+<p>
+<script type="math/tex; mode=display">
+[nI(\theta)]^{1/2}(\hat{\theta}_n - \theta) \overset{d}{\to} N(0,1)
+</script>
+</p>
+<p>Como o MLE é não enviesado, então se ele for Eficiente, já sabemos que esse teorema é verdade pelo anterior. (se ele é não enviesado)</p></div>
         
         
     </div>

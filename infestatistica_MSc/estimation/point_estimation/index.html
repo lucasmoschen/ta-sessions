@@ -173,12 +173,10 @@
                 <li class="third-level"><a href="#erro-quadratico">Erro quadrático</a></li>
             <li class="second-level"><a href="#estimacao-nao-enviesada-de-menor-variancia">Estimação não enviesada de menor variância</a></li>
                 
-            <li class="second-level"><a href="#estimador-de-maxima-verossimilhanca">Estimador de Máxima Verossimilhança</a></li>
-                
             <li class="second-level"><a href="#metodo-dos-momentos">Método dos Momentos</a></li>
                 
-                <li class="third-level"><a href="#distribuicao-assintotica-de-um-estimador-eficiente">Distribuição assintótica de um estimador eficiente</a></li>
-                <li class="third-level"><a href="#distribuicao-assintotica-do-mle">Distribuição assintótica do MLE</a></li>
+            <li class="second-level"><a href="#estimador-de-maxima-verossimilhanca">Estimador de Máxima Verossimilhança</a></li>
+                
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
@@ -372,31 +370,23 @@ Temos <script type="math/tex">n</script> espaços e <script type="math/tex">t</s
 </p>
 <p>Portanto, o estimador <script type="math/tex">\phi(T) = T(T-1)/(n^2 - n)</script> se <script type="math/tex">T \ge 2</script> e <script type="math/tex">\phi(T) = 0</script> se <script type="math/tex">T \le 1</script> é UMVUE para <script type="math/tex">g(\theta) = \theta^2</script>.</p>
 <hr />
+<h2 id="metodo-dos-momentos">Método dos Momentos</h2>
+<p>O método de momentos é uma abordagem para derivar estimadores para os parâmetros do modelo a partir dos dados.
+Ele é simples para ser definido, mas pode apresentar vários problemas como estimador.
+Considere uma amostra aleatória <script type="math/tex">X = (X_1, \dots, X_n)</script> com densidade <script type="math/tex">f_n(x|\theta)</script>, com <script type="math/tex">\theta \in \Omega \subseteq \mathbb{R}^k</script>.
+Então, o estimador do método de momentos para <script type="math/tex">\theta</script> é a solução do sistema 
+<script type="math/tex; mode=display">
+m_i = \mu_i(\theta), i=1,\dots,k,
+</script>
+em que <script type="math/tex">m_i = \sum_{j=1}^n X_j^i</script> é o <script type="math/tex">i</script>-ésimo momento empírico da amostra e <script type="math/tex">\mu_i(\theta) = \mathbb{E}_{\theta}[X^i]</script>, 
+isto é, dada uma observação, estamos igualando momentos empíricos aos momentos da distribuição.</p>
+<p>Um problema com o método de momentos é que ele nem sempre provê estimativas no espaço dos parâmetros. 
+Isso pode acontecer se a variabilidade nos dados é muito grande.</p>
 <h2 id="estimador-de-maxima-verossimilhanca">Estimador de Máxima Verossimilhança</h2>
 <ul>
 <li>Cap 5.1.3 Schervish (307 - 309)</li>
 <li>Cap 7.2.2 Casella (315 - 324)</li>
-</ul>
-<h2 id="metodo-dos-momentos">Método dos Momentos</h2>
-<ul>
-<li>Cap 7.2.1 Cassela (312 - 315)</li>
-</ul>
-<p>Obs.: incluir alguns pensamentos de cap 7.3.3 Cassella (342 - 348)</p>
-<h3 id="distribuicao-assintotica-de-um-estimador-eficiente">Distribuição assintótica de um estimador eficiente</h3>
-<p>Assuma as hipóteses do teorema de Cramér-Rao. Seja <script type="math/tex">T</script> um estimador eficiente para a sua média <script type="math/tex">m(\theta)</script> e <script type="math/tex">m'(\theta) \neq 0</script>. Então: </p>
-<p>
-<script type="math/tex; mode=display">
-\frac{[nI(\theta)]^{1/2}}{m'(\theta)}[T - m(\theta)] \overset{d}{\to} N(0,1)
-</script>
-</p>
-<h3 id="distribuicao-assintotica-do-mle">Distribuição assintótica do MLE</h3>
-<p>Suponha que obtemos <script type="math/tex">\hat{\theta}_n</script> resolvendo a equação <script type="math/tex">\lambda_n'(x|\theta) = 0</script>, isto é, maximizando a log-verossimilhança (MLE). E suponha que <script type="math/tex">\lambda_n''</script> e <script type="math/tex">\lambda_n'''</script> existem e satisfazem certas condições de regularidade. Então </p>
-<p>
-<script type="math/tex; mode=display">
-[nI(\theta)]^{1/2}(\hat{\theta}_n - \theta) \overset{d}{\to} N(0,1)
-</script>
-</p>
-<p>Como o MLE é não enviesado, então se ele for Eficiente, já sabemos que esse teorema é verdade pelo anterior. (se ele é não enviesado)</p></div>
+</ul></div>
         
         
     </div>
