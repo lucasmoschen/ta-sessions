@@ -219,12 +219,6 @@ Portanto, o estimador $\phi(T) = T(T-1)/(n^2 - n)$ se $T \ge 2$ e $\phi(T) = 0$ 
 
 ---
 
-## Limites inferiores para a variância
-
-- Cap 7.3.2. Cassela (335 - 342)
-- Cap 5.1.2 Schervish (301  307)
-- Cap 4.5 Keener (71 - 77)
-
 ## Estimador de Máxima Verossimilhança
 
 - Cap 5.1.3 Schervish (307 - 309)
@@ -235,3 +229,21 @@ Portanto, o estimador $\phi(T) = T(T-1)/(n^2 - n)$ se $T \ge 2$ e $\phi(T) = 0$ 
 - Cap 7.2.1 Cassela (312 - 315)
 
 Obs.: incluir alguns pensamentos de cap 7.3.3 Cassella (342 - 348)
+
+### Distribuição assintótica de um estimador eficiente 
+
+Assuma as hipóteses do teorema de Cramér-Rao. Seja $T$ um estimador eficiente para a sua média $m(\theta)$ e $m'(\theta) \neq 0$. Então: 
+
+$$
+\frac{[nI(\theta)]^{1/2}}{m'(\theta)}[T - m(\theta)] \overset{d}{\to} N(0,1)
+$$
+
+### Distribuição assintótica do MLE
+
+Suponha que obtemos $\hat{\theta}_n$ resolvendo a equação $\lambda_n'(x|\theta) = 0$, isto é, maximizando a log-verossimilhança (MLE). E suponha que $\lambda_n''$ e $\lambda_n'''$ existem e satisfazem certas condições de regularidade. Então 
+
+$$
+[nI(\theta)]^{1/2}(\hat{\theta}_n - \theta) \overset{d}{\to} N(0,1)
+$$
+
+Como o MLE é não enviesado, então se ele for Eficiente, já sabemos que esse teorema é verdade pelo anterior. (se ele é não enviesado)
