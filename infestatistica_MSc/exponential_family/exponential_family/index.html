@@ -168,6 +168,14 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
         <li class="first-level active"><a href="#familia-exponencial">Família exponencial</a></li>
+            <li class="second-level"><a href="#densidade">Densidade</a></li>
+                
+            <li class="second-level"><a href="#identidade-para-os-momentos">Identidade para os momentos</a></li>
+                
+            <li class="second-level"><a href="#propriedades">Propriedades</a></li>
+                
+            <li class="second-level"><a href="#teorema-de-caracterizacao">Teorema de caracterização</a></li>
+                
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
@@ -176,11 +184,91 @@
 <p>Em aplicações, a modelagem de fenômenos naturais por variáveis aleatórias gera a necessidade de obter a distribuição da variável aleatória, o que faz parte do processo de modelagem. 
 Como uma forma de simplificação, usamos famílias de distribuições com propriedades conhecidas.
 A mais conhecida de todas é a <strong>família exponencial</strong>, que inclui as distribuições mais conhecidas de nossos corações: normal, binomial, Poisson, gamma, entre outras.</p>
+<h2 id="densidade">Densidade</h2>
+<p>Seja <script type="math/tex">h</script> uma função não negativa e <script type="math/tex">T_1, \dots, T_k : \mathbb{R}^n \to \mathbb{R}</script> funções mensuráveis.
+Para <script type="math/tex">\theta \in \mathbb{R}^k</script>, defina 
+<script type="math/tex; mode=display">
+A(\theta) = \log \int_{\mathbb{R}^n} \exp\left[\sum_{i=1}^k \theta_i T_i(x)\right] h(x) \, d\mu(x).
+</script>
+Se <script type="math/tex">A(\theta) < +\infty</script>, vale que 
+<script type="math/tex; mode=display">
+p_{\theta}(x) = h(x)\exp\left[\sum_{i=1}^k \theta_i T_i(x) - A(\theta)\right], x \in \mathbb{R}^n
+</script>
+integra 1. </p>
+<blockquote>
+<p>A família de distribuições <script type="math/tex">\{p_{\theta} : \theta \in \Theta\}</script>, em que <script type="math/tex">\Theta = \{\theta : A(\theta) < +\infty\}</script>, é chamada de <strong>família exponencial</strong> com <script type="math/tex">k</script> parâmetros na <strong>forma canônica</strong>.
+O conjunto <script type="math/tex">\Theta</script> é chamado de <strong>espaço de parâmetros natural</strong>.</p>
+</blockquote>
+<hr />
+<p><code>📝</code> <strong>Exemplo de construção</strong>
+Sejam <script type="math/tex">h(x) = 1</script> se <script type="math/tex">x > 0</script> e <script type="math/tex">0</script> caso contrário e <script type="math/tex">T_1(x) = x</script>.
+Então
+<script type="math/tex; mode=display">
+A(\theta) = \log \int_0^{\infty} e^{\theta x} \, dx = \log(-1/\theta)
+</script>
+que é bem definido se <script type="math/tex">\theta < 0</script>.
+Logo
+<script type="math/tex; mode=display">
+p_{\theta}(x) = \exp(\theta x - \log(-1/\theta)) 1(x>0)
+</script>
+é a densidade com <script type="math/tex">\theta < 0</script>.</p>
+<hr />
+<p>Para situações mais gerais, seja uma função <script type="math/tex">\eta : \Omega \to \Theta</script>. 
+A família exponencial é, então, 
+<script type="math/tex; mode=display">
+p_{\theta}(x) = h(x)\exp\left[\sum_{i=1}^k \eta_i(\theta) T_i(x) - B(\theta)\right],
+</script>
+em que <script type="math/tex">B(\theta) = A(\eta(\theta))</script>.</p>
+<h2 id="identidade-para-os-momentos">Identidade para os momentos</h2>
+<p>Seja <script type="math/tex">p_{\theta}</script> uma densidade da família exponencial com formulação canônica.
+Seja <script type="math/tex">\Theta_f \subseteq \Theta</script> tal que <script type="math/tex">\mathbb{E}_{\theta}[|f(X)|] < +\infty</script>.
+Então, a função 
+<script type="math/tex; mode=display">
+g(\theta) = \mathbb{E}_{\theta}[f(X)] 
+</script>
+é contínua e com derivadas parciais de todas as ordens para <script type="math/tex">\theta</script> no interior de <script type="math/tex">\Theta_f</script> (mais do que isso, ela é <a href="https://en.wikipedia.org/wiki/Analytic_function">analítica</a>).</p>
+<p>A partir dessa propriedade com <script type="math/tex">f=1</script>, podemos concluir que 
+<script type="math/tex; mode=display">
+\mathbb{E}_{\theta}[T_j(X)] = \frac{\partial A(\theta)}{\partial \theta_j}.
+</script>
+</p>
+<p>Também podemos obter que </p>
+<p>
+<script type="math/tex; mode=display">
+\operatorname{Cov}_{\theta}(T_i, T_j) = \frac{\partial^2}{\partial \theta_i \partial \theta_j} A(\theta).
+</script>
+</p>
+<h2 id="propriedades">Propriedades</h2>
+<p><strong>Proposição:</strong> Se <script type="math/tex">X</script> tem uma distribuição da família exponencial, então a <strong>estatística suficiente natural</strong> <script type="math/tex">T(X)</script> também é.
+Em particular, a densidade é 
+<script type="math/tex; mode=display">p_{T,\theta}(t) = \exp\{\theta \cdot t - A(\theta)\}.</script>
+</p>
 <ul>
-<li>KN (cap 2)</li>
-<li>SV (cap 2.2)</li>
-<li>CB (cap 3.4)</li>
-</ul></div>
+<li>Para ver que <script type="math/tex">T(X)</script> é estatística suficiente, basta aplicar a fatorização de Fisher-Neyman.</li>
+<li>Essa fatorização também permite a derivação da densidade da distribuição de <script type="math/tex">T</script>, que a define como pertencente à família exponencial.</li>
+</ul>
+<p><strong>Teorema:</strong> O espaço de parâmetros natural <script type="math/tex">\Theta</script> é convexo e <script type="math/tex">\exp\{A(\theta)\}</script> é uma função convexa.</p>
+<blockquote>
+<p>Agora um Teorema importante!</p>
+</blockquote>
+<p><strong>Teorema:</strong> Se o espaço dos parâmetros natural <script type="math/tex">\Theta</script> de uma família exponencial contém um conjunto aberto em <script type="math/tex">\mathbb{R}^k</script>, então <script type="math/tex">T(X)</script> é uma estatística suficiente completa.</p>
+<h2 id="teorema-de-caracterizacao">Teorema de caracterização</h2>
+<p>Seja <script type="math/tex">X=(X_1, \dots, X_n)</script> uma amostra aleatória com densidade <script type="math/tex">f(x|\theta)</script>.
+Seja <script type="math/tex">T</script> uma estatística suficiente de dimensão 1.
+Seja 
+<script type="math/tex; mode=display">
+f(x|\theta) = \prod_{i=1}^n f(x_i|\theta) = m_1(x)m_2(t,\theta)
+</script>
+e defina 
+<script type="math/tex; mode=display">
+K_{\theta}(t) = \frac{\partial}{\partial \theta} \log m_2(t, \theta).
+</script>
+Assuma que </p>
+<p>1) <script type="math/tex">C = \{x : f(x|\theta) > 0\}</script> não depende de <script type="math/tex">\theta</script>.
+2) A verossimilhança é diferenciável com respeito a <script type="math/tex">\theta</script>.
+3) A densidade é diferenciável com respeito a <script type="math/tex">x</script>.
+4) Existe <script type="math/tex">\theta_0</script> tal que <script type="math/tex">K_{\theta_0}(t)</script> é invertível.</p>
+<p>Então <script type="math/tex">X</script> tem uma distribuição da família exponencial com um parâmetro natural de dimensão <script type="math/tex">1</script>.</p></div>
         
         
     </div>
