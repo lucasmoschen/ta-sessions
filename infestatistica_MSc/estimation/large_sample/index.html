@@ -168,42 +168,166 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
         <li class="first-level active"><a href="#introducao-a-grandes-amostras">Introdução a grandes amostras</a></li>
+            <li class="second-level"><a href="#conceitos-de-convergencia">Conceitos de convergência</a></li>
+                
             <li class="second-level"><a href="#consistencia">Consistência</a></li>
+                
+            <li class="second-level"><a href="#teorema-central-do-limite">Teorema Central do Limite</a></li>
                 
             <li class="second-level"><a href="#propriedades-assintoticas-mle">Propriedades assintóticas MLE</a></li>
                 
-                <li class="third-level"><a href="#distribuicao-assintotica-de-um-estimador-eficiente">Distribuição assintótica de um estimador eficiente</a></li>
-                <li class="third-level"><a href="#distribuicao-assintotica-do-mle">Distribuição assintótica do MLE</a></li>
+                <li class="third-level"><a href="#mle-para-a-familia-exponencial">MLE para a família exponencial</a></li>
+                <li class="third-level"><a href="#normalidade-assintotica-para-mles">Normalidade assintótica para MLEs</a></li>
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
 <h1 id="introducao-a-grandes-amostras">Introdução a grandes amostras</h1>
+<p>Agora, vamos verificar algumas propriedades assintóticas, isto é, quando o número de amostras é muito grande, com <script type="math/tex">n \to \infty</script>.</p>
+<h2 id="conceitos-de-convergencia">Conceitos de convergência</h2>
+<p>Uma lista de conceitos de convergência importantes. 
+Em particular, o conceito de <strong>consistência</strong> é importante para estimadores, dado que gostaríamos que, com amostras suficientes, tivéssemos valores razoáveis para o parâmetro. </p>
+<ol>
+<li>
+<p><strong>Determinística:</strong> Seja <script type="math/tex">\{x_n\}_{n \in \mathbb{N}}</script> uma sequência em um espaço normado e  <script type="math/tex">\{r_n\}_{n \in \mathbb{N}}</script> uma sequência de reais.
+Se para cada <script type="math/tex">c > 0</script>, existe <script type="math/tex">N</script> suficientemente grande tal que <script type="math/tex">||x_n|| \le c|r_n|</script> para <script type="math/tex">n \ge N</script>, dizemos que <script type="math/tex">x_n = o(x_n)</script>.
+Se existe <script type="math/tex">c > 0</script> tal que a desigualdade anterior valha para <script type="math/tex">n</script> grande, então dizemos que <script type="math/tex">x_n = O(r_n)</script>.</p>
+</li>
+<li>
+<p><strong>Estocástica:</strong>  Seja <script type="math/tex">\{X_n\}_{n \in \mathbb{N}}</script> uma sequência de variáveis aleatórias definidas em espaços normados e  <script type="math/tex">\{r_n\}_{n \in \mathbb{N}}</script> uma sequência de reais.
+Se para cada <script type="math/tex">c > 0</script> e <script type="math/tex">\epsilon > 0</script>, existe <script type="math/tex">N</script> tal que <script type="math/tex">\mathbb{P}(||X_n|| \le c|r_n|) \ge 1 - \epsilon</script> para <script type="math/tex">n \ge N</script>, dizemos que <script type="math/tex">X_n = o_P(x_n)</script>.
+Se para cada <script type="math/tex">\epsilon >0</script>, existe <script type="math/tex">c > 0</script> tal que a desigualdade anterior valha para <script type="math/tex">n</script> grande, então dizemos que <script type="math/tex">X_n = O_P(r_n)</script>.</p>
+</li>
+<li>
+<p><strong>Convergência em probabilidade:</strong> Se <script type="math/tex">\{X_n\}_{n \in \mathbb{N}}</script> e <script type="math/tex">X</script> são quantidades aleatórias e, para todo <script type="math/tex">\epsilon >0</script>, vale que 
+<script type="math/tex; mode=display">
+\lim_{n \to \infty} Pr(||X_n - X|| > \epsilon) = 0,
+</script>
+então dizemos que <script type="math/tex">X_n \overset{P}{\to} X</script>, isto é, <script type="math/tex">X_n</script> converge em probabilidade para <script type="math/tex">X</script>.</p>
+</li>
+</ol>
+<p>Se <script type="math/tex">Y_n = f_n(X_n)</script> para uma sequência de funções mensuráveis <script type="math/tex">f_n</script> e <script type="math/tex">Y</script> é uma outra quantidade aleatória, temos que <script type="math/tex">||Y_n - Y|| = o_P(1)</script> se, e só se, <script type="math/tex">Y_n \overset{P}{\to} Y</script>. 
+Em particular, se <script type="math/tex">f</script> é contínua em <script type="math/tex">c</script> e <script type="math/tex">X_n \overset{P}{\to} c</script>, então <script type="math/tex">f(X_n) \overset{P}{\to} f(c)</script>.</p>
+<ol>
+<li>
+<p><strong>Consistência:</strong> Sejam <script type="math/tex">g</script> uma função mensurável e <script type="math/tex">P_{\theta}</script> uma distribuição paramétrica definida em <script type="math/tex">\mathcal{X}</script>. 
+A sequência de variáveis aleatórias <script type="math/tex">Y_n : \mathcal{X}^n \to G</script> é consistente para <script type="math/tex">g(\theta)</script> se <script type="math/tex">Y_n \overset{P}{\to} g(\theta)</script> para todo <script type="math/tex">\theta \in \Omega</script>.
+A <strong>lei dos grandes números</strong> é um forte aliado, pois afirma que a média amostral converge em probabilidade para a média verdadeira.</p>
+</li>
+<li>
+<p><strong>Convergência em distribuição:</strong> Seja <script type="math/tex">\{X_n\}</script> uma sequência de quantidades aleatórias e <script type="math/tex">X</script> uma quantidade aleatória.
+Se 
+<script type="math/tex; mode=display">
+\lim_{n \to \infty} \mathbb{E}[f(X_n)] = \mathbb{E}[f(X)],
+</script>
+para toda função contínua limitada <script type="math/tex">f</script>, dizemos que <script type="math/tex">X_n</script> converge em distribuição para <script type="math/tex">X</script>, isto é, <script type="math/tex">X_n \overset{D}{\to} X</script> ou <script type="math/tex">X_n \Rightarrow X</script>.
+Dizemos que a distribuição de <script type="math/tex">X</script> é a <strong>distribuição assintótica</strong> de <script type="math/tex">X_n</script>.
+Além do mais, dizemos que a distribuição de <script type="math/tex">X_n</script> converge fracamente para a distribuição de <script type="math/tex">X</script>.
+Se <script type="math/tex">H_n(x)</script> é a função de distribuição acumulada de <script type="math/tex">X_n</script> e <script type="math/tex">H</script> é a CDF de <script type="math/tex">X</script>, então <script type="math/tex">H_n(x) \to H(x)</script>  sempre que <script type="math/tex">H</script> é contínua em <script type="math/tex">x</script> se, e somente se, <script type="math/tex">X_n \overset{D}{\to} X</script>
+</p>
+</li>
+</ol>
+<p><strong>Teorema:</strong> Se <script type="math/tex">Y_n \Rightarrow Y</script>, <script type="math/tex">A_n \overset{P}{\to} a</script> e <script type="math/tex">B_n \overset{P}{\to} b</script>, então
+<script type="math/tex; mode=display">
+A_n + B_nY_n \Rightarrow a + bY.
+</script>
+</p>
+<ol>
+<li><strong>Convergência quase certa:</strong> Uma sequência <script type="math/tex">\{X_n\}</script> converge quase certamente para <script type="math/tex">X</script> se <script type="math/tex">\mathbb{P}(Y_n \to Y) = 1</script>.</li>
+</ol>
 <h2 id="consistencia">Consistência</h2>
-<ul>
-<li>Cap 10.1.1 Cassela (467 - 470)</li>
-<li>Cap 8.1 Keener</li>
-</ul>
+<p>O exemplo clássico de consistência é o seguinte:</p>
+<hr />
+<p><code>📝</code> <strong>Exemplo (Lei fraca dos grandes números)</strong></p>
+<p>Seja <script type="math/tex">X_1, X_2, \dots</script> uma sequência de variáveis aleatórias independentes cuja distribuição tem densidade <script type="math/tex">f(x|\theta)</script>.
+Defina <script type="math/tex">g(\theta) = \mathbb{E}_{\theta}[X]</script> e <script type="math/tex">\bar{X}_n = n^{-1}(X_1 + \dots + X_n)</script>.
+Pela lei fraca dos grandes números, temos que <script type="math/tex">\{\bar{X}_n\}</script> é uma sequência de estimadores consistente para <script type="math/tex">g(\theta)</script>.</p>
+<hr />
+<p><strong>Teorema:</strong> Seja <script type="math/tex">\{W_n\}</script> uma sequência de estimadores para <script type="math/tex">\theta</script> tal que, para todo <script type="math/tex">\theta \in \Omega</script>,</p>
+<p>(i) <script type="math/tex">\lim_{n \to \infty} \operatorname{Var}_{\theta}(W_n) = 0</script>,</p>
+<p>(ii) <script type="math/tex">\lim_{n \to \infty} \operatorname{Bias}_{\theta}(W_n) = 0</script>.</p>
+<p>Então <script type="math/tex">W_n</script> é sequência de estimadores consistente de <script type="math/tex">\theta</script>.
+Esse resultado é consequência direto do fato de que 
+<script type="math/tex; mode=display">
+\mathbb{E}_{\theta}[(W_n - \theta)^2] = \operatorname{Var}_{\theta}(W_n) + \operatorname{Bias}_{\theta}(W_n)^2
+</script>
+e da desigualdade de Chebyshev, 
+<script type="math/tex; mode=display">
+P_{\theta}(|W_n - \theta| \ge \epsilon) \le \frac{\mathbb{E}_{\theta}[(W_n - \theta)^2]}{\epsilon^2}.
+</script>
+</p>
+<p>Além do mais, se fizemos <script type="math/tex">U_n = a_n W_n + b_n</script>, com <script type="math/tex">a_n \to 1</script> e <script type="math/tex">b_n \to 0</script>, temos que <script type="math/tex">U_n</script> também é consistente.</p>
+<h2 id="teorema-central-do-limite">Teorema Central do Limite</h2>
+<p>Seja <script type="math/tex">X_1, \dots, X_n</script> variáveis aleatórias iid com média <script type="math/tex">\mu</script> e variância <script type="math/tex">\sigma^2</script>. 
+Então
+<script type="math/tex; mode=display">
+\sqrt{n}(\bar{X}_n - \mu) \Rightarrow N(0, \sigma^2). 
+</script>
+</p>
 <h2 id="propriedades-assintoticas-mle">Propriedades assintóticas MLE</h2>
+<p>O seguinte Teorema afirma que sob o modelo <script type="math/tex">f(x|\theta_0)</script>, a probabilidade de que a função de verossimilhança seja estritamente maior em <script type="math/tex">\theta_0</script> tende a <script type="math/tex">1</script> quando <script type="math/tex">n \to \infty</script>. 
+Nesse sentido, se <script type="math/tex">n</script> é suficientemente grande, nossa probabilidade de que sob aquela amostra a verossimilhança seja maior do que qualquer outro ponto é próximo a 1. </p>
+<p><strong>Teorema:</strong> Seja <script type="math/tex">f_n(x|\theta)</script> a densidade de uma amostra aleatória <script type="math/tex">(X_1, \dots, X_n)</script>.
+Então, para cada <script type="math/tex">\theta_0, \theta \in \Omega</script> com <script type="math/tex">\theta \neq \theta_0</script>, vale que 
+<script type="math/tex; mode=display">
+\lim_{n \to \infty} P_{\theta_0}\left[f_n(x|\theta_0) > f_n(x|\theta)\right] = 1.
+</script>
+</p>
+<p>Agora, vamos verificar que o MLE é um estimador consistente.</p>
+<p><strong>Teorema:</strong> Seja <script type="math/tex">f_n(x|\theta)</script> a densidade de uma amostra aleatória <script type="math/tex">(X_1, \dots, X_n)</script> e fixe <script type="math/tex">\theta_0 \in \Omega</script>. 
+Para cada <script type="math/tex">M\subseteq \Omega</script> e <script type="math/tex">x \in \mathcal{X}</script>, defina
+<script type="math/tex; mode=display">
+Z(M,x) = \inf_{\psi \in M} \log \frac{f(x|\theta_0)}{f(x|\psi)} = \log f(x|\theta_0) - \sup_{\psi \in \Omega} \log f(x|\psi).
+</script>
+Assuma que para cada <script type="math/tex">\theta \neq \theta_0</script>, exista uma vizinhança <script type="math/tex">N_{\theta}</script> tal que <script type="math/tex">\mathbb{E}_{\theta_0}[Z(N_{\theta}, X_i)] > 0</script>.
+Se <script type="math/tex">\Omega</script> não é compacto, assuma que exista um compacto <script type="math/tex">C \subseteq \Omega</script> tal que <script type="math/tex">\theta_0 \in C</script> e <script type="math/tex">\mathbb{E}_{\theta_0} Z(\omega / C, X_i) > 0</script>. 
+Então
+<script type="math/tex; mode=display">
+\lim_{n \to \infty} \hat{\theta}_n = \theta_0,
+</script>
+quase certamente.</p>
+<p>A função <script type="math/tex">Z(M,x)</script> é a diferença da log-verossimilhança em <script type="math/tex">\theta_0</script> e o máximo que ela atinge em <script type="math/tex">M</script>. 
+Estamos assumindo que em uma vizinhança de cada ponto <script type="math/tex">\theta \in \Omega</script>, a máxima verossimilhança nessa região é, em média, menor do que a verossimilhança em <script type="math/tex">\theta_0</script>.
+Além disso, para conjuntos não compactos, fora desse compacto, queremos que em média a verossimilhança em <script type="math/tex">\theta_0</script> seja maior.
+A dificuldade de utilizar esse teorema é verificar todas essas condições.</p>
+<p>Assumindo a continuidade da função de verossimilhança para todo <script type="math/tex">x</script> e que <script type="math/tex">\mathbb{E}_{\theta_0}[Z(N_{\theta}, X_i)] > -\infty</script>, também temos que MLE é um estimador consistente.</p>
+<h3 id="mle-para-a-familia-exponencial">MLE para a família exponencial</h3>
+<p>Seja <script type="math/tex">\hat{\theta}_n</script> MLE calculado a partir de <script type="math/tex">X_1, \dots, X_n</script> cuja distribuição tem densidade 
+<script type="math/tex; mode=display">
+f(x|\theta) = h(x)\exp\{\theta\cdot x - A(\theta)\},
+</script>
+isto é, pertence à família exponencial na forma canônica.
+Se <script type="math/tex">\Omega</script> é um subconjunto aberto de <script type="math/tex">\mathbb{R}^k</script>, então</p>
 <ul>
-<li>KN, Cap 8 e 9;</li>
-<li>SV, Cap 7.3.</li>
+<li>
+<p>
+<script type="math/tex">\lim_{n\to\infty} \mathbb{P}_{\theta}(\hat{\theta}_n \text{ existir}) = 1</script>
+</p>
+</li>
+<li>
+<p>
+<script type="math/tex">\sqrt{n}(\hat{\theta}_n - \theta) \overset{D}{\to} N_k(0, I_{\mathcal{X}}(\theta))^{-1}</script>, em que <script type="math/tex">I_{\mathcal{X}}(\theta)</script> é a matriz informação de Fisher.</p>
+</li>
+<li>
+<p>
+<script type="math/tex">\{\hat{\theta}_n\}</script> é consistente para <script type="math/tex">\theta</script>.</p>
+</li>
 </ul>
-<h3 id="distribuicao-assintotica-de-um-estimador-eficiente">Distribuição assintótica de um estimador eficiente</h3>
-<p>Assuma as hipóteses do teorema de Cramér-Rao. Seja <script type="math/tex">T</script> um estimador eficiente para a sua média <script type="math/tex">m(\theta)</script> e <script type="math/tex">m'(\theta) \neq 0</script>. Então: </p>
-<p>
+<h3 id="normalidade-assintotica-para-mles">Normalidade assintótica para MLEs</h3>
+<p>Sob algumas hipóteses de regularidade, podemos concluir que 
 <script type="math/tex; mode=display">
-\frac{[nI(\theta)]^{1/2}}{m'(\theta)}[T - m(\theta)] \overset{d}{\to} N(0,1)
+\sqrt{n}(\hat{\theta}_n - \theta_0) \overset{D}{\to} N(0, I_{\mathcal{X}}(\theta_0)^{-1}),
 </script>
-</p>
-<h3 id="distribuicao-assintotica-do-mle">Distribuição assintótica do MLE</h3>
-<p>Suponha que obtemos <script type="math/tex">\hat{\theta}_n</script> resolvendo a equação <script type="math/tex">\lambda_n'(x|\theta) = 0</script>, isto é, maximizando a log-verossimilhança (MLE). E suponha que <script type="math/tex">\lambda_n''</script> e <script type="math/tex">\lambda_n'''</script> existem e satisfazem certas condições de regularidade. Então </p>
-<p>
-<script type="math/tex; mode=display">
-[nI(\theta)]^{1/2}(\hat{\theta}_n - \theta) \overset{d}{\to} N(0,1)
-</script>
-</p>
-<p>Como o MLE é não enviesado, então se ele for Eficiente, já sabemos que esse teorema é verdade pelo anterior. (se ele é não enviesado)</p></div>
+em que <script type="math/tex">I_{\mathcal{X}}(\theta_0)</script> é a informação de Fisher.
+Hipóteses:</p>
+<ol>
+<li>
+<script type="math/tex">\{\hat{\theta}_n\}</script> é consistente para <script type="math/tex">\theta</script>.</li>
+<li>
+<script type="math/tex">f(x|\theta)</script> tem derivadas de segunda ordem contínuas com respeito a <script type="math/tex">\theta</script> e vale o sinal de integração pode ser trocado com o de diferenciação.</li>
+<li>Existe uma função <script type="math/tex">H_r(x,\theta)</script> que para todo <script type="math/tex">\theta_0</script> tem valor esperando nulo quanto <script type="math/tex">r \to 0</script> e seja limite superior da diferença na segunda derivada em uma bola de raio <script type="math/tex">r</script> de <script type="math/tex">\theta_0</script>.</li>
+</ol>
+<p>Na prática, podemos usar <script type="math/tex">I_{\mathcal{X}}(\hat{\theta}_n)</script>, visto que <script type="math/tex">\theta_0</script> é desconhecido.</p></div>
         
         
     </div>
