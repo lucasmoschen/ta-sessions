@@ -236,5 +236,60 @@ Isso pode acontecer se a variabilidade nos dados é muito grande.
 
 ## Estimador de Máxima Verossimilhança
 
-- Cap 5.1.3 Schervish (307 - 309)
-- Cap 7.2.2 Casella (315 - 324)
+Outro método para derivar estimadores é o de maximar a função de verossimilhança.
+
+> Seja $X$ uma variável aleatória cuja distribuição tem densidade $f(x|\theta)$.
+Se $X=x$ é observado, a função do parâmetro $L(\theta|x) = f(x|\theta)$ é a **função de verossimilhança**.
+O **estimador de máxima verossimilhança (MLE)** de $\theta$ é o valor 
+$$
+\hat{\theta} = \operatorname{arg}\max_{\theta \in \Omega} f(x|\theta),
+$$
+isto é, é o valor do parâmetro em $\Omega$ que maximiza a função de verossimilhança.
+
+---
+``📝`` **Exemplo (Uniforme)**
+
+Considere $X_1, \dots, X_n \overset{iid}{\sim} \operatorname{Unif}(0,\theta)$, cuja densidade é 
+$$
+f_n(x|\theta) = \frac{1}{\theta^n}I_{[0,\theta]}(\max_{i} x_i).
+$$
+Supondo observada a amostra, queremos encontrar $\theta \ge \max_i x_i$ (caso contrário, a densidade se anularia) que maximize $\theta^{-n}$. 
+Isso acontece quando $\theta$ é mínimo. 
+Nesse caso, $\hat{\theta} = \max_i x_i$.
+Observe que se tivéssemos tomado intervalo aberto, ao invés de fechado, teríamos que $\theta > \max_i x_i$, mas não poderia ser igual de fato.
+Nessa situação, não existe MLE, visto que para qualquer $\theta > \max_i x_i$, existe $\theta '$ tal que $\theta > \theta ' > \max_i x_i$.
+
+---
+
+Mesmo quando o MLE existe, não há garantias de que ele é único.
+Porém, se ele existe, ele satisfaz a seguinte propriedade chamada de **invariância**
+
+**Teorema:** Seja $g : \Omega \to G$ uma função mensurável.
+Suponha que exista um espaço $U$ e uma função $h : \Omega \to G \times G'$ bijetiva tal que $h(\theta) = (g(\theta), g'(\theta))$ para alguma função $G$.
+Se $\hat{\theta}$ é MLE de $\theta$, então $g(\hat{\theta})$ é MLE de $g(\theta)$.
+
+Note que uma consequência direta é que transformações bijetivas levam MLEs em MLEs.
+
+Note que $\hat{\theta}$ maximiza a verossimilhança se, e somente se, maximiza o logaritmo da verossimilhança. 
+Com isso, temos uma abordagem mais simples para encontrar o MLE de distribuições da família exponencial, pois 
+$$
+\log L(\theta|x) = \log h(x) - A(\theta) + x\cdot \theta.
+$$
+Se o MLE $\hat{\theta}$ ocorre no interior do espaço de parâmetros natural, as derivadas parciais de $\log L(\theta)$ se anulam em $\theta = \hat{\theta}$.
+Em particular, 
+$$
+x = \nabla A(\theta) = \mathbb{E}_{\theta}[X],
+$$
+como visto [aqui](https://lucasmoschen.github.io/ta-sessions/infestatistica_MSc/exponential_family/exponential_family/#identidade-para-os-momentos), o que implica que o MLE de $\theta$ é o valor tal que $x = \mathbb{E}_{\hat{\theta}}[X]$.
+
+Portanto o procedimento padrão para encontrar o MLE é o seguinte:
+
+1. Verificar se a verossimilhança tem alguma estrutura que facilite maximizar, como no caso da distribuição uniforme.
+
+2. Tomar o logaritmo da verossimilhança e encontrar o ponto crítico derivando e igualando a zero para pontos no interior do espaço de parâmetros.
+
+3. Verificar condições de suficiência para os pontos críticos. Por exemplo: segunda derivada negativa (ou Hessiana no caso de multivariada negativa definida). 
+
+4. Verificar a fronteira se necessário.
+
+5. Utilizar recursos numéricos.
