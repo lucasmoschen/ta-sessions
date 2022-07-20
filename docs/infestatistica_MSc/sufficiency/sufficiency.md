@@ -50,8 +50,9 @@ Todavia, algumas vezes uma estatística mais simples também é suficiente e, po
 
 **Teorema (Lehmann-Scheffé):** Seja $f(x|\theta)$ a densidade e $T$ uma função mensurável tal que $T(x) = T(y) \iff y \in D(x)$, com
 $$
-D(x) = \{y \in \mathcal{X} : f(y|\theta) = f(x|\theta)h(x,y), \forall \theta \text{ e alguma função } h(x,y) \}.
+D(x) = \{y \in \mathcal{X} : f(y|\theta) = f(x|\theta)h(x,y), \forall \theta \text{ e alguma função } h(x,y) \},
 $$
+então $T(X)$ é estatística suficiente mínima.
 
 ---
 ``📝`` **Exemplo**
