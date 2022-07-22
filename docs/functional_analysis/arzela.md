@@ -21,7 +21,7 @@ Além disso, ela é limitada, pois $d_Y(f(x), g(x)) \le \operatorname{diam}(im(f
 Denotamos $C_b(X,Y)$ o conjunto das funções contínuas limitadas de $X$ a $Y$. Se $Y = \mathbb{C}$, denotamos por $C(X)$.
 Se $f_n \to f$ em $C_b(X,Y)$, chamamos de **convergência uniforme**.
 
-**Teorema (Stone-Weierstra**$\beta$**):** Os polinôomios (em $z$ e $\bar{z}$) são densos em $C(K)$ quando $K \subseteq \mathbb{C}$ é compacto.
+**Teorema (Stone-Weierstra**$\beta$**):** Os polinômios (em $z$ e $\bar{z}$) são densos em $C(K)$ quando $K \subseteq \mathbb{C}$ é compacto.
 
 ---
 A demonstração dada no livro do Muscat consiste em cinco etapas:

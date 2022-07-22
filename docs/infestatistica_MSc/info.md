@@ -35,7 +35,7 @@ Os exercícios resolvidos estão disponíveis:
 |[2](https://github.com/maxbiostat/Statistical_Inference_MSc/blob/main/listas/lista2_InfEst_MSc.pdf)|Suficiência mínima, completude e ancilaridade|[2](/ta-sessions/unavailable/)|
 |[3](https://github.com/maxbiostat/Statistical_Inference_MSc/blob/main/listas/lista3_InfEst_MSc.pdf)|Estimação não enviesada|[3](/ta-sessions/unavailable/)
 |[4](https://github.com/maxbiostat/Statistical_Inference_MSc/blob/main/listas/lista4_InfEst_MSc.pdf)|Métodos de estimação|[4](/ta-sessions/unavailable/)|
-|[5](https://lucasmoschen.github.io/files/disciplines/statistical_inference/additional_list.pdf)|Revisão para a P1|[5](/ta-sessions/unavailable/)|
+|[5](https://lucasmoschen.github.io/files/disciplines/statistical_inference/additional_list.pdf)|Revisão para a P1|[5](https://lucasmoschen.github.io/files/disciplines/statistical_inference/additional_list.pdf)|
 
 ### Prova 2
 
@@ -48,6 +48,7 @@ Os exercícios resolvidos estão disponíveis:
 |---------|----------------|-------|
 |04/07/2022|Conceitos da lista 1|[ver arquivo](https://lucasmoschen.github.io/files/disciplines/statistical_inference/monitoria_04_07_2022.pdf)|
 |13/07/2022|Lista 1|[ver arquivo](https://lucasmoschen.github.io/files/disciplines/statistical_inference/monitoria_13_07_2022.pdf)|
+|20/07/2022|Lista adicional|Ver soluções|
   
 ## Documentos Adicionais 
 
