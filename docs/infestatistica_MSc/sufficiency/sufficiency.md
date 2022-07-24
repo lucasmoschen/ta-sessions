@@ -46,7 +46,7 @@ A estatística de ordem é uma estatística que pouco reduz a informação do da
 De fato, só retira a questão da ordenação. 
 Todavia, algumas vezes uma estatística mais simples também é suficiente e, por isso, faz sentido definir quando ela é mínima.
 
-> Uma estatística suficiente $T$ é dita **suficiente mínima** se para toda estatística $U$, existe uma função mensurável $g$ tal que $T = g(U)$ para todo $\theta$.
+> Uma estatística suficiente $T$ é dita **suficiente mínima** se para toda estatística suficiente $U$, existe uma função mensurável $g$ tal que $T = g(U)$ para todo $\theta$.
 
 **Teorema (Lehmann-Scheffé):** Seja $f(x|\theta)$ a densidade e $T$ uma função mensurável tal que $T(x) = T(y) \iff y \in D(x)$, com
 $$
