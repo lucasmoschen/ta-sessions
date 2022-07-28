@@ -1,8 +1,8 @@
 # Teaching Assistant Repository
 
 This repository has some topics about my TA sessions: Linear Algebra, Ordinary
-Differential Equations and Statistical Inference. It uses Python, Latex and
-Markdown for helping in the teaching assistance. 
+Differential Equations, Statistical Inference (frequentist and Bayesian), Partial Differential Equations, Numerical Analysis and Functional Analyis. 
+It uses Python, Latex and Markdown for helping in the teaching assistance. 
 
 All the information is located in the
 [website](https://lucasmoschen.github.io/ta-sessions/).
@@ -23,4 +23,3 @@ scipy                              1.5.2
 seaborn                            0.11.0   
 statsmodels                        0.11.1  
 ```
-
