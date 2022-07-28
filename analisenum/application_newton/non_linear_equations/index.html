@@ -181,13 +181,13 @@
 <h1 id="metodos-numericos-para-solucao-de-equacoes-nao-lineares">Métodos numéricos para solução de equações não lineares</h1>
 <p>Escrevemos no <a href="/ta-sessions/analisenum/non_linear_equations">parte anterior</a> o resumo dos algoritmos de alguns métodos para solução de equações não lineares, e não são os únicos. Modificações desses métodos, em especial do Método de Newton são constantemente sugeridas para melhorar a
 convergência. Fica claro que muitos sistemas no mundo real são não lineares. Uma aplicação comum é resolver problemas de otimização. Por exemplo, quando queremos maximizar em conjuntos abertos, se conseguirmos provar algumas condições, podemos assegurar que o máximo se encontra quando <script type="math/tex">f'(x) = 0</script>. Logo, o problema de otimização se resume a um problema de encontrar raízes. </p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">scipy.special</span> <span class="k">as</span> <span class="nn">scis</span>
-<span class="kn">import</span> <span class="nn">scipy.optimize</span> <span class="k">as</span> <span class="nn">scop</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-
-<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
-</code></pre></div>
+<p>```python
+import numpy as np
+import scipy.special as scis
+import scipy.optimize as scop
+import matplotlib.pyplot as plt</p>
+<p>%matplotlib inline
+```</p>
 <p>Um jogador A ganha com placar (21-0) do jogador B em um jogo de <a href="https://pt.wikipedia.org/wiki/Raquetebol">raquetebol</a> com <a href="https://dokumen.tips/documents/probability-of-a-shutout-in-racquetball-58dea76bc2677.html">probabilidade</a>. </p>
 <p>
 <script type="math/tex; mode=display">
@@ -195,19 +195,19 @@ P = \frac{p+1}{2}\left(\frac{p}{1-p+p^2}\right)^{21},
 </script>
 </p>
 <p>em que <script type="math/tex">p</script> é a probabilidade de <script type="math/tex">A</script> ganhar um rally qualquer. Qual o valor de <script type="math/tex">p</script> que assegura que <script type="math/tex">A</script> vencerá com esse placar em pelo menos metade dos jogos? Esse é um problema real proposto por Ralph Levine para Joseph Keller.</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">P</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">p</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">p</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">p</span><span class="o">**</span><span class="mi">2</span><span class="o">-</span><span class="n">p</span><span class="p">))</span><span class="o">**</span><span class="p">(</span><span class="mi">21</span><span class="p">)</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="n">p_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
-<span class="n">P_values</span> <span class="o">=</span> <span class="n">P</span><span class="p">(</span><span class="n">p_values</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">p_values</span><span class="p">,</span> <span class="n">P_values</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;darkblue&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Probabilidade de 21-0 para cada p&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.55</span><span class="p">,</span> <span class="s1">&#39;$P = 0.5$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$p$&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;$P$&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</code></pre></div>
+<p><code>python
+def P(p):
+    return (p+1)/2 * (p/(1 + p**2-p))**(21)</code></p>
+<p><code>python
+p_values = np.linspace(0, 1, 50)
+P_values = P(p_values)
+plt.plot(p_values, P_values, color='r')
+plt.axhline(0.5, linestyle = '--', color = 'darkblue')
+plt.title('Probabilidade de 21-0 para cada p')
+plt.text(0.7, 0.55, '$P = 0.5$', fontsize=12)
+plt.xlabel('$p$')
+plt.ylabel('$P$')
+plt.show()</code></p>
 <p><img alt="png" src="../output_4_0.png" /></p>
 <p>Vamos explorar métodos de resolver a equação <script type="math/tex">P(p) = 0.5</script> para <script type="math/tex">p</script>, isto é, <script type="math/tex">P(p) - 0.5 = 0</script>, através do método do Ponto Fixo e do Método de Newton.  </p>
 <h2 id="iteracao-de-ponto-fixo">Iteração de Ponto Fixo</h2>
@@ -218,36 +218,35 @@ f(p) = 0.5 - \frac{p+1}{2}\left(\frac{p}{1-p+p^2}\right)^{21} + p = p,
 </script>
 </p>
 <p>é a função que admite o ponto fixo que queremos. Um ponto importante seria provar as condições de funcionamento do método. Porém, não é difícil ver que <script type="math/tex">f([0,1]) \not \subseteq [0,1]</script>, o que já quebra nosso teorema.</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">p</span><span class="p">):</span> 
-    <span class="k">return</span> <span class="mf">0.5</span> <span class="o">-</span> <span class="n">P</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">+</span> <span class="n">p</span>
+<p>```python
+def f(p): 
+    return 0.5 - P(p) + p</p>
+<p>def fixed_point(x0, tol = 1e-5, max_ite = 1e4): </p>
+<pre><code>x1 = f(x0)
+err = [abs(x1 - x0)]
+sols = [x0, x1]
 
-<span class="k">def</span> <span class="nf">fixed_point</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">tol</span> <span class="o">=</span> <span class="mf">1e-5</span><span class="p">,</span> <span class="n">max_ite</span> <span class="o">=</span> <span class="mf">1e4</span><span class="p">):</span> 
+while err[-1] &gt; tol and len(err) &lt;= max_ite:
 
-    <span class="n">x1</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x0</span><span class="p">)</span>
-    <span class="n">err</span> <span class="o">=</span> <span class="p">[</span><span class="nb">abs</span><span class="p">(</span><span class="n">x1</span> <span class="o">-</span> <span class="n">x0</span><span class="p">)]</span>
-    <span class="n">sols</span> <span class="o">=</span> <span class="p">[</span><span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">]</span>
+    sols.append(f(sols[-1]))
+    err.append(abs(sols[-1] - sols[-2]))
 
-    <span class="k">while</span> <span class="n">err</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">tol</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">err</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">max_ite</span><span class="p">:</span> 
-
-        <span class="n">sols</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">sols</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
-        <span class="n">err</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">sols</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">sols</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]))</span>
-
-    <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;sol&#39;</span><span class="p">:</span> <span class="n">sols</span><span class="p">,</span> <span class="s1">&#39;errors&#39;</span><span class="p">:</span> <span class="n">err</span><span class="p">}</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="mf">0.7</span><span class="p">))</span>
-</code></pre></div>
+return {'sol': sols, 'errors': err}
+</code></pre>
+<p>print(f(0.7))
+```</p>
 <pre><code>1.1329638832103943
 </code></pre>
 <p>Bom, mas vamos supor que mesmo assim quiséssemos usar esse método.</p>
-<div class="highlight"><pre><span></span><code><span class="n">res</span> <span class="o">=</span> <span class="n">fixed_point</span><span class="p">(</span><span class="mf">0.7</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="s1">&#39;sol&#39;</span><span class="p">])),</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;sol&#39;</span><span class="p">])</span>
-</code></pre></div>
+<p><code>python
+res = fixed_point(0.7)
+plt.scatter(range(len(res['sol'])), res['sol'])</code></p>
 <pre><code>&lt;matplotlib.collections.PathCollection at 0x7f6a17b5eb38&gt;
 </code></pre>
 <p><img alt="png" src="../output_8_1.png" /></p>
 <p>Ele não converge! Mas a gente já devia ter ficado desconfiado, pois justamente as condições do Teorema não functionavam. Em particular, é fácil ver que ele não é nem não expansivo. Usando Scipy:</p>
-<div class="highlight"><pre><span></span><code><span class="n">scop</span><span class="o">.</span><span class="n">fixed_point</span><span class="p">(</span><span class="n">func</span> <span class="o">=</span> <span class="n">f</span><span class="p">,</span> <span class="n">x0</span> <span class="o">=</span> <span class="mf">0.81</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;iteration&#39;</span><span class="p">)</span>
-</code></pre></div>
+<p><code>python
+scop.fixed_point(func = f, x0 = 0.81, method = 'iteration')</code></p>
 <pre><code>---------------------------------------------------------------------------
 
 RuntimeError                              Traceback (most recent call last)
@@ -273,25 +272,25 @@ RuntimeError                              Traceback (most recent call last)
 RuntimeError: Failed to converge after 500 iterations, value is 0.4998542288112865
 </code></pre>
 <p>Existe uma variação desse dado pelo método Steffensen com Aitken's <script type="math/tex">\Delta^2</script>, que constrói uma sequência com onvergência mais rápida, a partir da inicial. </p>
-<div class="highlight"><pre><span></span><code><span class="o">%</span><span class="n">timeit</span> <span class="n">scop</span><span class="o">.</span><span class="n">fixed_point</span><span class="p">(</span><span class="n">func</span> <span class="o">=</span> <span class="n">f</span><span class="p">,</span> <span class="n">x0</span> <span class="o">=</span> <span class="mf">0.3</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;del2&#39;</span><span class="p">)</span>
-</code></pre></div>
+<p><code>python
+%timeit scop.fixed_point(func = f, x0 = 0.3, method = 'del2')</code></p>
 <pre><code>1.08 ms ± 120 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
 </code></pre>
-<div class="highlight"><pre><span></span><code><span class="n">scop</span><span class="o">.</span><span class="n">fixed_point</span><span class="p">(</span><span class="n">func</span> <span class="o">=</span> <span class="n">f</span><span class="p">,</span> <span class="n">x0</span> <span class="o">=</span> <span class="mf">0.3</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;del2&#39;</span><span class="p">)</span>
-</code></pre></div>
+<p><code>python
+scop.fixed_point(func = f, x0 = 0.3, method = 'del2')</code></p>
 <pre><code>array(0.84230479)
 </code></pre>
-<div class="highlight"><pre><span></span><code><span class="o">%</span><span class="n">timeit</span> <span class="n">scop</span><span class="o">.</span><span class="n">fixed_point</span><span class="p">(</span><span class="n">func</span> <span class="o">=</span> <span class="n">f</span><span class="p">,</span> <span class="n">x0</span> <span class="o">=</span> <span class="mf">0.8</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;del2&#39;</span><span class="p">)</span>
-</code></pre></div>
+<p><code>python
+%timeit scop.fixed_point(func = f, x0 = 0.8, method = 'del2')</code></p>
 <pre><code>1.21 ms ± 165 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
 </code></pre>
-<div class="highlight"><pre><span></span><code><span class="n">scop</span><span class="o">.</span><span class="n">fixed_point</span><span class="p">(</span><span class="n">func</span> <span class="o">=</span> <span class="n">f</span><span class="p">,</span> <span class="n">x0</span> <span class="o">=</span> <span class="mf">0.8</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;del2&#39;</span><span class="p">)</span>
-</code></pre></div>
+<p><code>python
+scop.fixed_point(func = f, x0 = 0.8, method = 'del2')</code></p>
 <pre><code>array(0.84230479)
 </code></pre>
 <p>Olhe o que acontece com <script type="math/tex">x_0 = 0.1</script>. </p>
-<div class="highlight"><pre><span></span><code><span class="n">scop</span><span class="o">.</span><span class="n">fixed_point</span><span class="p">(</span><span class="n">func</span> <span class="o">=</span> <span class="n">f</span><span class="p">,</span> <span class="n">x0</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;del2&#39;</span><span class="p">)</span>
-</code></pre></div>
+<p><code>python
+scop.fixed_point(func = f, x0 = 0.1, method = 'del2')</code></p>
 <pre><code>array(-3.51843721e+13)
 </code></pre>
 <h2 id="metodo-de-newton">Método de Newton</h2>
@@ -307,37 +306,37 @@ RuntimeError: Failed to converge after 500 iterations, value is 0.49985422881128
 g'(p) = \frac{1}{p+1} + \frac{21}{p} - \frac{21}{1 - p + p^2}(2p - 1)
 </script>
 </p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">p</span><span class="p">):</span> 
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">p</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">21</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">log1p</span><span class="p">(</span><span class="n">p</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">p</span><span class="p">))</span>
-
-<span class="k">def</span> <span class="nf">g_prime</span><span class="p">(</span><span class="n">p</span><span class="p">):</span> 
-    <span class="k">return</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">p</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">21</span> <span class="o">/</span> <span class="n">p</span> <span class="o">-</span> <span class="mi">21</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">p</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p</span> <span class="o">+</span> <span class="n">p</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-</code></pre></div>
+<p>```python
+def g(p): 
+    return np.log(p+1) + 21<em>(np.log(p) - np.log1p(p</em>*2 - p))</p>
+<p>def g_prime(p): 
+    return 1 / (p+1) + 21 / p - 21 * (2<em>p - 1) / (1 - p + p</em>*2)
+```</p>
 <p>Podemos provar analiticamente que a derivada é estritamente positiva, mas faremos a observação numérica através do seguinte gráfico. </p>
-<div class="highlight"><pre><span></span><code><span class="n">g_values</span> <span class="o">=</span> <span class="n">g_prime</span><span class="p">(</span><span class="n">p_values</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">p_values</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">g_values</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Derivada da função derivada&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$p$&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;$g</span><span class="se">\&#39;</span><span class="s2">(p)$&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</code></pre></div>
+<p><code>python
+g_values = g_prime(p_values[1:])
+plt.plot(p_values[1:], g_values, color='r')
+plt.title('Derivada da função derivada')
+plt.xlabel('$p$')
+plt.ylabel("$g\'(p)$")
+plt.show()</code></p>
 <p><img alt="png" src="../output_21_0.png" /></p>
 <p>Aplicando o método de newton através do Scipy. Observe que o seu tempo deu bem menor que o anterior, mesmo com um valor de <script type="math/tex">x_0</script> bem distante. </p>
-<div class="highlight"><pre><span></span><code><span class="o">%</span><span class="n">timeit</span> <span class="n">scop</span><span class="o">.</span><span class="n">newton</span><span class="p">(</span><span class="n">func</span> <span class="o">=</span> <span class="n">g</span><span class="p">,</span> <span class="n">x0</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">fprime</span> <span class="o">=</span> <span class="n">g_prime</span><span class="p">)</span>
-</code></pre></div>
+<p><code>python
+%timeit scop.newton(func = g, x0 = 0.1, fprime = g_prime)</code></p>
 <pre><code>836 µs ± 117 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
 </code></pre>
-<div class="highlight"><pre><span></span><code><span class="n">scop</span><span class="o">.</span><span class="n">newton</span><span class="p">(</span><span class="n">func</span> <span class="o">=</span> <span class="n">g</span><span class="p">,</span> <span class="n">x0</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">fprime</span> <span class="o">=</span> <span class="n">g_prime</span><span class="p">)</span>
-</code></pre></div>
+<p><code>python
+scop.newton(func = g, x0 = 0.1, fprime = g_prime)</code></p>
 <pre><code>0.8423047910355657
 </code></pre>
 <p>Observe o método da Secante, um método que também usa a ideia de tangente, mas sem consultar a derivada. </p>
-<div class="highlight"><pre><span></span><code><span class="o">%</span><span class="n">timeit</span> <span class="n">scop</span><span class="o">.</span><span class="n">newton</span><span class="p">(</span><span class="n">func</span> <span class="o">=</span> <span class="n">g</span><span class="p">,</span> <span class="n">x0</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">)</span>
-</code></pre></div>
+<p><code>python
+%timeit scop.newton(func = g, x0 = 0.1)</code></p>
 <pre><code>631 µs ± 111 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
 </code></pre>
-<div class="highlight"><pre><span></span><code><span class="n">scop</span><span class="o">.</span><span class="n">newton</span><span class="p">(</span><span class="n">func</span> <span class="o">=</span> <span class="n">g</span><span class="p">,</span> <span class="n">x0</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">)</span>
-</code></pre></div>
+<p><code>python
+scop.newton(func = g, x0 = 0.1)</code></p>
 <pre><code>0.8423047910355633
 </code></pre>
 <h3 id="exemplo-adicional">Exemplo adicional</h3>
@@ -347,30 +346,30 @@ g'(p) = \frac{1}{p+1} + \frac{21}{p} - \frac{21}{1 - p + p^2}(2p - 1)
 f(x) = x\sin(\pi x) - \exp(-x)
 </script>
 </p>
-<div class="highlight"><pre><span></span><code><span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">)</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">xs</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.57</span><span class="p">,</span> <span class="mf">0.83</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.27</span><span class="p">]</span>
-<span class="n">texts</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;raiz$_1$&#39;</span><span class="p">,</span> <span class="s1">&#39;raiz$_2$&#39;</span><span class="p">,</span> <span class="s1">&#39;mínimo local&#39;</span><span class="p">]</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">xs</span><span class="p">)):</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">([</span><span class="n">xs</span><span class="p">[</span><span class="n">i</span><span class="p">]],</span> <span class="p">[</span><span class="n">f</span><span class="p">(</span><span class="n">xs</span><span class="p">[</span><span class="n">i</span><span class="p">])],</span><span class="n">marker</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="n">s</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">xs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">xs</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">texts</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;-.&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$x$&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$f(x)$&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;$f(x)= x sin(\pi x) - exp(-x)$&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</code></pre></div>
+<p><code>python
+f = lambda x: x * np.sin(np.pi * x) - np.exp(-x)</code></p>
+<p>```python
+x = np.linspace(-1, 2, 100)
+y = f(x)</p>
+<p>fig, ax = plt.subplots()
+ax.plot(x, y, color='r',zorder=0)
+xs = [0.57, 0.83, -0.27]
+texts = ['raiz<script type="math/tex">_1</script>', 'raiz<script type="math/tex">_2</script>', 'mínimo local']
+for i in range(len(xs)):
+    ax.scatter([xs[i]], [f(xs[i])],marker='x',s=60)
+    ax.text(xs[i]+0.05, f(xs[i])-0.1, texts[i])
+ax.plot(x,np.zeros_like(x),color='gray',ls='-.',alpha=0.75)
+ax.set_xlabel('<script type="math/tex">x</script>')
+ax.set_ylabel('<script type="math/tex">f(x)</script>')
+plt.title('<script type="math/tex">f(x)= x sin(\pi x) - exp(-x)</script>')
+plt.show()
+```</p>
 <p><img alt="png" src="../output_30_0.png" /></p>
-<div class="highlight"><pre><span></span><code><span class="n">xspace</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
-
-<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">xspace</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Com x_0 = </span><span class="si">{0:5.2f}</span><span class="s1">, a raíz é </span><span class="si">{1:5.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">scop</span><span class="o">.</span><span class="n">newton</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">x</span><span class="p">)))</span>
-</code></pre></div>
+<p>```python
+xspace = np.linspace(-0.7, 0.7, 15)</p>
+<p>for x in xspace:
+    print('Com x_0 = {0:5.2f}, a raíz é {1:5.2f}'.format(x, scop.newton(f,x)))
+```</p>
 <pre><code>Com x_0 = -0.70, a raíz é  2.02
 Com x_0 = -0.60, a raíz é  0.58
 Com x_0 = -0.50, a raíz é  1.27
@@ -392,71 +391,68 @@ Com x_0 =  0.70, a raíz é  0.58
 método do ponto fixo, vamos utilizar a função <script type="math/tex">g(x) = \cos(x)</script>, naturalmente.
 Note que <script type="math/tex">g([0,1]) \subseteq [0,1]</script> e <script type="math/tex">|g'([0,1])| \subseteq [0,0.9]</script>, isto é,
 temos que as hipóteses para a iteração do ponto fixo são válidas. </p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">info</span><span class="p">):</span>
-    <span class="n">res</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">info</span><span class="p">[</span><span class="s1">&#39;print&#39;</span><span class="p">]:</span> 
-        <span class="n">info</span><span class="p">[</span><span class="s1">&#39;iter_x&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-        <span class="n">info</span><span class="p">[</span><span class="s1">&#39;iter_res&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">res</span>
-
-<span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">info</span><span class="p">):</span>
-    <span class="n">res</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">info</span><span class="p">[</span><span class="s1">&#39;print&#39;</span><span class="p">]:</span> 
-        <span class="n">info</span><span class="p">[</span><span class="s1">&#39;iter_x&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-        <span class="n">info</span><span class="p">[</span><span class="s1">&#39;iter_res&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">res</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;iter_x&#39;</span><span class="p">:</span> <span class="p">[],</span> <span class="s1">&#39;iter_res&#39;</span><span class="p">:</span> <span class="p">[],</span> <span class="s1">&#39;print&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">})</span>
-
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;-.&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;$f(x)= x - cos(x)$&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</code></pre></div>
+<p>```python
+def f(x, info):
+    res = x - np.cos(x)
+    if info['print']: 
+        info['iter_x'].append(x)
+        info['iter_res'].append(res)
+    return res</p>
+<p>def g(x, info):
+    res = np.cos(x)
+    if info['print']: 
+        info['iter_x'].append(x)
+        info['iter_res'].append(res)
+    return res
+```</p>
+<p>```python
+x = np.linspace(0, 1, 100)
+y = f(x, {'iter_x': [], 'iter_res': [], 'print': False})</p>
+<p>fig, ax = plt.subplots()
+ax.plot(x, y, color='r', zorder=0)
+ax.axhline(0, color = 'k', linestyle = '-.')
+ax.set_title('<script type="math/tex">f(x)= x - cos(x)</script>')
+plt.show()
+```</p>
 <p><img alt="png" src="../output_34_0.png" /></p>
-<div class="highlight"><pre><span></span><code><span class="n">info_newton</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;iter_x&#39;</span><span class="p">:</span> <span class="p">[],</span> <span class="s1">&#39;iter_res&#39;</span><span class="p">:</span> <span class="p">[],</span> <span class="s1">&#39;print&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
-<span class="n">info_secant</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;iter_x&#39;</span><span class="p">:</span> <span class="p">[],</span> <span class="s1">&#39;iter_res&#39;</span><span class="p">:</span> <span class="p">[],</span> <span class="s1">&#39;print&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
-<span class="n">info_bisect</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;iter_x&#39;</span><span class="p">:</span> <span class="p">[],</span> <span class="s1">&#39;iter_res&#39;</span><span class="p">:</span> <span class="p">[],</span> <span class="s1">&#39;print&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
-<span class="n">info_fixed</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;iter_x&#39;</span><span class="p">:</span> <span class="p">[],</span> <span class="s1">&#39;iter_res&#39;</span><span class="p">:</span> <span class="p">[],</span> <span class="s1">&#39;print&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
-
-<span class="n">newton</span> <span class="o">=</span> <span class="n">scop</span><span class="o">.</span><span class="n">newton</span><span class="p">(</span><span class="n">func</span> <span class="o">=</span> <span class="n">f</span><span class="p">,</span> 
-                     <span class="n">x0</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> 
-                     <span class="n">fprime</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">info</span><span class="p">:</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> 
-                     <span class="n">tol</span> <span class="o">=</span> <span class="mf">1e-10</span><span class="p">,</span> 
-                     <span class="n">maxiter</span> <span class="o">=</span> <span class="mi">200</span><span class="p">,</span> 
-                     <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="n">info_newton</span><span class="p">,))</span>
-
-<span class="n">secant</span> <span class="o">=</span> <span class="n">scop</span><span class="o">.</span><span class="n">newton</span><span class="p">(</span><span class="n">func</span> <span class="o">=</span> <span class="n">f</span><span class="p">,</span> 
-                     <span class="n">x0</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> 
-                     <span class="n">tol</span> <span class="o">=</span> <span class="mf">1e-10</span><span class="p">,</span> 
-                     <span class="n">maxiter</span> <span class="o">=</span> <span class="mi">200</span><span class="p">,</span> 
-                     <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="n">info_secant</span><span class="p">,))</span>
-
-<span class="n">bisect</span> <span class="o">=</span> <span class="n">scop</span><span class="o">.</span><span class="n">bisect</span><span class="p">(</span><span class="n">f</span> <span class="o">=</span> <span class="n">f</span><span class="p">,</span> 
-                     <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
-                     <span class="n">b</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
-                     <span class="n">xtol</span> <span class="o">=</span> <span class="mf">1e-10</span><span class="p">,</span> 
-                     <span class="n">maxiter</span> <span class="o">=</span> <span class="mi">200</span><span class="p">,</span> 
-                     <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="n">info_bisect</span><span class="p">,))</span>
-
-<span class="n">fixed_point</span> <span class="o">=</span> <span class="n">scop</span><span class="o">.</span><span class="n">fixed_point</span><span class="p">(</span><span class="n">func</span> <span class="o">=</span> <span class="n">g</span><span class="p">,</span> 
-                               <span class="n">x0</span> <span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> 
-                               <span class="n">xtol</span> <span class="o">=</span> <span class="mf">1e-10</span><span class="p">,</span> 
-                               <span class="n">bisectmethod</span> <span class="o">=</span> <span class="s1">&#39;iteration&#39;</span><span class="p">,</span> 
-                               <span class="n">maxiter</span> <span class="o">=</span> <span class="mi">200</span><span class="p">,</span> 
-                               <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="n">info_fixed</span><span class="p">,))</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">info_bisect</span><span class="p">[</span><span class="s1">&#39;iter_x&#39;</span><span class="p">],</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;bisect: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">info_bisect</span><span class="p">[</span><span class="s1">&#39;iter_x&#39;</span><span class="p">])))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">info_newton</span><span class="p">[</span><span class="s1">&#39;iter_x&#39;</span><span class="p">],</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;newton: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">info_newton</span><span class="p">[</span><span class="s1">&#39;iter_x&#39;</span><span class="p">])))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">info_fixed</span><span class="p">[</span><span class="s1">&#39;iter_x&#39;</span><span class="p">]),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;fixed point: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">info_fixed</span><span class="p">[</span><span class="s1">&#39;iter_x&#39;</span><span class="p">])))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">info_secant</span><span class="p">[</span><span class="s1">&#39;iter_x&#39;</span><span class="p">],</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;secant: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">info_secant</span><span class="p">[</span><span class="s1">&#39;iter_x&#39;</span><span class="p">])))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Comparando alguns métodos&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</code></pre></div>
+<p>```python
+info_newton = {'iter_x': [], 'iter_res': [], 'print': True}
+info_secant = {'iter_x': [], 'iter_res': [], 'print': True}
+info_bisect = {'iter_x': [], 'iter_res': [], 'print': True}
+info_fixed = {'iter_x': [], 'iter_res': [], 'print': True}</p>
+<p>newton = scop.newton(func = f, 
+                     x0 = 0.5, 
+                     fprime = lambda x, info: 1 + np.sin(x), 
+                     tol = 1e-10, 
+                     maxiter = 200, 
+                     args = (info_newton,))</p>
+<p>secant = scop.newton(func = f, 
+                     x0 = 0.5, 
+                     tol = 1e-10, 
+                     maxiter = 200, 
+                     args = (info_secant,))</p>
+<p>bisect = scop.bisect(f = f, 
+                     a = 0,
+                     b = 1,
+                     xtol = 1e-10, 
+                     maxiter = 200, 
+                     args = (info_bisect,))</p>
+<p>fixed_point = scop.fixed_point(func = g, 
+                               x0 =0.5, 
+                               xtol = 1e-10, 
+                               bisectmethod = 'iteration', 
+                               maxiter = 200, 
+                               args = (info_fixed,))
+```</p>
+<p><code>python
+plt.plot(info_bisect['iter_x'], label = 'bisect: {}'.format(len(info_bisect['iter_x'])))
+plt.plot(info_newton['iter_x'], label = 'newton: {}'.format(len(info_newton['iter_x'])))
+plt.plot(np.array(info_fixed['iter_x']), label = 'fixed point: {}'.format(len(info_fixed['iter_x'])))
+plt.plot(info_secant['iter_x'], label = 'secant: {}'.format(len(info_secant['iter_x'])))
+plt.legend()
+plt.title('Comparando alguns métodos')
+plt.xscale('log')
+plt.show()</code></p>
 <p><img alt="png" src="../output_36_0.png" /></p></div>
         
         

@@ -203,30 +203,29 @@ técnica funciona rapidamente, o que é interessante. Não há nenhuma outra fil
 não funcione o afinador. </p>
 <p>A entrada é uma <code>string</code> com o nome do arquivo <code>.wav</code> e a saída é a nota com
 frequência mais aproximada entre <code>C, C#, D, D#, E, F, F#, G, G#, A, A#, B</code>. </p>
-<div class="highlight"><pre><span></span><code>note = afinador(&#39;CordaViolao.wav&#39;);
-disp(&#39;A nota tocada foi: &#39;)
-disp(note)
-
-function [note] = hps(yhat, n, N)
+<p>```{matlab}
+note = afinador('CordaViolao.wav');
+disp('A nota tocada foi: ')
+disp(note)</p>
+<p>function [note] = hps(yhat, n, N)
     % Esta função tem o objetivo de calcular o espectro produto harmônico
     % A partir de uma yhat na frequência e de um número N de harmônicos 
-    % calcula média geométrica. 
-
-    % Queremos reconhecer os harmônicos do tom principal. 
-    note = ones(n,1);
-    bins = 1:n;
-    for i = 1:N
-       bins_temp = bins*i; 
-       xhat = ones(n,1);
-       mask = bins_temp &lt;= n;
-       xhat(mask) = yhat(bins_temp(mask));
-       note = note.*abs(xhat);
-    end
-    note = (note).^(1/N);
+    % calcula média geométrica. </p>
+<pre><code>% Queremos reconhecer os harmônicos do tom principal. 
+note = ones(n,1);
+bins = 1:n;
+for i = 1:N
+   bins_temp = bins*i; 
+   xhat = ones(n,1);
+   mask = bins_temp &lt;= n;
+   xhat(mask) = yhat(bins_temp(mask));
+   note = note.*abs(xhat);
 end
-
-function [strnote] = get_note(frequency)
-    notes = char({&#39;C&#39;,&#39;C#&#39;,&#39;D&#39;,&#39;D#&#39;,&#39;E&#39;,&#39;F&#39;,&#39;F#&#39;,&#39;G&#39;,&#39;G#&#39;,&#39;A&#39;,&#39;A#&#39;,&#39;B&#39;});
+note = (note).^(1/N);
+</code></pre>
+<p>end</p>
+<p>function [strnote] = get_note(frequency)
+    notes = char({'C','C#','D','D#','E','F','F#','G','G#','A','A#','B'});
     freqs = [523, 554,587, 622,659,698, 740,784, 831,880, 932, 988];
     % Se a frequência não está na oitava, o coloco multiplicando e dividindo
     % por 2. Sabemos que a nota será a mesma, em uma diferente frequência.
@@ -239,25 +238,22 @@ function [strnote] = get_note(frequency)
     [~, argmin] = min(abs(freqs - frequency));
     strnote = notes(argmin,:);
     strnote = strnote(~isspace(strnote)); 
-end
-
-function [note] = afinador(name)
+end</p>
+<p>function [note] = afinador(name)
    [y,Fs] = audioread(name);
    n = length(y);
    % transform the time scale to frequency scale
-   yhat = fft(y);      
-   yhat = abs(yhat);
-
-   freq = (1:n)*Fs/n;
-
-   % use the function harmonic product spectrum
+   yhat = fft(y);    <br />
+   yhat = abs(yhat);</p>
+<p>freq = (1:n)*Fs/n;</p>
+<p>% use the function harmonic product spectrum
    yhat = hps(yhat, n, 5);
    % get the dominant tone
    [~, argmax] = max(yhat);
    note = freq(argmax);
    note = get_note(note);
 end
-</code></pre></div>
+```</p>
 <h4 id="o-polvo">O Polvo</h4>
 <p>Nesse exercício, primeiro temos o polvo, representado pelos vetores <script type="math/tex">x</script> e <script type="math/tex">y</script>
 </p>
@@ -296,54 +292,48 @@ a matriz da transformada de Fourier: </p>
 <img src="../Imagens/Polvo-14501.png" alt="drawing" width="400"/></p>
 <p>Como conclusão, conseguimos sequências <script type="math/tex">\vec{x}(t)</script> e <script type="math/tex">\vec{y}(t)</script> que sejam
 versões suavizadas de <script type="math/tex">\vec{x}</script> e <script type="math/tex">\vec{y}</script>. </p>
-<div class="highlight"><pre><span></span><code>polvo = csvread(&#39;Polvo.csv&#39;);
-
-c = 0.5;
-[D,x0,y0] = pre_calculation(polvo(:,1), polvo(:,2), c);
-
-figure
-plot(polvo(:,1), polvo(:,2),&#39;r.&#39;)
+<p>```{matlab}
+polvo = csvread('Polvo.csv');</p>
+<p>c = 0.5;
+[D,x0,y0] = pre_calculation(polvo(:,1), polvo(:,2), c);</p>
+<p>figure
+plot(polvo(:,1), polvo(:,2),'r.')
 xlim([min(polvo(:,1)), max(polvo(:,1))]);
 ylim([min(polvo(:,2)), max(polvo(:,2))]);
-title(&#39;O Polvo de EDP&#39;)
-xlabel(&#39;x&#39;)
-ylabel(&#39;y&#39;)
-
-pause(2)
-
-for t = 1:250:15000
+title('O Polvo de EDP')
+xlabel('x')
+ylabel('y')</p>
+<p>pause(2)</p>
+<p>for t = 1:250:15000
    x = heat_filter(x0, t, D);
    y = heat_filter(y0, t, D);
    plot(x,y)
    disp(t)
    pause(0.1)
    if ismember(t, [501, 10001, 14501])
-       saveas(gcf, join([&quot;Polvo-&quot;, t, &quot;.png&quot;], &#39;&#39;));
+       saveas(gcf, join(["Polvo-", t, ".png"], ''));
    end
-end
-
-clear D;
+end</p>
+<p>clear D;
 clear x;
 clear y;
 clear x0;
-clear y0;
-
-function [D, x0, y0] = pre_calculation(x, y, c)
+clear y0;</p>
+<p>function [D, x0, y0] = pre_calculation(x, y, c)
     % Calculate the diagonal matrix of convolucional matrix of size n
     n = length(x);
-    D = fft(c*[-2,1,zeros(1,n-3),1]&#39;);
+    D = fft(c*[-2,1,zeros(1,n-3),1]');
     x0 = ifft(x);
     y0 = ifft(y);
-end
-
-function  [filter] = heat_filter(u0, t, D)
+end</p>
+<p>function  [filter] = heat_filter(u0, t, D)
     % This function get a vector, make a convolucional filter (gaussian),
     % that is equivalent to the solution of heat equation and return, for
     % each t, the x(t) smoothed.
-    filter = exp(D*t).*u0;
+    filter = exp(D<em>t).</em>u0;
     filter = real(fft(filter));
 end
-</code></pre></div></div>
+```</p></div>
         
         
     </div>

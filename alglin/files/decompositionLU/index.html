@@ -174,19 +174,19 @@
 
 <h1 id="decomposicao-lu">Decomposição LU</h1>
 <p>Fatorização de uma matriz <script type="math/tex">A</script> como um produto <script type="math/tex">P\cdot A = L\cdot U</script>, onde a primeira matrix é triangular inferior (lower), enquanto a segunda é triangular superior (upper). A matriz <script type="math/tex">P</script> é uma matriz de permutação que garante a existência dessa fatorização. </p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">scipy.linalg</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="n">A</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span> <span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-</code></pre></div>
+<p><code>python
+import scipy.linalg</code></p>
+<p><code>python
+A = scipy.array([ [7, 3, -1, 2], [3, 8, 1, -4], [-1, 1, 4, -1], [2, -4, -1, 6] ])
+print(A)</code></p>
 <pre><code>[[ 7  3 -1  2]
  [ 3  8  1 -4]
  [-1  1  4 -1]
  [ 2 -4 -1  6]]
 </code></pre>
-<div class="highlight"><pre><span></span><code><span class="n">P</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">U</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">lu</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">P</span><span class="p">),</span> <span class="nb">print</span><span class="p">(</span><span class="n">L</span><span class="p">),</span> <span class="nb">print</span><span class="p">(</span><span class="n">U</span><span class="p">)</span>
-</code></pre></div>
+<p><code>python
+P, L, U = scipy.linalg.lu(A)
+print(P), print(L), print(U)</code></p>
 <pre><code>[[1. 0. 0. 0.]
  [0. 1. 0. 0.]
  [0. 0. 1. 0.]

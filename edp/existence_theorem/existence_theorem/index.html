@@ -168,6 +168,8 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
         <li class="first-level active"><a href="#teorema-de-picard-lindelof">Teorema de Picard-Lindelof</a></li>
+        <li class="first-level "><a href="#defining-the-function">defining the function</a></li>
+        <li class="first-level "><a href="#time-of-definition">time of definition</a></li>
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
@@ -179,12 +181,12 @@
 y'(t) = f(t, y(t)), y(t_0) = y_0. 
 </script>
 </p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">solve_ivp</span><span class="p">,</span> <span class="n">quad</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
-</code></pre></div>
+<p><code>python
+import numpy as np
+from scipy.integrate import solve_ivp, quad
+import matplotlib.pyplot as plt
+import seaborn as sns
+sns.set()</code></p>
 <p>O teorema basicamente consiste em construir um operador da seguinte forma: </p>
 <p>
 <script type="math/tex; mode=display">
@@ -208,66 +210,66 @@ y_0(t) = y_0.
 </p>
 <p>O teorema de ponto fixo de Banach nos mostra que <script type="math/tex">y_{k}</script> converge para a solução <script type="math/tex">y</script> para todo ponto <script type="math/tex">t</script> em uma vizinhança de 0. </p>
 <p>Usaremos a função de quadratura para integrar a função <script type="math/tex">f</script>. </p>
-<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="o">*</span><span class="n">a</span><span class="p">)</span>
-</code></pre></div>
+<p><code>python
+a = (1,2)
+(1,*a)</code></p>
 <pre><code>(1, 1, 2)
 </code></pre>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">picard_iteration</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span> <span class="n">t_eval</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">yk</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
+<p>```python
+def picard_iteration(fun, t_eval, y0, yk, args):</p>
+<pre><code>pieces = [quad(func = fun, 
+               a = t_eval[i], 
+               b = t_eval[i+1], 
+               args = ((yk[i] + yk[i+1])/2, *args)
+              )[0] for i in range(len(t_eval)-1)]
+pieces.insert(0,0)
+yk = np.cumsum(np.array(pieces)) + y0
 
-    <span class="n">pieces</span> <span class="o">=</span> <span class="p">[</span><span class="n">quad</span><span class="p">(</span><span class="n">func</span> <span class="o">=</span> <span class="n">fun</span><span class="p">,</span> 
-                   <span class="n">a</span> <span class="o">=</span> <span class="n">t_eval</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> 
-                   <span class="n">b</span> <span class="o">=</span> <span class="n">t_eval</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> 
-                   <span class="n">args</span> <span class="o">=</span> <span class="p">((</span><span class="n">yk</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">yk</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
-                  <span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t_eval</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)]</span>
-    <span class="n">pieces</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-    <span class="n">yk</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pieces</span><span class="p">))</span> <span class="o">+</span> <span class="n">y0</span>
-
-    <span class="k">return</span> <span class="n">yk</span>
-</code></pre></div>
+return yk
+</code></pre>
+<p>```</p>
 <p>Considere o problema 
 <script type="math/tex; mode=display">
 y' = ay, \\
 y(0) = y_0
 </script>
 </p>
-<div class="highlight"><pre><span></span><code><span class="c1"># defining the function</span>
-<span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">a</span><span class="p">:</span> <span class="n">a</span><span class="o">*</span><span class="n">y</span>
-<span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
-
-<span class="c1"># time of definition</span>
-<span class="n">upper</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">upper</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
-</code></pre></div>
+<p>```python</p>
+<h1 id="defining-the-function">defining the function</h1>
+<p>f = lambda t, y, a: a*y
+a = 2</p>
+<h1 id="time-of-definition">time of definition</h1>
+<p>upper = 1
+n = 100
+t = np.linspace(0,upper,n)
+```</p>
 <p>Esta é a solução usando Runge-Kutta.</p>
-<div class="highlight"><pre><span></span><code><span class="n">solution</span> <span class="o">=</span>  <span class="n">solve_ivp</span><span class="p">(</span><span class="n">fun</span> <span class="o">=</span> <span class="n">f</span><span class="p">,</span> 
-                      <span class="n">t_span</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">upper</span><span class="p">),</span> 
-                      <span class="n">t_eval</span> <span class="o">=</span> <span class="n">t</span><span class="p">,</span>
-                      <span class="n">y0</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,),</span> 
-                      <span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;RK45&#39;</span><span class="p">,</span> 
-                      <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span><span class="p">,))</span>
-</code></pre></div>
+<p><code>python
+solution =  solve_ivp(fun = f, 
+                      t_span = (0, upper), 
+                      t_eval = t,
+                      y0 = (1,), 
+                      method = 'RK45', 
+                      args = (a,))</code></p>
 <p>Aqui nós apresentamos as primeiras iterações de Picard.</p>
-<div class="highlight"><pre><span></span><code><span class="n">y0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-<span class="n">y1</span> <span class="o">=</span> <span class="n">picard_iteration</span><span class="p">(</span><span class="n">fun</span> <span class="o">=</span> <span class="n">f</span><span class="p">,</span> <span class="n">t_eval</span> <span class="o">=</span> <span class="n">t</span><span class="p">,</span> <span class="n">y0</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,),</span> <span class="n">yk</span> <span class="o">=</span> <span class="n">y0</span><span class="p">,</span> <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span><span class="p">,))</span>
-<span class="n">y2</span> <span class="o">=</span> <span class="n">picard_iteration</span><span class="p">(</span><span class="n">fun</span> <span class="o">=</span> <span class="n">f</span><span class="p">,</span> <span class="n">t_eval</span> <span class="o">=</span> <span class="n">t</span><span class="p">,</span> <span class="n">y0</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,),</span> <span class="n">yk</span> <span class="o">=</span> <span class="n">y1</span><span class="p">,</span> <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span><span class="p">,))</span>
-<span class="n">y3</span> <span class="o">=</span> <span class="n">picard_iteration</span><span class="p">(</span><span class="n">fun</span> <span class="o">=</span> <span class="n">f</span><span class="p">,</span> <span class="n">t_eval</span> <span class="o">=</span> <span class="n">t</span><span class="p">,</span> <span class="n">y0</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,),</span> <span class="n">yk</span> <span class="o">=</span> <span class="n">y2</span><span class="p">,</span> <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span><span class="p">,))</span>
-<span class="n">y4</span> <span class="o">=</span> <span class="n">picard_iteration</span><span class="p">(</span><span class="n">fun</span> <span class="o">=</span> <span class="n">f</span><span class="p">,</span> <span class="n">t_eval</span> <span class="o">=</span> <span class="n">t</span><span class="p">,</span> <span class="n">y0</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,),</span> <span class="n">yk</span> <span class="o">=</span> <span class="n">y3</span><span class="p">,</span> <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span><span class="p">,))</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Picard iterations to approximate a function&#39;</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">solution</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">solution</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Solution y(t)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">solution</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;$y_0(t)$&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">solution</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;$y_1(t)$&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">solution</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;$y_2(t)$&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">solution</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">y3</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;$y_3(t)$&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">solution</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">y4</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;$y_4(t)$&#39;</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</code></pre></div>
+<p><code>python
+y0 = np.ones(n)
+y1 = picard_iteration(fun = f, t_eval = t, y0 = (1,), yk = y0, args = (a,))
+y2 = picard_iteration(fun = f, t_eval = t, y0 = (1,), yk = y1, args = (a,))
+y3 = picard_iteration(fun = f, t_eval = t, y0 = (1,), yk = y2, args = (a,))
+y4 = picard_iteration(fun = f, t_eval = t, y0 = (1,), yk = y3, args = (a,))</code></p>
+<p>```python
+plt.figure(figsize = (10,6))
+plt.title('Picard iterations to approximate a function')</p>
+<p>plt.plot(solution.t, solution.y[0], label = 'Solution y(t)')
+plt.plot(solution.t, y0, label = r'<script type="math/tex">y_0(t)</script>')
+plt.plot(solution.t, y1, label = r'<script type="math/tex">y_1(t)</script>')
+plt.plot(solution.t, y2, label = r'<script type="math/tex">y_2(t)</script>')
+plt.plot(solution.t, y3, label = r'<script type="math/tex">y_3(t)</script>')
+plt.plot(solution.t, y4, label = r'<script type="math/tex">y_4(t)</script>')</p>
+<p>plt.legend()
+plt.show()
+```</p>
 <p><img alt="png" src="../output_11_0.png" /></p></div>
         
         

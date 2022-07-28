@@ -174,6 +174,11 @@
                 <li class="third-level"><a href="#teorema_1">Teorema</a></li>
                 <li class="third-level"><a href="#teorema_2">Teorema</a></li>
                 <li class="third-level"><a href="#teorema_3">Teorema</a></li>
+        <li class="first-level "><a href="#definindo-cores">Definindo cores</a></li>
+        <li class="first-level "><a href="#esta-funcao-permite-plotar-o-backgroud">Esta função permite plotar o backgroud</a></li>
+        <li class="first-level "><a href="#definindo-o-espaco-da-imagem">Definindo o espaço da imagem</a></li>
+        <li class="first-level "><a href="#definindo-caracteristicas-do-background">Definindo características do background</a></li>
+        <li class="first-level "><a href="#definindo-plots-variaveis">Definindo plots variáveis</a></li>
             <li class="second-level"><a href="#hiperparametros">Hiperparâmetros</a></li>
                 
             <li class="second-level"><a href="#distribuicoes-a-priori-improprias">Distribuições a Priori Impróprias</a></li>
@@ -210,76 +215,67 @@
 </p>
 <h3 id="teorema_3">Teorema</h3>
 <p>Suponha que <script type="math/tex">X_1, ...., X_n \overset{iid}{\sim} \text{Exp}(\theta)</script>, onde <script type="math/tex">\theta</script> é desconhecido. Suponha também que a distribuição a priori de <script type="math/tex">\theta</script> é uma gamma com parâmetros <script type="math/tex">\alpha</script> e <script type="math/tex">\beta</script>. Então a distribuição a posteriori de <script type="math/tex">\theta</script> sejá gamma com parâmetros <script type="math/tex">\alpha + n</script> e <script type="math/tex">\beta + \sum_{i=1}^n x_i</script>. </p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> 
-<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
-
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">animation</span><span class="p">,</span> <span class="n">cm</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
-
-<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
-</code></pre></div>
+<p>```python
+import numpy as np 
+from scipy import stats</p>
+<p>import matplotlib.pyplot as plt
+from matplotlib import animation, cm
+from IPython.display import HTML</p>
+<p>%matplotlib inline
+```</p>
 <p>Suponha que <script type="math/tex">\theta</script> seja a probabilidade de um item ser defeituoso em uma série de items. Suponha que nossa priori em <script type="math/tex">\theta</script> é uma distribuição beta com parâmetros <script type="math/tex">\alpha</script> e <script type="math/tex">\beta</script>. São selecionados <script type="math/tex">n</script> items por vez para o teste. Sabemos que nossa posteriori será uma Beta com os parâmetros acima. Vejamos graficamente esse processo. </p>
-<div class="highlight"><pre><span></span><code><span class="n">theta_real</span> <span class="o">=</span> <span class="mf">0.1</span>
-<span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<p>```python
+theta_real = 0.1
+n = 100
+np.random.seed(10)</p>
+<p>XMIN = 0 
+XMAX = 1
+YMIN = 0
+YMAX = 5</p>
+<p>alpha = [1] 
+beta = [1] </p>
+<p>x = np.linspace(0.001,1,1000)</p>
+<h1 id="definindo-cores">Definindo cores</h1>
+<p>cmap = cm.autumn  </p>
+<h1 id="esta-funcao-permite-plotar-o-backgroud">Esta função permite plotar o backgroud</h1>
+<p>def init():
+    line.set_data([], [])
+    return (line,)
+```</p>
+<p>```python</p>
+<h1 id="definindo-o-espaco-da-imagem">Definindo o espaço da imagem</h1>
+<p>fig, ax = plt.subplots()</p>
+<h1 id="definindo-caracteristicas-do-background">Definindo características do background</h1>
+<p>ax.set_xlim((XMIN, XMAX))
+ax.set_ylim((YMIN, YMAX))
+ax.set_title('Evolução da posteriori a cada iteração')
+ax.vlines(theta_real, ymin = YMIN, ymax = YMAX, linestyle = '--', color = 'grey')</p>
+<h1 id="definindo-plots-variaveis">Definindo plots variáveis</h1>
+<p>line, = ax.plot([], [], lw=2)
+line2, _ = ax.plot(XMIN, XMAX, YMIN, YMAX, linestyle = ':')</p>
+<p>def animate(i, alpha, beta, x, n):</p>
+<pre><code># Amostro da distribuição
+sample = np.random.binomial(1, p = theta_real)
 
-<span class="n">XMIN</span> <span class="o">=</span> <span class="mi">0</span> 
-<span class="n">XMAX</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">YMIN</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">YMAX</span> <span class="o">=</span> <span class="mi">5</span>
+# Junto a lista que guarda os alphas e betas de cada iteração
+alpha.append(alpha[-1] + sample)
+beta.append(beta[-1] + 1 - sample)
 
-<span class="n">alpha</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> 
-<span class="n">beta</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> 
+# Calculo a posteriori
+posteriori = stats.beta(a = alpha[-1], b = beta[-1])
 
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.001</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+line.set_data(x, posteriori.pdf(x))
+line.set_color(cmap(1 - i/n))
 
-<span class="c1"># Definindo cores</span>
-<span class="n">cmap</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">autumn</span>  
+line2.set_data([posteriori.mean(), posteriori.mean()],  [YMIN, YMAX])
+line2.set_color(cmap(1 - i/n))
 
-<span class="c1"># Esta função permite plotar o backgroud</span>
-<span class="k">def</span> <span class="nf">init</span><span class="p">():</span>
-    <span class="n">line</span><span class="o">.</span><span class="n">set_data</span><span class="p">([],</span> <span class="p">[])</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">line</span><span class="p">,)</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="c1"># Definindo o espaço da imagem</span>
-
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-
-<span class="c1"># Definindo características do background </span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">((</span><span class="n">XMIN</span><span class="p">,</span> <span class="n">XMAX</span><span class="p">))</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">((</span><span class="n">YMIN</span><span class="p">,</span> <span class="n">YMAX</span><span class="p">))</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Evolução da posteriori a cada iteração&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">theta_real</span><span class="p">,</span> <span class="n">ymin</span> <span class="o">=</span> <span class="n">YMIN</span><span class="p">,</span> <span class="n">ymax</span> <span class="o">=</span> <span class="n">YMAX</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;grey&#39;</span><span class="p">)</span>
-
-<span class="c1"># Definindo plots variáveis </span>
-<span class="n">line</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([],</span> <span class="p">[],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">line2</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">XMIN</span><span class="p">,</span> <span class="n">XMAX</span><span class="p">,</span> <span class="n">YMIN</span><span class="p">,</span> <span class="n">YMAX</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;:&#39;</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">animate</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-
-    <span class="c1"># Amostro da distribuição</span>
-    <span class="n">sample</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="n">theta_real</span><span class="p">)</span>
-
-    <span class="c1"># Junto a lista que guarda os alphas e betas de cada iteração</span>
-    <span class="n">alpha</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">alpha</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">sample</span><span class="p">)</span>
-    <span class="n">beta</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">beta</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">sample</span><span class="p">)</span>
-
-    <span class="c1"># Calculo a posteriori</span>
-    <span class="n">posteriori</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">beta</span><span class="p">(</span><span class="n">a</span> <span class="o">=</span> <span class="n">alpha</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">b</span> <span class="o">=</span> <span class="n">beta</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-
-    <span class="n">line</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">posteriori</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-    <span class="n">line</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="n">cmap</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">i</span><span class="o">/</span><span class="n">n</span><span class="p">))</span>
-
-    <span class="n">line2</span><span class="o">.</span><span class="n">set_data</span><span class="p">([</span><span class="n">posteriori</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">posteriori</span><span class="o">.</span><span class="n">mean</span><span class="p">()],</span>  <span class="p">[</span><span class="n">YMIN</span><span class="p">,</span> <span class="n">YMAX</span><span class="p">])</span>
-    <span class="n">line2</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="n">cmap</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">i</span><span class="o">/</span><span class="n">n</span><span class="p">))</span>
-
-    <span class="k">return</span> <span class="p">(</span><span class="n">line</span><span class="p">,</span><span class="n">line2</span><span class="p">)</span>
-
-<span class="n">anim</span> <span class="o">=</span> <span class="n">animation</span><span class="o">.</span><span class="n">FuncAnimation</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">animate</span><span class="p">,</span> <span class="n">frames</span> <span class="o">=</span> <span class="n">n</span><span class="p">,</span>  <span class="n">init_func</span> <span class="o">=</span> <span class="n">init</span><span class="p">,</span>
-                               <span class="n">interval</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">blit</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">fargs</span><span class="o">=</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="p">),</span> <span class="n">repeat</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
-<span class="n">HTML</span><span class="p">(</span><span class="n">anim</span><span class="o">.</span><span class="n">to_html5_video</span><span class="p">())</span>
-</code></pre></div>
+return (line,line2)
+</code></pre>
+<p>anim = animation.FuncAnimation(fig, animate, frames = n,  init_func = init,
+                               interval = 100, blit = True, fargs=(alpha, beta, x, n), repeat = False)
+HTML(anim.to_html5_video())
+```</p>
 <video width="432" height="288" controls autoplay>
   <source type="video/mp4" src="data:video/mp4;base64,AAAAHGZ0eXBNNFYgAAACAGlzb21pc28yYXZjMQAAAAhmcmVlAAEAYG1kYXQAAAKuBgX//6rcRem9
 5tlIt5Ys2CDZI+7veDI2NCAtIGNvcmUgMTU1IHIyOTE3IDBhODRkOTggLSBILjI2NC9NUEVHLTQg
@@ -1535,25 +1531,24 @@ ZjU4LjI5LjEwMA==
 <p>De acordo com a teoria Bayesiana , esse estimador é o único coerente que pode ser construído. É importante que tenha-se definido uma <strong>função de perda</strong> e uma <strong>distribuição a priori</strong> para os parâmetros. Quando <script type="math/tex">\theta</script> é um vetor, precisamos definit uma priori multivariada, mesmo que não queiramos estimar todos os parâmetros. </p>
 <h4 id="exemplo-747">Exemplo 7.4.7</h4>
 <p>Quetelet reportou medidas do peito de 5732 homens militares. Os dados foram retirados desse <a href="https://www.stat.cmu.edu/StatDat/Datafiles/MilitiamenChests.html">site</a>. </p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-</code></pre></div>
+<p><code>python
+import requests
+from bs4 import BeautifulSoup
+import pandas as pd</code></p>
 <h4 id="obtendo-os-dados-direto-do-site">Obtendo os dados direto do site</h4>
 <p>Eu uso essas três bibliotecas, onde as duas primeiras são usadas para retirar informação do site desejado. Veja que não coloco verificação, pois o site tem esse problema. Depois eu coloco numa estrutura chamada <code>DataFrame</code> que é basicamente uma tabela onde tem cada item nas linhas e cada característica nas colunas. </p>
-<div class="highlight"><pre><span></span><code><span class="n">website</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://www.stat.cmu.edu/StatDat/Datafiles/MilitiamenChests.html&#39;</span><span class="p">,</span> <span class="n">verify</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
-<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">website</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
-
-<span class="n">data</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">pre</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="n">chest_data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Chest&#39;</span><span class="p">:</span> <span class="p">[],</span> <span class="s1">&#39;Count&#39;</span><span class="p">:</span> <span class="p">[]}</span>
-<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span> 
-    <span class="n">co</span><span class="p">,</span> <span class="n">ch</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
-    <span class="n">chest_data</span><span class="p">[</span><span class="s1">&#39;Chest&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">ch</span><span class="p">))</span>
-    <span class="n">chest_data</span><span class="p">[</span><span class="s1">&#39;Count&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">co</span><span class="p">))</span>
-
-<span class="n">chest_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">chest_data</span><span class="p">)</span>
-<span class="n">chest_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</code></pre></div>
+<p>```python
+website = requests.get('https://www.stat.cmu.edu/StatDat/Datafiles/MilitiamenChests.html', verify = False)
+soup = BeautifulSoup(website.content)</p>
+<p>data = soup.pre.text.strip().split('\n')
+chest_data = {'Chest': [], 'Count': []}
+for item in data[1:]: 
+    co, ch = item.split('\t')
+    chest_data['Chest'].append(int(ch))
+    chest_data['Count'].append(int(co))</p>
+<p>chest_df = pd.DataFrame(chest_data)
+chest_df.head()
+```</p>
 <pre><code>/home/lucasmoschen/anaconda3/lib/python3.7/site-packages/urllib3/connectionpool.py:847: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
   InsecureRequestWarning)
 </code></pre>
@@ -1609,14 +1604,14 @@ ZjU4LjI5LjEwMA==
 </table>
 </div>
 
-<div class="highlight"><pre><span></span><code><span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">chest_df</span><span class="p">[</span><span class="s1">&#39;Chest&#39;</span><span class="p">],</span> <span class="n">chest_df</span><span class="p">[</span><span class="s1">&#39;Count&#39;</span><span class="p">])</span>
-<span class="n">mean</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">chest_df</span><span class="p">[</span><span class="s1">&#39;Chest&#39;</span><span class="p">]</span><span class="o">*</span><span class="n">chest_df</span><span class="p">[</span><span class="s1">&#39;Count&#39;</span><span class="p">])</span><span class="o">/</span><span class="n">chest_df</span><span class="p">[</span><span class="s1">&#39;Count&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">ymin</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">ymax</span> <span class="o">=</span> <span class="mi">1200</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Média=</span><span class="si">{:.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mean</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Histograma do tamanho do ppeito de militares escoseses&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Medida de peitorais&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</code></pre></div>
+<p><code>python
+plt.bar(chest_df['Chest'], chest_df['Count'])
+mean = sum(chest_df['Chest']*chest_df['Count'])/chest_df['Count'].sum()
+plt.vlines(mean, ymin = 0, ymax = 1200, color = 'black', linestyle = '--', label = 'Média={:.2f}'.format(mean))
+plt.title('Histograma do tamanho do ppeito de militares escoseses')
+plt.xlabel('Medida de peitorais')
+plt.legend()
+plt.show()</code></p>
 <p><img alt="png" src="../output_10_0.png" /></p>
 <p>Vamos modelar as medidas do peitoral, como uma amostra aleatória com distribuição normal com média <script type="math/tex">\theta</script> e variância <script type="math/tex">\sigma^2</script>, conhecido. Temos que a média é <script type="math/tex">39.83</script> das amostras. Se <script type="math/tex">\theta \sim N(\mu_0, v_0^2)</script> é uma priori para <script type="math/tex">\theta</script>, podemos calcular o estimador de Bayes a posteriori. Sabemos que a posteriori será uma normal (conjugada) com média e variância: 
 <script type="math/tex; mode=display">\mu_1 = \frac{\sigma^2 + 5732\cdot v_0^2 \cdot 39.83}{\sigma^2 + 5732\cdot v_0^2}</script>
@@ -1632,8 +1627,8 @@ ZjU4LjI5LjEwMA==
 <p>
 <script type="math/tex">v_0^2 = 4</script>
 </p>
-<div class="highlight"><pre><span></span><code>
-</code></pre></div></div>
+<p>```python</p>
+<p>```</p></div>
         
         
     </div>
