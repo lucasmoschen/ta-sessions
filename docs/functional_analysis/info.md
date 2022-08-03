@@ -26,8 +26,7 @@ Os exercícios resolvidos estão disponíveis:
 |Lista|Tópicos|Última atualização|Para entregar|Solução|
 |-----|-------|------------------|-------------|-------|
 |[1](https://lucasmoschen.github.io/files/disciplines/functional-analysis/paper_sheet_metric_spaces.pdf)|Espaços métricos|13/07/2022|4,8,27,29,30|[1](https://lucasmoschen.github.io/files/disciplines/functional-analysis/paper_sheet_metric_spaces_solutions.pdf)|
-|[2](/ta-sessions/unavailable)|Espaços normados|None|None|[2](/ta-sessions/unavailable)|
-
+|[2](https://lucasmoschen.github.io/files/disciplines/functional-analysis/paper_sheet_normed_spaces.pdf)|Espaços normados|03/08/2022|None|[2](https://lucasmoschen.github.io/files/disciplines/functional-analysis/paper_sheet_normed_spaces_solutions.pdf)|
 ## Notas
 
 |Monitoria|Itens discutidos|Arquivo|
