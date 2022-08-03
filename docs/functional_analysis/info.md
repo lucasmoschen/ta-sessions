@@ -17,7 +17,7 @@ Os tópicos cobertos na disciplina estão separados em três partes:
 
 |Parte 2|
 |-------|
-|[Espaços de Banach](/ta-sessions/functional_analysis/banach_spaces.md)|
+|[Espaços normados](/ta-sessions/functional_analysis/banach_spaces.md)|
 
 ## Exercícios 
 
