@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+
+    
+    <title>Intervalos de Confiança - Teaching Assistance</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../../css/base.min.css" rel="stylesheet">
+    <link href="../../../css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            
+              <a class="navbar-brand" href="../../..">Teaching Assistance</a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Graduação <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../alglin/info/">Álgebra Linear</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../analisenum/info/">Análise Numérica</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../curvas/info/">Curvas</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../edo/info/">Equações Diferenciais Ordinárias</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../edp/info/">Equações Diferenciais Parciais</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../infestatistica_BSc/info/">Inferência Estatística</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pós-graduação <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../functional_analysis/info/">Análise Funcional</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../bayesian/info/">Estatística Bayesiana</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../info/">Inferência Estatística</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://lucasmoschen.github.io">Página Inicial</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#intervalos-de-confianca">Intervalos de Confiança</a></li>
+            <li class="second-level"><a href="#definicao">Definição</a></li>
+                
+            <li class="second-level"><a href="#intervalo-de-confianca-para-a-media-de-nmu-sigma2">Intervalo de Confiança para a média de N(\mu, \sigma^2)</a></li>
+                
+                <li class="third-level"><a href="#implementacao">Implementação</a></li>
+        <li class="first-level "><a href="#importando-bibliotecas">Importando bibliotecas</a></li>
+            <li class="second-level"><a href="#interpretacao">Interpretação</a></li>
+                
+                <li class="third-level"><a href="#sem-simetria">Sem simetria</a></li>
+            <li class="second-level"><a href="#intervalos-de-confianca-unilateral">Intervalos de Confiança Unilateral</a></li>
+                
+                <li class="third-level"><a href="#definicao_1">Definição</a></li>
+            <li class="second-level"><a href="#intervalo-unilateral-para-a-media-de-nmusigma2">Intervalo unilateral para a média de N(\mu,\sigma^2)</a></li>
+                
+            <li class="second-level"><a href="#pivotal">Pivotal</a></li>
+                
+                <li class="third-level"><a href="#teorema">Teorema</a></li>
+            <li class="second-level"><a href="#exemplo-com-regressao-linear">Exemplo com Regressão Linear</a></li>
+                
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="intervalos-de-confianca">Intervalos de Confiança</h1>
+<p>Esse tema procura responder quão confiança deveríamos por em um estimador. É claro que essa pergunta tem que ser um pouco melhor descrita matematicamente. A ideia é frequentista e tem a ideia a seguinte forma: </p>
+<blockquote>
+<p>O intervalo <script type="math/tex">[a,b]</script>, uma realização de <script type="math/tex">[A,B]</script>, tem 95% de confiança se em 95% do tempo, o parâmetro procurado está entre <script type="math/tex">a</script> e <script type="math/tex">b</script>. Veja que a ideia é basicamente frequentista, dado que a interpretação está ligada à frequência quando o número de experimentos tende para infinito. (Cuidado: Não vamos falar da probabilidade do parâmetro estar em <script type="math/tex">[a,b]</script>, isso não faz sentido, pois <script type="math/tex">\theta</script> não é uma variável aleatória, e sim um valor fixo).</p>
+</blockquote>
+<h3 id="definicao">Definição</h3>
+<p>Seja <script type="math/tex">X_1, ..., X_n \overset{iid}{\sim} F(\theta)</script>. Sejam <script type="math/tex">A \leq B</script> duas estatísticas que possuem a propriedade, para todo <script type="math/tex">\theta</script>, </p>
+<p>
+<script type="math/tex; mode=display">
+P(A < g(\theta) < B) \geq \gamma
+</script>
+</p>
+<p>Chamamos <script type="math/tex">(A,B)</script> de intevalo de confiança para <script type="math/tex">g(\theta)</script> com coeficiente <script type="math/tex">\gamma</script>. O intervalo é chamado de <strong>exato</strong> se ao invés da desigualdade, tivermos uma igualdade. </p>
+<p>Após observarmos os valores de <script type="math/tex">X_1, ..., X_n</script> e computarmos <script type="math/tex">A = a</script> e <script type="math/tex">B = b</script>, o intervalo <script type="math/tex">(a,b)</script> é chamado de valor observado do intervalo de confiança. </p>
+<h2 id="intervalo-de-confianca-para-a-media-de-nmu-sigma2">Intervalo de Confiança para a média de <script type="math/tex">N(\mu, \sigma^2)</script>
+</h2>
+<p>Seja <script type="math/tex">X_1, ..., X_n \sim N(\mu, \sigma^2)</script>. Para cada <script type="math/tex">0 < \gamma < 1</script>, o intervalo <script type="math/tex">(A,B)</script> é intervalo de confiança exato para <script type="math/tex">\mu</script> com coeficiente <script type="math/tex">\gamma</script>, em que:</p>
+<p>
+<script type="math/tex; mode=display">
+A = \bar{X}_n - T_{n-1}^{-1}\left(\frac{1 + \gamma}{2}\right)\frac{\sigma '}{n^{1/2}}
+</script>
+<script type="math/tex; mode=display">
+B = \bar{X}_n + T_{n-1}^{-1}\left(\frac{1 + \gamma}{2}\right)\frac{\sigma '}{n^{1/2}}
+</script>
+</p>
+<p>onde <script type="math/tex">T_{n-1}</script> denota a cdf da distribuição <script type="math/tex">t</script> com <script type="math/tex">n-1</script> graus de liberdade. </p>
+<p>O interessante é que isso é implicação direta da distribuição de <script type="math/tex">U = \frac{n^{1/2}(\bar{X}_n - \mu)}{\sigma '}</script> que inferimos no capítulo 8.4, nesse caso, simplemente fizemos a transformação:</p>
+<p>
+<script type="math/tex; mode=display">\gamma = P(-c < U < c) = P(A < \mu < B)</script>
+</p>
+<p>e <script type="math/tex">c</script> é escolhido de acordo com <script type="math/tex">\gamma</script>.</p>
+<h3 id="implementacao">Implementação</h3>
+<p>Vamos rever a informação sobre café que usamos capítulos antes para ver como isso acontece na prática.</p>
+<p>Considere dados sobre pesos de bebês logo ao nascer. </p>
+<ol>
+<li>bwt: peso do bebê ao nascer. </li>
+<li>gestation: duração em dias da gestação. </li>
+<li>parity: primeiro filho ou não.</li>
+<li>age: idade da mãe. </li>
+<li>height: altura da mãe em polegadas. </li>
+<li>weight: peso da mãe em pounds.  </li>
+<li>smoke: se a mãe é fumante ou não. </li>
+</ol>
+<p>```python</p>
+<h1 id="importando-bibliotecas">Importando bibliotecas</h1>
+<p>import pandas as pd 
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from scipy.stats import t
+```</p>
+<p><code>python
+birth_df = pd.read_csv("http://people.reed.edu/~jones/141/Bwt.dat")
+birth_df.head()</code></p>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>bwt</th>
+      <th>gestation</th>
+      <th>parity</th>
+      <th>age</th>
+      <th>height</th>
+      <th>weight</th>
+      <th>smoke</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>120</td>
+      <td>284</td>
+      <td>0</td>
+      <td>27</td>
+      <td>62</td>
+      <td>100</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>113</td>
+      <td>282</td>
+      <td>0</td>
+      <td>33</td>
+      <td>64</td>
+      <td>135</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>128</td>
+      <td>279</td>
+      <td>0</td>
+      <td>28</td>
+      <td>64</td>
+      <td>115</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>108</td>
+      <td>282</td>
+      <td>0</td>
+      <td>23</td>
+      <td>67</td>
+      <td>125</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>136</td>
+      <td>286</td>
+      <td>0</td>
+      <td>25</td>
+      <td>62</td>
+      <td>93</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p><code>python
+sns.histplot(data = birth_df.bwt, kde = True)
+plt.title('Histograma dos pesos dos bebês')
+plt.show()
+birth_df[birth_df.smoke == 0].bwt.hist(density = True, label = 'Não fumante')
+birth_df[birth_df.smoke == 1].bwt.hist(density = True, label = 'Fumante', alpha = 0.6)
+plt.xlabel('Peso')
+plt.legend()
+plt.show()</code></p>
+<p><img alt="png" src="../output_4_0.png" /></p>
+<p><img alt="png" src="../output_4_1.png" /></p>
+<p>Sabemos que essa é uma extração de uma população maior. Para conseguirmos mais amostras, vamos usar um procedimento chamado <strong>bootstrap</strong>. A ideia desse procedimento é criar um novas amostras a partir de uma amostra inicial, usando <code>replace = True</code> como diferencial. Vou fazer esse procedimento diversar vezes e ir calculando a média amostral. Como a média amostral é uma variável aleatória, vamos obter um histograma das realizações. </p>
+<p>Vamos supor que o peso <script type="math/tex">W_i</script> da criança <script type="math/tex">i</script> vem de uma distribuição com parâmetros <script type="math/tex">\mu</script> e <script type="math/tex">\sigma^2</script> desconhecidos. Nesse caso, <script type="math/tex">\bar{W}_i</script> virá de uma distribuição normal com parâmetros <script type="math/tex">\mu</script> e <script type="math/tex">\sigma^2/n</script>. </p>
+<p>```python
+ite = 10000
+n = 200</p>
+<p>bootstrap_means = np.zeros(ite)
+for i in range(ite):
+    bootstrap_sample = birth_df.sample(n = n, replace = True, random_state=i)
+    bootstrap_means[i] = bootstrap_sample.bwt.mean()
+```</p>
+<p><code>python
+sns.histplot(bootstrap_means, kde = True)
+plt.title("Médias das amostras")
+plt.xlabel('Peso')
+plt.show()</code></p>
+<p><img alt="png" src="../output_7_0.png" /></p>
+<p>Vamos calcular o nosso intervalo de confiança com <script type="math/tex">\gamma = 0.95</script>. Temos que:</p>
+<p>```python
+gamma = 0.95</p>
+<p>A = lambda x: np.mean(x) - t.ppf(q = (1 + gamma)/2, df = len(x) - 1)<em>np.std(x, ddof = 1)/len(x)</em><em>(1/2)
+B = lambda x: np.mean(x) + t.ppf(q = (1 + gamma)/2, df = len(x) - 1)</em>np.std(x, ddof = 1)/len(x)**(1/2)
+```</p>
+<p>```python
+ite = 100
+n = 500</p>
+<p>bootstrap_intervals  = np.zeros((ite,2))
+for i in range(ite):
+    bootstrap_sample = birth_df.sample(n = n, replace = True, random_state=i)
+    bootstrap_intervals[i,0] = A(bootstrap_sample.bwt)
+    bootstrap_intervals[i,1] = B(bootstrap_sample.bwt)</p>
+<p>out_values = np.where((bootstrap_intervals[:,0] &gt; 119.5) | (bootstrap_intervals[:,1] &lt; 119.5))
+```</p>
+<p><code>python
+plt.figure(figsize = (6,10))
+plt.scatter(bootstrap_intervals[:,0], np.arange(0,ite), color = 'red', label = 'a')
+plt.scatter(bootstrap_intervals[:,1], np.arange(0,ite), color = 'green', label = 'b')
+plt.scatter(bootstrap_intervals[out_values[0],0], out_values[0], color = 'black', label = 'Fora')
+plt.scatter(bootstrap_intervals[out_values[0],1], out_values[0], color = 'black')
+plt.vlines(119.5, ymin = 0, ymax = ite, linestyle = '--', alpha = 0.6, label = 'Média real')
+plt.legend()
+plt.show()</code></p>
+<p><img alt="png" src="../output_11_0.png" /></p>
+<h2 id="interpretacao">Interpretação</h2>
+<p>Estamos fazer uma afirmação probabilística sobre o intervalo <script type="math/tex">(A,B)</script> antes de observar os dados. Após observarmos os dados, não podemos interpretar <script type="math/tex">(a,b)</script> como um intervalo em que temos 95% de confiança de <script type="math/tex">g(\theta)</script> estar no intervalo. Antes de observarmos as amostras, temos a confiança de que 95% dos intervalos conterão <script type="math/tex">\mu</script>. </p>
+<h3 id="sem-simetria">Sem simetria</h3>
+<p>Construimos anteriormente um intervalo simétrico, onde a estatística <script type="math/tex">U</script> acima mencionada estaria entre <script type="math/tex">-c</script> e <script type="math/tex">c</script> com probabilidade <script type="math/tex">\gamma</script>. Mas podemos desenvolver intervalos não simétricos também. Uma forma que podemos fazer isso é escolhendo <script type="math/tex">\gamma_1</script> e <script type="math/tex">\gamma_2</script>, tal que <script type="math/tex">\gamma_2 - \gamma_1 = \gamma</script>. Assim: </p>
+<p>
+<script type="math/tex; mode=display">P\left(T_{n-1}^{-1}(\gamma_1) < U < T_{n-1}^{-1}(\gamma_2)\right) = \gamma</script>
+</p>
+<p>Talvém vc esteja se perguntando: porque escolher <script type="math/tex">\gamma_1, \gamma_2</script> dessa forma? Bom: </p>
+<p>
+<script type="math/tex; mode=display">
+\begin{split}
+\gamma &= P\left(T_{n-1}^{-1}(\gamma_1) < U < T_{n-1}^{-1}(\gamma_2)\right) \\
+&= P\left(U < T_{n-1}^{-1}(\gamma_2)\right) - P\left(U \leq T_{n-1}^{-1}(\gamma_1)\right) \\
+&= \gamma_2 - \gamma_1
+\end{split}
+</script>
+</p>
+<h2 id="intervalos-de-confianca-unilateral">Intervalos de Confiança Unilateral</h2>
+<h3 id="definicao_1">Definição</h3>
+<p>Seja <script type="math/tex">X_1, ..., X_n \overset{idd}{\sim} F(\theta)</script>. Sejam <script type="math/tex">A</script> e <script type="math/tex">B</script> duas estatísticas tais que: </p>
+<p>
+<script type="math/tex; mode=display">
+P(A < g(\theta)) \geq \gamma
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+P(B > g(\theta)) \geq \gamma
+</script>
+</p>
+<p>Então <script type="math/tex">(A, \infty)</script> e <script type="math/tex">(-\infty, B)</script> são chamados de intervalos de confiaça unilaterais para <script type="math/tex">g(\theta)</script> de coeficiente <script type="math/tex">\gamma</script> ou percentil <script type="math/tex">100\gamma</script>. No caso de <script type="math/tex">A</script>
+<script type="math/tex">100\gamma</script> porcento abaixo e no caso de <script type="math/tex">B</script> a cima. Se vale a igualdade, dizemos que o intervalor é exato.  </p>
+<h2 id="intervalo-unilateral-para-a-media-de-nmusigma2">Intervalo unilateral para a média de <script type="math/tex">N(\mu,\sigma^2)</script>
+</h2>
+<p>Nas mesma condições do teorema anterior, mas as estatísticas para baixo e para cima com coeficiente <script type="math/tex">\gamma</script> para <script type="math/tex">\mu</script> são: </p>
+<p>
+<script type="math/tex; mode=display">
+A = \bar{X}_n - T_{n-1}^{-1}\left(\gamma\right)\frac{\sigma '}{n^{1/2}}
+</script>
+<script type="math/tex; mode=display">
+B = \bar{X}_n + T_{n-1}^{-1}\left(\gamma\right)\frac{\sigma '}{n^{1/2}}
+</script>
+</p>
+<h2 id="pivotal">Pivotal</h2>
+<p>Seja <script type="math/tex">X_1, ..., X_n \overset{idd}{\sim} F(\theta)</script>. Seja <script type="math/tex">V(\vec{X},\theta)</script> uma variável aleatória cuja distribuição é a mesma para <script type="math/tex">\theta</script>. Chamamos <script type="math/tex">V</script> de <strong>quantidade pivotal</strong>. </p>
+<h3 id="teorema">Teorema</h3>
+<p>Seja <script type="math/tex">X_1, ..., X_n \overset{idd}{\sim} F(\theta)</script>. Suponha que </p>
+<ol>
+<li>Exista <script type="math/tex">V</script> pivotal. </li>
+<li>A cdf <script type="math/tex">G</script> de <script type="math/tex">V</script> é contínua. </li>
+<li>Exista função <script type="math/tex">r</script> tal <script type="math/tex">r(V(X,\theta), X) = g(\theta)</script>, ou seja, é uma espécie de "inversa". </li>
+<li>
+<script type="math/tex">r(v,x)</script> (3) é uma função estritamente crescente em <script type="math/tex">v</script> para todo <script type="math/tex">x</script>. </li>
+</ol>
+<p>Então </p>
+<p>
+<script type="math/tex; mode=display">
+A = r(G^{-1}(\gamma_1), X)
+</script>
+<script type="math/tex; mode=display">
+B = r(G^{-1}(\gamma_2), X)
+</script>
+</p>
+<p>são os pontos extremos do intervalo de confiança exato para <script type="math/tex">g(\theta)</script> de coeficiente <script type="math/tex">\gamma = \gamma_2 - \gamma_1</script>. Se <script type="math/tex">r</script> é estritamente decrescente, invertemos <script type="math/tex">A</script> e <script type="math/tex">B</script>. </p>
+<p><em>Obs.: Ainda podemos usar o Teorema Central do Limite para obter intervalos de confiança assintóticos.</em></p>
+<h2 id="exemplo-com-regressao-linear">Exemplo com Regressão Linear</h2>
+<p>O dataset que utilizei anteriormente não é muito bom para esse exemplo, mas eu vou usar, de qualquer forma, para entendermos o processo e como pode nos ajudar o intervalo de confiança. </p>
+<p>Em uma Regressão Linear, queremos dizer aferir uma relação linear entre duas variáveis, isto é, queremos dizer que uma variável pode ser obtida pela outra através de uma reta, mais um erro aleatório. Suponha que queremos estimar <script type="math/tex">Y</script> o peso da criança ao nascer, sabendo a informação do tempo de gestação <script type="math/tex">X</script> e que </p>
+<p>
+<script type="math/tex; mode=display">
+Y = aX + b + E,
+</script>
+</p>
+<p>onde <script type="math/tex">E \sim N(0,\sigma^2)</script>. Nesse caso, estamos dizendo que <script type="math/tex">Y|X \sim N(aX + b, \sigma^2)</script>. Queremos estimar <script type="math/tex">a</script> e <script type="math/tex">b</script> de forma que tenhamos o melhor ajuste possível. Esse tema em específico não me interessa. Entretanto, podemos dizer que queremos estimar <script type="math/tex">aX + b</script>, a média de uma normal, mas que muda para cada <script type="math/tex">X = x</script> observado. </p>
+<p><code>python
+sns.lmplot(x = 'gestation', y = 'bwt', data = birth_df, height = 5, ci = 95)</code></p>
+<pre><code>&lt;seaborn.axisgrid.FacetGrid at 0x7fc517f55c18&gt;
+</code></pre>
+<p><img alt="png" src="../output_16_1.png" /></p>
+<p>O resultado não foi muito bom (na verdade eu já imaginava isso). Mas o interessante é tentar refletir o que essas bandas significam? Por que os pontos não estão nela? Esperávamos que estivésse? E por que ela diminui a variância com o número de pontos? </p>
+<p>Essas perguntas vão ser devidamente respondidas no próximo curso de Estatística!</p>
+<p>Mas eu já vou adiantando que esse intervalo de confiança é para a média estimada. </p></div>
+        
+        
+    </div>
+
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
+
+          
+          
+      </footer>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = "../../.."</script>
+    
+    <script src="../../../js/base.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>
