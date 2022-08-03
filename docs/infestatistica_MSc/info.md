@@ -22,6 +22,7 @@ Monitoria de Inferência Estatística (Mestrado) correspondente ao período de 2
 |[Estimação pontual](/ta-sessions/infestatistica_MSc/estimation/point_estimation)|
 |[Informação de Fisher e Cramér-Rao](/ta-sessions/infestatistica_MSc/fisher/fisher)|
 |[Introdução a grandes amostras](/ta-sessions/infestatistica_MSc/estimation/large_sample)|
+|[Intervalos de confiança](/ta-sessions/infestatistica_MSc/confidence_interval/confidence_interval)|
 
 ## Exercícios 
 
