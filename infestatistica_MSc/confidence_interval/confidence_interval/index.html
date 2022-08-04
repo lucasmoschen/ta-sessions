@@ -493,7 +493,31 @@ Esperávamos que estivesse?
 E por que ela diminui a variância com o número de pontos? </p>
 <p>Essas perguntas vão ser devidamente respondidas no próximo curso de Modelagem Estatística!</p>
 <p>Mas eu já vou adiantando que esse intervalo de confiança é para a média estimada. </p>
-<h2 id="intervalos-de-confianca-assintoticos">Intervalos de confiança assintóticos</h2></div>
+<h2 id="intervalos-de-confianca-assintoticos">Intervalos de confiança assintóticos</h2>
+<p>Sejam <script type="math/tex">X_1, \dots, X_n \overset{iid}{\sim} F(\theta)</script> e <script type="math/tex">\hat{\theta}_n</script> o MLE correspondente.
+Assim, supondo as condições de regularidade de Fisher, temos que 
+<script type="math/tex; mode=display">
+\sqrt{n}(\hat{\theta}_n - \theta) \to N(0, 1/I(\theta)).
+</script>
+Com isso, <script type="math/tex">\sqrt{n I(\theta)}(\hat{\theta}_n - \theta)</script> é uma quantidade <strong>aproximadamente pivotal</strong>.
+Com isso, defina
+<script type="math/tex; mode=display">
+S = \{\theta :\sqrt{n I(\theta)}|\hat{\theta}_n - \theta| < z_{\alpha/2}\},
+</script>
+em que <script type="math/tex">z_{\alpha} = \Phi^{-1}(1-\alpha)</script> e o quantile <script type="math/tex">1-\alpha</script> da normal padrão.
+Portanto, 
+<script type="math/tex; mode=display">
+\mathbb{P}_{\theta}(\theta \in S) \to 1-\alpha,
+</script>
+quando <script type="math/tex">n \to \infty</script>.</p>
+<p>O conjunto <script type="math/tex">S</script> não é, todavia, um intervalo necessariamente.
+Além do mais, <script type="math/tex">I(\theta)</script> pode ser difícil de se obter.
+Na pratica, calcula-se <script type="math/tex">I(\hat{\theta})</script> e se usa que <script type="math/tex">I(\hat{\theta}_n)/I(\theta) \to 1</script>.
+Com isso, o intervalo 
+<script type="math/tex; mode=display">
+\left(\hat{\theta}_n - \frac{z_{\alpha/2}}{\sqrt{n I(\hat{\theta}_n)}},  \hat{\theta}_n + \frac{z_{\alpha/2}}{\sqrt{n I(\hat{\theta}_n)}}\right)
+</script>
+é assintoticamente um intervalo de confiança <script type="math/tex">1-\alpha</script>.</p></div>
         
         
     </div>
