@@ -354,3 +354,31 @@ E por que ela diminui a variância com o número de pontos?
 Essas perguntas vão ser devidamente respondidas no próximo curso de Modelagem Estatística!
 
 Mas eu já vou adiantando que esse intervalo de confiança é para a média estimada. 
+
+## Intervalos de confiança assintóticos
+
+Sejam $X_1, \dots, X_n \overset{iid}{\sim} F(\theta)$ e $\hat{\theta}_n$ o MLE correspondente.
+Assim, supondo as condições de regularidade de Fisher, temos que 
+$$
+\sqrt{n}(\hat{\theta}_n - \theta) \to N(0, 1/I(\theta)).
+$$
+Com isso, $\sqrt{n I(\theta)}(\hat{\theta}_n - \theta)$ é uma quantidade **aproximadamente pivotal**.
+Com isso, defina
+$$
+S = \{\theta :\sqrt{n I(\theta)}|\hat{\theta}_n - \theta| < z_{\alpha/2}\},
+$$
+em que $z_{\alpha} = \Phi^{-1}(1-\alpha)$ e o quantile $1-\alpha$ da normal padrão.
+Portanto, 
+$$
+\mathbb{P}_{\theta}(\theta \in S) \to 1-\alpha,
+$$
+quando $n \to \infty$.
+
+O conjunto $S$ não é, todavia, um intervalo necessariamente.
+Além do mais, $I(\theta)$ pode ser difícil de se obter.
+Na pratica, calcula-se $I(\hat{\theta})$ e se usa que $I(\hat{\theta}_n)/I(\theta) \to 1$.
+Com isso, o intervalo 
+$$
+\left(\hat{\theta}_n - \frac{z_{\alpha/2}}{\sqrt{n I(\hat{\theta}_n)}},  \hat{\theta}_n + \frac{z_{\alpha/2}}{\sqrt{n I(\hat{\theta}_n)}}\right)
+$$
+é assintoticamente um intervalo de confiança $1-\alpha$.
