@@ -1,22 +1,31 @@
 # Intervalos de Confiança 
 
-Esse tema procura responder quão confiança deveríamos por em um estimador. É claro que essa pergunta tem que ser um pouco melhor descrita matematicamente. A ideia é frequentista e tem a ideia a seguinte forma: 
+Esse tema procura responder quão confiantes estamos de um estimador. 
+É claro que essa pergunta tem que ser melhor descrita matematicamente. 
+De forma geral, estamos procurando por uma estatística $C(X)$ em que para cada $X=x$ observado, $C(x)$ é um conjunto. 
+Mas na prática, procuramos por estatísticas $(A(X), B(X))$ que nos deem confiança de que contenham o parâmetro verdadeiro, isto é. 
 
-> O intervalo $[a,b]$, uma realização de $[A,B]$, tem 95% de confiança se em 95% do tempo, o parâmetro procurado está entre $a$ e $b$. Veja que a ideia é basicamente frequentista, dado que a interpretação está ligada à frequência quando o número de experimentos tende para infinito. (Cuidado: Não vamos falar da probabilidade do parâmetro estar em $[a,b]$, isso não faz sentido, pois $\theta$ não é uma variável aleatória, e sim um valor fixo).
+> O intervalo $[a,b]$, uma realização de $[A(X),B(X)]$, tem 95% de confiança se em 95% do tempo, o parâmetro procurado está entre $a$ e $b$. 
+> Veja que a ideia é frequentista, dado que a interpretação está ligada à frequência de pertencimento quando o número de experimentos tende para infinito.
+> (Cuidado: Não vamos falar da probabilidade do parâmetro estar em $[a,b]$, isso não faz sentido, pois $\theta$ não é uma variável aleatória, e sim um valor fixo).
 
-### Definição 
+## Definição 
 
-Seja $X_1, ..., X_n \overset{iid}{\sim} F(\theta)$. Sejam $A \leq B$ duas estatísticas que possuem a propriedade, para todo $\theta$, 
-
+Sejam $X_1, ..., X_n \overset{iid}{\sim} F(\theta)$.
+Uma **estimador intervalar** de $\theta$ é um par de estatísticas $(A(X), B(X))$, tal que $\mathbb{P}(A(X) \le B(X)) = 1$
+Se $X=x$ é observado, então $(A(x), B(x))$ é uma estimativa intervalar.
+Para um estimador intervalar, a **probabilidade de cobertura** é 
 $$
-P(A < g(\theta) < B) \geq \gamma
+\mathbb{P}_{\theta}(\theta \in [A(X), B(X)]) = \mathbb{P}_{\theta}(A(X) \le \theta, B(X) \ge \theta).
 $$
-
-Chamamos $(A,B)$ de intevalo de confiança para $g(\theta)$ com coeficiente $\gamma$. O intervalo é chamado de **exato** se ao invés da desigualdade, tivermos uma igualdade. 
-
+Um **intervalo de confiança** com coeficiente de confiança $\gamma$ é um estimador intervalar que satisfaz 
+$$
+\inf_{\theta} \mathbb{P}_{\theta}(\theta \in [A(X), B(X)]) = \gamma, 
+$$
+ou também, $\mathbb{P}(A(X) < \theta < B(X)) \ge \gamma$, isto é, a probabilidade de cobertura é no mínimo $\gamma$.
 Após observarmos os valores de $X_1, ..., X_n$ e computarmos $A = a$ e $B = b$, o intervalo $(a,b)$ é chamado de valor observado do intervalo de confiança. 
 
-## Intervalo de Confiança para a média de $N(\mu, \sigma^2)$
+### Intervalo de Confiança para a média de $N(\mu, \sigma^2)$
 
 Seja $X_1, ..., X_n \sim N(\mu, \sigma^2)$. Para cada $0 < \gamma < 1$, o intervalo $(A,B)$ é intervalo de confiança exato para $\mu$ com coeficiente $\gamma$, em que:
 
@@ -29,15 +38,11 @@ $$
 
 onde $T_{n-1}$ denota a cdf da distribuição $t$ com $n-1$ graus de liberdade. 
 
-O interessante é que isso é implicação direta da distribuição de $U = \frac{n^{1/2}(\bar{X}_n - \mu)}{\sigma '}$ que inferimos no capítulo 8.4, nesse caso, simplemente fizemos a transformação:
-
+Esse resultado implica do fato de que a distribuição de $U = \frac{n^{1/2}(\bar{X}_n - \mu)}{\sigma '}$ é conhecida por distribuição $t$ com $n-1$ graus de liberdade e fazemos
 $$\gamma = P(-c < U < c) = P(A < \mu < B)$$ 
-
-e $c$ é escolhido de acordo com $\gamma$.
+coo $c$ sendo escolhido de acordo com $\gamma$.
 
 ### Implementação 
-
-Vamos rever a informação sobre café que usamos capítulos antes para ver como isso acontece na prática.
 
 Considere dados sobre pesos de bebês logo ao nascer. 
 
@@ -45,10 +50,9 @@ Considere dados sobre pesos de bebês logo ao nascer.
 2. gestation: duração em dias da gestação. 
 3. parity: primeiro filho ou não.
 4. age: idade da mãe. 
-4. height: altura da mãe em polegadas. 
-5. weight: peso da mãe em pounds.  
-6. smoke: se a mãe é fumante ou não. 
-
+5. height: altura da mãe em polegadas. 
+6. weight: peso da mãe em pounds.  
+7. smoke: se a mãe é fumante ou não. 
 
 ```python
 # Importando bibliotecas 
@@ -59,15 +63,10 @@ import seaborn as sns
 from scipy.stats import t
 ```
 
-
 ```python
 birth_df = pd.read_csv("http://people.reed.edu/~jones/141/Bwt.dat")
 birth_df.head()
 ```
-
-
-
-
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -164,18 +163,17 @@ plt.legend()
 plt.show()
 ```
 
-
 ![png](output_4_0.png)
-
-
 
 ![png](output_4_1.png)
 
+Sabemos que essa é uma extração de uma população maior. Para conseguirmos mais amostras, vamos usar um procedimento chamado **bootstrap**. 
+A ideia desse procedimento é criar um novas amostras a partir de uma amostra inicial, usando `replace = True` como diferencial. 
+Vou fazer esse procedimento diversas vezes e ir calculando a média amostral. 
+Como a média amostral é uma variável aleatória, vamos obter um histograma das realizações. 
 
-Sabemos que essa é uma extração de uma população maior. Para conseguirmos mais amostras, vamos usar um procedimento chamado **bootstrap**. A ideia desse procedimento é criar um novas amostras a partir de uma amostra inicial, usando `replace = True` como diferencial. Vou fazer esse procedimento diversar vezes e ir calculando a média amostral. Como a média amostral é uma variável aleatória, vamos obter um histograma das realizações. 
-
-Vamos supor que o peso $W_i$ da criança $i$ vem de uma distribuição com parâmetros $\mu$ e $\sigma^2$ desconhecidos. Nesse caso, $\bar{W}_i$ virá de uma distribuição normal com parâmetros $\mu$ e $\sigma^2/n$. 
-
+Vamos supor que o peso $W_i$ da criança $i$ vem de uma distribuição com parâmetros $\mu$ e $\sigma^2$ desconhecidos. 
+Nesse caso, $\bar{W}_i$ virá de uma distribuição normal com parâmetros $\mu$ e $\sigma^2/n$. 
 
 ```python
 ite = 10000
@@ -187,7 +185,6 @@ for i in range(ite):
     bootstrap_means[i] = bootstrap_sample.bwt.mean()
 ```
 
-
 ```python
 sns.histplot(bootstrap_means, kde = True)
 plt.title("Médias das amostras")
@@ -195,12 +192,9 @@ plt.xlabel('Peso')
 plt.show()
 ```
 
-
 ![png](output_7_0.png)
 
-
 Vamos calcular o nosso intervalo de confiança com $\gamma = 0.95$. Temos que:
-
 
 ```python
 gamma = 0.95
@@ -208,7 +202,6 @@ gamma = 0.95
 A = lambda x: np.mean(x) - t.ppf(q = (1 + gamma)/2, df = len(x) - 1)*np.std(x, ddof = 1)/len(x)**(1/2)
 B = lambda x: np.mean(x) + t.ppf(q = (1 + gamma)/2, df = len(x) - 1)*np.std(x, ddof = 1)/len(x)**(1/2)
 ```
-
 
 ```python
 ite = 100
@@ -235,21 +228,25 @@ plt.legend()
 plt.show()
 ```
 
-
 ![png](output_11_0.png)
 
+### Interpretação 
 
-## Interpretação 
-
-Estamos fazer uma afirmação probabilística sobre o intervalo $(A,B)$ antes de observar os dados. Após observarmos os dados, não podemos interpretar $(a,b)$ como um intervalo em que temos 95% de confiança de $g(\theta)$ estar no intervalo. Antes de observarmos as amostras, temos a confiança de que 95% dos intervalos conterão $\mu$. 
+Estamos fazendo uma afirmação probabilística sobre o intervalo $(A,B)$ antes de observar os dados. 
+Após observarmos os dados, não podemos interpretar $(a,b)$ como um intervalo em que temos 95% de confiança de $g(\theta)$ estar no intervalo. 
+Antes de observarmos as amostras, temos a confiança de que 95% dos intervalos conterão $\mu$.
+Sabemos que a realização infinita desse experimento faz com que 95% dos intervalos realizados contenham o valor verdadeiro.
 
 ### Sem simetria
 
-Construimos anteriormente um intervalo simétrico, onde a estatística $U$ acima mencionada estaria entre $-c$ e $c$ com probabilidade $\gamma$. Mas podemos desenvolver intervalos não simétricos também. Uma forma que podemos fazer isso é escolhendo $\gamma_1$ e $\gamma_2$, tal que $\gamma_2 - \gamma_1 = \gamma$. Assim: 
+Construímos anteriormente um intervalo simétrico, onde a estatística $U$ acima mencionada estaria entre $-c$ e $c$ com probabilidade $\gamma$. 
+Mas podemos desenvolver intervalos não simétricos também. 
+Uma forma que podemos fazer isso é escolhendo $\gamma_1$ e $\gamma_2$, tal que $\gamma_2 - \gamma_1 = \gamma$. 
+Assim: 
 
 $$P\left(T_{n-1}^{-1}(\gamma_1) < U < T_{n-1}^{-1}(\gamma_2)\right) = \gamma$$
 
-Talvém vc esteja se perguntando: porque escolher $\gamma_1, \gamma_2$ dessa forma? Bom: 
+Talvez vc esteja se perguntando: porque escolher $\gamma_1, \gamma_2$ dessa forma? Bom: 
 
 $$
 \begin{split}
@@ -257,25 +254,9 @@ $$
 &= P\left(U < T_{n-1}^{-1}(\gamma_2)\right) - P\left(U \leq T_{n-1}^{-1}(\gamma_1)\right) \\
 &= \gamma_2 - \gamma_1
 \end{split}
-$$
+$$ 
 
-## Intervalos de Confiança Unilateral 
-
-### Definição 
-
-Seja $X_1, ..., X_n \overset{idd}{\sim} F(\theta)$. Sejam $A$ e $B$ duas estatísticas tais que: 
-
-$$
-P(A < g(\theta)) \geq \gamma
-$$
-
-$$
-P(B > g(\theta)) \geq \gamma
-$$
-
-Então $(A, \infty)$ e $(-\infty, B)$ são chamados de intervalos de confiaça unilaterais para $g(\theta)$ de coeficiente $\gamma$ ou percentil $100\gamma$. No caso de $A$ $100\gamma$ porcento abaixo e no caso de $B$ a cima. Se vale a igualdade, dizemos que o intervalor é exato.  
-
-## Intervalo unilateral para a média de $N(\mu,\sigma^2)$
+### Intervalo unilateral para a média de $N(\mu,\sigma^2)$
 
 Nas mesma condições do teorema anterior, mas as estatísticas para baixo e para cima com coeficiente $\gamma$ para $\mu$ são: 
 
@@ -286,13 +267,48 @@ $$
 B = \bar{X}_n + T_{n-1}^{-1}\left(\gamma\right)\frac{\sigma '}{n^{1/2}}
 $$
 
-## Pivotal 
+## Quantidades Pivotais 
 
-Seja $X_1, ..., X_n \overset{idd}{\sim} F(\theta)$. Seja $V(\vec{X},\theta)$ uma variável aleatória cuja distribuição é a mesma para $\theta$. Chamamos $V$ de **quantidade pivotal**. 
+Uma variável aleatória $V(\vec{X}, \theta)$ é uma **quantidade pivotal** se sua distribuição independe de $\theta$.
+Assim, se $X_1, ..., X_n \overset{idd}{\sim} F(\theta)$, então $V(\vec{X}, \theta)$ tem a mesma distribuição para todo $\theta$.
 
-### Teorema 
+---
+``📝`` **Exemplo da Gamma**
 
-Seja $X_1, ..., X_n \overset{idd}{\sim} F(\theta)$. Suponha que 
+Sejam $X_1, \dots, X_n \overset{iid}{\sim} Gamma(a, \lambda)$, com $a$ conhecido.
+Assim, $T = \sum_{i=1}^n X_i \sim Gamma(na, \lambda)$.
+Temos que 
+$$
+V(X, \lambda) = \lambda T \sim \gamma(na, 1),
+$$
+que não depende de $\lambda$.
+Com isso, $V$ é uma quantidade pivotal.
+
+---
+
+Uma forma de procurar por quantidades pivotais é olhando a pdf da distribuição. 
+No caso da Gamma, por exemplo, temos que
+$$
+f_T(t) = \frac{\lambda^{na}}{\Gamma(na)} t^{an-1}e^{-t/\lambda},
+$$
+portanto, $v = t/\lambda$, faz com que a densidade não depende de $\lambda$.
+Portanto, multiplicar $t$ por $\lambda$ é suficiente.
+
+De forma geral, se a densidade de $T$ é da forma
+$$
+f(t|\theta) = g(V(t,\theta)) \bigg|\frac{\partial}{\partial t} V(t,\theta)\bigg|,
+$$
+para alguma função $g$ e $V$ uma função monótona em $t$.
+Veja que isso está relacionado com o Teorema da Mudança de Variável.
+
+Dada uma quantidade pivotal $V$, então 
+$$
+C(X) = \{\theta : a \le V(x,\theta) \le b\}
+$$
+é intervalo de confiança com coeficiente $\gamma$ se $\mathbb{P}_{\theta}(a \le V(x,\theta) \le b) \ge \gamma$.
+
+**Teorema:** Sejam $X_1, ..., X_n \overset{idd}{\sim} F(\theta)$. 
+Suponha que 
 
 1. Exista $V$ pivotal. 
 2. A cdf $G$ de $V$ é contínua. 
@@ -309,8 +325,6 @@ B = r(G^{-1}(\gamma_2), X)
 $$
 
 são os pontos extremos do intervalo de confiança exato para $g(\theta)$ de coeficiente $\gamma = \gamma_2 - \gamma_1$. Se $r$ é estritamente decrescente, invertemos $A$ e $B$. 
-
-*Obs.: Ainda podemos usar o Teorema Central do Limite para obter intervalos de confiança assintóticos.*
 
 ## Exemplo com Regressão Linear
 
@@ -329,19 +343,14 @@ onde $E \sim N(0,\sigma^2)$. Nesse caso, estamos dizendo que $Y|X \sim N(aX + b,
 sns.lmplot(x = 'gestation', y = 'bwt', data = birth_df, height = 5, ci = 95)
 ```
 
-
-
-
-    <seaborn.axisgrid.FacetGrid at 0x7fc517f55c18>
-
-
-
-
 ![png](output_16_1.png)
 
+O resultado não foi muito bom (na verdade eu já imaginava isso). 
+Mas o interessante é tentar refletir o que essas bandas significam? 
+Por que os pontos não estão nela? 
+Esperávamos que estivesse? 
+E por que ela diminui a variância com o número de pontos? 
 
-O resultado não foi muito bom (na verdade eu já imaginava isso). Mas o interessante é tentar refletir o que essas bandas significam? Por que os pontos não estão nela? Esperávamos que estivésse? E por que ela diminui a variância com o número de pontos? 
-
-Essas perguntas vão ser devidamente respondidas no próximo curso de Estatística!
+Essas perguntas vão ser devidamente respondidas no próximo curso de Modelagem Estatística!
 
 Mas eu já vou adiantando que esse intervalo de confiança é para a média estimada. 
