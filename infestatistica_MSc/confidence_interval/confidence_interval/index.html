@@ -170,43 +170,51 @@
         <li class="first-level active"><a href="#intervalos-de-confianca">Intervalos de Confiança</a></li>
             <li class="second-level"><a href="#definicao">Definição</a></li>
                 
-            <li class="second-level"><a href="#intervalo-de-confianca-para-a-media-de-nmu-sigma2">Intervalo de Confiança para a média de N(\mu, \sigma^2)</a></li>
-                
+                <li class="third-level"><a href="#intervalo-de-confianca-para-a-media-de-nmu-sigma2">Intervalo de Confiança para a média de N(\mu, \sigma^2)</a></li>
                 <li class="third-level"><a href="#implementacao">Implementação</a></li>
         <li class="first-level "><a href="#importando-bibliotecas">Importando bibliotecas</a></li>
             <li class="second-level"><a href="#interpretacao">Interpretação</a></li>
                 
-                <li class="third-level"><a href="#sem-simetria">Sem simetria</a></li>
-            <li class="second-level"><a href="#intervalos-de-confianca-unilateral">Intervalos de Confiança Unilateral</a></li>
+            <li class="second-level"><a href="#sem-simetria">Sem simetria</a></li>
                 
-                <li class="third-level"><a href="#definicao_1">Definição</a></li>
             <li class="second-level"><a href="#intervalo-unilateral-para-a-media-de-nmusigma2">Intervalo unilateral para a média de N(\mu,\sigma^2)</a></li>
                 
-            <li class="second-level"><a href="#pivotal">Pivotal</a></li>
+            <li class="second-level"><a href="#quantidades-pivotais">Quantidades Pivotais</a></li>
                 
-                <li class="third-level"><a href="#teorema">Teorema</a></li>
             <li class="second-level"><a href="#exemplo-com-regressao-linear">Exemplo com Regressão Linear</a></li>
+                
+            <li class="second-level"><a href="#intervalos-de-confianca-assintoticos">Intervalos de confiança assintóticos</a></li>
                 
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
 <h1 id="intervalos-de-confianca">Intervalos de Confiança</h1>
-<p>Esse tema procura responder quão confiança deveríamos por em um estimador. É claro que essa pergunta tem que ser um pouco melhor descrita matematicamente. A ideia é frequentista e tem a ideia a seguinte forma: </p>
+<p>Esse tema procura responder quão confiantes estamos de um estimador. 
+É claro que essa pergunta tem que ser melhor descrita matematicamente. 
+De forma geral, estamos procurando por uma estatística <script type="math/tex">C(X)</script> em que para cada <script type="math/tex">X=x</script> observado, <script type="math/tex">C(x)</script> é um conjunto. 
+Mas na prática, procuramos por estatísticas <script type="math/tex">(A(X), B(X))</script> que nos deem confiança de que contenham o parâmetro verdadeiro, isto é. </p>
 <blockquote>
-<p>O intervalo <script type="math/tex">[a,b]</script>, uma realização de <script type="math/tex">[A,B]</script>, tem 95% de confiança se em 95% do tempo, o parâmetro procurado está entre <script type="math/tex">a</script> e <script type="math/tex">b</script>. Veja que a ideia é basicamente frequentista, dado que a interpretação está ligada à frequência quando o número de experimentos tende para infinito. (Cuidado: Não vamos falar da probabilidade do parâmetro estar em <script type="math/tex">[a,b]</script>, isso não faz sentido, pois <script type="math/tex">\theta</script> não é uma variável aleatória, e sim um valor fixo).</p>
+<p>O intervalo <script type="math/tex">[a,b]</script>, uma realização de <script type="math/tex">[A(X),B(X)]</script>, tem 95% de confiança se em 95% do tempo, o parâmetro procurado está entre <script type="math/tex">a</script> e <script type="math/tex">b</script>. 
+Veja que a ideia é frequentista, dado que a interpretação está ligada à frequência de pertencimento quando o número de experimentos tende para infinito.
+(Cuidado: Não vamos falar da probabilidade do parâmetro estar em <script type="math/tex">[a,b]</script>, isso não faz sentido, pois <script type="math/tex">\theta</script> não é uma variável aleatória, e sim um valor fixo).</p>
 </blockquote>
-<h3 id="definicao">Definição</h3>
-<p>Seja <script type="math/tex">X_1, ..., X_n \overset{iid}{\sim} F(\theta)</script>. Sejam <script type="math/tex">A \leq B</script> duas estatísticas que possuem a propriedade, para todo <script type="math/tex">\theta</script>, </p>
-<p>
+<h2 id="definicao">Definição</h2>
+<p>Sejam <script type="math/tex">X_1, ..., X_n \overset{iid}{\sim} F(\theta)</script>.
+Uma <strong>estimador intervalar</strong> de <script type="math/tex">\theta</script> é um par de estatísticas <script type="math/tex">(A(X), B(X))</script>, tal que <script type="math/tex">\mathbb{P}(A(X) \le B(X)) = 1</script>
+Se <script type="math/tex">X=x</script> é observado, então <script type="math/tex">(A(x), B(x))</script> é uma estimativa intervalar.
+Para um estimador intervalar, a <strong>probabilidade de cobertura</strong> é 
 <script type="math/tex; mode=display">
-P(A < g(\theta) < B) \geq \gamma
+\mathbb{P}_{\theta}(\theta \in [A(X), B(X)]) = \mathbb{P}_{\theta}(A(X) \le \theta, B(X) \ge \theta).
 </script>
-</p>
-<p>Chamamos <script type="math/tex">(A,B)</script> de intevalo de confiança para <script type="math/tex">g(\theta)</script> com coeficiente <script type="math/tex">\gamma</script>. O intervalo é chamado de <strong>exato</strong> se ao invés da desigualdade, tivermos uma igualdade. </p>
-<p>Após observarmos os valores de <script type="math/tex">X_1, ..., X_n</script> e computarmos <script type="math/tex">A = a</script> e <script type="math/tex">B = b</script>, o intervalo <script type="math/tex">(a,b)</script> é chamado de valor observado do intervalo de confiança. </p>
-<h2 id="intervalo-de-confianca-para-a-media-de-nmu-sigma2">Intervalo de Confiança para a média de <script type="math/tex">N(\mu, \sigma^2)</script>
-</h2>
+Um <strong>intervalo de confiança</strong> com coeficiente de confiança <script type="math/tex">\gamma</script> é um estimador intervalar que satisfaz 
+<script type="math/tex; mode=display">
+\inf_{\theta} \mathbb{P}_{\theta}(\theta \in [A(X), B(X)]) = \gamma, 
+</script>
+ou também, <script type="math/tex">\mathbb{P}(A(X) < \theta < B(X)) \ge \gamma</script>, isto é, a probabilidade de cobertura é no mínimo <script type="math/tex">\gamma</script>.
+Após observarmos os valores de <script type="math/tex">X_1, ..., X_n</script> e computarmos <script type="math/tex">A = a</script> e <script type="math/tex">B = b</script>, o intervalo <script type="math/tex">(a,b)</script> é chamado de valor observado do intervalo de confiança. </p>
+<h3 id="intervalo-de-confianca-para-a-media-de-nmu-sigma2">Intervalo de Confiança para a média de <script type="math/tex">N(\mu, \sigma^2)</script>
+</h3>
 <p>Seja <script type="math/tex">X_1, ..., X_n \sim N(\mu, \sigma^2)</script>. Para cada <script type="math/tex">0 < \gamma < 1</script>, o intervalo <script type="math/tex">(A,B)</script> é intervalo de confiança exato para <script type="math/tex">\mu</script> com coeficiente <script type="math/tex">\gamma</script>, em que:</p>
 <p>
 <script type="math/tex; mode=display">
@@ -217,13 +225,10 @@ B = \bar{X}_n + T_{n-1}^{-1}\left(\frac{1 + \gamma}{2}\right)\frac{\sigma '}{n^{
 </script>
 </p>
 <p>onde <script type="math/tex">T_{n-1}</script> denota a cdf da distribuição <script type="math/tex">t</script> com <script type="math/tex">n-1</script> graus de liberdade. </p>
-<p>O interessante é que isso é implicação direta da distribuição de <script type="math/tex">U = \frac{n^{1/2}(\bar{X}_n - \mu)}{\sigma '}</script> que inferimos no capítulo 8.4, nesse caso, simplemente fizemos a transformação:</p>
-<p>
-<script type="math/tex; mode=display">\gamma = P(-c < U < c) = P(A < \mu < B)</script>
-</p>
-<p>e <script type="math/tex">c</script> é escolhido de acordo com <script type="math/tex">\gamma</script>.</p>
+<p>Esse resultado implica do fato de que a distribuição de <script type="math/tex">U = \frac{n^{1/2}(\bar{X}_n - \mu)}{\sigma '}</script> é conhecida por distribuição <script type="math/tex">t</script> com <script type="math/tex">n-1</script> graus de liberdade e fazemos
+<script type="math/tex; mode=display">\gamma = P(-c < U < c) = P(A < \mu < B)</script> 
+coo <script type="math/tex">c</script> sendo escolhido de acordo com <script type="math/tex">\gamma</script>.</p>
 <h3 id="implementacao">Implementação</h3>
-<p>Vamos rever a informação sobre café que usamos capítulos antes para ver como isso acontece na prática.</p>
 <p>Considere dados sobre pesos de bebês logo ao nascer. </p>
 <ol>
 <li>bwt: peso do bebê ao nascer. </li>
@@ -338,8 +343,12 @@ plt.legend()
 plt.show()</code></p>
 <p><img alt="png" src="../output_4_0.png" /></p>
 <p><img alt="png" src="../output_4_1.png" /></p>
-<p>Sabemos que essa é uma extração de uma população maior. Para conseguirmos mais amostras, vamos usar um procedimento chamado <strong>bootstrap</strong>. A ideia desse procedimento é criar um novas amostras a partir de uma amostra inicial, usando <code>replace = True</code> como diferencial. Vou fazer esse procedimento diversar vezes e ir calculando a média amostral. Como a média amostral é uma variável aleatória, vamos obter um histograma das realizações. </p>
-<p>Vamos supor que o peso <script type="math/tex">W_i</script> da criança <script type="math/tex">i</script> vem de uma distribuição com parâmetros <script type="math/tex">\mu</script> e <script type="math/tex">\sigma^2</script> desconhecidos. Nesse caso, <script type="math/tex">\bar{W}_i</script> virá de uma distribuição normal com parâmetros <script type="math/tex">\mu</script> e <script type="math/tex">\sigma^2/n</script>. </p>
+<p>Sabemos que essa é uma extração de uma população maior. Para conseguirmos mais amostras, vamos usar um procedimento chamado <strong>bootstrap</strong>. 
+A ideia desse procedimento é criar um novas amostras a partir de uma amostra inicial, usando <code>replace = True</code> como diferencial. 
+Vou fazer esse procedimento diversas vezes e ir calculando a média amostral. 
+Como a média amostral é uma variável aleatória, vamos obter um histograma das realizações. </p>
+<p>Vamos supor que o peso <script type="math/tex">W_i</script> da criança <script type="math/tex">i</script> vem de uma distribuição com parâmetros <script type="math/tex">\mu</script> e <script type="math/tex">\sigma^2</script> desconhecidos. 
+Nesse caso, <script type="math/tex">\bar{W}_i</script> virá de uma distribuição normal com parâmetros <script type="math/tex">\mu</script> e <script type="math/tex">\sigma^2/n</script>. </p>
 <p>```python
 ite = 10000
 n = 200</p>
@@ -380,14 +389,20 @@ plt.vlines(119.5, ymin = 0, ymax = ite, linestyle = '--', alpha = 0.6, label = '
 plt.legend()
 plt.show()</code></p>
 <p><img alt="png" src="../output_11_0.png" /></p>
-<h2 id="interpretacao">Interpretação</h2>
-<p>Estamos fazer uma afirmação probabilística sobre o intervalo <script type="math/tex">(A,B)</script> antes de observar os dados. Após observarmos os dados, não podemos interpretar <script type="math/tex">(a,b)</script> como um intervalo em que temos 95% de confiança de <script type="math/tex">g(\theta)</script> estar no intervalo. Antes de observarmos as amostras, temos a confiança de que 95% dos intervalos conterão <script type="math/tex">\mu</script>. </p>
+<h3 id="interpretacao">Interpretação</h3>
+<p>Estamos fazendo uma afirmação probabilística sobre o intervalo <script type="math/tex">(A,B)</script> antes de observar os dados. 
+Após observarmos os dados, não podemos interpretar <script type="math/tex">(a,b)</script> como um intervalo em que temos 95% de confiança de <script type="math/tex">g(\theta)</script> estar no intervalo. 
+Antes de observarmos as amostras, temos a confiança de que 95% dos intervalos conterão <script type="math/tex">\mu</script>.
+Sabemos que a realização infinita desse experimento faz com que 95% dos intervalos realizados contenham o valor verdadeiro.</p>
 <h3 id="sem-simetria">Sem simetria</h3>
-<p>Construimos anteriormente um intervalo simétrico, onde a estatística <script type="math/tex">U</script> acima mencionada estaria entre <script type="math/tex">-c</script> e <script type="math/tex">c</script> com probabilidade <script type="math/tex">\gamma</script>. Mas podemos desenvolver intervalos não simétricos também. Uma forma que podemos fazer isso é escolhendo <script type="math/tex">\gamma_1</script> e <script type="math/tex">\gamma_2</script>, tal que <script type="math/tex">\gamma_2 - \gamma_1 = \gamma</script>. Assim: </p>
+<p>Construímos anteriormente um intervalo simétrico, onde a estatística <script type="math/tex">U</script> acima mencionada estaria entre <script type="math/tex">-c</script> e <script type="math/tex">c</script> com probabilidade <script type="math/tex">\gamma</script>. 
+Mas podemos desenvolver intervalos não simétricos também. 
+Uma forma que podemos fazer isso é escolhendo <script type="math/tex">\gamma_1</script> e <script type="math/tex">\gamma_2</script>, tal que <script type="math/tex">\gamma_2 - \gamma_1 = \gamma</script>. 
+Assim: </p>
 <p>
 <script type="math/tex; mode=display">P\left(T_{n-1}^{-1}(\gamma_1) < U < T_{n-1}^{-1}(\gamma_2)\right) = \gamma</script>
 </p>
-<p>Talvém vc esteja se perguntando: porque escolher <script type="math/tex">\gamma_1, \gamma_2</script> dessa forma? Bom: </p>
+<p>Talvez vc esteja se perguntando: porque escolher <script type="math/tex">\gamma_1, \gamma_2</script> dessa forma? Bom: </p>
 <p>
 <script type="math/tex; mode=display">
 \begin{split}
@@ -397,23 +412,8 @@ plt.show()</code></p>
 \end{split}
 </script>
 </p>
-<h2 id="intervalos-de-confianca-unilateral">Intervalos de Confiança Unilateral</h2>
-<h3 id="definicao_1">Definição</h3>
-<p>Seja <script type="math/tex">X_1, ..., X_n \overset{idd}{\sim} F(\theta)</script>. Sejam <script type="math/tex">A</script> e <script type="math/tex">B</script> duas estatísticas tais que: </p>
-<p>
-<script type="math/tex; mode=display">
-P(A < g(\theta)) \geq \gamma
-</script>
-</p>
-<p>
-<script type="math/tex; mode=display">
-P(B > g(\theta)) \geq \gamma
-</script>
-</p>
-<p>Então <script type="math/tex">(A, \infty)</script> e <script type="math/tex">(-\infty, B)</script> são chamados de intervalos de confiaça unilaterais para <script type="math/tex">g(\theta)</script> de coeficiente <script type="math/tex">\gamma</script> ou percentil <script type="math/tex">100\gamma</script>. No caso de <script type="math/tex">A</script>
-<script type="math/tex">100\gamma</script> porcento abaixo e no caso de <script type="math/tex">B</script> a cima. Se vale a igualdade, dizemos que o intervalor é exato.  </p>
-<h2 id="intervalo-unilateral-para-a-media-de-nmusigma2">Intervalo unilateral para a média de <script type="math/tex">N(\mu,\sigma^2)</script>
-</h2>
+<h3 id="intervalo-unilateral-para-a-media-de-nmusigma2">Intervalo unilateral para a média de <script type="math/tex">N(\mu,\sigma^2)</script>
+</h3>
 <p>Nas mesma condições do teorema anterior, mas as estatísticas para baixo e para cima com coeficiente <script type="math/tex">\gamma</script> para <script type="math/tex">\mu</script> são: </p>
 <p>
 <script type="math/tex; mode=display">
@@ -423,10 +423,40 @@ A = \bar{X}_n - T_{n-1}^{-1}\left(\gamma\right)\frac{\sigma '}{n^{1/2}}
 B = \bar{X}_n + T_{n-1}^{-1}\left(\gamma\right)\frac{\sigma '}{n^{1/2}}
 </script>
 </p>
-<h2 id="pivotal">Pivotal</h2>
-<p>Seja <script type="math/tex">X_1, ..., X_n \overset{idd}{\sim} F(\theta)</script>. Seja <script type="math/tex">V(\vec{X},\theta)</script> uma variável aleatória cuja distribuição é a mesma para <script type="math/tex">\theta</script>. Chamamos <script type="math/tex">V</script> de <strong>quantidade pivotal</strong>. </p>
-<h3 id="teorema">Teorema</h3>
-<p>Seja <script type="math/tex">X_1, ..., X_n \overset{idd}{\sim} F(\theta)</script>. Suponha que </p>
+<h2 id="quantidades-pivotais">Quantidades Pivotais</h2>
+<p>Uma variável aleatória <script type="math/tex">V(\vec{X}, \theta)</script> é uma <strong>quantidade pivotal</strong> se sua distribuição independe de <script type="math/tex">\theta</script>.
+Assim, se <script type="math/tex">X_1, ..., X_n \overset{idd}{\sim} F(\theta)</script>, então <script type="math/tex">V(\vec{X}, \theta)</script> tem a mesma distribuição para todo <script type="math/tex">\theta</script>.</p>
+<hr />
+<p><code>📝</code> <strong>Exemplo da Gamma</strong></p>
+<p>Sejam <script type="math/tex">X_1, \dots, X_n \overset{iid}{\sim} Gamma(a, \lambda)</script>, com <script type="math/tex">a</script> conhecido.
+Assim, <script type="math/tex">T = \sum_{i=1}^n X_i \sim Gamma(na, \lambda)</script>.
+Temos que 
+<script type="math/tex; mode=display">
+V(X, \lambda) = \lambda T \sim \gamma(na, 1),
+</script>
+que não depende de <script type="math/tex">\lambda</script>.
+Com isso, <script type="math/tex">V</script> é uma quantidade pivotal.</p>
+<hr />
+<p>Uma forma de procurar por quantidades pivotais é olhando a pdf da distribuição. 
+No caso da Gamma, por exemplo, temos que
+<script type="math/tex; mode=display">
+f_T(t) = \frac{\lambda^{na}}{\Gamma(na)} t^{an-1}e^{-t/\lambda},
+</script>
+portanto, <script type="math/tex">v = t/\lambda</script>, faz com que a densidade não depende de <script type="math/tex">\lambda</script>.
+Portanto, multiplicar <script type="math/tex">t</script> por <script type="math/tex">\lambda</script> é suficiente.</p>
+<p>De forma geral, se a densidade de <script type="math/tex">T</script> é da forma
+<script type="math/tex; mode=display">
+f(t|\theta) = g(V(t,\theta)) \bigg|\frac{\partial}{\partial t} V(t,\theta)\bigg|,
+</script>
+para alguma função <script type="math/tex">g</script> e <script type="math/tex">V</script> uma função monótona em <script type="math/tex">t</script>.
+Veja que isso está relacionado com o Teorema da Mudança de Variável.</p>
+<p>Dada uma quantidade pivotal <script type="math/tex">V</script>, então 
+<script type="math/tex; mode=display">
+C(X) = \{\theta : a \le V(x,\theta) \le b\}
+</script>
+é intervalo de confiança com coeficiente <script type="math/tex">\gamma</script> se <script type="math/tex">\mathbb{P}_{\theta}(a \le V(x,\theta) \le b) \ge \gamma</script>.</p>
+<p><strong>Teorema:</strong> Sejam <script type="math/tex">X_1, ..., X_n \overset{idd}{\sim} F(\theta)</script>. 
+Suponha que </p>
 <ol>
 <li>Exista <script type="math/tex">V</script> pivotal. </li>
 <li>A cdf <script type="math/tex">G</script> de <script type="math/tex">V</script> é contínua. </li>
@@ -444,7 +474,6 @@ B = r(G^{-1}(\gamma_2), X)
 </script>
 </p>
 <p>são os pontos extremos do intervalo de confiança exato para <script type="math/tex">g(\theta)</script> de coeficiente <script type="math/tex">\gamma = \gamma_2 - \gamma_1</script>. Se <script type="math/tex">r</script> é estritamente decrescente, invertemos <script type="math/tex">A</script> e <script type="math/tex">B</script>. </p>
-<p><em>Obs.: Ainda podemos usar o Teorema Central do Limite para obter intervalos de confiança assintóticos.</em></p>
 <h2 id="exemplo-com-regressao-linear">Exemplo com Regressão Linear</h2>
 <p>O dataset que utilizei anteriormente não é muito bom para esse exemplo, mas eu vou usar, de qualquer forma, para entendermos o processo e como pode nos ajudar o intervalo de confiança. </p>
 <p>Em uma Regressão Linear, queremos dizer aferir uma relação linear entre duas variáveis, isto é, queremos dizer que uma variável pode ser obtida pela outra através de uma reta, mais um erro aleatório. Suponha que queremos estimar <script type="math/tex">Y</script> o peso da criança ao nascer, sabendo a informação do tempo de gestação <script type="math/tex">X</script> e que </p>
@@ -456,12 +485,15 @@ Y = aX + b + E,
 <p>onde <script type="math/tex">E \sim N(0,\sigma^2)</script>. Nesse caso, estamos dizendo que <script type="math/tex">Y|X \sim N(aX + b, \sigma^2)</script>. Queremos estimar <script type="math/tex">a</script> e <script type="math/tex">b</script> de forma que tenhamos o melhor ajuste possível. Esse tema em específico não me interessa. Entretanto, podemos dizer que queremos estimar <script type="math/tex">aX + b</script>, a média de uma normal, mas que muda para cada <script type="math/tex">X = x</script> observado. </p>
 <p><code>python
 sns.lmplot(x = 'gestation', y = 'bwt', data = birth_df, height = 5, ci = 95)</code></p>
-<pre><code>&lt;seaborn.axisgrid.FacetGrid at 0x7fc517f55c18&gt;
-</code></pre>
 <p><img alt="png" src="../output_16_1.png" /></p>
-<p>O resultado não foi muito bom (na verdade eu já imaginava isso). Mas o interessante é tentar refletir o que essas bandas significam? Por que os pontos não estão nela? Esperávamos que estivésse? E por que ela diminui a variância com o número de pontos? </p>
-<p>Essas perguntas vão ser devidamente respondidas no próximo curso de Estatística!</p>
-<p>Mas eu já vou adiantando que esse intervalo de confiança é para a média estimada. </p></div>
+<p>O resultado não foi muito bom (na verdade eu já imaginava isso). 
+Mas o interessante é tentar refletir o que essas bandas significam? 
+Por que os pontos não estão nela? 
+Esperávamos que estivesse? 
+E por que ela diminui a variância com o número de pontos? </p>
+<p>Essas perguntas vão ser devidamente respondidas no próximo curso de Modelagem Estatística!</p>
+<p>Mas eu já vou adiantando que esse intervalo de confiança é para a média estimada. </p>
+<h2 id="intervalos-de-confianca-assintoticos">Intervalos de confiança assintóticos</h2></div>
         
         
     </div>
