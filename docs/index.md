@@ -9,6 +9,8 @@ alterações, você pode usar o Issues do Github.
 
 ## Tópicos abordados 
 
+- Equações Diferenciais Parciais (2022.2)
+    - Professor [Moacyr Alvim Horta Barbosa da Silva](https://emap.fgv.br/corpo-docente/moacyr-alvim-horta-barbosa-silva)
 - Análise Funcional (2022.5)
     - Professora [Maria Soledad Aronna](https://sites.google.com/view/aronna/home)
 - Inferência Estatística (2022.5)
