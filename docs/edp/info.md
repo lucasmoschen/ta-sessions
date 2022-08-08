@@ -1,8 +1,6 @@
 # Informações Gerais 
 
-Monitoria de Equações Diferenciais Parciais correspondente ao período de 2021.2.  
-
-- Dia: Quinta-feira, 18h até 20h
+Monitoria de Equações Diferenciais Parciais.
 
 ## Tópicos
 
@@ -22,6 +20,29 @@ Monitoria de Equações Diferenciais Parciais correspondente ao período de 2021
 |---|
 |[Equação da onda](/ta-sessions/edp/wave_equation)|
 |[Equação do calor](/ta-sessions/edp/heat_equation)
+
+## Período 2022.2
+
+- Dia: 
+
+### Listas
+
+|Número|Itens discutidos|Solução|
+|------|----------------|-------|
+
+### Notas
+  
+|Monitoria|Itens discutidos|Arquivo|Vídeo|
+|---------|----------------|-------|-----|
+
+### Provas
+
+|Ano|Bimestre|Questões|Soluções|Observações|
+|---|--------|--------|--------|-----------|
+
+## Período 2021.2
+
+- Dia: Quinta-feira 18h
 
 ## Listas
 

@@ -1,6 +1,6 @@
 # Informações Gerais
 
-Monitoria de Curvas e Superfícies
+Monitoria de Curvas e Superfícies.
 
 - [Ementa da disciplina](/files/disciplines/curvas-superficies2021/Ementa_curvas_superficies.pdf)
 - [Notebooks documentados](https://github.com/lucasmoschen/ta-sessions/tree/master/Curves_Surfaces/notebooks)
