@@ -18,6 +18,7 @@ Os tópicos cobertos na disciplina estão separados em três partes:
 |Parte 2|
 |-------|
 |[Espaços normados](/ta-sessions/functional_analysis/banach_spaces)|
+|[Teorema de Hahn-Banach](/ta-sessions/functional_analysis/hahn_banach)|
 
 ## Exercícios 
 
