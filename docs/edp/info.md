@@ -34,6 +34,7 @@ Monitoria de Equações Diferenciais Parciais.
   
 |Monitoria|Itens discutidos|Arquivo|Vídeo|
 |---------|----------------|-------|-----|
+|12/08/2022|Método das características|[ver](/files/disciplines/edp2022/monitoria12-08-2022.pdf)|Não|
 
 ### Provas
 
