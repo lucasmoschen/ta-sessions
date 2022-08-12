@@ -11,7 +11,7 @@
     <link rel="shortcut icon" href="../../img/favicon.ico">
 
     
-    <title>Análise Funcional - Teaching Assistance</title>
+    <title>Teorema de Hahn Banach - Teaching Assistance</title>
     
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
@@ -120,13 +120,13 @@
                 
                 
                 
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pós-graduação <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
-<li class="active">
-    <a href="./">Análise Funcional</a>
+<li >
+    <a href="../info/">Análise Funcional</a>
 </li>
 
                         
@@ -154,16 +154,6 @@
                             <i class="fas fa-search"></i> Search
                         </a>
                     </li>
-                    <li >
-                        <a rel="prev" href="../../infestatistica_BSc/info/">
-                            <i class="fas fa-arrow-left"></i> Previous
-                        </a>
-                    </li>
-                    <li >
-                        <a rel="next" href="../../bayesian/info/">
-                            Next <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </li>
                     <li>
                         <a href="https://lucasmoschen.github.io">Página Inicial</a>
                     </li>
@@ -177,115 +167,103 @@
         
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="first-level active"><a href="#informacoes-gerais">Informações Gerais</a></li>
-            <li class="second-level"><a href="#topicos">Tópicos</a></li>
+        <li class="first-level active"><a href="#teorema-de-hahn-banach">Teorema de Hahn Banach</a></li>
+            <li class="second-level"><a href="#funcionais-lineares-limitados">Funcionais lineares limitados</a></li>
                 
-            <li class="second-level"><a href="#exercicios">Exercícios</a></li>
+            <li class="second-level"><a href="#espaco-conjugado">Espaço conjugado</a></li>
                 
-            <li class="second-level"><a href="#notas">Notas</a></li>
+            <li class="second-level"><a href="#consequencias-do-teorema-de-hahn-banach">Consequências do teorema de Hahn-Banach</a></li>
                 
-            <li class="second-level"><a href="#documentos-adicionais">Documentos Adicionais</a></li>
+            <li class="second-level"><a href="#teorema-da-representacao-de-riesz">Teorema da Representação de Riesz</a></li>
                 
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h1 id="informacoes-gerais">Informações Gerais</h1>
-<p>Monitoria de Análise Funcional: Fundamentos (Doutorado) correspondente ao período de 2022.4.  </p>
-<ul>
-<li>Horário: Quintas-feiras, 14h. <a href="meet.google.com/crb-jvfo-pqy">Link 14h-15h</a>, <a href="meet.google.com/tcg-fxzx-mwx">Link 15h-16h</a></li>
-</ul>
-<h2 id="topicos">Tópicos</h2>
-<p>Os tópicos cobertos na disciplina estão separados em três partes:</p>
-<table>
-<thead>
-<tr>
-<th>Parte 1</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="/ta-sessions/functional_analysis/metric_spaces">Espaços métricos</a></td>
-</tr>
-<tr>
-<td><a href="/ta-sessions/functional_analysis/isometries">Isometrias e completamento</a></td>
-</tr>
-<tr>
-<td><a href="/ta-sessions/functional_analysis/compactness">Compacidade em espaços métricos</a></td>
-</tr>
-<tr>
-<td><a href="/ta-sessions/functional_analysis/arzela">Teorema de Arzelà-Ascoli</a></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>Parte 2</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="/ta-sessions/functional_analysis/banach_spaces">Espaços normados</a></td>
-</tr>
-<tr>
-<td><a href="/ta-sessions/functional_analysis/hahn_banach">Teorema de Hahn-Banach</a></td>
-</tr>
-</tbody>
-</table>
-<h2 id="exercicios">Exercícios</h2>
-<p>Os exercícios resolvidos estão disponíveis:</p>
-<table>
-<thead>
-<tr>
-<th>Lista</th>
-<th>Tópicos</th>
-<th>Última atualização</th>
-<th>Para entregar</th>
-<th>Solução</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://lucasmoschen.github.io/files/disciplines/functional-analysis/paper_sheet_metric_spaces.pdf">1</a></td>
-<td>Espaços métricos</td>
-<td>13/07/2022</td>
-<td>4,8,27,29,30</td>
-<td><a href="https://lucasmoschen.github.io/files/disciplines/functional-analysis/paper_sheet_metric_spaces_solutions.pdf">1</a></td>
-</tr>
-<tr>
-<td><a href="https://lucasmoschen.github.io/files/disciplines/functional-analysis/paper_sheet_normed_spaces.pdf">2</a></td>
-<td>Espaços normados</td>
-<td>12/08/2022</td>
-<td>None</td>
-<td><a href="https://lucasmoschen.github.io/files/disciplines/functional-analysis/paper_sheet_normed_spaces_solutions.pdf">2</a></td>
-</tr>
-</tbody>
-</table>
-<h2 id="notas">Notas</h2>
-<table>
-<thead>
-<tr>
-<th>Monitoria</th>
-<th>Itens discutidos</th>
-<th>Arquivo</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>07/07/2022</td>
-<td>Conceitos da lista 1</td>
-<td><a href="https://lucasmoschen.github.io/files/disciplines/functional-analysis/monitoria_07_07_2022.pdf">ver arquivo</a></td>
-</tr>
-<tr>
-<td>26/07/2022</td>
-<td>Arzelà-Ascoli, lista 1 e espaço <script type="math/tex">l^{\infty}</script>
-</td>
-<td><a href="https://lucasmoschen.github.io/files/disciplines/functional-analysis/monitoria_26_07_2022.pdf">ver arquivo</a></td>
-</tr>
-</tbody>
-</table>
-<h2 id="documentos-adicionais">Documentos Adicionais</h2></div>
+<h1 id="teorema-de-hahn-banach">Teorema de Hahn Banach</h1>
+<p>Queremos generalizar um pouco mais a ideia de norma para um <strong>funcional convexo</strong>.
+Será fácil verificar que toda norma é um funcional convexo e, portanto, resultados para esses funcionais serão válidos para normas em geral.</p>
+<blockquote>
+<p>Um <strong>funcional linear</strong> é um mapa <script type="math/tex">f : X \to \mathbb{R}</script> que é uma transformação linear.
+Um <strong>funcional convexo</strong> é um mapa 
+<script type="math/tex; mode=display">
+p : X \to \mathbb{R}
+</script>
+que satisfaz </p>
+<p><strong>(I)</strong> <script type="math/tex">p(x) \ge 0</script> para todo <script type="math/tex">x \in X</script>; </p>
+<p><strong>(II)</strong> <script type="math/tex">p(x+y) \le p(x) + p(y)</script> para todo <script type="math/tex">x,y\in X</script>;</p>
+<p><strong>(II)</strong> <script type="math/tex">p(\alpha x) = \alpha p(x)</script> para todo <script type="math/tex">x \in X</script>, <script type="math/tex">\alpha \ge 0</script>.
+Se o item (I) não é satisfeito, chamamos <script type="math/tex">p</script> de <strong>funcional sublinear</strong>.</p>
+</blockquote>
+<p><strong>Lema:</strong> Seja <script type="math/tex">M</script> subespaço próprio de <script type="math/tex">X</script> e <script type="math/tex">x_0 \in M^c</script>. 
+Defina <script type="math/tex">N = [M \cup \{x_0\}]</script>, isto é, o menor subespaço que contém <script type="math/tex">M \cup \{x_0\}</script>.
+Suponha que <script type="math/tex">f</script> é um funcional linear em <script type="math/tex">M</script>, <script type="math/tex">p</script> é um funcional sublinear em <script type="math/tex">X</script> e <script type="math/tex">f(x) \le p(x)</script> para todo <script type="math/tex">x \in M</script>.
+Assim, <strong>existe</strong> um funcional linear <script type="math/tex">F</script> em <script type="math/tex">N</script> que estende <script type="math/tex">f</script> e satisfaz <script type="math/tex">F(x) \le p(x)</script> para todo <script type="math/tex">x \in N</script>.</p>
+<p>Em resumo, ao incluir uma dimensão em nosso subespaço, conseguimos estender um funcional linear que ainda é limitado por um sublinear.</p>
+<hr />
+<p>Ideia da prova:</p>
+<ol>
+<li>
+<p>Note que para <script type="math/tex">y_1, y_2 \in M</script>, tem-se que
+<script type="math/tex; mode=display">
+-p(-y_2 -x_0) - f(y_2) \le p(y_1+x_0) - f(y_1),
+</script>
+o que implica que existe <script type="math/tex">c_0</script> entre o supremo do lado esquerdo em <script type="math/tex">y_2</script> e o ínfimo do lado direito em <script type="math/tex">y_1</script>.</p>
+</li>
+<li>
+<p>Qualquer elemento de <script type="math/tex">N</script> é unicamente escrito como 
+<script type="math/tex; mode=display">
+x = y + \alpha x_0.
+</script>
+Assim, podemos definir 
+<script type="math/tex; mode=display">
+F(y +  \alpha x_0) = f(y) + \alpha c_0. 
+</script>
+</p>
+</li>
+<li>
+<p>É claro que <script type="math/tex">F</script> é linear e que <script type="math/tex">F</script> estende <script type="math/tex">f</script>.
+Falta verificar se <script type="math/tex">\alpha \neq 0</script>, então <script type="math/tex">F(x) \le p(x)</script>. 
+Isso é verificável usando a desigualdade em (1).</p>
+</li>
+</ol>
+<p>A partir desse lema, podemos obter o seguinte famoso resultado.</p>
+<hr />
+<p><strong>Teorema (Hahn-Banach):</strong> Seja <script type="math/tex">M</script> um subespaço de <script type="math/tex">X</script>, <script type="math/tex">p</script> um sublinear e <script type="math/tex">f</script> um funcional linear definido em <script type="math/tex">M</script>, tal que <script type="math/tex">f(x) \le p(x)</script> para todo <script type="math/tex">x \in M</script>.
+Assim, existe um funcional linear <script type="math/tex">F</script> que estende <script type="math/tex">f</script> em <script type="math/tex">X</script> e satisfaz 
+<script type="math/tex; mode=display">F(x) \le p(x)</script> 
+para todo <script type="math/tex">x \in X</script>.</p>
+<hr />
+<p>Ideia da prova:</p>
+<ol>
+<li>Defina <script type="math/tex">S</script> a classe de todos os funcionais lineares que estendem <script type="math/tex">x</script> e que satisfazem <script type="math/tex">f(x) \le p(x)</script> para <script type="math/tex">x</script> no seu domínio <script type="math/tex">D_f</script>.</li>
+<li>É claro que <script type="math/tex">S</script> não é vazio, já que <script type="math/tex">f \in S</script> para <script type="math/tex">D_f = M</script>.</li>
+<li>Defina a seguinte ordem: <script type="math/tex">f_1 < f_2 \in S</script> se <script type="math/tex">f_2</script> estende <script type="math/tex">f_1</script>, que induz uma ordenação parcial em <script type="math/tex">S</script>. </li>
+<li>Precisamos provar que <script type="math/tex">S</script> é indutivamente ordenado, isto é, todo subconjunto de <script type="math/tex">S</script> totalmente ordenado tem um limite superior. 
+A partir de um conjunto totalmente ordenado <script type="math/tex">\{f_{\alpha}\}</script>, basta considerarmos uma função cujo domínio seja <script type="math/tex">\cup_{\alpha} D_{f_{\alpha}}</script>.
+Nesse caso, define-se que <script type="math/tex">f(x) = f_{\alpha}(x)</script> quando <script type="math/tex">x \in D_{f_{\alpha}}</script>. Precisamos verificar que essa união é um subespaço e que <script type="math/tex">f</script> é bem definida, mas isso é consequência do conjunto ser totalmente ordenado.</li>
+<li>O Lema de Zorn implica a existência de um elemento maximal <script type="math/tex">F</script> de <script type="math/tex">S</script>. </li>
+<li>Falta provar que <script type="math/tex">D_F = X</script>, mas isso é resultado do lema anterior, pois caso não fosse, poderíamos estender esse funcional, caindo em contradição.</li>
+</ol>
+<hr />
+<h2 id="funcionais-lineares-limitados">Funcionais lineares limitados</h2>
+<p>Em espaços normados, o conceito de continuidade para funcionais lineares é mais simples.
+Se <script type="math/tex">f</script> é um funcional linear contínuo em <script type="math/tex">x \in X</script>, então <script type="math/tex">f</script> será contínuo em todo ponto do espaço.
+Mais do que isso, continuidade e limitação de <script type="math/tex">f</script> são equivalentes em espaços normados.</p>
+<blockquote>
+<p>Um funcional linear <script type="math/tex">f</script> em um espaço normado é <strong>limitado</strong> se existe uma constante <script type="math/tex">k</script> tal que <script type="math/tex">f(x) \le k\|x\|</script> para todo <script type="math/tex">x \in X</script>.</p>
+</blockquote>
+<p><strong>Teorema:</strong> Seja <script type="math/tex">X</script> um espaço normado e <script type="math/tex">f</script> um funcional linear. Então <script type="math/tex">f</script> é contínuo se, e só se, <script type="math/tex">f</script> é limitado.</p>
+<h2 id="espaco-conjugado">Espaço conjugado</h2>
+<p>Em um espaço normado, se <script type="math/tex">f</script> é um funcional linear limitado, defina 
+<script type="math/tex; mode=display">
+\|f\| = \sup_{x \neq 0} \frac{|f(x)|}{\|x\|} = \sup_{\|x\|=1} |f(x)|.
+</script>
+O espaço de todos os funcionais limitados sobre <script type="math/tex">X</script> com essa norma é chamado de <strong>espaço conjugado</strong> <script type="math/tex">\tilde{X}</script>.
+Podemos demonstrar que <script type="math/tex">\tilde{X}</script> é espaço de Banach.</p>
+<p><strong>Teorema:</strong> Se <script type="math/tex">X</script> tem dimensão finita, todos os funcionais lineares são limitados (logo, contínuos), isto é, <script type="math/tex">\tilde{X}</script> contém todos os funcionais lineares.</p>
+<h2 id="consequencias-do-teorema-de-hahn-banach">Consequências do teorema de Hahn-Banach</h2>
+<h2 id="teorema-da-representacao-de-riesz">Teorema da Representação de Riesz</h2></div>
         
         
     </div>
