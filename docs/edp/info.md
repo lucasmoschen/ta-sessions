@@ -23,7 +23,7 @@ Monitoria de Equações Diferenciais Parciais.
 
 ## Período 2022.2
 
-- Dia: 
+- Dia: Sexta-feira, 14h
 
 ### Listas
 
