@@ -29,6 +29,8 @@ Monitoria de Equações Diferenciais Parciais.
 
 |Número|Itens discutidos|Solução|
 |------|----------------|-------|
+|[1](/files/disciplines/edp2022/lista1.pdf)|Equações diferenciais ordinárias|[1](/ta-sessions/unavailable)|
+|[2](/files/disciplines/edp2022/lista2.pdf)|Método das características|[2](/ta-sessions/unavailable)|
 
 ### Notas
   
