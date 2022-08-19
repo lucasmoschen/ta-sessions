@@ -183,19 +183,11 @@
 <h1 id="aritmetica-do-computador">Aritmética do computador</h1>
 <p>No computador, expressões como <script type="math/tex">(\sqrt{3})^2 = 3</script> não são verdadeiras. Em
 Python, 
-```{python}</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>(3<strong>(1/2))</strong>2
-2.9999999999999996
-```
+<pre class="highlight"><code python="python">&gt;&gt;&gt; (3**(1/2))**2
+2.9999999999999996</code></pre>
 Erros de cálculo realizados pela máquina são chamados de <strong>erros de
 arredondamento (round-off error)</strong>. Isso acontece porque números reais são
 representados de forma finita, e não cobrem todos os números reais de fato. </p>
-</blockquote>
-</blockquote>
-</blockquote>
 <h2 id="numeros-binarios">Números binários</h2>
 <p>Em 1985, IEEE (Institute for Electrical and Electronic Engineers) <a href="https://standards.ieee.org/standard/754-1985.html">publicou um relatório</a>
 nomeado <a href="https://www.ias.ac.in/article/fulltext/reso/021/01/0011-0030"><em>Binary Floating Point Arithmetic Standard 754–1985</em></a> que estabelece
@@ -275,25 +267,19 @@ flutuante. </p>
 </ol>
 <p>Para conferir, você pode verificar a representação utilizando alguma linguagem
 de programação. Por exemplo, em Python, 
-```{python}</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>import struct
+<pre class="highlight"><code python="python">&gt;&gt;&gt; import struct
 def binary(num):
     s = struct.pack('!d', num) # packs the num to the decimal format
     s = struct.unpack('!Q', s)[0] # unpacks in long integer format. 
     s = bin(s) # converts to binary form.
     s = s[2:].zfill(64) # fills with zeros until reaches length 64.
-    return s[0] + ' ' + s[1:12] + ' ' + s[12:]</p>
-<p>binary(1/2)
-'0 01111111110 0000000000000000000000000000000000000000000000000000'</p>
-<p>binary(1/7)
-'0 01111111100 0010010010010010010010010010010010010010010010010010'
-```</p>
-</blockquote>
-</blockquote>
-</blockquote>
+    return s[0] + ' ' + s[1:12] + ' ' + s[12:]
+
+&gt;&gt;&gt; binary(1/2)
+'0 01111111110 0000000000000000000000000000000000000000000000000000'
+
+&gt;&gt;&gt; binary(1/7)
+'0 01111111100 0010010010010010010010010010010010010010010010010010'</code></pre></p>
 <h2 id="mensuracao-de-erros">Mensuração de erros</h2>
 <p>Seja <script type="math/tex">\bar{x}</script> uma aproximação para <script type="math/tex">x</script>. Dizemos que
 o <strong>erro absoluto</strong> é <script type="math/tex">|x - \bar{x}|</script> e o <strong>erro relativo</strong> é <script type="math/tex">|x -
@@ -308,31 +294,15 @@ t = \max\left\{s \ge 0 \, \bigg| \, \frac{|x - \bar{x}|}{|x|} \le 5 \cdot 10^{-s
 <ul>
 <li>Para printar todos os números da representação numérica (considerando arredondamento) em Python, use </li>
 </ul>
-<p>```{python}</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>import numpy
-format(numpy.pi, .20)
-'3.141592653589793116'
-```</p>
-</blockquote>
-</blockquote>
-</blockquote>
+<pre class="highlight"><code python="python">&gt;&gt;&gt; import numpy
+&gt;&gt;&gt; format(numpy.pi, .20)
+'3.141592653589793116'</code></pre>
 <ul>
 <li>Para verificar o valor exatamente armazenado para o número em questão: </li>
 </ul>
-<p>```{python}</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>from decimal import Decimal
-Decimal.from_float(0.1)
-Decimal('0.1000000000000000055511151231257827021181583404541015625')
-```</p>
-</blockquote>
-</blockquote>
-</blockquote>
+<pre class="highlight"><code python="python">&gt;&gt;&gt; from decimal import Decimal
+&gt;&gt;&gt; Decimal.from_float(0.1)
+Decimal('0.1000000000000000055511151231257827021181583404541015625')</code></pre>
 <p>Para mais detalhes, consulte o <a href="https://docs.python.org/3/tutorial/floatingpoint.html">material adicional</a></p></div>
         
         

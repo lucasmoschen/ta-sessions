@@ -168,12 +168,10 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
         <li class="first-level active"><a href="#definicoes-preliminares">Definições preliminares</a></li>
-        <li class="first-level "><a href="#prepare-arrays-x-y-z">Prepare arrays x, y, z</a></li>
             <li class="second-level"><a href="#encontrando-parametrizacoes">Encontrando parametrizações</a></li>
                 
                 <li class="third-level"><a href="#exemplo-1">Exemplo 1</a></li>
                 <li class="third-level"><a href="#exemplo-2">Exemplo 2</a></li>
-        <li class="first-level "><a href="#astroid">Astroid</a></li>
             <li class="second-level"><a href="#vetor-tangente">Vetor tangente</a></li>
                 
                 <li class="third-level"><a href="#proposicao">Proposição</a></li>
@@ -204,22 +202,22 @@ que é uma circunferência </p>
 <p><strong>Curva parametrizada:</strong> Seja <script type="math/tex">I</script> um intervalo. Uma curva parametrizada é uma aplicação contínua <script type="math/tex">\alpha: I \subset \mathbb{R} \to \mathbb{R}^n</script>, muitas vezes notada como <script type="math/tex">\alpha(t) = (\alpha_1(t), ..., \alpha_n(t))</script> e <script type="math/tex">t</script> é chamado de parâmetro. Algumas definições pedem intervalo aberto. Dizemos que ela é <strong>diferenciável</strong> quando a aplicação é diferenciável. Por fim dizemos que a curva é <strong>regular</strong> quando <script type="math/tex">\alpha '(t) \neq 0, \forall t \in I</script>.</p>
 <p><strong>Observação:</strong> Definições de curva podem variar em cada livro. Alguns livros pedem que a aplicação seja de classe <script type="math/tex">C^{\infty}</script> ou suave, enquanto outras pedem apenas classe <script type="math/tex">C^2</script> e assim por diante. De forma geral exigir apenas a continuidade é mais fraco e podemos pedir diferenciabilidade ou suavidade posteriormente. </p>
 <p><strong>Traço da curva:</strong> Seja uma curma <script type="math/tex">\alpha:I \to \mathbb{R}^n</script>. Dizemos que o traço de <script type="math/tex">\alpha</script> é a imagem da aplicação <script type="math/tex">\alpha</script>, denotada <script type="math/tex">\alpha(I)</script>. Algumas definições de curva são precisamente o que definimos de traço da curva. </p>
-<p><code>python
-import numpy as np
-import matplotlib.pyplot as plt</code></p>
-<p>```python
-fig = plt.figure()
-ax = fig.gca(projection='3d')</p>
-<h1 id="prepare-arrays-x-y-z">Prepare arrays x, y, z</h1>
-<p>theta = np.linspace(-4 * np.pi, 4 * np.pi, 100)
+<pre class="highlight"><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt</code></pre>
+<pre class="highlight"><code class="language-python">fig = plt.figure()
+ax = fig.gca(projection='3d')
+
+# Prepare arrays x, y, z
+theta = np.linspace(-4 * np.pi, 4 * np.pi, 100)
 z = np.linspace(-2, 2, 100)
 r = z**2 + 1
 x = r * np.sin(theta)
-y = r * np.cos(theta)</p>
-<p>ax.plot(x, y, z, label='arbitrary parametric curve')
-ax.legend()</p>
-<p>plt.show()
-```</p>
+y = r * np.cos(theta)
+
+ax.plot(x, y, z, label='arbitrary parametric curve')
+ax.legend()
+
+plt.show()</code></pre>
 <p><img alt="png" src="../first-definitions_files/first-definitions_2_0.png" /></p>
 <h2 id="encontrando-parametrizacoes">Encontrando parametrizações</h2>
 <h3 id="exemplo-1">Exemplo 1</h3>
@@ -227,20 +225,21 @@ ax.legend()</p>
 <h3 id="exemplo-2">Exemplo 2</h3>
 <p>Considere a curva <a href="https://en.wikipedia.org/wiki/Astroid">astroide</a> dada pela pela equação <script type="math/tex">x^{2/3} + y^{2/3} = 1</script>. Uma maneira é propor a parametrização dada por <script type="math/tex">x(t) = t</script> e <script type="math/tex">y(t) = (1 - t^{2/3})^{3/2}.</script> Primeiro temos que observar que <script type="math/tex">t \in [-1,1]</script> devido a raiz quadrada que tomamos na expressão - o valor dentro do parênteses não pode ser negativo. Em particular <script type="math/tex">y</script> não pode ser negativo nessa parametrização. Isso não corresponde a imagem total da curva, pois <script type="math/tex">y^{2/3} + x^{2/3} = 1</script> é simétrico em relação ao dois eixos. </p>
 <p>Poderíamos tentar adaptar essa parametrização, mas o mais conveniente é lembrar da identidade trigonométrica <script type="math/tex">cos^2(t) + sen^2(t) = 1</script>. Assim podemos escrever que <script type="math/tex">(cos(t)^3)^{2/3} + (sen(t)^3)^{2/3} = 1</script>. Como consequência <script type="math/tex">(cos^3(t), sen^3(t))</script> é uma parametrização da astroide. Note que essa curva é contínua e definida em toda reta. </p>
-<p>```python</p>
-<h1 id="astroid">Astroid</h1>
-<p>fig = plt.figure(figsize = (5,5))
+<pre class="highlight"><code class="language-python"># Astroid
+fig = plt.figure(figsize = (5,5))
 ax = plt.subplot()
-ax.grid(alpha=.5)</p>
-<p>t = np.linspace(-np.pi, np.pi,100)
-x = np.cos(t)<strong>3
-y = np.sin(t)</strong>3</p>
-<p>ax.plot(x, y, label='Astroid')
+ax.grid(alpha=.5)
+
+t = np.linspace(-np.pi, np.pi,100)
+x = np.cos(t)**3
+y = np.sin(t)**3
+
+ax.plot(x, y, label='Astroid')
 ax.axvline(x = 0, color = 'grey', alpha = .7)
 ax.axhline(y = 0, color = 'grey', alpha = .7)
-ax.legend()</p>
-<p>plt.show()
-```</p>
+ax.legend()
+
+plt.show()</code></pre>
 <p><img alt="png" src="../first-definitions_files/first-definitions_4_0.png" /></p>
 <h2 id="vetor-tangente">Vetor tangente</h2>
 <p>Em geral, quando estudamos curvas e superfícies, é comum encontrar o termo <em>suave</em> associado. A definição de função suave varia em cada contexto e pode ir desde uma função diferenciável com derivada contínua até função que tem derivada de qualquer ordem (sempre considerando o intervalo <script type="math/tex">I</script> de definição). </p>

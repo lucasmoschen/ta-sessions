@@ -176,15 +176,12 @@
                 
             <li class="second-level"><a href="#implementacao">Implementação</a></li>
                 
-        <li class="first-level "><a href="#random-object">Random Object</a></li>
         <li class="first-level "><a href="#distribuicao-conjunta-da-media-e-variancia-amostrais">Distribuição Conjunta da média e variância amostrais</a></li>
             <li class="second-level"><a href="#teorema-de-basu">Teorema de Basu</a></li>
                 
                 <li class="third-level"><a href="#demonstracao">Demonstração</a></li>
             <li class="second-level"><a href="#simples-visualizacao">Simples visualização</a></li>
                 
-        <li class="first-level "><a href="#parametros-da-normal">Parâmetros da Normal</a></li>
-        <li class="first-level "><a href="#parametros-da-gamma">Parâmetros da Gamma</a></li>
         <li class="first-level "><a href="#distribuicoes-t-student">Distribuições T Student</a></li>
             <li class="second-level"><a href="#definicao">Definição</a></li>
                 
@@ -240,56 +237,58 @@ Var(X) = 2m
 </p>
 <p>De fato, se juntarmos as últimos dois teoremas, veremos que a soma de quadrados de normais independentes e identicamente distribuidas será <script type="math/tex">\chi^2(m)</script>, onde <script type="math/tex">m</script> é o número de parcelas. </p>
 <h2 id="implementacao">Implementação</h2>
-<p>```python
-import numpy as np 
+<pre class="highlight"><code class="language-python">import numpy as np 
 import matplotlib.pyplot as plt
-from scipy.stats import chi2</p>
-<p>from matplotlib import animation, cm
-from IPython.display import HTML</p>
-<h1 id="random-object">Random Object</h1>
-<p>ro = np.random.default_rng(1000)  # Para assegurar reprodutibilidade
-```</p>
-<p><code>python
-degree_freedom = 10
+from scipy.stats import chi2
+
+from matplotlib import animation, cm
+from IPython.display import HTML
+
+# Random Object
+ro = np.random.default_rng(1000)  # Para assegurar reprodutibilidade</code></pre>
+<pre class="highlight"><code class="language-python">degree_freedom = 10
 mean, var, skew, kurt = chi2.stats(degree_freedom, moments = 'mvsk')
 print('Propriedades')
 print('Média: {}'.format(mean))
 print('Var: {}'.format(var))
 print('Assimetria: {}'.format(skew))
-print('Curtose: {}'.format(kurt))</code></p>
+print('Curtose: {}'.format(kurt))</code></pre>
 <pre><code>Propriedades
 Média: 10.0
 Var: 20.0
 Assimetria: 0.8944271909999159
 Curtose: 1.2
 </code></pre>
-<p>```python
-fig, ax = plt.subplots(1, 1)
+<pre class="highlight"><code class="language-python">fig, ax = plt.subplots(1, 1)
 x = np.linspace(chi2.ppf(0.01, degree_freedom), 
                 chi2.ppf(0.99, degree_freedom), 100)
-ax.plot(x, chi2.pdf(x, degree_freedom), 'r-', lw=5, alpha=0.6, label='chi2 pdf')</p>
-<p>r = chi2.rvs(degree_freedom, size = 10000)
-ax.hist(r, density = True, alpha = 0.2)</p>
-<p>ax.legend()</p>
-<p>plt.show()
-```</p>
+ax.plot(x, chi2.pdf(x, degree_freedom), 'r-', lw=5, alpha=0.6, label='chi2 pdf')
+
+r = chi2.rvs(degree_freedom, size = 10000)
+ax.hist(r, density = True, alpha = 0.2)
+
+ax.legend()
+
+plt.show()</code></pre>
 <p><img alt="png" src="../output_4_0.png" /></p>
-<p>```python
-fig, ax = plt.subplots()</p>
-<p>line, = ax.plot(x, chi2.pdf(x, degree_freedom), 'r-', lw=5, alpha=0.6)</p>
-<p>ax.set_xlim((0,150))
-ax.set_title('Chi-Square')</p>
-<p>def animate(i, degree_freedom):</p>
-<pre><code>x = np.linspace(0, chi2.ppf(0.99, degree_freedom + i), 100)
+<pre class="highlight"><code class="language-python">fig, ax = plt.subplots()
 
-line.set_data(x, chi2.pdf(x, degree_freedom + i))
+line, = ax.plot(x, chi2.pdf(x, degree_freedom), 'r-', lw=5, alpha=0.6)
 
-return line,
-</code></pre>
-<p>anim = animation.FuncAnimation(fig, animate, frames = 100,
+ax.set_xlim((0,150))
+ax.set_title('Chi-Square')
+
+def animate(i, degree_freedom):
+
+    x = np.linspace(0, chi2.ppf(0.99, degree_freedom + i), 100)
+
+    line.set_data(x, chi2.pdf(x, degree_freedom + i))
+
+    return line,
+
+anim = animation.FuncAnimation(fig, animate, frames = 100,
                                interval = 50, fargs=(degree_freedom,), repeat = False)
-HTML(anim.to_html5_video())
-```</p>
+HTML(anim.to_html5_video())</code></pre>
 <video width="432" height="288" controls autoplay>
   <source type="video/mp4" src="data:video/mp4;base64,AAAAIGZ0eXBNNFYgAAACAE00ViBpc29taXNvMmF2YzEAAAAIZnJlZQAATVhtZGF0AAACrgYF//+q
 3EXpvebZSLeWLNgg2SPu73gyNjQgLSBjb3JlIDE2MCByMzAxMSBjZGU5YTkzIC0gSC4yNjQvTVBF
@@ -721,48 +720,47 @@ AAAALWlsc3QAAAAlqXRvbwAAAB1kYXRhAAAAAQAAAABMYXZmNTguNDUuMTAw
 <a href="http://www2.stat.duke.edu/courses/Fall18/sta611.01/Lecture/lec12_mean_var_indep.pdf">2</a></p>
 <h2 id="simples-visualizacao">Simples visualização</h2>
 <p>Eu gostaria de comparar o que acontece com a média e variância amostral da distribuição normal e da distribuição gamma. Para isso, geero amostras de tamanho <script type="math/tex">n</script>, calculo as estatísticas e salvo. Faço esse procedimento o número de pontos que quiser. </p>
-<p>```python
-ite = 10000
-n = 10000</p>
-<h1 id="parametros-da-normal">Parâmetros da Normal</h1>
-<p>mu = 5
-sigma = 2</p>
-<h1 id="parametros-da-gamma">Parâmetros da Gamma</h1>
-<p>alpha = 5
-beta = 4
-```</p>
-<p>```python
-means = np.zeros((ite,2))
-variances = np.zeros((ite,2))</p>
-<p>for i in range(ite): 
-    X = ro.normal(loc = mu, scale = sigma, size = n)
-    Y = ro.gamma(shape = alpha, scale = 1/beta, size = n)</p>
-<pre><code>means[i,0] = np.mean(X)
-means[i,1] = np.mean(Y)
+<pre class="highlight"><code class="language-python">ite = 10000
+n = 10000
+# Parâmetros da Normal
+mu = 5
+sigma = 2
+# Parâmetros da Gamma
+alpha = 5
+beta = 4</code></pre>
+<pre class="highlight"><code class="language-python">means = np.zeros((ite,2))
+variances = np.zeros((ite,2))
 
-variances[i,0] = np.var(X, ddof = 0)
-variances[i,1] = np.var(Y, ddof = 0)
-</code></pre>
-<p>coef_normal = np.polyfit(x = means[:,0], y = variances[:,0], deg = 1)
-coef_gamma = np.polyfit(x = means[:,1], y = variances[:,1], deg = 1)
-```</p>
-<p>```python
-fig, ax = plt.subplots(1,2,figsize = (14,5))
-fig.suptitle('Comparando média e variância amostral')</p>
-<p>ax[0].scatter(means[:,0], variances[:,0])
+for i in range(ite): 
+    X = ro.normal(loc = mu, scale = sigma, size = n)
+    Y = ro.gamma(shape = alpha, scale = 1/beta, size = n)
+
+    means[i,0] = np.mean(X)
+    means[i,1] = np.mean(Y)
+
+    variances[i,0] = np.var(X, ddof = 0)
+    variances[i,1] = np.var(Y, ddof = 0)
+
+coef_normal = np.polyfit(x = means[:,0], y = variances[:,0], deg = 1)
+coef_gamma = np.polyfit(x = means[:,1], y = variances[:,1], deg = 1)</code></pre>
+<pre class="highlight"><code class="language-python">fig, ax = plt.subplots(1,2,figsize = (14,5))
+fig.suptitle('Comparando média e variância amostral')
+
+ax[0].scatter(means[:,0], variances[:,0])
 ax[1].scatter(means[:,1], variances[:,1])
-ax[0].plot(means[:,0], coef_normal[0]<em>means[:,0] + coef_normal[1], color = 'red')
-ax[1].plot(means[:,1], coef_gamma[0]</em>means[:,1] + coef_gamma[1], color = 'red')</p>
-<p>ax[0].set_xlabel(r'<script type="math/tex">\bar{X}_n</script>', fontsize = 18)
-ax[1].set_xlabel(r'<script type="math/tex">\bar{X}_n</script>', fontsize = 18)
-ax[0].set_ylabel(r'<script type="math/tex">\sum (X_i - \bar{X}_n)^2</script>', fontsize = 18)
-ax[1].set_ylabel(r'<script type="math/tex">\sum (X_i - \bar{X}_n)^2</script>', fontsize = 18)
+ax[0].plot(means[:,0], coef_normal[0]*means[:,0] + coef_normal[1], color = 'red')
+ax[1].plot(means[:,1], coef_gamma[0]*means[:,1] + coef_gamma[1], color = 'red')
+
+
+ax[0].set_xlabel(r'$\bar{X}_n$', fontsize = 18)
+ax[1].set_xlabel(r'$\bar{X}_n$', fontsize = 18)
+ax[0].set_ylabel(r'$\sum (X_i - \bar{X}_n)^2$', fontsize = 18)
+ax[1].set_ylabel(r'$\sum (X_i - \bar{X}_n)^2$', fontsize = 18)
 ax[0].set_title('Distribuição Normal')
 ax[1].set_title('Distribuição Gamma')
 ax[0].grid(alpha = 0.5, linestyle = '--')
 ax[1].grid(alpha = 0.5, linestyle = '--')
-plt.show()
-```</p>
+plt.show()</code></pre>
 <p><img alt="png" src="../output_10_0.png" /></p>
 <p><em>Obs: A não inclinação da reta não significa que existe independência, mas como são independentes, a gente espera que a inclinação seja pequena.</em> </p>
 <h1 id="distribuicoes-t-student">Distribuições T Student</h1>
@@ -818,67 +816,63 @@ f(x) = \frac{\Gamma\left(\frac{m+1}{2}\right)}{(m\pi)^{1/2}\Gamma\left(\frac{m}{
 <p><a href="https://lucasmoschen.github.io/TA_sessions/infestatistica_BSc/LargeRandomSamples/LargeRandomSamples/#lei-dos-grandes-numeros">Lei dos Grandes Números</a>: Escreva a qui-quadrado como soma de normais. </p>
 </li>
 </ol>
-<p><code>python
-from scipy.stats import t, norm, cauchy</code></p>
+<pre class="highlight"><code class="language-python">from scipy.stats import t, norm, cauchy</code></pre>
 <h2 id="implementacao_1">Implementação</h2>
 <p>Primeiro vamos ver a cara da distribuição t</p>
-<p>```python
-m = 10
+<pre class="highlight"><code class="language-python">m = 10
 X = t(df = m) 
-w = np.arange(-3, 3, 0.1)</p>
-<p>fig, ax = plt.subplots(1,2,figsize = (12,5))
+w = np.arange(-3, 3, 0.1)
+
+fig, ax = plt.subplots(1,2,figsize = (12,5))
 ax[0].plot(w, X.pdf(w), lw = 5, color = 'orange')
 ax[1].plot(w, X.cdf(w), lw = 5, color = 'orange')
 ax[0].set_title('PDF t-Student')
 ax[1].set_title('CDF t-Student')
-plt.show()
-```</p>
+plt.show()</code></pre>
 <p><img alt="png" src="../output_15_0.png" /></p>
 <p>Vamos ver o que acontece quando <script type="math/tex">m \leq 1</script>?</p>
-<p>```python
-ite = 1000
+<pre class="highlight"><code class="language-python">ite = 1000
 n = 10000
 m1 = 10
-m2 = 0.5</p>
-<p>means = np.zeros((ite,2))
+m2 = 0.5
+
+means = np.zeros((ite,2))
 for i in range(ite): 
     X = ro.standard_t(df = m1, size = n)
     Y = ro.standard_t(df = m2, size = n)
     means[i,0] = np.mean(X)
-    means[i,1] = np.mean(Y)
-```</p>
-<p><code>python
-fig, ax = plt.subplots(1,2,figsize = (14,5))
+    means[i,1] = np.mean(Y)</code></pre>
+<pre class="highlight"><code class="language-python">fig, ax = plt.subplots(1,2,figsize = (14,5))
 ax[0].hist(means[:,0], bins = 100)
 ax[1].hist(np.log(means[:,1]), bins = 10)
 ax[0].set_xlabel('E[X]')
 ax[1].set_xlabel('log E[X]')
 ax[0].set_title('m = 10')
 ax[1].set_title('m = 0.5')
-plt.show()</code></p>
+plt.show()</code></pre>
 <pre><code>&lt;ipython-input-11-2bfd1961d53b&gt;:3: RuntimeWarning: invalid value encountered in log
   ax[1].hist(np.log(means[:,1]), bins = 10)
 </code></pre>
 <p><img alt="png" src="../output_18_1.png" /></p>
 <p>No eixo <script type="math/tex">x</script> do segundo gráfico plotei o logaritmo, dado que alguns resultados eram extremamente grandes! Isso indica visualmente que a média diverge!</p>
 <h3 id="relacao-com-a-normal-e-com-cauchy">Relação com a Normal e com Cauchy</h3>
-<p>```python
-C = cauchy()
+<pre class="highlight"><code class="language-python">C = cauchy()
 Z = norm(loc = 0, scale = 1) 
-T = t(df = 1)</p>
-<p>fig, ax = plt.subplots(1,2,figsize = (14,5))
+T = t(df = 1)
+
+fig, ax = plt.subplots(1,2,figsize = (14,5))
 ax[0].plot(w,C.pdf(w), label = 'Cauchy')
 ax[0].scatter(w, T.pdf(w), c = 'red', marker = "*", label = 't-Student')
 ax[0].legend()
 ax[0].set_title('t-Student e Cauchy quando m = 1')
 ax[1].plot(w,Z.pdf(w), label = 'N(0,1)')
-ax[1].set_title('Convergência da t para a normal')</p>
-<p>for i in np.logspace(np.log10(1), np.log10(20), 5):
+ax[1].set_title('Convergência da t para a normal')
+
+for i in np.logspace(np.log10(1), np.log10(20), 5):
     T = t(df = int(i))
     ax[1].plot(w, T.pdf(w), linestyle = '--', alpha = i/40 + 0.5, color = 'grey', label = 't({})'.format(int(i)))
 ax[1].legend(loc = 'upper right')
-plt.show()
-```</p>
+plt.show()</code></pre>
 <p><img alt="png" src="../output_21_0.png" /></p>
 <h1 id="distribuicao-f">Distribuição F</h1>
 <p>Sejam <script type="math/tex">Y \sim \chi^2_m</script> e <script type="math/tex">W \sim \chi^2_n</script> independentes. Defina</p>
@@ -906,23 +900,20 @@ E[X] = \frac{n}{n-2}, n > 2
 Var[X] = \frac{2n^2(m + n - 2)}{m(n-2)^2(n-4)}
 </script>
 </p>
-<p><code>python
-import numpy as np
+<pre class="highlight"><code class="language-python">import numpy as np
 from scipy.stats import f
-import matplotlib.pyplot as plt</code></p>
+import matplotlib.pyplot as plt</code></pre>
 <p>Vamos ver como é a cara dessa distribuição:</p>
-<p><code>python
-m, n = 20, 10</code></p>
-<p>```python
-X = f(dfn = m, dfd = n) 
-w = np.arange(0, 5, 0.1)</p>
-<p>fig, ax = plt.subplots(1,2,figsize = (12,5))
+<pre class="highlight"><code class="language-python">m, n = 20, 10</code></pre>
+<pre class="highlight"><code class="language-python">X = f(dfn = m, dfd = n) 
+w = np.arange(0, 5, 0.1)
+
+fig, ax = plt.subplots(1,2,figsize = (12,5))
 ax[0].plot(w, X.pdf(w), lw = 5, color = 'orange')
 ax[1].plot(w, X.cdf(w), lw = 5, color = 'orange')
 ax[0].set_title('PDF Distribuição F')
 ax[1].set_title('CDF Distribuição F')
-plt.show()
-```</p>
+plt.show()</code></pre>
 <p><img alt="png" src="../output_26_0.png" /></p></div>
         
         

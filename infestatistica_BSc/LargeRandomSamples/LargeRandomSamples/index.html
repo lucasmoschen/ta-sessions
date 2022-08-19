@@ -176,10 +176,6 @@
                 
                 <li class="third-level"><a href="#importando-bibliotecas">Importando bibliotecas</a></li>
                 <li class="third-level"><a href="#exemplo-622">Exemplo 6.2.2</a></li>
-        <li class="first-level "><a href="#usando-apenas-chebyshev">Usando apenas Chebyshev:</a></li>
-        <li class="first-level "><a href="#testando-com-distribuicao-uniforme-x-e-y-tem-distribuicoes-uniformes">Testando com distribuição uniforme (X e Y tem distribuições uniformes)</a></li>
-        <li class="first-level "><a href="#nesse-caso-podemos-provar-que-er-05">Nesse caso, podemos provar que E[R] = 0.5</a></li>
-        <li class="first-level "><a href="#plotando">Plotando</a></li>
             <li class="second-level"><a href="#lei-dos-grandes-numeros">Lei dos Grandes Números</a></li>
                 
                 <li class="third-level"><a href="#convergencia-em-probabilidade">Convergência em Probabilidade</a></li>
@@ -187,11 +183,8 @@
                 <li class="third-level"><a href="#versao-fraca">Versão Fraca</a></li>
                 <li class="third-level"><a href="#versao-forte">Versão Forte</a></li>
                 <li class="third-level"><a href="#histogramas">Histogramas</a></li>
-        <li class="first-level "><a href="#exemplo-624">Exemplo 6.2.4</a></li>
             <li class="second-level"><a href="#teorema-central-do-limite">Teorema Central do Limite</a></li>
                 
-        <li class="first-level "><a href="#plotting">Plotting</a></li>
-        <li class="first-level "><a href="#generating-sample-means">Generating sample means</a></li>
             <li class="second-level"><a href="#metodo-delta">Método Delta</a></li>
                 
                 <li class="third-level"><a href="#teorema-de-slutsky">Teorema de Slutsky</a></li>
@@ -220,12 +213,11 @@ P(|X - E[X]| \geq t) \leq \frac{Var[X]}{t^2}
 <script type="math/tex">X_1, ..., X_n</script> amostra aleatória (por definição mesma distribuição e independentes), com média <script type="math/tex">\mu</script> e variância <script type="math/tex">\sigma^2</script>. Então <script type="math/tex">E[\bar{X_n}] = \mu</script> e <script type="math/tex">Var[\bar{X_n}] = \sigma^2/n</script>.  </li>
 </ul>
 <h4 id="importando-bibliotecas">Importando bibliotecas</h4>
-<p><code>python
-import pandas as pd
+<pre class="highlight"><code class="language-python">import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-sns.set()</code></p>
+sns.set()</code></pre>
 <h3 id="exemplo-622">Exemplo 6.2.2</h3>
 <p>Um engenheiro ambiental acredita que existam dois contaminantes na água: arsênico e chumbo. Suponha que ambas são variáveis aleatórias <strong>independentes</strong> <script type="math/tex">X</script> e <script type="math/tex">Y</script>, medidas na mesma unidade. O engenheiro está interessado em saber a proporção de contaminação por chumbo em média, isto é, <script type="math/tex">E[R] = E[Y/(X + Y)]</script>.</p>
 <p>Como nem sempre conhecemos a distribuição de R, podemos aproximar o valor esperado através de uma média amostral de <script type="math/tex">R</script>, através de observações <script type="math/tex">(X_1, Y_1), ..., (X_n, Y_n)</script>.</p>
@@ -235,66 +227,71 @@ sns.set()</code></p>
 P(|\bar{R_n} - E[R]| \geq \epsilon) \leq \frac{1}{n\epsilon^2}
 </script>
 </p>
-<p>```python</p>
-<h1 id="usando-apenas-chebyshev">Usando apenas Chebyshev:</h1>
-<p>epsilon = 0.0005
+<pre class="highlight"><code class="language-python"># Usando apenas Chebyshev: 
+
+epsilon = 0.0005
 prob = 0.95  # probabilidade mínima de que a diferença entre a 
-             # média amostral e o valor esperado seja menor do que epsilon</p>
-<p>def get_number_simulations(epsilon, prob):</p>
-<pre><code>assert prob &gt;= 0 
-assert prob &lt;= 1
+             # média amostral e o valor esperado seja menor do que epsilon
 
-# Queremos que P &lt;= 1 - prob-&gt; 1/(n*eps**2) &lt;= 1 - prob
+def get_number_simulations(epsilon, prob):
 
-min_n = 1/((1 - prob)*(epsilon**2))
-min_n = np.ceil(min_n)
+    assert prob &gt;= 0 
+    assert prob &lt;= 1
 
-print('----------------------------------------------------------------------')
-print('In order to have the sample mean at least {} close with probability {}: '.format(epsilon, prob))
-print('The minimum number of simulations are: {}'. format(int(min_n)))
-print('----------------------------------------------------------------------')
-return min_n
-</code></pre>
-<p>def get_epsilon(prob, n): </p>
-<pre><code>assert prob &gt;= 0 
-assert prob &lt;= 1
+    # Queremos que P &lt;= 1 - prob-&gt; 1/(n*eps**2) &lt;= 1 - prob
 
-# Queremos encontrar epsilon para que 1/(n*eps**2) = 1 - prob
+    min_n = 1/((1 - prob)*(epsilon**2))
+    min_n = np.ceil(min_n)
 
-eps = np.sqrt(1/(n*(1 - prob)))
-return eps
-</code></pre>
-<p>_ = get_number_simulations(epsilon, prob)
-```</p>
+    print('----------------------------------------------------------------------')
+    print('In order to have the sample mean at least {} close with probability {}: '.format(epsilon, prob))
+    print('The minimum number of simulations are: {}'. format(int(min_n)))
+    print('----------------------------------------------------------------------')
+    return min_n
+
+def get_epsilon(prob, n): 
+
+    assert prob &gt;= 0 
+    assert prob &lt;= 1
+
+    # Queremos encontrar epsilon para que 1/(n*eps**2) = 1 - prob
+
+    eps = np.sqrt(1/(n*(1 - prob)))
+    return eps
+
+_ = get_number_simulations(epsilon, prob)</code></pre>
 <pre><code>----------------------------------------------------------------------
 In order to have the sample mean at least 0.0005 close with probability 0.95: 
 The minimum number of simulations are: 80000000
 ----------------------------------------------------------------------
 </code></pre>
-<p>```python</p>
-<h1 id="testando-com-distribuicao-uniforme-x-e-y-tem-distribuicoes-uniformes">Testando com distribuição uniforme (X e Y tem distribuições uniformes)</h1>
-<h1 id="nesse-caso-podemos-provar-que-er-05">Nesse caso, podemos provar que E[R] = 0.5</h1>
-<p>probs = [0.6, 0.75, 0.9, 0.95, 0.99]</p>
-<p>n_range = np.array([j<em>10</em>*i for i in [2,3,4,5,6,7] for j in [1,2,3,4,5,6,7,8,9]])
-E_R = []</p>
-<p>for n in n_range:
+<pre class="highlight"><code class="language-python"># Testando com distribuição uniforme (X e Y tem distribuições uniformes)
+# Nesse caso, podemos provar que E[R] = 0.5
+
+probs = [0.6, 0.75, 0.9, 0.95, 0.99]
+
+n_range = np.array([j*10**i for i in [2,3,4,5,6,7] for j in [1,2,3,4,5,6,7,8,9]])
+E_R = []
+
+for n in n_range:
     X = np.random.uniform(0,1,size = int(n))   #np = numpy 
     Y = np.random.uniform(0,1,size = int(n))
     R = Y/(X + Y)
-    E_R.append(np.mean(R))  # E[R] = 0.5</p>
-<p>chebyshev_interval = np.empty(shape = (len(probs), len(n_range)))
+    E_R.append(np.mean(R))  # E[R] = 0.5
+
+chebyshev_interval = np.empty(shape = (len(probs), len(n_range)))
 for i, prob in enumerate(probs): 
-    chebyshev_interval[i, :] = get_epsilon(prob, n_range)
-```</p>
-<p>```python</p>
-<h1 id="plotando">Plotando</h1>
-<p>fig, ax = plt.subplots(1, 2, figsize = (16, 6))</p>
-<p>for i in [0,1]:
+    chebyshev_interval[i, :] = get_epsilon(prob, n_range)</code></pre>
+<p><pre class="highlight"><code class="language-python"># Plotando
+fig, ax = plt.subplots(1, 2, figsize = (16, 6))
+
+for i in [0,1]:
     ax[i].plot(n_range, E_R, color = 'darkred')
     ax[i].hlines(0.5, xmin = min(n_range), xmax = max(n_range), 
                  linestyle = '--',alpha = 0.4, color = 'black')
-    ax[i].set_xscale('log')</p>
-<p>colors = ['black', 'red', 'green', 'blue', 'pink']
+    ax[i].set_xscale('log')
+
+colors = ['black', 'red', 'green', 'blue', 'pink']
 for i in range(len(probs)): 
     ax[1].fill_between(x = n_range, y1 = 0.5 + chebyshev_interval[i,:], 
                                 y2 = 0.5 - chebyshev_interval[i,:], 
@@ -302,9 +299,9 @@ for i in range(len(probs)):
                        label = probs[i])
 ax[1].legend()
 ax[0].set_title('Different mean samples', fontsize = 15)
-ax[1].set_title('Chebyshev bound with prob', fontsize = 15)</p>
-<p>plt.show()
-```
+ax[1].set_title('Chebyshev bound with prob', fontsize = 15)
+
+plt.show()</code></pre>
 <img alt="png" src="../output_5_0.png" /></p>
 <h2 id="lei-dos-grandes-numeros">Lei dos Grandes Números</h2>
 <h3 id="convergencia-em-probabilidade">Convergência em Probabilidade</h3>
@@ -324,23 +321,26 @@ ax[1].set_title('Chebyshev bound with prob', fontsize = 15)</p>
 </p>
 <h3 id="histogramas">Histogramas</h3>
 <p>São usados para aproximar uma função de densidade de probabilidade de forma discreta. Seja <script type="math/tex">X_1, X_2, \dots</script> variáveis aleatórias iid. Seja <script type="math/tex">c_1 < c_2</script> constantes. Seja <script type="math/tex">Y_i</script> uma indicadora para <script type="math/tex">c_1\leq X_i < c_2</script>. Então <script type="math/tex">\bar{Y}_n</script> (proporção de valores <script type="math/tex">X_1, ..., X_n</script> no intervalo <script type="math/tex">[c_1, c_2)</script> e <script type="math/tex">\bar{Y}_n \overset{p}{\to} P[c_1 \leq X_1 < c_2]</script>. </p>
-<p>```python</p>
-<h1 id="exemplo-624">Exemplo 6.2.4</h1>
-<p>lamda = 0.5   # Não posso usar lambda
+<pre class="highlight"><code class="language-python"># Exemplo 6.2.4
+
+lamda = 0.5   # Não posso usar lambda
 beta = 1/lamda # Numpy usa esse parâmetro
 t = np.arange(0.0001, 15, 0.01)
-X_true = lamda<em>np.exp(-lamda</em>t)</p>
-<p>fig, ax = plt.subplots(figsize = (14, 5))</p>
-<p>for n in [1, 10, 100, 1000, 10000]: </p>
-<pre><code>X = np.random.exponential(scale = beta, size = n)
+X_true = lamda*np.exp(-lamda*t)
 
-sns.distplot(X, ax = ax, kde = False, norm_hist = True, label = 'n='+str(n))  # area = 1
-</code></pre>
-<p>sns.lineplot(t, X_true, ax = ax, lw = 3)</p>
-<p>ax.set_title('Histograma da Distribuição Exponencial')
+fig, ax = plt.subplots(figsize = (14, 5))
+
+for n in [1, 10, 100, 1000, 10000]: 
+
+    X = np.random.exponential(scale = beta, size = n)
+
+    sns.distplot(X, ax = ax, kde = False, norm_hist = True, label = 'n='+str(n))  # area = 1
+
+sns.lineplot(t, X_true, ax = ax, lw = 3)
+
+ax.set_title('Histograma da Distribuição Exponencial')
 ax.legend()
-plt.show()
-```</p>
+plt.show()</code></pre>
 <p><img alt="png" src="../output_7_0.png" /></p>
 <h2 id="teorema-central-do-limite">Teorema Central do Limite</h2>
 <p>Se as variáveis aleatórias <script type="math/tex">X_1, ..., X_n</script> formam uma amostra aleatória de tamanho <script type="math/tex">n</script> para uma dada distribuição de média <script type="math/tex">\mu</script> e variância <script type="math/tex">\sigma^2</script> finita, então para cada número <script type="math/tex">x</script>, </p>
@@ -348,11 +348,10 @@ plt.show()
 <script type="math/tex; mode=display">lim_{n\to\infty} P[\frac{\bar{X}_n - \mu}{\sigma/n^{1/2}} \leq x] = \Phi(x),</script>
 </p>
 <p>onde <script type="math/tex">\Phi</script> é a função de densidade acumulada da distribuição normal!!!</p>
-<p><code>python
-coffee_df = pd.read_csv('../data/CoffeeAndCode.csv')
+<pre class="highlight"><code class="language-python">coffee_df = pd.read_csv('../data/CoffeeAndCode.csv')
 display(coffee_df.head())
 display(coffee_df.shape)
-display(coffee_df.describe())</code></p>
+display(coffee_df.describe())</code></pre>
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -516,9 +515,9 @@ display(coffee_df.describe())</code></p>
 </table>
 </div>
 
-<p>```python</p>
-<h1 id="plotting">Plotting</h1>
-<p>fig, ax = plt.subplots(figsize = (7, 5))
+<pre class="highlight"><code class="language-python"># Plotting 
+
+fig, ax = plt.subplots(figsize = (7, 5))
 sns.distplot(coffee_df.CoffeeCupsPerDay, ax = ax)
 ax.vlines(coffee_df.CoffeeCupsPerDay.mean(), 
           ymin = 0, ymax = 1, 
@@ -529,32 +528,32 @@ ax.annotate('Média:'+str(coffee_df.CoffeeCupsPerDay.mean()),
 ax.set_title('Histrograma de copos de café bebidos por programadores')
 ax.set_ylabel('Frequência')
 ax.set_ylim((0,0.45))
-plt.show()
-```</p>
+plt.show()</code></pre>
 <p><img alt="png" src="../output_10_0.png" /></p>
-<p>```python</p>
-<h1 id="generating-sample-means">Generating sample means</h1>
-<p>samples = [10,50,150,300,500,1000]
-n_experiments = 500</p>
-<p>experiments_coffe_cups = np.empty((n_experiments, len(samples)))</p>
-<p>for j, sample_size in enumerate(samples):</p>
-<pre><code>sample = coffee_df.CoffeeCupsPerDay.sample(n = sample_size*n_experiments, replace = True)
-matrix = np.array(sample).reshape((n_experiments, sample_size))
-experiments_coffe_cups[:,j] = matrix.mean(axis = 1)
-</code></pre>
-<p>experiments_coffe_cups_df = pd.DataFrame(experiments_coffe_cups, columns = samples)
-```</p>
-<p>```python
-fig, ax = plt.subplots(2,3, figsize = (20,10))
+<pre class="highlight"><code class="language-python"># Generating sample means
+
+samples = [10,50,150,300,500,1000]
+n_experiments = 500
+
+experiments_coffe_cups = np.empty((n_experiments, len(samples)))
+
+for j, sample_size in enumerate(samples):
+
+    sample = coffee_df.CoffeeCupsPerDay.sample(n = sample_size*n_experiments, replace = True)
+    matrix = np.array(sample).reshape((n_experiments, sample_size))
+    experiments_coffe_cups[:,j] = matrix.mean(axis = 1)
+
+experiments_coffe_cups_df = pd.DataFrame(experiments_coffe_cups, columns = samples)</code></pre>
+<pre class="highlight"><code class="language-python">fig, ax = plt.subplots(2,3, figsize = (20,10))
 for index, column in enumerate(experiments_coffe_cups_df.columns):
     i = int(index/3)
     j = index % 3
     sns.distplot(experiments_coffe_cups_df[column], ax = ax[i][j])
     ax[i][j].set_title('Média amostral com {} amostras'.format(column))
-    ax[i][j].set_ylabel('Frequência')</p>
-<p>fig.suptitle('Histogramas com diferentes números de amostras')
-plt.show()
-```</p>
+    ax[i][j].set_ylabel('Frequência')
+
+fig.suptitle('Histogramas com diferentes números de amostras')
+plt.show()</code></pre>
 <p><img alt="svg" src="../output_12_0.svg" /></p>
 <h2 id="metodo-delta">Método Delta</h2>
 <p>Seja <script type="math/tex">Y_1, Y_2, \dots</script> uma sequência de v.a. e <script type="math/tex">F</script> uma função de densidade acumulada contínua. Sejam <script type="math/tex">\theta \in \mathbb{R}</script> e <script type="math/tex">\{a_n\}_{n\in\mathbb{N}}</script> que tende ao <script type="math/tex">\infty</script>. Suponha que <script type="math/tex">a_n(Y_n - \theta)</script> converge para <script type="math/tex">F</script>. Seja <script type="math/tex">\alpha</script> uma função com derivada contínua, tal que <script type="math/tex">\alpha '(\theta) \neq 0</script>. Então <script type="math/tex">a_n[\alpha(Y_n) - \alpha(\theta)]/\alpha '(\theta)</script> converge para a distribuição <script type="math/tex">F</script>. </p>

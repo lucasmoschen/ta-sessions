@@ -178,10 +178,6 @@
                 
             <li class="second-level"><a href="#implementacao">Implementação</a></li>
                 
-        <li class="first-level "><a href="#importando-bibliotecas">importando bibliotecas</a></li>
-        <li class="first-level "><a href="#gerando-os-dados">Gerando os dados</a></li>
-        <li class="first-level "><a href="#funcao-de-verossimilhanca-chamamos-de-funcao-de-perda">Função de verossimilhança. Chamamos de Função de Perda</a></li>
-        <li class="first-level "><a href="#esse-e-o-chute-inicial">Esse é o chute inicial</a></li>
             <li class="second-level"><a href="#conclusao">Conclusão</a></li>
                 
             <li class="second-level"><a href="#propriedades">Propriedades</a></li>
@@ -193,7 +189,6 @@
             <li class="second-level"><a href="#mle-e-estimador-de-bayes">M.L.E e Estimador de Bayes</a></li>
                 
                 <li class="third-level"><a href="#exemplo-7612-mortes-exercito-prussio">Exemplo 7.6.12 (Mortes exército prússio)</a></li>
-        <li class="first-level "><a href="#esse-e-o-mle-a-media-vou-supor-que-esse-e-o-parametro-verdadeiro-so-para-mostrar">Esse é o MLE, a média. Vou supor que esse é o parâmetro verdadeiro só para mostrar.</a></li>
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
@@ -228,9 +223,9 @@ com a prática científica</strong>." (Batista, 2009)</p>
 </ul>
 <h2 id="implementacao">Implementação</h2>
 <p>Como referência, estou utilizando <a href="https://towardsdatascience.com/a-gentle-introduction-to-maximum-likelihood-estimation-9fbff27ea12f">este site</a>.</p>
-<p>```python</p>
-<h1 id="importando-bibliotecas">importando bibliotecas</h1>
-<p>import numpy as np, pandas as pd
+<pre class="highlight"><code class="language-python"># importando bibliotecas
+
+import numpy as np, pandas as pd
 from matplotlib import pyplot as plt
 import seaborn as sns
 from scipy.optimize import minimize
@@ -239,25 +234,23 @@ import pymc3 as pm3
 import numdifftools as ndt
 import statsmodels.api as sm
 from statsmodels.base.model import GenericLikelihoodModel
-%matplotlib inline
-```</p>
-<p>```python</p>
-<h1 id="gerando-os-dados">Gerando os dados</h1>
-<p>N = 100 
-x = np.linspace(0, 20, N)  # gerando lista igualmente espaçada</p>
-<p>beta1 = 3
+%matplotlib inline</code></pre>
+<pre class="highlight"><code class="language-python"># Gerando os dados 
+N = 100 
+x = np.linspace(0, 20, N)  # gerando lista igualmente espaçada
+
+beta1 = 3
 beta0 = 0
-sigma = 5 
-```</p>
-<p>```python
-error = np.random.normal(0, sigma, size = N) 
-y = beta1*x + beta0 + error </p>
-<p>data = pd.DataFrame({'y': y, 'x': x})
-data['constant'] = 1</p>
-<p>sns.regplot('x','y',data = data)  # Essa reta é uma estimativa dos dados feito por seaborn
+sigma = 5 </code></pre>
+<pre class="highlight"><code class="language-python">error = np.random.normal(0, sigma, size = N) 
+y = beta1*x + beta0 + error 
+
+data = pd.DataFrame({'y': y, 'x': x})
+data['constant'] = 1
+
+sns.regplot('x','y',data = data)  # Essa reta é uma estimativa dos dados feito por seaborn
 plt.title('Dados')
-plt.show()
-```</p>
+plt.show()</code></pre>
 <p><img alt="png" src="../output_3_0.png" /></p>
 <p>
 <script type="math/tex">Y = \beta_1 x + \beta_0 + e</script>
@@ -265,30 +258,27 @@ plt.show()
 <p>Nesse exemplo, o nosso problema será estimar a média. Observe que os dados tem um comportamento linear. Sem nos concentrarmos muito na modelagem e os problemas que ela pode trazer, eu vou já supor que temos um problema de <strong>Regressão Linear</strong>, onde os dados <script type="math/tex">Y \sim N(\mu, \sigma^2)</script>, onde <script type="math/tex">\sigma^2</script> é a variância do erro no processo, e <script type="math/tex">\mu = \beta_0 + \beta_1 x</script>, isto é, depende de x, nesse caso. Essa é uma dificuldade, as contas ficam mais difíceis e, por isso, vamos usar asrtifícios computacionais. Vamos supor que a variância é <em>conhecida</em>. Além disso, vamos supor que temos uma amostra aleatória <script type="math/tex">Y_i \sim N(\beta_0 + \beta_1 x_i, \sigma^2)</script>
 </p>
 <p>Temos que a verossimilhança é produto das pdfs(distribuição de densidade de probabilidade). Para otimizar podemos, entretanto, obter a <strong>soma dos logaritmos das pdfs</strong>. E por fim, vamos resolver um problema de minimizar o negativo desse valor. Veja que é equivalente a maximixar a soma!!</p>
-<p>```python</p>
-<h1 id="funcao-de-verossimilhanca-chamamos-de-funcao-de-perda">Função de verossimilhança. Chamamos de Função de Perda</h1>
-<p>def MLE(params):    # Função Perda: - log-verossimilhança 
+<pre class="highlight"><code class="language-python"># Função de verossimilhança. Chamamos de Função de Perda
+
+def MLE(params):    # Função Perda: - log-verossimilhança 
     beta0, beta1 = params[0], params[1]
     # Modelo Linear
-    yhat = beta0 + beta1*x  #= mu</p>
-<pre><code>#loc é a média e scale desvio padrão. Note que sigma é conhecido
-negLikelihood = - np.sum(stats.norm.logpdf(y, loc = yhat, scale = sigma))
+    yhat = beta0 + beta1*x  #= mu
 
-return negLikelihood
-</code></pre>
-<p>```</p>
-<p>```python</p>
-<h1 id="esse-e-o-chute-inicial">Esse é o chute inicial</h1>
-<p>initial_guess = np.array([3, 6])</p>
-<p>results = minimize(MLE, initial_guess, method='Nelder-Mead', options = {'disp': True})
-```</p>
+    #loc é a média e scale desvio padrão. Note que sigma é conhecido
+    negLikelihood = - np.sum(stats.norm.logpdf(y, loc = yhat, scale = sigma)) 
+
+    return negLikelihood</code></pre>
+<pre class="highlight"><code class="language-python"># Esse é o chute inicial
+initial_guess = np.array([3, 6])
+
+results = minimize(MLE, initial_guess, method='Nelder-Mead', options = {'disp': True})</code></pre>
 <pre><code>Optimization terminated successfully.
          Current function value: 307.745486
          Iterations: 56
          Function evaluations: 107
 </code></pre>
-<p><code>python
-print(results)</code></p>
+<pre class="highlight"><code class="language-python">print(results)</code></pre>
 <pre><code> final_simplex: (array([[-1.03428809,  3.11012856],
        [-1.0342294 ,  3.110121  ],
        [-1.03433677,  3.11012912]]), array([293.95399071, 293.95399071, 293.95399071]))
@@ -300,10 +290,9 @@ print(results)</code></p>
        success: True
              x: array([-1.03428809,  3.11012856])
 </code></pre>
-<p><code>python
-resultsdf = pd.DataFrame({'coef': results['x']})
+<pre class="highlight"><code class="language-python">resultsdf = pd.DataFrame({'coef': results['x']})
 resultsdf.index=[r'$\beta_0$',r'$\beta_1$']   
-np.round(resultsdf.head(2), 4)</code></p>
+np.round(resultsdf.head(2), 4)</code></pre>
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -339,9 +328,8 @@ np.round(resultsdf.head(2), 4)</code></p>
 </div>
 
 <p>Vamos estimar usando a biblioteca OLS. Ela faz esse processo e muito mais internamente. </p>
-<p><code>python
-results_ols = sm.OLS(data.y, data[['constant', 'x']]).fit()
-results_ols.summary()</code></p>
+<pre class="highlight"><code class="language-python">results_ols = sm.OLS(data.y, data[['constant', 'x']]).fit()
+results_ols.summary()</code></pre>
 <table class="simpletable">
 <caption>OLS Regression Results</caption>
 <tr>
@@ -477,43 +465,41 @@ results_ols.summary()</code></p>
 </table>
 <p>Modelamos <script type="math/tex">X_1, ..., X_{280}</script> como uma variável de contagem. Considere a distribuição <script type="math/tex">Poisson(\theta)</script>. Escolhemos a distribuição <script type="math/tex">Gamma(\alpha,\beta)</script>, dada que ela pertence à familia conjungada. Em particular, a distribuição a posteriori será <script type="math/tex">Gamma(\alpha + \sum X_i, \beta + n)</script>, onde <script type="math/tex">\sum X_i = 196</script>. </p>
 <p>Se assumirmos <script type="math/tex">\alpha</script> inteiro por simplicidade, vemos que a distribuição <script type="math/tex">Gamma</script> pode ser vista como a soma de <script type="math/tex">\alpha + \sum X_i</script> distribuições <script type="math/tex">Exponencial(\beta + n)</script>. Logo a soma dessas variáveis será aproximadamente normal com média <script type="math/tex">196/280</script> e variância <script type="math/tex">196/280^2</script>. </p>
-<p><code>python
-import numpy as np 
+<pre class="highlight"><code class="language-python">import numpy as np 
 import matplotlib.pyplot as plt
-from scipy.stats import gamma</code></p>
-<p>```python
-alpha = 1
-beta = 1</p>
-<h1 id="esse-e-o-mle-a-media-vou-supor-que-esse-e-o-parametro-verdadeiro-so-para-mostrar">Esse é o MLE, a média. Vou supor que esse é o parâmetro verdadeiro só para mostrar.</h1>
-<p>theta = 196/280   </p>
-<p>sum_xi = 196
-```</p>
-<p>```python
-fig, ax = plt.subplots(2,3,figsize = (18,6))
-fig.suptitle('Avaliando a convergência da distribuição Gamma')</p>
-<p>for index, n in enumerate([1,10,100,1000,10000,280]):</p>
-<pre><code>i = int(index/3)
-j = index % 3
+from scipy.stats import gamma</code></pre>
+<pre class="highlight"><code class="language-python">alpha = 1
+beta = 1
 
-X = np.random.poisson(theta, size = n)
-if n != 280: 
-    T = X.sum()
-    ax[i][j].set_title('n = {}'.format(n))
-else:
-    T = sum_xi  #Valor dos dados
-    ax[i][j].set_title('Dados Oficiais: n = {}'.format(n))
+# Esse é o MLE, a média. Vou supor que esse é o parâmetro verdadeiro só para mostrar. 
+theta = 196/280   
 
-t = np.linspace(start = 0.00001, stop = 3 - i - 1, num = 1000)
+sum_xi = 196</code></pre>
+<pre class="highlight"><code class="language-python">fig, ax = plt.subplots(2,3,figsize = (18,6))
+fig.suptitle('Avaliando a convergência da distribuição Gamma')
 
-posteriori = gamma(alpha + T, scale = 1/(beta  + n))
-y = posteriori.pdf(t)
+for index, n in enumerate([1,10,100,1000,10000,280]):
 
-ax[i][j].plot(t, y, color = 'darkblue')
-ax[i][j].grid(color = 'grey', alpha = 0.6, linestyle = '--')
-ax[i][j].vlines(theta, ymin = 0, ymax = max(y), 
-               color = 'black', linestyle = '--')
-</code></pre>
-<p>```</p>
+    i = int(index/3)
+    j = index % 3 
+
+    X = np.random.poisson(theta, size = n)
+    if n != 280: 
+        T = X.sum()
+        ax[i][j].set_title('n = {}'.format(n))
+    else:
+        T = sum_xi  #Valor dos dados
+        ax[i][j].set_title('Dados Oficiais: n = {}'.format(n))
+
+    t = np.linspace(start = 0.00001, stop = 3 - i - 1, num = 1000)
+
+    posteriori = gamma(alpha + T, scale = 1/(beta  + n))
+    y = posteriori.pdf(t)
+
+    ax[i][j].plot(t, y, color = 'darkblue')
+    ax[i][j].grid(color = 'grey', alpha = 0.6, linestyle = '--')
+    ax[i][j].vlines(theta, ymin = 0, ymax = max(y), 
+                   color = 'black', linestyle = '--')</code></pre>
 <p><img alt="png" src="../output_16_0.png" /></p>
 <p>Veja que com os dados reais, já temos uma boa aproximação!</p>
 <p><br/><br/><br/></p></div>

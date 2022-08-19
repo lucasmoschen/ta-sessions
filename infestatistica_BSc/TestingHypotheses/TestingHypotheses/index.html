@@ -193,8 +193,6 @@
         <li class="first-level "><a href="#compreensao-e-implementacao">Compreensão e Implementação</a></li>
             <li class="second-level"><a href="#exemplo">Exemplo</a></li>
                 
-        <li class="first-level "><a href="#there-has-a-lot-of-data-i-will-get-average-diary-from-usd-price">There has a lot of data. I will get average diary from USD price</a></li>
-        <li class="first-level "><a href="#inplace-assegura-que-eu-nao-crie-outro-dataframe">Inplace assegura que eu não crie outro DataFrame</a></li>
         <li class="first-level "><a href="#testes-de-razao-verossimilhanca">Testes de Razão Verossimilhança</a></li>
             <li class="second-level"><a href="#teorema_1">Teorema:</a></li>
                 
@@ -344,21 +342,18 @@ P[g(\theta_0) \in \omega(\vec{X})|\theta = \theta_0] \geq 1 - \alpha_0,
 <p>O preço do quilo ouro varia diariamente e essa variação em unidade de dólares será nosso objeto de interesse. Por exemplo: Se no dia 1 o preço mil e no dia 2 o preço era 1 050 e no dia 3 o preço é 1 025 temos que <script type="math/tex">X_1 = 50</script> e <script type="math/tex">X_2 = -25</script>. Vamos supor que as variações entre dois diferentes pares de dias são independentes (essa já uma simplificação da realidade!)</p>
 </blockquote>
 <p>Primeiro vamos importar os dados. </p>
-<p>```python
-import pandas as pd
-import numpy as np</p>
-<p>import matplotlib.pyplot as plt
+<pre class="highlight"><code class="language-python">import pandas as pd
+import numpy as np
+
+import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 import seaborn as sns
-sns.set()
-```</p>
-<p>```python
-gold_df = pd.read_csv('../data/gold.csv', low_memory = False, header=[2,3,4])</p>
-<h1 id="there-has-a-lot-of-data-i-will-get-average-diary-from-usd-price">There has a lot of data. I will get average diary from USD price</h1>
-<p>gold_df = gold_df[[('Priced In', 'Price Type', 'Summary'), ('USD', 'Ask', 'Average')]]
+sns.set()</code></pre>
+<pre class="highlight"><code class="language-python">gold_df = pd.read_csv('../data/gold.csv', low_memory = False, header=[2,3,4])
+# There has a lot of data. I will get average diary from USD price 
+gold_df = gold_df[[('Priced In', 'Price Type', 'Summary'), ('USD', 'Ask', 'Average')]]
 gold_df.columns = ['Day', 'Price']
-gold_df.head()
-```</p>
+gold_df.head()</code></pre>
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -412,22 +407,18 @@ gold_df.head()
 </div>
 
 <p>Observe que existem diversos Nan values. Na prática eu teria que fazer alguma espécie de limpeza rigorosa. Nesse caso, para tornar tudo bem simples, vou apenas limpar. Também precisamos garantir que as informações estejam em formato <code>float</code>. </p>
-<p>```python</p>
-<h1 id="inplace-assegura-que-eu-nao-crie-outro-dataframe">Inplace assegura que eu não crie outro DataFrame</h1>
-<p>gold_df.dropna(inplace = True)
-gold_df.Price = gold_df.Price.apply(lambda x: float(x.strip().replace(',', '')))
-```</p>
-<p><code>python
-plt.plot(gold_df['Price'])
+<pre class="highlight"><code class="language-python"># Inplace assegura que eu não crie outro DataFrame
+gold_df.dropna(inplace = True)
+gold_df.Price = gold_df.Price.apply(lambda x: float(x.strip().replace(',', '')))</code></pre>
+<pre class="highlight"><code class="language-python">plt.plot(gold_df['Price'])
 plt.title('Preço do Ouro em Dólares')
-plt.show()</code></p>
+plt.show()</code></pre>
 <p><img alt="png" src="../output_11_0.png" /></p>
-<p><code>python
-variation = gold_df.Price.diff()
+<pre class="highlight"><code class="language-python">variation = gold_df.Price.diff()
 sns.violinplot(x = variation)
 plt.xlim((-50,50))
 plt.title('Distribuição da variação diária')
-plt.show()</code></p>
+plt.show()</code></pre>
 <p><img alt="png" src="../output_12_0.png" /></p>
 <p>De fato não parece uma normal (na verdade uma distribuição de cauda mais pesada talvez fosse interessante. Mas tudo bem!), mas vamos modelar dessa forma. A partir de agora vamos nos preocupar mais com as definições para dar a devida interpretação. O exemplo é só motivador. </p>
 <p><strong>Qual hipótese queremos testar? O que queremos saber sobre a variação?</strong></p>
@@ -465,24 +456,23 @@ plt.show()</code></p>
 </p>
 <p>Assim: <script type="math/tex">S_1 = \{(x_1, x_2): x_1 + x_2 \geq 2c \text{ ou } x_1 + x_2 \leq -2c\}</script>
 </p>
-<p>```python
-C = [1, 10, 30]
-decision = lambda x1, x2, c: 1<em>np.logical_or(x1 + x2 &gt;= 2</em>c, x1 + x2 &lt;= -2*c)
-x1,x2 = np.meshgrid(np.arange(-50,50,0.5),np.arange(-50,50,0.5))</p>
-<p>fig, ax = plt.subplots(1,3, figsize = (21, 7))
+<pre class="highlight"><code class="language-python">C = [1, 10, 30]
+decision = lambda x1, x2, c: 1*np.logical_or(x1 + x2 &gt;= 2*c, x1 + x2 &lt;= -2*c)
+x1,x2 = np.meshgrid(np.arange(-50,50,0.5),np.arange(-50,50,0.5))
+
+fig, ax = plt.subplots(1,3, figsize = (21, 7))
 for i, c in enumerate(C):
     ax[i].contourf(x1,x2,decision(x1,x2, c), levels = [0, 0.5, 1], colors = ['#fdcdac', '#cbd5e8'])
-    ax[i].set_xlabel(r'<script type="math/tex">x_1</script>', fontsize = 20)
-    ax[i].set_ylabel(r'<script type="math/tex">x_2</script>', fontsize = 20)
+    ax[i].set_xlabel(r'$x_1$', fontsize = 20)
+    ax[i].set_ylabel(r'$x_2$', fontsize = 20)
     ax[i].set_title('Região Crítica quando c = {}'.format(c), fontsize = 20)
-    ax[i].legend(handles = [mpatches.Patch(color='#fdcdac', label=r'<script type="math/tex">S_0</script>'),
-                            mpatches.Patch(color='#cbd5e8', label=r'<script type="math/tex">S_1</script>')])</p>
-<pre><code>sample = gold_df.Price.diff().sample(n = 2)
-X1, X2 = sample.iloc[0], sample.iloc[1]
-ax[i].scatter(X1, X2, color = 'black')
-ax[i].text(X1 + 1, X2 + 1, s = r'$(X_1, X_2)$', fontsize = 15)
-</code></pre>
-<p>```</p>
+    ax[i].legend(handles = [mpatches.Patch(color='#fdcdac', label=r'$S_0$'),
+                            mpatches.Patch(color='#cbd5e8', label=r'$S_1$')])
+
+    sample = gold_df.Price.diff().sample(n = 2)
+    X1, X2 = sample.iloc[0], sample.iloc[1]
+    ax[i].scatter(X1, X2, color = 'black')
+    ax[i].text(X1 + 1, X2 + 1, s = r'$(X_1, X_2)$', fontsize = 15)</code></pre>
 <p><img alt="png" src="../output_15_0.png" /></p>
 <ol>
 <li><strong>Como a função poder entra nessa história?</strong></li>
@@ -506,25 +496,25 @@ ax[i].text(X1 + 1, X2 + 1, s = r'$(X_1, X_2)$', fontsize = 15)
 </li>
 </ul>
 <p>A função poder se trata mais do teste que estamos usando do que os dados em si. Por isso, podemos comparar testes usando essa função poder. Então vamos ver nesse caso quem é a função poder! Vou calcular usando um método numérico para que peguem a ideia. Agora é possível fazer as contas, mas nem sempre é trivial. Assim teremos apenas aproximação da função poder. </p>
-<p>```python
-C = [1, 10, 30]
+<pre class="highlight"><code class="language-python">C = [1, 10, 30]
 mu_v = np.arange(-100, 100, 1)
 n = 10000
-power = np.zeros((len(C),len(mu_v)))</p>
-<p>for i, c in enumerate(C):
+power = np.zeros((len(C),len(mu_v)))
+
+for i, c in enumerate(C):
     for j, mu in enumerate(mu_v): 
         X1 = np.random.normal(loc = mu, scale = 73, size = n)
         X2 = np.random.normal(loc = mu, scale = 73, size = n)
-        p = (sum(X1 + X2 &gt;= 2<em>c) + sum(X1 + X2 &lt;= -2</em>c))/n
-        power[i,j] = p</p>
-<pre><code>plt.plot(mu_v, power[i,:], label = 'c = {}'.format(c))
-</code></pre>
-<p>plt.title('Função poder')
-plt.xlabel(r'<script type="math/tex">\mu</script>')
+        p = (sum(X1 + X2 &gt;= 2*c) + sum(X1 + X2 &lt;= -2*c))/n
+        power[i,j] = p
+
+    plt.plot(mu_v, power[i,:], label = 'c = {}'.format(c))
+
+plt.title('Função poder')
+plt.xlabel(r'$\mu$')
 plt.ylabel('Prob')
 plt.legend()
-plt.show()
-```</p>
+plt.show()</code></pre>
 <p><img alt="png" src="../output_17_0.png" /></p>
 <ol>
 <li>Vamos definir <script type="math/tex">c</script> agora? </li>
@@ -557,30 +547,26 @@ plt.show()
 c = \frac{\sigma}{\sqrt{2}}\Phi^{-1}(1 - \alpha_0/2) 
 </script>
 </p>
-<p><code>python
-from scipy.stats import norm</code></p>
+<pre class="highlight"><code class="language-python">from scipy.stats import norm</code></pre>
 <p>Lembre que <script type="math/tex">\alpha_0</script> indica o máximo de Erro I que aceitamos. </p>
-<p><code>python
-alpha0 = 0.05
+<pre class="highlight"><code class="language-python">alpha0 = 0.05
 c = np.sqrt(73)/np.sqrt(2)*norm.ppf(1 - alpha0/2)
-print(c)</code></p>
+print(c)</code></pre>
 <pre><code>11.841167465893536
 </code></pre>
 <p>É bem próximo do gráfico acima mostrado, quando testamos para <script type="math/tex">c = 10</script>. </p>
-<p><code>python
-t = np.arange(-20,20,0.1)
+<pre class="highlight"><code class="language-python">t = np.arange(-20,20,0.1)
 X = norm(loc = 0, scale = np.sqrt(73)/np.sqrt(2))
 plt.plot(t, X.pdf(t))
 plt.fill_between(t[(t &lt; -c)], X.pdf(t[(t &lt; -c)]), color = 'blue')
 plt.fill_between(t[(t &gt; c)], X.pdf(t[(t &gt; c)]), color = 'blue')
 plt.title('Distribuição Normal e Região de Rejeição')
-plt.show()</code></p>
+plt.show()</code></pre>
 <p><img alt="png" src="../output_23_0.png" /></p>
 <p>Por exemplo vamos tirar duas amostras de nossa distribuição</p>
-<p><code>python
-X1, X2 = gold_df.Price.diff().sample(2)
+<pre class="highlight"><code class="language-python">X1, X2 = gold_df.Price.diff().sample(2)
 T = np.abs(X1 + X2)/2
-T &gt;= c</code></p>
+T &gt;= c</code></pre>
 <pre><code>False
 </code></pre>
 <ol>
@@ -596,9 +582,8 @@ T &gt;= c</code></p>
 t = \frac{\sigma}{\sqrt{2}}\Phi^{-1}(1 - \alpha_0/2) \rightarrow \alpha_0 = 2\left(1 - \Phi\left(\frac{\sqrt{2}}{\sigma}t\right)\right)
 </script>
 </p>
-<p><code>python
-p_value = 2*(1 - norm.cdf(np.sqrt(2)/np.sqrt(73)*T))
-print(p_value)</code></p>
+<pre class="highlight"><code class="language-python">p_value = 2*(1 - norm.cdf(np.sqrt(2)/np.sqrt(73)*T))
+print(p_value)</code></pre>
 <pre><code>0.8477386286989927
 </code></pre>
 <p>Como o p-valor é alto, não faz sentido rejeitar a hipótese nula. </p>

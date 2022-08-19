@@ -177,11 +177,8 @@
             <li class="second-level"><a href="#diferenca-entre-propocoes-de-duas-populacoes">Diferença entre propoções de duas populações</a></li>
                 
                 <li class="third-level"><a href="#teste-t-para-proporcoes">Teste T para proporções</a></li>
-        <li class="first-level "><a href="#gerando-as-populacoes">Gerando as populações</a></li>
-            <li class="second-level"><a href="#conclusao-sobre-o-teste-de-hipoteses">Conclusão sobre o teste de hipóteses</a></li>
-                
-            <li class="second-level"><a href="#mas-o-que-acontece-se-essas-proporcoes-se-mantiveram-para-mais-pessoas">Mas o que acontece se essas proporções se mantiveram para mais pessoas?</a></li>
-                
+                <li class="third-level"><a href="#conclusao-sobre-o-teste-de-hipoteses">Conclusão sobre o teste de hipóteses</a></li>
+                <li class="third-level"><a href="#mas-o-que-acontece-se-essas-proporcoes-se-mantiveram-para-mais-pessoas">Mas o que acontece se essas proporções se mantiveram para mais pessoas?</a></li>
             <li class="second-level"><a href="#diferenca-entre-medias-de-populacoes">Diferença entre médias de populações</a></li>
                 
                 <li class="third-level"><a href="#vamos-usar-o-t-test-descrito-em-welch">Vamos usar o t-test descrito em Welch.</a></li>
@@ -200,11 +197,10 @@
 <li>Média de uma população. </li>
 <li>Diferença enre médias de populações. </li>
 </ol>
-<p><code>python
-import statsmodels.api as sm
+<pre class="highlight"><code class="language-python">import statsmodels.api as sm
 import numpy as np
 import matplotlib.pyplot as plt
-import pandas as pd</code></p>
+import pandas as pd</code></pre>
 <h2 id="proporcao-de-uma-populacao">Proporção de uma População</h2>
 <ol>
 <li>
@@ -254,33 +250,29 @@ P(Z \ge c) &= P\left(\frac{\bar{X}_n - \pi_0}{\sqrt{(\pi_0(1 - \pi_0)/n)}} \ge c
 <p>Assim podemos encontrar <script type="math/tex">\alpha_0</script> a partir do máximo que essa quantidade assume (Mas  com uma obseevação bem detalhada, quando <script type="math/tex">n</script> é grande, <script type="math/tex">p = 0.52</script> é o maximizador)</p>
 <p>Mas como isso funciona na prática, propriamente dito.</p>
 <p>Tenho que escolher um valor limiar para o p-valor, isto é, se p-valor for menor do que esse limiar, eu rejeito a hipótese. Vou ficar esse limiar em 0.05, mas isso é arbitrário, apesar da literatura costumar usá-lo. </p>
-<p><code>python
-n = 1018
+<pre class="highlight"><code class="language-python">n = 1018
 pnull = .52
-phat = .56</code></p>
-<p>```python
-ztest, pvalue = sm.stats.proportions_ztest(count = phat*n,   #número de sucessos
+phat = .56</code></pre>
+<pre class="highlight"><code class="language-python">ztest, pvalue = sm.stats.proportions_ztest(count = phat*n,   #número de sucessos
                                            nobs = n,          #número de observações
                                            value = pnull,    #pi_0
-                                           alternative = 'larger') #hipótese alternativa </p>
-<p>print('O valor da estatística de teste foi {} e o p-valor {}'.format(ztest, pvalue))                      <br />
-```</p>
+                                           alternative = 'larger') #hipótese alternativa 
+
+print('O valor da estatística de teste foi {} e o p-valor {}'.format(ztest, pvalue))                        </code></pre>
 <pre><code>O valor da estatística de teste foi 0.6392739759907055 e o p-valor 0.26132235751888716
 </code></pre>
 <h3 id="conclusao-do-teste-de-hipoteses">Conclusão do teste de hipóteses</h3>
 <p>Como o p-valor foi menor do que nosso limiar, nós temos evidência para rejeitar a hipótese nula que dizia que a prporção teria permanecido ou até diminuído. </p>
 <p>Isso não significa que aceitamos a hipótese alternativa, apenas que temos evidência para acreditar que a proporção seja maior do que 0.52. </p>
-<p><code>python
-n = 1018
+<pre class="highlight"><code class="language-python">n = 1018
 pnull = .52
-phat = .53</code></p>
-<p>```python
-ztest, pvalue = sm.stats.proportions_ztest(count = phat*n,   #número de sucessos
+phat = .53</code></pre>
+<pre class="highlight"><code class="language-python">ztest, pvalue = sm.stats.proportions_ztest(count = phat*n,   #número de sucessos
                                            nobs = n,          #número de observações
                                            value = pnull,    #pi_0
-                                           alternative = 'larger') #hipótese alternativa </p>
-<p>print('O valor da estatística de teste foi {} e o p-valor {}'.format(ztest, pvalue))      <br />
-```</p>
+                                           alternative = 'larger') #hipótese alternativa 
+
+print('O valor da estatística de teste foi {} e o p-valor {}'.format(ztest, pvalue))        </code></pre>
 <pre><code>O valor da estatística de teste foi 0.6392739759907055 e o p-valor 0.26132235751888716
 </code></pre>
 <h2 id="diferenca-entre-propocoes-de-duas-populacoes">Diferença entre propoções de duas populações</h2>
@@ -313,36 +305,35 @@ t = \frac{\bar{X}_n - \bar{Y}_m}{SE}
 <p>Nesse caso <script type="math/tex">SE</script> é o erro entre a diferença entre a médias: isso tem um pequeno problema quando <script type="math/tex">m \neq n</script>. Então fazer as contas no papel não é trivial. </p>
 <p>Confira <a href="https://en.wikipedia.org/wiki/Student%27s_t-test#Independent_two-sample_t-test">aqui</a> as definições de SE precisas. </p>
 <p>Como nossa intenção é apenas usar esse teste, vamos mostrar como isso pode ser prático. </p>
-<p>```python
-n = 247
-pi = .368</p>
-<p>m = 308
-pa = .389</p>
-<h1 id="gerando-as-populacoes">Gerando as populações</h1>
-<p>england = np.random.binomial(n = 1, p = pi, size = n)
-germany = np.random.binomial(n = 1, p = pa, size = m)
-```</p>
-<p>```python
-_, p_value, _ = sm.stats.ttest_ind(england, germany)</p>
-<p>print('O p-valor foi {}'.format(p_value))
-```</p>
+<pre class="highlight"><code class="language-python">n = 247
+pi = .368
+
+m = 308
+pa = .389
+
+# Gerando as populações
+
+england = np.random.binomial(n = 1, p = pi, size = n)
+germany = np.random.binomial(n = 1, p = pa, size = m)</code></pre>
+<pre class="highlight"><code class="language-python">_, p_value, _ = sm.stats.ttest_ind(england, germany)
+
+print('O p-valor foi {}'.format(p_value))</code></pre>
 <pre><code>O p-valor foi 0.2615435082780627
 </code></pre>
 <h3 id="conclusao-sobre-o-teste-de-hipoteses">Conclusão sobre o teste de hipóteses</h3>
 <p>Dado que o p-valor é maior do que nosso limiar, não podemos rejeitar a hipótese nula. Nesse caso, a diferença das proporções nas popuçações não foi nada mais do que meramente uma aleatoriedade. </p>
 <h3 id="mas-o-que-acontece-se-essas-proporcoes-se-mantiveram-para-mais-pessoas">Mas o que acontece se essas proporções se mantiveram para mais pessoas?</h3>
-<p>```python
-n = 5000
-pi = .37</p>
-<p>m = 5000
-pa = .389</p>
-<p>england = np.random.binomial(n = 1, p = pi, size = n)
-germany = np.random.binomial(n = 1, p = pa, size = m)
-```</p>
-<p>```python
-_, p_value, _ = sm.stats.ttest_ind(england, germany)</p>
-<p>print('O p-valor foi {}'.format(p_value))
-```</p>
+<pre class="highlight"><code class="language-python">n = 5000
+pi = .37
+
+m = 5000
+pa = .389
+
+england = np.random.binomial(n = 1, p = pi, size = n)
+germany = np.random.binomial(n = 1, p = pa, size = m)</code></pre>
+<pre class="highlight"><code class="language-python">_, p_value, _ = sm.stats.ttest_ind(england, germany)
+
+print('O p-valor foi {}'.format(p_value))</code></pre>
 <pre><code>O p-valor foi 0.027721099791980015
 </code></pre>
 <h2 id="diferenca-entre-medias-de-populacoes">Diferença entre médias de populações</h2>
@@ -376,10 +367,9 @@ _, p_value, _ = sm.stats.ttest_ind(england, germany)</p>
 <br />
 <script type="math/tex">\hat{\sigma}_h = 6.25</script>
 </p>
-<p><code>python
-url = "https://raw.githubusercontent.com/kshedden/statswpy/master/NHANES/merged/nhanes_2015_2016.csv"
+<pre class="highlight"><code class="language-python">url = "https://raw.githubusercontent.com/kshedden/statswpy/master/NHANES/merged/nhanes_2015_2016.csv"
 da = pd.read_csv(url)
-da.head()</code></p>
+da.head()</code></pre>
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -547,50 +537,45 @@ da.head()</code></p>
 <p>5 rows × 28 columns</p>
 </div>
 
-<p><code>python
-females = da[da["RIAGENDR"] == 2]
-male = da[da["RIAGENDR"] == 1]</code></p>
-<p>```python
-n_m = len(females)
+<pre class="highlight"><code class="language-python">females = da[da["RIAGENDR"] == 2]
+male = da[da["RIAGENDR"] == 1]</code></pre>
+<pre class="highlight"><code class="language-python">n_m = len(females)
 mu_m = females["BMXBMI"].mean()
-sd_m = females["BMXBMI"].std()</p>
-<p>(n_m, mu_m, sd_m)
-```</p>
+sd_m = females["BMXBMI"].std()
+
+(n_m, mu_m, sd_m)</code></pre>
 <pre><code>(2976, 29.939945652173996, 7.75331880954568)
 </code></pre>
-<p>```python
-n_h = len(male)
+<pre class="highlight"><code class="language-python">n_h = len(male)
 mu_h = male["BMXBMI"].mean()
-sd_h = male["BMXBMI"].std()</p>
-<p>(n_h, mu_h, sd_h)
-```</p>
+sd_h = male["BMXBMI"].std()
+
+(n_h, mu_h, sd_h)</code></pre>
 <pre><code>(2759, 28.778072111846985, 6.252567616801485)
 </code></pre>
-<p>```python
-fig, ax = plt.subplots(1,2,figsize=(15,5))</p>
-<p>ax[0].set_title("Histogram BMI para mulheres",fontsize=16)
+<pre class="highlight"><code class="language-python">fig, ax = plt.subplots(1,2,figsize=(15,5))
+
+ax[0].set_title("Histogram BMI para mulheres",fontsize=16)
 ax[0].hist(females["BMXBMI"].dropna(), edgecolor='k', color='darkred',bins=25)
 ax[1].set_title("Histogram BMI para homens", fontsize=16)
-ax[1].hist(male["BMXBMI"].dropna(), edgecolor='k', color='green', bins=25)</p>
-<p>plt.show()
-```</p>
+ax[1].hist(male["BMXBMI"].dropna(), edgecolor='k', color='green', bins=25)
+
+plt.show()</code></pre>
 <p><img alt="svg" src="../ExampleHypothesesTesting_21_0.svg" /></p>
 <h3 id="vamos-usar-o-t-test-descrito-em-welch">Vamos usar o t-test descrito em <a href="https://en.wikipedia.org/wiki/Welch%27s_t-test">Welch</a>.</h3>
 <p>Temos que usá-lo porque não conhecemos a variância. Se conhecessemos, poderíamos usar o teste normal mesmo e se soubéssemos que são iguais, mas desconhecessemos, poderíamos usar o ttest ques estudamos no <a href="https://lucasmoschen.github.io/TA_sessions/infestatistica_BSc/TestingHypothesesII/TestingHypothesesII/#comparando-medias-de-duas-normais">capítulo 9.5</a>. </p>
-<p><code>python
-sm.stats.ttest_ind(x1 = females["BMXBMI"].dropna(), 
+<pre class="highlight"><code class="language-python">sm.stats.ttest_ind(x1 = females["BMXBMI"].dropna(), 
                    x2 = male["BMXBMI"].dropna(),
                    alternative='two-sided', 
-                   value = 0)  # diferença na hipótese nula</code></p>
+                   value = 0)  # diferença na hipótese nula</code></pre>
 <pre><code>(6.175593353138302, 7.050275578095374e-10, 5660.0)
 </code></pre>
 <h3 id="conclusao-no-teste-de-hipoteses">Conclusão no teste de hipóteses</h3>
 <p>Como o p-valor é bem pequeno, nós podemos rejeitar a hipótese nula, o que significa que existe diferença estatística entre as médias. Isso não responde se a o índice é mais alto para homens, mas podemos fazer o teste unilateral e perceber que de fato isso de fato acontece segundo os dados.</p>
-<p><code>python
-sm.stats.ttest_ind(x1 = females["BMXBMI"].dropna(), 
+<pre class="highlight"><code class="language-python">sm.stats.ttest_ind(x1 = females["BMXBMI"].dropna(), 
                    x2 = male["BMXBMI"].dropna(),
                    alternative='larger', 
-                   value = 0)  # diferença na hipótese nula</code></p>
+                   value = 0)  # diferença na hipótese nula</code></pre>
 <pre><code>(6.175593353138302, 3.525137789047687e-10, 5660.0)
 </code></pre></div>
         

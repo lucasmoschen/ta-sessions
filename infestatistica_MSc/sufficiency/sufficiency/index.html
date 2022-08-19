@@ -178,7 +178,6 @@
                 
                 <li class="third-level"><a href="#amostrando">Amostrando!</a></li>
                 <li class="third-level"><a href="#ancilaridade_1">Ancilaridade</a></li>
-        <li class="first-level "><a href="#estamos-tomando-o-maximo-de-cada-linha-de-x-e-obtendo-100000-amostras-para-x">Estamos tomando o máximo de cada linha de X e obtendo 100000 amostras para X.</a></li>
             <li class="second-level"><a href="#estimadores-aleatorios-e-convexidade">Estimadores aleatórios e convexidade</a></li>
                 
                 <li class="third-level"><a href="#teorema-de-rao-blackwell">Teorema de Rao-Blackwell</a></li>
@@ -295,11 +294,10 @@ Podemos, todavia, alterar a informação sobre outras quantidades, todavia.</p>
 <p><strong>Teorema de Basu:</strong> se <script type="math/tex">T</script> é uma estatística suficiente completa limitada e <script type="math/tex">U</script> é anciliar, então <script type="math/tex">U</script> e <script type="math/tex">T</script> são independentes sob <script type="math/tex">P_{\theta}</script> para qualquer <script type="math/tex">\theta</script>.</p>
 <h2 id="computacional">Computacional</h2>
 <p>Nesse notebook, que está disponível <a href="https://nbviewer.org/github/lucasmoschen/ta-sessions/blob/master/Statistical_Inference_MSc/Notebooks/Sufficient_Statistics.ipynb">neste link</a>, faremos alguns poucos experimentos para ilustrar fatos verificados no capítulo de Estatística Suficiente.</p>
-<p><code>python
-import numpy as np
+<pre class="highlight"><code class="language-python">import numpy as np
 import matplotlib.pyplot as plt
 from scipy import stats
-from tqdm import tqdm</code></p>
+from tqdm import tqdm</code></pre>
 <h3 id="amostrando">Amostrando!</h3>
 <p>Seja <script type="math/tex">X_1, \dots, X_n</script> uma amostra aleatória de uma distribuição <script type="math/tex">P_{\theta}</script>. 
 Seja <script type="math/tex">T(X)</script> uma estatística suficiente. 
@@ -340,38 +338,36 @@ e matriz de covariância (dada pela inversa)
 </p>
 <p>Veja que <script type="math/tex">\Sigma = I - A/n</script> (mostre!). </p>
 <p>Assim, <script type="math/tex">X_1, \dots, X_{n-1} | \bar{X} = t \sim \operatorname{Normal}((t,\dots,t), I - A/n)</script>.</p>
-<p><code>python
-mu = 2
+<pre class="highlight"><code class="language-python">mu = 2
 n = 10
-Sigma = np.eye(n-1) - np.ones((n-1,n-1))/n</code></p>
+Sigma = np.eye(n-1) - np.ones((n-1,n-1))/n</code></pre>
 <p>Façamos um exemplo em que <script type="math/tex">\mu = 2</script> verdadeiro (e desconhecido para os dois estatísticos). Vamos fazer o seguinte experimento <script type="math/tex">M</script> vezes, com <script type="math/tex">M = 100000</script>. Para o primeiro estatístico, oferecemos <script type="math/tex">n</script> amostras. Para o segundo estatístico, só oferecemos a média dessas amostras e ele vai utilizar as contas acima para gerar outras <script type="math/tex">n</script> amostras, isto, ele gerará amostras novas a partir de <script type="math/tex">X_1, \dots, X_{n-1} | \bar{X} = t \sim \operatorname{Normal}((t,\dots,t), I - A/n)</script>, pois ele conhecerá <script type="math/tex">\bar{X}</script>. </p>
 <p>Como faremos esses experimentos diversas vezes, vamos obter <script type="math/tex">M</script> amostras de <script type="math/tex">X_1</script> para o estatístico 1, e o estatístico 2 vai produzir outras <script type="math/tex">M</script> a partir da distribuição calculada. Provamos que a distribuição delas será a mesma. Vamos verificar graficamente através do histograma.</p>
-<p>```python
-mu = 2
+<pre class="highlight"><code class="language-python">mu = 2
 n = 10
-M = 100000</p>
-<p>estatistico1 = np.zeros((M, n))
-estatistico2 = np.zeros_like(estatistico1)</p>
-<p>for k in tqdm(range(M)):
-    x = np.random.normal(loc=mu, scale=1, size=n)
-    t = x.mean()</p>
-<pre><code>x_fake = np.random.multivariate_normal(mean=t*np.ones(n-1), cov=np.eye(n-1) - np.ones((n-1, n-1))/n)
-x_n = n * t - x_fake.sum()
-x_fake = np.hstack([x_fake, x_n])
+M = 100000
 
-estatistico1[k] = x
-estatistico2[k] = x_fake
-</code></pre>
-<p>```</p>
+estatistico1 = np.zeros((M, n))
+estatistico2 = np.zeros_like(estatistico1)
+
+for k in tqdm(range(M)):
+    x = np.random.normal(loc=mu, scale=1, size=n)
+    t = x.mean()
+
+    x_fake = np.random.multivariate_normal(mean=t*np.ones(n-1), cov=np.eye(n-1) - np.ones((n-1, n-1))/n)
+    x_n = n * t - x_fake.sum()
+    x_fake = np.hstack([x_fake, x_n])
+
+    estatistico1[k] = x
+    estatistico2[k] = x_fake</code></pre>
 <pre><code>100%|█████████████████████████████████| 100000/100000 [00:19&lt;00:00, 5034.15it/s]
 </code></pre>
 <p>Veja que de fato os histogramas são muito similares, como esperávamos! Assim, apenas tendo o valor da média, o estatístico 2 foi capaz de produzir novas amostras a partir da mesma distribuição do estatístico 1!</p>
-<p><code>python
-plt.hist(estatistico1[:,0], bins=50, label='Estatístico 1')
+<pre class="highlight"><code class="language-python">plt.hist(estatistico1[:,0], bins=50, label='Estatístico 1')
 plt.hist(estatistico2[:,0], alpha=0.5, bins=50, label='Estatístico 2')
 plt.title('Comparando a distribuição do dado contra o dado falso')
 plt.legend()
-plt.show()</code> </p>
+plt.show()</code></pre>
 <p><img alt="png" src="../output_9_0.png" /></p>
 <h3 id="ancilaridade_1">Ancilaridade</h3>
 <p>Uma estatística anciliar não depende do parâmetro, então não pode atualizar a informação sobre ele. 
@@ -389,22 +385,21 @@ U = \max(X_i) - \min(X_i) = \max(X_i-\theta+1/2) - \min(X_i-\theta+1/2) = \max(Y
 </script>
 Como a distribuição de <script type="math/tex">Y</script> independe de <script type="math/tex">\theta</script>, temos que a distribuição de <script type="math/tex">U</script> também independe, o que mostra que <script type="math/tex">U</script> é estatística anciliar.</p>
 <p>Vamos visualizar a distribuição de <script type="math/tex">U</script> de duas formas: partindo de <script type="math/tex">X</script> e partido de <script type="math/tex">Y</script>.</p>
-<p>```python
-theta = 5
-n = 10</p>
-<p>X = np.random.uniform(theta-1/2, theta+1/2, size=(100000, n))
-Y = np.random.uniform(size=(100000, n))</p>
-<h1 id="estamos-tomando-o-maximo-de-cada-linha-de-x-e-obtendo-100000-amostras-para-x">Estamos tomando o máximo de cada linha de X e obtendo 100000 amostras para X.</h1>
-<p>U1 = X.max(axis=1) - X.min(axis=1)
-U2 = Y.max(axis=1) - Y.min(axis=1)
-```</p>
+<pre class="highlight"><code class="language-python">theta = 5
+n = 10
+
+X = np.random.uniform(theta-1/2, theta+1/2, size=(100000, n))
+Y = np.random.uniform(size=(100000, n))
+
+# Estamos tomando o máximo de cada linha de X e obtendo 100000 amostras para X.
+U1 = X.max(axis=1) - X.min(axis=1)
+U2 = Y.max(axis=1) - Y.min(axis=1)</code></pre>
 <p>Note que de fato as distribuições são muito similares.</p>
-<p><code>python
-plt.hist(U1,  bins=50, label='U = max(X_i) - min(X_i)')
+<pre class="highlight"><code class="language-python">plt.hist(U1,  bins=50, label='U = max(X_i) - min(X_i)')
 plt.hist(U2, alpha=0.5, bins=50, label='U = max(Y_i) - min(Y_i)')
 plt.title('Comparando a distribuição de U')
 plt.legend()
-plt.show()</code></p>
+plt.show()</code></pre>
 <p><img alt="png" src="../output_13_0.png" /></p>
 <p>Se observamos que <script type="math/tex">U(X) = u</script>, podemos calcular que <script type="math/tex">\max(x_i) | U = u \sim \operatorname{Unif}(\theta-1/2+u, \theta+1/2)</script>. 
 Assim, a distribuição de uma estatística muda com outra anciliar.</p>

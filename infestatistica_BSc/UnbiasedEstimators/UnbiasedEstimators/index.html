@@ -172,16 +172,10 @@
                 
             <li class="second-level"><a href="#estimador-nao-enviesado-para-variancia">Estimador não enviesado para variância</a></li>
                 
-        <li class="first-level "><a href="#importando-bibliotecas">Importando bibliotecas</a></li>
-            <li class="second-level"><a href="#nota-por-que-garantir-reprodutibilidade">Nota: Por que garantir reprodutibilidade?</a></li>
-                
+                <li class="third-level"><a href="#nota-por-que-garantir-reprodutibilidade">Nota: Por que garantir reprodutibilidade?</a></li>
             <li class="second-level"><a href="#exemplo">Exemplo</a></li>
                 
-        <li class="first-level "><a href="#tamanho-da-populacao">Tamanho da população</a></li>
-        <li class="first-level "><a href="#populacao-gerada-por-simulacao-usando-a-distribuicao-normal">População gerada por simulação, usando a distribuição normal.</a></li>
-            <li class="second-level"><a href="#estimacao-dos-parametros">Estimação dos Parâmetros</a></li>
-                
-        <li class="first-level "><a href="#comparar-com-conscistencia">Comparar com Conscistência</a></li>
+                <li class="third-level"><a href="#estimacao-dos-parametros">Estimação dos Parâmetros</a></li>
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
@@ -199,46 +193,42 @@ R(\theta, \delta) = Var(\delta) + Viés(\delta)^2
 <p>
 <script type="math/tex; mode=display">s^2 = \hat{\sigma}_1^2 = \frac{1}{n-1}\sum_{i=1}^n (X_i - \bar{X}_n)^2</script>
 </p>
-<p>```python</p>
-<h1 id="importando-bibliotecas">Importando bibliotecas</h1>
-<p>import numpy as np
-import pandas as pd </p>
-<p>from IPython.display import display, Math  # Display latex</p>
-<p>import matplotlib.pyplot as plt 
-%matplotlib inline</p>
-<p>np.random.seed(1000) # Garantindo reprodutibilidade
-```</p>
+<pre class="highlight"><code class="language-python"># Importando bibliotecas
+import numpy as np
+import pandas as pd 
+
+from IPython.display import display, Math  # Display latex
+
+import matplotlib.pyplot as plt 
+%matplotlib inline
+
+np.random.seed(1000) # Garantindo reprodutibilidade</code></pre>
 <h4 id="nota-por-que-garantir-reprodutibilidade">Nota: Por que garantir reprodutibilidade?</h4>
 <p>Reprodutibilidade é a ideia de tornar o processo que foi feito por você reprodutível por qualquer outra pessoa, para que ela possa obter os mesmos resultados seguindo os mesmos passos que você. </p>
 <p>Quando escolhemos um número aleatório (<em>pseudoaleatório</em> na verdade), ele muda de tempos em tempos. Mas isso vai tirar a ideia de "garantir os mesmos resultados". O resultado pode ser parecido, mas não exatamente igual. </p>
 <p>Isso é muito importante no meio científico. </p>
 <h2 id="exemplo">Exemplo</h2>
 <p>Vamos ver como se comporta esse estimador não viesado em uma população que representa o Brasil todo! Veja que eu não peguei dados online, porque quero TODA a população. Por isso vamos fazer uma simulação. A média verdadeira da distribuição é 161,1cm e o desvio padrão é 10cm. </p>
-<p>```python</p>
-<h1 id="tamanho-da-populacao">Tamanho da população</h1>
-<p>N = int(200e5)</p>
-<h1 id="populacao-gerada-por-simulacao-usando-a-distribuicao-normal">População gerada por simulação, usando a distribuição normal.</h1>
-<p>population_height = pd.Series(np.random.normal(loc = 161.1, scale = 10, size = N))
-```</p>
+<pre class="highlight"><code class="language-python"># Tamanho da população
+N = int(200e5)
+# População gerada por simulação, usando a distribuição normal. 
+population_height = pd.Series(np.random.normal(loc = 161.1, scale = 10, size = N))</code></pre>
 <p>Podemos ver a média dessa população.</p>
-<p><code>python
-population_height.mean()</code></p>
+<pre class="highlight"><code class="language-python">population_height.mean()</code></pre>
 <pre><code>161.10097546939974
 </code></pre>
 <p>O que a função <code>var</code> do pandas faz? Vamos comparar com o estimador trivial. </p>
-<p><code>python
-ddof = 1 # Se ddof = 0, teremos a divisão por N
-population_height.var(ddof = ddof)</code></p>
+<pre class="highlight"><code class="language-python">ddof = 1 # Se ddof = 0, teremos a divisão por N
+population_height.var(ddof = ddof)</code></pre>
 <pre><code>100.02715920849081
 </code></pre>
 <p>Divindindo por <script type="math/tex">N</script>
 </p>
-<p>```python
-sigma_square_hat = ((population_height - population_height.mean())<strong>2).sum()/N
-sigma1_square_hat = ((population_height - population_height.mean())</strong>2).sum()/(N-1)</p>
-<p>display(Math(r'\hat\sigma^2 = {}'.format(sigma_square_hat)))
-display(Math(r'\hat\sigma_1^2 = {}'.format(sigma1_square_hat)))
-```</p>
+<pre class="highlight"><code class="language-python">sigma_square_hat = ((population_height - population_height.mean())**2).sum()/N
+sigma1_square_hat = ((population_height - population_height.mean())**2).sum()/(N-1)
+
+display(Math(r'\hat\sigma^2 = {}'.format(sigma_square_hat)))
+display(Math(r'\hat\sigma_1^2 = {}'.format(sigma1_square_hat)))</code></pre>
 <p>
 <script type="math/tex">\displaystyle \hat\sigma^2 = 100.02715420713488</script>
 </p>
@@ -247,43 +237,38 @@ display(Math(r'\hat\sigma_1^2 = {}'.format(sigma1_square_hat)))
 </p>
 <h3 id="estimacao-dos-parametros">Estimação dos Parâmetros</h3>
 <p>Vamos supor que não conhecemos os parâmetros da nossa população e podemos conhecer apenas uma amostra aleatória dela. Vamos fazer 500 dessas simulações </p>
-<p>```python
-number_simulations = 500
-sample_size = 30 </p>
-<p>sample = pd.DataFrame(population_height.sample(n = number_simulations*sample_size, 
+<pre class="highlight"><code class="language-python">number_simulations = 500
+sample_size = 30 
+
+sample = pd.DataFrame(population_height.sample(n = number_simulations*sample_size, 
                                                replace=True, random_state = 100), 
-                      columns = ['height'])</p>
-<p>reshape = sample.to_numpy().reshape((-1,30))
-samples = pd.DataFrame(reshape, columns = range(0,30))
-```</p>
+                      columns = ['height'])
+
+reshape = sample.to_numpy().reshape((-1,30))
+samples = pd.DataFrame(reshape, columns = range(0,30))</code></pre>
 <p>Vamos estimar a média com a média amostral que é não viesada também! Além disso ela é o MLE. Estamos estimado para cada amostra a média! Se fizermos uma média das médias, veremos que ela chegará próximo a média verdadeira. </p>
-<p>```python
-estimated_mean = samples.mean(axis = 1)  #Axis = 1 faz a média por linha. </p>
-<p>estimated_mean_of_means = estimated_mean.expanding().mean()
-```</p>
-<p><code>python
-fig, ax = plt.subplots(figsize = (8,5))
+<pre class="highlight"><code class="language-python">estimated_mean = samples.mean(axis = 1)  #Axis = 1 faz a média por linha. 
+
+estimated_mean_of_means = estimated_mean.expanding().mean()</code></pre>
+<pre class="highlight"><code class="language-python">fig, ax = plt.subplots(figsize = (8,5))
 ax.plot(estimated_mean_of_means, label = 'Valor estimado')
 ax.hlines(population_height.mean(), xmin = 0, xmax = number_simulations, 
           color = 'grey', linestyle = '--', alpha = 0.8, label = 'Valor verdadeiro')
 ax.grid(alpha = 0.4)
 ax.set_title('Estimado a média verdadeira')
-plt.show()</code></p>
+plt.show()</code></pre>
 <p><img alt="png" src="../output_15_0.png" /></p>
 <p>Vamos comparar os estimadores para a variância, o viesado e o não viesado.</p>
-<p>```python
-df = pd.DataFrame({'enviesado (dividido por n)': samples.var(ddof=0, axis = 1).expanding().mean(),
+<pre class="highlight"><code class="language-python">df = pd.DataFrame({'enviesado (dividido por n)': samples.var(ddof=0, axis = 1).expanding().mean(),
                    'nao_viesado (dividido por n - 1)': samples.var(ddof=1, axis = 1).expanding().mean(),
                    'verdadeiro': pd.Series(population_height.var(ddof=0), index=samples.index)})
 ax = df.plot()
 ax.set_title('Estimadores para a variância')
-ax.grid(alpha = 0.4)</p>
-<p>plt.show()
-```</p>
+ax.grid(alpha = 0.4)
+
+plt.show()</code></pre>
 <p><img alt="png" src="../output_17_0.png" /></p>
-<p>```python</p>
-<h1 id="comparar-com-conscistencia">Comparar com Conscistência</h1>
-<p>```</p></div>
+<pre class="highlight"><code class="language-python"># Comparar com Conscistência </code></pre></div>
         
         
     </div>

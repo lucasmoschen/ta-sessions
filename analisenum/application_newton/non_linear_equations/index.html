@@ -181,13 +181,12 @@
 <h1 id="metodos-numericos-para-solucao-de-equacoes-nao-lineares">Métodos numéricos para solução de equações não lineares</h1>
 <p>Escrevemos no <a href="/ta-sessions/analisenum/non_linear_equations">parte anterior</a> o resumo dos algoritmos de alguns métodos para solução de equações não lineares, e não são os únicos. Modificações desses métodos, em especial do Método de Newton são constantemente sugeridas para melhorar a
 convergência. Fica claro que muitos sistemas no mundo real são não lineares. Uma aplicação comum é resolver problemas de otimização. Por exemplo, quando queremos maximizar em conjuntos abertos, se conseguirmos provar algumas condições, podemos assegurar que o máximo se encontra quando <script type="math/tex">f'(x) = 0</script>. Logo, o problema de otimização se resume a um problema de encontrar raízes. </p>
-<p>```python
-import numpy as np
+<pre class="highlight"><code class="language-python">import numpy as np
 import scipy.special as scis
 import scipy.optimize as scop
-import matplotlib.pyplot as plt</p>
-<p>%matplotlib inline
-```</p>
+import matplotlib.pyplot as plt
+
+%matplotlib inline</code></pre>
 <p>Um jogador A ganha com placar (21-0) do jogador B em um jogo de <a href="https://pt.wikipedia.org/wiki/Raquetebol">raquetebol</a> com <a href="https://dokumen.tips/documents/probability-of-a-shutout-in-racquetball-58dea76bc2677.html">probabilidade</a>. </p>
 <p>
 <script type="math/tex; mode=display">
@@ -195,11 +194,9 @@ P = \frac{p+1}{2}\left(\frac{p}{1-p+p^2}\right)^{21},
 </script>
 </p>
 <p>em que <script type="math/tex">p</script> é a probabilidade de <script type="math/tex">A</script> ganhar um rally qualquer. Qual o valor de <script type="math/tex">p</script> que assegura que <script type="math/tex">A</script> vencerá com esse placar em pelo menos metade dos jogos? Esse é um problema real proposto por Ralph Levine para Joseph Keller.</p>
-<p><code>python
-def P(p):
-    return (p+1)/2 * (p/(1 + p**2-p))**(21)</code></p>
-<p><code>python
-p_values = np.linspace(0, 1, 50)
+<pre class="highlight"><code class="language-python">def P(p):
+    return (p+1)/2 * (p/(1 + p**2-p))**(21)</code></pre>
+<pre class="highlight"><code class="language-python">p_values = np.linspace(0, 1, 50)
 P_values = P(p_values)
 plt.plot(p_values, P_values, color='r')
 plt.axhline(0.5, linestyle = '--', color = 'darkblue')
@@ -207,7 +204,7 @@ plt.title('Probabilidade de 21-0 para cada p')
 plt.text(0.7, 0.55, '$P = 0.5$', fontsize=12)
 plt.xlabel('$p$')
 plt.ylabel('$P$')
-plt.show()</code></p>
+plt.show()</code></pre>
 <p><img alt="png" src="../output_4_0.png" /></p>
 <p>Vamos explorar métodos de resolver a equação <script type="math/tex">P(p) = 0.5</script> para <script type="math/tex">p</script>, isto é, <script type="math/tex">P(p) - 0.5 = 0</script>, através do método do Ponto Fixo e do Método de Newton.  </p>
 <h2 id="iteracao-de-ponto-fixo">Iteração de Ponto Fixo</h2>
@@ -218,35 +215,33 @@ f(p) = 0.5 - \frac{p+1}{2}\left(\frac{p}{1-p+p^2}\right)^{21} + p = p,
 </script>
 </p>
 <p>é a função que admite o ponto fixo que queremos. Um ponto importante seria provar as condições de funcionamento do método. Porém, não é difícil ver que <script type="math/tex">f([0,1]) \not \subseteq [0,1]</script>, o que já quebra nosso teorema.</p>
-<p>```python
-def f(p): 
-    return 0.5 - P(p) + p</p>
-<p>def fixed_point(x0, tol = 1e-5, max_ite = 1e4): </p>
-<pre><code>x1 = f(x0)
-err = [abs(x1 - x0)]
-sols = [x0, x1]
+<pre class="highlight"><code class="language-python">def f(p): 
+    return 0.5 - P(p) + p
 
-while err[-1] &gt; tol and len(err) &lt;= max_ite:
+def fixed_point(x0, tol = 1e-5, max_ite = 1e4): 
 
-    sols.append(f(sols[-1]))
-    err.append(abs(sols[-1] - sols[-2]))
+    x1 = f(x0)
+    err = [abs(x1 - x0)]
+    sols = [x0, x1]
 
-return {'sol': sols, 'errors': err}
-</code></pre>
-<p>print(f(0.7))
-```</p>
+    while err[-1] &gt; tol and len(err) &lt;= max_ite: 
+
+        sols.append(f(sols[-1]))
+        err.append(abs(sols[-1] - sols[-2]))
+
+    return {'sol': sols, 'errors': err}
+
+print(f(0.7))</code></pre>
 <pre><code>1.1329638832103943
 </code></pre>
 <p>Bom, mas vamos supor que mesmo assim quiséssemos usar esse método.</p>
-<p><code>python
-res = fixed_point(0.7)
-plt.scatter(range(len(res['sol'])), res['sol'])</code></p>
+<pre class="highlight"><code class="language-python">res = fixed_point(0.7)
+plt.scatter(range(len(res['sol'])), res['sol'])</code></pre>
 <pre><code>&lt;matplotlib.collections.PathCollection at 0x7f6a17b5eb38&gt;
 </code></pre>
 <p><img alt="png" src="../output_8_1.png" /></p>
 <p>Ele não converge! Mas a gente já devia ter ficado desconfiado, pois justamente as condições do Teorema não functionavam. Em particular, é fácil ver que ele não é nem não expansivo. Usando Scipy:</p>
-<p><code>python
-scop.fixed_point(func = f, x0 = 0.81, method = 'iteration')</code></p>
+<pre class="highlight"><code class="language-python">scop.fixed_point(func = f, x0 = 0.81, method = 'iteration')</code></pre>
 <pre><code>---------------------------------------------------------------------------
 
 RuntimeError                              Traceback (most recent call last)
@@ -272,25 +267,20 @@ RuntimeError                              Traceback (most recent call last)
 RuntimeError: Failed to converge after 500 iterations, value is 0.4998542288112865
 </code></pre>
 <p>Existe uma variação desse dado pelo método Steffensen com Aitken's <script type="math/tex">\Delta^2</script>, que constrói uma sequência com onvergência mais rápida, a partir da inicial. </p>
-<p><code>python
-%timeit scop.fixed_point(func = f, x0 = 0.3, method = 'del2')</code></p>
+<pre class="highlight"><code class="language-python">%timeit scop.fixed_point(func = f, x0 = 0.3, method = 'del2')</code></pre>
 <pre><code>1.08 ms ± 120 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
 </code></pre>
-<p><code>python
-scop.fixed_point(func = f, x0 = 0.3, method = 'del2')</code></p>
+<pre class="highlight"><code class="language-python">scop.fixed_point(func = f, x0 = 0.3, method = 'del2')</code></pre>
 <pre><code>array(0.84230479)
 </code></pre>
-<p><code>python
-%timeit scop.fixed_point(func = f, x0 = 0.8, method = 'del2')</code></p>
+<pre class="highlight"><code class="language-python">%timeit scop.fixed_point(func = f, x0 = 0.8, method = 'del2')</code></pre>
 <pre><code>1.21 ms ± 165 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
 </code></pre>
-<p><code>python
-scop.fixed_point(func = f, x0 = 0.8, method = 'del2')</code></p>
+<pre class="highlight"><code class="language-python">scop.fixed_point(func = f, x0 = 0.8, method = 'del2')</code></pre>
 <pre><code>array(0.84230479)
 </code></pre>
 <p>Olhe o que acontece com <script type="math/tex">x_0 = 0.1</script>. </p>
-<p><code>python
-scop.fixed_point(func = f, x0 = 0.1, method = 'del2')</code></p>
+<pre class="highlight"><code class="language-python">scop.fixed_point(func = f, x0 = 0.1, method = 'del2')</code></pre>
 <pre><code>array(-3.51843721e+13)
 </code></pre>
 <h2 id="metodo-de-newton">Método de Newton</h2>
@@ -306,37 +296,31 @@ scop.fixed_point(func = f, x0 = 0.1, method = 'del2')</code></p>
 g'(p) = \frac{1}{p+1} + \frac{21}{p} - \frac{21}{1 - p + p^2}(2p - 1)
 </script>
 </p>
-<p>```python
-def g(p): 
-    return np.log(p+1) + 21<em>(np.log(p) - np.log1p(p</em>*2 - p))</p>
-<p>def g_prime(p): 
-    return 1 / (p+1) + 21 / p - 21 * (2<em>p - 1) / (1 - p + p</em>*2)
-```</p>
+<pre class="highlight"><code class="language-python">def g(p): 
+    return np.log(p+1) + 21*(np.log(p) - np.log1p(p**2 - p))
+
+def g_prime(p): 
+    return 1 / (p+1) + 21 / p - 21 * (2*p - 1) / (1 - p + p**2)</code></pre>
 <p>Podemos provar analiticamente que a derivada é estritamente positiva, mas faremos a observação numérica através do seguinte gráfico. </p>
-<p><code>python
-g_values = g_prime(p_values[1:])
+<pre class="highlight"><code class="language-python">g_values = g_prime(p_values[1:])
 plt.plot(p_values[1:], g_values, color='r')
 plt.title('Derivada da função derivada')
 plt.xlabel('$p$')
 plt.ylabel("$g\'(p)$")
-plt.show()</code></p>
+plt.show()</code></pre>
 <p><img alt="png" src="../output_21_0.png" /></p>
 <p>Aplicando o método de newton através do Scipy. Observe que o seu tempo deu bem menor que o anterior, mesmo com um valor de <script type="math/tex">x_0</script> bem distante. </p>
-<p><code>python
-%timeit scop.newton(func = g, x0 = 0.1, fprime = g_prime)</code></p>
+<pre class="highlight"><code class="language-python">%timeit scop.newton(func = g, x0 = 0.1, fprime = g_prime)</code></pre>
 <pre><code>836 µs ± 117 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
 </code></pre>
-<p><code>python
-scop.newton(func = g, x0 = 0.1, fprime = g_prime)</code></p>
+<pre class="highlight"><code class="language-python">scop.newton(func = g, x0 = 0.1, fprime = g_prime)</code></pre>
 <pre><code>0.8423047910355657
 </code></pre>
 <p>Observe o método da Secante, um método que também usa a ideia de tangente, mas sem consultar a derivada. </p>
-<p><code>python
-%timeit scop.newton(func = g, x0 = 0.1)</code></p>
+<pre class="highlight"><code class="language-python">%timeit scop.newton(func = g, x0 = 0.1)</code></pre>
 <pre><code>631 µs ± 111 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
 </code></pre>
-<p><code>python
-scop.newton(func = g, x0 = 0.1)</code></p>
+<pre class="highlight"><code class="language-python">scop.newton(func = g, x0 = 0.1)</code></pre>
 <pre><code>0.8423047910355633
 </code></pre>
 <h3 id="exemplo-adicional">Exemplo adicional</h3>
@@ -346,30 +330,27 @@ scop.newton(func = g, x0 = 0.1)</code></p>
 f(x) = x\sin(\pi x) - \exp(-x)
 </script>
 </p>
-<p><code>python
-f = lambda x: x * np.sin(np.pi * x) - np.exp(-x)</code></p>
-<p>```python
-x = np.linspace(-1, 2, 100)
-y = f(x)</p>
-<p>fig, ax = plt.subplots()
+<pre class="highlight"><code class="language-python">f = lambda x: x * np.sin(np.pi * x) - np.exp(-x)</code></pre>
+<pre class="highlight"><code class="language-python">x = np.linspace(-1, 2, 100)
+y = f(x)
+
+fig, ax = plt.subplots()
 ax.plot(x, y, color='r',zorder=0)
 xs = [0.57, 0.83, -0.27]
-texts = ['raiz<script type="math/tex">_1</script>', 'raiz<script type="math/tex">_2</script>', 'mínimo local']
+texts = ['raiz$_1$', 'raiz$_2$', 'mínimo local']
 for i in range(len(xs)):
     ax.scatter([xs[i]], [f(xs[i])],marker='x',s=60)
     ax.text(xs[i]+0.05, f(xs[i])-0.1, texts[i])
 ax.plot(x,np.zeros_like(x),color='gray',ls='-.',alpha=0.75)
-ax.set_xlabel('<script type="math/tex">x</script>')
-ax.set_ylabel('<script type="math/tex">f(x)</script>')
-plt.title('<script type="math/tex">f(x)= x sin(\pi x) - exp(-x)</script>')
-plt.show()
-```</p>
+ax.set_xlabel('$x$')
+ax.set_ylabel('$f(x)$')
+plt.title('$f(x)= x sin(\pi x) - exp(-x)$')
+plt.show()</code></pre>
 <p><img alt="png" src="../output_30_0.png" /></p>
-<p>```python
-xspace = np.linspace(-0.7, 0.7, 15)</p>
-<p>for x in xspace:
-    print('Com x_0 = {0:5.2f}, a raíz é {1:5.2f}'.format(x, scop.newton(f,x)))
-```</p>
+<pre class="highlight"><code class="language-python">xspace = np.linspace(-0.7, 0.7, 15)
+
+for x in xspace:
+    print('Com x_0 = {0:5.2f}, a raíz é {1:5.2f}'.format(x, scop.newton(f,x)))</code></pre>
 <pre><code>Com x_0 = -0.70, a raíz é  2.02
 Com x_0 = -0.60, a raíz é  0.58
 Com x_0 = -0.50, a raíz é  1.27
@@ -391,68 +372,67 @@ Com x_0 =  0.70, a raíz é  0.58
 método do ponto fixo, vamos utilizar a função <script type="math/tex">g(x) = \cos(x)</script>, naturalmente.
 Note que <script type="math/tex">g([0,1]) \subseteq [0,1]</script> e <script type="math/tex">|g'([0,1])| \subseteq [0,0.9]</script>, isto é,
 temos que as hipóteses para a iteração do ponto fixo são válidas. </p>
-<p>```python
-def f(x, info):
+<pre class="highlight"><code class="language-python">def f(x, info):
     res = x - np.cos(x)
     if info['print']: 
         info['iter_x'].append(x)
         info['iter_res'].append(res)
-    return res</p>
-<p>def g(x, info):
+    return res
+
+def g(x, info):
     res = np.cos(x)
     if info['print']: 
         info['iter_x'].append(x)
         info['iter_res'].append(res)
-    return res
-```</p>
-<p>```python
-x = np.linspace(0, 1, 100)
-y = f(x, {'iter_x': [], 'iter_res': [], 'print': False})</p>
-<p>fig, ax = plt.subplots()
+    return res</code></pre>
+<pre class="highlight"><code class="language-python">x = np.linspace(0, 1, 100)
+y = f(x, {'iter_x': [], 'iter_res': [], 'print': False})
+
+fig, ax = plt.subplots()
 ax.plot(x, y, color='r', zorder=0)
 ax.axhline(0, color = 'k', linestyle = '-.')
-ax.set_title('<script type="math/tex">f(x)= x - cos(x)</script>')
-plt.show()
-```</p>
+ax.set_title('$f(x)= x - cos(x)$')
+plt.show()</code></pre>
 <p><img alt="png" src="../output_34_0.png" /></p>
-<p>```python
-info_newton = {'iter_x': [], 'iter_res': [], 'print': True}
+<pre class="highlight"><code class="language-python">info_newton = {'iter_x': [], 'iter_res': [], 'print': True}
 info_secant = {'iter_x': [], 'iter_res': [], 'print': True}
 info_bisect = {'iter_x': [], 'iter_res': [], 'print': True}
-info_fixed = {'iter_x': [], 'iter_res': [], 'print': True}</p>
-<p>newton = scop.newton(func = f, 
+info_fixed = {'iter_x': [], 'iter_res': [], 'print': True}
+
+newton = scop.newton(func = f, 
                      x0 = 0.5, 
                      fprime = lambda x, info: 1 + np.sin(x), 
                      tol = 1e-10, 
                      maxiter = 200, 
-                     args = (info_newton,))</p>
-<p>secant = scop.newton(func = f, 
+                     args = (info_newton,))
+
+secant = scop.newton(func = f, 
                      x0 = 0.5, 
                      tol = 1e-10, 
                      maxiter = 200, 
-                     args = (info_secant,))</p>
-<p>bisect = scop.bisect(f = f, 
+                     args = (info_secant,))
+
+bisect = scop.bisect(f = f, 
                      a = 0,
                      b = 1,
                      xtol = 1e-10, 
                      maxiter = 200, 
-                     args = (info_bisect,))</p>
-<p>fixed_point = scop.fixed_point(func = g, 
+                     args = (info_bisect,))
+
+fixed_point = scop.fixed_point(func = g, 
                                x0 =0.5, 
                                xtol = 1e-10, 
                                bisectmethod = 'iteration', 
                                maxiter = 200, 
-                               args = (info_fixed,))
-```</p>
-<p><code>python
-plt.plot(info_bisect['iter_x'], label = 'bisect: {}'.format(len(info_bisect['iter_x'])))
+                               args = (info_fixed,))</code></pre>
+<pre class="highlight"><code class="language-python">plt.plot(info_bisect['iter_x'], label = 'bisect: {}'.format(len(info_bisect['iter_x'])))
 plt.plot(info_newton['iter_x'], label = 'newton: {}'.format(len(info_newton['iter_x'])))
 plt.plot(np.array(info_fixed['iter_x']), label = 'fixed point: {}'.format(len(info_fixed['iter_x'])))
 plt.plot(info_secant['iter_x'], label = 'secant: {}'.format(len(info_secant['iter_x'])))
 plt.legend()
 plt.title('Comparando alguns métodos')
 plt.xscale('log')
-plt.show()</code></p>
+plt.show()</code></pre>
 <p><img alt="png" src="../output_36_0.png" /></p></div>
         
         

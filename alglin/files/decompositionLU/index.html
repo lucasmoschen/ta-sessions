@@ -174,19 +174,16 @@
 
 <h1 id="decomposicao-lu">Decomposição LU</h1>
 <p>Fatorização de uma matriz <script type="math/tex">A</script> como um produto <script type="math/tex">P\cdot A = L\cdot U</script>, onde a primeira matrix é triangular inferior (lower), enquanto a segunda é triangular superior (upper). A matriz <script type="math/tex">P</script> é uma matriz de permutação que garante a existência dessa fatorização. </p>
-<p><code>python
-import scipy.linalg</code></p>
-<p><code>python
-A = scipy.array([ [7, 3, -1, 2], [3, 8, 1, -4], [-1, 1, 4, -1], [2, -4, -1, 6] ])
-print(A)</code></p>
+<pre class="highlight"><code class="language-python">import scipy.linalg</code></pre>
+<pre class="highlight"><code class="language-python">A = scipy.array([ [7, 3, -1, 2], [3, 8, 1, -4], [-1, 1, 4, -1], [2, -4, -1, 6] ])
+print(A)</code></pre>
 <pre><code>[[ 7  3 -1  2]
  [ 3  8  1 -4]
  [-1  1  4 -1]
  [ 2 -4 -1  6]]
 </code></pre>
-<p><code>python
-P, L, U = scipy.linalg.lu(A)
-print(P), print(L), print(U)</code></p>
+<pre class="highlight"><code class="language-python">P, L, U = scipy.linalg.lu(A)
+print(P), print(L), print(U)</code></pre>
 <pre><code>[[1. 0. 0. 0.]
  [0. 1. 0. 0.]
  [0. 0. 1. 0.]

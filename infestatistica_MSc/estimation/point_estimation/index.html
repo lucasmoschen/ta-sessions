@@ -170,11 +170,7 @@
         <li class="first-level active"><a href="#estimacao-pontual">Estimação pontual</a></li>
             <li class="second-level"><a href="#vies-de-um-estimador">Viés de um estimador</a></li>
                 
-        <li class="first-level "><a href="#parametros">Parâmetros</a></li>
-        <li class="first-level "><a href="#gerando-os-dados-de-acordo-com-a-distribuicao-especificada">Gerando os dados de acordo com a distribuição especificada</a></li>
-        <li class="first-level "><a href="#desenhando-as-distribuicoes">Desenhando as distribuições</a></li>
-            <li class="second-level"><a href="#erro-quadratico">Erro quadrático</a></li>
-                
+                <li class="third-level"><a href="#erro-quadratico">Erro quadrático</a></li>
             <li class="second-level"><a href="#estimacao-nao-enviesada-de-menor-variancia">Estimação não enviesada de menor variância</a></li>
                 
             <li class="second-level"><a href="#metodo-dos-momentos">Método dos Momentos</a></li>
@@ -260,28 +256,27 @@ Uma maneira de visualizar essas distribuições é através de simulações de M
 <p>1) Geramos <script type="math/tex">n</script> amostras <script type="math/tex">(X_i, Y_i)</script> da normal multivariada.
 2) Calculamos <script type="math/tex">\phi</script> e <script type="math/tex">\psi</script>. 
 3) Repetimos esse processo <script type="math/tex">M</script> vezes e temos amostras da distribuição de <script type="math/tex">\phi</script> e <script type="math/tex">\psi</script>.</p>
-<p>```python</p>
-<h1 id="parametros">Parâmetros</h1>
-<p>rho = 0.1
+<pre class="highlight"><code class="language-python"># Parâmetros
+rho = 0.1
 n = 30
 M = 100000
 phi_samples = np.zeros(M)
-psi_samples = np.zeros(M)</p>
-<h1 id="gerando-os-dados-de-acordo-com-a-distribuicao-especificada">Gerando os dados de acordo com a distribuição especificada</h1>
-<p>rng = np.random.RandomState(1001)
+psi_samples = np.zeros(M)
+# Gerando os dados de acordo com a distribuição especificada
+rng = np.random.RandomState(1001)
 for i in range(M):
     Z = rng.multivariate_normal(mean=[0,0], cov=[[1,rho], [rho,1]], size=n)
     X = Z[:,0]
     Y = Z[:,1]
     # Calculando ~ correlação de Pearson
     phi_samples[i] = np.corrcoef(X,Y)[0,1]
-    psi_samples[i] = phi_samples[i] * hyp2f1(1/2, 1/2, (n-1)/2, 1 - phi_samples[i]**2)</p>
-<h1 id="desenhando-as-distribuicoes">Desenhando as distribuições</h1>
-<p>plt.hist(phi_samples, label=r'<script type="math/tex">\phi</script>', color='pink', bins=50)
-plt.hist(psi_samples, label=r'<script type="math/tex">\psi</script>', color='blue', bins=50)
+    psi_samples[i] = phi_samples[i] * hyp2f1(1/2, 1/2, (n-1)/2, 1 - phi_samples[i]**2)
+
+# Desenhando as distribuições
+plt.hist(phi_samples, label=r'$\phi$', color='pink', bins=50)
+plt.hist(psi_samples, label=r'$\psi$', color='blue', bins=50)
 plt.legend()
-plt.show()
-```</p>
+plt.show()</code></pre>
 <p><img alt="png" src="../output_3_0.png" /></p>
 <p>Nesse caso, temos que o Erro Absoluto Percentual Médio do estimador <script type="math/tex">\psi</script> é, aproximadamente,<br />
 <script type="math/tex; mode=display">
