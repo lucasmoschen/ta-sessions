@@ -24,6 +24,10 @@ Monitoria de Inferência Estatística (Mestrado) correspondente ao período de 2
 |[Introdução a grandes amostras](/ta-sessions/infestatistica_MSc/estimation/large_sample)|
 |[Intervalos de confiança](/ta-sessions/infestatistica_MSc/confidence_interval/confidence_interval)|
 
+|Outros temas|
+|---|
+|[Método Delta](/ta-sessions/infestatistica_MSc/delta_method)|
+
 ## Exercícios 
 
 Os exercícios resolvidos estão disponíveis:
@@ -36,12 +40,12 @@ Os exercícios resolvidos estão disponíveis:
 |[2](https://github.com/maxbiostat/Statistical_Inference_MSc/blob/main/listas/lista2_InfEst_MSc.pdf)|Suficiência mínima, completude e ancilaridade|[2](https://lucasmoschen.github.io/files/disciplines/statistical_inference/solutions2.pdf)|
 |[3](https://github.com/maxbiostat/Statistical_Inference_MSc/blob/main/listas/lista3_InfEst_MSc.pdf)|Estimação não enviesada|[3](https://lucasmoschen.github.io/files/disciplines/statistical_inference/solutions3.pdf)
 |[4](https://github.com/maxbiostat/Statistical_Inference_MSc/blob/main/listas/lista4_InfEst_MSc.pdf)|Métodos de estimação|[4](https://lucasmoschen.github.io/files/disciplines/statistical_inference/solutions4.pdf)|
-|[5](https://lucasmoschen.github.io/files/disciplines/statistical_inference/additional_list.pdf)|Revisão para a P1|[5](https://lucasmoschen.github.io/files/disciplines/statistical_inference/additional_list_solutions.pdf)|
 
 ### Prova 2
 
 |Lista|Tópicos|Solução|
 |-----|-------|-------|
+|[5](https://lucasmoschen.github.io/files/disciplines/statistical_inference/additional_list.pdf)|Revisão para a P1|[5](https://lucasmoschen.github.io/files/disciplines/statistical_inference/additional_list_solutions.pdf)|
 
 ## Notas
 
@@ -51,6 +55,7 @@ Os exercícios resolvidos estão disponíveis:
 |13/07/2022|Lista 1|[ver arquivo](https://lucasmoschen.github.io/files/disciplines/statistical_inference/monitoria_13_07_2022.pdf)|
 |20/07/2022|Lista adicional|Ver soluções|
 |26/07/2022|Revisão geral|[ver arquivo](https://lucasmoschen.github.io/files/disciplines/statistical_inference/monitoria_26_07_2022.pdf)|
+|17/08/2022|Teoria assintótica|Monitoria presencial|
   
 ## Documentos Adicionais 
 
