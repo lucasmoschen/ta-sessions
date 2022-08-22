@@ -24,6 +24,11 @@ Monitoria de Inferência Estatística (Mestrado) correspondente ao período de 2
 |[Introdução a grandes amostras](/ta-sessions/infestatistica_MSc/estimation/large_sample)|
 |[Intervalos de confiança](/ta-sessions/infestatistica_MSc/confidence_interval/confidence_interval)|
 
+|Teste de hipóteses|
+|---|
+|[Teste de Hipóteses I](/ta-sessions/infestatistica_MSc/hypothesis_testing/first_part)|
+|[Teste de Hipóteses II](/ta-sessions/infestatistica_MSc/hypothesis_testing/second_part)|
+
 |Outros temas|
 |---|
 |[Método Delta](/ta-sessions/infestatistica_MSc/delta_method)|
