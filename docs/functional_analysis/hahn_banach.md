@@ -92,4 +92,60 @@ Podemos demonstrar que $\tilde{X}$ é espaço de Banach.
 
 ## Consequências do teorema de Hahn-Banach
 
+Nessa seção, veremos algumas aplicações do Teorema de Hahn-Banach.
+Uma parte importante foca em aplicações limitadas.
+Por exemplo, dado um vetor $x \in X$, existe um funcional linear limitado que assume o valor $\|x\|$ quando aplicado a $x$.
+
+**Teorema:** Seja $f$ um funcional linear limitado definido no subespaço $M \subseteq X$.
+Então existe um funcional linear limitado $F$ definido em $X$ que estende $f$ e $\|F\| = \|f\|$.
+
+---
+Ideias da prova:
+
+- Defina $p(x) = \|f\|\|x\|$ para todo $x \in X$. 
+Se provarmos que $p$ é funcional convexo simétrico, o resultado segue do Teorema de Hahn-Banach (para a versão complexa), com a propriedade que $|F(x)| \le \|f\|\|x\|$.
+
+- Observar que $|f(x)| = |F(x)| \le \|F\|\|x\|$ e, portanto, teremos $\|f\| = \|F\|$.
+
+- A convexidade de $f$ vem da convexidade da norma.
+
+---
+
+Outro resultado de interesse é o seguinte:
+
+**Teorema:** Seja $x_0 \in X$ não nulo.
+Então existe funcional linear $F$ com $\|F\| = 1$ e $F(x_0) = \|x_0\|$.
+
+Com esse resultado, se $X$ possui um elemento não nulo, então o espaço conjugado (funcionais lineares limitados) também não será trivial.
+Além disso, se todos os funcionais lineares limitados $f$ definidos em $X$ satisfazem $f(x) = 0$, então $x = 0$, 
+visto que, se $x \neq 0$, existe um funcional tal que $f(x) = \|x\| \neq 0$.
+
+---
+Ideia da prova:
+
+- Defina $M = [\{x_0\}]$ e defina $f : M \to \mathbb{R}$ de forma que $f(\alpha x_0) = \alpha \|x_0\|$.
+Com isso, $|f(x)| = \|x\|$ para todo $x \in M$ (e a norma é um funcional convexo).
+
+- Além disso, $\|f\| \ge 1$. 
+Se fosse maior, teríamos uma contradição com a igualdade do item anterior. 
+Portanto, $\|f\| = 1$. 
+
+- Pelo Teorema anterior, existe um funcional linear limitado que extende $f$ em todo espaço de mesma norma.
+
+---
+
+Na mesma onda, outro teorema é resultate:
+
+**Teorema:** Seja $M$ subespaço de $X$ e $x_1 \in X$ tenha a propriedade que $d(x_1, M) = d > 0$.
+Então existe um funcional linear limitado $F$ com $\|F\| = 1$, $F(x_1) = d$ e, para todo $x \in M$, $F(x) = 0$.
+
 ## Teorema da Representação de Riesz
+
+Temos que $f$ é um funcional linear limitado definido em um espaço de Hilbert $X$ se, e somente se, existe um único $y \in X$ tal que
+$$
+f(x) = \langle x,y \rangle.
+$$
+Em termos do espaço conjugado, podemos descrever esse teorema como 
+$$
+\tilde{X} = \{f_y(\cdot) = \langle \cdot,y \rangle | \, y \in X\}.
+$$
