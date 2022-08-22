@@ -45,7 +45,7 @@ Os exercícios resolvidos estão disponíveis:
 
 |Lista|Tópicos|Solução|
 |-----|-------|-------|
-|[5](https://lucasmoschen.github.io/files/disciplines/statistical_inference/additional_list.pdf)|Revisão para a P1|[5](https://lucasmoschen.github.io/files/disciplines/statistical_inference/additional_list_solutions.pdf)|
+|[5](https://github.com/maxbiostat/Statistical_Inference_MSc/blob/main/listas/lista5_InfEst_MSc.pdf)|Revisão para a P1|[5](/ta-sessions/unavailable/)|
 
 ## Notas
 
