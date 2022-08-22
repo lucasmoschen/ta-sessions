@@ -134,28 +134,7 @@ A maior vantagem de usar randomização é que a combinação convexa de funçõ
 
 É o menor nível $\alpha_0$ tal que rejeitaríamos a hipótese nula a nível $\alpha_0$ com os dados observados. 
 
-> Se rejeitamos a hipótese nula se, e somente se, o p-valor é no máximo $\alpha_0$, estamos usando um teste com nível de significância $\alpha_0$.
-
-# Equivalência entre Testes e Conjuntos de Confiança 
-
-### Teorema
-
-Seja $\vec{X} = (X_1,...,X_n) \overset{iid}{\sim} F(\theta)$. Seja $g(\theta)$, e suponha que para todo valor $c$ na imagem de $g$ (ou seja, $c = g(x)$, para algum $x$), exista um teste $\delta_c$ de nível $\alpha_0$ para a hipótese 
-
-$$
-H_{0,c}:g(\theta) = c, ~ H_{1,c}: g(\theta) \neq c
-$$
-
-Defina 
-
-$\omega(x) := \{c: \delta_c \text{ não rejeita } H_{0,c} \text{ se } \vec{X} = \vec{x} \text{ é observado } \}$. 
-
-Então:
-$$
-P[g(\theta_0) \in \omega(\vec{X})|\theta = \theta_0] \geq 1 - \alpha_0,
-$$
-
-para todo valor $\theta \in \Omega$. 
+> Se rejeitamos a hipótese nula se, e somente se, o p-valor é no máximo $\alpha_0$, estamos usando um teste com nível de significância $\alpha_0$. 
 
 # Compreensão e Implementação 
 
@@ -349,7 +328,6 @@ for i, c in enumerate(C):
     ax[i].scatter(X1, X2, color = 'black')
     ax[i].text(X1 + 1, X2 + 1, s = r'$(X_1, X_2)$', fontsize = 15)
 ```
-
 
 ![png](output_15_0.png)
 

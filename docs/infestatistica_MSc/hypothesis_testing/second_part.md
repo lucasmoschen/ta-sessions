@@ -1,4 +1,4 @@
-# Teste de Hipóteses II 
+# Teste de Hipóteses: Alguns testes
 
 Nesse notebook veremos:
 
@@ -248,9 +248,7 @@ ax.set_title('Distribuição aproximada de U')
 plt.show()
 ```
 
-
-![png](output_23_0.png)
-
+![png](output_23_0_2.png)
 
 ### Teorema 
 
