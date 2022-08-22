@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+
+    
+    <title>Teste de Hipóteses: Definições - Teaching Assistance</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../../css/base.min.css" rel="stylesheet">
+    <link href="../../../css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            
+              <a class="navbar-brand" href="../../..">Teaching Assistance</a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Graduação <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../alglin/info/">Álgebra Linear</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../analisenum/info/">Análise Numérica</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../curvas/info/">Curvas</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../edo/info/">Equações Diferenciais Ordinárias</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../edp/info/">Equações Diferenciais Parciais</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../infestatistica_BSc/info/">Inferência Estatística</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pós-graduação <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../functional_analysis/info/">Análise Funcional</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../bayesian/info/">Estatística Bayesiana</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../info/">Inferência Estatística</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://lucasmoschen.github.io">Página Inicial</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#teste-de-hipoteses-definicoes">Teste de Hipóteses: Definições</a></li>
+            <li class="second-level"><a href="#hipotese-nula-e-alternativa">Hipótese Nula e Alternativa</a></li>
+                
+                <li class="third-level"><a href="#hipotese-simples-e-composta">Hipótese Simples e Composta</a></li>
+                <li class="third-level"><a href="#hipotese-unilateral-e-bilateral">Hipótese Unilateral e Bilateral</a></li>
+            <li class="second-level"><a href="#regiao-critica">Região Crítica</a></li>
+                
+                <li class="third-level"><a href="#estatistica-de-teste">Estatística de Teste</a></li>
+            <li class="second-level"><a href="#funcao-de-poder-e-tipos-de-erro">Função de Poder e Tipos de Erro</a></li>
+                
+                <li class="third-level"><a href="#funcao-poder">Função Poder</a></li>
+                <li class="third-level"><a href="#erros-i-e-ii">Erros I e II</a></li>
+            <li class="second-level"><a href="#niveltamanho">Nível/Tamanho</a></li>
+                
+            <li class="second-level"><a href="#randomizacao">Randomização</a></li>
+                
+            <li class="second-level"><a href="#p-valor">P-valor</a></li>
+                
+        <li class="first-level "><a href="#compreensao-e-implementacao">Compreensão e Implementação</a></li>
+            <li class="second-level"><a href="#exemplo">Exemplo</a></li>
+                
+        <li class="first-level "><a href="#testes-de-razao-verossimilhanca">Testes de Razão Verossimilhança</a></li>
+            <li class="second-level"><a href="#teorema">Teorema:</a></li>
+                
+            <li class="second-level"><a href="#testes-nao-enviesados">Testes não enviesados</a></li>
+                
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="teste-de-hipoteses-definicoes">Teste de Hipóteses: Definições</h1>
+<p>O objetivo de um teste de hipótese é testar a veracidade de uma hipótese, a hipótese nula, contra uma outra hipótese, chamada de alternativa. 
+Em geral, assume-se que as duas hipóteses são complementares.</p>
+<p>Matematicamente, temos um problema estatístico que envolve um parâmetro <script type="math/tex">\theta \in \Omega</script> desconhecido. 
+Suponha que particionemos <script type="math/tex">\Omega = \Omega_1 \dot\cup ~\Omega_2</script> e estamos interessados se <script type="math/tex">\theta</script> está em <script type="math/tex">\Omega_0</script> ou está em <script type="math/tex">\Omega_1</script>. 
+Dividimos essa parte nos seguintes itens:</p>
+<ol>
+<li>Hipótese Nula e Alternativa </li>
+<li>Região Crítica </li>
+<li>Estatística de Teste</li>
+<li>Função de Poder</li>
+<li>Tipos de Erro </li>
+<li>Nível e tamanho do teste</li>
+<li>P-valor</li>
+</ol>
+<h2 id="hipotese-nula-e-alternativa">Hipótese Nula e Alternativa</h2>
+<p>Dizemos que <script type="math/tex">H_0</script> é a hipótese de que <script type="math/tex">\theta \in \Omega_0</script> e chamamos <script type="math/tex">H_0</script> de <strong>hipótese nula</strong>, enquanto <script type="math/tex">H_1</script> é a hipótese alternativa e representa <script type="math/tex">\theta \in \Omega_1</script>. 
+Queremos decidir qual das hipóteses é verdadeira (e só uma será, porque a partição é disjunta). 
+Se decidimos que <script type="math/tex">\theta \in \Omega_1</script>, rejeitamos <script type="math/tex">H_0</script>, e se <script type="math/tex">\theta \in \Omega_0</script>, não rejeitamos <script type="math/tex">H_0</script>. </p>
+<h3 id="hipotese-simples-e-composta">Hipótese Simples e Composta</h3>
+<p>Suponha que <script type="math/tex">X_1, ..., X_n</script> formam uma amostra aleatória com pdf <script type="math/tex">f(x|\theta)</script>. 
+Queremos testar a hipótese de que </p>
+<p>
+<script type="math/tex; mode=display">
+H_0: \theta \in \Omega_0
+</script>
+<script type="math/tex; mode=display">
+H_1: \theta \in \Omega_1
+</script>
+</p>
+<p>Se <script type="math/tex">\Omega_i</script> contem apenas um valor, então <script type="math/tex">H_i</script> é dita hipótese simples.
+Se contém mais de um valor, dizemos que é composta. </p>
+<h3 id="hipotese-unilateral-e-bilateral">Hipótese Unilateral e Bilateral</h3>
+<p>Seja <script type="math/tex">\theta</script> um parâmetro unidimensional. 
+Dizemos que a hipótese <script type="math/tex">H_0</script> é unilateral (ou <em>one tailed</em>) quando é da forma <script type="math/tex">\theta \leq \theta_0</script> ou <script type="math/tex">\theta \geq \theta_0</script>. 
+Ela será bilateral quando é do tipo <script type="math/tex">H_0 \neq \theta_0</script>. </p>
+<h2 id="regiao-critica">Região Crítica</h2>
+<p>Suponha que queremos testar a hipótese de que </p>
+<p>
+<script type="math/tex; mode=display">
+H_0: \theta \in \Omega_0 \text{ e } H_1: \theta \in \Omega_1
+</script>
+</p>
+<p>Quando queremos decidir qual hipótese escolher, observamos uma amostra dessa distribuição no espaço de amostras <script type="math/tex">S</script>.
+O dever do estatístico é especificar um procedimento que particione o conjunto em dois subconjuntos <script type="math/tex">S_0</script> e <script type="math/tex">S_1</script>, onde <script type="math/tex">S_1</script> contém os valores de <script type="math/tex">X</script> que rejeitam <script type="math/tex">H_0</script>. </p>
+<p><strong>Região crítica</strong> é o conjunto <script type="math/tex">S_1</script>, isto é, o conjunto de amostras que, a partir de um procedimento, rejeita <script type="math/tex">H_0</script>. </p>
+<p><img alt="cr" src="../critical_region_draw.jpg" /></p>
+<p>Esse tipo de teste também é chamado de <strong>não randomizado</strong>, visto que após a observação das amostras, ele está defoinido.</p>
+<h3 id="estatistica-de-teste">Estatística de Teste</h3>
+<p>Seja <script type="math/tex">X_1, ..., X_n \overset{iid}{\sim} F(\theta)</script>. Sejam <script type="math/tex">T = r(X)</script> uma estatística e <script type="math/tex">R</script> um subconjunto da reta. Suponha que nosso procedimento de teste é o seguinte: </p>
+<blockquote>
+<p>Rejeitamos <script type="math/tex">H_0</script> se <script type="math/tex">T\in R</script>.</p>
+</blockquote>
+<p>Chamamos <script type="math/tex">T</script> de <strong>estatística de teste</strong> e <script type="math/tex">R</script> de <strong>região de rejeição</strong>. Dessa forma a região crítica será: <script type="math/tex">S_1 = \{x \in S: r(x) \in R\}</script>. </p>
+<p>Na prática a maioria dos testes é do tipo</p>
+<blockquote>
+<p>Rejeitamos <script type="math/tex">H_0</script> se <script type="math/tex">T \geq c, c \in \mathbb{R}</script>.</p>
+</blockquote>
+<p><em>Observação: É importante lembrar que há duas diferentes divisões: <script type="math/tex">\Omega = \Omega_0 \dot\cup \Omega_1</script>, que é a divisão do espaço dos parâmetros, e <script type="math/tex">S = S_1 \dot\cup S_1</script> é a divisão do espaço das amostras. Mas qual a relação entre eles? Se <script type="math/tex">X \in S_1</script>, então rejeitamos a hipótese <script type="math/tex">\theta \in \Omega_0</script>. 
+Além do mais, podemos encontrar <script type="math/tex">S_1</script> e <script type="math/tex">S_2</script>, mas dificilmente saberemos em qual dos conjuntos <script type="math/tex">\theta</script> pertence *</em>com certeza*<em>.</em></p>
+<h2 id="funcao-de-poder-e-tipos-de-erro">Função de Poder e Tipos de Erro</h2>
+<p>A função poder é uma forma de mensurar a performance de um teste com <script type="math/tex">\theta</script> fixo.</p>
+<h3 id="funcao-poder">Função Poder</h3>
+<p>Seja <script type="math/tex">\delta</script> um procedimento de teste (como esse assinalado acima). 
+Se <script type="math/tex">S_1</script> é a região crítica, </p>
+<p>
+<script type="math/tex; mode=display">
+\pi(\theta|\delta) = P(X \in S_1|\theta) = P(T \in R|\theta),
+</script>
+em que a última igualdade ocorre quando o proocedimento de teste é o citado acima.</p>
+<p><strong>O seu significado?</strong></p>
+<p>É a probabilidade, para cada valor de <script type="math/tex">\theta</script>, de que <script type="math/tex">\delta</script> rejeita <script type="math/tex">H_0</script>. Queremos, intuitivamente que:</p>
+<p>
+<script type="math/tex; mode=display">
+\theta \in \Omega_0 \rightarrow \text{ Queremos não rejeitar} H_0 \rightarrow \pi(\theta|\delta) = 0 
+</script>
+<script type="math/tex; mode=display">
+\theta \in \Omega_1 \rightarrow \text{ Queremos rejeitar} H_0 \rightarrow \pi(\theta|\delta) = 1 
+</script>
+</p>
+<p>Entretanto isso não é em geral o que acontece. Por isso definimos:</p>
+<h3 id="erros-i-e-ii">Erros I e II</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>
+<script type="math/tex">\theta \in \Omega_0</script>
+</th>
+<th>
+<script type="math/tex">\theta \in \Omega_1</script>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<script type="math/tex">\delta</script> rejeita <script type="math/tex">H_0</script>
+</td>
+<td>Erro Tipo I</td>
+<td>Certo</td>
+</tr>
+<tr>
+<td>
+<script type="math/tex">\delta</script> não rejeita <script type="math/tex">H_0</script>
+</td>
+<td>Certo</td>
+<td>Erro Tipo II</td>
+</tr>
+</tbody>
+</table>
+<p>Portanto se <script type="math/tex">\theta \in \Omega_0, \pi(\theta|\delta)</script> é a probabilidade de cometermos o erro do tipo I. Se <script type="math/tex">\theta \in \Omega_1, 1 - \pi(\theta|\delta)</script> é a probabilidade de cometer o erro do tipo II. </p>
+<h2 id="niveltamanho">Nível/Tamanho</h2>
+<p>Um teste que satisfaz <script type="math/tex">\pi(\theta|\delta) \leq \alpha_0, \forall \theta \in \Omega_0</script> é chamado de teste <strong>nível</strong> <script type="math/tex">\alpha_0</script>, ou que o teste tem nível de significância <script type="math/tex">\alpha_0</script>.<br />
+O <strong>tamanho</strong> ou <strong>nível de significância</strong> de um teste é
+<script type="math/tex; mode=display">\alpha(\delta) = \sup_{\theta \in \Omega_0} \pi(\theta | \delta).</script> 
+Um teste terá nível <script type="math/tex">\alpha_0</script> se, e só se, seu tamanho for no máximo <script type="math/tex">\alpha_0</script>. 
+Com isso, <script type="math/tex">\alpha</script> é a pior chance de rejeitarmos <script type="math/tex">H_0</script> de forma errônea.</p>
+<h2 id="randomizacao">Randomização</h2>
+<p>Por razões técnicas, as vezes é desejável haver uma randomização externa para se tomar uma decisão de rejeitar ou não uma hipótese.
+Isso é feito da seguinte maneira. 
+Seja <script type="math/tex">\phi : S \to [0,1]</script> uma <strong>função de teste ou crítica</strong> tal que <script type="math/tex">\phi(X_1, \dots, X_n)</script> seja a chance de rejeitarmos <script type="math/tex">H_0</script>.<br />
+Assim,
+<script type="math/tex; mode=display">
+\pi(\theta | \delta) = \mathbb{E}[P_{\theta}(X \in S_1|X_1,\dots,X_n)] = \mathbb{E}[\phi(X_1, \dots, X_n)].
+</script>
+</p>
+<p>A maior vantagem de usar randomização é que a combinação convexa de funções críticas é uma função crítica.</p>
+<h2 id="p-valor">P-valor</h2>
+<p>É o menor nível <script type="math/tex">\alpha_0</script> tal que rejeitaríamos a hipótese nula a nível <script type="math/tex">\alpha_0</script> com os dados observados. </p>
+<blockquote>
+<p>Se rejeitamos a hipótese nula se, e somente se, o p-valor é no máximo <script type="math/tex">\alpha_0</script>, estamos usando um teste com nível de significância <script type="math/tex">\alpha_0</script>. </p>
+</blockquote>
+<h1 id="compreensao-e-implementacao">Compreensão e Implementação</h1>
+<p>Teste de hipótese é um método para que façamos decisões estatísticas a partir dos dados. É uma forma de compreender (fazer inferância sobre) um parâmetro. </p>
+<blockquote>
+<p><strong>Exemplo:</strong> Belgas tem, em média, maior altura do que peruanos. </p>
+<p><strong>Exemplo 2:</strong> Temperatura não é um fator relevante para o processo de cultivo de uva.</p>
+</blockquote>
+<p>Estamos avaliando afirmações mutualmente exclusivas, <em>ou os belgas tem maior altura do que os peruanos, ou não tem!</em> Queremos saber qual dessas afirmações é suportada pelos dados que obtivermos. </p>
+<p>A hipótese nula é a afirmação a ser testada e muitas vezes estabelece uma conjectura de que as características observadas em uma população são por um acaso, isto é, o fator a ser estudado "não existe". Por exemplo: o número de voos entre Rio de Janeiro e São Paulo não tem correlação com o nível do mar no Japão. </p>
+<p>Em geral queremos anulá-la, rejeitá-la (daí o nome). </p>
+<h3 id="exemplo">Exemplo</h3>
+<p>Vamos considerar um exemplo simples utilizando a distribuição normal. É a distribuição com cálculos simples e uma boa visualização. A ideia nesse exemplo vai ser a seguinte: </p>
+<blockquote>
+<p>O preço do quilo ouro varia diariamente e essa variação em unidade de dólares será nosso objeto de interesse. Por exemplo: Se no dia 1 o preço mil e no dia 2 o preço era 1 050 e no dia 3 o preço é 1 025 temos que <script type="math/tex">X_1 = 50</script> e <script type="math/tex">X_2 = -25</script>. Vamos supor que as variações entre dois diferentes pares de dias são independentes (essa já uma simplificação da realidade!)</p>
+</blockquote>
+<p>Primeiro vamos importar os dados. </p>
+<pre class="highlight"><code class="language-python">import pandas as pd
+import numpy as np
+
+import matplotlib.pyplot as plt
+import matplotlib.patches as mpatches
+import seaborn as sns
+sns.set()</code></pre>
+<pre class="highlight"><code class="language-python">gold_df = pd.read_csv('../data/gold.csv', low_memory = False, header=[2,3,4])
+# There has a lot of data. I will get average diary from USD price 
+gold_df = gold_df[[('Priced In', 'Price Type', 'Summary'), ('USD', 'Ask', 'Average')]]
+gold_df.columns = ['Day', 'Price']
+gold_df.head()</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Day</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1/01/68</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2/01/68</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3/01/68</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4/01/68</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5/01/68</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p>Observe que existem diversos Nan values. Na prática eu teria que fazer alguma espécie de limpeza rigorosa. Nesse caso, para tornar tudo bem simples, vou apenas limpar. Também precisamos garantir que as informações estejam em formato <code>float</code>. </p>
+<pre class="highlight"><code class="language-python"># Inplace assegura que eu não crie outro DataFrame
+gold_df.dropna(inplace = True)
+gold_df.Price = gold_df.Price.apply(lambda x: float(x.strip().replace(',', '')))</code></pre>
+<pre class="highlight"><code class="language-python">plt.plot(gold_df['Price'])
+plt.title('Preço do Ouro em Dólares')
+plt.show()</code></pre>
+<p><img alt="png" src="../output_11_0.png" /></p>
+<pre class="highlight"><code class="language-python">variation = gold_df.Price.diff()
+sns.violinplot(x = variation)
+plt.xlim((-50,50))
+plt.title('Distribuição da variação diária')
+plt.show()</code></pre>
+<p><img alt="png" src="../output_12_0.png" /></p>
+<p>De fato não parece uma normal (na verdade uma distribuição de cauda mais pesada talvez fosse interessante. Mas tudo bem!), mas vamos modelar dessa forma. A partir de agora vamos nos preocupar mais com as definições para dar a devida interpretação. O exemplo é só motivador. </p>
+<p><strong>Qual hipótese queremos testar? O que queremos saber sobre a variação?</strong></p>
+<p>A pergunta que nasce é o seguinte: será que a média dessa distribuição é 0? Isto é, será que se calcularmos as médias das variações, teremos que com infinitas observações, o resultado seria 0? Isso é importante porque vai nos ajudar a identificar se existe uma tendência de crescimento nas variações diárias. </p>
+<blockquote>
+<p><strong>Hipótese Nula:</strong> <script type="math/tex">\mu = 0</script>, onde <script type="math/tex">X_1, ..., X_n \sim N(\mu, \sigma^2)</script>.</p>
+<p><strong>Hipótese Alternativa:</strong> <script type="math/tex">\mu \neq 0</script>. </p>
+</blockquote>
+<p>Vamos supor que <script type="math/tex">\sigma</script> é conhecido e que <script type="math/tex">\sigma^2 = 73</script>, mas a média é desconhecida. </p>
+<ol>
+<li><strong>Quem é <script type="math/tex">\Omega_0</script> e <script type="math/tex">\Omega_1</script>?</strong></li>
+</ol>
+<p>
+<script type="math/tex">\Omega_0</script> é a região dos parâmetros onde a hipótese nula é verdadeira, isto é <script type="math/tex">\Omega_0 = \{0\}</script>, é um conjunto unitário. Por outro lado <script type="math/tex">\Omega_1 = \mathbb{R} - \{0\}</script>, por que a média pode assumir, em teoria, qualquer valor real. </p>
+<ol>
+<li><strong>Qual é a região crítica?</strong></li>
+</ol>
+<p>Bom, ainda não podemos determinar essa resposta, afinal para determinar a região crítica (subconjunto do espaço dos estados em que se rejeita a hipótese nula), precisamos de um procedimento de teste. Mas vamos imaginar que o espaço de estados é <script type="math/tex">S = \mathbb{R}^2</script>, pois vamos considerar apenas duas amostras, inicialmente (queremos visualizar S). </p>
+<ol>
+<li><strong>Qual será nosso procedimento de teste?</strong></li>
+</ol>
+<p>Procedimento de teste é uma maneira de tomarmos uma decisão. Ele tem a forma: rejeitamos <script type="math/tex">H_0</script> se isso acontecer. </p>
+<p>Um exemplo bobo seria: Rejeitamos a hipótese nula se <script type="math/tex">0 \not \in (\min(X_1, X_2), \max(X_1, X_2))</script>
+</p>
+<p>O problema é que em geral esse tipo de procedimento não é interessante. Para isso estabelecemos uma <strong>estatística de teste</strong> <script type="math/tex">T</script> e uma <strong>Região de Rejeição</strong> <script type="math/tex">T</script>, tal que nosso procedimento seja: </p>
+<blockquote>
+<p>Rejeitamos <script type="math/tex">H_0</script> se <script type="math/tex">T \in R</script>. </p>
+</blockquote>
+<p>Nesse caso vamos considerar <script type="math/tex">T = \frac{X_1 + X_2}{2}</script> e vamos rejeitar a hipótese se <script type="math/tex">|T|</script> estiver muito longe de <script type="math/tex">0</script>, isto é, se <script type="math/tex">|T| \geq c</script>. Portanto definimor nossa <strong>Região de Rejeição</strong> como <script type="math/tex">(-\infty,-c]\cup[c, + \infty)</script>, o que reduz nosso problema a determinar <script type="math/tex">c</script>. </p>
+<p>Qual <script type="math/tex">c</script> seria razoável? 4, 5, 1? Essa pergunta não vai ser respondida. Antes vamos visualizar como fica a região crítica (2). Rejeitamos a hipótese se </p>
+<p>
+<script type="math/tex; mode=display">
+\left|\frac{X_1 + X_2}{2}\right| \geq c \rightarrow |X_1 + X_2| \geq 2c \rightarrow X_1 + X_2 \geq 2c \text{ ou } X_1 + X_2 \leq -2c
+</script>
+</p>
+<p>Assim: <script type="math/tex">S_1 = \{(x_1, x_2): x_1 + x_2 \geq 2c \text{ ou } x_1 + x_2 \leq -2c\}</script>
+</p>
+<pre class="highlight"><code class="language-python">C = [1, 10, 30]
+decision = lambda x1, x2, c: 1*np.logical_or(x1 + x2 &gt;= 2*c, x1 + x2 &lt;= -2*c)
+x1,x2 = np.meshgrid(np.arange(-50,50,0.5),np.arange(-50,50,0.5))
+
+fig, ax = plt.subplots(1,3, figsize = (21, 7))
+for i, c in enumerate(C):
+    ax[i].contourf(x1,x2,decision(x1,x2, c), levels = [0, 0.5, 1], colors = ['#fdcdac', '#cbd5e8'])
+    ax[i].set_xlabel(r'$x_1$', fontsize = 20)
+    ax[i].set_ylabel(r'$x_2$', fontsize = 20)
+    ax[i].set_title('Região Crítica quando c = {}'.format(c), fontsize = 20)
+    ax[i].legend(handles = [mpatches.Patch(color='#fdcdac', label=r'$S_0$'),
+                            mpatches.Patch(color='#cbd5e8', label=r'$S_1$')])
+
+    sample = gold_df.Price.diff().sample(n = 2)
+    X1, X2 = sample.iloc[0], sample.iloc[1]
+    ax[i].scatter(X1, X2, color = 'black')
+    ax[i].text(X1 + 1, X2 + 1, s = r'$(X_1, X_2)$', fontsize = 15)</code></pre>
+<p><img alt="png" src="../output_15_0.png" /></p>
+<ol>
+<li><strong>Como a função poder entra nessa história?</strong></li>
+</ol>
+<p>A função poder é uma função do parâmetro, no caso <script type="math/tex">\mu</script>, e retorna a probabilidade de rejeitarmos a hipótese, considerando esse parâmetro. Isto é, </p>
+<p>
+<script type="math/tex; mode=display">
+\pi(\mu) = P_{\mu}((X_1, X_2) \in S_1)
+</script>
+</p>
+<p>O que poderíamos fazer, então, é obter a distribuição conjunta de <script type="math/tex">(X_1, X_2)</script> e integrar na região <script type="math/tex">S_1</script>. </p>
+<p>Vamos considerar dois casos separados:</p>
+<ul>
+<li>
+<p>
+<script type="math/tex">\mu \in \Omega_0</script>: Não sabemos disso, e em geral não é possível sabermos. Nesse caso <script type="math/tex">\pi(\mu)</script> indica a probabilidade de rejeitarmos a hipótese nula, mesmo ela sendo verdadeira (chamamos isso de Erro do Tipo I).</p>
+</li>
+<li>
+<p>
+<script type="math/tex">\mu \in \Omega_1</script>: Nesse caso <script type="math/tex">\pi(\mu)</script> indica a probabilidade de rejeitarmos a hipótese nula, quando de ela é falsa. Nesse caso <script type="math/tex">1 - \pi(\mu)</script> é a probabilidade de não rejeitarmos a hipótese nula, quando de fato deveríamos (chamamos de Erro do Tipo II). ]</p>
+</li>
+</ul>
+<p>A função poder se trata mais do teste que estamos usando do que os dados em si. Por isso, podemos comparar testes usando essa função poder. Então vamos ver nesse caso quem é a função poder! Vou calcular usando um método numérico para que peguem a ideia. Agora é possível fazer as contas, mas nem sempre é trivial. Assim teremos apenas aproximação da função poder. </p>
+<pre class="highlight"><code class="language-python">C = [1, 10, 30]
+mu_v = np.arange(-100, 100, 1)
+n = 10000
+power = np.zeros((len(C),len(mu_v)))
+
+for i, c in enumerate(C):
+    for j, mu in enumerate(mu_v): 
+        X1 = np.random.normal(loc = mu, scale = 73, size = n)
+        X2 = np.random.normal(loc = mu, scale = 73, size = n)
+        p = (sum(X1 + X2 &gt;= 2*c) + sum(X1 + X2 &lt;= -2*c))/n
+        power[i,j] = p
+
+    plt.plot(mu_v, power[i,:], label = 'c = {}'.format(c))
+
+plt.title('Função poder')
+plt.xlabel(r'$\mu$')
+plt.ylabel('Prob')
+plt.legend()
+plt.show()</code></pre>
+<p><img alt="png" src="../output_17_0.png" /></p>
+<ol>
+<li>Vamos definir <script type="math/tex">c</script> agora? </li>
+</ol>
+<p>Sim, vamos. Para isso vamos usar o ponto (4) e a definição de tamanho do teste. Uma forma possível de se fazer isso é a seguinte: limitamos o Erro I por <script type="math/tex">\alpha_0</script> e miniminizamos o Erro II, isso é minimizamos <script type="math/tex">1 - \pi(\mu)</script> quando <script type="math/tex">\mu \neq 0</script>, ou melhor, maximizamos <script type="math/tex">\pi(\mu)</script>. </p>
+<p>Para isso dizemos que o tamanho do teste é o máximo da função poder, quando <script type="math/tex">\theta \in \Omega_0</script>. Nesse caso <script type="math/tex">\alpha(\delta) = \pi(0)</script>. Queremos, então que:</p>
+<p>
+<script type="math/tex; mode=display">
+\pi(0) = P_{\mu = 0}(T \geq c) \leq \alpha_0
+</script>
+</p>
+<p>Precisamos então encontrar <script type="math/tex">c</script> tal que <script type="math/tex">\pi(\mu) = P_{\mu \neq 0}(T \ge c)</script> seja maximado.</p>
+<p>Observamos que, quando <script type="math/tex">\mu = 0</script>, <script type="math/tex">T \sim N(0, \sigma^2/2) \rightarrow \sqrt{2}T/\sigma = Z \sim N(0,1)</script>. Logo </p>
+<p>
+<script type="math/tex; mode=display">P(|T| \ge c) = P(|Z| \ge \sqrt{2}c/\sigma) = 2(1 - \Phi(\sqrt{2}c/\sigma)) \leq \alpha_0</script>
+</p>
+<p>Para maximizar <script type="math/tex">\pi(\mu)</script> em <script type="math/tex">\Omega_1</script>, observamos que <script type="math/tex">\pi(\mu)</script> decresce com <script type="math/tex">c</script> (os gráficos acima representam bem isso). Como queremos maximizar, gostaríamos de tomar <script type="math/tex">c</script> o mínimo possível, restrito a </p>
+<p>
+<script type="math/tex; mode=display">2(1 - \Phi(\sqrt{2}c/\sigma)) \leq \alpha_0 \rightarrow 1 - \alpha_0/2 \leq \Phi(\sqrt{2}c/\sigma)</script>
+</p>
+<p>como vimos acima. Estamos lidando com uma função inversível, então </p>
+<p>
+<script type="math/tex; mode=display">
+\frac{\sigma}{\sqrt{2}}\Phi^{-1}(1 - \alpha_0/2) \leq c
+</script>
+</p>
+<p>O melhor valor de <script type="math/tex">c</script> que respeita essa condição e maximiza a relação é, portanto </p>
+<p>
+<script type="math/tex; mode=display">
+c = \frac{\sigma}{\sqrt{2}}\Phi^{-1}(1 - \alpha_0/2) 
+</script>
+</p>
+<pre class="highlight"><code class="language-python">from scipy.stats import norm</code></pre>
+<p>Lembre que <script type="math/tex">\alpha_0</script> indica o máximo de Erro I que aceitamos. </p>
+<pre class="highlight"><code class="language-python">alpha0 = 0.05
+c = np.sqrt(73)/np.sqrt(2)*norm.ppf(1 - alpha0/2)
+print(c)</code></pre>
+<pre><code>11.841167465893536
+</code></pre>
+<p>É bem próximo do gráfico acima mostrado, quando testamos para <script type="math/tex">c = 10</script>. </p>
+<pre class="highlight"><code class="language-python">t = np.arange(-20,20,0.1)
+X = norm(loc = 0, scale = np.sqrt(73)/np.sqrt(2))
+plt.plot(t, X.pdf(t))
+plt.fill_between(t[(t &lt; -c)], X.pdf(t[(t &lt; -c)]), color = 'blue')
+plt.fill_between(t[(t &gt; c)], X.pdf(t[(t &gt; c)]), color = 'blue')
+plt.title('Distribuição Normal e Região de Rejeição')
+plt.show()</code></pre>
+<p><img alt="png" src="../output_23_0.png" /></p>
+<p>Por exemplo vamos tirar duas amostras de nossa distribuição</p>
+<pre class="highlight"><code class="language-python">X1, X2 = gold_df.Price.diff().sample(2)
+T = np.abs(X1 + X2)/2
+T &gt;= c</code></pre>
+<pre><code>False
+</code></pre>
+<ol>
+<li>Mas como escolher <script type="math/tex">\alpha_0</script> agora? </li>
+</ol>
+<p>Agora entra o conceito mais complexo, o do p-valor. Ele está associado à ideia de escolher o menor <script type="math/tex">\alpha_0</script> possível, para que rejeitemos a hipótese nula. Isso significa o seguinte:</p>
+<blockquote>
+<p>Queremos minimizar o Erro do Tipo I e rejeitar a Hipótese Nula com os dados que obtivemos. Se o p-valor for muito alto, significa que o Erro do Tipo I é grande se rejeitarmos a hipótese nula. Você apostaria que podemos rejeitar a hipótese nula nesse caso? Agora, se o p-valor for pequeno e rejeitarmos nossa hipótese nula, o erro do tipo I vai ser pequeno, então apostar que a hipótese nula deva ser rejeitada é mais confortável.</p>
+</blockquote>
+<p>Assim não escolhemos <script type="math/tex">\alpha_0</script>, só observamos seu menor valor e vemos se faz sentido. Em geral se p-valor &lt; 0.05, as pessoas rejeitam a hipótese nula. </p>
+<p>No nosso caso calcular o p-valor é tranquilo. Para calcular o p-valor, <strong>precisamos dos dados</strong>. Queremos rejeitar a hipótese nula, isto é, queremos que <script type="math/tex">t \geq c</script> que <script type="math/tex">\alpha_0</script> seja o menor possível, onde <script type="math/tex">t</script> é o valor observado de <script type="math/tex">T</script>. Vamos diminuindo <script type="math/tex">\alpha_0</script> e para cada <script type="math/tex">\alpha_0</script> podemos calcular <script type="math/tex">c</script> e verificamos se <script type="math/tex">t \ge c</script>. Podemos fazer isso até que <script type="math/tex">c = t</script>, assim:
+<script type="math/tex; mode=display">
+t = \frac{\sigma}{\sqrt{2}}\Phi^{-1}(1 - \alpha_0/2) \rightarrow \alpha_0 = 2\left(1 - \Phi\left(\frac{\sqrt{2}}{\sigma}t\right)\right)
+</script>
+</p>
+<pre class="highlight"><code class="language-python">p_value = 2*(1 - norm.cdf(np.sqrt(2)/np.sqrt(73)*T))
+print(p_value)</code></pre>
+<pre><code>0.8477386286989927
+</code></pre>
+<p>Como o p-valor é alto, não faz sentido rejeitar a hipótese nula. </p>
+<p>Encerramos a atividade aqui!</p>
+<h1 id="testes-de-razao-verossimilhanca">Testes de Razão Verossimilhança</h1>
+<p>São testes baseados na <a href="https://lucasmoschen.github.io/TA_sessions/infestatistica_BSc/MaximumLikelihoodEstimator/MaximumLikelihoodEstimator/#funcao-verossimilhanca">verossimilhaça</a> do modelo <script type="math/tex">f_n(x|\theta)</script>. Suponha que queremos testar a hipótese: </p>
+<p>
+<script type="math/tex; mode=display">
+H_0: \theta \in \Omega_0
+</script>
+<script type="math/tex; mode=display">
+H_1: \theta \in \Omega_1
+</script>
+</p>
+<p>Vamos lembrar que a função de verossimilhança tende a ser mais alta próximo do valor verdadeiro do parâmetro. Com isso em mente, gostaríamos de saber se a verossimilhança é maior em <script type="math/tex">\Omega_0</script> ou em <script type="math/tex">\Omega_1</script>. Para isso, definimos a <strong>estatística de razão de verossimilhança</strong>:
+<script type="math/tex; mode=display">
+\Lambda(x) = \frac{\sup_{\theta \in \Omega_0}f_n(x|\theta)}{\sup_{\theta \in \Omega}f_n(x|\theta)}
+</script>
+Observe que o denominador é o valor da função de verossimilhança no Estimador de Máxima Verossimilhança. Se o parâmetro verdadeiro estiver em <script type="math/tex">\Omega_0</script>, o númerador deve ser mais alto em <script type="math/tex">\Omega_0</script>, então a estatística se aproxima de 1. Baseado nisso, o <strong>teste de razão de verossimilhança</strong> é:</p>
+<blockquote>
+<p>Rejeitamos <script type="math/tex">H_0</script> se <script type="math/tex">\Lambda(x) \le k</script>, para algum <script type="math/tex">k</script>. </p>
+</blockquote>
+<h3 id="teorema">Teorema:</h3>
+<p>Seja <script type="math/tex">\Omega \in \mathbb{R}^p</script> aberto e suponha que <script type="math/tex">H_0</script> seja <script type="math/tex">\theta_{i_1} = \theta_{01}, ..., \theta_{i_k} = \theta_{0k}</script>, onde <script type="math/tex">\theta = (\theta_1, ..., \theta_p)</script>. Assuma que <script type="math/tex">H_0</script> seja verdadeira e a função de verossimilhança satisfaça as condições para que o MLE seja assintoticamente normal e assintoticamente eficiente. Então:
+<script type="math/tex; mode=display">
+-2\log\Lambda(x) \overset{d}{\to} \chi^2(k)
+</script>
+(converge em distribuição quando <script type="math/tex">n \to \infty</script>).</p>
+<p>A demonstração pode ser encontrada no <a href="https://www.statlect.com/fundamentals-of-statistics/likelihood-ratio-test">StatLect</a></p>
+<h2 id="testes-nao-enviesados">Testes não enviesados</h2>
+<p>Um teste é dito não enviesado se <script type="math/tex">\forall \theta \in \Omega_0</script> e <script type="math/tex">\theta ' \in \Omega_1,</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\pi(\theta|\delta) \le \pi(\theta '|\delta)
+</script>
+</p>
+<p>Não é muito utilizado dado seu difícil cálculo numérico e não traz resultados quem valem a pena. </p></div>
+        
+        
+    </div>
+
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
+
+          
+          
+      </footer>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = "../../.."</script>
+    
+    <script src="../../../js/base.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>
