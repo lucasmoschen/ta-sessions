@@ -182,9 +182,14 @@ Por exemplo, sabemos que
 pelo Teorema Central do Limite, em que <script type="math/tex">\mu = \mathbb{E}[X_1]</script>, <script type="math/tex">\sigma^2 = \operatorname{Var}(X_1)</script>, <script type="math/tex">X_1, \dots, X_n</script> é uma amostra aleatória e <script type="math/tex">\bar{X}_n</script> é a média amostral.
 O método delta diz que, para uma função <script type="math/tex">g</script> diferenciável, 
 <script type="math/tex; mode=display">
-\sqrt{n}\left(g(\bar{X}_n) - g(\mu)\right) \to N(0, g'(\mu) \sigma^2),
+\sqrt{n}\left(g(\bar{X}_n) - g(\mu)\right) \to N(0, g'(\mu)^2 \sigma^2),
 </script>
-desde que <script type="math/tex">g'(\mu) \neq 0</script>.</p></div>
+desde que <script type="math/tex">g'(\mu) \neq 0</script>.</p>
+<p>O fato interessante é que o método funciona não só com funções da média, mas qualquer função de uma sequência de estatísticas com a propriedade que
+<script type="math/tex; mode=display">
+\sqrt{n}(Y_n - \mu) \Rightarrow N(0, \sigma^2).
+</script>
+O método também se extende para variáveis aleatórias multidimensionais, em que <script type="math/tex">g'(\mu)\sigma^2</script> é substituído por <script type="math/tex">\nabla g(\mu)^T \Sigma \nabla g(\mu)</script>.</p></div>
         
         
     </div>
