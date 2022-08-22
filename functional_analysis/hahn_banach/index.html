@@ -263,7 +263,62 @@ O espaço de todos os funcionais limitados sobre <script type="math/tex">X</scri
 Podemos demonstrar que <script type="math/tex">\tilde{X}</script> é espaço de Banach.</p>
 <p><strong>Teorema:</strong> Se <script type="math/tex">X</script> tem dimensão finita, todos os funcionais lineares são limitados (logo, contínuos), isto é, <script type="math/tex">\tilde{X}</script> contém todos os funcionais lineares.</p>
 <h2 id="consequencias-do-teorema-de-hahn-banach">Consequências do teorema de Hahn-Banach</h2>
-<h2 id="teorema-da-representacao-de-riesz">Teorema da Representação de Riesz</h2></div>
+<p>Nessa seção, veremos algumas aplicações do Teorema de Hahn-Banach.
+Uma parte importante foca em aplicações limitadas.
+Por exemplo, dado um vetor <script type="math/tex">x \in X</script>, existe um funcional linear limitado que assume o valor <script type="math/tex">\|x\|</script> quando aplicado a <script type="math/tex">x</script>.</p>
+<p><strong>Teorema:</strong> Seja <script type="math/tex">f</script> um funcional linear limitado definido no subespaço <script type="math/tex">M \subseteq X</script>.
+Então existe um funcional linear limitado <script type="math/tex">F</script> definido em <script type="math/tex">X</script> que estende <script type="math/tex">f</script> e <script type="math/tex">\|F\| = \|f\|</script>.</p>
+<hr />
+<p>Ideias da prova:</p>
+<ul>
+<li>
+<p>Defina <script type="math/tex">p(x) = \|f\|\|x\|</script> para todo <script type="math/tex">x \in X</script>. 
+Se provarmos que <script type="math/tex">p</script> é funcional convexo simétrico, o resultado segue do Teorema de Hahn-Banach (para a versão complexa), com a propriedade que <script type="math/tex">|F(x)| \le \|f\|\|x\|</script>.</p>
+</li>
+<li>
+<p>Observar que <script type="math/tex">|f(x)| = |F(x)| \le \|F\|\|x\|</script> e, portanto, teremos <script type="math/tex">\|f\| = \|F\|</script>.</p>
+</li>
+<li>
+<p>A convexidade de <script type="math/tex">f</script> vem da convexidade da norma.</p>
+</li>
+</ul>
+<hr />
+<p>Outro resultado de interesse é o seguinte:</p>
+<p><strong>Teorema:</strong> Seja <script type="math/tex">x_0 \in X</script> não nulo.
+Então existe funcional linear <script type="math/tex">F</script> com <script type="math/tex">\|F\| = 1</script> e <script type="math/tex">F(x_0) = \|x_0\|</script>.</p>
+<p>Com esse resultado, se <script type="math/tex">X</script> possui um elemento não nulo, então o espaço conjugado (funcionais lineares limitados) também não será trivial.
+Além disso, se todos os funcionais lineares limitados <script type="math/tex">f</script> definidos em <script type="math/tex">X</script> satisfazem <script type="math/tex">f(x) = 0</script>, então <script type="math/tex">x = 0</script>, 
+visto que, se <script type="math/tex">x \neq 0</script>, existe um funcional tal que <script type="math/tex">f(x) = \|x\| \neq 0</script>.</p>
+<hr />
+<p>Ideia da prova:</p>
+<ul>
+<li>
+<p>Defina <script type="math/tex">M = [\{x_0\}]</script> e defina <script type="math/tex">f : M \to \mathbb{R}</script> de forma que <script type="math/tex">f(\alpha x_0) = \alpha \|x_0\|</script>.
+Com isso, <script type="math/tex">|f(x)| = \|x\|</script> para todo <script type="math/tex">x \in M</script> (e a norma é um funcional convexo).</p>
+</li>
+<li>
+<p>Além disso, <script type="math/tex">\|f\| \ge 1</script>. 
+Se fosse maior, teríamos uma contradição com a igualdade do item anterior. 
+Portanto, <script type="math/tex">\|f\| = 1</script>. </p>
+</li>
+<li>
+<p>Pelo Teorema anterior, existe um funcional linear limitado que extende <script type="math/tex">f</script> em todo espaço de mesma norma.</p>
+</li>
+</ul>
+<hr />
+<p>Na mesma onda, outro teorema é resultate:</p>
+<p><strong>Teorema:</strong> Seja <script type="math/tex">M</script> subespaço de <script type="math/tex">X</script> e <script type="math/tex">x_1 \in X</script> tenha a propriedade que <script type="math/tex">d(x_1, M) = d > 0</script>.
+Então existe um funcional linear limitado <script type="math/tex">F</script> com <script type="math/tex">\|F\| = 1</script>, <script type="math/tex">F(x_1) = d</script> e, para todo <script type="math/tex">x \in M</script>, <script type="math/tex">F(x) = 0</script>.</p>
+<h2 id="teorema-da-representacao-de-riesz">Teorema da Representação de Riesz</h2>
+<p>Temos que <script type="math/tex">f</script> é um funcional linear limitado definido em um espaço de Hilbert <script type="math/tex">X</script> se, e somente se, existe um único <script type="math/tex">y \in X</script> tal que
+<script type="math/tex; mode=display">
+f(x) = \langle x,y \rangle.
+</script>
+Em termos do espaço conjugado, podemos descrever esse teorema como 
+<script type="math/tex; mode=display">
+\tilde{X} = \{f_y(\cdot) = \langle \cdot,y \rangle | \, y \in X\}.
+</script>
+</p></div>
         
         
     </div>
