@@ -180,8 +180,34 @@ H_0: \theta \in \Omega_0
 <script type="math/tex; mode=display">
 H_1: \theta \in \Omega_1
 </script>
-Assumiremos que <script type="math/tex">\Omega_1</script> não é conjunto unitário. Também suponha que o nível de significância do teste seja <script type="math/tex">\alpha_0</script>, isto é <script type="math/tex">\pi(\theta|\delta) \le \alpha_0, \forall \theta \in \Omega_0</script>.  </p>
-<p>Segundo essas condições, queremos encontrar o procedimento de teste <script type="math/tex">\delta</script> que tem a menor probabilidade de erro do tipo II. </p></div>
+Assumiremos que <script type="math/tex">\Omega_1</script> não é conjunto unitário. Também suponha que o nível de significância do teste seja <script type="math/tex">\alpha</script>, isto é <script type="math/tex">\pi(\theta|\delta) \le \alpha, \forall \theta \in \Omega_0</script>. 
+Segundo essas condições, queremos encontrar o procedimento de teste <script type="math/tex">\delta</script> que tem a menor probabilidade de erro do tipo II. </p>
+<blockquote>
+<p><strong>Definição:</strong> Uma família de densidades <script type="math/tex">p_{\theta}(x)</script> tem razões de verossimilhanças monótonas se existe uma estatística <script type="math/tex">T</script> tal que se <script type="math/tex">\theta_1 < \theta_2</script>, a razão de verossimilhança <script type="math/tex">p_{\theta_2}(x)/p_{\theta_1}(x)</script> é função não decrescente de <script type="math/tex">T</script>.</p>
+</blockquote>
+<hr />
+<p><code>📝</code> <strong>Família exponencial</strong></p>
+<p>Considere a família exponencial 
+<script type="math/tex; mode=display">
+p_{\theta}(x) = h(x) \exp\{\pi(\theta) T(x) - A(\theta)\}.
+</script>
+Assim, 
+<script type="math/tex; mode=display">
+\log \frac{p_{\theta_2}(x)}{p_{\theta_1}(x)} = T(x) (\pi(\theta_2)  - \pi(\theta_1)) - (A(\theta_2) - A(\theta_1)).
+</script>
+Se <script type="math/tex">\pi</script> é uma função crescente, teremos que essa família astisfaz a propriedade de monotonicidade das razões de verossimilhança, visto que essa razão não descresce monotonicamente com <script type="math/tex">T(x)</script>.</p>
+<hr />
+<p><strong>Teorema:</strong> Suponha que a família de densidades tenha razões de verossimilhança monótonas. 
+Então o teste
+<script type="math/tex; mode=display">
+\delta^*(x) = \begin{cases}
+    1, &T(x) > c, \\
+    \gamma, &T(x) = c, \\
+    0, &T(x) < c.
+\end{cases}
+</script>
+é <strong>uniformemente mais poderoso</strong> ao testar <script type="math/tex">H_0 : \theta \le \theta_0</script> contra <script type="math/tex">H_1 : \theta > \theta_0</script>.
+As constantes <script type="math/tex">\gamma</script> e <script type="math/tex">c</script> são definidas a fim do teste ter nível <script type="math/tex">\alpha</script>.</p></div>
         
         
     </div>
