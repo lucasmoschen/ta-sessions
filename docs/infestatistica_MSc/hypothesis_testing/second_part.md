@@ -1,6 +1,6 @@
 # Teste de Hipóteses: Alguns testes
 
-Nesse notebook veremos:
+Agora que já definimos os principais conceitos de teste de hipótese, vamos discutir algun casos particulares:
 
 1. Teste de Hipóteses Simples 
 2. Hipótese Alternativa Bilateral 
@@ -8,34 +8,30 @@ Nesse notebook veremos:
 4. Comparando médias de duas Normais
 5. Comparando variâncias de duas Normais 
 
-# Teste de Hipótese Simples
+## Teste de Hipótese Simples
 
-O objetivo é considerar se um vetor de observações vem de uma entre duas observações. Nesse caso o espaço $\Omega$ é formado por dois pontos, e não é um espaço de parâmetros, mas espaço de distribuições, em particular dessas duas distribuições. 
+Uma hipótese $H_i : \theta \in \Omega_i$ é dita **simples** se $\Omega_i$ contém um único parâmetro $\theta_i$.
+Nesse caso, o espaço $\Omega$ é formada por duas distribuições concorrentes.
+Isto é, vamos assumir que $X = (X_1, ..., X_n)$ vem de $f_0(x)$ ou $f_1(x)$. 
+Assim $\Omega = \{\theta_0, \theta_1\}$ e $\theta = \theta_i$ se os dados tem distribuição $f_i(x), i = 0,1$. 
 
-Isto é, vamos assumir que $X = (X_1, ..., X_n)$ vem de $f_0(x)$ ou $f_1(x)$. Assim $\Omega = \{\theta_0, \theta_1\}$ e $\theta = \theta_i$ se os dados tem distribuição $f_i(x), i = 0,1$. 
+A função poder para um teste $\delta$ é denotada da seguinte forma:
 
-Vamos denotar:
+$$
+\alpha(\delta) = P(\text{Rejeitar} H_0|\theta = \theta_0) = P(\text{Erro I}) = \int \delta(x) f_0(x) \, dx,
+$$
+$$
+\beta(\delta) = P(\text{Não rejeitar} H_0|\theta = \theta_1) = P(\text{Erro II}) = \int \delta(x) f_1(x) \, dx.
+$$
 
-$
-\alpha(\delta) = P(\text{Rejeitar} H_0|\theta = \theta_0) = P(\text{Erro I})
-$
-
-$
-\beta(\delta) = P(\text{Não rejeitar} H_0|\theta = \theta_1) = P(\text{Erro II})
-$
-
-### Teorema 
-
-Seja $\delta^*$ o procedimento de teste que não rejeita $H_0$ se $af_0(x) > bf_1(x)$ e rejeita se $af_0(x) < bf_1(x)$. Então, para todo outro procedimento de teste $\delta$, 
+**Teorema:** Seja $\delta^*$ o procedimento de teste que não rejeita $H_0$ se $af_0(x) > bf_1(x)$ e rejeita se $af_0(x) < bf_1(x)$. Então, para todo outro procedimento de teste $\delta$, 
 $$
 a\alpha(\delta^*) + b\beta(\delta^*) \le a\alpha(\delta) + b\beta(\delta) 
 $$
 
 Queremos escolher um teste que minimize essa combinação linear $a\alpha(\delta) + b\beta(\delta)$. Claro que seria ótimo ter esse erro zerado, mas sabemos que existe uma espécie de *trade off* entre esses erros. Esse teorema dá o teste necessário para que isso acontença. 
 
-### Corolário
-
-Considere as hipóteses do teorema anterior, $a > 0$ e $b > 0$. Defina estatística de teste **razão de verossimilhança**:
+**Corolário:** Considere as hipóteses do teorema anterior, $a > 0$ e $b > 0$. Defina estatística de teste **razão de verossimilhança**:
 $$
 \Lambda(x) = \begin{cases}
               \frac{f_0(x)}{f_1(x)}, \text{ se } f_0(x) \le f_1(x) \\
@@ -44,14 +40,34 @@ $$
 $$
 Defina o procedimento de teste $\delta$: Rejeita $H_0$ se $\Lambda(x) > a/b$. Então o valor de $af_0(x) + bf_1(x)$ é mínimo.  
 
-## Lema Nayman-Pearson
+### Lema Neyman-Pearson
 
 Suponha que $\delta '$ tem a seguinte forma, para algum $k > 0$: $H_0$ não é rejeitada se $f_1(x) < kf_0(x)$ e o é quando $f_1(x) > kf_0(x).$ Se $\delta$ é outro procedimento de teste tal que $\alpha(\delta) \le \alpha(\delta ')$, então $\beta(\delta) \ge \beta(\delta ').$
 
-## Implementação 
+---
+``📝`` **Exemplo inicial**
+
+Considere a densidade
+$$
+p_{\theta}(x) = \theta e^{-\theta x} 1\{x > 0\}.
+$$
+Considere a Hipotese Nula $H_0 : \theta = 1$ e a Alternativa $H_1 : \theta = \theta_1 > 1$.
+Rejeitamos a hipótese nula se
+$$
+\frac{p_{\theta_1}(x)}{p_1(x)} = \frac{\theta_1 e^{-\theta_1 x}}{e^{-x}} > k,
+$$
+em que $k$ é determinado de forma que
+$$
+\alpha = \Pr_0\left(\theta_1 e^{-(\theta_1-1) x} > k\right) =\Pr_0\left( x < -\frac{\log(k/\theta_1)}{\theta_1-1} \right) = 1 - \exp\left\{\frac{\log(k/\theta_1)}{\theta_1-1}\right\},
+$$
+para um $\alpha$ pre-especificado.
+Pelo Lema de Neyman Pearson, qualquer outro procedimento com nível $\alpha$ reduz o poder do teste.
+
+---
+
+### Implementação 
 
 Vamos fazer uma simples implementação de uso para esse tipo de problema. 
-
 
 ```python
 import numpy as np 
@@ -75,7 +91,7 @@ n = 20
 X = ro.binomial(1, p, size = n)
 ```
 
-Vamos utilizar o Lema Nayman-Pearson. O objetivo é testar as seguintes hipóteses: 
+Vamos utilizar o Lema Neyman-Pearson. O objetivo é testar as seguintes hipóteses: 
 
 $$
 H_0: p = 0.4
@@ -102,7 +118,6 @@ $$
 
 Isto é, preciso escolher $k$ que satisfaça essa relação. Vamos calcular $k$ numericamente utilizando um método de otimização por bruta força (são poucas as opções). Como não queremos que seja marior do que 0.05, precisamos colocar peso para que não seja. Veja que existem vários valores de $k$ que satisfazem isso. 
 
-
 ```python
 alpha0 = 0.05 
 Y = binom(n = n, p = 0.4)
@@ -111,18 +126,11 @@ func = lambda k, n: np.abs(0.95 - Y.cdf((1/2)*np.log(k)/np.log(3/2) + n/2)) + \
                     10*(0.95 > Y.cdf((1/2)*np.log(k)/np.log(3/2) + n/2))
 ```
 
-
 ```python
 k = brute(func, ranges = (slice(1,20,1),), args = (n,))[0]
 k
 ```
-
-
-
-
     6.0
-
-
 
 Por esse motivo, vamos tomar $k=6$. Pela Lema de Neyman Pearson, esse teste é o que minimiza o Erro do Tipo II.  
 
@@ -141,22 +149,18 @@ else:
 
     Não rejeitamos H0.
 
-
 Vamos ver quem é $p$, então. 
-
 
 ```python
 print('O valor de p é .... ')
 print(p)
 ```
-
     O valor de p é .... 
     0.4
 
-
 Fizemos bem em não rejeitar a hipótese nula!
 
-# Hipótese Alternativa Bilateral 
+## Hipótese Alternativa Bilateral 
 
 Seja $X = (X_1, ..., X_n)$ uma amostra aleatória de uma distribuição normal com média $\mu$ desconhecida e variância $\sigma^2$ conhecida e queremos testar a hipótese 
 $$
@@ -168,21 +172,13 @@ $$
 
 Como $\bar{X}_n$ é um estimador consistente de $\mu$, faz sentido rejeitar a hipótese nula quando a média amostral se afasta de $\mu_0$. Para isso, vamos escolher $c_1, c_2$ de forma que 
 
-$
-P(\bar{X}_n \leq c_1|\mu = \mu_0) + P(\bar{X}_n \geq c_2|\mu = \mu_0) = \alpha_0
-$
-
-$
-\Rightarrow P\left(Z \leq \sqrt{n}\frac{c_1 - \mu_0}{\sigma}\right) + P\left(Z \geq \sqrt{n}\frac{c_2 - \mu_0}{\sigma}\right) = \alpha_0
-$
-
-$
-\Rightarrow \Phi\left(\sqrt{n}\frac{c_1 - \mu_0}{\sigma}\right) + 1 -  \Phi\left(\sqrt{n}\frac{c_2 - \mu_0}{\sigma}\right) = \alpha_0 
-$
-
-$
-\Rightarrow \Phi\left(\sqrt{n}\frac{c_1 - \mu_0}{\sigma}\right) = \alpha_1 \text{ e } \Phi\left(\sqrt{n}\frac{c_2 - \mu_0}{\sigma}\right) = 1 - \alpha_2, \text{ com } \alpha_1 + \alpha_2 = \alpha_0 
-$
+$$
+\begin{split}
+    P(\bar{X}_n \leq c_1|\mu = \mu_0) + P(\bar{X}_n \geq c_2|\mu = \mu_0) = \alpha_0 &\Rightarrow P\left(Z \leq \sqrt{n}\frac{c_1 - \mu_0}{\sigma}\right) + P\left(Z \geq \sqrt{n}\frac{c_2 - \mu_0}{\sigma}\right) = \alpha_0 \\
+    &\Rightarrow \Phi\left(\sqrt{n}\frac{c_1 - \mu_0}{\sigma}\right) + 1 -  \Phi\left(\sqrt{n}\frac{c_2 - \mu_0}{\sigma}\right) = \alpha_0 \\
+    &\Rightarrow \Phi\left(\sqrt{n}\frac{c_1 - \mu_0}{\sigma}\right) = \alpha_1 \text{ e } \Phi\left(\sqrt{n}\frac{c_2 - \mu_0}{\sigma}\right) = 1 - \alpha_2, \text{ com } \alpha_1 + \alpha_2 = \alpha_0 
+\end{split}
+$$
 
 *Observação:* $\bar{X}_n \sim N(\mu, \sigma^2/n) \Rightarrow Z = \sqrt{n}\frac{\bar{X}_n - \mu}{\sigma} \sim N(0,1)$
 
@@ -190,7 +186,7 @@ $
 
 Isto é, queremos que o tamanho do teste seja $\alpha_0$, lembrando que o tamanho do teste é o supremo das probabilidades de se rejeitar a hipótese nula quando ela é verdadeira. 
 
-# Teste t
+## Teste t
 
 Suponha que $(X_1,...,X_n)$ é uma amostra aleatória da distribuição $N(\mu,\sigma^2)$, com parâmetros desconhecidos e queremos testar a hipótese:
 $$
@@ -202,8 +198,6 @@ $$
 
 Sabemos que $U = n^{1/2}\frac{\bar{X}_n - \mu_0}{\sigma '}$ é uma boa estatística de teste e rejeitamos $H_0$ se $U \ge c$. Essa estatística é interessante porque quando $\mu = \mu_0, U \sim t(n-1)$. Por isso chamamos de testes t quando baseados na estatística $U$. Podemos também inverter os sinais de desigualdade e rejeitar $H_0$ quando $U \le c$. 
 
-
-
 ```python
 from pandas import DataFrame
 from scipy.stats import t
@@ -214,17 +208,15 @@ sns.set()
 %matplotlib notebook
 ```
 
-
 ```python
 mu0 = 10
 # Vamos escolher mu e sigma de forma aleatória, mas não significa que é uma variável aleatória. 
 n = 20
 ```
 
-## Distibuição de U
+### Distibuição de U
 
 Vamos gerar uma aproximação para a distribuição de $U$ para um determinado $\mu$. 
-
 
 ```python
 U_values = {}
@@ -240,7 +232,6 @@ for i in range(6):
 U_values = DataFrame(U_values)
 ```
 
-
 ```python
 fig, ax = plt.subplots(figsize = (10,6))
 sns.kdeplot(data = U_values, ax = ax)
@@ -250,9 +241,7 @@ plt.show()
 
 ![png](output_23_0_2.png)
 
-### Teorema 
-
-Seja $c$ o $1 - \alpha_0$ quartil da distribuição $t$ com $n-1$ graus de liberdade. Então, segundo o teste citado acima, a função poder tem as seguintes propriedades: 
+**Teorema:** Seja $c$ o $1 - \alpha_0$ quartil da distribuição $t$ com $n-1$ graus de liberdade. Então, segundo o teste citado acima, a função poder tem as seguintes propriedades: 
 
 1. $\pi(\mu, \sigma^2|\delta) = \alpha_0$, quando $\mu = \mu_0$.
 2. $\pi(\mu, \sigma^2|\delta) < \alpha_0$, quando $\mu < \mu_0$.
@@ -274,26 +263,22 @@ X = \frac{W}{\left(\frac{Y}{m}\right)^{1/2}}
 $$
 tem distribuição t não central com $m$ graus de liberdade e não centralidade $\psi$. Denotaremos $T_m(x|\psi)$ a cdf dessa distribuição.  
 
-## Teorema  (Função Poder)
-
-Seja $X_1, ..., X_n$ amostra aleatória de $N(\mu,\sigma^2)$. A distribuição de $U$ é t não central com $n-1$ graus de liberdade e parâmetro de não centralidade $\psi = n^{1/2}(\mu - \mu_0)/\sigma$ (*Observe que isso ocorre porque dividimos o numerador e o denominador por $\sigma$. Além disso, note que $X$ não é uma quantidade pivotal, dado que sua distribuição depende de parâmetros desconhecidos*)
-
+**Teorema: (Função Poder):** Seja $X_1, ..., X_n$ amostra aleatória de $N(\mu,\sigma^2)$. A distribuição de $U$ é t não central com $n-1$ graus de liberdade e parâmetro de não centralidade $\psi = n^{1/2}(\mu - \mu_0)/\sigma$ 
+(*Observe que isso ocorre porque dividimos o numerador e o denominador por $\sigma$. Além disso, note que $X$ não é uma quantidade pivotal, dado que sua distribuição depende de parâmetros desconhecidos*)
 Suponha que o procedimento $\delta$ rejeita $H_0: \mu \le \mu_0$ se $U \ge c$. Então a função poder é 
 $$\pi(\mu,\sigma^2|\delta) = 1 - T_{n-1}(c,\psi)$$ 
-
 Se $\delta '$ rejeita $H_0: \mu \ge \mu_0$ se $U \le c$. Então a função poder é 
 $$\pi(\mu,\sigma^2|\delta) = T_{n-1}(c,\psi)$$
 
 
 ```python
-from scipy.stats import nct #noncentral t dsitribution
+from scipy.stats import nct #noncentral t distribution
 from matplotlib import animation
 from IPython.display import HTML
 import warnings
 
 warnings.filterwarnings('ignore')
 ```
-
 
 ```python
 n = 10
@@ -302,13 +287,11 @@ sigma = 2
 psi = lambda mu: np.sqrt(n)*(mu - mu0)/sigma
 ```
 
-
 ```python
 X = nct(df = n-1, nc = psi(-20))
 ```
 
 Vamos ver o que acontece quando variamos $\mu$. Nesse caso $-20 \leq \mu \geq 20$. 
-
 
 ```python
 fig, ax = plt.subplots()
@@ -332,9 +315,6 @@ def animate(i,n):
 HTML(animation.FuncAnimation(fig, animate, frames = 40,
                                interval = 100, fargs=(n,), repeat = False).to_html5_video())
 ```
-
-
-
 
 <video width="432" height="288" controls autoplay>
   <source type="video/mp4" src="data:video/mp4;base64,AAAAIGZ0eXBNNFYgAAACAE00ViBpc29taXNvMmF2YzEAAAAIZnJlZQAAOF1tZGF0AAACrgYF//+q
@@ -616,11 +596,7 @@ AAAAHWRhdGEAAAABAAAAAExhdmY1OC40NS4xMDA=
   Your browser does not support the video tag.
 </video>
 
-
-
-
 ![png](output_30_1.png)
-
 
 ### Alternativa Bilateral 
 
@@ -642,14 +618,11 @@ $$
 P(|U| \ge c|\mu = \mu_0) = \alpha_0 = P(U \le -c) + P(U \ge c) \overset{simetria}{=} 2P( U \ge c) = 2(1 - P(U \le c))
 $$
 
-
-
 ```python
 n = 20
 alpha0 = 0.05 
 c = t.ppf(df = n-1, q = 1 - alpha0/2)
 ```
-
 
 ```python
 X = t(df = n-1)
@@ -661,9 +634,7 @@ plt.title('Distribuição de U e Região de Rejeição')
 plt.show()
 ```
 
-
 ![png](output_33_0.png)
-
 
 ### Função Poder 
 
@@ -679,7 +650,7 @@ $$
 
 Logo o p-valor é $2 - 2T_{n-1}(|u|)$.
 
-# Comparando médias de duas normais
+## Comparando médias de duas normais
 
 Assumimos que $X = (X_1,...,X_m)$ é uma amostra da distribuição normal com média $\mu_1$ e variância $\sigma^2$, enquanto $Y = (Y_1, ..., Y_n)$ é normal com média $\mu_2$ e variância $\sigma^2$. Estamos interessados no teste 
 $$
@@ -708,7 +679,7 @@ $$
 
 Note que se $\mu_1 = \mu_2$, $U$ é uma distribuição t padrão.
 
-## Função Poder
+### Função Poder
 
 Considere o procedimento de teste $\delta$ que rejeite $H_0$ se $U \ge T_{m+n-2}^{-1}(1 - \alpha_0)$. Assim:
 
@@ -720,15 +691,15 @@ Considere o procedimento de teste $\delta$ que rejeite $H_0$ se $U \ge T_{m+n-2}
 
 Além do mais o teste é não enviesado. 
 
-## P-valor
+### P-valor
 
 Depois de termos observado as amostras, seja $u$ a estatística observada de $U$. O p-valor da hipótese é $1 - T_{m+n-2}(u)$.
 
 > Equivalentemente com o teste t do item 3, podemos expressar tudo com a hipótese bilateral e só altera o graude liberade quando comparado com o teste t anterior.  
 
-## Variâncias diferentes
+### Variâncias diferentes
 
-### Razão entre as variâncias é conhecida
+#### Razão entre as variâncias é conhecida
 
 Suponha que se as variâncias de $X$ e $Y$ são $\sigma_1^2$ e $\sigma_2^2$ e que $\sigma^2_2 = k\sigma^2_1, k > 0$. Então podemos usar a estatística 
 
@@ -736,11 +707,11 @@ $$
 U = \frac{(m + n - 2)^{1/2}(\bar{X}_m - \bar{Y}_n)}{\left(\frac{1}{n} + \frac{k}{m}\right)^{1/2}(S_x^2 + \frac{S_y^2}{k})^{1/2}}
 $$
 
-### Problema de Behrens-Fisher
+#### Problema de Behrens-Fisher
 
 Quando os 4 parâmetros das normais são desconhecidos, tão pouco a razão de variâncias, nem a estatística de razão de verossimilhança tem distribuição conhecida. Algumas tentativas já foram feitas, como [Welch](https://en.wikipedia.org/wiki/Welch%27s_t-test) e [outros](https://en.wikipedia.org/wiki/Behrens%E2%80%93Fisher_problem#Other_approaches).
 
-# Comparando variâncias de duas Normais
+## Comparando variâncias de duas Normais
 
 Assumimos que $X = (X_1,...,X_m)$ é uma amostra da distribuição normal com média $\mu_1$ e variância $\sigma^2$, enquanto $Y = (Y_1, ..., Y_n)$ é normal com média $\mu_2$ e variância $\sigma^2$. Estamos interessados no teste 
 $$
@@ -758,7 +729,7 @@ $$
 
 Rejeitaremos $X_0$ se $V \ge c$, onde $c$ será escolhido para que esse teste tenha nível de significância $\alpha_0$. Esse teste é chamado de teste F, pois a distribuição de $(\sigma_1^2/\sigma_2^2)V$ é F com parâmetros $m-1$ e $n-1$. Em particular se $\sigma_1^2 = \sigma_2^2$, $V$ tem distribuição F. Onde a [distribuição F é descrita aqui](https://lucasmoschen.github.io/TA_sessions/infestatistica_BSc/SamplingDistribution/SamplingDistribution/#distribuicao-f). 
 
-## Função Poder
+### Função Poder
 
 Considere o procedimento de teste $\delta$ que rejeite $H_0$ se $V \ge F_{m-1,n-1}^{-1}(1 - \alpha_0)$. Assim:
 
@@ -771,6 +742,6 @@ Considere o procedimento de teste $\delta$ que rejeite $H_0$ se $V \ge F_{m-1,n-
 
 Além do mais o teste é não enviesado. 
 
-## P-valor
+### P-valor
 
 Depois de termos observado as amostras, seja $v$ a estatística observada de $V$. O p-valor da hipótese é $1 - F_{m-1,n-1}(v)$.
