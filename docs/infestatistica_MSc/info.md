@@ -47,12 +47,14 @@ Os exercícios resolvidos estão disponíveis:
 |[2](https://github.com/maxbiostat/Statistical_Inference_MSc/blob/main/listas/lista2_InfEst_MSc.pdf)|Suficiência mínima, completude e ancilaridade|[2](https://lucasmoschen.github.io/files/disciplines/statistical_inference/solutions2.pdf)|
 |[3](https://github.com/maxbiostat/Statistical_Inference_MSc/blob/main/listas/lista3_InfEst_MSc.pdf)|Estimação não enviesada|[3](https://lucasmoschen.github.io/files/disciplines/statistical_inference/solutions3.pdf)
 |[4](https://github.com/maxbiostat/Statistical_Inference_MSc/blob/main/listas/lista4_InfEst_MSc.pdf)|Métodos de estimação|[4](https://lucasmoschen.github.io/files/disciplines/statistical_inference/solutions4.pdf)|
+|[Extra](https://lucasmoschen.github.io/files/disciplines/statistical_inference/additional_list.pdf)|Revisão para a P1|[Extra](https://lucasmoschen.github.io/files/disciplines/statistical_inference/additional_list_solutions.pdf)|
 
 ### Prova 2
 
 |Lista|Tópicos|Solução|
 |-----|-------|-------|
-|[5](https://github.com/maxbiostat/Statistical_Inference_MSc/blob/main/listas/lista5_InfEst_MSc.pdf)|Revisão para a P1|[5](/ta-sessions/unavailable/)|
+|[5](https://github.com/maxbiostat/Statistical_Inference_MSc/blob/main/listas/lista5_InfEst_MSc.pdf)|Estimação intervalar e quantidades pivotais|[5](/ta-sessions/unavailable/)|
+|[6](https://github.com/maxbiostat/Statistical_Inference_MSc/blob/main/listas/lista6_InfEst_MSc.pdf)|Método Delta|[6](/ta-sessions/unavailable/)|
 
 ## Notas
 
