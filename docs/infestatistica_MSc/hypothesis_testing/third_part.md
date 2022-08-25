@@ -38,3 +38,28 @@ $$
 $$
 é **uniformemente mais poderoso** ao testar $H_0 : \theta \le \theta_0$ contra $H_1 : \theta > \theta_0$.
 As constantes $\gamma$ e $c$ são definidas a fim do teste ter nível $\alpha$.
+
+# Dualidade entre Teste de Hipóteses e Intervalo de Confiança
+
+Temos que se 
+$$
+\Pr_{\theta}(g(\theta) \in S(X)) \ge 1-\alpha, \forall \theta \in \Omega,
+$$
+então $S(X)$ é dito região de  confiança com nível $1-\alpha$ para $g(\theta)$.
+
+Por outro lado, para cada parâmetro $\theta_0$, temos uma região de aceitação $A(\theta_0)$ com nível $\alpha$ para o teste $H_0 : g(\theta) = g(\theta_0)$ tal que 
+$$
+\Pr_{\theta}(X \in A(\theta)) \ge 1 - \alpha, \forall \theta \in \Omega.
+$$
+Defina $S(x) = \{g(\theta) : x \in A(\theta)\}$.
+Por definição, $S(X)$ é uma região de confiança para $g(\theta)$ com nível $1-\alpha$.
+
+Além do mais, dado uma região de confiança $S(X)$, podemos definir um teste 
+$$
+\delta(x) = \begin{cases}
+    1, &g(\theta_0) \not \in S(x) \\
+    0, &\text{c.c.}
+\end{cases}
+$$
+
+que tem nível no máximo $\alpha$.

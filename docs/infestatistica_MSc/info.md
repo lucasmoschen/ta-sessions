@@ -28,8 +28,7 @@ Monitoria de Inferência Estatística (Mestrado) correspondente ao período de 2
 |---|
 |[Teste de Hipóteses: Definições](/ta-sessions/infestatistica_MSc/hypothesis_testing/first_part)|
 |[Teste de Hipóteses: Alguns testes](/ta-sessions/infestatistica_MSc/hypothesis_testing/second_part)|
-|[Teste de Hipóteses: Testes mais poderosos](/ta-sessions/infestatistica_MSc/hypothesis_testing/third_part)|
-|[Teste de Hipóteses: Equivalência com Intervalos de Confiança](/ta-sessions/infestatistica_MSc/hypothesis_testing/fourth_part)|
+|[Teste de Hipóteses: Testes mais poderosos e Dualidade](/ta-sessions/infestatistica_MSc/hypothesis_testing/third_part)|
 
 |Outros temas|
 |---|

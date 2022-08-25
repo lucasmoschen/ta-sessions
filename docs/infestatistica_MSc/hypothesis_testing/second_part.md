@@ -2,11 +2,27 @@
 
 Agora que já definimos os principais conceitos de teste de hipótese, vamos discutir algun casos particulares:
 
-1. Teste de Hipóteses Simples 
-2. Hipótese Alternativa Bilateral 
-3. Teste T
-4. Comparando médias de duas Normais
-5. Comparando variâncias de duas Normais 
+1. Teste de Razão de Verossimilhança
+2. Teste de Hipóteses Simples 
+3. Karlin-Rubin
+4. Hipótese Alternativa Bilateral
+5. Teste T
+6. Comparando médias de duas Normais
+7. Comparando variâncias de duas Normais
+
+## Teste de Razão de Verossimilhança
+
+Se $L(\theta | x)$ é a verossimilhança de um modelo para $X_1, \dots, X_n$, considere a estatística
+$$
+\lambda(x) = \frac{\sup_{\theta \in \Theta_0} L(\theta|x)}{\sup_{\theta \in \Theta} L(\theta|x)},
+$$
+para o teste $H_0: \theta \in \Theta_0$ contra $H_1 : \theta \in \Theta_1 = \Theta - \Theta_0$.
+A região de rejeição desse teste é do tipo 
+$$
+{x : \lambda(x) \le c},
+$$
+com $c$ dado de forma que $\Pr_{\theta \in \Theta_0}(\lambda(X) \le c) \le \alpha$.
+
 
 ## Teste de Hipótese Simples
 
@@ -159,6 +175,12 @@ print(p)
     0.4
 
 Fizemos bem em não rejeitar a hipótese nula!
+
+## Karlin-Rubin
+
+O Teorema de Karlin-Rubin estende o Lema de Neyman-Pearson para hipóteses compostas.
+Assim, considere $H_0 : \theta \le \theta_0$ contra $H_1 : \theta > \theta_0$. 
+Se $T$ é uma estatística suficiente para $\theta$ e a familia de pdfs $\{g(t|\theta) : \theta \in \Theta\}$ de $T$ tem razão de verossimilhanças crescentes, então para todo $t_0$, o teste que rejeita $H_0$ se $T > t_0$ é UMP com nível $\alpha$, em que $\alpha = \Pr_{\theta_0}(T > t_0)$.
 
 ## Hipótese Alternativa Bilateral 
 
