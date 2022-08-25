@@ -138,14 +138,3 @@ Na mesma onda, outro teorema é resultate:
 
 **Teorema:** Seja $M$ subespaço de $X$ e $x_1 \in X$ tenha a propriedade que $d(x_1, M) = d > 0$.
 Então existe um funcional linear limitado $F$ com $\|F\| = 1$, $F(x_1) = d$ e, para todo $x \in M$, $F(x) = 0$.
-
-## Teorema da Representação de Riesz
-
-Temos que $f$ é um funcional linear limitado definido em um espaço de Hilbert $X$ se, e somente se, existe um único $y \in X$ tal que
-$$
-f(x) = \langle x,y \rangle.
-$$
-Em termos do espaço conjugado, podemos descrever esse teorema como 
-$$
-\tilde{X} = \{f_y(\cdot) = \langle \cdot,y \rangle | \, y \in X\}.
-$$
