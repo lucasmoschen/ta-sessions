@@ -176,6 +176,14 @@
             <li class="second-level"><a href="#teorema-da-representacao-de-riesz">Teorema da Representação de Riesz</a></li>
                 
                 <li class="third-level"><a href="#operador-adjunto">Operador adjunto</a></li>
+            <li class="second-level"><a href="#espaco-de-hilbert">Espaço de Hilbert</a></li>
+                
+            <li class="second-level"><a href="#desigualdade-de-bessel">Desigualdade de Bessel</a></li>
+                
+            <li class="second-level"><a href="#conjuntos-ortonormais-completos">Conjuntos Ortonormais Completos</a></li>
+                
+            <li class="second-level"><a href="#identidade-de-parseval">Identidade de Parseval</a></li>
+                
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
@@ -362,7 +370,76 @@ e então,
 </script>
 o que define <script type="math/tex">A^*</script> como <strong>operador adjunto</strong> de <script type="math/tex">A</script>.
 Além disso, podemos verificar que ele é uma transformação linear.</p>
-<p>Além disso, se <script type="math/tex">A = A^*</script>, o operador é <strong>auto-adjunto</strong> e se <script type="math/tex">AA^* = A^*A</script>, o operador é <strong>normal</strong>.</p></div>
+<p>Além disso, se <script type="math/tex">A = A^*</script>, o operador é <strong>auto-adjunto</strong> e se <script type="math/tex">AA^* = A^*A</script>, o operador é <strong>normal</strong>.</p>
+<h2 id="espaco-de-hilbert">Espaço de Hilbert</h2>
+<p>Seja <script type="math/tex">X</script> um espaço com produto interno e defina a métrica
+<script type="math/tex; mode=display">
+d(x,y) = \sqrt{\langle x-y, x-y\rangle}.
+</script>
+Então <script type="math/tex">(X,d)</script> é um espaço métrico. 
+Se ele for completo, dizemos que <script type="math/tex">X</script> é um <strong>espaço de Hilbert</strong>.</p>
+<p>Já provamos que todo espaço métrico possui um completamento e que todo espaço normado pode ser completado para um espaço de Banach.
+Para espaços com produto interno isso também é válido, definindo
+<script type="math/tex; mode=display">
+\langle x^*, y^* \rangle = \lim_n \langle x_n, y_n \rangle, 
+</script>
+em que <script type="math/tex">x^*, y^* \in X^*</script> é o espaço das classes de equivalência de sequências de Cauchy.</p>
+<hr />
+<p><code>📝</code> <strong>Exemplo (Funções contínuas)</strong></p>
+<p>O espaço <script type="math/tex">X = C[a,b]</script> com o produto interno
+<script type="math/tex; mode=display">
+\langle f, g \rangle = \int_a^b f(x) \bar{g}(x) \, dx.
+</script>
+não é espaço de Hilbert.</p>
+<hr />
+<h2 id="desigualdade-de-bessel">Desigualdade de Bessel</h2>
+<p>Considere o seguinte importante resultado</p>
+<p><strong>Teorema:</strong> Seja <script type="math/tex">X</script> um espaço com produto interno, <script type="math/tex">A</script> um conjunto de vetores ortonormal e <script type="math/tex">y \in X</script>. 
+Então </p>
+<ol>
+<li>
+<p>(<strong>Desigualdade de Bessel</strong>): <script type="math/tex">\sum_{i=1}^n |\langle y, x_i \rangle|^2 \le \|y\|^2, \forall x_1, \dots, x_n \in A</script>.</p>
+</li>
+<li>
+<p>
+<script type="math/tex">E = \{x \in A : \langle y, x \rangle \neq 0\}</script> é enumerável.</p>
+</li>
+<li>
+<p>Se <script type="math/tex">z \in X</script>, então <script type="math/tex">\sum_{x \in A} |\langle y,x \rangle ||\overline{\langle z, x \rangle}| \le \|y\|\|z\|</script>.</p>
+</li>
+</ol>
+<p>Outra caracterização de conjuntos ortogonais é que se <script type="math/tex">X</script> for separável e <script type="math/tex">A</script> ortonormal, então ele será enumerável.</p>
+<h2 id="conjuntos-ortonormais-completos">Conjuntos Ortonormais Completos</h2>
+<p>Definimos um conjunto ortonormal como <strong>completo</strong> se não existe outro conjunto ortonormal que contenha-o. 
+Em outras palavras, ele é completo se é o conjunto ortonormal maximal.
+Como essa definição é complicado em geral, o seguinte critério ajuda bastante:</p>
+<p><strong>Proposição:</strong> Um conjunto ortonormal <script type="math/tex">A</script> é completo se, e só se, para todo <script type="math/tex">x</script> tal que <script type="math/tex">x \perp A</script>, tem-se que <script type="math/tex">x = 0</script>.</p>
+<p>Além do mais, </p>
+<ol>
+<li>
+<p>Existe um conjunto ortonormal completo em <script type="math/tex">X</script>, e</p>
+</li>
+<li>
+<p>Qualquer conjunto ortonormal pode ser estendido para um conjunto ortonormal completo.</p>
+</li>
+</ol>
+<p><strong>Proposição:</strong> Um conjunto ortonormal completo infinito nunca é uma base (de Hamel) em um espaço de Hilbert.</p>
+<p>A prova dessa proposição se dá por contradição extraindo uma sequência de pontos em um conjunto ortonormal completo infinito e observado a soma 
+<script type="math/tex; mode=display">
+\sum_{k=1}^{\infty} \frac{1}{k^2} x_k = x,
+</script>
+pela Desigualdade de Bessel.
+Mas esse elemento deveria ser uma combinação linear finita de elementos de <script type="math/tex">A</script>, o que não é possível.</p>
+<p><strong>Teorema:</strong> Suponha que <script type="math/tex">A</script> seja conjunto ortonormal e <script type="math/tex">\overline{[A]} = X</script>. 
+Então <script type="math/tex">A</script> é completo. Se <script type="math/tex">X</script> é espaço de Hilbert, vale a recíproca.</p>
+<h2 id="identidade-de-parseval">Identidade de Parseval</h2>
+<p>Seja <script type="math/tex">X</script> um espaço com produto interno e <script type="math/tex">A = \{x_{\alpha}\}</script> um conjunto ortonormal.
+Então, se para todo <script type="math/tex">x \in X</script>,
+<script type="math/tex; mode=display">
+\|x\|^2 = \sum_{\alpha} |\langle x, x_{\alpha} \rangle|^2, 
+</script>
+então <script type="math/tex">A</script> é completo.
+Além disso, se <script type="math/tex">X</script> é Hilbert e <script type="math/tex">A</script> é ortonormal completo, a relação acima vale para todo <script type="math/tex">x \in X</script>.</p></div>
         
         
     </div>
