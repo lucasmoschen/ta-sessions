@@ -168,13 +168,201 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
         <li class="first-level active"><a href="#espacos-com-produto-interno">Espaços com produto interno</a></li>
+            <li class="second-level"><a href="#conceitos-introdutorios">Conceitos introdutórios</a></li>
+                
+            <li class="second-level"><a href="#produto-interno-e-suas-implicacoes">Produto interno e suas implicações</a></li>
+                
+                <li class="third-level"><a href="#processo-de-gram-schmidt">Processo de Gram-Schmidt</a></li>
+            <li class="second-level"><a href="#teorema-da-representacao-de-riesz">Teorema da Representação de Riesz</a></li>
+                
+                <li class="third-level"><a href="#operador-adjunto">Operador adjunto</a></li>
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
 <h1 id="espacos-com-produto-interno">Espaços com produto interno</h1>
-<p>-&gt; Capítulo 1 Bachman</p>
-<p>-&gt; Capítulo 9 Bachman</p></div>
+<p>Primeiro, destacamos algumas definições iniciais importantes para a fluência do estudo.
+Depois, definimos o produto interno e suas principais consequências.
+Atenção para o processo de Gram-Schmidt é dada em uma subseção separada.</p>
+<h2 id="conceitos-introdutorios">Conceitos introdutórios</h2>
+<p>Um conceito fundamental é o de base:</p>
+<blockquote>
+<p><strong>Definição:</strong>  Um conjunto de vetores é dito <strong>linearmente independente</strong> se todo subconjunto finito é linearmente independente, isto é, 
+<script type="math/tex; mode=display">
+\sum_{i=1}^n \alpha_i x_i = 0 \implies \alpha_i = 0, \forall i.
+</script>
+Se um conjunto de vetores linearmente independente tem a propriedade de que todo vetor pode ser escrito como uma combinação linear de seus elementos, então ele é uma <strong>base</strong>, também chamada de <strong>base de Hamel</strong>. 
+Note que <em>combinação linear</em> se refere a uma soma finita. </p>
+</blockquote>
+<p>Por extensão, uma coleção de subespaços <script type="math/tex">M_1, \dots, M_n</script> é <strong>linearmente independente</strong> se, para todo <script type="math/tex">i</script>, 
+<script type="math/tex; mode=display">
+M_i \cap \sum_{j \neq i} M_j = \{0\},
+</script>
+isto é nenhum vetor de <script type="math/tex">M_i</script> pode ser representado como soma de vetores dos outros conjuntos.
+Nesse caso, se <script type="math/tex">M_1, \dots, M_n</script> é linearmente independente e 
+<script type="math/tex; mode=display">
+X = M_1 + \dots + M_n, 
+</script>
+então esses conjuntos formam uma <strong>decomposição soma direta (interna)</strong>  de <script type="math/tex">X</script>, geralmente escrito como 
+<script type="math/tex; mode=display">
+X = M_1 \oplus \dots \oplus M_n.
+</script>
+</p>
+<p>Com essas definições básicas, podemos introduzir o <strong>produto interno</strong>.</p>
+<h2 id="produto-interno-e-suas-implicacoes">Produto interno e suas implicações</h2>
+<blockquote>
+<p><strong>Definição:</strong> Um produto interno no espaço vetorial <script type="math/tex">X</script>, sobre os complexos ou reais, é um mapeamento 
+<script type="math/tex; mode=display">
+X \times X \to F, \text{ tal que } (x,y) \to \langle x,y \rangle, 
+</script>
+com as propriedades:</p>
+<ol>
+<li>
+<script type="math/tex">\langle x, y \rangle = \overline{\langle y, x \rangle}</script> para todo <script type="math/tex">x,y</script>.</li>
+<li>
+<script type="math/tex">\langle \alpha x + \beta y, x \rangle = \alpha \langle x, z \rangle + \beta \langle y, z \rangle</script>.</li>
+<li>
+<script type="math/tex">\langle x, x \rangle \ge 0</script> para todo <script type="math/tex">x</script> e se anula somente se <script type="math/tex">x=0</script>.</li>
+</ol>
+</blockquote>
+<p>Note que todo espaço com produto interno é um espaço normado com a norma 
+<script type="math/tex; mode=display">
+\|x\| = \sqrt{\langle x, x \rangle}.
+</script>
+</p>
+<p>Alguns exemplos clássicos</p>
+<hr />
+<p><code>📝</code> <strong>Exemplo (Espaço Euclidiano)</strong></p>
+<p>O espaço <script type="math/tex">X = \mathbb{C}^n</script> com o mapa 
+<script type="math/tex; mode=display">
+\langle x, y \rangle = \sum_{i=1}^n x_i\bar{y}_i.
+</script>
+é um espaço com produto interno.</p>
+<hr />
+<hr />
+<p><code>📝</code> <strong>Exemplo (Funções contínuas)</strong></p>
+<p>O espaço <script type="math/tex">X = C[a,b]</script> o espaço das funções contínuas com imagem complexa com o mapa
+<script type="math/tex; mode=display">
+\langle f, g \rangle = \int_a^b f(x) \bar{g}(x) \, dx.
+</script>
+é um espaço com produto interno.</p>
+<hr />
+<hr />
+<p><code>📝</code> <strong>Exemplo (Funções mensuráveis)</strong></p>
+<p>Seja <script type="math/tex">X = L_2(E, \mu)</script> o espaço das funções mensuráveis com respeito a medida <script type="math/tex">\mu</script> em um subconjunto <script type="math/tex">E</script> de uma <script type="math/tex">\sigma</script>-álgebra.
+Restrinja essas funções pelas classes de equivalência determinadas pela propriedade "iguais exceto em um conjunto de medida nula" e defina o mapeamento
+<script type="math/tex; mode=display">
+\langle f, g \rangle = \int_E f \bar{g} \, d\mu.
+</script>
+Então <script type="math/tex">\left(X, \langle \cdot, \cdot \rangle\right)</script> é um espaço com produto interno.</p>
+<hr />
+<p>Alguns teoremas importantes que advém da definição de produto interno:</p>
+<p><strong>Teorema (Cauchy-Schwarz):</strong> Seja <script type="math/tex">X</script> um espaço com produto interno. 
+Então, 
+<script type="math/tex; mode=display">
+|\langle x,y \rangle| \le \|x\|\|y\|,
+</script>
+em que a igualdade só vale se <script type="math/tex">x</script> e <script type="math/tex">y</script> são linearmente dependentes.</p>
+<p><strong>Teorema (Polarização):</strong> Seja <script type="math/tex">X</script> um espaço com produto interno. Então, 
+<script type="math/tex; mode=display">
+\langle x,y \rangle = \frac{1}{4} \|x+y\|^2 - \frac{1}{4} \|x-y\|^2 + \frac{i}{4}c \|x+iy\|^2 - \frac{i}{4}c \|x-iy\|^2, 
+</script>
+em que <script type="math/tex">c = 1</script> se o espaço é complexo e <script type="math/tex">c = 0</script> se é real.</p>
+<p><strong>Teorema (Lei do Paralelogramo):</strong> Seja <script type="math/tex">X</script> um espaço com produto interno. Então
+<script type="math/tex; mode=display">
+\|x+y\|^2 + \|x-y\|^2 = 2\|x\|^2 + 2\|y\|^2.
+</script>
+</p>
+<blockquote>
+<p><strong>Definição:</strong> Dizemos que <script type="math/tex">x</script> e <script type="math/tex">y</script> são <strong>ortogonais</strong> se <script type="math/tex">\langle x,y \rangle = 0</script> e denotamos por <script type="math/tex">x \perp y</script>.</p>
+</blockquote>
+<p><strong>Teorema de Pitágoras:</strong> Se <script type="math/tex">x \perp y</script>, então <script type="math/tex">\|x+y\|^2 = \|x\|^2 + \|y\|^2</script>.</p>
+<blockquote>
+<p><strong>Conjunto ortogonal de vetores:</strong> <script type="math/tex">S \subset X</script> com a propriedade de que <script type="math/tex">\forall x,y \in S, \langle x,y \rangle = 0</script>.
+Além do mais, se <script type="math/tex">\|x\| = 1</script> para todo <script type="math/tex">x \in S</script>, ele é dito <strong>ortonormal</strong>.</p>
+</blockquote>
+<hr />
+<p><code>📝</code> <strong>Exemplo (Espaço de sequências)</strong></p>
+<p>Seja <script type="math/tex">l_2</script> o espaço das sequências de números reais com <script type="math/tex">\sum_{i=1}^{\infty} x_i^2 < \infty</script> e o produto interno nesse espaço 
+<script type="math/tex; mode=display">
+\langle x,y \rangle = \sum_{i=1}^{\infty} x_i y_i.
+</script>
+O subconjunto <script type="math/tex">S = \{e_i : i \in  \mathbb{N}\}</script>, em que <script type="math/tex">(e_i)_j = 1</script> se <script type="math/tex">j=i</script> e <script type="math/tex">0</script> caso contrário, forma um conjunto ortonormal de <script type="math/tex">l_2</script>.</p>
+<hr />
+<hr />
+<p><code>📝</code> <strong>Exemplo (Espaço <script type="math/tex">L_2</script>)</strong></p>
+<p>Considere o espaço <script type="math/tex">L_2([-\pi, \pi])</script>. A coleção de funções 
+<script type="math/tex; mode=display">
+x_n = \frac{1}{\sqrt{2\pi}} e^{i n t}
+</script>
+é um conjunto de vetores ortonormal.</p>
+<hr />
+<p><strong>Teorema:</strong> Se <script type="math/tex">X</script> é espaço de produto interno e <script type="math/tex">S \subseteq X</script> é ortonormal tal que <script type="math/tex">0 \not \in S</script>, então <script type="math/tex">X</script> é LI.</p>
+<hr />
+<p>Ideia da prova:</p>
+<p>Escolha <script type="math/tex">x_1, \dots, x_n \in S</script> e faça <script type="math/tex">y = \alpha_1 x_1 + \dots + \alpha_n x_n = 0</script>.
+Note que <script type="math/tex">\langle y, x_i \rangle = 0</script>, mas pela definição de <script type="math/tex">S</script>, <script type="math/tex">\langle y, x_i \rangle = \alpha_i \langle x_i, x_i \rangle = 0</script>,
+que implica que <script type="math/tex">\alpha_i = 0</script>, como queríamos mostrar.</p>
+<hr />
+<h3 id="processo-de-gram-schmidt">Processo de Gram-Schmidt</h3>
+<p>Seja <script type="math/tex">X</script> um espaço de produto interno e <script type="math/tex">\{y_1, \dots, y_n, \dots, \}</script> um conjunto de vetores LI.
+Então, existe um conjunto ortonormal <script type="math/tex">\{x_1, \dots, x_n, \dots\}</script> tal que 
+<script type="math/tex; mode=display">
+[\{y_1, \dots, y_n\}] = [\{x_1, \dots, x_n\}], \forall n \in \N.
+</script>
+</p>
+<hr />
+<p>Ideia da prova:</p>
+<ol>
+<li>Verifique para <script type="math/tex">n=1</script> com <script type="math/tex">x_1 = y_1/\|y_1\|</script>.</li>
+<li>Assuma que exista uma construção de vetores <script type="math/tex">x_1, \dots, x_{n-1}</script> com a propriedade desejada.
+Queremos construir o <script type="math/tex">n</script>-ésimo vetor:
+<script type="math/tex; mode=display">
+w = y_n - \sum_{i=1}^{n-1} \langle y_n, x_i \rangle x_i \implies \langle w, x_i \rangle = 0, 1 \le i \le n.
+</script>
+</li>
+<li>É claro que <script type="math/tex">w \neq 0</script>, pois nesse caso <script type="math/tex">y_n</script> seria combinação linear de <script type="math/tex">y_1, \dots, y_{n-1}</script>, absurdo.</li>
+<li>Faça <script type="math/tex">x_n = w/\|w\|</script> e prove que <script type="math/tex">[\{y_1, \dots, y_n\}] = [\{x_1, \dots, x_n\}]</script>.</li>
+</ol>
+<hr />
+<p>O interessante desse teorema é que a partir de vetores LI, construímos uma ideia inicial de "base" ortogonal, que é muito mais fácil de se trabalhar. Em particular, os coeficientes de qualquer vetor nessa base são dados por produtos internos simples!</p>
+<blockquote>
+<p><strong>Definição:</strong> Seja <script type="math/tex">X</script> um espaço com produto interno. Chamamos 
+<script type="math/tex; mode=display">
+S^{\perp} = \{y \in X : y \perp x, \forall x \in S\}
+</script>
+de <strong>complemento ortogonal</strong> de <script type="math/tex">S</script>. </p>
+</blockquote>
+<p>Mesmo que <script type="math/tex">S</script> seja só um conjunto, temos que <script type="math/tex">S^{\perp}</script> é um subespaço de <script type="math/tex">X</script>.</p>
+<p><strong>Teorema:</strong> Seja <script type="math/tex">X</script> um espaço com produto interno e <script type="math/tex">M</script> subespaço de dimensão finita. Então <script type="math/tex">X = M \oplus M^{\perp}</script>, isto é, para todo <script type="math/tex">x \in X</script>, existe <script type="math/tex">a \in M</script> e <script type="math/tex">b \in M^{\perp}</script> tal que <script type="math/tex">x = a+b</script> e <script type="math/tex">M \cap M^{\perp} = \{0\}</script>.</p>
+<h2 id="teorema-da-representacao-de-riesz">Teorema da Representação de Riesz</h2>
+<p>Temos que <script type="math/tex">f</script> é um funcional linear limitado definido em um espaço de Hilbert <script type="math/tex">X</script> se, e somente se, existe um único <script type="math/tex">y \in X</script> tal que
+<script type="math/tex; mode=display">
+f(x) = \langle x,y \rangle.
+</script>
+Em termos do espaço conjugado, podemos descrever esse teorema como 
+<script type="math/tex; mode=display">
+\tilde{X} = \{f_y(\cdot) = \langle \cdot,y \rangle | \, y \in X\}.
+</script>
+</p>
+<h3 id="operador-adjunto">Operador adjunto</h3>
+<p>Seja <script type="math/tex">X</script> de dimensão finita e <script type="math/tex">A : X \to X</script> uma transformação linear.
+Para <script type="math/tex">y \in X</script>, o mapa <script type="math/tex">f^y(x) = \langle Ax, y \rangle</script> é um funcional linear em <script type="math/tex">X</script>. 
+Pelo Teorema de Riesz, existe <script type="math/tex">z \in X</script> tal que <script type="math/tex">f^y(x) = \langle x, z \rangle</script>, isto é, 
+<script type="math/tex; mode=display">
+\langle Ax, y \rangle = \langle x, z \rangle, \forall x \in X.
+</script>
+Como para cada <script type="math/tex">y</script> existe um único <script type="math/tex">z</script>, podemos definir uma função 
+<script type="math/tex; mode=display">
+A^*(y) = z,
+</script>
+e então, 
+<script type="math/tex; mode=display">
+\langle Ax, y \rangle = \langle x, A^*y \rangle, \forall x \in X,
+</script>
+o que define <script type="math/tex">A^*</script> como <strong>operador adjunto</strong> de <script type="math/tex">A</script>.
+Além disso, podemos verificar que ele é uma transformação linear.</p>
+<p>Além disso, se <script type="math/tex">A = A^*</script>, o operador é <strong>auto-adjunto</strong> e se <script type="math/tex">AA^* = A^*A</script>, o operador é <strong>normal</strong>.</p></div>
         
         
     </div>
