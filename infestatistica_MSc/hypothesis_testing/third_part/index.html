@@ -168,6 +168,7 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
         <li class="first-level active"><a href="#testes-uniformemente-mais-poderosos">Testes Uniformemente mais Poderosos</a></li>
+        <li class="first-level "><a href="#dualidade-entre-teste-de-hipoteses-e-intervalo-de-confianca">Dualidade entre Teste de Hipóteses e Intervalo de Confiança</a></li>
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
@@ -207,7 +208,28 @@ Então o teste
 \end{cases}
 </script>
 é <strong>uniformemente mais poderoso</strong> ao testar <script type="math/tex">H_0 : \theta \le \theta_0</script> contra <script type="math/tex">H_1 : \theta > \theta_0</script>.
-As constantes <script type="math/tex">\gamma</script> e <script type="math/tex">c</script> são definidas a fim do teste ter nível <script type="math/tex">\alpha</script>.</p></div>
+As constantes <script type="math/tex">\gamma</script> e <script type="math/tex">c</script> são definidas a fim do teste ter nível <script type="math/tex">\alpha</script>.</p>
+<h1 id="dualidade-entre-teste-de-hipoteses-e-intervalo-de-confianca">Dualidade entre Teste de Hipóteses e Intervalo de Confiança</h1>
+<p>Temos que se 
+<script type="math/tex; mode=display">
+\Pr_{\theta}(g(\theta) \in S(X)) \ge 1-\alpha, \forall \theta \in \Omega,
+</script>
+então <script type="math/tex">S(X)</script> é dito região de  confiança com nível <script type="math/tex">1-\alpha</script> para <script type="math/tex">g(\theta)</script>.</p>
+<p>Por outro lado, para cada parâmetro <script type="math/tex">\theta_0</script>, temos uma região de aceitação <script type="math/tex">A(\theta_0)</script> com nível <script type="math/tex">\alpha</script> para o teste <script type="math/tex">H_0 : g(\theta) = g(\theta_0)</script> tal que 
+<script type="math/tex; mode=display">
+\Pr_{\theta}(X \in A(\theta)) \ge 1 - \alpha, \forall \theta \in \Omega.
+</script>
+Defina <script type="math/tex">S(x) = \{g(\theta) : x \in A(\theta)\}</script>.
+Por definição, <script type="math/tex">S(X)</script> é uma região de confiança para <script type="math/tex">g(\theta)</script> com nível <script type="math/tex">1-\alpha</script>.</p>
+<p>Além do mais, dado uma região de confiança <script type="math/tex">S(X)</script>, podemos definir um teste 
+<script type="math/tex; mode=display">
+\delta(x) = \begin{cases}
+    1, &g(\theta_0) \not \in S(x) \\
+    0, &\text{c.c.}
+\end{cases}
+</script>
+</p>
+<p>que tem nível no máximo <script type="math/tex">\alpha</script>.</p></div>
         
         
     </div>

@@ -168,10 +168,14 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
         <li class="first-level active"><a href="#teste-de-hipoteses-alguns-testes">Teste de Hipóteses: Alguns testes</a></li>
+            <li class="second-level"><a href="#teste-de-razao-de-verossimilhanca">Teste de Razão de Verossimilhança</a></li>
+                
             <li class="second-level"><a href="#teste-de-hipotese-simples">Teste de Hipótese Simples</a></li>
                 
                 <li class="third-level"><a href="#lema-neyman-pearson">Lema Neyman-Pearson</a></li>
                 <li class="third-level"><a href="#implementacao">Implementação</a></li>
+            <li class="second-level"><a href="#karlin-rubin">Karlin-Rubin</a></li>
+                
             <li class="second-level"><a href="#hipotese-alternativa-bilateral">Hipótese Alternativa Bilateral</a></li>
                 
             <li class="second-level"><a href="#teste-t">Teste t</a></li>
@@ -198,12 +202,25 @@
 <h1 id="teste-de-hipoteses-alguns-testes">Teste de Hipóteses: Alguns testes</h1>
 <p>Agora que já definimos os principais conceitos de teste de hipótese, vamos discutir algun casos particulares:</p>
 <ol>
+<li>Teste de Razão de Verossimilhança</li>
 <li>Teste de Hipóteses Simples </li>
-<li>Hipótese Alternativa Bilateral </li>
+<li>Karlin-Rubin</li>
+<li>Hipótese Alternativa Bilateral</li>
 <li>Teste T</li>
 <li>Comparando médias de duas Normais</li>
-<li>Comparando variâncias de duas Normais </li>
+<li>Comparando variâncias de duas Normais</li>
 </ol>
+<h2 id="teste-de-razao-de-verossimilhanca">Teste de Razão de Verossimilhança</h2>
+<p>Se <script type="math/tex">L(\theta | x)</script> é a verossimilhança de um modelo para <script type="math/tex">X_1, \dots, X_n</script>, considere a estatística
+<script type="math/tex; mode=display">
+\lambda(x) = \frac{\sup_{\theta \in \Theta_0} L(\theta|x)}{\sup_{\theta \in \Theta} L(\theta|x)},
+</script>
+para o teste <script type="math/tex">H_0: \theta \in \Theta_0</script> contra <script type="math/tex">H_1 : \theta \in \Theta_1 = \Theta - \Theta_0</script>.
+A região de rejeição desse teste é do tipo 
+<script type="math/tex; mode=display">
+{x : \lambda(x) \le c},
+</script>
+com <script type="math/tex">c</script> dado de forma que <script type="math/tex">\Pr_{\theta \in \Theta_0}(\lambda(X) \le c) \le \alpha</script>.</p>
 <h2 id="teste-de-hipotese-simples">Teste de Hipótese Simples</h2>
 <p>Uma hipótese <script type="math/tex">H_i : \theta \in \Omega_i</script> é dita <strong>simples</strong> se <script type="math/tex">\Omega_i</script> contém um único parâmetro <script type="math/tex">\theta_i</script>.
 Nesse caso, o espaço <script type="math/tex">\Omega</script> é formada por duas distribuições concorrentes.
@@ -315,6 +332,10 @@ print(p)</code></pre>
     O valor de p é .... 
     0.4</p>
 <p>Fizemos bem em não rejeitar a hipótese nula!</p>
+<h2 id="karlin-rubin">Karlin-Rubin</h2>
+<p>O Teorema de Karlin-Rubin estende o Lema de Neyman-Pearson para hipóteses compostas.
+Assim, considere <script type="math/tex">H_0 : \theta \le \theta_0</script> contra <script type="math/tex">H_1 : \theta > \theta_0</script>. 
+Se <script type="math/tex">T</script> é uma estatística suficiente para <script type="math/tex">\theta</script> e a familia de pdfs <script type="math/tex">\{g(t|\theta) : \theta \in \Theta\}</script> de <script type="math/tex">T</script> tem razão de verossimilhanças crescentes, então para todo <script type="math/tex">t_0</script>, o teste que rejeita <script type="math/tex">H_0</script> se <script type="math/tex">T > t_0</script> é UMP com nível <script type="math/tex">\alpha</script>, em que <script type="math/tex">\alpha = \Pr_{\theta_0}(T > t_0)</script>.</p>
 <h2 id="hipotese-alternativa-bilateral">Hipótese Alternativa Bilateral</h2>
 <p>Seja <script type="math/tex">X = (X_1, ..., X_n)</script> uma amostra aleatória de uma distribuição normal com média <script type="math/tex">\mu</script> desconhecida e variância <script type="math/tex">\sigma^2</script> conhecida e queremos testar a hipótese 
 <script type="math/tex; mode=display">
