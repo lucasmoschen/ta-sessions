@@ -209,3 +209,81 @@ o que define $A^*$ como **operador adjunto** de $A$.
 Além disso, podemos verificar que ele é uma transformação linear.
 
 Além disso, se $A = A^*$, o operador é **auto-adjunto** e se $AA^* = A^*A$, o operador é **normal**.
+
+## Espaço de Hilbert
+
+Seja $X$ um espaço com produto interno e defina a métrica
+$$
+d(x,y) = \sqrt{\langle x-y, x-y\rangle}.
+$$
+Então $(X,d)$ é um espaço métrico. 
+Se ele for completo, dizemos que $X$ é um **espaço de Hilbert**.
+
+Já provamos que todo espaço métrico possui um completamento e que todo espaço normado pode ser completado para um espaço de Banach.
+Para espaços com produto interno isso também é válido, definindo
+$$
+\langle x^*, y^* \rangle = \lim_n \langle x_n, y_n \rangle, 
+$$
+em que $x^*, y^* \in X^*$ é o espaço das classes de equivalência de sequências de Cauchy.
+
+---
+``📝`` **Exemplo (Funções contínuas)**
+
+O espaço $X = C[a,b]$ com o produto interno
+$$
+\langle f, g \rangle = \int_a^b f(x) \bar{g}(x) \, dx.
+$$
+não é espaço de Hilbert.
+
+---
+
+## Desigualdade de Bessel
+
+Considere o seguinte importante resultado
+
+**Teorema:** Seja $X$ um espaço com produto interno, $A$ um conjunto de vetores ortonormal e $y \in X$. 
+Então 
+
+1. (**Desigualdade de Bessel**): $\sum_{i=1}^n |\langle y, x_i \rangle|^2 \le \|y\|^2, \forall x_1, \dots, x_n \in A$.
+
+2. $E = \{x \in A : \langle y, x \rangle \neq 0\}$ é enumerável.
+
+3. Se $z \in X$, então $\sum_{x \in A} |\langle y,x \rangle ||\overline{\langle z, x \rangle}| \le \|y\|\|z\|$.
+
+Outra caracterização de conjuntos ortogonais é que se $X$ for separável e $A$ ortonormal, então ele será enumerável.
+
+## Conjuntos Ortonormais Completos
+
+Definimos um conjunto ortonormal como **completo** se não existe outro conjunto ortonormal que contenha-o. 
+Em outras palavras, ele é completo se é o conjunto ortonormal maximal.
+Como essa definição é complicado em geral, o seguinte critério ajuda bastante:
+
+**Proposição:** Um conjunto ortonormal $A$ é completo se, e só se, para todo $x$ tal que $x \perp A$, tem-se que $x = 0$.
+
+Além do mais, 
+
+1. Existe um conjunto ortonormal completo em $X$, e
+
+2. Qualquer conjunto ortonormal pode ser estendido para um conjunto ortonormal completo.
+
+**Proposição:** Um conjunto ortonormal completo infinito nunca é uma base (de Hamel) em um espaço de Hilbert.
+
+A prova dessa proposição se dá por contradição extraindo uma sequência de pontos em um conjunto ortonormal completo infinito e observado a soma 
+$$
+\sum_{k=1}^{\infty} \frac{1}{k^2} x_k = x,
+$$
+pela Desigualdade de Bessel.
+Mas esse elemento deveria ser uma combinação linear finita de elementos de $A$, o que não é possível.
+
+**Teorema:** Suponha que $A$ seja conjunto ortonormal e $\overline{[A]} = X$. 
+Então $A$ é completo. Se $X$ é espaço de Hilbert, vale a recíproca.
+
+## Identidade de Parseval
+
+Seja $X$ um espaço com produto interno e $A = \{x_{\alpha}\}$ um conjunto ortonormal.
+Então, se para todo $x \in X$,
+$$
+\|x\|^2 = \sum_{\alpha} |\langle x, x_{\alpha} \rangle|^2, 
+$$
+então $A$ é completo.
+Além disso, se $X$ é Hilbert e $A$ é ortonormal completo, a relação acima vale para todo $x \in X$.
