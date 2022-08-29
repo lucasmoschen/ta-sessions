@@ -52,8 +52,8 @@ Os exercícios resolvidos estão disponíveis:
 
 |Lista|Tópicos|Solução|
 |-----|-------|-------|
-|[5](https://github.com/maxbiostat/Statistical_Inference_MSc/blob/main/listas/lista5_InfEst_MSc.pdf)|Estimação intervalar e quantidades pivotais|[5](/ta-sessions/unavailable/)|
-|[6](https://github.com/maxbiostat/Statistical_Inference_MSc/blob/main/listas/lista6_InfEst_MSc.pdf)|Método Delta|[6](/ta-sessions/unavailable/)|
+|[5](https://github.com/maxbiostat/Statistical_Inference_MSc/blob/main/listas/lista5_InfEst_MSc.pdf)|Estimação intervalar e quantidades pivotais|[5](https://lucasmoschen.github.io/files/disciplines/statistical_inference/solutions5.pdf)|
+|[6](https://github.com/maxbiostat/Statistical_Inference_MSc/blob/main/listas/lista6_InfEst_MSc.pdf)|Método Delta|[6](https://lucasmoschen.github.io/files/disciplines/statistical_inference/solutions6.pdf)|
 
 ## Notas
 
