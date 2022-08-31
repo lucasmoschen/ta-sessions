@@ -64,6 +64,8 @@ Os exercícios resolvidos estão disponíveis:
 |20/07/2022|Lista adicional|Ver soluções|
 |26/07/2022|Revisão geral|[ver arquivo](https://lucasmoschen.github.io/files/disciplines/statistical_inference/monitoria_26_07_2022.pdf)|
 |17/08/2022|Teoria assintótica|Monitoria presencial|
+|24/08/2022|Lista 5|Monitoria presencial|
+|31/08/2022|Lista 5 e 6|Monitoria presencial|
   
 ## Documentos Adicionais 
 
