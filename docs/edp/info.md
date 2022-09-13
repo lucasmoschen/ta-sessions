@@ -31,6 +31,7 @@ Monitoria de Equações Diferenciais Parciais.
 |------|----------------|-------|
 |[1](/files/disciplines/edp2022/lista1.pdf)|Equações diferenciais ordinárias|[1](/files/disciplines/edp2022/solutions1.pdf)|
 |[2](/files/disciplines/edp2022/lista2.pdf)|Método das características|[2](/files/disciplines/edp2022/solutions2.pdf)|
+|[Extra](/files/disciplines/edp2022/lista_hj.pdf)|Hamilton-Jacobi|[Extra](/files/disciplines/edp2022/lista_hj.pdf)|
 
 ### Notas
   
