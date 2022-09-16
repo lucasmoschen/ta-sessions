@@ -1,10 +1,10 @@
-# Equações Semiliares de Segunda Ordem 
+# Equações Semilineares de Segunda Ordem 
 
 Esse é uma breve introdução ao tópico para indicar o estudo. Para mais detalhes, o livro da professora Valéria Iório é sugerido. Temos que uma EDP semilinear de segunda ordem com duas variáveis é da forma 
 $$
 a(x,y) u_{xx} + 2b(x,y)u_{xy} + c(x,y)u_{yy} = f(x,y,u,u_x,u_y),
 $$
-cuja parte principal é o lado esquerdo da equação. Suponha que as funções $a,b,c$ sejam contínuas e defina a função **discriminate**:
+cuja parte principal é o lado esquerdo da equação. Suponha que as funções $a,b,c$ sejam contínuas e defina a função **discriminante**:
 $$
 \delta(x,y) = b^2(x,y) - a(x,y)c(x,y).
 $$
@@ -21,7 +21,7 @@ Se a condição (1), (2) ou (3) vale para todo o ponto em $\Omega$, então a EDP
 
 ## Curvas características 
 
-Para EDPs de segunda ordem, as curvas características são curvas planas ao longo das quais a EDP pode ser escrita em uma forma que contenha as derivadas de $u_x$ e $u_y$. Suponha que $a$ não se anula na região de interesse. Caso se anule, considere $c$ ou $b, pois uma delas não se anula na região de interesse, se não a EDP seria de primeira ordem. Reescreva o problema como 
+Para EDPs de segunda ordem, as curvas características são curvas planas ao longo das quais a EDP pode ser escrita em uma forma que contenha as derivadas de $u_x$ e $u_y$. Suponha que $a$ não se anula na região de interesse. Caso se anule, considere $c$ ou $b$, pois uma delas não se anula na região de interesse, se não a EDP seria de primeira ordem. Reescreva o problema como 
 
 $$
 \begin{cases}
@@ -56,7 +56,7 @@ isto é, se $dy/dx = \mu(x,y)$, então $a\mu^2 - 2b\mu + c = 0$. Portanto, o sin
 - No caso hiperbólico, duas famílias satisfazem. 
 - No caso elíptico, não existem soluções para $\mu$. 
 
-As curvas definadas por 
+As curvas definidas por 
 $$
 \frac{dy}{dx} = \mu(x,y)
 $$
@@ -67,9 +67,9 @@ $$
 u_{tt} = c^2u_{xx}.
 $$
 
-Nessse caso $a, b, c$ são constantes com $a = 1, b = 0$ e $c = -c^2$. Assim, 
+Nesse caso $a, b, c$ são constantes com $a = 1, b = 0$ e $c = -c^2$. Assim, 
 $$
-\mu^2 -c^2 = 0 \implies \mu \pm c.
+\mu^2 -c^2 = 0 \implies \mu = \pm c.
 $$
 Obtemos que 
 $$

@@ -13,7 +13,7 @@ Monitoria de Equações Diferenciais Parciais.
 |---|
 |[Método das características](/ta-sessions/edp/characteristics/characteristics)|
 |[Cálculo das variações e Hamiltoniano](/ta-sessions/edp/calculus_of_variations)|
-|[Equações Semiliniares de Segunda Ordem](/ta-sessions/edp/second_order_semilinear)|
+|[Equações Semilineares de Segunda Ordem](/ta-sessions/edp/second_order_semilinear)|
 |[Teoria de Fourier](/ta-sessions/edp/fft/fft)|
 
 |Algumas equações|
@@ -69,7 +69,7 @@ Monitoria de Equações Diferenciais Parciais.
 |19/08/2021|Teorema da Retificação|[Visualizar](/files/disciplines/edp/monitoria19-08-2021.pdf)|Não|
 |09/09/2021|Exemplos equações características|[Visualizar](/files/disciplines/edp/exemplos_equacoes_caracteristicas.pdf)|Não|
 |30/09/2021|Hamilton-Jacobi e cálculo das variações|[Visualizar](/files/disciplines/edp/hamilton-jacobi.pdf)|Não|
-|28/10/2021|Convolução, Fourier e Lista 5|[Viualizar](/files/disciplines/edp/monitoria28-10-2021.pdf)|Sim|
+|28/10/2021|Convolução, Fourier e Lista 5|[Visualizar](/files/disciplines/edp/monitoria28-10-2021.pdf)|Sim|
 
 ## Provas
 
@@ -81,5 +81,5 @@ Monitoria de Equações Diferenciais Parciais.
 
 - [O que é fluxo?](http://www.phys.boun.edu.tr/~burcin/Flux.pdf)
 - [Differential equations 3b1b](https://www.youtube.com/playlist?list=PLZHQObOWTQDNPOjrT6KVlfJuKtYTftqH6)
-- [Livro mais avançado por Rafael José Iorio Jr e Valéria de Magalhães Iorio](https://www.amazon.com.br/Fourier-Analysis-Partial-Differential-Equations/dp/052162116X)
+- [Livro mais avançado por Rafael José Iório Jr e Valéria de Magalhães Iório](https://www.amazon.com.br/Fourier-Analysis-Partial-Differential-Equations/dp/052162116X)
 - [Livro Partial Differential Equations de Lawrence C.Evans](https://www.amazon.com.br/Partial-Differential-Equations-Lawrence-Evans/dp/0821807722)
