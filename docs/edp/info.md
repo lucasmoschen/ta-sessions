@@ -47,6 +47,7 @@ Monitoria de Equações Diferenciais Parciais.
 
 |Ano|Bimestre|Questões|Soluções|Observações|
 |---|--------|--------|--------|-----------|
+|2022|T1|[ver arquivo](/files/disciplines/edp2022/t1.pdf)|[ver arquivo](/files/disciplines/edp2022/t1_solucoes.pdf)|-|
 
 ## Período 2021.2
 
