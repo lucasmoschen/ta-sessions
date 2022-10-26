@@ -45,6 +45,7 @@ Monitoria de Equações Diferenciais Parciais.
 |05/09/2022|Exercícios de revisão|[ver](/files/disciplines/edp2022/monitoria05-09-2022.pdf)|
 |17/10/2022|Notas sobre séries de Fourier|[ver](/files/disciplines/edp2022/fourier_notes.pdf)|
 |18/10/2022|Transforma de Fourier Finita|[ver](/files/disciplines/edp2022/monitoria18-10-2022.pdf)|
+|26/10/2022|Revisão geral da disciplina|[ver](/files/disciplines/edp2022/monitoria26-10-2022.pdf)|
 
 ### Provas
 
