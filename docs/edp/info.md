@@ -50,7 +50,7 @@ Monitoria de Equações Diferenciais Parciais.
 |01/11/2022|Resolvendo EDPs com Fourier|[ver](/files/disciplines/edp2022/monitoria01-11-2022.pdf)|
 |08/11/2022|Exercícios para praticar|[ver](/files/disciplines/edp2022/monitoria08-11-2022.pdf)|
 |15/11/2022|Dúvidas lista 5|[ver](/files/disciplines/edp2022/monitoria15-11-2022.pdf)|
-|24/11/2022|Dúvidas lista 5|[ver](/files/disciplines/edp2022/monitoria24-11-2022.pdf)|
+|24/11/2022|Revisão geral|[ver](/files/disciplines/edp2022/monitoria24-11-2022.pdf)|
 
 ### Provas
 
