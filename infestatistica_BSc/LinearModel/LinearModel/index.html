@@ -184,7 +184,7 @@
 
 <h1 id="modelo-linear">Modelo Linear</h1>
 <h2 id="minimos-quadrados">Mínimos quadrados</h2>
-<p>Sejam os pontos <script type="math/tex">(x_1, y_1), ..., (x_n,y_n)</script>. A reta que minimiza <script type="math/tex">\sum_{i=1}^n (y_i - (\beta_0 + \beta_1 x_i))^2</script> segundo <script type="math/tex">\beta_0</script> e <script type="math/tex">\beta_1</script> tem inclinação e intecepto</p>
+<p>Sejam os pontos <script type="math/tex">(x_1, y_1), ..., (x_n,y_n)</script>. A reta que minimiza <script type="math/tex">\sum_{i=1}^n (y_i - (\beta_0 + \beta_1 x_i))^2</script> segundo <script type="math/tex">\beta_0</script> e <script type="math/tex">\beta_1</script> tem inclinação e intercepto</p>
 <p>
 <script type="math/tex; mode=display">
 \hat{\beta}_1 = \dfrac{\sum_{i=1}^n (y_i - \bar{y})(x_i - \bar{x})}{\sum_{i=1}^n (x_i - \bar{x})^2}
@@ -274,7 +274,11 @@ E[Y|x_1,\dots,x_k] = \beta_0 + \beta_1 x_1 + \dots \beta_k x_k
 \hat{\beta}_0 \sim \mathcal{N}\left(\beta_0, \sigma^2\left(\frac{1}{n} + \frac{\bar{x}^2}{s_x^2}\right)\right)
 </script>
 </p>
-<p>tal que <script type="math/tex">Cov(\hat{\beta}_0, \hat{\beta}_1) = \frac{\bar{x}\sigma^2}{s_x^2}</script>. Em particular a distribuição conjunta desses parâmetros é uma normal bivariada com as médias, vaiâncias e covariância especificadas acima. <em>As distribuições são todas condicionadas em <script type="math/tex">X_i = x_i</script>.</em></p>
+<p>tal que 
+<script type="math/tex; mode=display">
+Cov(\hat{\beta}_0, \hat{\beta}_1) = -\frac{\bar{x}\sigma^2}{s_x^2}.
+</script>
+Em particular a distribuição conjunta desses parâmetros é uma normal bivariada com as médias, variâncias e covariância especificadas acima. <em>As distribuições são todas condicionadas em <script type="math/tex">X_i = x_i</script>.</em></p>
 <p>Além disso, se <script type="math/tex">n \ge 3, \hat{\sigma}^2</script> é independente de <script type="math/tex">(\hat{\beta}_0, \hat{\beta}_1)</script> e <script type="math/tex">n\hat{\sigma}^2/\sigma^2</script> tem distribuição <script type="math/tex">\chi^2</script> com <script type="math/tex">n-2</script> graus de liberdade.</p>
 <h2 id="inferencia-sobre-regressao-linear-simples">Inferência sobre regressão linear simples</h2>
 <h3 id="teste-de-hipoteses-sobre-os-coeficientes">Teste de hipóteses sobre os coeficientes</h3>
@@ -312,7 +316,7 @@ W = \left[\frac{c_0^2}{n} + \frac{(c_0\bar{x} - c_1)^2}{s_x^2}\right]^{-1/2}\lef
 <script type="math/tex; mode=display">
 U \ge T_{n-2}^{-1}(1 - \alpha_0)
 </script>
-quando a hipótese nula é uma desiguldade do tipo menor igual ou 
+quando a hipótese nula é uma desigualdade do tipo menor igual ou 
 <script type="math/tex; mode=display">
 U \le -T_{n-2}^{-1}(1 - \alpha_0)
 </script>
