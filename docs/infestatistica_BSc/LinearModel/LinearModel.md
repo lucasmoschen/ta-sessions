@@ -2,7 +2,7 @@
 
 ## Mínimos quadrados
 
-Sejam os pontos $(x_1, y_1), ..., (x_n,y_n)$. A reta que minimiza $\sum_{i=1}^n (y_i - (\beta_0 + \beta_1 x_i))^2$ segundo $\beta_0$ e $\beta_1$ tem inclinação e intecepto
+Sejam os pontos $(x_1, y_1), ..., (x_n,y_n)$. A reta que minimiza $\sum_{i=1}^n (y_i - (\beta_0 + \beta_1 x_i))^2$ segundo $\beta_0$ e $\beta_1$ tem inclinação e intercepto
 
 $$
 \hat{\beta}_1 = \dfrac{\sum_{i=1}^n (y_i - \bar{y})(x_i - \bar{x})}{\sum_{i=1}^n (x_i - \bar{x})^2}
@@ -123,7 +123,11 @@ $$
 \hat{\beta}_0 \sim \mathcal{N}\left(\beta_0, \sigma^2\left(\frac{1}{n} + \frac{\bar{x}^2}{s_x^2}\right)\right)
 $$
 
-tal que $Cov(\hat{\beta}_0, \hat{\beta}_1) = \frac{\bar{x}\sigma^2}{s_x^2}$. Em particular a distribuição conjunta desses parâmetros é uma normal bivariada com as médias, vaiâncias e covariância especificadas acima. *As distribuições são todas condicionadas em $X_i = x_i$.*
+tal que 
+$$
+Cov(\hat{\beta}_0, \hat{\beta}_1) = -\frac{\bar{x}\sigma^2}{s_x^2}.
+$$
+Em particular a distribuição conjunta desses parâmetros é uma normal bivariada com as médias, variâncias e covariância especificadas acima. *As distribuições são todas condicionadas em $X_i = x_i$.*
 
 Além disso, se $n \ge 3, \hat{\sigma}^2$ é independente de $(\hat{\beta}_0, \hat{\beta}_1)$ e $n\hat{\sigma}^2/\sigma^2$ tem distribuição $\chi^2$ com $n-2$ graus de liberdade.
 
@@ -166,7 +170,7 @@ A mesma derivação pode ser usada para testes unilaterais. A diferença é que 
 $$
 U \ge T_{n-2}^{-1}(1 - \alpha_0)
 $$
-quando a hipótese nula é uma desiguldade do tipo menor igual ou 
+quando a hipótese nula é uma desigualdade do tipo menor igual ou 
 $$
 U \le -T_{n-2}^{-1}(1 - \alpha_0)
 $$
