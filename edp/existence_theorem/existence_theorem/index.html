@@ -138,7 +138,19 @@
                         
                             
 <li >
+    <a href="../../../edp_PhD/info/">Equações Diferenciais Parciais e Aplicações</a>
+</li>
+
+                        
+                            
+<li >
     <a href="../../../infestatistica_MSc/info/">Inferência Estatística</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../probability/info/">Probabilidade</a>
 </li>
 
                         
@@ -168,6 +180,8 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
         <li class="first-level active"><a href="#teorema-de-picard-lindelof">Teorema de Picard-Lindelof</a></li>
+        <li class="first-level "><a href="#defining-the-function">defining the function</a></li>
+        <li class="first-level "><a href="#time-of-definition">time of definition</a></li>
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
@@ -179,11 +193,12 @@
 y'(t) = f(t, y(t)), y(t_0) = y_0. 
 </script>
 </p>
-<pre class="highlight"><code class="language-python">import numpy as np
+<p><code>python
+import numpy as np
 from scipy.integrate import solve_ivp, quad
 import matplotlib.pyplot as plt
 import seaborn as sns
-sns.set()</code></pre>
+sns.set()</code></p>
 <p>O teorema basicamente consiste em construir um operador da seguinte forma: </p>
 <p>
 <script type="math/tex; mode=display">
@@ -207,60 +222,66 @@ y_0(t) = y_0.
 </p>
 <p>O teorema de ponto fixo de Banach nos mostra que <script type="math/tex">y_{k}</script> converge para a solução <script type="math/tex">y</script> para todo ponto <script type="math/tex">t</script> em uma vizinhança de 0. </p>
 <p>Usaremos a função de quadratura para integrar a função <script type="math/tex">f</script>. </p>
-<pre class="highlight"><code class="language-python">a = (1,2)
-(1,*a)</code></pre>
+<p><code>python
+a = (1,2)
+(1,*a)</code></p>
 <pre><code>(1, 1, 2)
 </code></pre>
-<pre class="highlight"><code class="language-python">def picard_iteration(fun, t_eval, y0, yk, args):
+<p>```python
+def picard_iteration(fun, t_eval, y0, yk, args):</p>
+<pre><code>pieces = [quad(func = fun, 
+               a = t_eval[i], 
+               b = t_eval[i+1], 
+               args = ((yk[i] + yk[i+1])/2, *args)
+              )[0] for i in range(len(t_eval)-1)]
+pieces.insert(0,0)
+yk = np.cumsum(np.array(pieces)) + y0
 
-    pieces = [quad(func = fun, 
-                   a = t_eval[i], 
-                   b = t_eval[i+1], 
-                   args = ((yk[i] + yk[i+1])/2, *args)
-                  )[0] for i in range(len(t_eval)-1)]
-    pieces.insert(0,0)
-    yk = np.cumsum(np.array(pieces)) + y0
-
-    return yk</code></pre>
+return yk
+</code></pre>
+<p>```</p>
 <p>Considere o problema 
 <script type="math/tex; mode=display">
 y' = ay, \\
 y(0) = y_0
 </script>
 </p>
-<pre class="highlight"><code class="language-python"># defining the function
-f = lambda t, y, a: a*y
-a = 2
-
-# time of definition
-upper = 1
+<p>```python</p>
+<h1 id="defining-the-function">defining the function</h1>
+<p>f = lambda t, y, a: a*y
+a = 2</p>
+<h1 id="time-of-definition">time of definition</h1>
+<p>upper = 1
 n = 100
-t = np.linspace(0,upper,n)</code></pre>
+t = np.linspace(0,upper,n)
+```</p>
 <p>Esta é a solução usando Runge-Kutta.</p>
-<pre class="highlight"><code class="language-python">solution =  solve_ivp(fun = f, 
+<p><code>python
+solution =  solve_ivp(fun = f, 
                       t_span = (0, upper), 
                       t_eval = t,
                       y0 = (1,), 
                       method = 'RK45', 
-                      args = (a,))</code></pre>
+                      args = (a,))</code></p>
 <p>Aqui nós apresentamos as primeiras iterações de Picard.</p>
-<pre class="highlight"><code class="language-python">y0 = np.ones(n)
+<p><code>python
+y0 = np.ones(n)
 y1 = picard_iteration(fun = f, t_eval = t, y0 = (1,), yk = y0, args = (a,))
 y2 = picard_iteration(fun = f, t_eval = t, y0 = (1,), yk = y1, args = (a,))
 y3 = picard_iteration(fun = f, t_eval = t, y0 = (1,), yk = y2, args = (a,))
-y4 = picard_iteration(fun = f, t_eval = t, y0 = (1,), yk = y3, args = (a,))</code></pre>
-<pre class="highlight"><code class="language-python">plt.figure(figsize = (10,6))
-plt.title('Picard iterations to approximate a function')
-
-plt.plot(solution.t, solution.y[0], label = 'Solution y(t)')
-plt.plot(solution.t, y0, label = r'$y_0(t)$')
-plt.plot(solution.t, y1, label = r'$y_1(t)$')
-plt.plot(solution.t, y2, label = r'$y_2(t)$')
-plt.plot(solution.t, y3, label = r'$y_3(t)$')
-plt.plot(solution.t, y4, label = r'$y_4(t)$')
-
-plt.legend()
-plt.show()</code></pre>
+y4 = picard_iteration(fun = f, t_eval = t, y0 = (1,), yk = y3, args = (a,))</code></p>
+<p>```python
+plt.figure(figsize = (10,6))
+plt.title('Picard iterations to approximate a function')</p>
+<p>plt.plot(solution.t, solution.y[0], label = 'Solution y(t)')
+plt.plot(solution.t, y0, label = r'<script type="math/tex">y_0(t)</script>')
+plt.plot(solution.t, y1, label = r'<script type="math/tex">y_1(t)</script>')
+plt.plot(solution.t, y2, label = r'<script type="math/tex">y_2(t)</script>')
+plt.plot(solution.t, y3, label = r'<script type="math/tex">y_3(t)</script>')
+plt.plot(solution.t, y4, label = r'<script type="math/tex">y_4(t)</script>')</p>
+<p>plt.legend()
+plt.show()
+```</p>
 <p><img alt="png" src="../output_11_0.png" /></p></div>
         
         

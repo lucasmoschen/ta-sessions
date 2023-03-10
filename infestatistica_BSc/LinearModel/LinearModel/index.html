@@ -138,7 +138,19 @@
                         
                             
 <li >
+    <a href="../../../edp_PhD/info/">Equações Diferenciais Parciais e Aplicações</a>
+</li>
+
+                        
+                            
+<li >
     <a href="../../../infestatistica_MSc/info/">Inferência Estatística</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../probability/info/">Probabilidade</a>
 </li>
 
                         
@@ -170,14 +182,19 @@
         <li class="first-level active"><a href="#modelo-linear">Modelo Linear</a></li>
             <li class="second-level"><a href="#minimos-quadrados">Mínimos quadrados</a></li>
                 
-                <li class="third-level"><a href="#varias-variaveis">Várias variáveis</a></li>
+        <li class="first-level "><a href="#adiciona-coluna-de-1-para-lidar-com-o-beta_0">adiciona coluna de 1 para lidar com o beta_0</a></li>
+            <li class="second-level"><a href="#varias-variaveis">Várias variáveis</a></li>
+                
             <li class="second-level"><a href="#regressao">Regressão</a></li>
                 
                 <li class="third-level"><a href="#regressao-linear-simples">Regressão Linear Simples</a></li>
             <li class="second-level"><a href="#inferencia-sobre-regressao-linear-simples">Inferência sobre regressão linear simples</a></li>
                 
                 <li class="third-level"><a href="#teste-de-hipoteses-sobre-os-coeficientes">Teste de hipóteses sobre os coeficientes</a></li>
-                <li class="third-level"><a href="#intervalos-de-confianca">Intervalos de confiança</a></li>
+        <li class="first-level "><a href="#o-denominador-da-divisao-e-n-ddof">O denominador da divisão é n - ddof</a></li>
+        <li class="first-level "><a href="#estatistica-de-teste">Estatística de teste</a></li>
+            <li class="second-level"><a href="#intervalos-de-confianca">Intervalos de confiança</a></li>
+                
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
@@ -196,40 +213,45 @@
 </script>
 </p>
 <p>A verificação desse resultado é direta ao derivar o funcional objetivo com respeito aos parâmetros e igualando a 0. Além disso, observar que a Hessiana é definida positiva, o que garante a existência do mínimo local (que nesse caso será global). </p>
-<pre class="highlight"><code class="language-python">import numpy as np 
+<p>```python
+import numpy as np 
 import matplotlib.pyplot as plt
 from scipy.stats import t
 from statsmodels.regression.linear_model import OLS
-plt.style.use('ggplot')
-
-ro = np.random.RandomState(10000)</code></pre>
+plt.style.use('ggplot')</p>
+<p>ro = np.random.RandomState(10000)
+```</p>
 <p>Vamos gerar os <script type="math/tex">n</script> pontos e calcular a reta que minimiza os mínimos quadrados.</p>
-<pre class="highlight"><code class="language-python">n = 20
+<p>```python
+n = 20
 x = ro.uniform(0,10, size = n)
 epsilon = ro.normal(0, scale = 3, size = n)
 beta0, beta1 = ro.uniform(0,10, size = 2)
-y = beta0 + beta1*x + epsilon
-
-plt.scatter(x,y)
+y = beta0 + beta1*x + epsilon</p>
+<p>plt.scatter(x,y)
 plt.title('Pontos gerados')
-plt.show()</code></pre>
+plt.show()
+```</p>
 <p><img alt="png" src="../output_3_0.png" /></p>
 <p>Estimando os coeficientes</p>
-<pre class="highlight"><code class="language-python">beta1_hat = np.dot(y - y.mean(), x - x.mean())/np.dot(x - x.mean(), x - x.mean())
-beta0_hat = y.mean() - beta1_hat*x.mean()
-
-t = np.linspace(0,10,1000)
-plt.scatter(x,y, label = r'$\beta_0$ = {:.2f}, $\beta_1$ = {:.2f}'.format(beta0, beta1))
-plt.plot(t,beta0_hat + beta1_hat*t, color = 'blue', label = r'$\beta_0$ = {:.2f}, $\beta_1$ = {:.2f}'.format(beta0_hat, beta1_hat))
+<p>```python
+beta1_hat = np.dot(y - y.mean(), x - x.mean())/np.dot(x - x.mean(), x - x.mean())
+beta0_hat = y.mean() - beta1_hat*x.mean()</p>
+<p>t = np.linspace(0,10,1000)
+plt.scatter(x,y, label = r'<script type="math/tex">\beta_0</script> = {:.2f}, <script type="math/tex">\beta_1</script> = {:.2f}'.format(beta0, beta1))
+plt.plot(t,beta0_hat + beta1_hat*t, color = 'blue', label = r'<script type="math/tex">\beta_0</script> = {:.2f}, <script type="math/tex">\beta_1</script> = {:.2f}'.format(beta0_hat, beta1_hat))
 plt.legend()
 plt.title('Reta mínimos quadrados')
-plt.show()</code></pre>
+plt.show()
+```</p>
 <p><img alt="png" src="../output_5_0.png" /></p>
 <p>Agora vamos usar numpy para a estimação. Observe que o resultado coincide com o calculado usando a fórmula derivada. </p>
-<pre class="highlight"><code class="language-python"># adiciona coluna de 1 para lidar com o beta_0
-xlinha = np.c_[np.ones(n),x]   
+<p>```python</p>
+<h1 id="adiciona-coluna-de-1-para-lidar-com-o-beta_0">adiciona coluna de 1 para lidar com o beta_0</h1>
+<p>xlinha = np.c_[np.ones(n),x] <br />
 sol, _, _, _ = np.linalg.lstsq(xlinha, y, rcond = None)
-print(sol)</code></pre>
+print(sol)
+```</p>
 <pre><code>[3.40285283 3.52323316]
 </code></pre>
 <h3 id="varias-variaveis">Várias variáveis</h3>
@@ -322,47 +344,55 @@ U \le -T_{n-2}^{-1}(1 - \alpha_0)
 </script>
 quando é do tipo maior ou igual. </p>
 <p><strong>Exemplo:</strong> Vamos testar a hipótese de que <script type="math/tex">\beta_1 = 0</script> em relação a curva anterior. Só para lembrar: </p>
-<pre class="highlight"><code class="language-python">t = np.linspace(0,10,1000)
+<p><code>python
+t = np.linspace(0,10,1000)
 plt.scatter(x,y, label = r'$\beta_0$ = {:.2f}, $\beta_1$ = {:.2f}'.format(beta0, beta1))
 plt.plot(t,beta0_hat + beta1_hat*t, color = 'blue', label = r'$\beta_0$ = {:.2f}, $\beta_1$ = {:.2f}'.format(beta0_hat, beta1_hat))
 plt.legend()
 plt.title('Reta mínimos quadrados')
-plt.show()</code></pre>
+plt.show()</code></p>
 <p><img alt="png" src="../output_13_0.png" /></p>
 <p>Nesse caso temos <script type="math/tex">c_0 = \bar{c} = 0</script> e <script type="math/tex">c_1 = 1</script>. Assim:</p>
-<pre class="highlight"><code class="language-python"># O denominador da divisão é n - ddof
-sx2 = np.var(x, ddof = n - 1)
-S2 = sum((y - beta0_hat - beta1_hat*x)**2)
-sigma_prime = (S2/(n-2))**(1/2)
-# Estatística de teste
-U = np.sqrt(sx2)*beta1_hat/sigma_prime</code></pre>
+<p>```python</p>
+<h1 id="o-denominador-da-divisao-e-n-ddof">O denominador da divisão é n - ddof</h1>
+<p>sx2 = np.var(x, ddof = n - 1)
+S2 = sum((y - beta0_hat - beta1_hat<em>x)</em><em>2)
+sigma_prime = (S2/(n-2))</em>*(1/2)</p>
+<h1 id="estatistica-de-teste">Estatística de teste</h1>
+<p>U = np.sqrt(sx2)*beta1_hat/sigma_prime
+```</p>
 <p>Seja <script type="math/tex">\alpha_0 = 0.05</script> o nível de significância</p>
-<pre class="highlight"><code class="language-python">alpha0 = 0.05
-abs(U) &gt;= t.ppf(1 - alpha0/2, df = n-2)</code></pre>
+<p><code>python
+alpha0 = 0.05
+abs(U) &gt;= t.ppf(1 - alpha0/2, df = n-2)</code></p>
 <pre><code>True
 </code></pre>
 <p>Como isso é verdade, rejeitamos a hipótese nula!</p>
 <h3 id="intervalos-de-confianca">Intervalos de confiança</h3>
 <p>Temos que <script type="math/tex">c_0\hat{\beta}_0 + c_1\hat{\beta}_1 \pm \sigma '\left[\frac{c_0^2}{n} + \frac{(c_0\bar{x} - c_1)^2}{s_x^2}\right]^{1/2}T_{n-2}^{-1}\left(1 - \frac{\alpha_0}{2}\right)</script> é un intervalo de confiança <script type="math/tex">1 - \alpha_0</script> para <script type="math/tex">c_0\beta_0 + c_1\beta_1</script>. Para encontrar esse intervalo basta encontrar o conjunto de todos os valores <script type="math/tex">\bar{c}</script> para que a hipótese nula seja rejeitada a nível de significância <script type="math/tex">\alpha_0</script>. </p>
 <p>No nosso exemplo, um intervalo para <script type="math/tex">\beta_1</script> é </p>
-<pre class="highlight"><code class="language-python">[beta1_hat - sigma_prime*(1/np.sqrt(sx2))*t.ppf(1 - alpha0/2, df = n-2), 
- beta1_hat + sigma_prime*(1/np.sqrt(sx2))*t.ppf(1 - alpha0/2, df = n-2)]</code></pre>
+<p><code>python
+[beta1_hat - sigma_prime*(1/np.sqrt(sx2))*t.ppf(1 - alpha0/2, df = n-2), 
+ beta1_hat + sigma_prime*(1/np.sqrt(sx2))*t.ppf(1 - alpha0/2, df = n-2)]</code></p>
 <pre><code>[3.00233584703191, 4.044130469815932]
 </code></pre>
 <p>Usando o pacote <code>statsmodels</code></p>
-<pre class="highlight"><code class="language-python">model = OLS(y,xlinha)
+<p><code>python
+model = OLS(y,xlinha)
 result = model.fit()
-print(result.params)</code></pre>
+print(result.params)</code></p>
 <pre><code>[3.40285283 3.52323316]
 </code></pre>
 <p>Observe que os parâmetros estimados são os mesmo que encontramos com <code>numpy</code> e na mão. Também observe que o tvalor calculado coincide com nossa estatística U</p>
-<pre class="highlight"><code class="language-python">print('Nossa: {}'.format(U))
-print('Statsmodels: {}'.format(result.tvalues[1]))</code></pre>
+<p><code>python
+print('Nossa: {}'.format(U))
+print('Statsmodels: {}'.format(result.tvalues[1]))</code></p>
 <pre><code>Nossa: 14.210167788464632
 Statsmodels: 14.21016778846464
 </code></pre>
 <p>Podemos colocar <script type="math/tex">c_0 = 0</script> e <script type="math/tex">c_1 = 1</script> e obteremos o intervalo de confiança como desejávamos!</p>
-<pre class="highlight"><code class="language-python">result.t_test([0,1])</code></pre>
+<p><code>python
+result.t_test([0,1])</code></p>
 <pre><code>&lt;class 'statsmodels.stats.contrast.ContrastResults'&gt;
                              Test for Constraints                             
 ==============================================================================

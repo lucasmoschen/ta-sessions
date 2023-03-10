@@ -138,7 +138,19 @@
                         
                             
 <li >
+    <a href="../../../edp_PhD/info/">Equações Diferenciais Parciais e Aplicações</a>
+</li>
+
+                        
+                            
+<li >
     <a href="../../../infestatistica_MSc/info/">Inferência Estatística</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../probability/info/">Probabilidade</a>
 </li>
 
                         
@@ -173,6 +185,10 @@
                 <li class="third-level"><a href="#curvatura-de-uma-curva-regular">Curvatura de uma curva regular</a></li>
                 <li class="third-level"><a href="#curvatura-com-sinal">Curvatura com sinal</a></li>
                 <li class="third-level"><a href="#funcao-angulo">Função Ângulo</a></li>
+        <li class="first-level "><a href="#definimos-as-variaveis">Definimos as variáveis</a></li>
+        <li class="first-level "><a href="#definimos-a-funcao-z">Definimos a função z</a></li>
+        <li class="first-level "><a href="#derivando">Derivando</a></li>
+        <li class="first-level "><a href="#rotaciona-zt">Rotaciona zt</a></li>
             <li class="second-level"><a href="#movimento-rigido">Movimento Rígido</a></li>
                 
                 <li class="third-level"><a href="#teorema">Teorema</a></li>
@@ -182,17 +198,29 @@
             <li class="second-level"><a href="#teorema-fundamental-das-curvas-no-plano">Teorema Fundamental das Curvas no Plano</a></li>
                 
                 <li class="third-level"><a href="#circulo">Círculo</a></li>
-                <li class="third-level"><a href="#reta">Reta</a></li>
-                <li class="third-level"><a href="#clotoide">Clotoide</a></li>
+        <li class="first-level "><a href="#curvatura_1">Curvatura</a></li>
+        <li class="first-level "><a href="#um-ponto-em-que-passa-a-curva">Um ponto em que passa a curva</a></li>
+        <li class="first-level "><a href="#comprimento-da-curva">Comprimento da curva</a></li>
+            <li class="second-level"><a href="#reta">Reta</a></li>
+                
+        <li class="first-level "><a href="#curvatura_2">Curvatura</a></li>
+        <li class="first-level "><a href="#um-ponto-em-que-passa-a-curva_1">Um ponto em que passa a curva</a></li>
+        <li class="first-level "><a href="#comprimento-da-curva_1">Comprimento da curva</a></li>
+            <li class="second-level"><a href="#clotoide">Clotoide</a></li>
+                
+        <li class="first-level "><a href="#curvatura_3">Curvatura</a></li>
+        <li class="first-level "><a href="#um-ponto-em-que-passa-a-curva_2">Um ponto em que passa a curva</a></li>
+        <li class="first-level "><a href="#comprimento-da-curva_2">Comprimento da curva</a></li>
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
 <h1 id="curvatura-de-uma-curva">Curvatura de uma curva</h1>
-<pre class="highlight"><code class="language-python">import sympy as sp
+<p><code>python
+import sympy as sp
 import numpy as np 
 from scipy.integrate import solve_ivp
-import matplotlib.pyplot as plt</code></pre>
+import matplotlib.pyplot as plt</code></p>
 <h2 id="curvatura">Curvatura</h2>
 <p>Seja <script type="math/tex">\gamma</script> uma curva parametrizada pelo comprimeto de arco. Definimos <strong>curvatura</strong> como a função <script type="math/tex">\kappa(t) = ||\ddot{\gamma}(t)||</script>. Essa definição é consistente com o que esperávamos de uma reta (curvatura nula) e de um círculo (curvatura constante e inversamente proporcional ao raio). Além disso, se <script type="math/tex">\gamma</script> é uma curva regular qualquer, ela tem uma reparametrização pelo comprimento de arco. Portanto, podemos definir a sua curvatura como sendo a curvatura de sua reparametrização pelo comprimento de arco. Isto é, seja <script type="math/tex">\hat{\gamma}</script> uma reparametrização pelo comprimento de arco de <script type="math/tex">\gamma</script> com curvatura <script type="math/tex">\kappa</script>. Então a curvatura de <script type="math/tex">\gamma</script> será <script type="math/tex">\kappa</script>. </p>
 <p>Uma questão que se levanta é: e se houver outra reparametrização pelo comprimento de  arco para <script type="math/tex">\gamma</script>? Para isso, precisamos mostrar que a curvatura é invariante (não muda) segundo a reparametrização. Isso não é dificíl de ver, pois as tangentes das reparametrizações têm mesmo tamanho e, possivelmente, diferentes sinal.</p>
@@ -284,25 +312,29 @@ k(s) = \theta '(s) = det(t(s), t'(s)) = det(\alpha'(s), \alpha''(s))
 </script>
 </p>
 <p><strong>Exemplo 2:</strong> Vamos usar python para calcular a curvatura da espiral equiangular <script type="math/tex">z(t) = e^{(a + i)t}</script> onde <script type="math/tex">a</script> é uma constante e <script type="math/tex">i^2 = -1</script>. </p>
-<pre class="highlight"><code class="language-python"># Definimos as variáveis 
-t = sp.symbols('t', real = True)
-a = sp.symbols('a', real = True, constant = True)
-# Definimos a função z
-z = sp.exp((a + sp.I)*t)
-# Derivando 
-zt = sp.diff(z, t)
-ztt = sp.diff(zt, t)
-# Rotaciona zt
-Jzt = zt*sp.exp(sp.I*sp.pi/2)</code></pre>
+<p>```python</p>
+<h1 id="definimos-as-variaveis">Definimos as variáveis</h1>
+<p>t = sp.symbols('t', real = True)
+a = sp.symbols('a', real = True, constant = True)</p>
+<h1 id="definimos-a-funcao-z">Definimos a função z</h1>
+<p>z = sp.exp((a + sp.I)*t)</p>
+<h1 id="derivando">Derivando</h1>
+<p>zt = sp.diff(z, t)
+ztt = sp.diff(zt, t)</p>
+<h1 id="rotaciona-zt">Rotaciona zt</h1>
+<p>Jzt = zt<em>sp.exp(sp.I</em>sp.pi/2)
+```</p>
 <p>Observe que nossa curva está definida no plano complexo (isomorfo ao plano real). Para calcular a curvatura de uma curva, rotacionamos o vetor e fazemos o produto <code>dot</code>entre esses números como produto escalar de dois vetores. Nesse caso, teremos que <script type="math/tex">\langle z_1, z_2 \rangle = Re(z_1\cdot\bar{z}_2)</script>.</p>
-<pre class="highlight"><code class="language-python">k = sp.re(Jzt*sp.conjugate(ztt))/sp.Abs(zt)**3
-k</code></pre>
+<p><code>python
+k = sp.re(Jzt*sp.conjugate(ztt))/sp.Abs(zt)**3
+k</code></p>
 <p>
 <script type="math/tex">\displaystyle \frac{\left(2 a^{2} e^{2 a t} - \left(a^{2} - 1\right) e^{2 a t}\right) e^{- 3 a t}}{\left(a^{2} + 1\right)^{\frac{3}{2}}}</script>
 </p>
 <p>Precisamos indicar para o programa que queremos uma resposta fatorizada</p>
-<pre class="highlight"><code class="language-python">k = sp.factor(k)
-k</code></pre>
+<p><code>python
+k = sp.factor(k)
+k</code></p>
 <p>
 <script type="math/tex">\displaystyle \frac{e^{- a t}}{\sqrt{a^{2} + 1}}</script>
 </p>
@@ -340,76 +372,78 @@ n' = -\kappa \cdot t
 <p>Sejam <script type="math/tex">I</script> um intervalo aberto e <script type="math/tex">\kappa : I \to \mathbb{R}</script> uma função diferenciável. Então, existe
 uma curva diferenciável, <script type="math/tex">\alpha : I \to \mathbb{R}^2</script>, parametrizada por comprimento de arco, cuja função curvatura <script type="math/tex">\kappa_{\alpha}</script> coincide com <script type="math/tex">\kappa</script>. Além disso, para toda curva <script type="math/tex">\beta : I \to \mathbb{R}^2</script>, parametrizada por comprimento de arco, que cumpre <script type="math/tex">\kappa_{\beta} = \kappa</script>, existe um movimento rígido <script type="math/tex">\Phi : \mathbb{R}^2 \to \mathbb{R}^2</script>, tal que <script type="math/tex">\alpha = \Phi \circ \beta</script>.</p>
 <p><strong>Exemplo:</strong> (Reconstrução de uma curva plana) Suponha que nos é dado uma curvatura <script type="math/tex">\kappa</script>. Como <script type="math/tex">\kappa = \theta '</script> e <script type="math/tex">\alpha' = (\cos(\theta), \sin(\theta))</script>. Vamos supor que o intervalo é do tipo <script type="math/tex">[0,l]</script>, onde <script type="math/tex">l</script> é o comprimento da curva. </p>
-<pre class="highlight"><code class="language-python">def get_curve_from_curvature(k, tf, x0, y0): 
+<p>```python
+def get_curve_from_curvature(k, tf, x0, y0): 
     # ângulo
     theta_ = solve_ivp(fun = k, 
                        t_span = (0,tf), 
                        y0 = [0], 
                        t_eval = np.arange(0,tf+1e-4,0.01)
-                      ).y[0]
+                      ).y[0]</p>
+<pre><code>def theta(t): 
+    li = int(t*(len(theta_)-1)/tf)
+    gi = min(int(t*(len(theta_)-1)/tf) + 1, len(theta_)-1)
+    convex = t*len(theta_)/tf - li
+    return (1-convex)*theta_[li] + convex*theta_[gi]
 
-    def theta(t): 
-        li = int(t*(len(theta_)-1)/tf)
-        gi = min(int(t*(len(theta_)-1)/tf) + 1, len(theta_)-1)
-        convex = t*len(theta_)/tf - li
-        return (1-convex)*theta_[li] + convex*theta_[gi]
+# Componentes 
+def f(t,x): 
+    return [np.cos(theta(t)), np.sin(theta(t))]
 
-    # Componentes 
-    def f(t,x): 
-        return [np.cos(theta(t)), np.sin(theta(t))]
+# Curva
+alpha = solve_ivp(fun = f, 
+                  t_span = (0,tf), 
+                  y0 = [x0,y0], 
+                  t_eval = np.arange(0,tf+1e-4,0.01)
+                 ).y
 
-    # Curva
-    alpha = solve_ivp(fun = f, 
-                      t_span = (0,tf), 
-                      y0 = [x0,y0], 
-                      t_eval = np.arange(0,tf+1e-4,0.01)
-                     ).y
-
-    return alpha</code></pre>
+return alpha
+</code></pre>
+<p>```</p>
 <h3 id="circulo">Círculo</h3>
-<pre class="highlight"><code class="language-python"># Curvatura
-k = lambda t,x: 1
-# Um ponto em que passa a curva 
-x0 = 0
-y0 = 0
-# Comprimento da curva
-tf = 2*np.pi+0.1
-
-alpha = get_curve_from_curvature(k,tf,x0,y0)
-
-plt.figure(figsize = (6,6))
+<p>```python</p>
+<h1 id="curvatura_1">Curvatura</h1>
+<p>k = lambda t,x: 1</p>
+<h1 id="um-ponto-em-que-passa-a-curva">Um ponto em que passa a curva</h1>
+<p>x0 = 0
+y0 = 0</p>
+<h1 id="comprimento-da-curva">Comprimento da curva</h1>
+<p>tf = 2*np.pi+0.1</p>
+<p>alpha = get_curve_from_curvature(k,tf,x0,y0)</p>
+<p>plt.figure(figsize = (6,6))
 plt.plot(alpha[0,:], alpha[1,:])
-plt.show()</code></pre>
+plt.show()
+```</p>
 <p><img alt="png" src="../output_19_0.png" /></p>
 <h3 id="reta">Reta</h3>
-<pre class="highlight"><code class="language-python"># Curvatura
-k = lambda t,x: 0
-# Um ponto em que passa a curva 
-x0 = 0
-y0 = 0
-# Comprimento da curva
-tf = 10*np.pi+0.1
-
-alpha = get_curve_from_curvature(k,tf,x0,y0)
-
-plt.figure(figsize = (6,6))
+<p>```python</p>
+<h1 id="curvatura_2">Curvatura</h1>
+<p>k = lambda t,x: 0</p>
+<h1 id="um-ponto-em-que-passa-a-curva_1">Um ponto em que passa a curva</h1>
+<p>x0 = 0
+y0 = 0</p>
+<h1 id="comprimento-da-curva_1">Comprimento da curva</h1>
+<p>tf = 10*np.pi+0.1</p>
+<p>alpha = get_curve_from_curvature(k,tf,x0,y0)</p>
+<p>plt.figure(figsize = (6,6))
 plt.plot(alpha[0,:], alpha[1,:])
-plt.show()</code></pre>
+plt.show()
+```</p>
 <p><img alt="png" src="../output_21_0.png" /></p>
 <h3 id="clotoide">Clotoide</h3>
-<pre class="highlight"><code class="language-python"># Curvatura
-k = lambda t,x: t
-# Um ponto em que passa a curva 
-x0 = 0
-y0 = 0
-# Comprimento da curva
-tf = 10*np.pi+0.1
-
-alpha = get_curve_from_curvature(k,tf,x0,y0)
-
-plt.figure(figsize = (6,6))
+<p>```python</p>
+<h1 id="curvatura_3">Curvatura</h1>
+<p>k = lambda t,x: t</p>
+<h1 id="um-ponto-em-que-passa-a-curva_2">Um ponto em que passa a curva</h1>
+<p>x0 = 0
+y0 = 0</p>
+<h1 id="comprimento-da-curva_2">Comprimento da curva</h1>
+<p>tf = 10*np.pi+0.1</p>
+<p>alpha = get_curve_from_curvature(k,tf,x0,y0)</p>
+<p>plt.figure(figsize = (6,6))
 plt.plot(alpha[0,:], alpha[1,:])
-plt.show()</code></pre>
+plt.show()
+```</p>
 <p><img alt="png" src="../output_23_0.png" /></p></div>
         
         

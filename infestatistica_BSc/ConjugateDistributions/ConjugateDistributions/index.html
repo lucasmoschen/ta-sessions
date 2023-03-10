@@ -138,7 +138,19 @@
                         
                             
 <li >
+    <a href="../../../edp_PhD/info/">Equações Diferenciais Parciais e Aplicações</a>
+</li>
+
+                        
+                            
+<li >
     <a href="../../../infestatistica_MSc/info/">Inferência Estatística</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../probability/info/">Probabilidade</a>
 </li>
 
                         
@@ -174,6 +186,11 @@
                 <li class="third-level"><a href="#teorema_1">Teorema</a></li>
                 <li class="third-level"><a href="#teorema_2">Teorema</a></li>
                 <li class="third-level"><a href="#teorema_3">Teorema</a></li>
+        <li class="first-level "><a href="#definindo-cores">Definindo cores</a></li>
+        <li class="first-level "><a href="#esta-funcao-permite-plotar-o-backgroud">Esta função permite plotar o backgroud</a></li>
+        <li class="first-level "><a href="#definindo-o-espaco-da-imagem">Definindo o espaço da imagem</a></li>
+        <li class="first-level "><a href="#definindo-caracteristicas-do-background">Definindo características do background</a></li>
+        <li class="first-level "><a href="#definindo-plots-variaveis">Definindo plots variáveis</a></li>
             <li class="second-level"><a href="#hiperparametros">Hiperparâmetros</a></li>
                 
             <li class="second-level"><a href="#distribuicoes-a-priori-improprias">Distribuições a Priori Impróprias</a></li>
@@ -210,73 +227,67 @@
 </p>
 <h3 id="teorema_3">Teorema</h3>
 <p>Suponha que <script type="math/tex">X_1, ...., X_n \overset{iid}{\sim} \text{Exp}(\theta)</script>, onde <script type="math/tex">\theta</script> é desconhecido. Suponha também que a distribuição a priori de <script type="math/tex">\theta</script> é uma gamma com parâmetros <script type="math/tex">\alpha</script> e <script type="math/tex">\beta</script>. Então a distribuição a posteriori de <script type="math/tex">\theta</script> sejá gamma com parâmetros <script type="math/tex">\alpha + n</script> e <script type="math/tex">\beta + \sum_{i=1}^n x_i</script>. </p>
-<pre class="highlight"><code class="language-python">import numpy as np 
-from scipy import stats
-
-import matplotlib.pyplot as plt
+<p>```python
+import numpy as np 
+from scipy import stats</p>
+<p>import matplotlib.pyplot as plt
 from matplotlib import animation, cm
-from IPython.display import HTML
-
-%matplotlib inline</code></pre>
+from IPython.display import HTML</p>
+<p>%matplotlib inline
+```</p>
 <p>Suponha que <script type="math/tex">\theta</script> seja a probabilidade de um item ser defeituoso em uma série de items. Suponha que nossa priori em <script type="math/tex">\theta</script> é uma distribuição beta com parâmetros <script type="math/tex">\alpha</script> e <script type="math/tex">\beta</script>. São selecionados <script type="math/tex">n</script> items por vez para o teste. Sabemos que nossa posteriori será uma Beta com os parâmetros acima. Vejamos graficamente esse processo. </p>
-<pre class="highlight"><code class="language-python">theta_real = 0.1
+<p>```python
+theta_real = 0.1
 n = 100
-np.random.seed(10)
-
-XMIN = 0 
+np.random.seed(10)</p>
+<p>XMIN = 0 
 XMAX = 1
 YMIN = 0
-YMAX = 5
-
-alpha = [1] 
-beta = [1] 
-
-x = np.linspace(0.001,1,1000)
-
-# Definindo cores
-cmap = cm.autumn  
-
-# Esta função permite plotar o backgroud
-def init():
+YMAX = 5</p>
+<p>alpha = [1] 
+beta = [1] </p>
+<p>x = np.linspace(0.001,1,1000)</p>
+<h1 id="definindo-cores">Definindo cores</h1>
+<p>cmap = cm.autumn  </p>
+<h1 id="esta-funcao-permite-plotar-o-backgroud">Esta função permite plotar o backgroud</h1>
+<p>def init():
     line.set_data([], [])
-    return (line,)</code></pre>
-<pre class="highlight"><code class="language-python"># Definindo o espaço da imagem
-
-fig, ax = plt.subplots()
-
-# Definindo características do background 
-ax.set_xlim((XMIN, XMAX))
+    return (line,)
+```</p>
+<p>```python</p>
+<h1 id="definindo-o-espaco-da-imagem">Definindo o espaço da imagem</h1>
+<p>fig, ax = plt.subplots()</p>
+<h1 id="definindo-caracteristicas-do-background">Definindo características do background</h1>
+<p>ax.set_xlim((XMIN, XMAX))
 ax.set_ylim((YMIN, YMAX))
 ax.set_title('Evolução da posteriori a cada iteração')
-ax.vlines(theta_real, ymin = YMIN, ymax = YMAX, linestyle = '--', color = 'grey')
+ax.vlines(theta_real, ymin = YMIN, ymax = YMAX, linestyle = '--', color = 'grey')</p>
+<h1 id="definindo-plots-variaveis">Definindo plots variáveis</h1>
+<p>line, = ax.plot([], [], lw=2)
+line2, _ = ax.plot(XMIN, XMAX, YMIN, YMAX, linestyle = ':')</p>
+<p>def animate(i, alpha, beta, x, n):</p>
+<pre><code># Amostro da distribuição
+sample = np.random.binomial(1, p = theta_real)
 
-# Definindo plots variáveis 
-line, = ax.plot([], [], lw=2)
-line2, _ = ax.plot(XMIN, XMAX, YMIN, YMAX, linestyle = ':')
+# Junto a lista que guarda os alphas e betas de cada iteração
+alpha.append(alpha[-1] + sample)
+beta.append(beta[-1] + 1 - sample)
 
-def animate(i, alpha, beta, x, n):
+# Calculo a posteriori
+posteriori = stats.beta(a = alpha[-1], b = beta[-1])
 
-    # Amostro da distribuição
-    sample = np.random.binomial(1, p = theta_real)
+line.set_data(x, posteriori.pdf(x))
+line.set_color(cmap(1 - i/n))
 
-    # Junto a lista que guarda os alphas e betas de cada iteração
-    alpha.append(alpha[-1] + sample)
-    beta.append(beta[-1] + 1 - sample)
+line2.set_data([posteriori.mean(), posteriori.mean()],  [YMIN, YMAX])
+line2.set_color(cmap(1 - i/n))
 
-    # Calculo a posteriori
-    posteriori = stats.beta(a = alpha[-1], b = beta[-1])
-
-    line.set_data(x, posteriori.pdf(x))
-    line.set_color(cmap(1 - i/n))
-
-    line2.set_data([posteriori.mean(), posteriori.mean()],  [YMIN, YMAX])
-    line2.set_color(cmap(1 - i/n))
-
-    return (line,line2)
-
-anim = animation.FuncAnimation(fig, animate, frames = n,  init_func = init,
+return (line,line2)
+</code></pre>
+<p>anim = animation.FuncAnimation(fig, animate, frames = n,  init_func = init,
                                interval = 100, blit = True, fargs=(alpha, beta, x, n), repeat = False)
-HTML(anim.to_html5_video())</code></pre>
+HTML(anim.to_html5_video())
+```</p>
 <video width="432" height="288" controls autoplay>
   <source type="video/mp4" src="data:video/mp4;base64,AAAAHGZ0eXBNNFYgAAACAGlzb21pc28yYXZjMQAAAAhmcmVlAAEAYG1kYXQAAAKuBgX//6rcRem9
 5tlIt5Ys2CDZI+7veDI2NCAtIGNvcmUgMTU1IHIyOTE3IDBhODRkOTggLSBILjI2NC9NUEVHLTQg
@@ -1532,23 +1543,24 @@ ZjU4LjI5LjEwMA==
 <p>De acordo com a teoria Bayesiana , esse estimador é o único coerente que pode ser construído. É importante que tenha-se definido uma <strong>função de perda</strong> e uma <strong>distribuição a priori</strong> para os parâmetros. Quando <script type="math/tex">\theta</script> é um vetor, precisamos definit uma priori multivariada, mesmo que não queiramos estimar todos os parâmetros. </p>
 <h4 id="exemplo-747">Exemplo 7.4.7</h4>
 <p>Quetelet reportou medidas do peito de 5732 homens militares. Os dados foram retirados desse <a href="https://www.stat.cmu.edu/StatDat/Datafiles/MilitiamenChests.html">site</a>. </p>
-<pre class="highlight"><code class="language-python">import requests
+<p><code>python
+import requests
 from bs4 import BeautifulSoup
-import pandas as pd</code></pre>
+import pandas as pd</code></p>
 <h4 id="obtendo-os-dados-direto-do-site">Obtendo os dados direto do site</h4>
 <p>Eu uso essas três bibliotecas, onde as duas primeiras são usadas para retirar informação do site desejado. Veja que não coloco verificação, pois o site tem esse problema. Depois eu coloco numa estrutura chamada <code>DataFrame</code> que é basicamente uma tabela onde tem cada item nas linhas e cada característica nas colunas. </p>
-<pre class="highlight"><code class="language-python">website = requests.get('https://www.stat.cmu.edu/StatDat/Datafiles/MilitiamenChests.html', verify = False)
-soup = BeautifulSoup(website.content)
-
-data = soup.pre.text.strip().split('\n')
+<p>```python
+website = requests.get('https://www.stat.cmu.edu/StatDat/Datafiles/MilitiamenChests.html', verify = False)
+soup = BeautifulSoup(website.content)</p>
+<p>data = soup.pre.text.strip().split('\n')
 chest_data = {'Chest': [], 'Count': []}
 for item in data[1:]: 
     co, ch = item.split('\t')
     chest_data['Chest'].append(int(ch))
-    chest_data['Count'].append(int(co))
-
-chest_df = pd.DataFrame(chest_data)
-chest_df.head()</code></pre>
+    chest_data['Count'].append(int(co))</p>
+<p>chest_df = pd.DataFrame(chest_data)
+chest_df.head()
+```</p>
 <pre><code>/home/lucasmoschen/anaconda3/lib/python3.7/site-packages/urllib3/connectionpool.py:847: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
   InsecureRequestWarning)
 </code></pre>
@@ -1604,13 +1616,14 @@ chest_df.head()</code></pre>
 </table>
 </div>
 
-<pre class="highlight"><code class="language-python">plt.bar(chest_df['Chest'], chest_df['Count'])
+<p><code>python
+plt.bar(chest_df['Chest'], chest_df['Count'])
 mean = sum(chest_df['Chest']*chest_df['Count'])/chest_df['Count'].sum()
 plt.vlines(mean, ymin = 0, ymax = 1200, color = 'black', linestyle = '--', label = 'Média={:.2f}'.format(mean))
 plt.title('Histograma do tamanho do ppeito de militares escoseses')
 plt.xlabel('Medida de peitorais')
 plt.legend()
-plt.show()</code></pre>
+plt.show()</code></p>
 <p><img alt="png" src="../output_10_0.png" /></p>
 <p>Vamos modelar as medidas do peitoral, como uma amostra aleatória com distribuição normal com média <script type="math/tex">\theta</script> e variância <script type="math/tex">\sigma^2</script>, conhecido. Temos que a média é <script type="math/tex">39.83</script> das amostras. Se <script type="math/tex">\theta \sim N(\mu_0, v_0^2)</script> é uma priori para <script type="math/tex">\theta</script>, podemos calcular o estimador de Bayes a posteriori. Sabemos que a posteriori será uma normal (conjugada) com média e variância: 
 <script type="math/tex; mode=display">\mu_1 = \frac{\sigma^2 + 5732\cdot v_0^2 \cdot 39.83}{\sigma^2 + 5732\cdot v_0^2}</script>
@@ -1626,7 +1639,8 @@ plt.show()</code></pre>
 <p>
 <script type="math/tex">v_0^2 = 4</script>
 </p>
-<pre class="highlight"><code class="language-python"></code></pre></div>
+<p>```python</p>
+<p>```</p></div>
         
         
     </div>

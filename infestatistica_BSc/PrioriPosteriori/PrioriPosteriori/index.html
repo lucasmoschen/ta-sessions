@@ -138,7 +138,19 @@
                         
                             
 <li >
+    <a href="../../../edp_PhD/info/">Equações Diferenciais Parciais e Aplicações</a>
+</li>
+
+                        
+                            
+<li >
     <a href="../../../infestatistica_MSc/info/">Inferência Estatística</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../probability/info/">Probabilidade</a>
 </li>
 
                         
@@ -182,8 +194,12 @@
             <li class="second-level"><a href="#principio-de-verossimilhanca">Princípio de Verossimilhança</a></li>
                 
                 <li class="third-level"><a href="#gerando-os-dados">Gerando os dados</a></li>
+        <li class="first-level "><a href="#true-parameters">True parameters</a></li>
+        <li class="first-level "><a href="#size-of-the-dataset">Size of the dataset</a></li>
+        <li class="first-level "><a href="#random-variables">Random variables</a></li>
             <li class="second-level"><a href="#especificando-o-modelo">Especificando o modelo</a></li>
                 
+        <li class="first-level "><a href="#definindo-cores">Definindo cores</a></li>
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
@@ -241,48 +257,48 @@
 <script type="math/tex; mode=display">L(W = 1|s_1 = 0, s_2 = 0) = F(s_1 = 0, s_2 = 0 | W = 1) = (0.5)(0.5) = 0.25</script>
 <script type="math/tex; mode=display">L(W = 0|s_1 = 0, s_2 = 0) = (1)(1) = 1</script>
 </p>
-<pre class="highlight"><code class="language-python">import numpy as np
+<p><code>python
+import numpy as np
 import matplotlib.pyplot as plt
-from scipy.stats import norm</code></pre>
-<pre class="highlight"><code class="language-python">priori = 0.5   # P(W = 1)
-p = 0.5        # prob de um filho ser afetado 
-
-Likelihood = lambda w, s: np.prod([(1 - i, p**i*(1-p)**(1 - i))[w]for i in s])
-
-s = [0,0]
-
-posteriori = Likelihood(1,s)*priori/(Likelihood(1,s)*priori + Likelihood(0,s)*(1 - priori))
-print("A probabilidade da mãe portar é {} com dois filhos não portadores.".format(posteriori))</code></pre>
+from scipy.stats import norm</code></p>
+<p>```python
+priori = 0.5   # P(W = 1)
+p = 0.5        # prob de um filho ser afetado </p>
+<p>Likelihood = lambda w, s: np.prod([(1 - i, p<strong>i*(1-p)</strong>(1 - i))[w]for i in s])</p>
+<p>s = [0,0]</p>
+<p>posteriori = Likelihood(1,s)<em>priori/(Likelihood(1,s)</em>priori + Likelihood(0,s)*(1 - priori))
+print("A probabilidade da mãe portar é {} com dois filhos não portadores.".format(posteriori))
+```</p>
 <pre><code>A probabilidade da mãe portar é 0.2 com dois filhos não portadores.
 </code></pre>
-<pre class="highlight"><code class="language-python">s = [0]  # terceiro filho 
-
-priori = posteriori
-
-posteriori = Likelihood(1,s)*priori/(Likelihood(1,s)*priori + Likelihood(0,s)*(1 - priori))
-print("A probabilidade da mãe portar é {:.3f} com três filhos não portadores.".format(posteriori))</code></pre>
+<p>```python
+s = [0]  # terceiro filho </p>
+<p>priori = posteriori</p>
+<p>posteriori = Likelihood(1,s)<em>priori/(Likelihood(1,s)</em>priori + Likelihood(0,s)*(1 - priori))
+print("A probabilidade da mãe portar é {:.3f} com três filhos não portadores.".format(posteriori))
+```</p>
 <pre><code>A probabilidade da mãe portar é 0.111 com três filhos não portadores.
 </code></pre>
-<pre class="highlight"><code class="language-python">priori = 0.5
+<p>```python
+priori = 0.5
 p = 0.5 
 s = [0]
 posteriori = []
 for i in range(50): 
-    posteriori.append(Likelihood(1,s)*priori/(Likelihood(1,s)*priori + Likelihood(0,s)*(1 - priori)))
-    priori = posteriori[-1]
-
-priori = 0.5 
+    posteriori.append(Likelihood(1,s)<em>priori/(Likelihood(1,s)</em>priori + Likelihood(0,s)*(1 - priori)))
+    priori = posteriori[-1]</p>
+<p>priori = 0.5 
 posteriori2 = []
 for i in range(50): 
-    posteriori2.append(Likelihood(1,s)*priori/(Likelihood(1,s)*priori + Likelihood(0,s)*(1 - priori)))
+    posteriori2.append(Likelihood(1,s)<em>priori/(Likelihood(1,s)</em>priori + Likelihood(0,s)*(1 - priori)))
     priori = posteriori2[-1]
-    s = [np.random.choice([0,1], p = (0.9, 0.1))]
-
-plt.plot(range(50), posteriori, label = 'Situação 1')
+    s = [np.random.choice([0,1], p = (0.9, 0.1))]</p>
+<p>plt.plot(range(50), posteriori, label = 'Situação 1')
 plt.plot(range(50), posteriori2, label = 'Situação 2')
 plt.legend()
 plt.title('Probabilidade dado cada filho')
-plt.show()</code></pre>
+plt.show()
+```</p>
 <p><img alt="svg" src="../output_6_0.svg" /></p>
 <h2 id="principio-de-verossimilhanca">Princípio de Verossimilhança</h2>
 <p>Afirma que para uma inferência sobre um parâmetro <script type="math/tex">\theta</script>, <strong>toda evidência de qualquer observação</strong> de uma variável aleatória <script type="math/tex">X = x</script> com distribuição <script type="math/tex">X \sim f(x|\theta)</script> se encontra na função de verossimilhança <script type="math/tex">L(\theta|x)</script>.</p>
@@ -290,61 +306,58 @@ plt.show()</code></pre>
 <p><strong>Qual o problema?</strong></p>
 <p><a href="https://en.wikipedia.org/wiki/Harold_Jeffreys">Jeffreys</a>: 
 "An hypothesis that may be true is rejected because it has failed to predict observable results that have not occurred. "</p>
-<pre class="highlight"><code class="language-python">import pymc3 as pm 
+<p>```python
+import pymc3 as pm 
 from pymc3 import Model, Normal, Slice
 from pymc3 import sample
 from pymc3 import traceplot 
-from pymc3.distributions import Interpolated 
-
-from scipy import stats 
-
-import matplotlib as mpl
-
-plt.style.use('seaborn-darkgrid')</code></pre>
+from pymc3.distributions import Interpolated </p>
+<p>from scipy import stats </p>
+<p>import matplotlib as mpl</p>
+<p>plt.style.use('seaborn-darkgrid')
+```</p>
 <h3 id="gerando-os-dados">Gerando os dados</h3>
 <p>
 <script type="math/tex; mode=display">Y = \alpha + \beta_0\cdot X_1 + \beta_1\cdot X_2 + \text{erro}</script>
 </p>
-<pre class="highlight"><code class="language-python"># True parameters 
-alpha_true = 5
+<p>```python</p>
+<h1 id="true-parameters">True parameters</h1>
+<p>alpha_true = 5
 beta0_true = 7
-beta1_true = 13
-
-# Size of the dataset 
-size = 100 
-
-# Random variables 
-np.random.seed(1)
-
-X1 = np.random.randn(size)
-X2 = np.random.randn(size)*0.2
-
-e = np.random.randn(size)
-
-Y = alpha_true + beta0_true * X1 + beta1_true * X2 + e</code></pre>
+beta1_true = 13</p>
+<h1 id="size-of-the-dataset">Size of the dataset</h1>
+<p>size = 100 </p>
+<h1 id="random-variables">Random variables</h1>
+<p>np.random.seed(1)</p>
+<p>X1 = np.random.randn(size)
+X2 = np.random.randn(size)*0.2</p>
+<p>e = np.random.randn(size)</p>
+<p>Y = alpha_true + beta0_true * X1 + beta1_true * X2 + e
+```</p>
 <h2 id="especificando-o-modelo">Especificando o modelo</h2>
 <p>Vamos fazer um modelo simples aqui, só para mostrar essa biblioteca nova. A ideia é mostrar como funciona a ideia de priori e posteriori. </p>
 <p>Vamos dizer que <script type="math/tex">Y \sim N(\mu, 1)</script>, onde </p>
 <p>
 <script type="math/tex">\mu = \alpha + \beta_1 X_1 + \beta_2 X_2</script>
 </p>
-<pre class="highlight"><code class="language-python">model = Model()  #cria um novo modelo, que em Python, é um objeto
+<p>```python
+model = Model()  #cria um novo modelo, que em Python, é um objeto</p>
+<p>with model:      # Isso cria um contexto em python</p>
+<pre><code># Vamos dizer nossas prioris!
+alpha = Normal('alpha', mu = 0, sigma = 1)
+beta0 = Normal('beta0', mu = 12, sigma  = 1)
+beta1 = Normal('beta1', mu = 18, sigma = 1)
 
-with model:      # Isso cria um contexto em python
+# Valor esperado da saída 
+mu = alpha + beta0*X1 + beta1*X2
 
-    # Vamos dizer nossas prioris!
-    alpha = Normal('alpha', mu = 0, sigma = 1)
-    beta0 = Normal('beta0', mu = 12, sigma  = 1)
-    beta1 = Normal('beta1', mu = 18, sigma = 1)
+# Verossimilhança das observações 
+Y_obs = Normal('Y_obs', mu = mu, sigma = 1, observed = Y)
 
-    # Valor esperado da saída 
-    mu = alpha + beta0*X1 + beta1*X2
-
-    # Verossimilhança das observações 
-    Y_obs = Normal('Y_obs', mu = mu, sigma = 1, observed = Y)
-
-    # Amostras da distribuição 
-    trace = sample(1000)</code></pre>
+# Amostras da distribuição 
+trace = sample(1000)
+</code></pre>
+<p>```</p>
 <pre><code>Auto-assigning NUTS sampler...
 Initializing NUTS using jitter+adapt_diag...
 Multiprocess sampling (2 chains in 2 jobs)
@@ -352,49 +365,54 @@ NUTS: [beta1, beta0, alpha]
 █Sampling 2 chains for 1_000 tune and 1_000 draw iterations (2_000 + 2_000 draws total) took 3 seconds.
 </code></pre>
 <p>A próxima função é um plot de distribuição a priori amostrada (que é basicamente um histograma) de cada parâmetro. Veja que parece um chiado em torno da média. </p>
-<pre class="highlight"><code class="language-python">traceplot(trace);</code></pre>
+<p><code>python
+traceplot(trace);</code></p>
 <p><img alt="svg" src="../output_14_0.svg" /></p>
 <p>Agora que nós temos os dados gerados <script type="math/tex">Y</script>, vamos atualizar nosso conhecimento, nossa confiança nos parâmetros, através da distribuição a posteriori. Os dados devem ser independentes a ada interação para que valha o que estudamos. Para isso, precisamos calcular a posteriori de cada parâmetro. Nesse caso, vamos utilizar uma aproximação para a distribuição, utlizando aproximação <a href="https://en.wikipedia.org/wiki/Kernel_density_estimation">Kernel</a>. Não se preocupe com isso, é só para mostrar que estamos calculado a posteriori</p>
-<pre class="highlight"><code class="language-python">def from_posterior(param, samples):
+<p>```python
+def from_posterior(param, samples):</p>
+<pre><code>smin, smax = np.min(samples), np.max(samples)
+width = smax - smin
 
-    smin, smax = np.min(samples), np.max(samples)
-    width = smax - smin
+x = np.linspace(smin, smax, 100)
 
-    x = np.linspace(smin, smax, 100)
+y = stats.gaussian_kde(samples)(x)
 
-    y = stats.gaussian_kde(samples)(x)
-
-    # what was never sampled should have a small probability but not 0,
-    # so we'll extend the domain and use linear approximation of density on it
-    x = np.concatenate([[x[0] - 3 * width], x, [x[-1] + 3 * width]])
-    y = np.concatenate([[0], y, [0]])
-    return Interpolated(param, x, y)</code></pre>
+# what was never sampled should have a small probability but not 0,
+# so we'll extend the domain and use linear approximation of density on it
+x = np.concatenate([[x[0] - 3 * width], x, [x[-1] + 3 * width]])
+y = np.concatenate([[0], y, [0]])
+return Interpolated(param, x, y)
+</code></pre>
+<p>```</p>
 <p>Agora, vamos gerar mais dados e usar a Fórmula de Bayes e usaremos uma forma sequencial das observações, isto é, a posteriori da iteração <script type="math/tex">n-1</script> será a priori da iteração <script type="math/tex">n</script>.</p>
-<pre class="highlight"><code class="language-python">traces = [trace]      # salva os traços para que plotamos depois. 
-for _ in range(10):   # _ indica uma variável que não é usada 
+<p>```python
+traces = [trace]      # salva os traços para que plotamos depois. 
+for _ in range(10):   # _ indica uma variável que não é usada </p>
+<pre><code>#  Gerando mais e mais dados!
+X1 = np.random.randn(size)
+X2 = np.random.randn(size) * 0.2
+e = np.random.randn(size)
+Y = alpha_true + beta0_true * X1 + beta1_true * X2 + e
 
-    #  Gerando mais e mais dados!
-    X1 = np.random.randn(size)
-    X2 = np.random.randn(size) * 0.2
-    e = np.random.randn(size)
-    Y = alpha_true + beta0_true * X1 + beta1_true * X2 + e
+model = Model()
+with model:
+    # As novas prioris são as posterioris 
+    alpha = from_posterior('alpha', trace['alpha'])
+    beta0 = from_posterior('beta0', trace['beta0'])
+    beta1 = from_posterior('beta1', trace['beta1'])
 
-    model = Model()
-    with model:
-        # As novas prioris são as posterioris 
-        alpha = from_posterior('alpha', trace['alpha'])
-        beta0 = from_posterior('beta0', trace['beta0'])
-        beta1 = from_posterior('beta1', trace['beta1'])
+    # EValor esperado da saída 
+    mu = alpha + beta0 * X1 + beta1 * X2
 
-        # EValor esperado da saída 
-        mu = alpha + beta0 * X1 + beta1 * X2
+    # Calculando a verossimilhança dos novos dados 
+    Y_obs = Normal('Y_obs', mu = mu, sigma = 1, observed = Y)
 
-        # Calculando a verossimilhança dos novos dados 
-        Y_obs = Normal('Y_obs', mu = mu, sigma = 1, observed = Y)
-
-        # Amostrando da posteriori, porque não estamos calculando a forma fechada 
-        trace = sample(1000)
-        traces.append(trace)</code></pre>
+    # Amostrando da posteriori, porque não estamos calculando a forma fechada 
+    trace = sample(1000)
+    traces.append(trace)
+</code></pre>
+<p>```</p>
 <pre><code>Auto-assigning NUTS sampler...
 Initializing NUTS using jitter+adapt_diag...
 Multiprocess sampling (2 chains in 2 jobs)
@@ -452,29 +470,29 @@ Multiprocess sampling (2 chains in 2 jobs)
 NUTS: [beta1, beta0, alpha]
 █Sampling 2 chains for 1_000 tune and 1_000 draw iterations (2_000 + 2_000 draws total) took 3 seconds.
 </code></pre>
-<pre class="highlight"><code class="language-python">fig, ax = plt.subplots(1,3,figsize=(20, 5))
+<p>```python
+fig, ax = plt.subplots(1,3,figsize=(20, 5))</p>
+<h1 id="definindo-cores">Definindo cores</h1>
+<p>cmap = mpl.cm.autumn      </p>
+<p>for index, param in enumerate(['alpha', 'beta0', 'beta1']):</p>
+<pre><code>for update_i, trace in enumerate(traces):
 
-# Definindo cores 
-cmap = mpl.cm.autumn      
+    samples = trace[param]
+    smin, smax = np.min(samples), np.max(samples)
+    x = np.linspace(smin, smax, 100)
+    y = stats.gaussian_kde(samples)(x)
 
-for index, param in enumerate(['alpha', 'beta0', 'beta1']):
+    ax[index].plot(x, y, color=cmap(1 - update_i / len(traces)), alpha = update_i/len(traces))
 
-    for update_i, trace in enumerate(traces):
-
-        samples = trace[param]
-        smin, smax = np.min(samples), np.max(samples)
-        x = np.linspace(smin, smax, 100)
-        y = stats.gaussian_kde(samples)(x)
-
-        ax[index].plot(x, y, color=cmap(1 - update_i / len(traces)), alpha = update_i/len(traces))
-
-    ax[index].axvline({'alpha': alpha_true, 'beta0': beta0_true, 'beta1': beta1_true}[param], c='k')
-    ax[index].set_ylabel('Frequency')
-    ax[index].set_title(param)
-
-plt.tight_layout();</code></pre>
+ax[index].axvline({'alpha': alpha_true, 'beta0': beta0_true, 'beta1': beta1_true}[param], c='k')
+ax[index].set_ylabel('Frequency')
+ax[index].set_title(param)
+</code></pre>
+<p>plt.tight_layout();
+```</p>
 <p><img alt="svg" src="../output_19_0.svg" /></p>
-<pre class="highlight"><code class="language-python"></code></pre></div>
+<p>```python</p>
+<p>```</p></div>
         
         
     </div>

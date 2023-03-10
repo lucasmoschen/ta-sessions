@@ -138,7 +138,19 @@
                         
                             
 <li >
+    <a href="../../../edp_PhD/info/">Equações Diferenciais Parciais e Aplicações</a>
+</li>
+
+                        
+                            
+<li >
     <a href="../../info/">Inferência Estatística</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../probability/info/">Probabilidade</a>
 </li>
 
                         
@@ -180,12 +192,19 @@
                 
             <li class="second-level"><a href="#teste-t">Teste t</a></li>
                 
-                <li class="third-level"><a href="#distibuicao-de-u">Distibuição de U</a></li>
-                <li class="third-level"><a href="#p-valores-para-testes-t">P-valores para testes t</a></li>
-                <li class="third-level"><a href="#distribuicao-t-nao-central">Distribuição t não central</a></li>
-                <li class="third-level"><a href="#alternativa-bilateral">Alternativa Bilateral</a></li>
-                <li class="third-level"><a href="#funcao-poder">Função Poder</a></li>
-                <li class="third-level"><a href="#p-valor">P-valor</a></li>
+        <li class="first-level "><a href="#vamos-escolher-mu-e-sigma-de-forma-aleatoria-mas-nao-significa-que-e-uma-variavel-aleatoria">Vamos escolher mu e sigma de forma aleatória, mas não significa que é uma variável aleatória.</a></li>
+            <li class="second-level"><a href="#distibuicao-de-u">Distibuição de U</a></li>
+                
+            <li class="second-level"><a href="#p-valores-para-testes-t">P-valores para testes t</a></li>
+                
+            <li class="second-level"><a href="#distribuicao-t-nao-central">Distribuição t não central</a></li>
+                
+            <li class="second-level"><a href="#alternativa-bilateral">Alternativa Bilateral</a></li>
+                
+            <li class="second-level"><a href="#funcao-poder">Função Poder</a></li>
+                
+            <li class="second-level"><a href="#p-valor">P-valor</a></li>
+                
             <li class="second-level"><a href="#comparando-medias-de-duas-normais">Comparando médias de duas normais</a></li>
                 
                 <li class="third-level"><a href="#funcao-poder_1">Função Poder</a></li>
@@ -272,15 +291,18 @@ Pelo Lema de Neyman Pearson, qualquer outro procedimento com nível <script type
 <hr />
 <h3 id="implementacao">Implementação</h3>
 <p>Vamos fazer uma simples implementação de uso para esse tipo de problema. </p>
-<pre class="highlight"><code class="language-python">import numpy as np 
+<p><code>python
+import numpy as np 
 from scipy.stats import bernoulli, binom
-from scipy.optimize import brute</code></pre>
+from scipy.optimize import brute</code></p>
 <p>Nesse caso, vamos fazer uma simples simulação, onde um parâmetro de uma distribuição de Bernoulli pode ser <script type="math/tex">p = 0.4</script> ou <script type="math/tex">p = 0.6</script>. Vamos gerar essa amostra, mas sem de fato conhecer <script type="math/tex">p</script> verdadeiro.</p>
-<pre class="highlight"><code class="language-python">ro = np.random.RandomState(1000000) #random state 
-p = ro.choice([0.4, 0.6])</code></pre>
+<p><code>python
+ro = np.random.RandomState(1000000) #random state 
+p = ro.choice([0.4, 0.6])</code></p>
 <p>Teremos uma amostra de tamanho <script type="math/tex">n</script>.</p>
-<pre class="highlight"><code class="language-python">n = 20
-X = ro.binomial(1, p, size = n)</code></pre>
+<p><code>python
+n = 20
+X = ro.binomial(1, p, size = n)</code></p>
 <p>Vamos utilizar o Lema Neyman-Pearson. O objetivo é testar as seguintes hipóteses: </p>
 <p>
 <script type="math/tex; mode=display">
@@ -307,28 +329,32 @@ H_1: p = 0.6
 </script>
 </p>
 <p>Isto é, preciso escolher <script type="math/tex">k</script> que satisfaça essa relação. Vamos calcular <script type="math/tex">k</script> numericamente utilizando um método de otimização por bruta força (são poucas as opções). Como não queremos que seja marior do que 0.05, precisamos colocar peso para que não seja. Veja que existem vários valores de <script type="math/tex">k</script> que satisfazem isso. </p>
-<pre class="highlight"><code class="language-python">alpha0 = 0.05 
-Y = binom(n = n, p = 0.4)
-
-func = lambda k, n: np.abs(0.95 - Y.cdf((1/2)*np.log(k)/np.log(3/2) + n/2)) + \
-                    10*(0.95 &gt; Y.cdf((1/2)*np.log(k)/np.log(3/2) + n/2))</code></pre>
-<p><pre class="highlight"><code class="language-python">k = brute(func, ranges = (slice(1,20,1),), args = (n,))[0]
-k</code></pre>
+<p>```python
+alpha0 = 0.05 
+Y = binom(n = n, p = 0.4)</p>
+<p>func = lambda k, n: np.abs(0.95 - Y.cdf((1/2)<em>np.log(k)/np.log(3/2) + n/2)) + \
+                    10</em>(0.95 &gt; Y.cdf((1/2)*np.log(k)/np.log(3/2) + n/2))
+```</p>
+<p><code>python
+k = brute(func, ranges = (slice(1,20,1),), args = (n,))[0]
+k</code>
     6.0</p>
 <p>Por esse motivo, vamos tomar <script type="math/tex">k=6</script>. Pela Lema de Neyman Pearson, esse teste é o que minimiza o Erro do Tipo II.  </p>
 <p>Vamos ver se rejeitamos ou não a hipótese nula baseado nos dados obtidos. </p>
-<pre class="highlight"><code class="language-python">f0 = lambda x: 0.4**(sum(x))*0.6**(len(x) - sum(x))
-f1 = lambda x: 0.6**(sum(x))*0.4**(len(x) - sum(x))
-
-if f1(X) &gt; k*f0(X):
+<p>```python
+f0 = lambda x: 0.4<strong>(sum(x))*0.6</strong>(len(x) - sum(x))
+f1 = lambda x: 0.6<strong>(sum(x))*0.4</strong>(len(x) - sum(x))</p>
+<p>if f1(X) &gt; k*f0(X):
     print(r'Rejeitamos H0.')
 else:
-    print(r'Não rejeitamos H0.')</code></pre>
+    print(r'Não rejeitamos H0.')
+```</p>
 <pre><code>Não rejeitamos H0.
 </code></pre>
 <p>Vamos ver quem é <script type="math/tex">p</script>, então. </p>
-<p><pre class="highlight"><code class="language-python">print('O valor de p é .... ')
-print(p)</code></pre>
+<p><code>python
+print('O valor de p é .... ')
+print(p)</code>
     O valor de p é .... 
     0.4</p>
 <p>Fizemos bem em não rejeitar a hipótese nula!</p>
@@ -369,19 +395,23 @@ H_1: \mu > \mu_0 \implies \Omega_1 = \{(x,y) \in \mathbb{R}^2 | x > \mu_0 \text{
 </script>
 </p>
 <p>Sabemos que <script type="math/tex">U = n^{1/2}\frac{\bar{X}_n - \mu_0}{\sigma '}</script> é uma boa estatística de teste e rejeitamos <script type="math/tex">H_0</script> se <script type="math/tex">U \ge c</script>. Essa estatística é interessante porque quando <script type="math/tex">\mu = \mu_0, U \sim t(n-1)</script>. Por isso chamamos de testes t quando baseados na estatística <script type="math/tex">U</script>. Podemos também inverter os sinais de desigualdade e rejeitar <script type="math/tex">H_0</script> quando <script type="math/tex">U \le c</script>. </p>
-<pre class="highlight"><code class="language-python">from pandas import DataFrame
+<p>```python
+from pandas import DataFrame
 from scipy.stats import t
 import matplotlib.pyplot as plt
 import seaborn as sns
-sns.set()
-
-%matplotlib notebook</code></pre>
-<pre class="highlight"><code class="language-python">mu0 = 10
-# Vamos escolher mu e sigma de forma aleatória, mas não significa que é uma variável aleatória. 
-n = 20</code></pre>
+sns.set()</p>
+<p>%matplotlib notebook
+```</p>
+<p>```python
+mu0 = 10</p>
+<h1 id="vamos-escolher-mu-e-sigma-de-forma-aleatoria-mas-nao-significa-que-e-uma-variavel-aleatoria">Vamos escolher mu e sigma de forma aleatória, mas não significa que é uma variável aleatória.</h1>
+<p>n = 20
+```</p>
 <h3 id="distibuicao-de-u">Distibuição de U</h3>
 <p>Vamos gerar uma aproximação para a distribuição de <script type="math/tex">U</script> para um determinado <script type="math/tex">\mu</script>. </p>
-<pre class="highlight"><code class="language-python">U_values = {}
+<p><code>python
+U_values = {}
 for i in range(6):
     mu = ro.normal(mu0, 1) if i &lt; 5 else 10
     sigma = ro.exponential(mu0) 
@@ -391,11 +421,12 @@ for i in range(6):
         X = ro.normal(mu, sigma, size = n)
         U = np.sqrt(n)*(np.mean(X) - mu0)/np.std(X, ddof = 1)
         U_values[key][j] = U
-U_values = DataFrame(U_values)</code></pre>
-<pre class="highlight"><code class="language-python">fig, ax = plt.subplots(figsize = (10,6))
+U_values = DataFrame(U_values)</code></p>
+<p><code>python
+fig, ax = plt.subplots(figsize = (10,6))
 sns.kdeplot(data = U_values, ax = ax)
 ax.set_title('Distribuição aproximada de U')
-plt.show()</code></pre>
+plt.show()</code></p>
 <p><img alt="png" src="../output_23_0_2.png" /></p>
 <p><strong>Teorema:</strong> Seja <script type="math/tex">c</script> o <script type="math/tex">1 - \alpha_0</script> quartil da distribuição <script type="math/tex">t</script> com <script type="math/tex">n-1</script> graus de liberdade. Então, segundo o teste citado acima, a função poder tem as seguintes propriedades: </p>
 <ol>
@@ -426,38 +457,38 @@ Suponha que o procedimento <script type="math/tex">\delta</script> rejeita <scri
 Se <script type="math/tex">\delta '</script> rejeita <script type="math/tex">H_0: \mu \ge \mu_0</script> se <script type="math/tex">U \le c</script>. Então a função poder é 
 <script type="math/tex; mode=display">\pi(\mu,\sigma^2|\delta) = T_{n-1}(c,\psi)</script>
 </p>
-<pre class="highlight"><code class="language-python">from scipy.stats import nct #noncentral t distribution
+<p>```python
+from scipy.stats import nct #noncentral t distribution
 from matplotlib import animation
 from IPython.display import HTML
-import warnings
-
-warnings.filterwarnings('ignore')</code></pre>
-<pre class="highlight"><code class="language-python">n = 10
+import warnings</p>
+<p>warnings.filterwarnings('ignore')
+```</p>
+<p><code>python
+n = 10
 mu0 = 5
 sigma = 2
-psi = lambda mu: np.sqrt(n)*(mu - mu0)/sigma</code></pre>
-<pre class="highlight"><code class="language-python">X = nct(df = n-1, nc = psi(-20))</code></pre>
+psi = lambda mu: np.sqrt(n)*(mu - mu0)/sigma</code></p>
+<p><code>python
+X = nct(df = n-1, nc = psi(-20))</code></p>
 <p>Vamos ver o que acontece quando variamos <script type="math/tex">\mu</script>. Nesse caso <script type="math/tex">-20 \leq \mu \geq 20</script>. </p>
-<pre class="highlight"><code class="language-python">fig, ax = plt.subplots()
-
-x = np.linspace(X.ppf(0.01), 
-                X.ppf(0.99), 100)
-
-line, = ax.plot(x, X.pdf(x), 'r-', lw=5, alpha=0.6)
-
-ax.set_xlim((-60,60))
+<p>```python
+fig, ax = plt.subplots()</p>
+<p>x = np.linspace(X.ppf(0.01), 
+                X.ppf(0.99), 100)</p>
+<p>line, = ax.plot(x, X.pdf(x), 'r-', lw=5, alpha=0.6)</p>
+<p>ax.set_xlim((-60,60))
 ax.set_ylim((0,0.3))
-ax.set_title('t não central')
+ax.set_title('t não central')</p>
+<p>def animate(i,n):</p>
+<pre><code>x = np.linspace(-60, 60, 100)
+line.set_data(x, nct.pdf(x, df = n-1, nc = psi(i-20)))
 
-def animate(i,n):
-
-    x = np.linspace(-60, 60, 100)
-    line.set_data(x, nct.pdf(x, df = n-1, nc = psi(i-20)))
-
-    return line,
-
-HTML(animation.FuncAnimation(fig, animate, frames = 40,
-                               interval = 100, fargs=(n,), repeat = False).to_html5_video())</code></pre>
+return line,
+</code></pre>
+<p>HTML(animation.FuncAnimation(fig, animate, frames = 40,
+                               interval = 100, fargs=(n,), repeat = False).to_html5_video())
+```</p>
 <video width="432" height="288" controls autoplay>
   <source type="video/mp4" src="data:video/mp4;base64,AAAAIGZ0eXBNNFYgAAACAE00ViBpc29taXNvMmF2YzEAAAAIZnJlZQAAOF1tZGF0AAACrgYF//+q
 3EXpvebZSLeWLNgg2SPu73gyNjQgLSBjb3JlIDE2MCByMzAxMSBjZGU5YTkzIC0gSC4yNjQvTVBF
@@ -762,16 +793,18 @@ H_1: \mu \neq \mu_0
 P(|U| \ge c|\mu = \mu_0) = \alpha_0 = P(U \le -c) + P(U \ge c) \overset{simetria}{=} 2P( U \ge c) = 2(1 - P(U \le c))
 </script>
 </p>
-<pre class="highlight"><code class="language-python">n = 20
+<p><code>python
+n = 20
 alpha0 = 0.05 
-c = t.ppf(df = n-1, q = 1 - alpha0/2)</code></pre>
-<pre class="highlight"><code class="language-python">X = t(df = n-1)
+c = t.ppf(df = n-1, q = 1 - alpha0/2)</code></p>
+<p><code>python
+X = t(df = n-1)
 x = np.arange(-5,5,0.1)
 plt.plot(x, X.pdf(x))
 plt.fill_between(x[(x &lt; -c)], X.pdf(x[(x &lt; -c)]), color = 'blue')
 plt.fill_between(x[(x &gt; c)], X.pdf(x[(x &gt; c)]), color = 'blue')
 plt.title('Distribuição de U e Região de Rejeição')
-plt.show()</code></pre>
+plt.show()</code></p>
 <p><img alt="png" src="../output_33_0.png" /></p>
 <h3 id="funcao-poder">Função Poder</h3>
 <p>
