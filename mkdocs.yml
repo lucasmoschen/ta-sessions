@@ -11,8 +11,9 @@ nav:
   - Pós-graduação: 
     - Análise Funcional: functional_analysis/info.md
     - Estatística Bayesiana: bayesian/info.md
+    - Equações Diferenciais Parciais e Aplicações: edp_PhD/info.md
     - Inferência Estatística: infestatistica_MSc/info.md
-
+    - Probabilidade: probability/info.md
 
 theme:
   name: null

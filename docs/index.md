@@ -9,6 +9,10 @@ alterações, você pode usar o Issues do Github.
 
 ## Tópicos abordados 
 
+- Equações Diferenciais Parciais e Aplicações (2023.1)
+    - Professor [Guilherme Tegoni Goedert](https://www.gtgoedert.com/Home)
+- Probabilidade (2023.1)
+    - Professor [Paulo Cezar P. Carvalho](https://emap.fgv.br/integrante/paulo-cezar-p-carvalho)
 - Equações Diferenciais Parciais (2022.2)
     - Professor [Moacyr Alvim Horta Barbosa da Silva](https://emap.fgv.br/corpo-docente/moacyr-alvim-horta-barbosa-silva)
 - Análise Funcional (2022.5)
