@@ -121,4 +121,42 @@ Um **modelo probabilístico** inclui definir um espaço amostral, uma $\sigma$-�
 
 ## Probabilidade condicional
 
+Seja $(\Sigma, \mathbb{A}, \mathbb{P})$ um espaço de probabilidade. 
+Se $B \in \mathbb{A}$ e $P(B) > 0$, dizemos que a probabilidade de $A$ condicional em $B$ é definida por 
+$$
+P(A | B) := \frac{P(A \cap B)}{P(B)}.
+$$
+Podemos verificar que $P(\cdot | B)$ define uma medida de probabilidade também.
+
+Com essa definição, é possível demonstrar (usando indução em $n$) que
+$$
+P(A_1 \cap A_2 \cap \dots \cap A_n) = P(A_1) \cdot P(A_2 | A_1) \cdot P(A_3 | A_1 \cap A_2) \cdots P(A_n | A_1 \cap \dots \cap A_{n-1}).
+$$
+
+*Observação: Se $P(B) = 0$, essa definição de probabilidade condicional não serve. Por exemplo, se condicionarmos num evento do tipo "sorteie um número entre $0$ e $1$ ao acaso", esse evento pode acontecer, mas tem probabilidade $0$. Nesse caso, uma definição mais precisa é necessária, apesar de ser um tanto mais complicada. Em particular ela vai envolver esperanças e condicionais em variáveis aleatórias.* 
+
+**Teorema da Probabilidade Total:** Se a sequência $A_1, A_2, \dots$ forma uma partição de $\Omega$, isto é, são disjuntos dois a dois, mas a união deles forma $\Omega$, então
+$$
+P(B) = \sum_{i} P(A_i) P(B|A_i), \text{ para todo } B \in \mathbb{A}.
+$$
+
+A partir dela, podemos chegar na **Fórmula de Bayes**:
+
+$$
+P(A_i | B) = \frac{P(A_i) P(B | A_i)}{P(B)} = \frac{P(A_i) P(B | A_i)}{\sum_{i} P(A_i) P(B|A_i)}.
+$$
+
 ## Independência
+
+Dizemos que os eventos $A$ e $B$ são independentes se 
+$$
+P(A \cap B) = P(A) \cdot P(B).
+$$
+Uma consequência direta dessa definição é que se $A$ e $B$ são independentes, então $A^c$ e $B$ também o são.
+
+Para uma coleção de eventos $A_i$, dizemos que eles são independentes 2 a 2 se satisfazem a propriedade acima 2 a 2.
+Mas para dizermos que essa coleção é **independente**, temos que exigir que toda subfamília finita de eventos $A_{i_1}, \dots, A_{i_m}$ satisfaça
+$$
+P(A_{i_1} \cap \dots \cap A_{i_m}) = P(A_{i_1}) \cdots P(A_{i_m}).
+$$
+Alguns se referem a essa propriedade como **independência estatística**.
