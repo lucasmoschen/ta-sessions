@@ -11,6 +11,7 @@ Monitoria de Probabilidade do Mestrado em Modelagem Matemática na FGV EMAp de 2
 |Parte 1|
 |---|
 |[Revisão de Análise Combinatória e Modelos Equiprováveis com Paulo Cézar](https://sites.google.com/site/probfgv)|
+|[Definições básicas de probabilidade](/ta-sessions/probability/basic_definitions)|
 
 ## Listas
 
