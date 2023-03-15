@@ -378,7 +378,7 @@ plt.show()</code></p>
 <p>Vamos calcular o nosso intervalo de confiança com <script type="math/tex">\gamma = 0.95</script>. Temos que:</p>
 <p>```python
 gamma = 0.95</p>
-<p>A = lambda x: np.mean(x) - t.ppf(q = (1 + gamma)/2, df = len(x) - 1)<em>np.std(x, ddof = 1)/len(x)</em><em>(1/2)
+<p>A = lambda x: np.mean(x) - t.ppf(q = (1 + gamma)/2, df = len(x) - 1)<em>np.std(x, ddof = 1)/len(x)**(1/2)
 B = lambda x: np.mean(x) + t.ppf(q = (1 + gamma)/2, df = len(x) - 1)</em>np.std(x, ddof = 1)/len(x)**(1/2)
 ```</p>
 <p>```python
