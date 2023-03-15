@@ -1,19 +1,18 @@
 # Informações Gerais 
 
-Monitoria de Equações Diferenciais Parciais e Aplicações do Doutorado em Modelagem Matemática na FGV EMAp de 2023.1
+Monitoria de Equações Diferenciais Parciais e Aplicações do Doutorado em Modelagem Matemática na FGV EMAp de 2023.1 com o professor [Guilherme T. Goedert](https://www.gtgoedert.com/Home).
 
 ## Tópicos
+
+|Conceitos desenvolvidos|
+|---|
+|[Definições preliminares](/files/disciplines/edp2023/preliminaries)|
 
 ## Listas
 
 |Número|Itens discutidos|Solução|
 |------|----------------|-------|
 |[1](/ta-sessions/unavailable)|TBA|[1](/ta-sessions/unavailable)|
-
-## Notas
-  
-|Monitoria|Itens discutidos|Arquivo|Vídeo|
-|---------|----------------|-------|-----| 
 
 ## Sugestões Adicionais 
 
