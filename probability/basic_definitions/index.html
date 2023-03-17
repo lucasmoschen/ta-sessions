@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+
+    
+    <title>Conceitos introdutórios - Teaching Assistance</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../css/base.min.css" rel="stylesheet">
+    <link href="../../css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            
+              <a class="navbar-brand" href="../..">Teaching Assistance</a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Graduação <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../alglin/info/">Álgebra Linear</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../analisenum/info/">Análise Numérica</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../curvas/info/">Curvas</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../edo/info/">Equações Diferenciais Ordinárias</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../edp/info/">Equações Diferenciais Parciais</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../infestatistica_BSc/info/">Inferência Estatística</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pós-graduação <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../functional_analysis/info/">Análise Funcional</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../bayesian/info/">Estatística Bayesiana</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../edp_PhD/info/">Equações Diferenciais Parciais e Aplicações</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../infestatistica_MSc/info/">Inferência Estatística</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../info/">Probabilidade</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://lucasmoschen.github.io">Página Inicial</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#conceitos-introdutorios">Conceitos introdutórios</a></li>
+            <li class="second-level"><a href="#propriedades-da-probabilidade">Propriedades da probabilidade</a></li>
+                
+            <li class="second-level"><a href="#probabilidade-condicional">Probabilidade condicional</a></li>
+                
+            <li class="second-level"><a href="#independencia">Independência</a></li>
+                
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="conceitos-introdutorios">Conceitos introdutórios</h1>
+<p>Chamamos de <strong>espaço amostral</strong> <script type="math/tex">\Omega</script> o conjunto de todos os possíveis resultados de possíveis de um experimento.
+Por exemplo, os resultados possíveis de uma jogada de dado de 6 lados é <script type="math/tex">\Omega = \{1,2,3,4,5,6\}</script>.
+Já os <strong>eventos</strong> são os subconjuntos de <script type="math/tex">\Omega</script>.
+Em geral, eles são uma afirmação do tipo <em>observa-se algo</em>.
+Por definição, <script type="math/tex">\Omega</script> é o evento <em>certo</em>, enquanto <script type="math/tex">\emptyset</script> é o evento <em>impossível</em>.</p>
+<p>Algumas notações clássicas para <script type="math/tex">A,B</script> eventos:</p>
+<ul>
+<li>
+<script type="math/tex">A \cup B</script>: evento <script type="math/tex">A</script> ou <script type="math/tex">B</script>;</li>
+<li>
+<script type="math/tex">A \cap B</script>: evento <script type="math/tex">A</script> e <script type="math/tex">B</script>;</li>
+<li>
+<script type="math/tex">A^c</script>: evento não <script type="math/tex">A</script>;</li>
+<li>
+<script type="math/tex">A \cap B</script>: a ocorrência do evento <script type="math/tex">A</script> implica a ocorrência de <script type="math/tex">B</script>;</li>
+<li>
+<script type="math/tex">A \cap B = \emptyset</script>: os eventos são <strong>mutuamente exclusivos</strong>.</li>
+</ul>
+<p>A próxima questão é como atribuir probabilidades ao eventos, isto é, como definir uma função que a cada evento associe um valor numérico entre <script type="math/tex">0</script> e <script type="math/tex">1</script>.
+Um evento <script type="math/tex">A</script> ao qual se atribui uma probabilidade é chamado de <strong>evento aleatório</strong>.
+A Teoria da Medida é a ferramenta para formalizar esse conceito. 
+Uma <strong>álgebra</strong> <script type="math/tex">\mathbb{A}</script> de subconjuntos de <script type="math/tex">\Omega</script> é um conjunto de subconjuntos de <script type="math/tex">\Omega</script> que satisfaz as seguintes propriedades:</p>
+<ol>
+<li>
+<script type="math/tex">\Omega \in \mathbb{A}</script>;</li>
+<li>Se <script type="math/tex">A \in \mathbb{A}</script>, então <script type="math/tex">A^c \in \mathbb{A}</script>;</li>
+<li>Se <script type="math/tex">A,B \in \mathbb{A}</script>, então <script type="math/tex">A \cup B \in \mathbb{A}</script>.</li>
+</ol>
+<p>Com essas propriedades temos que, por consequência, <script type="math/tex">\emptyset \in \mathbb{A}</script> e união e interseção finitas de conjuntos de <script type="math/tex">\mathbb{A}</script> pertence a <script type="math/tex">\mathbb{A}</script> (aplicação do princípio da indução e <a href="https://en.wikipedia.org/wiki/De_Morgan%27s_laws">lei de De Morgan</a>).</p>
+<p>Estendemos uma álgebra para uma <script type="math/tex">\sigma</script>
+<strong>-álgebra</strong> com a seguinte propriedade:</p>
+<ol>
+<li>1 Se <script type="math/tex">A_1, A_2, A_3, \dots \in \mathbb{A}</script>, então <script type="math/tex">\cup_{i=1}^{\infty} A_i \in \mathbb{A}</script>.</li>
+</ol>
+<p>Vale lembrar que esses são os axiomas que definem os eventos a que vamos atribuir probabilidades.
+Além do mais, o Teorema da Extensão, que pode ser encontrado no primeiro livro <a href="https://lucasmoschen.github.io/ta-sessions/probability/info/#sugestoes-adicionais">aqui</a>, permite que primeiro definamos probabilidade em uma álgebra e isso automaticamente define na <script type="math/tex">\sigma</script>-álgebra correspondente de forma única. 
+Probabilidade, no sentido que conhecemos hoje, tem uma construção axiomática e é dada por Kolmogorov:</p>
+<ol>
+<li>
+<script type="math/tex">P(A) \ge 0</script>;</li>
+<li>
+<script type="math/tex">P(\Sigma) = 1</script>;</li>
+<li>Se <script type="math/tex">A_1, A_2, A_3. \dots \in \mathbb{A}</script> são disjuntos, então 
+<script type="math/tex; mode=display">
+P\left(\cup_{i=1}^{\infty} A_n \right) = \sum_{i=1}^{\infty} P(A_n).
+</script>
+</li>
+</ol>
+<p>O terceiro axioma é nomeado de propriedade <script type="math/tex">\sigma</script>-aditividade da probabilidade.
+Alguns trabalhos teóricos substituem a união infinita de conjuntos pela finita, obtendo a aditividade como axioma apenas e, portanto, restringindo um pouco a sua aplicabilidade. 
+Com as três propriedades acima, temos uma <strong>medida de probabilidade</strong>.</p>
+<hr />
+<p><code>📝</code> <strong>Exemplo de <script type="math/tex">\sigma</script>-álgebra</strong></p>
+<p>Considere o experimento de selecionar um ponto em <script type="math/tex">[0,1]</script> ao acaso.
+Seja <script type="math/tex">\mathbb{A}</script> a <script type="math/tex">\sigma</script>-álgebra formada por todos os subconjuntos cujo comprimento esteja definido.
+Iniciamos com <script type="math/tex">\mathbb{A}_0 = \{A \subset [0,1] : A \text{ é união finita de intervalos}\}</script>. 
+É fácil ver que <script type="math/tex">\mathbb{A}_0</script> é álgebra, mas não é <script type="math/tex">\sigma</script>-álgebra.
+Por exemplo, o conjunto 
+<script type="math/tex; mode=display">
+B = \cup_{i=0}^{\infty} \left(\frac{2^i-1}{2^i}, \frac{2^{i+1}-1}{2^{i+1}}\right).
+</script>
+Esse conjunto não está em <script type="math/tex">\mathbb{A}_0</script>, mas podemos calcular seu comprimento usando séries. Assim,
+<script type="math/tex; mode=display">
+P(B) = 1
+</script>
+é o comprimento de <script type="math/tex">B</script>.
+Outro conjunto que não está em <script type="math/tex">\mathbb{A}_0</script> são os dos números racionais, ou dos números irracionais.
+De fato, temos que <script type="math/tex">P(\mathbb{Q} \cap [0,1]) = 0</script> é o comprimento desse conjunto, pois temos uma união enumerável de intervalos degenerados <script type="math/tex">\{r_n\}</script>, que tem comprimento <script type="math/tex">0</script>.</p>
+<p>Nesse caso, para os reais, usamos a <script type="math/tex">\sigma</script>-álgebra de Borel, cujos elementos são os <strong>borelianos</strong>.
+Ele é a menor <script type="math/tex">\sigma</script>-álgebra que contém todos os intervalos abertos. 
+Assim, uniões e intersecções enumeráveis e seus complementares estarão também na <script type="math/tex">\sigma</script>-álgebra.</p>
+<hr />
+<hr />
+<p><code>📝</code> <strong>Um conjunto sem probabilidade</strong></p>
+<p>Considere o experimento anterior e tome <script type="math/tex">X \sim \operatorname{Unif}[0,1]</script>.
+Podemos supor que 
+<script type="math/tex; mode=display">
+P([a,b]) = P((a,b)) = P((a,b]) = P([a,b)) = b - a,
+</script>
+para <script type="math/tex">0 \le a \le b \le 1</script>.</p>
+<p>Para manter a uniformidade, podemos supor que 
+<script type="math/tex; mode=display">
+P(A) = P(A \oplus r),
+</script>
+em que <script type="math/tex">A \oplus r = \{a + r; a \in A, a+r \le 1\} \cup \{a+r-1; a \in A, a + r > 1\}</script>.</p>
+<p><strong>Proposição:</strong> Não existe uma definição de <script type="math/tex">P(A)</script> para todos os subconjuntos <script type="math/tex">A \subseteq [0,1]</script> que satisfaçam o conceito de probabilidade e a translação acima mencionada.</p>
+<p>O resultado dessa proposição é por contradição é usa o famoso <a href="https://en.wikipedia.org/wiki/Axiom_of_choice">Axioma da Escolha</a>.
+Defina a relação de equivalência em <script type="math/tex">[0,1]</script> por <script type="math/tex">x \sim y</script> se <script type="math/tex">y- x</script> é racional.
+Isso relação particiona o intervalo <script type="math/tex">[0,1]</script> em subconjuntos disjuntos, visto que, se <script type="math/tex">x \sim y</script> e <script type="math/tex">y \sim z</script>, então <script type="math/tex">x \sim z</script> e <script type="math/tex">y \sim x</script>.
+Defina <script type="math/tex">H</script> como um conjunto que contenha exatamente um elemento de cada classe de equivalência, o que pode ser obtido pelo Axioma da Escolha.
+Assuma que <script type="math/tex">0 \not \in H</script> e, caso esteja, troque-o por <script type="math/tex">1/2</script>, visto que <script type="math/tex">0 \sim 1/2</script>.
+Com isso, note que 
+<script type="math/tex; mode=display">
+(0,1] \subseteq \cup_{r\in[0,1)\cap\mathbb{Q}} (H \oplus r)\dots
+</script>
+(para cada <script type="math/tex">p \in (0,1]</script>, seja <script type="math/tex">x</script> seu representante de classe em <script type="math/tex">H</script> e tome <script type="math/tex">r = |x-p|</script>).
+Além do mais, <script type="math/tex">H \oplus r</script> são disjuntos dois a dois. 
+Caso contrário, <script type="math/tex">h_1 + r_1 = h_2 + r_2 \implies h_1 - h_2 = r_2 - r_1 \implies h_1 \sim h_2</script> e, portanto, <script type="math/tex">h_1 = h_2</script> e <script type="math/tex">r_1 = r_2, pois só um representante está na classe.
+Portanto, pela aditividade contável, 
+<script type="math/tex; mode=display">
+1 = P((0,1]) = \sum_{r \in [0,1) \cap \mathbb{Q}} P(H \oplus r) = \sum_{r \in [0,1) \cap \mathbb{Q}} P(H) = 0 \text{ or } \infty,
+</script>
+o que é um absurdo. 
+Logo </script>P(H)$ não pode estar definido.</p>
+<hr />
+<h2 id="propriedades-da-probabilidade">Propriedades da probabilidade</h2>
+<p>Algumas propriedades da probabilidade são</p>
+<ol>
+<li>
+<script type="math/tex">P(A^c) = 1 - P(A)</script> para <script type="math/tex">A \in \mathbb{A}</script>;</li>
+<li>
+<script type="math/tex">A_1 \subseteq A_2 \implies P(A_1) \le P(A_2)</script>;</li>
+<li>
+<script type="math/tex">P(\cup A_i) \le \sum P(A_i)</script> (para uniões enumeráveis não necessariamente disjuntas.);</li>
+<li>Se <script type="math/tex">A_n \subseteq A_{n+1}</script> para todo <script type="math/tex">n</script> e <script type="math/tex">\cup A_n = A</script>, então <script type="math/tex">P(A_n) \to P(A)</script>.</li>
+</ol>
+<p>Um <strong>modelo probabilístico</strong> inclui definir um espaço amostral, uma <script type="math/tex">\sigma</script>-álgebra e uma probabilidade, o que define um <strong>espaço de probabilidade</strong> <script type="math/tex">(\Sigma, \mathbb{A}, \mathbb{P})</script>.</p>
+<h2 id="probabilidade-condicional">Probabilidade condicional</h2>
+<p>Seja <script type="math/tex">(\Sigma, \mathbb{A}, \mathbb{P})</script> um espaço de probabilidade. 
+Se <script type="math/tex">B \in \mathbb{A}</script> e <script type="math/tex">P(B) > 0</script>, dizemos que a probabilidade de <script type="math/tex">A</script> condicional em <script type="math/tex">B</script> é definida por 
+<script type="math/tex; mode=display">
+P(A | B) := \frac{P(A \cap B)}{P(B)}.
+</script>
+Podemos verificar que <script type="math/tex">P(\cdot | B)</script> define uma medida de probabilidade também.</p>
+<p>Com essa definição, é possível demonstrar (usando indução em <script type="math/tex">n</script>) que
+<script type="math/tex; mode=display">
+P(A_1 \cap A_2 \cap \dots \cap A_n) = P(A_1) \cdot P(A_2 | A_1) \cdot P(A_3 | A_1 \cap A_2) \cdots P(A_n | A_1 \cap \dots \cap A_{n-1}).
+</script>
+</p>
+<p><em>Observação: Se <script type="math/tex">P(B) = 0</script>, essa definição de probabilidade condicional não serve. Por exemplo, se condicionarmos num evento do tipo "sorteie um número entre <script type="math/tex">0</script> e <script type="math/tex">1</script> ao acaso", esse evento pode acontecer, mas tem probabilidade <script type="math/tex">0</script>. Nesse caso, uma definição mais precisa é necessária, apesar de ser um tanto mais complicada. Em particular ela vai envolver esperanças e condicionais em variáveis aleatórias.</em> </p>
+<p><strong>Teorema da Probabilidade Total:</strong> Se a sequência <script type="math/tex">A_1, A_2, \dots</script> forma uma partição de <script type="math/tex">\Omega</script>, isto é, são disjuntos dois a dois, mas a união deles forma <script type="math/tex">\Omega</script>, então
+<script type="math/tex; mode=display">
+P(B) = \sum_{i} P(A_i) P(B|A_i), \text{ para todo } B \in \mathbb{A}.
+</script>
+</p>
+<p>A partir dela, podemos chegar na <strong>Fórmula de Bayes</strong>:</p>
+<p>
+<script type="math/tex; mode=display">
+P(A_i | B) = \frac{P(A_i) P(B | A_i)}{P(B)} = \frac{P(A_i) P(B | A_i)}{\sum_{i} P(A_i) P(B|A_i)}.
+</script>
+</p>
+<h2 id="independencia">Independência</h2>
+<p>Dizemos que os eventos <script type="math/tex">A</script> e <script type="math/tex">B</script> são independentes se 
+<script type="math/tex; mode=display">
+P(A \cap B) = P(A) \cdot P(B).
+</script>
+Uma consequência direta dessa definição é que se <script type="math/tex">A</script> e <script type="math/tex">B</script> são independentes, então <script type="math/tex">A^c</script> e <script type="math/tex">B</script> também o são.</p>
+<p>Para uma coleção de eventos <script type="math/tex">A_i</script>, dizemos que eles são independentes 2 a 2 se satisfazem a propriedade acima 2 a 2.
+Mas para dizermos que essa coleção é <strong>independente</strong>, temos que exigir que toda subfamília finita de eventos <script type="math/tex">A_{i_1}, \dots, A_{i_m}</script> satisfaça
+<script type="math/tex; mode=display">
+P(A_{i_1} \cap \dots \cap A_{i_m}) = P(A_{i_1}) \cdots P(A_{i_m}).
+</script>
+Alguns se referem a essa propriedade como <strong>independência estatística</strong>.</p></div>
+        
+        
+    </div>
+
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
+
+          
+          
+      </footer>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../../js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = "../.."</script>
+    
+    <script src="../../js/base.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>

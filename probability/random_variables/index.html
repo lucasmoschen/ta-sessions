@@ -11,7 +11,7 @@
     <link rel="shortcut icon" href="../../img/favicon.ico">
 
     
-    <title>Probabilidade - Teaching Assistance</title>
+    <title>Variáveis aleatórias - Teaching Assistance</title>
     
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
@@ -120,7 +120,7 @@
                 
                 
                 
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pós-graduação <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
@@ -149,8 +149,8 @@
 
                         
                             
-<li class="active">
-    <a href="./">Probabilidade</a>
+<li >
+    <a href="../info/">Probabilidade</a>
 </li>
 
                         
@@ -166,16 +166,6 @@
                             <i class="fas fa-search"></i> Search
                         </a>
                     </li>
-                    <li >
-                        <a rel="prev" href="../../infestatistica_MSc/info/">
-                            <i class="fas fa-arrow-left"></i> Previous
-                        </a>
-                    </li>
-                    <li class="disabled">
-                        <a rel="next" >
-                            Next <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </li>
                     <li>
                         <a href="https://lucasmoschen.github.io">Página Inicial</a>
                     </li>
@@ -189,84 +179,20 @@
         
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="first-level active"><a href="#informacoes-gerais">Informações Gerais</a></li>
-            <li class="second-level"><a href="#topicos">Tópicos</a></li>
-                
-            <li class="second-level"><a href="#listas">Listas</a></li>
-                
-            <li class="second-level"><a href="#monitorias">Monitorias</a></li>
-                
-            <li class="second-level"><a href="#sugestoes-adicionais">Sugestões Adicionais</a></li>
-                
+        <li class="first-level active"><a href="#variaveis-aleatorias">Variáveis aleatórias</a></li>
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h1 id="informacoes-gerais">Informações Gerais</h1>
-<p>Monitoria de Probabilidade do Mestrado em Modelagem Matemática na FGV EMAp de 2023.1 com o professor Paulo Cézar P. Carvalho. </p>
-<p><strong>Site da disciplina:</strong> <a href="https://sites.google.com/site/probfgv">https://sites.google.com/site/probfgv</a></p>
-<p><strong>Livro-base:</strong> <a href="https://impa.br/page-livros/probabilidade-um-curso-em-nivel-intermediario/">Probabilidade: Um Curso em Nível Intermediário</a></p>
-<h2 id="topicos">Tópicos</h2>
-<table>
-<thead>
-<tr>
-<th>Parte 1</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://sites.google.com/site/probfgv">Revisão de Análise Combinatória e Modelos Equiprováveis com Paulo Cézar</a></td>
-</tr>
-<tr>
-<td><a href="/ta-sessions/probability/basic_definitions">Definições básicas de probabilidade</a></td>
-</tr>
-<tr>
-<td><a href="/ta-sessions/probability/random_variables">Variáveis aleatórias</a></td>
-</tr>
-</tbody>
-</table>
-<h2 id="listas">Listas</h2>
-<table>
-<thead>
-<tr>
-<th>Número</th>
-<th>Itens discutidos</th>
-<th>Solução</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://drive.google.com/file/d/1qyukB7sLCuUuGoUlzli7BrBH1TF8SEvw/view">1</a></td>
-<td>Análise combinatória, modelos equiprováveis e conceitos básicos de probabilidade</td>
-<td><a href="/ta-sessions/unavailable">1</a></td>
-</tr>
-<tr>
-<td><a href="https://drive.google.com/file/d/1mRTcfzeOQ0b5NwGcODigkRlRmu91bu2Z/view">2</a></td>
-<td>Conceitos de probabilidade</td>
-<td><a href="/ta-sessions/unavailable">2</a></td>
-</tr>
-</tbody>
-</table>
-<h2 id="monitorias">Monitorias</h2>
-<table>
-<thead>
-<tr>
-<th>Monitoria</th>
-<th>Itens discutidos</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h2 id="sugestoes-adicionais">Sugestões Adicionais</h2>
-<ul>
-<li><a href="http://probability.ca/jeff/grprobbook.html">Livro A First Look at Rigorous Probability Theory de Jeffrey S. Rosenthal</a>: boa introdução com um pouco mais de rigor à probabilidade com ideias de teoria da medida.</li>
-<li><a href="https://terrytao.wordpress.com/2015/09/29/275a-notes-0-foundations-of-probability-theory/">Foundations of probability theory do matemático Terence Tao</a>: para quem gosta de estudar por blog de um matemático relevante com teoria da medida, essa é uma boa pedida.</li>
-</ul></div>
+<h1 id="variaveis-aleatorias">Variáveis aleatórias</h1>
+<p>Formalmente, uma variável aleatória atribui um valor numérico a cada possível resultado de um experimento.
+Em outras palavras, dado um espaço de probabilidade <script type="math/tex">(\Omega, \mathbb{A}, P)</script>, uma <strong>variável aleatória</strong> é uma função
+<script type="math/tex; mode=display">
+X : \Omega \to \mathbb{R}.
+</script>
+Além disso, por questões técnicas, demandamos que <script type="math/tex">\{\omega \in Omega : X(\omega) \le x\} \in \mathbb{A}</script> para todo <script type="math/tex">x \in \mathbb{R}</script>. 
+Dizemos então que <script type="math/tex">X</script> é <strong>mensurável</strong>.
+Isso permite, por exemplo, que possamos calcular <script type="math/tex">F_X(x) = P(X \le x)</script>, o qual chamaremos de <strong>função de distribuição acumulada</strong> de <script type="math/tex">X</script>.</p></div>
         
         
     </div>
