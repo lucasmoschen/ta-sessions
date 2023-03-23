@@ -180,6 +180,10 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
         <li class="first-level active"><a href="#variaveis-aleatorias">Variáveis aleatórias</a></li>
+            <li class="second-level"><a href="#tipos-de-variaveis-aleatorias">Tipos de variáveis aleatórias</a></li>
+                
+            <li class="second-level"><a href="#a-distribuicao-de-uma-variavel-aleatoria">A distribuição de uma variável aleatória</a></li>
+                
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
@@ -192,14 +196,37 @@ X : \Omega \to \mathbb{R}.
 </script>
 Além disso, por questões técnicas, demandamos que <script type="math/tex">\{\omega \in Omega : X(\omega) \le x\} \in \mathbb{A}</script> para todo <script type="math/tex">x \in \mathbb{R}</script>. 
 Dizemos então que <script type="math/tex">X</script> é <strong>mensurável</strong>.
-Isso permite, por exemplo, que possamos calcular <script type="math/tex">F_X(x) = P(X \le x)</script>, o qual chamaremos de <strong>função de distribuição acumulada</strong> de <script type="math/tex">X</script>.</p>
+Isso permite, por exemplo, que possamos calcular <script type="math/tex">F_X(x) = P(X \le x)</script>, o qual chamaremos de <strong>função de distribuição acumulada</strong> (FDA) de <script type="math/tex">X</script>.</p>
 <p>A função de distribuição acumulada tem as seguintes propriedades:</p>
 <ol>
 <li><strong>Não decrescente:</strong> <script type="math/tex">x \le y \implies F_X(x) \le F_X(y)</script>.</li>
 <li><strong>Continuidade a direita:</strong> se <script type="math/tex">x_n \to x</script> e <script type="math/tex">x_n \ge x</script> para todo <script type="math/tex">n</script>, temos que <script type="math/tex">F_X(x_n) \to F_X(x)</script>.</li>
 <li><strong>Limites:</strong> <script type="math/tex">F_X(-\infty) = 0</script> e <script type="math/tex">F_X(\infty) = 1</script>.</li>
 </ol>
-<p>Essas propriedades podem ser demonstradas a partir das propriedades da probabilidade.</p></div>
+<p>Essas propriedades podem ser demonstradas a partir das propriedades da probabilidade. 
+Uma questão que surge é: se uma função satisfaz as propriedades 1,2 e 3, então ela é a FDA de alguma variável aleatória.
+A resposta é sim! 
+Portanto, podemos definir como <strong>função de distribuição</strong> as funções que satisfazem essas propriedades.
+Para uma demonstração, consulte o Teorema 1.2.2 <a href="https://www.ime.usp.br/~manuelg/arquivos/Probability%3A%20Theory%20and%20Examples%20-%20Durrett.pdf">daqui</a>.</p>
+<h2 id="tipos-de-variaveis-aleatorias">Tipos de variáveis aleatórias</h2>
+<p>A variável aleatória <script type="math/tex">X</script> é dita <strong>discreta</strong> se toma um número enumerável de valores.
+Ela é dita absolutamente contínua se existe uma função <script type="math/tex">f(x) \ge 0</script> tal que 
+<script type="math/tex; mode=display">
+F_X(x) = \int_{-\infty}^x f(t) \, dt, \forall x \in \mathbb{R}.
+</script>
+A função <script type="math/tex">f</script> é chamada de densidade de <script type="math/tex">X</script>.
+Em Teoria da Medida, essa definição perde um pouco do valor, porque a FDA da discreta também pode ser escrita como uma integral, só que na medida de contagem, enquanto a absolutamente contínua na medida de Lebesgue.
+Note que ao ter uma função <script type="math/tex">f(x) \ge 0</script> com 
+<script type="math/tex; mode=display">
+\int_{-\infty}^{\infty} f(x) \, dx = 1,
+</script>
+podemos definir uma função de distribuição (que satisfaz as três propriedades acima) da seguinte forma:
+<script type="math/tex; mode=display">
+F(x) = \int_{-\infty}^x f(t) \, dt.
+</script>
+Em geral, <script type="math/tex">X</script> tem densidade se <script type="math/tex">F_X</script> é contínua e derivável no interior de um número enumerável de intervalos fechados cuja união é a reta.
+Nesse caso, a derivada é a densidade de <script type="math/tex">X</script>, isto é, <script type="math/tex">f(x) = F'_X(x)</script>.</p>
+<h2 id="a-distribuicao-de-uma-variavel-aleatoria">A distribuição de uma variável aleatória</h2></div>
         
         
     </div>
