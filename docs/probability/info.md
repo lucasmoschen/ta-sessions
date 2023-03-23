@@ -20,6 +20,7 @@ Monitoria de Probabilidade do Mestrado em Modelagem Matemática na FGV EMAp de 2
 |------|----------------|-------|
 |[1](https://drive.google.com/file/d/1qyukB7sLCuUuGoUlzli7BrBH1TF8SEvw/view)|Análise combinatória, modelos equiprováveis e conceitos básicos de probabilidade|[1](/ta-sessions/unavailable)|
 |[2](https://drive.google.com/file/d/1mRTcfzeOQ0b5NwGcODigkRlRmu91bu2Z/view)|Conceitos de probabilidade|[2](/ta-sessions/unavailable)| 
+|[3](https://drive.google.com/file/d/1N0nlrkypSUJHU2SkYezV3Cwqww2cbzpY/view)|Função de distribuição acumulada, densidade, distribuições|[3](/ta-sessions/unavailable)| 
 
 ## Monitorias
   
