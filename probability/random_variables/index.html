@@ -192,7 +192,14 @@ X : \Omega \to \mathbb{R}.
 </script>
 Além disso, por questões técnicas, demandamos que <script type="math/tex">\{\omega \in Omega : X(\omega) \le x\} \in \mathbb{A}</script> para todo <script type="math/tex">x \in \mathbb{R}</script>. 
 Dizemos então que <script type="math/tex">X</script> é <strong>mensurável</strong>.
-Isso permite, por exemplo, que possamos calcular <script type="math/tex">F_X(x) = P(X \le x)</script>, o qual chamaremos de <strong>função de distribuição acumulada</strong> de <script type="math/tex">X</script>.</p></div>
+Isso permite, por exemplo, que possamos calcular <script type="math/tex">F_X(x) = P(X \le x)</script>, o qual chamaremos de <strong>função de distribuição acumulada</strong> de <script type="math/tex">X</script>.</p>
+<p>A função de distribuição acumulada tem as seguintes propriedades:</p>
+<ol>
+<li><strong>Não decrescente:</strong> <script type="math/tex">x \le y \implies F_X(x) \le F_X(y)</script>.</li>
+<li><strong>Continuidade a direita:</strong> se <script type="math/tex">x_n \to x</script> e <script type="math/tex">x_n \ge x</script> para todo <script type="math/tex">n</script>, temos que <script type="math/tex">F_X(x_n) \to F_X(x)</script>.</li>
+<li><strong>Limites:</strong> <script type="math/tex">F_X(-\infty) = 0</script> e <script type="math/tex">F_X(\infty) = 1</script>.</li>
+</ol>
+<p>Essas propriedades podem ser demonstradas a partir das propriedades da probabilidade.</p></div>
         
         
     </div>
