@@ -42,3 +42,49 @@ Em geral, $X$ tem densidade se $F_X$ é contínua e derivável no interior de um
 Nesse caso, a derivada é a densidade de $X$, isto é, $f(x) = F'_X(x)$.
 
 ## A distribuição de uma variável aleatória
+
+**Proposição:** Se $X$ é uma variável aleatória em $(\Omega, \mathbb{A}, \mathbb{P})$, então o evento 
+$$
+[X \in B] := \{\omega \in \Omega\}
+$$
+é evento aleatório para todo boreliano $B$, isto é, $[X \in B] \in \mathbb{A}$ para todo $B$ boreliano.
+
+A demonstração dessa proposição vem do fato de que um boreliano é um conjunto que pode ser escrito como uma união contável, intersecção contável ou complemento de intervalos abertos da reta.
+Esses conjuntos podem ser escritos como conjuntos do tipo $[X \le x]$, que sabemos que são eventos por definição de variável aleatória.
+
+Definindo $P_X(B) = \mathbb{P}(X \in B)$, então $P_X$ define uma probabilidade nos borelianos.
+Chamamos $P_X$ de **distribuição** ou **lei** de $X$. 
+Se $X$ é variável aleatória discreta, vale que 
+$$
+P_X(B) = \sum_{i,x_i \in B} \mathbb{P}(X=x_i) = \sum_{i,x_i \in B} p(x_i).
+$$
+Se $X$ é variável aleatória absolutamente contínua com densidade $f$, vale que 
+$$
+P_X(B) = \int_B f(x) \, dx.
+$$
+
+[Aqui podemos observar uma lista de distribuições de probabilidade](https://en.wikipedia.org/wiki/List_of_probability_distributions). 
+A maioria é descrita pela densidade no caso contínuo e função de probabilidade no caso discreto.
+
+## Vetores aleatórios
+
+Um vetor $X = (X_1, \dots, X_n)$, cujas componentes são variáveis aleatórias definidas em $(\Omega, \mathbb{A}, \mathbb{P})$, é chamado de **vetor aleatório**.
+A função de distribuição de $X$ é definida como 
+$$
+F_X(x) = F_X(x_1, \dots, x_n) = \mathbb{P}(X_1 \le x_1, \dots, X_n \le x_n),
+$$
+que é a distribuição conjunta das variáveis $X_1, \dots, X_n$.
+
+A $\sigma$-álgebra de Borel em $\mathbb{R}^n$ é a menor $\sigma$-álgebra que contém todo retângulo aberto $n$-dimensional.
+
+## Independência
+
+Sejam $X_1, \dots, X_n$ variáveis aleatórias definidas em $(\Omega, \mathbb{A}, \mathbb{P})$. 
+Elas são **independentes** (coletivamente) se
+$$
+\mathbb{P}(X_1 \in B_1, \dots, X_n \in B_n) = \prod_{i=1}^n \mathbb{P}(X_i \in B_i).
+$$
+Daí é imediado que se $X_1, \dots, X_n$ são independentes, então
+$$
+F_{X_1, \dots, X_n}(x_1, \dots, x_n) = \prod_{i=1}^n F_{X_i}(x_i), \forall x_1, \dots, x_n \in \mathbb{R}.
+$$
