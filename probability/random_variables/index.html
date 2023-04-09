@@ -184,6 +184,10 @@
                 
             <li class="second-level"><a href="#a-distribuicao-de-uma-variavel-aleatoria">A distribuição de uma variável aleatória</a></li>
                 
+            <li class="second-level"><a href="#vetores-aleatorios">Vetores aleatórios</a></li>
+                
+            <li class="second-level"><a href="#independencia">Independência</a></li>
+                
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
@@ -226,7 +230,46 @@ F(x) = \int_{-\infty}^x f(t) \, dt.
 </script>
 Em geral, <script type="math/tex">X</script> tem densidade se <script type="math/tex">F_X</script> é contínua e derivável no interior de um número enumerável de intervalos fechados cuja união é a reta.
 Nesse caso, a derivada é a densidade de <script type="math/tex">X</script>, isto é, <script type="math/tex">f(x) = F'_X(x)</script>.</p>
-<h2 id="a-distribuicao-de-uma-variavel-aleatoria">A distribuição de uma variável aleatória</h2></div>
+<h2 id="a-distribuicao-de-uma-variavel-aleatoria">A distribuição de uma variável aleatória</h2>
+<p><strong>Proposição:</strong> Se <script type="math/tex">X</script> é uma variável aleatória em <script type="math/tex">(\Omega, \mathbb{A}, \mathbb{P})</script>, então o evento 
+<script type="math/tex; mode=display">
+[X \in B] := \{\omega \in \Omega\}
+</script>
+é evento aleatório para todo boreliano <script type="math/tex">B</script>, isto é, <script type="math/tex">[X \in B] \in \mathbb{A}</script> para todo <script type="math/tex">B</script> boreliano.</p>
+<p>A demonstração dessa proposição vem do fato de que um boreliano é um conjunto que pode ser escrito como uma união contável, intersecção contável ou complemento de intervalos abertos da reta.
+Esses conjuntos podem ser escritos como conjuntos do tipo <script type="math/tex">[X \le x]</script>, que sabemos que são eventos por definição de variável aleatória.</p>
+<p>Definindo <script type="math/tex">P_X(B) = \mathbb{P}(X \in B)</script>, então <script type="math/tex">P_X</script> define uma probabilidade nos borelianos.
+Chamamos <script type="math/tex">P_X</script> de <strong>distribuição</strong> ou <strong>lei</strong> de <script type="math/tex">X</script>. 
+Se <script type="math/tex">X</script> é variável aleatória discreta, vale que 
+<script type="math/tex; mode=display">
+P_X(B) = \sum_{i,x_i \in B} \mathbb{P}(X=x_i) = \sum_{i,x_i \in B} p(x_i).
+</script>
+Se <script type="math/tex">X</script> é variável aleatória absolutamente contínua com densidade <script type="math/tex">f</script>, vale que 
+<script type="math/tex; mode=display">
+P_X(B) = \int_B f(x) \, dx.
+</script>
+</p>
+<p><a href="https://en.wikipedia.org/wiki/List_of_probability_distributions">Aqui podemos observar uma lista de distribuições de probabilidade</a>. 
+A maioria é descrita pela densidade no caso contínuo e função de probabilidade no caso discreto.</p>
+<h2 id="vetores-aleatorios">Vetores aleatórios</h2>
+<p>Um vetor <script type="math/tex">X = (X_1, \dots, X_n)</script>, cujas componentes são variáveis aleatórias definidas em <script type="math/tex">(\Omega, \mathbb{A}, \mathbb{P})</script>, é chamado de <strong>vetor aleatório</strong>.
+A função de distribuição de <script type="math/tex">X</script> é definida como 
+<script type="math/tex; mode=display">
+F_X(x) = F_X(x_1, \dots, x_n) = \mathbb{P}(X_1 \le x_1, \dots, X_n \le x_n),
+</script>
+que é a distribuição conjunta das variáveis <script type="math/tex">X_1, \dots, X_n</script>.</p>
+<p>A <script type="math/tex">\sigma</script>-álgebra de Borel em <script type="math/tex">\mathbb{R}^n</script> é a menor <script type="math/tex">\sigma</script>-álgebra que contém todo retângulo aberto <script type="math/tex">n</script>-dimensional.</p>
+<h2 id="independencia">Independência</h2>
+<p>Sejam <script type="math/tex">X_1, \dots, X_n</script> variáveis aleatórias definidas em <script type="math/tex">(\Omega, \mathbb{A}, \mathbb{P})</script>. 
+Elas são <strong>independentes</strong> (coletivamente) se
+<script type="math/tex; mode=display">
+\mathbb{P}(X_1 \in B_1, \dots, X_n \in B_n) = \prod_{i=1}^n \mathbb{P}(X_i \in B_i).
+</script>
+Daí é imediado que se <script type="math/tex">X_1, \dots, X_n</script> são independentes, então
+<script type="math/tex; mode=display">
+F_{X_1, \dots, X_n}(x_1, \dots, x_n) = \prod_{i=1}^n F_{X_i}(x_i), \forall x_1, \dots, x_n \in \mathbb{R}.
+</script>
+</p></div>
         
         
     </div>
