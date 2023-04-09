@@ -18,9 +18,11 @@ Monitoria de Probabilidade do Mestrado em Modelagem Matemática na FGV EMAp de 2
 
 |Número|Itens discutidos|Solução|
 |------|----------------|-------|
-|[1](https://drive.google.com/file/d/1qyukB7sLCuUuGoUlzli7BrBH1TF8SEvw/view)|Análise combinatória, modelos equiprováveis e conceitos básicos de probabilidade|[1](/ta-sessions/unavailable)|
-|[2](https://drive.google.com/file/d/1mRTcfzeOQ0b5NwGcODigkRlRmu91bu2Z/view)|Conceitos de probabilidade|[2](/ta-sessions/unavailable)| 
-|[3](https://drive.google.com/file/d/1N0nlrkypSUJHU2SkYezV3Cwqww2cbzpY/view)|Função de distribuição acumulada, densidade, distribuições|[3](/ta-sessions/unavailable)| 
+|[1](https://drive.google.com/file/d/1qyukB7sLCuUuGoUlzli7BrBH1TF8SEvw/view)|Análise combinatória, modelos equiprováveis e conceitos básicos de probabilidade|[1](/files/disciplines/probability/solutions1.pdf)|
+|[2](https://drive.google.com/file/d/1mRTcfzeOQ0b5NwGcODigkRlRmu91bu2Z/view)|Conceitos de probabilidade|[2](/files/disciplines/probability/solutions2.pdf)| 
+|[3](https://drive.google.com/file/d/1N0nlrkypSUJHU2SkYezV3Cwqww2cbzpY/view)|Função de distribuição acumulada, densidade, distribuições|[3](/files/disciplines/probability/solutions3.pdf)|
+|[4](https://drive.google.com/file/d/1Stf3MMLuzE3eXbmXFl2--_tUj7S2eD7b/view)|Distribuição binomial, Poisson, vetor aleatório|[4](/ta-sessions/unavailable)| 
+|[5](https://drive.google.com/file/d/14HJO1e6jt_tVJfBJeBGg7DsJfed8ax_5/view)|Distribuição conjunta|[5](/ta-sessions/unavailable)| 
 
 ## Monitorias
   
