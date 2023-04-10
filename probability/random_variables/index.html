@@ -188,6 +188,10 @@
                 
             <li class="second-level"><a href="#independencia">Independência</a></li>
                 
+            <li class="second-level"><a href="#distribuicoes-de-funcoes-de-variaveis-e-vetores-aleatorios">Distribuições de funções de variáveis e vetores aleatórios</a></li>
+                
+            <li class="second-level"><a href="#metodo-do-jacobiano">Método do jacobiano</a></li>
+                
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
@@ -269,7 +273,72 @@ Daí é imediado que se <script type="math/tex">X_1, \dots, X_n</script> são in
 <script type="math/tex; mode=display">
 F_{X_1, \dots, X_n}(x_1, \dots, x_n) = \prod_{i=1}^n F_{X_i}(x_i), \forall x_1, \dots, x_n \in \mathbb{R}.
 </script>
-</p></div>
+</p>
+<p>Para o caso contínuo, um critério para checar a independência é se
+<script type="math/tex; mode=display">
+f_{X_1, \dots, X_n}(x_1, \dots, x_n) = \prod_{i=1}^n f_{X_i}(x_i), \forall (x_1,\dots,x_n) \in \mathbb{R}^n.
+</script>
+Além disso, se a densidade do vetor <script type="math/tex">X = (X_1, \dots, X_n)</script> fatora em <script type="math/tex">n</script> funções que são densidades, então <script type="math/tex">X_1, \dots, X_n</script> são independentes (exceto em um conjunto de probabilidade nula).</p>
+<p>A <strong>função de distribuição marginal</strong> de <script type="math/tex">X</script> é dada por 
+<script type="math/tex; mode=display">
+F_X(x) = \lim_{y \to \infty} F(x,y).
+</script>
+A <strong>densidade marginal</strong> é 
+<script type="math/tex; mode=display">
+f_X(x) = \int_{-\infty}^{\infty} f(x,y) \, dy.
+</script>
+</p>
+<h2 id="distribuicoes-de-funcoes-de-variaveis-e-vetores-aleatorios">Distribuições de funções de variáveis e vetores aleatórios</h2>
+<p>Seja <script type="math/tex">X = (X_1, \dots, X_n)</script> um vetor aleatório em <script type="math/tex">(\Omega, \mathbb{A}, \mathbb{P})</script> e defina <script type="math/tex">Y = g(X_1, \dots, X_n)</script>, em que <script type="math/tex">g</script> é uma função mensurável.
+De forma geral,
+<script type="math/tex; mode=display">
+F_Y(y) = P(g(X) \le y) := P(B_y),
+</script>
+com <script type="math/tex">B_y = \{(x_1, \dots, x_n) : g(x_1, \dots, x_n) \le y\}</script>.</p>
+<p>Para a soma de variáveis aleatórias, temos que 
+<script type="math/tex; mode=display">
+f_{X+Y}(z) = \int_{-\infty}^{\infty} f(z-t, t) \, dt = \int_{-\infty}^{\infty} f(t,z-t) \,dt.
+</script>
+Em particular se <script type="math/tex">X</script> e <script type="math/tex">Y</script> são independentes, <script type="math/tex">f_{X+Y}(z) = [f_{X} * f_Y](z)</script>, em que <script type="math/tex">[f_{X} * f_Y]</script> é a <strong>convolução</strong> de <script type="math/tex">f_X</script> e <script type="math/tex">f_Y</script>.</p>
+<p><strong>Proposição:</strong> Se <script type="math/tex">X_1, \dots, X_n</script> são variáveis aleatórias independentes, então funções (mensuráveis) de famílias disjuntas de <script type="math/tex">X_i</script> também são independentes. Por exemplo <script type="math/tex">f(X_1, X_2)</script> e <script type="math/tex">g(X_3, X_4, X_5)</script> são independentes.</p>
+<h2 id="metodo-do-jacobiano">Método do jacobiano</h2>
+<p>Seja <script type="math/tex">G_0, G \subseteq \mathbb{R}^n</script> conjuntos abertos e <script type="math/tex">g : G_0 \to G</script> uma bijeção.
+Então existe a inversa <script type="math/tex">h = g^{-1}</script> definida em <script type="math/tex">G</script>.
+Suponha que <script type="math/tex">h_i</script> tenha derivadas parciais e que elas sejam contínuas em <script type="math/tex">G</script>.
+Define-se o <strong>Jacobiano</strong> <script type="math/tex">J(x,y)</script> como o determinante da seguinte matriz
+<script type="math/tex; mode=display">
+[M(x,y)]_{ij} = \frac{\partial h_i(y_1,\dots,y_n)}{\partial y_j}.
+</script>
+Seja <script type="math/tex">f</script> a densidade conjunta de <script type="math/tex">X_1, \dots, X_n</script> com
+<script type="math/tex; mode=display">
+P((X_1, \dots, X_n) \in G_0) = 1.
+</script>
+e <script type="math/tex">Y_i = g_i(X_1, \dots, X_n)</script>. 
+Assim,
+<script type="math/tex; mode=display">
+P((Y_1, \dots, Y_n) \in B) = P((X_1, \dots, X_n) \in h(B)) = \int_{h(B)} f(x_1,\dots,x_n) \, dx_1\dots dx_n,
+</script>
+que, usando a mudança de variável, é
+<script type="math/tex; mode=display">
+P((Y_1, \dots, Y_n) \in B) = \int_B f(h_1(y_1,\dots,y_n), \dots, h_n(y_1,\dots,y_b)) \cdot |J(x,y)| dy_1 \dots dy_n.
+</script>
+</p>
+<p>Com isso, a densidade de <script type="math/tex">Y</script> é escrita como 
+<script type="math/tex; mode=display">
+f_Y(y) = f(h(y))\cdot|J(x,y)|\cdot 1_{y \in G}.
+</script>
+</p>
+<p>Agora, se <script type="math/tex">g</script> não é bijetiva, mas <script type="math/tex">g</script> restrita a <script type="math/tex">G_i</script> é bijetiva para <script type="math/tex">i=1,\dots,k</script> com regiões disjuntas <script type="math/tex">G_1, \dots, G_k</script> que satisfazem
+<script type="math/tex; mode=display">
+P(X \in \cup_{i=1}^n  G_i ) = 1,
+</script>
+vale que
+<script type="math/tex; mode=display">
+f_Y(y) = 1_{y \in G} \sum_{i=1}^k f(h^{(i)}(y))\cdot |J_i(x,y)|,
+</script>
+em que <script type="math/tex">h^{(i)}</script> é a inversa de <script type="math/tex">g</script> restrita a <script type="math/tex">G_i</script> e <script type="math/tex">J_i</script> o jacobiano correspondente.</p>
+<p><strong>Identicamente distribuídas:</strong> variáveis aleatórias com mesma distribuição.</p>
+<p><strong>Estatística de ordem:</strong> Se <script type="math/tex">X_1, \dots, X_n</script> formam uma amostra aleatória (independentes e identicamente distribuídas), a estatística de ordem <script type="math/tex">X_{(1)}, \dots, X_{(n)}</script> é definida como qualquer permutação de <script type="math/tex">X_1(\omega), \dots, X_n(\omega)</script> que satisfaz <script type="math/tex">X_{(1)}(\omega) \le \dots X_{(n)}(\omega)</script> para todo <script type="math/tex">\omega \in \Omega</script>.</p></div>
         
         
     </div>
