@@ -88,3 +88,77 @@ Daí é imediado que se $X_1, \dots, X_n$ são independentes, então
 $$
 F_{X_1, \dots, X_n}(x_1, \dots, x_n) = \prod_{i=1}^n F_{X_i}(x_i), \forall x_1, \dots, x_n \in \mathbb{R}.
 $$
+
+Para o caso contínuo, um critério para checar a independência é se
+$$
+f_{X_1, \dots, X_n}(x_1, \dots, x_n) = \prod_{i=1}^n f_{X_i}(x_i), \forall (x_1,\dots,x_n) \in \mathbb{R}^n.
+$$
+Além disso, se a densidade do vetor $X = (X_1, \dots, X_n)$ fatora em $n$ funções que são densidades, então $X_1, \dots, X_n$ são independentes (exceto em um conjunto de probabilidade nula).
+
+A **função de distribuição marginal** de $X$ é dada por 
+$$
+F_X(x) = \lim_{y \to \infty} F(x,y).
+$$
+A **densidade marginal** é 
+$$
+f_X(x) = \int_{-\infty}^{\infty} f(x,y) \, dy.
+$$
+
+## Distribuições de funções de variáveis e vetores aleatórios
+
+Seja $X = (X_1, \dots, X_n)$ um vetor aleatório em $(\Omega, \mathbb{A}, \mathbb{P})$ e defina $Y = g(X_1, \dots, X_n)$, em que $g$ é uma função mensurável.
+De forma geral,
+$$
+F_Y(y) = P(g(X) \le y) := P(B_y),
+$$
+com $B_y = \{(x_1, \dots, x_n) : g(x_1, \dots, x_n) \le y\}$.
+
+Para a soma de variáveis aleatórias, temos que 
+$$
+f_{X+Y}(z) = \int_{-\infty}^{\infty} f(z-t, t) \, dt = \int_{-\infty}^{\infty} f(t,z-t) \,dt.
+$$
+Em particular se $X$ e $Y$ são independentes, $f_{X+Y}(z) = [f_{X} * f_Y](z)$, em que $[f_{X} * f_Y]$ é a **convolução** de $f_X$ e $f_Y$.
+
+**Proposição:** Se $X_1, \dots, X_n$ são variáveis aleatórias independentes, então funções (mensuráveis) de famílias disjuntas de $X_i$ também são independentes. Por exemplo $f(X_1, X_2)$ e $g(X_3, X_4, X_5)$ são independentes.
+
+## Método do jacobiano
+
+Seja $G_0, G \subseteq \mathbb{R}^n$ conjuntos abertos e $g : G_0 \to G$ uma bijeção.
+Então existe a inversa $h = g^{-1}$ definida em $G$.
+Suponha que $h_i$ tenha derivadas parciais e que elas sejam contínuas em $G$.
+Define-se o **Jacobiano** $J(x,y)$ como o determinante da seguinte matriz
+$$
+[M(x,y)]_{ij} = \frac{\partial h_i(y_1,\dots,y_n)}{\partial y_j}.
+$$
+Seja $f$ a densidade conjunta de $X_1, \dots, X_n$ com
+$$
+P((X_1, \dots, X_n) \in G_0) = 1.
+$$
+e $Y_i = g_i(X_1, \dots, X_n)$. 
+Assim,
+$$
+P((Y_1, \dots, Y_n) \in B) = P((X_1, \dots, X_n) \in h(B)) = \int_{h(B)} f(x_1,\dots,x_n) \, dx_1\dots dx_n,
+$$
+que, usando a mudança de variável, é
+$$
+P((Y_1, \dots, Y_n) \in B) = \int_B f(h_1(y_1,\dots,y_n), \dots, h_n(y_1,\dots,y_b)) \cdot |J(x,y)| dy_1 \dots dy_n.
+$$
+
+Com isso, a densidade de $Y$ é escrita como 
+$$
+f_Y(y) = f(h(y))\cdot|J(x,y)|\cdot 1_{y \in G}.
+$$
+
+Agora, se $g$ não é bijetiva, mas $g$ restrita a $G_i$ é bijetiva para $i=1,\dots,k$ com regiões disjuntas $G_1, \dots, G_k$ que satisfazem
+$$
+P(X \in \cup_{i=1}^n  G_i ) = 1,
+$$
+vale que
+$$
+f_Y(y) = 1_{y \in G} \sum_{i=1}^k f(h^{(i)}(y))\cdot |J_i(x,y)|,
+$$
+em que $h^{(i)}$ é a inversa de $g$ restrita a $G_i$ e $J_i$ o jacobiano correspondente.
+
+**Identicamente distribuídas:** variáveis aleatórias com mesma distribuição.
+
+**Estatística de ordem:** Se $X_1, \dots, X_n$ formam uma amostra aleatória (independentes e identicamente distribuídas), a estatística de ordem $X_{(1)}, \dots, X_{(n)}$ é definida como qualquer permutação de $X_1(\omega), \dots, X_n(\omega)$ que satisfaz $X_{(1)}(\omega) \le \dots X_{(n)}(\omega)$ para todo $\omega \in \Omega$.
