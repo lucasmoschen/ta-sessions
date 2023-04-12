@@ -14,6 +14,7 @@ Monitoria de Equações Diferenciais Parciais e Aplicações do Doutorado em Mod
 |Número|Itens discutidos|Solução|
 |------|----------------|-------|
 |[1](https://drive.google.com/drive/folders/1hoOqwxBEgvYMoIraLfFmMB_W9rMSX6Wh)|Conceitos iniciais de EDPs|[1](/ta-sessions/unavailable)|
+|[2](https://drive.google.com/file/d/1C-zcq9jrKrdW-AiX5AgC19cY3Gsd3OsH/view?usp=share_link)|Método das características e choques|[2](/ta-sessions/unavailable)|
 
 ## Sugestões Adicionais 
 
