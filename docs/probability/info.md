@@ -13,6 +13,7 @@ Monitoria de Probabilidade do Mestrado em Modelagem Matemática na FGV EMAp de 2
 |[Revisão de Análise Combinatória e Modelos Equiprováveis com Paulo Cézar](https://sites.google.com/site/probfgv)|
 |[Definições básicas de probabilidade](/ta-sessions/probability/basic_definitions)|
 |[Variáveis aleatórias](/ta-sessions/probability/random_variables)|
+|[Valor esperado](/ta-sessions/probability/expected_value)|
 
 ## Listas
 
@@ -23,11 +24,7 @@ Monitoria de Probabilidade do Mestrado em Modelagem Matemática na FGV EMAp de 2
 |[3](https://drive.google.com/file/d/1N0nlrkypSUJHU2SkYezV3Cwqww2cbzpY/view)|Função de distribuição acumulada, densidade, distribuições|[3](/files/disciplines/probability/solutions3.pdf)|
 |[4](https://drive.google.com/file/d/1Stf3MMLuzE3eXbmXFl2--_tUj7S2eD7b/view)|Distribuição binomial, Poisson, vetor aleatório|[4](/ta-sessions/unavailable)| 
 |[5](https://drive.google.com/file/d/14HJO1e6jt_tVJfBJeBGg7DsJfed8ax_5/view)|Distribuição conjunta|[5](/ta-sessions/unavailable)| 
-
-## Monitorias
-  
-|Monitoria|Itens discutidos|
-|---------|----------------| 
+|[6](https://drive.google.com/file/d/1yL1ECtRiND-xYR9ZujgJsIBU2DWayG4S/view)|Método jacobiano e valor esperado|[6](/ta-sessions/unavailable)|
 
 ## Sugestões Adicionais
 
