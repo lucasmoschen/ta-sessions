@@ -180,6 +180,10 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
         <li class="first-level active"><a href="#esperanca-matematica">Esperança matemática</a></li>
+            <li class="second-level"><a href="#propriedades-da-esperanca">Propriedades da esperança</a></li>
+                
+            <li class="second-level"><a href="#esperancas-de-funcoes-de-variaveis-aleatorias">Esperanças de funções de variáveis aleatórias</a></li>
+                
             <li class="second-level"><a href="#apendice-integral-de-stieltjes">Apêndice: integral de Stieltjes</a></li>
                 
     </ul>
@@ -198,7 +202,21 @@ A <strong>esperança</strong> de <script type="math/tex">X</script> é definida 
 <script type="math/tex; mode=display">
 E[X] = \int_{-\infty}^{\infty} x \, dF(x),
 </script>
-quando a integral de <a href="/ta-sessions/probability/expected_value/#apendice-integral-de-stieltjes">Riemann-Stieltjes</a> está bem definida.</p>
+quando a integral de <a href="/ta-sessions/probability/expected_value/#apendice-integral-de-stieltjes">Riemann-Stieltjes</a> está bem definida.
+Quando <script type="math/tex">E[X]</script> é finita, dizemos que <script type="math/tex">X</script> é <strong>integrável</strong>.
+Se <script type="math/tex">X</script> tem densidade <script type="math/tex">f(x)</script>, então
+<script type="math/tex; mode=display">
+E[X] = \int x dF_X(x) = \int x f(x) \, dx.
+</script>
+</p>
+<p><strong>Proposição:</strong> <script type="math/tex">E[X] = \int_0^{\infty} (1-F(x)) \, dx - \int_{-\infty}^0 F(x) \, dx</script>.</p>
+<p>Se <script type="math/tex">X</script> assume somente valores inteiros não negativos, então
+<script type="math/tex; mode=display">
+E[X] = \sum_{n=0}^{\infty} P(X > n)= \sum_{n=1}^{\infty} P(X \ge n).
+</script>
+</p>
+<h2 id="propriedades-da-esperanca">Propriedades da esperança</h2>
+<h2 id="esperancas-de-funcoes-de-variaveis-aleatorias">Esperanças de funções de variáveis aleatórias</h2>
 <h2 id="apendice-integral-de-stieltjes">Apêndice: integral de Stieltjes</h2>
 <p>Seja <script type="math/tex">\varphi</script> uma função contínua com domínio em <script type="math/tex">[a,b]</script> e <script type="math/tex">F</script> uma função de distribuição.
 A integral de <strong>Riemann-Stieltjes</strong> de <script type="math/tex">\varphi</script> em <script type="math/tex">[a,b]</script> relação a <script type="math/tex">F</script> como o limite das somas de Riemann da forma
