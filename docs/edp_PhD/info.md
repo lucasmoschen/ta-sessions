@@ -7,7 +7,8 @@ Monitoria de Equações Diferenciais Parciais e Aplicações do Doutorado em Mod
 |Conceitos desenvolvidos|
 |---|
 |[Definições preliminares](/files/disciplines/edp2023/preliminaries.pdf)|
-|[First order equations](/files/disciplines/edp2023/first_order_equations.pdf)|
+|[Equações de primeira ordem](/files/disciplines/edp2023/first_order_equations.pdf)|
+|[Equações lineares de segunda ordem](/files/disciplines/edp2023/second_order_equations.pdf)|
 
 ## Listas
 
