@@ -6,6 +6,8 @@ Monitoria de Probabilidade do Mestrado em Modelagem Matemática na FGV EMAp de 2
 
 **Livro-base:** [Probabilidade: Um Curso em Nível Intermediário](https://impa.br/page-livros/probabilidade-um-curso-em-nivel-intermediario/)
 
+As monitorias realizadas em formato on-line estão disponíveis no E-class.
+
 ## Tópicos
 
 |Parte 1|
