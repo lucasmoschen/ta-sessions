@@ -27,6 +27,7 @@ As monitorias realizadas em formato on-line estão disponíveis no E-class.
 |[4](https://drive.google.com/file/d/1Stf3MMLuzE3eXbmXFl2--_tUj7S2eD7b/view)|Distribuição binomial, Poisson, vetor aleatório|[4](/ta-sessions/unavailable)| 
 |[5](https://drive.google.com/file/d/14HJO1e6jt_tVJfBJeBGg7DsJfed8ax_5/view)|Distribuição conjunta|[5](/ta-sessions/unavailable)| 
 |[6](https://drive.google.com/file/d/1yL1ECtRiND-xYR9ZujgJsIBU2DWayG4S/view)|Método jacobiano e valor esperado|[6](/ta-sessions/unavailable)|
+|[7](https://drive.google.com/file/d/1F4gFpZVp0rPySEYsCYm0JHdLhKTb6OZ2/view)||[7](/ta-sessions/unavailable)|
 
 ## Sugestões Adicionais
 
