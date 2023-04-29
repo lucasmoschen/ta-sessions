@@ -182,7 +182,13 @@
         <li class="first-level active"><a href="#esperanca-matematica">Esperança matemática</a></li>
             <li class="second-level"><a href="#propriedades-da-esperanca">Propriedades da esperança</a></li>
                 
+                <li class="third-level"><a href="#integrabilidade">Integrabilidade</a></li>
             <li class="second-level"><a href="#esperancas-de-funcoes-de-variaveis-aleatorias">Esperanças de funções de variáveis aleatórias</a></li>
+                
+            <li class="second-level"><a href="#momentos">Momentos</a></li>
+                
+                <li class="third-level"><a href="#propriedades-da-variancia">Propriedades da variância</a></li>
+            <li class="second-level"><a href="#esperancas-de-funcoes-de-vetores-aleatorios">Esperanças de funções de vetores aleatórios</a></li>
                 
             <li class="second-level"><a href="#apendice-integral-de-stieltjes">Apêndice: integral de Stieltjes</a></li>
                 
@@ -216,7 +222,123 @@ E[X] = \sum_{n=0}^{\infty} P(X > n)= \sum_{n=1}^{\infty} P(X \ge n).
 </script>
 </p>
 <h2 id="propriedades-da-esperanca">Propriedades da esperança</h2>
+<p>Seguem algumas propriedades relevantes sobre o valor esperado (sempre supondo que <script type="math/tex">X,Y</script> são integráveis):</p>
+<ol>
+<li>
+<p>
+<script type="math/tex">P(X = c) = 1 \implies E[X] = c</script>.</p>
+</li>
+<li>
+<p>
+<script type="math/tex">X \le Y \implies E[X] \le E[Y]</script>.</p>
+</li>
+<li>
+<p>Linearidade: <script type="math/tex">E[aX + bY] = aE[X] + bE[Y]</script>
+</p>
+</li>
+<li>
+<p>Desigualdade de Jensen: se <script type="math/tex">\varphi</script> é função convexa, então <script type="math/tex">E[\varphi(X)] \ge \varphi(E[X])</script>. Se <script type="math/tex">\varphi</script> for côncava, então <script type="math/tex">-\varphi</script> é convexa e, portanto, <script type="math/tex">E[\varphi(X)] \le \varphi(E[X])</script>. De forma um pouco mais geral, basta que <script type="math/tex">\varphi</script> seja convexa em uma região <script type="math/tex">I \subset \mathbb{R}</script> tal que <script type="math/tex">P(X \in I) = 1</script>.</p>
+</li>
+<li>
+<p>Desigualdade de Markov: se <script type="math/tex">X \ge 0</script>, para todo <script type="math/tex">\lambda > 0</script>, <script type="math/tex">P(X \ge \lambda) \le E[X]/\lambda</script>.</p>
+</li>
+<li>
+<p>Desigualdade de Chebychev: seja <script type="math/tex">\mu = E[X]</script>. 
+Assim, <script type="math/tex">P(|X-E[X]| \ge \lambda) \le Var(X)/\lambda^2</script> para todo <script type="math/tex">\lambda > 0</script>.</p>
+</li>
+<li>
+<p>Se <script type="math/tex">Z \ge 0</script> e <script type="math/tex">E[Z] = 0</script>, então <script type="math/tex">P(Z=0)=1</script>.</p>
+</li>
+</ol>
+<h3 id="integrabilidade">Integrabilidade</h3>
+<p>Podemos derivar algumas condições de integrabilidade a partir dessas propriedades.</p>
+<ol>
+<li>
+<p>Se <script type="math/tex">X</script> é dominada por uma variável aleatória integrável <script type="math/tex">Y</script>, isto é, <script type="math/tex">|X| \le Y</script>, então <script type="math/tex">X</script> é integrável.</p>
+</li>
+<li>
+<p>
+<script type="math/tex">\sum_{n=1}^{\infty} P(|X| \ge n) \le E|X| \le 1 + \sum_{n=1}^{\infty} P(|X| \ge n)</script> e, portanto <script type="math/tex">X</script> é integrável se, e só se, <script type="math/tex">\sum_{n=1}^{\infty} P(|X| \ge n) < +\infty</script>.</p>
+</li>
+</ol>
 <h2 id="esperancas-de-funcoes-de-variaveis-aleatorias">Esperanças de funções de variáveis aleatórias</h2>
+<p>Seja <script type="math/tex">X</script> uma variável aleatória, <script type="math/tex">\varphi</script> uma função mensurável e <script type="math/tex">Y = \varphi(X)</script>.
+Então 
+<script type="math/tex; mode=display">
+E[Y] := \int y dF_{\varphi(X)}(y) = \int_0^{\infty} 1 - F_{\varphi(X)}(y) \, dy - \int_{-\infty}^0 F_{\varphi(X)}(y) \, dy.
+</script>
+Para isso, precisamos encontrar a distribuição de <script type="math/tex">Y</script>, isto é, <script type="math/tex">P(\varphi(X) \le y)</script> para cada <script type="math/tex">y</script>.</p>
+<p>A lei do estatístico inconsciente (<em>Law of the unconscious statistician</em>, LOTUS) é um importante teorema para calcular o valor esperado de <script type="math/tex">Y</script>. 
+Muitos livros antigos de estatística se referiam a esse resultado como uma definição, e não como um teorema, então utilizavam um resultado de forma inconsciente.</p>
+<p>O resultado diz que 
+<script type="math/tex; mode=display">
+E[Y] = \int \varphi(x) dF_X(x) 
+</script>
+de forma que, se <script type="math/tex">X</script> é variável contínua com densidade <script type="math/tex">f</script>, 
+<script type="math/tex; mode=display">
+E[Y] = \int \varphi(x) f(x) dx
+</script>
+e se <script type="math/tex">X</script> é discreta com função de massa <script type="math/tex">p</script>,
+<script type="math/tex; mode=display">
+E[Y] = \sum_{i} \varphi(x_i)p(x_i).
+</script>
+</p>
+<h2 id="momentos">Momentos</h2>
+<p>Seja <script type="math/tex">X</script> uma variável aleatória e <script type="math/tex">b \in \mathbb{R}</script>.
+O valor <script type="math/tex">E[(X-b)^k]</script> é o <script type="math/tex">k</script>-ésimo momento de <script type="math/tex">X</script> em torno de <script type="math/tex">b</script>.
+Quando <script type="math/tex">b=E[X]</script>, dizemos <strong>momento central</strong> de ordem <script type="math/tex">k</script> de <script type="math/tex">X</script> e quando <script type="math/tex">b=0</script>, dizemos <strong>momento</strong> de ordem <script type="math/tex">k</script> de <script type="math/tex">X</script>.
+A variância é o segundo momento central.</p>
+<p>Um resultado interessante é que se <script type="math/tex">E|X|^t</script> é finita para algum <script type="math/tex">t > 0</script>, então para todo <script type="math/tex">s \in (0,t)</script>, vale que <script type="math/tex">E|X|^s</script>.</p>
+<h3 id="propriedades-da-variancia">Propriedades da variância</h3>
+<ol>
+<li>
+<p>
+<script type="math/tex">P(X = c) = 1 \implies Var(X) = 0</script>.</p>
+</li>
+<li>
+<p>
+<script type="math/tex">Var(aX + b) = a^2Var(X)</script> para todas as constantes <script type="math/tex">a</script> e <script type="math/tex">b</script>.</p>
+</li>
+</ol>
+<h2 id="esperancas-de-funcoes-de-vetores-aleatorios">Esperanças de funções de vetores aleatórios</h2>
+<p>Se <script type="math/tex">X=(X_1,\dots,X_n)</script> e <script type="math/tex">\varphi:\mathbb{R}^n \to \mathbb{R}</script> é uma função mensurável.
+Então
+<script type="math/tex; mode=display">
+E[\varphi(X)] = \int \cdots \int \varphi(x_1, \dots, x_n) \, dF_X(x_1,\dots,x_n).
+</script>
+Nos casos discreto e contínuo, essa integral tem as simplificações usuais.</p>
+<p><strong>Proposição:</strong> Se <script type="math/tex">X_1,\dots,X_n</script> são variáveis aleatórias independentes e integráveis, 
+<script type="math/tex; mode=display">
+E[X_1X_2\cdots X_n] = \prod_{i=1}^n E[X_i].
+</script>
+</p>
+<p><strong>Observação:</strong> <script type="math/tex">E[XY] = E[X]E[Y]</script> não implica independência de <script type="math/tex">X</script> e <script type="math/tex">Y</script>.
+Se <script type="math/tex">(X, Y)</script> tem distribuição normal bivariada, covariância zero <strong>implica</strong> independência. Mas são poucos os exemplos.</p>
+<p>A <strong>covariância</strong> entre <script type="math/tex">X</script> e <script type="math/tex">Y</script> é 
+<script type="math/tex; mode=display">
+Cov(X,Y) = E[(X-EX)(Y-EY)] = E[XY] - E[X]E[Y].
+</script>
+Se <script type="math/tex">Cov(X,Y) = 0</script>, então <script type="math/tex">X</script> e <script type="math/tex">Y</script> são <strong>não correlacionadas</strong>.</p>
+<p>Temos que 
+<script type="math/tex; mode=display">
+Var(X_1 + \cdots + X_n) = \sum_{i=1}^n Var(X_i) + \sum_{i \neq j} Cov(X_i, X_j).
+</script>
+</p>
+<p>A <strong>correlação</strong> de <script type="math/tex">X</script> e <script type="math/tex">Y</script> é 
+<script type="math/tex; mode=display">
+\rho_{X,Y} = \frac{Cov(X,Y)}{\sqrt{Var(X)}\sqrt{Var(Y)}}.
+</script>
+</p>
+<p>Vale que </p>
+<ol>
+<li>
+<script type="math/tex">\rho(X,Y) \in [-1,1]</script>
+</li>
+<li>
+<script type="math/tex">\rho(X,Y) = \pm 1 \iff P(Y=\pm aX+b)=1</script> para algum <script type="math/tex">a > 0</script> e <script type="math/tex">b \in \mathbb{R}</script>.</li>
+<li>
+<script type="math/tex">\rho(X,Y) = \rho(aX + b, cX + d)</script>.</li>
+</ol>
 <h2 id="apendice-integral-de-stieltjes">Apêndice: integral de Stieltjes</h2>
 <p>Seja <script type="math/tex">\varphi</script> uma função contínua com domínio em <script type="math/tex">[a,b]</script> e <script type="math/tex">F</script> uma função de distribuição.
 A integral de <strong>Riemann-Stieltjes</strong> de <script type="math/tex">\varphi</script> em <script type="math/tex">[a,b]</script> relação a <script type="math/tex">F</script> como o limite das somas de Riemann da forma
