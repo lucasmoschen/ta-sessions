@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+
+    
+    <title>Distribuições e Esperanças condicionais - Teaching Assistance</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../css/base.min.css" rel="stylesheet">
+    <link href="../../css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            
+              <a class="navbar-brand" href="../..">Teaching Assistance</a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Graduação <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../alglin/info/">Álgebra Linear</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../analisenum/info/">Análise Numérica</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../curvas/info/">Curvas</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../edo/info/">Equações Diferenciais Ordinárias</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../edp/info/">Equações Diferenciais Parciais</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../infestatistica_BSc/info/">Inferência Estatística</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pós-graduação <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../functional_analysis/info/">Análise Funcional</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../bayesian/info/">Estatística Bayesiana</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../edp_PhD/info/">Equações Diferenciais Parciais e Aplicações</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../infestatistica_MSc/info/">Inferência Estatística</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../info/">Probabilidade</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://lucasmoschen.github.io">Página Inicial</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#distribuicoes-e-esperancas-condicionais">Distribuições e Esperanças condicionais</a></li>
+            <li class="second-level"><a href="#caso-geral">Caso geral</a></li>
+                
+            <li class="second-level"><a href="#esperanca-condicional">Esperança condicional</a></li>
+                
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="distribuicoes-e-esperancas-condicionais">Distribuições e Esperanças condicionais</h1>
+<p>Vamos iniciar com o caso em que <script type="math/tex">X</script> e <script type="math/tex">Y</script> são discretas.
+Considere um espaço de probabilidade <script type="math/tex">(\Omega, \mathcal{A}, P)</script> e <script type="math/tex">A \in \mathcal{A}</script> tal que <script type="math/tex">P(A) > 0</script>.
+A <strong>distribuição conditional de <script type="math/tex">X</script> dado o evento <script type="math/tex">A</script></strong> é
+<script type="math/tex; mode=display">
+P(X \in B | A) = \frac{P(X \in B, A)}{P(A)},
+</script>
+em que <script type="math/tex">B</script> é um boreliano da reta real.
+Podemos verificar que <script type="math/tex">P(X|A)</script> define uma probabilidade, visto que satisfaz os três axiomas da probabilidade: probabilidade não negativa,  probabilidade de <script type="math/tex">X \in \R | A</script> sendo <script type="math/tex">1</script> e probabilidade da união sendo a soma das probabilidade individuais para sequências de disjuntos.</p>
+<p>A <strong>função de distribuição condicional de <script type="math/tex">X</script> dado <script type="math/tex">A</script></strong> é 
+<script type="math/tex; mode=display">
+F_X(x|A) = P(X \le x|A).
+</script>
+e a <strong>esperança conditional</strong> é
+<script type="math/tex; mode=display">
+E(X|A) = \int x dF_X(x|A).
+</script>
+</p>
+<p>Agora suponha que <script type="math/tex">Y</script> seja uma variável discreta em <script type="math/tex">(\Omega, \mathcal{A}, P)</script> que assuma os valores <script type="math/tex">y_1, y_2, \dots</script>.
+Então, podemos usar os conjuntos <script type="math/tex">A_n = \{Y = y_n\}</script> para particionar <script type="math/tex">\Omega</script>.
+Nesse caso, 
+<script type="math/tex; mode=display">
+P(X \in B | Y = y_n) = P(X \in B| A_n)
+</script>
+é a <strong>distribuição condicional de <script type="math/tex">X</script> dado <script type="math/tex">Y=y_n</script></strong>.</p>
+<p>Daí podemos calcular 
+<script type="math/tex; mode=display">
+E[X] = \sum_{n=1} ^{\infty} E[X|Y=y_n] P(Y=y_n).
+</script>
+A <strong>esperança condicional de <script type="math/tex">X</script> dado <script type="math/tex">Y</script></strong> é <script type="math/tex">E[X|Y] = E[X|Y=y]</script>, que é uma função de <script type="math/tex">y</script>.
+Em particular, <script type="math/tex">E[X|Y]</script> é uma variável aleatória cujas realizações são <script type="math/tex">E[X|Y=y]</script>.
+Portanto, 
+<script type="math/tex; mode=display">
+E[X] = E[E[X|Y]],
+</script>
+usando que 
+<script type="math/tex; mode=display">E[E[X|Y]] = \int E[X|Y=y] dF_Y(y) = E[X].</script>
+</p>
+<hr />
+<p><code>📝</code> <strong>Processo de Poisson</strong></p>
+<p>Considere um contador de partículas que conta segundo um processo de Poisson com parâmetro <script type="math/tex">\lambda > 0</script>.
+O número de partículas contadas até o tempo <script type="math/tex">t > 0</script> é <script type="math/tex">X_t \sim Poisson(\lambda t)</script>
+Seja <script type="math/tex">T_1</script> o tempo de chegada da primeira partícula e <script type="math/tex">T_n</script> o tempo entre as chegadas das partículas <script type="math/tex">n-1</script> e <script type="math/tex">n</script>.
+Vimos que <script type="math/tex">T_1, T_2, \dots</script> são independentes e identicamente distribuídos com parâmetro <script type="math/tex">\lambda</script>.</p>
+<p>Uma pergunta natural é qual a distribuição de <script type="math/tex">T_1 | X_t = 1</script>? A resposta é uniforme <script type="math/tex">[0,t]</script>, isto é, se sabemos que chegou exatamente um indivíduo no período <script type="math/tex">[0,t]</script>, o tempo que ele chegou está uniformemente distribuído em <script type="math/tex">[0,t]</script>.
+Note que <script type="math/tex">X_t = 1</script> implica que <script type="math/tex">T_1 \le t</script>.
+Dessa forma,
+<script type="math/tex; mode=display">
+P(T_1 \le s | X_t = 1) = \begin{cases}
+ 0, &s \le 0 \\
+ 1, &s > t
+ \end{cases}.
+</script>
+Se <script type="math/tex">0 < s < t</script>,
+<script type="math/tex; mode=display">
+\begin{split}
+P(T_1 \le s | X_t = 1) &= \frac{P(T_1 \le s, X_t = 1)}{P(X_t = 1)} \\
+&= \frac{P(X_s = 1, X_t - X_s = 0)}{P(X_t = 1)} \\
+&= \frac{P(X_s = 1)P(X_t - X_s = 0)}{P(X_t = 1)} \\
+&=\frac{\lambda s e^{-\lambda s} e^{-\lambda(t-s)}}{\lambda t e^{-\lambda t}} = \frac{s}{t}.
+\end{split}
+</script>
+em que a segunda igualdade vem do fato que <script type="math/tex">T_1 \le s</script> e <script type="math/tex">X_t = 1</script> implica <script type="math/tex">X_s = 1</script> e, portanto, <script type="math/tex">X_t - X_s = 0</script>.
+A segunda igualdade vem do fato que os intervalos disjuntos são independentes no processo de Poisson.
+Finalmente, a terceira vem do fato que as variáveis têm distribuição de Poisson e <script type="math/tex">X_t - X_s</script> tem a mesma distribuição de <script type="math/tex">X_{t-s} - X_0 = X_{t-s}</script>.
+Portanto <script type="math/tex">T_1 | X_t = 1 \sim U[0,t]</script>.</p>
+<p>Mais do que isso, podemos provar que 
+<script type="math/tex; mode=display">
+(T_1, T_1 + T_2, \dots, T_1 + \dots + T_n)
+</script>
+tem distribuição uniforme no conjunto
+<script type="math/tex; mode=display">
+A_n = \{(x_1, \dots, x_n) \in \mathbb{R}^n : 0 \le x_1 \le x_2 \le \dots \le x_n \le t\}.
+</script>
+Note que se <script type="math/tex">Y_1, \dots, Y_n</script> são iid <script type="math/tex">U[0,t]</script>, a estatística de ordem <script type="math/tex">Y_{(1)}, \dots, Y_{(n)}</script> tem distribuição uniforme em <script type="math/tex">A_n</script>.</p>
+<p>Com isso em mente, podemos pensar que dado que <script type="math/tex">n</script> partículas chegaram até o tempo <script type="math/tex">t</script>, isto é, <script type="math/tex">X_t = n</script>, a chegada das <script type="math/tex">n</script> partículas é modelada por <script type="math/tex">n</script> variáveis aleatórias iid <script type="math/tex">U[0,t]</script> e, após ordenadas, temos os tempos de chegadas das partículas em ordem.</p>
+<hr />
+<h2 id="caso-geral">Caso geral</h2>
+<p>Seja <script type="math/tex">I</script> um intervalo de tamanho <script type="math/tex">\Delta y</script> e que contenha o ponto <script type="math/tex">y</script>.
+Assim, dizemos que 
+<script type="math/tex; mode=display">
+P(X \in B|Y=y) = \lim_{\Delta y \to 0} P(X \in B| Y \in I),
+</script>
+se o limite existe. 
+Se para alguma vizinhança de <script type="math/tex">y</script>, <script type="math/tex">P(Y \in I) = 0</script>, então definimos <script type="math/tex">P(X \in B | Y=y) = P(X \in B)</script>.
+Essa definição de probabilidade condicional não é única.
+Além dela, existem baseadas em Teoria da Medida que dão um rigor maior em demostrações teóricas.</p>
+<p>Podemos provar também que a <strong>distribuição condicional de <script type="math/tex">X</script> dado <script type="math/tex">Y</script></strong> é a única que satisfaz
+<script type="math/tex; mode=display">
+F_{X,Y}(x,y) = \int_{-\infty}^y F_X(x|Y=t) dF_Y(t), (x,y) \in \mathbb{R}^2
+</script>
+para quaisquer pares de variáveis aleatórias <script type="math/tex">X</script> e <script type="math/tex">Y</script> definidas em um mesmo espaço de probabilidade.</p>
+<p>Suponha que <script type="math/tex">X</script> e <script type="math/tex">Y</script> tenham densidade <script type="math/tex">f(x,y)</script>.
+Seja 
+<script type="math/tex; mode=display">
+f(x|y) = \frac{f(x,y)}{\int f(x,y) \, dy} = \frac{f(x,y)}{f_Y(y)}
+</script>
+a <strong>densidade da distribuição condicional</strong>.
+Se <script type="math/tex">f_Y(y) > 0</script>, então <script type="math/tex">f(x|y)</script> define uma densidade.
+Além disso, essa densidade satisfaz as relações que estabelecemos para probabilidade condicional.
+Se <script type="math/tex">f_Y(y) = 0</script>, os valores para a densidade não são relevantes, pois tem probabilidade <script type="math/tex">0</script>.</p>
+<p>Formalmente, definimos <script type="math/tex">P(X \in B|Y=y)</script> como a <strong>distribuição condicional para <script type="math/tex">X</script> dado <script type="math/tex">Y</script></strong> se </p>
+<p><strong>(I)</strong> <script type="math/tex">\forall y \in \mathbb{R}</script>, <script type="math/tex">P(X \in B | Y=y)</script> define uma probabilidade nos borelianos da reta.</p>
+<p><strong>(II)</strong> Para todo boreliano <script type="math/tex">B</script>, <script type="math/tex">P(X \in B | Y=y)</script> é função mensurável de <script type="math/tex">y</script> e para todo <script type="math/tex">(x,y) \in \mathbb{R}^2</script>,
+<script type="math/tex; mode=display">
+\int_{-\infty}^y P(X \le x | Y=t) dF_Y(t) = P(X\le x, Y \le y)
+</script>
+</p>
+<p>Pode-se <strong>provar</strong> que para duas variáveis aleatórias <script type="math/tex">X</script> e <script type="math/tex">Y</script> definidas no mesmo espaço de probabilidade, existe uma distribuição condicional para <script type="math/tex">X</script> dado <script type="math/tex">Y</script>, e ela é única exceto em um conjunto de medida nula.</p>
+<p>Apesar de 
+<script type="math/tex; mode=display">
+P(X \in B|Y=y) = \lim_{\Delta y \to 0} P(X \in B| Y \in I),
+</script>
+ser uma verdade, esse limite acerta com probabilidade <script type="math/tex">1</script>, mas não em todo ponto. 
+Para distribuições contínuas, podemos obter resultados inesperados.
+Em geral, o que se faz é usar a densidade conjunta para variáveis contínuas ou avaliar no caso discreto. 
+Se não conseguirmos proceder com esses casos, temos que chutar a distribuição condicional e verificar as condições da definição.</p>
+<p>Uma proposição importante é a seguinte, também conhecido como <strong>princípio da substituição</strong>.</p>
+<p><strong>Proposição:</strong> Sejam <script type="math/tex">X</script> e <script type="math/tex">Y</script> variáveis aleatórias e <script type="math/tex">\phi(x,y)</script> uma função mensurável.
+Se a distribuição condicional de <script type="math/tex">X</script> dado <script type="math/tex">Y</script> é 
+<script type="math/tex; mode=display">
+P(X \in B | Y=y), B \in \mathcal{B}, y \in \mathbb{R},
+</script>
+então
+<script type="math/tex; mode=display">
+P(\phi(X,Y) \in B|Y=y) = P(\phi(X,y) \in B | Y=y) = P( X \in \{x : \phi(x,y) \in B\}|Y=y).
+</script>
+</p>
+<h2 id="esperanca-condicional">Esperança condicional</h2>
+<p>Sejam <script type="math/tex">X</script> e <script type="math/tex">Y</script> variáveis aleatórias.
+A esperança condicional de <script type="math/tex">X</script> dado <script type="math/tex">Y=y</script> é 
+<script type="math/tex; mode=display">
+E[X|Y=y] = \int x \, dF_X(x|Y=y).
+</script>
+Se <script type="math/tex">X</script> é integrável, então essa esperança existe e é finita quase certamente para valores de <script type="math/tex">y</script>.
+A variável aleatória <script type="math/tex">E[X|Y]</script>, que é função de <script type="math/tex">Y</script>, é a <strong>esperança condicional de <script type="math/tex">X</script> dado <script type="math/tex">Y</script></strong>.</p>
+<p>Lembrando que <script type="math/tex">E[X] = E[E[X|Y]]</script>.
+Além disso, se <script type="math/tex">X_1 \le X_2</script>, vale que <script type="math/tex">E[X_1 | Y] \le E[X_2 \le Y]</script>.
+A linearidade e a desigualdade de Jensen do valor esperado também é mantida.
+Outros resultados que valem para valor esperado <script type="math/tex">E[\cdot]</script> também valem para <script type="math/tex">E[\cdot | Y]</script>.</p></div>
+        
+        
+    </div>
+
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
+
+          
+          
+      </footer>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../../js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = "../.."</script>
+    
+    <script src="../../js/base.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>
