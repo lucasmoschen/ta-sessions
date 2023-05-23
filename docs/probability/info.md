@@ -16,6 +16,7 @@ As monitorias realizadas em formato on-line estão disponíveis no E-class.
 |[Definições básicas de probabilidade](/ta-sessions/probability/basic_definitions)|
 |[Variáveis aleatórias](/ta-sessions/probability/random_variables)|
 |[Valor esperado](/ta-sessions/probability/expected_value)|
+|[Distribuições e Esperanças condicionais](/ta-sessions/probability/conditionals)|
 
 ## Listas
 
@@ -28,6 +29,8 @@ As monitorias realizadas em formato on-line estão disponíveis no E-class.
 |[5](https://drive.google.com/file/d/14HJO1e6jt_tVJfBJeBGg7DsJfed8ax_5/view)|Distribuição conjunta|[5](/files/disciplines/probability/solutions5.pdf)| 
 |[6](https://drive.google.com/file/d/1yL1ECtRiND-xYR9ZujgJsIBU2DWayG4S/view)|Método jacobiano e valor esperado|[6](/files/disciplines/probability/solutions6.pdf)|
 |[7](https://drive.google.com/file/d/1F4gFpZVp0rPySEYsCYm0JHdLhKTb6OZ2/view)||[7](/ta-sessions/unavailable)|
+|[8](https://drive.google.com/file/d/1SB7ec7vXt855Dn2AtIDXHmXPn4fmT4WN/view)||[8](/ta-sessions/unavailable)|
+|[9](https://drive.google.com/file/d/1zFTOWR3JhVtOBbizKjdcYyJr6Jm1w1eA/view)||[9](/ta-sessions/unavailable)|
 
 ## Sugestões Adicionais
 

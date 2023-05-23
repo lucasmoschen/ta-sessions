@@ -164,7 +164,7 @@ Algumas propriedades são
 
 **(3)** Vale que $\int_a^c \varphi dF = \int_a^b \varphi dF + \int_b^c \varphi dF$ para $a < b < c$.
 
-**(4)** Quando $F$ é distribuição discreta, se $P(X=x_i) = p_i$, então $\int \varphi dF = \sum_{i} \varphi(x_i) p_i.
+**(4)** Quando $F$ é distribuição discreta, se $P(X=x_i) = p_i$, então $\int \varphi dF = \sum_{i} \varphi(x_i) p_i$.
 
 **(5)** Quando $F$ é distribuição contínua com densidade $f$, então $\int \varphi dF = \int \varphi(x) f(x) \, dx$.
 
