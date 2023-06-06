@@ -45,7 +45,7 @@ O resultado de **Chebyshev** pede que as variáveis $X_1, X_2, \dots$ sejam 2 a 
 
 O resultado de **Khintchin** não pede unif. limitada, mas pede integrabilidade e iid.
 
-## Sequências de eventos
+### Sequências de eventos
 
 Sejam $A_1, A_2, \dots \subseteq \Omega$.
 Assim
@@ -62,5 +62,30 @@ Nesse caso $P(A_n) \to P(A)$.
 
 **Borel-Cantelli:** Sejam $A_1, A_2,\cdots$ eventos aleatórios, tal que 
 
-(a) Se $\sum_{n=1} P(A_n) < \infty$, então $P(\lim\sup A_n) = 0$.
-(B) Se $\sum_{n=1} P(A_n) = \infty$ e $A_n$ são independentes, então $P(\lim\sup A_n) = 1$.
+**(a)** Se $\sum_{n=1} P(A_n) < \infty$, então $P(\lim\sup A_n) = 0$.
+
+**(b)** Se $\sum_{n=1} P(A_n) = \infty$ e $A_n$ são independentes, então $P(\lim\sup A_n) = 1$.
+
+### Lei forte dos grandes números
+
+A **lei forte dos grandes números** diz que a média de variáveis aleatórias iid com média $E[X_i] = \mu$ converge quase certamente para $\mu$ e não só em probabilidade. 
+Agora, se $X_i$ bão for integrável, o que acontece é o seguinte: 
+
+**Proposição:** Se $X_1, X_2, \dots$ são variáveis aleatórias iid com $E|X_1| = \infty$, então a sequência $\{|S_n|/n = |X_1 + \cdots + X_n|/n\}_{n \in \mathbb{N}}$ não é limitada com probabilidade $1$.
+
+**Desigualdade de Kolmogorov:** Sejam $X_1, \dots, X_n$ variáveis aleatórias independentes com média zero e variância finita.
+Então, para todo $\lambda > 0$,
+$$
+P(\max_{1\le k \le n} |S_k| \ge \lambda) \le \frac{1}{\lambda^2} Var(S_n),
+$$
+em que $S_n = X_1 + \cdots + X_n$.
+Lembre que a variância da soma de v.a. independentes é a soma das variâncias.
+
+No caso em que as variáveis não são iid, mas são independentes e integráveis, temos que 
+$$
+\frac{(X_1 - E[X_1]) + \cdots + (X_n - E[X_n])}{m} \overset{q.c.}{\to} 0,
+$$
+com a hipótese adicional que 
+$$
+\sum_{n=1}^{\infty} \frac{Var(X_n)}{n^2} < +\infty.
+$$
