@@ -17,6 +17,7 @@ As monitorias realizadas em formato on-line estão disponíveis no E-class.
 |[Variáveis aleatórias](/ta-sessions/probability/random_variables)|
 |[Valor esperado](/ta-sessions/probability/expected_value)|
 |[Distribuições e Esperanças condicionais](/ta-sessions/probability/conditionals)|
+|[Lei dos grandes números](/ta-sessions/probability/law_large_numbers)|
 
 ## Listas
 
@@ -31,6 +32,8 @@ As monitorias realizadas em formato on-line estão disponíveis no E-class.
 |[7](https://drive.google.com/file/d/1F4gFpZVp0rPySEYsCYm0JHdLhKTb6OZ2/view)|Valor esperado, variância e covariância|[7](/ta-sessions/unavailable)|
 |[8](https://drive.google.com/file/d/1SB7ec7vXt855Dn2AtIDXHmXPn4fmT4WN/view)|Distribuição e valor esperado condicional|[8](/ta-sessions/unavailable)|
 |[9](https://drive.google.com/file/d/1zFTOWR3JhVtOBbizKjdcYyJr6Jm1w1eA/view)|Distribuição e valor esperado condicional|[9](/ta-sessions/unavailable)|
+|[10](https://drive.google.com/file/d/1mDUHRHt_tqJ_SEvJ20FQty02npbBZ6re/view)|Lim sup, lim inf, convergência|[10](/ta-sessions/unavailable)|
+|[11](https://drive.google.com/file/d/1zFTOWR3JhVtOBbizKjdcYyJr6Jm1w1eA/view)|Lei dos grandes números, Borel-Cantelli|[11](/ta-sessions/unavailable)|
 
 ## Sugestões Adicionais
 

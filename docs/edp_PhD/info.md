@@ -15,8 +15,10 @@ Monitoria de Equações Diferenciais Parciais e Aplicações do Doutorado em Mod
 
 |Número|Itens discutidos|Solução|
 |------|----------------|-------|
-|[1](https://drive.google.com/drive/folders/1hoOqwxBEgvYMoIraLfFmMB_W9rMSX6Wh)|Conceitos iniciais de EDPs|[1](/ta-sessions/unavailable)|
-|[2](https://drive.google.com/file/d/1C-zcq9jrKrdW-AiX5AgC19cY3Gsd3OsH/view?usp=share_link)|Método das características e choques|[2](/ta-sessions/unavailable)|
+|[1](/files/disciplines/edp2023/lista1.pdf)|Conceitos iniciais de EDPs|[1](/files/disciplines/edp2023/solucoes1.pdf)|
+|[2](/files/disciplines/edp2023/lista1.pdf)|Método das características e choques|[2](/ta-sessions/unavailable)|
+|[3](/files/disciplines/edp2023/lista1.pdf)|Equação da onda e relacionados|[3](/ta-sessions/unavailable)|
+|[4](/files/disciplines/edp2023/lista1.pdf)|Equação do calor e transformada de Fourier|[4](/ta-sessions/unavailable)|
 
 ## Sugestões Adicionais 
 
