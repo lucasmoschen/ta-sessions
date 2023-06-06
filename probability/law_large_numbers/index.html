@@ -184,8 +184,8 @@
                 
             <li class="second-level"><a href="#lei-dos-grandes-numeros_1">Lei dos grandes números</a></li>
                 
-            <li class="second-level"><a href="#sequencias-de-eventos">Sequências de eventos</a></li>
-                
+                <li class="third-level"><a href="#sequencias-de-eventos">Sequências de eventos</a></li>
+                <li class="third-level"><a href="#lei-forte-dos-grandes-numeros">Lei forte dos grandes números</a></li>
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
@@ -226,7 +226,7 @@ A <strong>Lei fraca dos grandes números</strong> diz que
 Se essa convergência é quase certamente, temos a <strong>lei forte dos grandes números</strong>.</p>
 <p>O resultado de <strong>Chebyshev</strong> pede que as variáveis <script type="math/tex">X_1, X_2, \dots</script> sejam 2 a 2 independentes com variância finita e uniformemente limitadas, isto é, a variância é uniformemente limitada.</p>
 <p>O resultado de <strong>Khintchin</strong> não pede unif. limitada, mas pede integrabilidade e iid.</p>
-<h2 id="sequencias-de-eventos">Sequências de eventos</h2>
+<h3 id="sequencias-de-eventos">Sequências de eventos</h3>
 <p>Sejam <script type="math/tex">A_1, A_2, \dots \subseteq \Omega</script>.
 Assim
 <script type="math/tex; mode=display">
@@ -239,8 +239,28 @@ Dizemos que <script type="math/tex">\lim\sup A_n</script> é a <strong>ocorrênc
 <p>Se <script type="math/tex">\lim\sup A_n = \lim\inf A_n</script>, o limite existe e <script type="math/tex">A = \lim A_n</script>.
 Nesse caso <script type="math/tex">P(A_n) \to P(A)</script>.</p>
 <p><strong>Borel-Cantelli:</strong> Sejam <script type="math/tex">A_1, A_2,\cdots</script> eventos aleatórios, tal que </p>
-<p>(a) Se <script type="math/tex">\sum_{n=1} P(A_n) < \infty</script>, então <script type="math/tex">P(\lim\sup A_n) = 0</script>.
-(B) Se <script type="math/tex">\sum_{n=1} P(A_n) = \infty</script> e <script type="math/tex">A_n</script> são independentes, então <script type="math/tex">P(\lim\sup A_n) = 1</script>.</p></div>
+<p><strong>(a)</strong> Se <script type="math/tex">\sum_{n=1} P(A_n) < \infty</script>, então <script type="math/tex">P(\lim\sup A_n) = 0</script>.</p>
+<p><strong>(b)</strong> Se <script type="math/tex">\sum_{n=1} P(A_n) = \infty</script> e <script type="math/tex">A_n</script> são independentes, então <script type="math/tex">P(\lim\sup A_n) = 1</script>.</p>
+<h3 id="lei-forte-dos-grandes-numeros">Lei forte dos grandes números</h3>
+<p>A <strong>lei forte dos grandes números</strong> diz que a média de variáveis aleatórias iid com média <script type="math/tex">E[X_i] = \mu</script> converge quase certamente para <script type="math/tex">\mu</script> e não só em probabilidade. 
+Agora, se <script type="math/tex">X_i</script> bão for integrável, o que acontece é o seguinte: </p>
+<p><strong>Proposição:</strong> Se <script type="math/tex">X_1, X_2, \dots</script> são variáveis aleatórias iid com <script type="math/tex">E|X_1| = \infty</script>, então a sequência <script type="math/tex">\{|S_n|/n = |X_1 + \cdots + X_n|/n\}_{n \in \mathbb{N}}</script> não é limitada com probabilidade <script type="math/tex">1</script>.</p>
+<p><strong>Desigualdade de Kolmogorov:</strong> Sejam <script type="math/tex">X_1, \dots, X_n</script> variáveis aleatórias independentes com média zero e variância finita.
+Então, para todo <script type="math/tex">\lambda > 0</script>,
+<script type="math/tex; mode=display">
+P(\max_{1\le k \le n} |S_k| \ge \lambda) \le \frac{1}{\lambda^2} Var(S_n),
+</script>
+em que <script type="math/tex">S_n = X_1 + \cdots + X_n</script>.
+Lembre que a variância da soma de v.a. independentes é a soma das variâncias.</p>
+<p>No caso em que as variáveis não são iid, mas são independentes e integráveis, temos que 
+<script type="math/tex; mode=display">
+\frac{(X_1 - E[X_1]) + \cdots + (X_n - E[X_n])}{m} \overset{q.c.}{\to} 0,
+</script>
+com a hipótese adicional que 
+<script type="math/tex; mode=display">
+\sum_{n=1}^{\infty} \frac{Var(X_n)}{n^2} < +\infty.
+</script>
+</p></div>
         
         
     </div>
