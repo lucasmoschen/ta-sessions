@@ -11,7 +11,7 @@
     <link rel="shortcut icon" href="../../img/favicon.ico">
 
     
-    <title>Equações Diferenciais Parciais e Aplicações - Teaching Assistance</title>
+    <title>Lei dos grandes números - Teaching Assistance</title>
     
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
@@ -120,7 +120,7 @@
                 
                 
                 
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pós-graduação <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
@@ -137,8 +137,8 @@
 
                         
                             
-<li class="active">
-    <a href="./">Equações Diferenciais Parciais e Aplicações</a>
+<li >
+    <a href="../../edp_PhD/info/">Equações Diferenciais Parciais e Aplicações</a>
 </li>
 
                         
@@ -150,7 +150,7 @@
                         
                             
 <li >
-    <a href="../../probability/info/">Probabilidade</a>
+    <a href="../info/">Probabilidade</a>
 </li>
 
                         
@@ -166,16 +166,6 @@
                             <i class="fas fa-search"></i> Search
                         </a>
                     </li>
-                    <li >
-                        <a rel="prev" href="../../bayesian/info/">
-                            <i class="fas fa-arrow-left"></i> Previous
-                        </a>
-                    </li>
-                    <li >
-                        <a rel="next" href="../../infestatistica_MSc/info/">
-                            Next <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </li>
                     <li>
                         <a href="https://lucasmoschen.github.io">Página Inicial</a>
                     </li>
@@ -189,80 +179,68 @@
         
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="first-level active"><a href="#informacoes-gerais">Informações Gerais</a></li>
-            <li class="second-level"><a href="#topicos">Tópicos</a></li>
+        <li class="first-level active"><a href="#lei-dos-grandes-numeros">Lei dos grandes números</a></li>
+            <li class="second-level"><a href="#convergencias">Convergências</a></li>
                 
-            <li class="second-level"><a href="#listas">Listas</a></li>
+            <li class="second-level"><a href="#lei-dos-grandes-numeros_1">Lei dos grandes números</a></li>
                 
-            <li class="second-level"><a href="#sugestoes-adicionais">Sugestões Adicionais</a></li>
+            <li class="second-level"><a href="#sequencias-de-eventos">Sequências de eventos</a></li>
                 
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h1 id="informacoes-gerais">Informações Gerais</h1>
-<p>Monitoria de Equações Diferenciais Parciais e Aplicações do Doutorado em Modelagem Matemática na FGV EMAp de 2023.1 com o professor <a href="https://www.gtgoedert.com/Home">Guilherme T. Goedert</a>.</p>
-<h2 id="topicos">Tópicos</h2>
-<table>
-<thead>
-<tr>
-<th>Conceitos desenvolvidos</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="/files/disciplines/edp2023/preliminaries.pdf">Definições preliminares</a></td>
-</tr>
-<tr>
-<td><a href="/files/disciplines/edp2023/first_order_equations.pdf">Equações de primeira ordem</a></td>
-</tr>
-<tr>
-<td><a href="/files/disciplines/edp2023/second_order_equations.pdf">Equações lineares de segunda ordem</a></td>
-</tr>
-<tr>
-<td><a href="/files/disciplines/edp2023/wave_equation_1d.pdf">Equação da onda em uma dimensão</a></td>
-</tr>
-</tbody>
-</table>
-<h2 id="listas">Listas</h2>
-<table>
-<thead>
-<tr>
-<th>Número</th>
-<th>Itens discutidos</th>
-<th>Solução</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="/files/disciplines/edp2023/lista1.pdf">1</a></td>
-<td>Conceitos iniciais de EDPs</td>
-<td><a href="/files/disciplines/edp2023/solucoes1.pdf">1</a></td>
-</tr>
-<tr>
-<td><a href="/files/disciplines/edp2023/lista2.pdf">2</a></td>
-<td>Método das características e choques</td>
-<td><a href="/ta-sessions/unavailable">2</a></td>
-</tr>
-<tr>
-<td><a href="/files/disciplines/edp2023/lista3.pdf">3</a></td>
-<td>Equação da onda e relacionados</td>
-<td><a href="/ta-sessions/unavailable">3</a></td>
-</tr>
-<tr>
-<td><a href="/files/disciplines/edp2023/lista4.pdf">4</a></td>
-<td>Equação do calor e transformada de Fourier</td>
-<td><a href="/ta-sessions/unavailable">4</a></td>
-</tr>
-</tbody>
-</table>
-<h2 id="sugestoes-adicionais">Sugestões Adicionais</h2>
-<ul>
-<li><a href="http://www.phys.boun.edu.tr/~burcin/Flux.pdf">O que é fluxo?</a></li>
-<li><a href="https://www.youtube.com/playlist?list=PLZHQObOWTQDNPOjrT6KVlfJuKtYTftqH6">Differential equations 3b1b</a></li>
-<li><a href="https://www.amazon.com.br/Fourier-Analysis-Partial-Differential-Equations/dp/052162116X">Livro mais avançado por Rafael José Iório Jr e Valéria de Magalhães Iório</a></li>
-<li><a href="https://www.amazon.com.br/Partial-Differential-Equations-Lawrence-Evans/dp/0821807722">Livro Partial Differential Equations de Lawrence C.Evans</a></li>
-</ul></div>
+<h1 id="lei-dos-grandes-numeros">Lei dos grandes números</h1>
+<p>Considere <script type="math/tex">X</script> uma variável aleatória e um experimento que seja repetido seguidas vezes para se obter valores característicos de <script type="math/tex">X</script>, que são os valores <strong>observados</strong>.
+A lei dos grandes números afirma que a média aritmética dos <script type="math/tex">n</script> valores observados converge para a média real dada pelo valor esperado de <script type="math/tex">X</script> quando <script type="math/tex">n</script> vai para o infinito.</p>
+<p>Aqui, quando temos <script type="math/tex">n</script> experimentos, o espaço amostral é 
+<script type="math/tex; mode=display">
+\Omega_n = \{(w_1, \dots, w_n) > w_i \in \Omega_0, i=1,\dots,n\},
+</script>
+que aumenta com <script type="math/tex">n</script>.
+Em particular, consideramos <script type="math/tex">\Omega = \Omega_0^{\infty}</script>.
+Assim estamos observando em um sequencial de experimentos:
+<script type="math/tex; mode=display">
+X(w_0), x(w_1), X(w_2), \dots.
+</script>
+Denota-se <script type="math/tex">X_n(w) := X(w_n)</script>.
+Como os experimentos são independentes e todos advém de <script type="math/tex">X</script> e são identicamente distribuídos, dizemos que <script type="math/tex">X_1, \dots, X_n</script> são i.i.d. (independentes e identicamente distribuídos).</p>
+<h2 id="convergencias">Convergências</h2>
+<p><strong>Definição:</strong> A sequência <script type="math/tex">\{Y_n\}</script> converge para a variável aleatória <script type="math/tex">Y</script> em <strong>probabilidade</strong> se, para todo <script type="math/tex">\epsilon > 0, 
+<script type="math/tex; mode=display">
+P(|Y_n - Y| > \epsilon) \to 0, n \to \infty.
+</script>
+Dizemos que </script>Y_n \overset{P}{\to} Y$.</p>
+<p><strong>Definição:</strong> A sequência <script type="math/tex">\{Y_n\}</script> converge quase certamente (q.c.) para a variável aleatória <script type="math/tex">Y</script> se
+<script type="math/tex; mode=display">
+P(\{\omega : Y_n(\omega) \to Y(\omega) \}) = 1.
+</script>
+Dizemos que <script type="math/tex">Y_n \overset{q.c.}{\to} Y</script>.</p>
+<p>A relação é que <script type="math/tex">Y_n \overset{q.c.}{\to} Y \implies Y_n \overset{P}{\to} Y</script>, mas não o contrário.</p>
+<h2 id="lei-dos-grandes-numeros_1">Lei dos grandes números</h2>
+<p>Sejam <script type="math/tex">X_1, X_2, \dots</script> variáveis aleatórias integráveis e defina <script type="math/tex">S_n  = X_1 + \cdots + X_n</script>.
+A <strong>Lei fraca dos grandes números</strong> diz que 
+<script type="math/tex; mode=display">
+\frac{S_n - E[S_n]}{n} \overset{P}{\to} 0.
+</script>
+Se essa convergência é quase certamente, temos a <strong>lei forte dos grandes números</strong>.</p>
+<p>O resultado de <strong>Chebyshev</strong> pede que as variáveis <script type="math/tex">X_1, X_2, \dots</script> sejam 2 a 2 independentes com variância finita e uniformemente limitadas, isto é, a variância é uniformemente limitada.</p>
+<p>O resultado de <strong>Khintchin</strong> não pede unif. limitada, mas pede integrabilidade e iid.</p>
+<h2 id="sequencias-de-eventos">Sequências de eventos</h2>
+<p>Sejam <script type="math/tex">A_1, A_2, \dots \subseteq \Omega</script>.
+Assim
+<script type="math/tex; mode=display">
+\lim\sup_{n \to \infty} A_n = \cap_{n=1}^{\infty} \cup_{k=n}^{\infty} A_k,
+</script>
+<script type="math/tex; mode=display">
+\lim\inf_{n \to \infty} A_n = \cup_{n=1}^{\infty} \cap_{k=n}^{\infty} A_k.
+</script>
+Dizemos que <script type="math/tex">\lim\sup A_n</script> é a <strong>ocorrência de um número infinito dos <script type="math/tex">A_n</script></strong>, enquanto <script type="math/tex">\lim\sup A_n</script> é a <strong>ocorrência para <script type="math/tex">n</script> suficientemente grande</strong>.</p>
+<p>Se <script type="math/tex">\lim\sup A_n = \lim\inf A_n</script>, o limite existe e <script type="math/tex">A = \lim A_n</script>.
+Nesse caso <script type="math/tex">P(A_n) \to P(A)</script>.</p>
+<p><strong>Borel-Cantelli:</strong> Sejam <script type="math/tex">A_1, A_2,\cdots</script> eventos aleatórios, tal que </p>
+<p>(a) Se <script type="math/tex">\sum_{n=1} P(A_n) < \infty</script>, então <script type="math/tex">P(\lim\sup A_n) = 0</script>.
+(B) Se <script type="math/tex">\sum_{n=1} P(A_n) = \infty</script> e <script type="math/tex">A_n</script> são independentes, então <script type="math/tex">P(\lim\sup A_n) = 1</script>.</p></div>
         
         
     </div>
