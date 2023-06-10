@@ -34,6 +34,7 @@ As monitorias realizadas em formato on-line estão disponíveis no E-class.
 |[9](https://drive.google.com/file/d/1zFTOWR3JhVtOBbizKjdcYyJr6Jm1w1eA/view)|Distribuição e valor esperado condicional|[9](/ta-sessions/unavailable)|
 |[10](https://drive.google.com/file/d/1mDUHRHt_tqJ_SEvJ20FQty02npbBZ6re/view)|Lim sup, lim inf, convergência|[10](/ta-sessions/unavailable)|
 |[11](https://drive.google.com/file/d/1zFTOWR3JhVtOBbizKjdcYyJr6Jm1w1eA/view)|Lei dos grandes números, Borel-Cantelli|[11](/ta-sessions/unavailable)|
+|[12](https://drive.google.com/file/d/1ru9XaFn31_cdHuXClSNeFjs035YHCfjO/view)|Lei forte dos grandes números e convergência monótona|[12](/ta-sessions/unavailable)|
 
 ## Sugestões Adicionais
 
