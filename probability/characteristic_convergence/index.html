@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+
+    
+    <title>Funções características - Teaching Assistance</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../css/base.min.css" rel="stylesheet">
+    <link href="../../css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            
+              <a class="navbar-brand" href="../..">Teaching Assistance</a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Graduação <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../alglin/info/">Álgebra Linear</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../analisenum/info/">Análise Numérica</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../curvas/info/">Curvas</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../edo/info/">Equações Diferenciais Ordinárias</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../edp/info/">Equações Diferenciais Parciais</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../infestatistica_BSc/info/">Inferência Estatística</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pós-graduação <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../functional_analysis/info/">Análise Funcional</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../bayesian/info/">Estatística Bayesiana</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../edp_PhD/info/">Equações Diferenciais Parciais e Aplicações</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../infestatistica_MSc/info/">Inferência Estatística</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../info/">Probabilidade</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://lucasmoschen.github.io">Página Inicial</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#funcoes-caracteristicas">Funções características</a></li>
+            <li class="second-level"><a href="#funcao-caracteristica-de-um-vetor-aleatorio">Função característica de um vetor aleatório</a></li>
+                
+        <li class="first-level "><a href="#convergencia-em-distribuicao">Convergência em distribuição</a></li>
+            <li class="second-level"><a href="#resultados-adicionais">Resultados adicionais</a></li>
+                
+            <li class="second-level"><a href="#teoremas-de-continuidade">Teoremas de continuidade</a></li>
+                
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="funcoes-caracteristicas">Funções características</h1>
+<p>Seja <script type="math/tex">X</script> uma variável aleatória. 
+A <strong>função característica</strong> de <script type="math/tex">X</script> é a função <script type="math/tex">\varphi : \mathbb{R} \to \mathbb{C}</script> de forma que 
+<script type="math/tex; mode=display">
+\varphi_X(t) := E[e^{it X}] := E[\cos(tX)] + iE[\sin(tX)],
+</script>
+usando como definição a relação de Euler <script type="math/tex">e^{ib} = \cos(b) + i\sin(b)</script>.</p>
+<p>Essa função tem relevância no estudo de probabilidade e, em particular, no estudo de convergência de distribuições, dadas as suas propriedades:</p>
+<p><strong>(1) Função limitada:</strong> <script type="math/tex">|\varphi_X(t)| \le 1</script> para todo <script type="math/tex">t \in \mathbb{R}</script>.</p>
+<p><strong>(2)</strong> <script type="math/tex">\varphi_X(0) = 1</script>.</p>
+<p><strong>(3) Conjugado:</strong> <script type="math/tex">\overline{\varphi_X(t)} = \varphi_X(-t)</script>, em que <script type="math/tex">\bar{x}</script> é o complexo conjugado e <script type="math/tex">x</script>.</p>
+<p><strong>(4) Uniformidade contínua:</strong> para todo <script type="math/tex">\epsilon > 0</script>, existe <script type="math/tex">\delta > 0</script> tal que <script type="math/tex">|t-s| < \delta \implies |\varphi_X(t) - \varphi_X(s)| < \epsilon</script>. 
+Em outras palavras a escolha de <script type="math/tex">\delta</script> para a continuidade de <script type="math/tex">\varphi</script> não depende do ponto <script type="math/tex">t</script> escolhido.</p>
+<p><strong>(5) Soma de v.a.:</strong> Se <script type="math/tex">X</script> e <script type="math/tex">Y</script> são independentes, então <script type="math/tex">\varphi_{X+Y}(t) = \varphi_X(t)\varphi_Y(t)</script> para todo <script type="math/tex">t \in \mathbb{R}</script>.</p>
+<p><strong>(6) Teorema da Unicidade</strong> A função característica determina a função de distribuição de uma variável aleatória. 
+Logo 
+<script type="math/tex; mode=display">F_Y = F_X \iff \varphi_X = \varphi_Y.</script>
+</p>
+<p><strong>(7) Simetria:</strong> A v.a. <script type="math/tex">X</script> tem distribuição simétrica em torno do <script type="math/tex">0</script> se, e somente se, <script type="math/tex">\varphi_X(t) \in \mathbb{R}</script> para todo <script type="math/tex">t \in \mathbb{R}</script>.</p>
+<p><strong>(8)</strong> Se <script type="math/tex">Y = aX + b</script>, então <script type="math/tex">\varphi_Y(t) = e^{itb} \varphi_X(at)</script>.</p>
+<p><strong>(9)</strong> Se <script type="math/tex">E|X|^n</script> é finito, então <script type="math/tex">\varphi_X</script> é <script type="math/tex">n</script> vezes diferenciável, com derivadas contínuas.
+Em particular, <script type="math/tex">\varphi^{(k)}_X(0) = i^k E[X^k]</script>
+</p>
+<h2 id="funcao-caracteristica-de-um-vetor-aleatorio">Função característica de um vetor aleatório</h2>
+<p>Para vetores aleatórios, a função característica é definida como 
+<script type="math/tex; mode=display">
+\varphi(t_1, \dots, t_n) = E\{\exp[i(t_1 X_1 + \cdots + t_n X_n)]\},
+</script>
+que tem propriedades análogas a do caso unidimensional.</p>
+<p>Uma propriedade interessante adicional é que marginalizar aqui é muito fácil.
+<script type="math/tex; mode=display">
+\varphi_{X,Y}(s,t) = \varphi_{X,Y,Z}(s,t,0), (s,t) \in \mathbb{R}^2.
+</script>
+</p>
+<h1 id="convergencia-em-distribuicao">Convergência em distribuição</h1>
+<p>Sejam <script type="math/tex">X, X_1, X_2, \dots</script> variáveis aleatórias com funções de distribuição <script type="math/tex">F, F_1, F_2, \dots</script>, respectivamente.
+Dizemos que <script type="math/tex">X_n</script>
+<strong>converge em distribuição</strong> para <script type="math/tex">X</script> se <script type="math/tex">F_n(x) \to F(x)</script> para todo ponto <script type="math/tex">x</script> em que <script type="math/tex">F</script> é contínua.
+Denotamos por <script type="math/tex">X_n \overset{D}{\to} X</script>.
+Também dizemos que <script type="math/tex">F_{X_n}</script>
+<strong>converge fracamente</strong> para <script type="math/tex">F</script>.</p>
+<p><strong>Teorema de Helly-Bray:</strong> Sejam <script type="math/tex">F, F_1, F_2, \dots</script> funções de distribuição.
+Se <script type="math/tex">F_n</script> converge fracamente para <script type="math/tex">F</script>, então 
+<script type="math/tex; mode=display">\int g(x) dF_n(x) \to \int g(x) dF(x)</script>
+para toda função <script type="math/tex">g:\mathbb{R} \to \mathbb{R}</script> contínua e limitada.</p>
+<p>Em particular, como <script type="math/tex">\sin(tx)</script> e <script type="math/tex">\cos(tx)</script> são funções limitadas para cada <script type="math/tex">t</script> fixo, temos que
+<script type="math/tex; mode=display">
+\varphi_{X_n}(t) \to \varphi_X(t),
+</script>
+usando o teorema acima. 
+Isso ocorre porque <script type="math/tex">\varphi</script> é um valor esperado e satisfaz as condições de Helly-Bray.</p>
+<p>A recíproca pode ser escrita da seguinte forma:</p>
+<p><strong>Teorema da continuidade de Paul Lévy:</strong> Sejam <script type="math/tex">F_1, F_2, \dots,</script> funções de distribuição e <script type="math/tex">\varphi_1, \varphi_2, \dots</script> suas respectivas funções características, definidas como
+<script type="math/tex; mode=display">
+\varphi_n(t) = \int e^{itx} dF_n(x).
+</script>
+Se <script type="math/tex">\varphi_n</script> converge pontualmente para um limite <script type="math/tex">\varphi</script> e se <script type="math/tex">\varphi</script> é contínua em <script type="math/tex">t=0</script>, então <strong>existe uma distribuição</strong> <script type="math/tex">F</script> tal que <script type="math/tex">F_n</script> converge fracamente para <script type="math/tex">F</script> e, <strong>mais do que isso,</strong> <script type="math/tex">\varphi</script> é função característica de <script type="math/tex">F</script>.</p>
+<p>Juntando ambos os teoremas acima, temos o famoso resultado 
+<script type="math/tex; mode=display">
+X_n \overset{D}{\to} X \iff \varphi_{X_n} \to \varphi_X.
+</script>
+E além disso, a volta mostra que se <script type="math/tex">\varphi_n</script> converge para algo contínuo em <script type="math/tex">0</script>, esse algo vai ser uma função característica.</p>
+<p>Um resultado interessante que sai disso é que se <script type="math/tex">\varphi_{X_n}(t) \to e^{-t^2/2}</script> para todo <script type="math/tex">t \in \mathbb{R}</script>, então <script type="math/tex">X_n</script> converge em distribuição para uma variável aleatória normal com média <script type="math/tex">0</script> e variância <script type="math/tex">1</script>, ou <strong>normal padrão</strong>.</p>
+<p><strong>Teorema central do limite:</strong> Sejam <script type="math/tex">X_1, X_2, \dots</script> independentes e identicamente distribuídas com média <script type="math/tex">\mu</script> e variância <script type="math/tex">\sigma^2 \in (0,\infty)</script>. 
+Seja <script type="math/tex">S_n = X_1 + \cdots + X_n</script>.
+Então
+<script type="math/tex; mode=display">
+\frac{S_n - n\mu}{\sigma \sqrt{n}} \overset{D}{\to} N(0,1).
+</script>
+</p>
+<h2 id="resultados-adicionais">Resultados adicionais</h2>
+<p><strong>Caso discreto:</strong> Sejam <script type="math/tex">X_1, \dots, X_n, \dots</script> e <script type="math/tex">X</script> variáveis aleatórias discretas que tomam os valores inteiros não negativos.
+Defina <script type="math/tex">p_n(k) = P(X_n = k)</script>.
+Então <script type="math/tex">X_n \overset{D}{\to} X</script> se, e somente se, <script type="math/tex">p_n(k) \to p(k)</script> para todo <script type="math/tex">k= 0,1,\dots</script>
+</p>
+<p><strong>Caso contínuo (Scheffé):</strong> Sejam <script type="math/tex">X_1, \dots, X_n, \dots</script> e <script type="math/tex">X</script> v.a. contínuas com densidade <script type="math/tex">f_1,\dots,f_n, \dots</script> e <script type="math/tex">f</script>.
+Se <script type="math/tex">f_n(x) \to f(x)</script> para quase todo ponto <script type="math/tex">x</script> (medida de Lebesgue, isto é, não precisa ocorrer nos números racionais, por exemplo, mas não pode existir nenhum intervalo em que isso não ocorra em nenhum ponto), então <script type="math/tex">X_n \overset{D}{\to} X</script>.</p>
+<p><strong>Implicações:</strong></p>
+<p><strong>(1) Convergência quase certa implica convergência em probabilidade</strong>, mas não o contrário necessariamente.</p>
+<p><strong>(2) Convergência em probabilidade implica convergência em distribuição</strong>, mas não vale a recíproca em geral.</p>
+<p><strong>(3) Convergência em distribuição para variável constante implica convergência em probabilidade para essa constante</strong>: assim <script type="math/tex">X_n \overset{D}{\to} c \iff X_n \overset{P}{\to} c</script>. </p>
+<h2 id="teoremas-de-continuidade">Teoremas de continuidade</h2>
+<p><strong>Continuidade:</strong> Sejam <script type="math/tex">X_1, X_2, \dots</script> e <script type="math/tex">X</script> v.a. e <script type="math/tex">g</script> uma função contínua definida nos reais.
+Então <script type="math/tex">X_n \to X</script> (quase certamente / em probabilidade / em distribuição) implica que <script type="math/tex">g(X_n) \to g(X)</script> (quase certamente / em probabilidade / em distribuição).</p>
+<p><strong>Slutsky:</strong> <script type="math/tex">X_n \overset{D}{\to} X</script> e <script type="math/tex">Y_n \overset{P}{\to} c</script>, em que <script type="math/tex">c</script> e uma constate. 
+Então</p>
+<p><strong>(a)</strong> <script type="math/tex">X_n + Y_n \overset{D}{\to} X + c</script>;</p>
+<p><strong>(b)</strong> <script type="math/tex">X_n - Y_n \overset{D}{\to} X - c</script>;</p>
+<p><strong>(c)</strong> <script type="math/tex">X_nY_n \overset{D}{\to} cX</script>;</p>
+<p><strong>(d)</strong> <script type="math/tex">X_n/Y_n \overset{D}{\to} X/c</script> se <script type="math/tex">c \neq 0</script> e <script type="math/tex">P(Y_n \neq 0) = 1</script>.</p>
+<p><strong>Método Delta:</strong> Se <script type="math/tex">\sqrt{n}(X_n - \mu) \overset{D}{\to} N(0,\sigma^2)</script> e <script type="math/tex">g</script> é uma função diferenciável em <script type="math/tex">\mu</script>, então 
+<script type="math/tex; mode=display">\sqrt{n}(g(Y_n) - g(\mu)) \overset{D}{\to} N(0, \sigma^2 g'(\mu)^2).</script>
+</p></div>
+        
+        
+    </div>
+
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
+
+          
+          
+      </footer>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../../js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = "../.."</script>
+    
+    <script src="../../js/base.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>
