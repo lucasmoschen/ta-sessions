@@ -18,6 +18,7 @@ As monitorias realizadas em formato on-line estão disponíveis no E-class.
 |[Valor esperado](/ta-sessions/probability/expected_value)|
 |[Distribuições e Esperanças condicionais](/ta-sessions/probability/conditionals)|
 |[Lei dos grandes números](/ta-sessions/probability/law_large_numbers)|
+|[Função característica e convergência em distribuição](/ta-sessions/probability/characteristic_convergence)|
 
 ## Listas
 
