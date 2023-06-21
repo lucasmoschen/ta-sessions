@@ -18,7 +18,7 @@ Como os experimentos são independentes e todos advém de $X$ e são identicamen
 
 ## Convergências
 
-**Definição:** A sequência $\{Y_n\}$ converge para a variável aleatória $Y$ em **probabilidade** se, para todo $\epsilon > 0, 
+**Definição:** A sequência $\{Y_n\}$ converge para a variável aleatória $Y$ em **probabilidade** se, para todo $\epsilon > 0$, 
 $$
 P(|Y_n - Y| > \epsilon) \to 0, n \to \infty.
 $$
