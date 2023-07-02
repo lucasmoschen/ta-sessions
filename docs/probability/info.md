@@ -30,13 +30,14 @@ As monitorias realizadas em formato on-line estão disponíveis no E-class.
 |[4](https://drive.google.com/file/d/1Stf3MMLuzE3eXbmXFl2--_tUj7S2eD7b/view)|Distribuição binomial, Poisson, vetor aleatório|[4](/files/disciplines/probability/solutions4.pdf)| 
 |[5](https://drive.google.com/file/d/14HJO1e6jt_tVJfBJeBGg7DsJfed8ax_5/view)|Distribuição conjunta|[5](/files/disciplines/probability/solutions5.pdf)| 
 |[6](https://drive.google.com/file/d/1yL1ECtRiND-xYR9ZujgJsIBU2DWayG4S/view)|Método jacobiano e valor esperado|[6](/files/disciplines/probability/solutions6.pdf)|
-|[7](https://drive.google.com/file/d/1F4gFpZVp0rPySEYsCYm0JHdLhKTb6OZ2/view)|Valor esperado, variância e covariância|[7](/ta-sessions/unavailable)|
-|[8](https://drive.google.com/file/d/1SB7ec7vXt855Dn2AtIDXHmXPn4fmT4WN/view)|Distribuição e valor esperado condicional|[8](/ta-sessions/unavailable)|
-|[9](https://drive.google.com/file/d/1zFTOWR3JhVtOBbizKjdcYyJr6Jm1w1eA/view)|Distribuição e valor esperado condicional|[9](/ta-sessions/unavailable)|
-|[10](https://drive.google.com/file/d/1mDUHRHt_tqJ_SEvJ20FQty02npbBZ6re/view)|Lim sup, lim inf, convergência|[10](/ta-sessions/unavailable)|
-|[11](https://drive.google.com/file/d/1zFTOWR3JhVtOBbizKjdcYyJr6Jm1w1eA/view)|Lei dos grandes números, Borel-Cantelli|[11](/ta-sessions/unavailable)|
-|[12](https://drive.google.com/file/d/1ru9XaFn31_cdHuXClSNeFjs035YHCfjO/view)|Lei forte dos grandes números e convergência monótona|[12](/ta-sessions/unavailable)|
-|[13](https://drive.google.com/file/d/1YH0e_QVQ39m0fUm00ZxiKc2HEwb95IlF/view)|Convergência em distribuição|[13](/ta-sessions/unavailable)|
+|[7](https://drive.google.com/file/d/1F4gFpZVp0rPySEYsCYm0JHdLhKTb6OZ2/view)|Valor esperado, variância e covariância|[7](/files/disciplines/probability/solutions7.pdf)|
+|[8](https://drive.google.com/file/d/1SB7ec7vXt855Dn2AtIDXHmXPn4fmT4WN/view)|Distribuição e valor esperado condicional|[8](/files/disciplines/probability/solutions8.pdf)|
+|[9](https://drive.google.com/file/d/1zFTOWR3JhVtOBbizKjdcYyJr6Jm1w1eA/view)|Distribuição e valor esperado condicional|[9](/files/disciplines/probability/solutions9.pdf)|
+|[10](https://drive.google.com/file/d/1mDUHRHt_tqJ_SEvJ20FQty02npbBZ6re/view)|Lim sup, lim inf, convergência|[10](/files/disciplines/probability/solutions10.pdf)|
+|[11](https://drive.google.com/file/d/1zFTOWR3JhVtOBbizKjdcYyJr6Jm1w1eA/view)|Lei dos grandes números, Borel-Cantelli|[11](/files/disciplines/probability/solutions11.pdf)|
+|[12](https://drive.google.com/file/d/1ru9XaFn31_cdHuXClSNeFjs035YHCfjO/view)|Lei forte dos grandes números e convergência monótona|[12](/files/disciplines/probability/solutions12.pdf)|
+|[13](https://drive.google.com/file/d/1YH0e_QVQ39m0fUm00ZxiKc2HEwb95IlF/view)|Convergência em distribuição|[13](/files/disciplines/probability/solutions13.pdf)|
+|[14](/files/disciplines/probability/simulado.pdf)|Simulado|[14](/files/disciplines/probability/simulado.pdf)|
 
 
 ## Sugestões Adicionais
